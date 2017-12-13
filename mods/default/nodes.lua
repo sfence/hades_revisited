@@ -386,18 +386,6 @@ minetest.register_node("default:dirt_with_grass", {
 })
 
 
-minetest.register_node("default:dirt_with_grass_footsteps", {
-	description = "Dirt with Grass and Footsteps",
-	tiles = {"default_grass_footsteps.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
-	is_ground_content = true,
-	groups = {crumbly=3,soil=1,not_in_creative_inventory=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_grass_footstep", gain=0.25},
-	}),
-})
-
-
 minetest.register_node("default:dirt_with_snow", {
 	description = "Dirt with Snow",
 	tiles = {"default_snow.png", "default_dirt.png", "default_dirt.png^default_snow_side.png"},
@@ -1431,14 +1419,6 @@ minetest.register_node("default:colwood_yellow", {
 
 
 ---
-
-minetest.register_node("default:cloud", {
-	description = "Cloud",
-	tiles = {"default_cloud.png"},
-	sounds = default.node_sound_defaults(),
-	groups = {not_in_creative_inventory=1},
-})
-
 
 minetest.register_node("default:water_flowing", {
 	description = "Flowing Water",
