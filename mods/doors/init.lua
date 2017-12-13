@@ -498,7 +498,7 @@ minetest.register_craft({
 })
 
 doors.register_door("doors:door_steel_darkgreen", {
-	description = "Darkgreen Steel Door",
+	description = "Dark Green Steel Door",
 	inventory_image = "doors_steel_darkgreen.png",
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_darkgreen.png", "doors_darkgreen.png"},
@@ -516,7 +516,7 @@ minetest.register_craft({
 })
 
 doors.register_door("doors:door_steel_darkgrey", {
-	description = "Darkgrey Steel Door",
+	description = "Dark Grey Steel Door",
 	inventory_image = "doors_steel_darkgrey.png",
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_darkgrey.png", "doors_darkgrey.png"},

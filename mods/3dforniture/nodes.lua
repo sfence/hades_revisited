@@ -88,7 +88,7 @@
 
 	--Tree
 	minetest.register_node(":default:tree",
-		{description = "Tree",
+		{description = "Oak Trunk",
 		paramtype = "light",
 		tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
 		is_ground_content = true,
