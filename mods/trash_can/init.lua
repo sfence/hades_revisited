@@ -1,7 +1,3 @@
---dofiles
---dofile(minetest.get_modpath("trash_can").."/dumpster.lua")
-
-
 --Node Registration
 local player_name = {}
 minetest.register_node("trash_can:trash_can_wooden",{
@@ -27,6 +23,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 				"button[3,0;2,1;empty;Empty Trash]"..
                                 "list[current_name;main;3,1;2,3;]"..
                                 "list[current_player;main;0,5;8,4;]"..
+				"listring[]".
 								"background[-0.5,-0.55;9,10.25;".."trashcan.png".."]"..
 								"listcolors[#001100;#006600;#ffffff;#006600;#ffffff]")
                 meta:set_string("infotext", "Trash Can")
@@ -85,20 +82,3 @@ minetest.registered_entities["__builtin:item"].on_step = function(self, dtime)
     old_on_step(self, dtime)
 end
 
---Unused stuff
---minetest.register_node("trash_can:trash_can_full",{
---	groups = {choppy=2},
---	tiles = {"default_wood.png"},
---	drawtype="nodebox",
---	paramtype = "light",
---	node_box = {
---		type = "fixed",
---		fixed = {
---			{-0.375000,-0.500000,0.312500,0.375000,0.500000,0.375000}, --NodeBox 1
---			{0.312500,-0.500000,-0.375000,0.375000,0.500000,0.375000}, --NodeBox 2
---			{-0.375000,-0.500000,-0.375000,0.375000,0.500000,-0.312500}, --NodeBox 3
---			{-0.375000,-0.500000,-0.375000,-0.312500,0.500000,0.375000}, --NodeBox 4
---			{-0.312500,-0.500000,-0.312500,0.312500,0.375000,0.312500}, --NodeBox 5
---		}
---	}
---})
