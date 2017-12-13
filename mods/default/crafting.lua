@@ -1394,13 +1394,13 @@ minetest.register_craft({
 })
 
 minetest.register_craftitem("default:pie_strawberry_raw", {
-	description = "StrawberryPie -- Raw (+3)",
+	description = "Raw Strawberry Pie (+3)",
 	inventory_image = "default_strawberry_pie_raw.png",
                      on_use = minetest.item_eat(3),
 })
 
 minetest.register_craftitem("default:pie_strawberry", {
-	description = "StrawberryPie (+5)",
+	description = "Strawberry Pie (+5)",
 	inventory_image = "default_strawberry_pie.png",
                      on_use = minetest.item_eat(5),
 })
@@ -1422,13 +1422,13 @@ minetest.register_craft({
 })
 
 minetest.register_craftitem("default:pie_apple_raw", {
-	description = "ApplePie -- Raw (+3)",
+	description = "Raw Apple Pie (+3)",
 	inventory_image = "default_apple_pie_raw.png",
                      on_use = minetest.item_eat(3),
 })
 
 minetest.register_craftitem("default:pie_apple", {
-	description = "ApplePie (+5)",
+	description = "Apple Pie (+5)",
 	inventory_image = "default_apple_pie.png",
                      on_use = minetest.item_eat(5),
 })
@@ -1450,7 +1450,7 @@ minetest.register_craft({
 })
 
 minetest.register_craftitem("default:bottle_olive_oil", {
-	description = "Bottle of Oliveoil  (+2)",
+	description = "Bottle of Olive Oil (+2)",
 	inventory_image = "default_bottle_olive_oil.png",
     on_use = minetest.item_eat(2),
 })
@@ -1465,7 +1465,7 @@ minetest.register_craft({
 })
 
 minetest.register_craftitem("default:tomatosalad", {
-	description = "Tomatosalad  (+6)",
+	description = "Tomato Salad (+6)",
 	inventory_image = "default_tomatosalad.png",
     on_use = minetest.item_eat(6),
 })
@@ -1493,7 +1493,7 @@ minetest.register_craft({
 })
 
 minetest.register_craftitem("default:spiced_potato", {
-	description = "Spiced-Potato (+0)",
+	description = "Spiced Potato (+0)",
 	inventory_image = "default_spiced_potato.png",
     on_use = minetest.item_eat(0),
 })
@@ -1505,7 +1505,7 @@ minetest.register_craft({
 })
 
 minetest.register_craftitem("default:baked_potato", {
-	description = "Baked-Potato (+4)",
+	description = "Baked Potato (+4)",
 	inventory_image = "default_baked_potato.png",
     on_use = minetest.item_eat(4),
 })

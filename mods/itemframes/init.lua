@@ -114,7 +114,7 @@ end
 -- nodes
 
 minetest.register_node("itemframes:frame",{
-	description = "Item frame",
+	description = "Item Frame",
 	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",

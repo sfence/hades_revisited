@@ -12,7 +12,7 @@ minetest.register_node("default:stone", {
 })
 
 minetest.register_node("default:mossystone", {
-	description = "Mossystone",
+	description = "Mossy Stone",
 	tiles = {"default_mossystone.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
@@ -94,7 +94,7 @@ minetest.register_node("default:tuff_baked_brick", {
 })
 
 minetest.register_node("default:mossytuff", {
-	description = "Mossytuff",
+	description = "Mossy Tuff",
 	tiles = {"default_mossytuff.png"},
 	is_ground_content = true,
 	groups = {cracky=3},
@@ -178,7 +178,7 @@ minetest.register_node("default:obsidianbrick", {
 -- floors
 
 minetest.register_node("default:floor_chondrit_stone", {
-	description = "Chondrit - Stone Floor",
+	description = "Chondrit/Stone Block",
 	tiles = {"default_floor_chondrit_stone.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
@@ -187,7 +187,7 @@ minetest.register_node("default:floor_chondrit_stone", {
 })
 
 minetest.register_node("default:floor_chondrit_stone2", {
-	description = "Chondrit - Stone Floor 2",
+	description = "Chondrit/Stone Tile",
 	tiles = {"default_floor_chondrit_stone2.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
@@ -196,7 +196,7 @@ minetest.register_node("default:floor_chondrit_stone2", {
 })
 
 minetest.register_node("default:floor_bstone_stone", {
-	description = "Burned Stone - Stone Floor",
+	description = "Burned Stone/Stone Tile",
 	tiles = {"default_floor_bstone_stone.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
@@ -205,7 +205,7 @@ minetest.register_node("default:floor_bstone_stone", {
 })
 
 minetest.register_node("default:floor_btuff_tuff", {
-	description = "Burned Tuff - Tuff Floor",
+	description = "Burned Tuff/Tuff Tile",
 	tiles = {"default_floor_btuff_tuff.png"},
 	is_ground_content = true,
 	groups = {cracky=3},
@@ -214,7 +214,7 @@ minetest.register_node("default:floor_btuff_tuff", {
 })
 
 minetest.register_node("default:floor_bstone_sandstone", {
-	description = "Burned Stone - Sandstone Floor",
+	description = "Burned Stone/Sandstone Block",
 	tiles = {"default_floor_bstone_sandstone.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
@@ -223,7 +223,7 @@ minetest.register_node("default:floor_bstone_sandstone", {
 })
 
 minetest.register_node("default:floor_bstone_sandstone2", {
-	description = "Burned Stone - Sandstone Floor 2",
+	description = "Burned Stone/Sandstone Tile",
 	tiles = {"default_floor_bstone_sandstone2.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
@@ -232,7 +232,7 @@ minetest.register_node("default:floor_bstone_sandstone2", {
 })
 
 minetest.register_node("default:floor_marble_essexit", {
-	description = "Marble - Essexit Floor",
+	description = "Marble/Essexit Tile",
 	tiles = {"default_floor_marble_essexit.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1},
@@ -241,7 +241,7 @@ minetest.register_node("default:floor_marble_essexit", {
 })
 
 minetest.register_node("default:floor_marble_essexit2", {
-	description = "Marble - Essexit Floor 2",
+	description = "Marble/Essexit Block",
 	tiles = {"default_floor_marble_essexit2.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1},
@@ -250,7 +250,7 @@ minetest.register_node("default:floor_marble_essexit2", {
 })
 
 minetest.register_node("default:floor_essexit_gold", {
-	description = "Essexit - Gold Floor",
+	description = "Golden Essexit Block",
 	tiles = {"default_floor_essexit_gold.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1},
@@ -259,7 +259,7 @@ minetest.register_node("default:floor_essexit_gold", {
 })
 
 minetest.register_node("default:floor_essexit_gold2", {
-	description = "Essexit - Gold Floor 2",
+	description = "Golden Essexit Tile",
 	tiles = {"default_floor_essexit_gold2.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1},
@@ -268,21 +268,21 @@ minetest.register_node("default:floor_essexit_gold2", {
 })
 
 minetest.register_node("default:floor_wood_jungle", {
-	description = "Junglewood - Wood Floor",
+	description = "Oak Wood/Jungle Wood Tile",
 	tiles = {"default_floor_wood_jungle.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:floor_wood_pale", {
-	description = "Wood - Pale Floor",
+	description = "Oak Wood/Pale Wood Tile",
 	tiles = {"default_floor_wood_pale.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:floor_pale_jungle", {
-	description = "Junglewood - Pale Floor",
+	description = "Jungle Wood/Pale Wood Tile",
 	tiles = {"default_floor_pale_jungle.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
@@ -556,7 +556,7 @@ minetest.register_node("default:clay", {
 
 
 minetest.register_node("default:brick", {
-	description = "Brick Block (uncolored)",
+	description = "Uncolored Brick Block",
 	tiles = {"default_brick.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
@@ -686,7 +686,7 @@ minetest.register_node("default:brick_yellow", {
 })
 
 minetest.register_node("default:tree", {
-	description = "Tree",
+	description = "Oak Trunk",
 	tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
@@ -696,7 +696,7 @@ minetest.register_node("default:tree", {
 })
 
 minetest.register_node("default:paletree",
-		{description = "Pale Tree",
+		{description = "Pale Trunk",
 		paramtype = "light",
 		tiles = {"default_paletree_top.png", "default_paletree_top.png", "default_paletree.png"},
 		is_ground_content = false,
@@ -717,7 +717,7 @@ minetest.register_node("default:paletree",
 	})
 	
 minetest.register_node("default:tree_birch",
-		{description = "Birch Tree",
+		{description = "Birch Trunk",
 		paramtype = "light",
 		tiles = {"default_tree_birch_top.png", "default_tree_birch_top.png", "default_tree_birch.png"},
 		is_ground_content = false,
@@ -739,7 +739,7 @@ minetest.register_node("default:tree_birch",
 
 
 minetest.register_node("default:jungletree", {
-	description = "Jungle Tree",
+	description = "Jungle Trunk",
 	paramtype = "light",
 	tiles = {"default_jungletree_top.png", "default_jungletree_top.png", "default_jungletree.png"},
 	is_ground_content = false,
@@ -762,7 +762,7 @@ minetest.register_node("default:jungletree", {
 
 
 minetest.register_node("default:junglewood", {
-	description = "Junglewood Planks",
+	description = "Jungle Wood Planks",
 	tiles = {"default_junglewood.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
@@ -798,7 +798,7 @@ minetest.register_node("default:jungleleaves", {
 
 
 minetest.register_node("default:junglesapling", {
-	description = "Simple Jungletree Sapling",
+	description = "Simple Jungle Tree Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_junglesapling.png"},
@@ -988,7 +988,7 @@ minetest.register_node("default:fence_rusty", {
 -- rusty fence
 
 minetest.register_node("default:fence_wood", {
-	description = "Wooden Fence",
+	description = "Oak Wood Fence",
 	drawtype = "fencelike",
 	tiles = {"default_wood.png"},
 	inventory_image = "default_fence.png",
@@ -1086,7 +1086,7 @@ minetest.register_node("default:fence_wood_dark_green", {
 })
 
 minetest.register_node("default:fence_wood_dark_grey", {
-	description = "Darkgrey Wooden Fence",
+	description = "Dark Grey Wooden Fence",
 	drawtype = "fencelike",
 	tiles = {"default_colwood_dark_grey.png"},
 	inventory_image = "default_fence_dark_grey.png",
@@ -1264,7 +1264,7 @@ minetest.register_node("default:rail", {
 
 
 minetest.register_node("default:ladder", {
-	description = "Ladder",
+	description = "Wooden Ladder",
 	drawtype = "signlike",
 	tiles = {"default_ladder.png"},
 	inventory_image = "default_ladder.png",
@@ -1309,14 +1309,14 @@ minetest.register_node("default:ladder_bronze", {
 
 
 minetest.register_node("default:wood", {
-	description = "Wooden Planks",
+	description = "Oak Wood Planks",
 	tiles = {"default_wood.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:palewood", {
-	description = "Pale Wooden Planks",
+	description = "Pale Wood Planks",
 	tiles = {"default_palewood.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
@@ -1325,105 +1325,105 @@ minetest.register_node("default:palewood", {
 -- colored wood
 
 minetest.register_node("default:colwood_black", {
-	description = "Black Wooden Planks",
+	description = "Black Wood Planks",
 	tiles = {"default_colwood_black.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_blue", {
-	description = "Blue Wooden Planks",
+	description = "Blue Wood Planks",
 	tiles = {"default_colwood_blue.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_brown", {
-	description = "Brown Wooden Planks",
+	description = "Brown Wood Planks",
 	tiles = {"default_colwood_brown.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_cyan", {
-	description = "Cyan Wooden Planks",
+	description = "Cyan Wood Planks",
 	tiles = {"default_colwood_cyan.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_dark_green", {
-	description = "Darkgreen Wooden Planks",
+	description = "Dark Green Wood Planks",
 	tiles = {"default_colwood_dark_green.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_dark_grey", {
-	description = "Darkgrey Wooden Planks",
+	description = "Dark Grey Wood Planks",
 	tiles = {"default_colwood_dark_grey.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_green", {
-	description = "Green Wooden Planks",
+	description = "Green Wood Planks",
 	tiles = {"default_colwood_green.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_grey", {
-	description = "Grey Wooden Planks",
+	description = "Grey Wood Planks",
 	tiles = {"default_colwood_grey.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_magenta", {
-	description = "Magenta Wooden Planks",
+	description = "Magenta Wood Planks",
 	tiles = {"default_colwood_magenta.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_orange", {
-	description = "Orange Wooden Planks",
+	description = "Orange Wood Planks",
 	tiles = {"default_colwood_orange.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_pink", {
-	description = "Pink Wooden Planks",
+	description = "Pink Wood Planks",
 	tiles = {"default_colwood_pink.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_red", {
-	description = "Red Wooden Planks",
+	description = "Red Wood Planks",
 	tiles = {"default_colwood_red.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_violet", {
-	description = "Violet Wooden Planks",
+	description = "Violet Wood Planks",
 	tiles = {"default_colwood_violet.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_white", {
-	description = "White Wooden Planks",
+	description = "White Wood Planks",
 	tiles = {"default_colwood_white.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:colwood_yellow", {
-	description = "Yellow Wooden Planks",
+	description = "Yellow Wood Planks",
 	tiles = {"default_colwood_yellow.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
@@ -1694,7 +1694,7 @@ minetest.register_node("default:lamp_column", {
 })
 
 minetest.register_node("default:latern", {
-    description = "Bronze Latern (stand)",
+    description = "Bronze Floor Lantern",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -1724,7 +1724,7 @@ minetest.register_node("default:latern", {
 })
 
 minetest.register_node("default:laternrusty", {
-    description = "Rusty Latern (stand)",
+    description = "Rusty Floor Lantern",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -2116,7 +2116,7 @@ minetest.register_node("default:nyancat_rainbow", {
 
 
 minetest.register_node("default:sapling", {
-	description = "Sapling",
+	description = "Oak Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_sapling.png"},

@@ -345,7 +345,7 @@ function doors.register_door(name, def)
 end
 
 doors.register_door("doors:door_wood", {
-	description = "Wooden Door",
+	description = "Oak Wood Door",
 	inventory_image = "doors_wood.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles_bottom = {"doors_wood_b.png", "doors_brown.png"},
@@ -364,7 +364,7 @@ minetest.register_craft({
 })
 
 doors.register_door("doors:door_wood_pale", {
-	description = "Pale Wooden Door",
+	description = "Pale Wood Door",
 	inventory_image = "doors_wood_pale.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles_bottom = {"doors_wood_b_pale.png", "doors_brown.png"},
@@ -383,7 +383,7 @@ minetest.register_craft({
 })
 
 doors.register_door("doors:door_wood_jungle", {
-	description = "Jungle Wooden Door",
+	description = "Jungle Wood Door",
 	inventory_image = "doors_wood_jungle.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles_bottom = {"doors_wood_b_jungle.png", "doors_brown.png"},
@@ -404,7 +404,7 @@ minetest.register_craft({
 
 
 doors.register_door("doors:door_steel", {
-	description = "Steel Door",
+	description = "Blank Steel Door",
 	inventory_image = "doors_steel.png",
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
 	tiles_bottom = {"doors_steel_b.png", "doors_grey.png"},

@@ -14,7 +14,7 @@ local walldir ={}
 --
 -- Nodes
 minetest.register_node("vines:rope_block", {
-  description = "Rope",
+  description = "Rope Box",
   sunlight_propagates = true,
   paramtype = "light",
   tiles = {
@@ -69,7 +69,7 @@ minetest.register_node("vines:rope", {
 })
 
 minetest.register_node("vines:rope_end", {
-  description = "Rope",
+  description = "Rope End",
   walkable = false,
   climbable = true,
   sunlight_propagates = true,
@@ -119,7 +119,7 @@ minetest.register_node("vines:side", {
 })
 
 minetest.register_node("vines:side_rotten", {
-  description = "Vine",
+  description = "Rotten Vine",
   walkable = false,
   climbable = false,
   drop = "",
@@ -139,7 +139,7 @@ minetest.register_node("vines:side_rotten", {
 
 
 minetest.register_node("vines:willow", {
-  description = "Vine",
+  description = "Willow Vine",
   walkable = false,
   climbable = true,
   drop = "",
@@ -168,7 +168,7 @@ minetest.register_node("vines:willow", {
 
 
 minetest.register_node("vines:willow_rotten", {
-  description = "Vine",
+  description = "Rotten Willow Vine",
   walkable = false,
   climbable = false,
   sunlight_propagates = true,
@@ -188,7 +188,7 @@ minetest.register_node("vines:willow_rotten", {
 
 
 minetest.register_node("vines:root", {
-  description = "Vine",
+  description = "Root Vine",
   walkable = false,
   climbable = true,
   sunlight_propagates = true,
@@ -235,7 +235,7 @@ minetest.register_node("vines:vine", {
 
 
 minetest.register_node("vines:vine_rotten", {
-  description = "Rotten vine",
+  description = "Rotten Vine",
   walkable = false,
   climbable = true,
   drop = "",
@@ -397,7 +397,7 @@ minetest.register_craft({
 
 minetest.register_node("vines:vines_block",{
         
-                                                description = "Vines block",
+                                                description = "Vines Block",
 
                                                 sunlight_propagates = true,
                                                 climbable = true,

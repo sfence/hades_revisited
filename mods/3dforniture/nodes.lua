@@ -955,7 +955,7 @@
 
 		--Bars
 		minetest.register_node("3dforniture:bars",
-			{ description = 'Bars',
+			{ description = 'Steel Bars',
 			tiles = {
 				"forniture_black_metal.png",
 				"forniture_black_metal.png",
@@ -987,7 +987,7 @@
 
 		--L Binding Bars
 		minetest.register_node("3dforniture:L_binding_bars",
-			{ description ='Binding Bars',
+			{ description ='Binding Steel Bars',
 			tiles = {
 				"forniture_black_metal.png",
 				"forniture_black_metal.png",
@@ -1119,7 +1119,7 @@
 
 		--Torch Wakll
 		minetest.register_node("3dforniture:torch_wall",
-			{ description = 'Torch Wall',
+			{ description = 'Wall Torch',
 			drawtype = "nodebox",
 			tiles = {
 				"forniture_torch_wall_s.png",

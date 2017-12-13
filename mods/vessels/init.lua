@@ -2,7 +2,7 @@
 -- See README.txt for licensing and other information.
 
 minetest.register_node("vessels:glass_bottle", {
-	description = "Glass Bottle (empty)",
+	description = "Empty Glass Bottle",
 	drawtype = "plantlike",
 	tiles = {"vessels_glass_bottle.png"},
 	inventory_image = "vessels_glass_bottle_inv.png",
@@ -27,7 +27,7 @@ minetest.register_craft( {
 })
 
 minetest.register_node("vessels:drinking_glass", {
-	description = "Drinking Glass (empty)",
+	description = "Empty Drinking Glass",
 	drawtype = "plantlike",
 	tiles = {"vessels_drinking_glass.png"},
 	inventory_image = "vessels_drinking_glass_inv.png",
@@ -52,7 +52,7 @@ minetest.register_craft( {
 })
 
 minetest.register_node("vessels:steel_bottle", {
-	description = "Heavy Steel Bottle (empty)",
+	description = "Empty Heavy Steel Bottle",
 	drawtype = "plantlike",
 	tiles = {"vessels_steel_bottle.png"},
 	inventory_image = "vessels_steel_bottle_inv.png",

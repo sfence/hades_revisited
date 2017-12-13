@@ -4,7 +4,7 @@
 -- Autor: Sokomine
 
 minetest.register_node("travelnet:elevator_door_steel_open", {
-		description = "elevator door (open)",
+		description = "Stone Elevator Door (open)",
 		drawtype = "nodebox",
                 -- top, bottom, side1, side2, inner, outer
 		tiles = {"default_stone.png"},
@@ -33,7 +33,7 @@ minetest.register_node("travelnet:elevator_door_steel_open", {
 })
 
 minetest.register_node("travelnet:elevator_door_steel_closed", {
-		description = "elevator door (closed)",
+		description = "Stone Elevator Door",
 		drawtype = "nodebox",
                 -- top, bottom, side1, side2, inner, outer
 		tiles = {"default_stone.png"},
@@ -63,7 +63,7 @@ minetest.register_node("travelnet:elevator_door_steel_closed", {
 
 
 minetest.register_node("travelnet:elevator_door_glass_open", {
-		description = "elevator door (open)",
+		description = "Glass Elevator Door (open)",
 		drawtype = "nodebox",
                 -- top, bottom, side1, side2, inner, outer
 		tiles = {"travelnet_elevator_door_glass.png"},
@@ -92,7 +92,7 @@ minetest.register_node("travelnet:elevator_door_glass_open", {
 })
 
 minetest.register_node("travelnet:elevator_door_glass_closed", {
-		description = "elevator door (closed)",
+		description = "Glass Elevator Door",
 		drawtype = "nodebox",
                 -- top, bottom, side1, side2, inner, outer
 		tiles = {"travelnet_elevator_door_glass.png"},

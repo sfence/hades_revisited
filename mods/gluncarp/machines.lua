@@ -5,7 +5,7 @@ local anzahl = {}
 
 
 minetest.register_node("gluncarp:machine", {
-	description = "Carpet WorkStation",
+	description = "Carpet Workstation",
 	tiles = {
 		"gluncarp_machine_top.png",
 		"gluncarp_machine_bottom.png",

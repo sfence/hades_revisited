@@ -5,7 +5,7 @@ windows={}
 
 -- wooden windows
 minetest.register_node("windows:windows_wood", {
-    description = "Wooden Window",
+    description = "Oak Wood Window",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -39,7 +39,7 @@ minetest.register_craft({
 
 
 minetest.register_node("windows:windows_jwood", {
-    description = "Junglewood Window",
+    description = "Jungle Wood Window",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -72,7 +72,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("windows:windows_palewood", {
-    description = "Palewood Window",
+    description = "Pale Wood Window",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -610,7 +610,7 @@ minetest.register_craft({
 
 -- Paper wall
 minetest.register_node("windows:paperwall", {
-    description = "Paperwall",
+    description = "Paper Wall",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",

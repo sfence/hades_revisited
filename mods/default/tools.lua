@@ -85,7 +85,7 @@ minetest.register_tool("default:pick_mese", {
 	},
 })
 minetest.register_tool("default:pick_diamond", {
-	description = "Prisma Pickaxe",
+	description = "Prism Pickaxe",
 	inventory_image = "default_tool_diamondpick.png",
 	tool_capabilities = {
 		full_punch_interval = 0.9,
@@ -169,7 +169,7 @@ minetest.register_tool("default:shovel_mese", {
 	},
 })
 minetest.register_tool("default:shovel_diamond", {
-	description = "Prisma Shovel",
+	description = "Prism Shovel",
 	inventory_image = "default_tool_diamondshovel.png",
 	wield_image = "default_tool_diamondshovel.png^[transformR90",
 	tool_capabilities = {
@@ -249,7 +249,7 @@ minetest.register_tool("default:axe_mese", {
 	},
 })
 minetest.register_tool("default:axe_diamond", {
-	description = "Prisma Axe",
+	description = "Prism Axe",
 	inventory_image = "default_tool_diamondaxe.png",
 	tool_capabilities = {
 		full_punch_interval = 0.9,
@@ -328,7 +328,7 @@ minetest.register_tool("default:sword_mese", {
 	}
 })
 minetest.register_tool("default:sword_diamond", {
-	description = "Prisma Sword",
+	description = "Prism Sword",
 	inventory_image = "default_tool_diamondsword.png",
 	tool_capabilities = {
 		full_punch_interval = 0.7,

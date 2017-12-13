@@ -5,7 +5,7 @@
 -- Autor: Sokomine
 minetest.register_node("travelnet:travelnet", {
 
-    description = "Travelnet box",
+    description = "Travelnet Box",
 
     drawtype = "nodebox",
     sunlight_propagates = true,

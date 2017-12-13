@@ -3,7 +3,7 @@ local S
 S = farming.S
 
 minetest.register_node("farming_plus:cj_leaves", {
-    description = S("Cultivated Jungletree Leaves"),
+    description = S("Cultivated Jungle Tree Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"default_jungleleaves_yellow.png"},
 	paramtype = "light",
@@ -29,7 +29,7 @@ minetest.register_node("farming_plus:cj_leaves", {
 })
 
 minetest.register_node("farming_plus:cjsapling", {
-	description = S("Cultivated Jungletree Sapling"),
+	description = S("Cultivated Jungle Tree Sapling"),
 	drawtype = "plantlike",
 	tiles = {"default_cjsapling.png"},
 	inventory_image = "default_cjsapling.png",

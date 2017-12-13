@@ -26,7 +26,7 @@ default.pfurnace_inactive_formspec =
 
 
 minetest.register_node("default:pfurnace", {
-	description = "Prisma Furnace",
+	description = "Prism Furnace",
 	tiles = {"default_pfurnace_top.png", "default_pfurnace_bottom.png", "default_pfurnace_side.png",
 		"default_pfurnace_side.png", "default_pfurnace_side.png", "default_pfurnace_front.png"},
 	paramtype2 = "facedir",
@@ -37,7 +37,7 @@ minetest.register_node("default:pfurnace", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", default.pfurnace_inactive_formspec)
-		meta:set_string("infotext", "Prisma-Furnace")
+		meta:set_string("infotext", "Prism Furnace")
 		local inv = meta:get_inventory()
 		inv:set_size("fuel", 1)
 		inv:set_size("src", 1)
@@ -61,7 +61,7 @@ minetest.register_node("default:pfurnace", {
 		if listname == "fuel" then
 			if minetest.get_craft_result({method="fuel",width=1,items={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
-					meta:set_string("infotext","Prisma-Furnace is empty")
+					meta:set_string("infotext","Prism furnace is empty")
 				end
 				return stack:get_count()
 			else
@@ -80,7 +80,7 @@ minetest.register_node("default:pfurnace", {
 		if to_list == "fuel" then
 			if minetest.get_craft_result({method="fuel",width=1,items={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
-					meta:set_string("infotext","Prisma-Furnace is empty")
+					meta:set_string("infotext","Prism furnace is empty")
 				end
 				return count
 			else
@@ -96,7 +96,7 @@ minetest.register_node("default:pfurnace", {
 
 
 minetest.register_node("default:pfurnace_active", {
-	description = "Prisma Furnace",
+	description = "Prism Furnace",
 	tiles = {
 		"default_pfurnace_top.png",
 		"default_pfurnace_bottom.png",
@@ -124,7 +124,7 @@ minetest.register_node("default:pfurnace_active", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", default.pfurnace_inactive_formspec)
-		meta:set_string("infotext", "Prisma-Furnace");
+		meta:set_string("infotext", "Prism Furnace");
 		local inv = meta:get_inventory()
 		inv:set_size("fuel", 1)
 		inv:set_size("src", 1)
@@ -148,7 +148,7 @@ minetest.register_node("default:pfurnace_active", {
 		if listname == "fuel" then
 			if minetest.get_craft_result({method="fuel",width=1,items={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
-					meta:set_string("infotext","Prisma-Furnace is empty")
+					meta:set_string("infotext","Prism furnace is empty")
 				end
 				return stack:get_count()
 			else
@@ -167,7 +167,7 @@ minetest.register_node("default:pfurnace_active", {
 		if to_list == "fuel" then
 			if minetest.get_craft_result({method="fuel",width=1,items={stack}}).time ~= 0 then
 				if inv:is_empty("src") then
-					meta:set_string("infotext","Prisma-Furnace is empty")
+					meta:set_string("infotext","Prism furnace is empty")
 				end
 				return count
 			else
@@ -248,7 +248,7 @@ minetest.register_abm({
 		if meta:get_float("fuel_time") < meta:get_float("fuel_totaltime") then
 			local percent = math.floor(meta:get_float("fuel_time") /
 					meta:get_float("fuel_totaltime") * 100)
-			meta:set_string("infotext","Prisma-Furnace active: "..percent.."%")
+			meta:set_string("infotext","Prism furnace active: "..percent.."%")
 			swap_node(pos,"default:pfurnace_active")
 			--sound (brandon reese (adventuretest))
 			if meta:get_int("sound_played") == nil or ( os.time() - meta:get_int("sound_played") ) >= 4 then
@@ -277,7 +277,7 @@ minetest.register_abm({
 
 
 		if not fuel or fuel.time <= 0 then
-			meta:set_string("infotext","Prisma-Furnace out of fuel")
+			meta:set_string("infotext","Prism furnace out of fuel")
 			swap_node(pos,"default:pfurnace")
 			meta:set_string("formspec", default.pfurnace_inactive_formspec)
 			return
@@ -286,7 +286,7 @@ minetest.register_abm({
 
 		if cooked.item:is_empty() then
 			if was_active then
-				meta:set_string("infotext","Prisma-Furnace is empty")
+				meta:set_string("infotext","Prism furnace is empty")
 				swap_node(pos,"default:pfurnace")
 				meta:set_string("formspec", default.pfurnace_inactive_formspec)
 			end

@@ -22,7 +22,7 @@ travelnet.doors_enabled            = true;
 -- change these if you want other receipes for travelnet or elevator
 
 minetest.register_craftitem("travelnet:prismatic_gem", {
-	description = "Prismatic - Gem",
+	description = "Prismatic Gem",
 	inventory_image = "travelnet_prismatic_gem.png",
                     
 })
@@ -38,7 +38,7 @@ minetest.register_craft({
 })
 --
 minetest.register_craftitem("travelnet:teleporter_device", {
-	description = "Teleporterdevice",
+	description = "Teleporter Device",
 	inventory_image = "travelnet_teleporter_device.png",
                     
 })

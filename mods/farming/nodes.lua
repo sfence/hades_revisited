@@ -129,7 +129,7 @@ minetest.override_item("default:junglegrass", {drop = {
 }})
 
 minetest.register_node("farming:flowergrass", {
-		description = "Flowergrass",
+		description = "Flower Grass",
 		drawtype = "plantlike",
 		tiles = {"farming_flowergrass.png"},
 		inventory_image = "farming_flowergrass.png",
