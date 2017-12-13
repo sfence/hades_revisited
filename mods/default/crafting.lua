@@ -1369,7 +1369,6 @@ minetest.register_craft({
 minetest.register_craftitem("default:sugar", {
 	description = "Sugar",
 	inventory_image = "default_sugar.png",
-                     on_use = minetest.item_eat(1),
 })
 
 minetest.register_craft({
@@ -1467,7 +1466,7 @@ minetest.register_craft({
 })
 
 minetest.register_craftitem("default:tomato_potato_salad", {
-	description = "Tomato-Potato Salad  (+8)",
+	description = "Tomato-Potato Salad (+8)",
 	inventory_image = "default_tpsalad.png",
     on_use = minetest.item_eat(8),
 })

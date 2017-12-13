@@ -404,7 +404,7 @@ minetest.register_craft({
 
 
 doors.register_door("doors:door_steel", {
-	description = "Blank Steel Door",
+	description = "Plain Steel Door",
 	inventory_image = "doors_steel.png",
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
 	tiles_bottom = {"doors_steel_b.png", "doors_grey.png"},
@@ -679,7 +679,8 @@ minetest.register_craft({
 
 -- stone
 doors.register_door("doors:door_stone", {
-	description = "Secret Stone Door",
+	-- TODO: Make this door more hidden
+	description = "Stone Door",
 	inventory_image = "doors_stone.png",
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
 	tiles_bottom = {"doors_stone_b.png", "doors_darkgrey.png"},

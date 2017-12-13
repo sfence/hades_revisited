@@ -595,7 +595,7 @@
 		})
 
 		minetest.register_node("3dforniture:table_lamp_low",
-			{ description = 'Table Lamp',
+			{
 			drawtype = "nodebox",
 			tiles = {
 				"forniture_table_lamp_s.png",
@@ -629,12 +629,12 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
 			},
-			groups = {cracky=2,oddly_breakable_by_hand=1,},
+			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
 			drop = "3dforniture:table_lamp_off",
 		})
 
 		minetest.register_node("3dforniture:table_lamp_med",
-			{ description = 'Table Lamp',
+			{
 			drawtype = "nodebox",
 			tiles = {
 				"forniture_table_lamp_s.png",
@@ -668,12 +668,12 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
 			},
-			groups = {cracky=2,oddly_breakable_by_hand=1,},
+			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
 			drop = "3dforniture:table_lamp_off",
 		})
 
 		minetest.register_node("3dforniture:table_lamp_hi",
-			{ description = 'Table Lamp',
+			{
 			drawtype = "nodebox",
 			tiles = {
 				"forniture_table_lamp_s.png",
@@ -707,12 +707,12 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
 			},
-			groups = {cracky=2},
+			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
 			drop = "3dforniture:table_lamp_off",
 		})
 
 		minetest.register_node("3dforniture:table_lamp_max",
-			{ description = 'Table Lamp',
+			{
 			drawtype = "nodebox",
 			tiles = {
 				"forniture_table_lamp_s.png",
@@ -746,7 +746,7 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
 			},
-			groups = {cracky=2,oddly_breakable_by_hand=1,},
+			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
 			drop = "3dforniture:table_lamp_off",
 		})
 
@@ -780,7 +780,7 @@
 			})
 
 			minetest.register_node("3dforniture:toilet_open",
-				{ description = 'Toilet',
+				{
 				tiles = {
 					"forniture_marble_top_toilet.png", "forniture_marble.png",
 					"forniture_marble_sb1.png", "forniture_marble_sb1.png",
@@ -808,7 +808,7 @@
 					},
 				},
 				drop = "3dforniture:toilet",
-				groups = {cracky = 3,},
+				groups = {cracky = 3,not_in_creative_inventory=1},
 				sounds = {dig = "3dforniture_dig_toilet",  gain=0.5},
 			})
 
