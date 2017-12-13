@@ -11,7 +11,7 @@ minetest.register_node("travelnet:elevator_door_steel_open", {
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
-		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2,not_in_creative_inventory=1},
+		groups = {cracky=2,oddly_breakable_by_hand=2,not_in_creative_inventory=1},
                 -- larger than one node but slightly smaller than a half node so that wallmounted torches pose no problem
 		node_box = {
 			type = "fixed",
@@ -40,7 +40,7 @@ minetest.register_node("travelnet:elevator_door_steel_closed", {
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
-		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+		groups = {cracky=2,oddly_breakable_by_hand=2},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -70,7 +70,7 @@ minetest.register_node("travelnet:elevator_door_glass_open", {
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
-		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2,not_in_creative_inventory=1},
+		groups = {cracky=3,oddly_breakable_by_hand=3,not_in_creative_inventory=1},
                 -- larger than one node but slightly smaller than a half node so that wallmounted torches pose no problem
 		node_box = {
 			type = "fixed",
@@ -99,7 +99,7 @@ minetest.register_node("travelnet:elevator_door_glass_closed", {
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
-		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+		groups = {cracky=3,oddly_breakable_by_hand=3},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -130,9 +130,9 @@ minetest.register_craft({
 minetest.register_craft({
 	        output = "travelnet:elevator_door_steel_closed",
 	        recipe = {
-		        {"default:steel_ingot", "", "default:steel_ingot", },
-			{"default:steel_ingot", "", "default:steel_ingot", },
-			{"default:steel_ingot", "", "default:steel_ingot", }
+		        {"default:stone", "", "default:stone", },
+			{"default:stone", "", "default:stone", },
+			{"default:stone", "", "default:stone", }
 		        }
 	})
 --      local old_node = minetest.env:get_node( pos );
