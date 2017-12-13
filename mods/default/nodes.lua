@@ -976,7 +976,7 @@ minetest.register_node("default:fence_rusty", {
 -- rusty fence
 
 minetest.register_node("default:fence_wood", {
-	description = "Oak Wood Fence",
+	description = "Wooden Fence",
 	drawtype = "fencelike",
 	tiles = {"default_wood.png"},
 	inventory_image = "default_fence.png",
