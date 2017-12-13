@@ -30,12 +30,14 @@ farming.register_hoe(":farming:hoe_mese", {
 	description = "Mese Hoe",
 	inventory_image = "farming_tool_mesehoe.png",
 	max_uses = 350,
-	material = "default:mese_crystal"
+	material = "default:mese_crystal",
+	material_handle = "default:steel_ingot",
 })
 
 farming.register_hoe(":farming:hoe_diamond", {
 	description = "Prism Hoe",
 	inventory_image = "farming_tool_prismatichoe.png",
 	max_uses = 1050,
-	material = "travelnet:prismatic_gem"
+	material = "travelnet:prismatic_gem",
+	material_handle = "default:steel_ingot",
 })
