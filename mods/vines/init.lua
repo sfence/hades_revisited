@@ -405,9 +405,9 @@ minetest.register_node("vines:vines_block",{
                                                drawtype = "allfaces_optional",
  
                                                paramtype = "light",
-                                                groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2 },
+                                                groups = {snappy=2,oddly_breakable_by_hand=2,flammable=2 },
         
-                                                sounds = default.node_sound_dirt_defaults(),
+                                                sounds = default.node_sound_leaves_defaults(),
 })
 
 
