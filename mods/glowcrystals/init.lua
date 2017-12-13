@@ -160,6 +160,14 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = 'default:glowing_cactus_block',
+	recipe = {
+		{'glowcrystals:glowdust'},
+		{'default:cactus_block'},
+	}
+})
+
 --////////////////
 -- Ore Generation
 --////////////////

@@ -878,20 +878,27 @@ minetest.register_node("default:cactus", {
 minetest.register_node("default:cactus_block", {
 	description = "Cactus Block",
 	tiles = {"default_cactus_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {snappy=1,choppy=3,flammable=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:cactus_brick", {
 	description = "Cactus Brick",
 	tiles = {"default_cactus_brick.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {snappy=1,choppy=3,flammable=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_wood_defaults(),
 })
 
--- TODO: Add glowing cactus block/brick back
+minetest.register_node("default:glowing_cactus_block", {
+	description = "Glowing Cactus Block",
+	tiles = {"default_cactus_block.png"},
+	is_ground_content = false,
+	light_source = 5,
+	groups = {snappy=1,choppy=3,flammable=2},
+	sounds = default.node_sound_wood_defaults(),
+})
 
 minetest.register_node("default:sugarcane", {
 	description = "Sugarcane",
