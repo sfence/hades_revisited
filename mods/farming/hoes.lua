@@ -34,8 +34,8 @@ farming.register_hoe(":farming:hoe_mese", {
 })
 
 farming.register_hoe(":farming:hoe_diamond", {
-	description = "Diamond Hoe",
-	inventory_image = "farming_tool_diamondhoe.png",
-	max_uses = 500,
-	material = "default:diamond"
+	description = "Prism Hoe",
+	inventory_image = "farming_tool_prismatichoe.png",
+	max_uses = 1050,
+	material = "travelnet:prismatic_gem"
 })
