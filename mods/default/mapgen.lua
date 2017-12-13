@@ -1,15 +1,17 @@
 -- mods/default/mapgen.lua
 
-
 --
 -- Aliases for map generator outputs
 --
-
-
+minetest.register_alias("mapgen_air", "air")
+minetest.register_alias("mapgen_stone", "default:stone")
+minetest.register_alias("mapgen_stone_with_coal", "default:stone_with_coal")
+minetest.register_alias("mapgen_stone_with_iron", "default:stone_with_iron")
 minetest.register_alias("mapgen_stone", "default:stone")
 minetest.register_alias("mapgen_dirt", "default:sand")
 minetest.register_alias("mapgen_dirt_with_grass", "default:sand")
 minetest.register_alias("mapgen_sand", "default:sand")
+minetest.register_alias("mapgen_clay", "default:sand")
 minetest.register_alias("mapgen_water_source", "default:lava_source")
 minetest.register_alias("mapgen_river_water_source", "default:lava_source")
 minetest.register_alias("mapgen_lava_source", "default:lava_source")
@@ -40,6 +42,8 @@ minetest.register_alias("mapgen_stair_cobble", "stairs:stair_cobble")
 minetest.register_alias("mapgen_mossycobble", "default:mossycobble")
 minetest.register_alias("mapgen_sandstonebrick", "default:sandstonebrick")
 minetest.register_alias("mapgen_stair_sandstonebrick", "stairs:stair_sandstonebrick")
+minetest.register_alias("mapgen_stair_sandstone_block", "stairs:stair_sandstonebrick")
+minetest.register_alias("mapgen_stair_desert_stone", "stairs:stair_stone")
 
 minetest.register_on_mapgen_init(function(mgparams)
 	minetest.set_mapgen_params({mgname="v6", mg_flags={"nodungeons", "notrees", "caves"}, mgv6_spflags={"mudflow", "nosnowbiomes", "notrees", "nojungles"}, "water_level=-5"})
