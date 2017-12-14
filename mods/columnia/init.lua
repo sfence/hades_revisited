@@ -80,7 +80,7 @@ minetest.register_node("columnia:rusty_block", {
 })
 
 minetest.register_craft({
-		output = 'columnia:rusty_block',
+		output = 'columnia:rusty_block 3',
 		recipe = {
 			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
 			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
@@ -92,11 +92,4 @@ minetest.register_craft({
 dofile(minetest.get_modpath("columnia").."/columnia.lua")
 dofile(minetest.get_modpath("columnia").."/machines.lua")
 dofile(minetest.get_modpath("columnia").."/register.lua")
-
-
-
-
-
-
-
 

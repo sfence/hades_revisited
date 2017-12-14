@@ -1,9 +1,3 @@
-local material = {}
-local shape = {}
-local make_ok = {}
-local anzahl = {}
-
-
 minetest.register_node("columnia:machine", {
 	description = "Columnia Workstation",
 	tiles = {
@@ -49,65 +43,65 @@ minetest.register_node("columnia:machine", {
 			meta:set_string("infotext",  "Columnia workstation is empty (owned by " .. (placer:get_player_name() or "") .. ")");
 		end,
 
-can_dig = function(pos,player)
-	local meta = minetest.env:get_meta(pos);
-	local inv = meta:get_inventory()
-	if not inv:is_empty("ingot") then
-		return false
-	elseif not inv:is_empty("res") then
-		return false
-	end
-	return true
-end,
+	can_dig = function(pos,player)
+		local meta = minetest.env:get_meta(pos);
+		local inv = meta:get_inventory()
+		if not inv:is_empty("ingot") then
+			return false
+		elseif not inv:is_empty("res") then
+			return false
+		end
+		return true
+	end,
 
-on_construct = function(pos)
-	local meta = minetest.env:get_meta(pos)
-	meta:set_string("formspec", "invsize[10,10;]"..
-		"background[-0.20,-0.25;10.40,11;columnia_background.png]"..
-		"listcolors[#001100;#006600;#ffffff;#006600;#ffffff]"..
-		"list[current_name;ingot;7,5;1,1;]"..
-		"list[current_name;res;8,5;1,1;]"..
-		"label[7,4.5;Input:]"..
-		"label[8,4.5;Output:]"..
+	on_construct = function(pos)
+		local meta = minetest.env:get_meta(pos)
+		meta:set_string("formspec", "invsize[10,10;]"..
+			"background[-0.20,-0.25;10.40,11;columnia_background.png]"..
+			"listcolors[#001100;#006600;#ffffff;#006600;#ffffff]"..
+			"list[current_name;ingot;7,5;1,1;]"..
+			"list[current_name;res;8,5;1,1;]"..
+			"label[7,4.5;Input:]"..
+			"label[8,4.5;Output:]"..
 
-		"label[1,0;Basics]"..
-		"image_button[1,0.5;1,1;columnia_mach1.png;column_bottom; ]"..
-		"image_button[2,0.5;1,1;columnia_mach2.png;column_mid; ]"..
-		"image_button[3,0.5;1,1;columnia_mach3.png;column_top; ]"..
-		"image_button[4,0.5;1,1;columnia_mach4.png;column_crosslink; ]"..
-		
-		"label[1,1.5;Links]"..
-		"image_button[1,2;1,1;columnia_mach5.png;column_link; ]"..
-		"image_button[2,2;1,1;columnia_mach7.png;column_linkcross; ]"..
-		"image_button[3,2;1,1;columnia_mach10.png;column_linkangle; ]"..
-		"image_button[4,2;1,1;columnia_mach14.png;column_linktee; ]"..
-		
-		"label[1,3;Links with Downs]"..
-		"image_button[1,3.5;1,1;columnia_mach6.png;column_linkdown; ]"..
-		"image_button[2,3.5;1,1;columnia_mach8.png;column_linkcrossdown; ]"..
-		"image_button[3,3.5;1,1;columnia_mach13.png;column_linkangle_down; ]"..
-		"image_button[4,3.5;1,1;columnia_mach15.png;column_linktee_down; ]"..
-		"image_button[5,3.5;1,1;columnia_mach9.png;column_linkvertical; ]"..
-		
-		"label[1,4.5;Stair Substructures]"..
-		"image_button[1,5;1,1;columnia_mach11.png;column_stairsub; ]"..
-		"image_button[2,5;1,1;columnia_mach12.png;column_stairsubpillar; ]"..
+			"label[1,0;Basics]"..
+			"image_button[1,0.5;1,1;columnia_mach1.png;column_bottom; ]"..
+			"image_button[2,0.5;1,1;columnia_mach2.png;column_mid; ]"..
+			"image_button[3,0.5;1,1;columnia_mach3.png;column_top; ]"..
+			"image_button[4,0.5;1,1;columnia_mach4.png;column_crosslink; ]"..
 
-		"list[current_player;main;1,6.25;8,4;]"..
+			"label[1,1.5;Links]"..
+			"image_button[1,2;1,1;columnia_mach5.png;column_link; ]"..
+			"image_button[2,2;1,1;columnia_mach7.png;column_linkcross; ]"..
+			"image_button[3,2;1,1;columnia_mach10.png;column_linkangle; ]"..
+			"image_button[4,2;1,1;columnia_mach14.png;column_linktee; ]"..
 
-		"listring[current_player;main]"..
-		"listring[current_name;ingot]"..
-		"listring[current_player;main]"..
-		"listring[current_name;res]")
-	meta:set_string("infotext", "Columnia workstation")
-	local inv = meta:get_inventory()
-	inv:set_size("ingot", 1)
-	inv:set_size("res", 1)
-end,
+			"label[1,3;Links with Downs]"..
+			"image_button[1,3.5;1,1;columnia_mach6.png;column_linkdown; ]"..
+			"image_button[2,3.5;1,1;columnia_mach8.png;column_linkcrossdown; ]"..
+			"image_button[3,3.5;1,1;columnia_mach13.png;column_linkangle_down; ]"..
+			"image_button[4,3.5;1,1;columnia_mach15.png;column_linktee_down; ]"..
+			"image_button[5,3.5;1,1;columnia_mach9.png;column_linkvertical; ]"..
 
-on_receive_fields = function(pos, formname, fields, sender)
-	local meta = minetest.env:get_meta(pos)
-	local inv = meta:get_inventory()
+			"label[1,4.5;Stair Substructures]"..
+			"image_button[1,5;1,1;columnia_mach11.png;column_stairsub; ]"..
+			"image_button[2,5;1,1;columnia_mach12.png;column_stairsubpillar; ]"..
+
+			"list[current_player;main;1,6.25;8,4;]"..
+
+			"listring[current_player;main]"..
+			"listring[current_name;ingot]"..
+			"listring[current_player;main]"..
+			"listring[current_name;res]")
+		meta:set_string("infotext", "Columnia workstation")
+		local inv = meta:get_inventory()
+		inv:set_size("ingot", 1)
+		inv:set_size("res", 1)
+	end,
+
+	on_receive_fields = function(pos, formname, fields, sender)
+		local meta = minetest.env:get_meta(pos)
+		local inv = meta:get_inventory()
 
 -----------------------------
 if fields["column_bottom"] 
@@ -128,173 +122,116 @@ or fields["column_stairsubpillar"]
 then
 
 --Crown Mould-----------------------------------------
+
+	local material, shape
+	local make_ok = false
+	local anzahl
+
+	if inv:is_empty("ingot") then
+		return
+	end
+
 	if fields["column_bottom"] then
-		make_ok = "0"
-		anzahl = "1"
+		anzahl = 1
 		shape = "columnia:column_bottom_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
 
 	if fields["column_mid"] then
-		make_ok = "0"
-		anzahl = "1"
+		make_ok = false
+		anzahl = 1
 		shape = "columnia:column_mid_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
 
 	if fields["column_top"] then
-		make_ok = "0"
-		anzahl = "1"
+		anzahl = 1
 		shape = "columnia:column_top_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
 
 	if fields["column_crosslink"] then
-		make_ok = "0"
-		anzahl = "1"
+		make_ok = false
+		anzahl = 1
 		shape = "columnia:column_crosslink_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
 
 	if fields["column_link"] then
-		make_ok = "0"
-		anzahl = "2"
+		anzahl = 2
 		shape = "columnia:column_link_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
-	
-		if fields["column_linkdown"] then
-		make_ok = "0"
-		anzahl = "2"
+
+	if fields["column_linkdown"] then
+		anzahl = 2
 		shape = "columnia:column_linkdown_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
 
 	if fields["column_linkcross"] then
-		make_ok = "0"
-		anzahl = "2"
+		anzahl = 2
 		shape = "columnia:column_linkcross_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
 
 	if fields["column_linkcrossdown"] then
-		make_ok = "0"
-		anzahl = "2"
+		anzahl = 2
 		shape = "columnia:column_linkcrossdown_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
 
 	if fields["column_linkvertical"] then
-		make_ok = "0"
-		anzahl = "4"
+		anzahl = 4
 		shape = "columnia:column_linkvertical_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
 
 	if fields["column_linkangle"] then
-		make_ok = "0"
-		anzahl = "2"
+		anzahl = 2
 		shape = "columnia:column_linkangle_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
-	
+
 	if fields["column_linkangle_down"] then
-		make_ok = "0"
-		anzahl = "2"
+		anzahl = 2
 		shape = "columnia:column_linkangle_down_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
-	
+
 	if fields["column_linktee"] then
-		make_ok = "0"
-		anzahl = "2"
+		anzahl = 2
 		shape = "columnia:column_linktee_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
-	
+
 	if fields["column_linktee_down"] then
-		make_ok = "0"
-		anzahl = "2"
+		anzahl = 2
 		shape = "columnia:column_linktee_down_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
-	
-		if fields["column_stairsub"] then
-		make_ok = "0"
-		anzahl = "1"
+
+	if fields["column_stairsub"] then
+		anzahl = 1
 		shape = "columnia:column_stairsub_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
 
 	if fields["column_stairsubpillar"] then
-		make_ok = "0"
-		anzahl = "1"
+		anzahl = 1
 		shape = "columnia:column_stairsubpillar_"
-		if inv:is_empty("ingot") then
-			return
-		end
 	end
-	
-	
-	
-	
-	
-	
+
 	local ingotstack = inv:get_stack("ingot", 1)
-    local resstack = inv:get_stack("res", 1)
+	local resstack = inv:get_stack("res", 1)
+
 ----------------------------------------------------------------------
 --Register Items
 ----------------------------------------------------------------------
+
+	if columnia.registered_materials[ingotstack:get_name()] then
+		material = columnia.registered_materials[ingotstack:get_name()]
+		make_ok = true
+	end
+--[[
 		if ingotstack:get_name()=="default:sandstone" then
 				material = "default_sandstone"
 				make_ok = "1"
 		end
-		
+	
 		if ingotstack:get_name()=="default:sandstonebrick" then
 				material = "default_sandstonebrick"
 				make_ok = "1"
 		end
 
-		if ingotstack:get_name()=="default:desert_sand" then
-				material = "default_desert_sand"
-				make_ok = "1"
-		end
-
 		if ingotstack:get_name()=="default:clay" then
 				material = "default_clay"
-				make_ok = "1"
-		end
-
-		if ingotstack:get_name()=="wool:white" then
-				material = "millwork_white"
 				make_ok = "1"
 		end
 
@@ -315,16 +252,6 @@ then
 
 		if ingotstack:get_name()=="default:cactus" then
 				material = "default_cactus"
-				make_ok = "1"
-		end
-
-		if ingotstack:get_name()=="wool:white" then
-				material = "millwork_white"
-				make_ok = "1"
-		end
-
-		if ingotstack:get_name()=="default:sand" then
-				material = "default_sand"
 				make_ok = "1"
 		end
 
@@ -349,27 +276,22 @@ then
 		end
 
 		if ingotstack:get_name()=="default:bronzeblock" then
-				material = "default_bronze_block"
+				material = "default_bronzeblock"
 				make_ok = "1"
 		end
 
 		if ingotstack:get_name()=="default:coalblock" then
-				material = "default_coal_block"
+				material = "default_coalblock"
 				make_ok = "1"
 		end
 
 		if ingotstack:get_name()=="default:copperblock" then
-				material = "default_copper_block"
-				make_ok = "1"
-		end
-
-		if ingotstack:get_name()=="default:desert_cobble" then
-				material = "default_desert_cobble"
+				material = "default_copperblock"
 				make_ok = "1"
 		end
 
 		if ingotstack:get_name()=="default:diamondblock" then
-				material = "default_diamond_block"
+				material = "default_diamondblock"
 				make_ok = "1"
 		end
 
@@ -379,12 +301,7 @@ then
 		end
 
 		if ingotstack:get_name()=="default:goldblock" then
-				material = "default_gold_block"
-				make_ok = "1"
-		end
-
-		if ingotstack:get_name()=="default:gravel" then
-				material = "default_gravel"
+				material = "default_goldblock"
 				make_ok = "1"
 		end
 
@@ -397,11 +314,6 @@ then
 				material = "default_junglewood"
 				make_ok = "1"
 		end
-
-		--[[ if ingotstack:get_name()=="default:lava_source" then
-				material = "default_lava"
-				make_ok = "1"
-		end --]]
 
 		if ingotstack:get_name()=="default:mese" then
 				material = "default_mese"
@@ -433,18 +345,13 @@ then
 				make_ok = "1"
 		end
 
-		if ingotstack:get_name()=="default:sanddstonebrick" then
-				material = "default_sandstone_brick"
-				make_ok = "1"
-		end
-
 		if ingotstack:get_name()=="default:steelblock" then
-				material = "default_steel_block"
+				material = "default_steelblock"
 				make_ok = "1"
 		end
 
 		if ingotstack:get_name()=="default:stonebrick" then
-				material = "default_stone_brick"
+				material = "default_stonebrick"
 				make_ok = "1"
 		end
 
@@ -454,14 +361,9 @@ then
 		end
 		
 		if ingotstack:get_name()=="columnia:rusty_block" then
-				material = "rusty_block"
+				material = "columnia_rusty_block"
 				make_ok = "1"
 		end
-
-		--[[ if ingotstack:get_name()=="default:water_source" then
-				material = "default_water"
-				make_ok = "1"
-		end --]]
 
 		if ingotstack:get_name()=="farming:straw" then
 				material = "farming_straw"
@@ -759,43 +661,39 @@ then
 				material = "wool_yellow"
 				make_ok = "1"
 		end
-----------------------------------------------------------------------
-		if make_ok == "1" then
-			local give = {}
-			for i = 0, anzahl-1 do
-				give[i+1]=inv:add_item("res",shape..material)
+]]
+
+	if make_ok == true then
+		local output_item = shape..material
+		if not inv:is_empty("res") and resstack:get_name() ~= output_item then
+			return
+		end
+
+		local success = false
+		for i = 0, anzahl-1 do
+			local result = inv:add_item("res", output_item)
+			if result ~= nil then
+				success = true
 			end
+		end
+		if success then
 			ingotstack:take_item()
-			inv:set_stack("ingot",1,ingotstack)
-		end            
-
-	
+			inv:set_stack("ingot", 1, ingotstack)
+		end
+	end
 end
 end
-
 
 })
 
 --Craft
 
 minetest.register_craft({
-		output = 'columnia:machine',
-		recipe = {
-			{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'},
-			{'group:wood', 'default:stone', 'group:wood'},
-			{'default:stone', "", 'default:stone'},		
-		},
+	output = 'columnia:machine',
+	recipe = {
+		{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'},
+		{'group:wood', 'default:stone', 'group:wood'},
+		{'default:stone', "", 'default:stone'},		
+	},
 })
-
-
-
-
-
-
-
-
-
-
-
-
 

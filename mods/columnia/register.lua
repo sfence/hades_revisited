@@ -8,7 +8,7 @@
 	sounds
 	)
 	--]]
-	
+
 columnia.register_all(
 	"default_sandstone", 
 	"Sandstone", 
@@ -17,7 +17,7 @@ columnia.register_all(
 	"default:sandstone",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_sandstonebrick", 
 	"Sandstone Brick", 
@@ -35,7 +35,7 @@ columnia.register_all(
 	"default:clay",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_cobble", 
 	"Cobble", 
@@ -44,16 +44,7 @@ columnia.register_all(
 	"default:cobble",
 	default.node_sound_stone_defaults()
 	)
---[[	
-columnia.register_all(
-	"default_desert_cobble", 
-	"Desert Cobblestone", 
-	"default_desert_cobble.png",
-	{cracky = 3, not_in_creative_inventory=1},
-	"default:desert_cobble",
-	default.node_sound_stone_defaults()
-	)
-	--]]
+
 columnia.register_all(
 	"default_stone", 
 	"Stone", 
@@ -62,7 +53,7 @@ columnia.register_all(
 	"default:stone",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_cactus", 
 	"Cactus", 
@@ -89,7 +80,7 @@ columnia.register_all(
 	"default:cactus_brick",
 	default.node_sound_wood_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_desert_stone", 
 	"Desert Stone", 
@@ -98,16 +89,16 @@ columnia.register_all(
 	"default:desert_stone",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
-	"default_desert_stone_brick", 
+	"default_desert_stonebrick", 
 	"Desert Stone Brick", 
 	"default_desert_stone_brick.png",
 	{cracky=3,not_in_creative_inventory=1},
 	"default:desert_stonebrick",
 	default.node_sound_stone_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_wood", 
 	"Wood", 
@@ -116,16 +107,7 @@ columnia.register_all(
 	"default:wood",
 	default.node_sound_wood_defaults()
 	)
---[[	
-columnia.register_all(
-	"default_pinewood", 
-	"Pine Wood", 
-	"default_pinewood.png",
-	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
-	"default:pinewood",
-	default.node_sound_wood_defaults()
-	)
---]]
+
 columnia.register_all(
 	"default_brick", 
 	"Brick", 
@@ -152,7 +134,7 @@ columnia.register_all(
 	"default:mossycobble",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_obsidian", 
 	"Obsidian", 
@@ -163,7 +145,7 @@ columnia.register_all(
 	)
 
 columnia.register_all(
-	"default_obsidian_brick", 
+	"default_obsidianbrick", 
 	"Obsidian Brick", 
 	"default_obsidian_brick.png",
 	{cracky=1,level=2,not_in_creative_inventory=1},
@@ -172,7 +154,7 @@ columnia.register_all(
 	)
 
 columnia.register_all(
-	"default_sandstone_brick", 
+	"default_sandstonebrick", 
 	"Sandstone Brick", 
 	"default_sandstone_brick.png",
 	{crumbly=2,cracky=2,not_in_creative_inventory=1}, 
@@ -181,21 +163,21 @@ columnia.register_all(
 	)
 
 columnia.register_all(
-	"default_stone_brick", 
+	"default_stonebrick", 
 	"Stone Brick", 
 	"default_stone_brick.png",
 	{cracky=3,not_in_creative_inventory=1},
 	"default:stonebrick",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"columnia_rusty_block", 
 	"Rusty Block", 
 	"columnia_rusty_block.png",
 	{cracky=2,not_in_creative_inventory=1},
 	"columnia:rusty_block",
-	default.node_sound_stone_defaults()
+	default.node_sound_metal_defaults()
 	)
 
 -- hades
@@ -209,8 +191,8 @@ columnia.register_all(
 	)
 
 
--- colored woods	
-	
+-- colored woods
+
 columnia.register_all(
 	"default_colwood_black", 
 	"Black Colored Wood", 
@@ -219,7 +201,7 @@ columnia.register_all(
 	"default:colwood_black",
 	default.node_sound_wood_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_colwood_blue", 
 	"Blue Colored Wood", 
@@ -228,7 +210,7 @@ columnia.register_all(
 	"default:colwood_blue",
 	default.node_sound_wood_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_colwood_brown", 
 	"Brown Colored Wood", 
@@ -237,7 +219,7 @@ columnia.register_all(
 	"default:colwood_brown",
 	default.node_sound_wood_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_colwood_cyan", 
 	"Cyan Colored Wood", 
@@ -246,10 +228,10 @@ columnia.register_all(
 	"default:colwood_cyan",
 	default.node_sound_wood_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_colwood_dark_green", 
-	"Darkgreen Colored Wood", 
+	"Dark Green Colored Wood", 
 	"default_colwood_dark_green.png",
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_dark_green",
@@ -258,13 +240,13 @@ columnia.register_all(
 
 columnia.register_all(
 	"default_colwood_dark_grey", 
-	"Darkgrey Colored Wood", 
+	"Dark Grey Colored Wood", 
 	"default_colwood_dark_grey.png",
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_dark_grey",
 	default.node_sound_wood_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_colwood_grey", 
 	"Grey Colored Wood", 
@@ -272,7 +254,7 @@ columnia.register_all(
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_grey",
 	default.node_sound_wood_defaults()
-	)	
+	)
 
 columnia.register_all(
 	"default_colwood_green", 
@@ -281,8 +263,8 @@ columnia.register_all(
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_green",
 	default.node_sound_wood_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_colwood_magenta", 
 	"Magenta Colored Wood", 
@@ -290,8 +272,8 @@ columnia.register_all(
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_magenta",
 	default.node_sound_wood_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_colwood_orange", 
 	"Orange Colored Wood", 
@@ -299,8 +281,8 @@ columnia.register_all(
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_orange",
 	default.node_sound_wood_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_colwood_pink", 
 	"Pink Colored Wood", 
@@ -308,7 +290,7 @@ columnia.register_all(
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_pink",
 	default.node_sound_wood_defaults()
-	)	
+	)
 
 columnia.register_all(
 	"default_colwood_red", 
@@ -317,8 +299,8 @@ columnia.register_all(
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_red",
 	default.node_sound_wood_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_colwood_violet", 
 	"Violet Colored Wood", 
@@ -326,8 +308,8 @@ columnia.register_all(
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_violet",
 	default.node_sound_wood_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_colwood_white", 
 	"White Colored Wood", 
@@ -335,17 +317,17 @@ columnia.register_all(
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_white",
 	default.node_sound_wood_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_colwood_yellow", 
-	"yellow Colored Wood", 
+	"Yellow Colored Wood", 
 	"default_colwood_yellow.png",
 	{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3,not_in_creative_inventory=1},
 	"default:colwood_yellow",
 	default.node_sound_wood_defaults()
-	)	
-	
+	)
+
 -------------------
 -- Colored Bricks
 
@@ -357,7 +339,7 @@ columnia.register_all(
 	"default:brick_black",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_blue", 
 	"Blue Colored Bricks", 
@@ -366,7 +348,7 @@ columnia.register_all(
 	"default:brick_blue",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_brown", 
 	"Brown Colored Bricks", 
@@ -375,7 +357,7 @@ columnia.register_all(
 	"default:brick_brown",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_cyan", 
 	"Cyan Colored Bricks", 
@@ -384,7 +366,7 @@ columnia.register_all(
 	"default:brick_cyan",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_dark_green", 
 	"Darkgreen Colored Bricks", 
@@ -393,7 +375,7 @@ columnia.register_all(
 	"default:brick_dark_green",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_dark_grey", 
 	"Darkgrey Colored Bricks", 
@@ -402,7 +384,7 @@ columnia.register_all(
 	"default:brick_dark_grey",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_green", 
 	"Green Colored Bricks", 
@@ -411,7 +393,7 @@ columnia.register_all(
 	"default:brick_green",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_grey", 
 	"Grey Colored Bricks", 
@@ -420,7 +402,7 @@ columnia.register_all(
 	"default:brick_grey",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_magenta", 
 	"Magenta Colored Bricks", 
@@ -429,7 +411,7 @@ columnia.register_all(
 	"default:brick_magenta",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_orange", 
 	"Orange Colored Bricks", 
@@ -438,7 +420,7 @@ columnia.register_all(
 	"default:brick_orange",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_pink", 
 	"Pink Colored Bricks", 
@@ -447,7 +429,7 @@ columnia.register_all(
 	"default:brick_pink",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_red", 
 	"Red Colored Bricks", 
@@ -456,7 +438,7 @@ columnia.register_all(
 	"default:brick_red",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_violet", 
 	"Violet Colored Bricks", 
@@ -465,7 +447,7 @@ columnia.register_all(
 	"default:brick_violet",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_brick_white", 
 	"White Colored Bricks", 
@@ -483,7 +465,7 @@ columnia.register_all(
 	"default:brick_yellow",
 	default.node_sound_stone_defaults()
 	)
-	
+
 --more stones
 
 columnia.register_all(
@@ -494,7 +476,7 @@ columnia.register_all(
 	"default:marble_brick",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_marble", 
 	"Marble", 
@@ -506,13 +488,13 @@ columnia.register_all(
 
 columnia.register_all(
 	"default_chondrit", 
-	"Chondrit Brick", 
+	"Chondrit", 
 	"default_chondrit.png",
 	{cracky=2,not_in_creative_inventory=1},
 	"default:chondrit",
 	default.node_sound_stone_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_chondrit_brick", 
 	"Chondrit Brick", 
@@ -521,16 +503,16 @@ columnia.register_all(
 	"default:chondrit_brick",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_tuff", 
-	"Tuff Brick", 
+	"Tuff", 
 	"default_tuff.png",
 	{cracky=3,not_in_creative_inventory=1},
 	"default:tuff",
 	default.node_sound_stone_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_tuff_brick", 
 	"Tuff Brick", 
@@ -539,16 +521,16 @@ columnia.register_all(
 	"default:tuff_brick",
 	default.node_sound_stone_defaults()
 	)
-	
+
 columnia.register_all(
 	"default_tuff_baked", 
-	"Burned Tuff Brick", 
+	"Burned Tuff", 
 	"default_tuff_baked.png",
 	{cracky=3,not_in_creative_inventory=1},
 	"default:tuff_baked",
 	default.node_sound_stone_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_tuff_baked_brick", 
 	"Burned Tuff Brick", 
@@ -560,13 +542,13 @@ columnia.register_all(
 
 columnia.register_all(
 	"default_essexit", 
-	"Essexit Brick", 
+	"Essexit", 
 	"default_essexit.png",
 	{cracky=1,not_in_creative_inventory=1},
 	"default:essexit",
 	default.node_sound_stone_defaults()
-	)	
-	
+	)
+
 columnia.register_all(
 	"default_essexit_brick", 
 	"Essexit Brick", 

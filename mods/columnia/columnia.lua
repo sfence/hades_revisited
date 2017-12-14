@@ -1,5 +1,8 @@
+columnia.registered_materials = {}
 
 function columnia.register_all(mat, desc, image, groups, craft, sounds)
+
+columnia.registered_materials[craft] = mat
 
 minetest.register_node("columnia:column_mid_"..mat, {
 	description = desc.." Column Middle",
