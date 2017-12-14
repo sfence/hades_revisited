@@ -107,10 +107,8 @@ then
 		end
 	end
 	
-	
-	
 	local ingotstack = inv:get_stack("ingot", 1)
-    local resstack = inv:get_stack("res", 1)
+	local resstack = inv:get_stack("res", 1)
 ----------------------------------------------------------------------
 --Register Items
 ----------------------------------------------------------------------
@@ -182,12 +180,25 @@ then
 		end
 ----------------------------------------------------------------------
 		if make_ok == "1" then
-			local give = {}
-			for i = 0, anzahl-1 do
-				give[i+1]=inv:add_item("res",shape..material)
+			local output_item = shape..material
+			if not inv:is_empty("res") then
+				if resstack:get_name() ~= output_item then
+					return
+				elseif resstack:get_count() == resstack:get_stack_max() then
+					return
+				end
 			end
-			ingotstack:take_item()
-			inv:set_stack("ingot",1,ingotstack)
+			local success = false
+			for i = 0, anzahl-1 do
+				local result = inv:add_item("res", output_item)
+				if result ~= nil then
+					success = true
+				end
+			end
+			if success then
+				ingotstack:take_item()
+				inv:set_stack("ingot", 1, ingotstack)
+			end
 		end            
 
 	
@@ -207,16 +218,4 @@ minetest.register_craft({
 			{'group:wood', "group:stick", 'group:wood'},		
 		},
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
