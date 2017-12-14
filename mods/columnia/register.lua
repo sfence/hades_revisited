@@ -136,15 +136,6 @@ columnia.register_all(
 	)
 
 columnia.register_all(
-	"default_ice", 
-	"Ice", 
-	"default_ice.png",
-	{cracky=3,not_in_creative_inventory=1},
-	"default:ice",
-	default.node_sound_glass_defaults()
-	)
-
-columnia.register_all(
 	"default_junglewood", 
 	"Jungle Wood", 
 	"default_junglewood.png",

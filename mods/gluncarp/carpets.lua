@@ -34,7 +34,6 @@ local carpetdesc = carpet_tab[i][2]
 	{"obsidian", 	        "Obsidian",		        "default_obsidian",		        "default:obsidian"},
 	{"obsidianbrick", 	    "Obsidian Brick",		"default_obsidian_brick",		"default:obsidianbrick"},
 	{"clay", 	            "Clay",		            "default_clay",		            "default:clay"},
-	{"ice", 	            "Ice",		            "default_ice",		            "default:ice"},
 	{"wood", 	            "Oak Wood",		"default_wood",		            "default:wood"},
 	{"brick", 	            "Brick Block",		    "default_brick",		        "default:brick"},
 	--end of default
@@ -167,9 +166,6 @@ minetest.register_node("gluncarp:"..carpetname, {
 		   minetest.set_node(pos,{name = "air"})
 		elseif  nodeu == "default:clay" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_clay"})
-		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:ice" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_ice"})
 		   minetest.set_node(pos,{name = "air"})
 		elseif  nodeu == "default:wood" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_wood"})
@@ -413,8 +409,6 @@ minetest.register_node("gluncarp:"..carpetname.."_on_"..mat, {
 		       minetest.set_node(pos,{name = "default:obsidianbrick"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_clay" then
 		       minetest.set_node(pos,{name = "default:clay"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_ice" then
-		       minetest.set_node(pos,{name = "default:ice"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_wood" then
 		       minetest.set_node(pos,{name = "default:wood"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_wood_jungle" then -- not defaultname

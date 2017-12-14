@@ -118,18 +118,12 @@ PilzAdam (WTFPL):
   default_tool_bronzepick.png
   default_tool_bronzeshovel.png
   default_tool_bronzesword.png
-  default_snowball.png
 
 jojoa1997 (WTFPL):
   default_obsidian.png
 
 InfinityProject (WTFPL):
   default_mineral_diamond.png
-
-Splizard (CC BY-SA 3.0):
-  default_snow.png
-  default_snow_side.png
-  default_ice.png
 
 Zeg9 (CC BY-SA 3.0):
   default_coal_block.png
@@ -169,8 +163,6 @@ Mito551 (sounds) (CC BY-SA):
   default_place_node.3.ogg
   default_place_node_hard.1.ogg
   default_place_node_hard.2.ogg
-  default_snow_footstep.1.ogg
-  default_snow_footstep.2.ogg
   default_hard_footstep.1.ogg
   default_hard_footstep.2.ogg
   default_hard_footstep.3.ogg

@@ -387,11 +387,6 @@ then
 				make_ok = "1"
 		end
 
-		if ingotstack:get_name()=="default:ice" then
-				material = "default_ice"
-				make_ok = "1"
-		end
-
 		if ingotstack:get_name()=="default:jungletree" then
 				material = "default_jungletree"
 				make_ok = "1"
@@ -439,11 +434,6 @@ then
 
 		if ingotstack:get_name()=="default:sanddstonebrick" then
 				material = "default_sandstone_brick"
-				make_ok = "1"
-		end
-
-		if ingotstack:get_name()=="default:snowblock" then
-				material = "default_snow"
 				make_ok = "1"
 		end
 

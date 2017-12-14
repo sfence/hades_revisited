@@ -386,18 +386,6 @@ minetest.register_node("default:dirt_with_grass", {
 })
 
 
-minetest.register_node("default:dirt_with_snow", {
-	description = "Dirt with Snow",
-	tiles = {"default_snow.png", "default_dirt.png", "default_dirt.png^default_snow_side.png"},
-	is_ground_content = true,
-	groups = {crumbly=3},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_snow_footstep", gain=0.25},
-	}),
-})
-
-
 minetest.register_node("default:dirt", {
 	description = "Dirt",
 	tiles = {"default_dirt.png"},
@@ -418,11 +406,7 @@ minetest.register_abm({
 		if nodedef and (nodedef.sunlight_propagates or nodedef.paramtype == "light")
 				and nodedef.liquidtype == "none"
 				and (minetest.get_node_light(above) or 0) >= 13 then
-			if name == "default:snow" or name == "default:snowblock" then
-				minetest.set_node(pos, {name = "default:dirt_with_snow"})
-			else
-				minetest.set_node(pos, {name = "default:dirt_with_grass"})
-			end
+			minetest.set_node(pos, {name = "default:dirt_with_grass"})
 		end
 	end
 })
@@ -1456,7 +1440,6 @@ minetest.register_node("default:water_flowing", {
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
-	freezemelt = "default:snow",
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {water=3, liquid=3, puts_out_fire=1, not_in_creative_inventory=1, freezes=1, melt_around=1},
 	sounds = default.node_sound_water_defaults(),
@@ -1489,7 +1472,6 @@ minetest.register_node("default:water_source", {
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
-	freezemelt = "default:ice",
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {water=3, liquid=3, puts_out_fire=1, freezes=1},
 	sounds = default.node_sound_water_defaults(),
@@ -2247,62 +2229,6 @@ minetest.register_node("default:grass_5", {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 	},
-})
-
-
-minetest.register_node("default:ice", {
-	description = "Ice",
-	tiles = {"default_ice.png"},
-	is_ground_content = true,
-	paramtype = "light",
-	freezemelt = "default:water_source",
-	groups = {cracky=3, melts=1},
-	sounds = default.node_sound_glass_defaults(),
-})
-
-
-minetest.register_node("default:snow", {
-	description = "Snow",
-	tiles = {"default_snow.png"},
-	inventory_image = "default_snowball.png",
-	wield_image = "default_snowball.png",
-	is_ground_content = true,
-	paramtype = "light",
-	buildable_to = true,
-	leveled = 7,
-	drawtype = "nodebox",
-	freezemelt = "default:water_flowing",
-	node_box = {
-		type = "leveled",
-		fixed = {
-			{-0.5, -0.5, -0.5,  0.5, -0.5+2/16, 0.5},
-		},
-	},
-	groups = {crumbly=3,falling_node=1, melts=1, float=1},
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_snow_footstep", gain=0.25},
-		dug = {name="default_snow_footstep", gain=0.75},
-	}),
-	on_construct = function(pos)
-		pos.y = pos.y - 1
-		if minetest.get_node(pos).name == "default:dirt_with_grass" then
-			minetest.set_node(pos, {name="default:dirt_with_snow"})
-		end
-	end,
-})
-minetest.register_alias("snow", "default:snow")
-
-
-minetest.register_node("default:snowblock", {
-	description = "Snow Block",
-	tiles = {"default_snow.png"},
-	is_ground_content = true,
-	freezemelt = "default:water_source",
-	groups = {crumbly=3, melts=1},
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_snow_footstep", gain=0.25},
-		dug = {name="default_snow_footstep", gain=0.75},
-	}),
 })
 
 
