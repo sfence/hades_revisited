@@ -970,7 +970,7 @@
 					type = "fixed",
 					fixed = {-0.1,-0.5,0.1, 0.1,-0.25,0.5},
 				},
-				groups = {cracky=2,}
+				groups = {cracky=2,},
 				sounds = default.node_sound_metal_defaults(),
 			})
 
@@ -1005,7 +1005,7 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.1, 0.5, 0.5, 0.1},
 			},
-			groups  {cracky=1},
+			groups = {cracky=1},
 			sounds = default.node_sound_metal_defaults(),
 		})
 
