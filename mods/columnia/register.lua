@@ -28,15 +28,6 @@ columnia.register_all(
 	)
 
 columnia.register_all(
-	"default_clay", 
-	"Clay", 
-	"default_clay.png",
-	{crumbly=3, oddly_breakable_by_hand = 1,not_in_creative_inventory=1},
-	"default:clay",
-	default.node_sound_stone_defaults()
-	)
-
-columnia.register_all(
 	"default_cobble", 
 	"Cobble", 
 	"default_cobble.png",
@@ -557,14 +548,4 @@ columnia.register_all(
 	"default:essexit_brick",
 	default.node_sound_stone_defaults()
 	)
-
-columnia.register_all(
-	"farming_straw", 
-	"Straw", 
-	"farming_straw.png",
-	{snappy=2,choppy=2,oddly_breakable_by_hand=2,not_in_creative_inventory=1},
-	"farming:straw",
-	default.node_sound_leaves_defaults()
-	)
-
 
