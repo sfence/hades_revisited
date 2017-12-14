@@ -19,13 +19,13 @@ local armor_hud_bg = {}
 -- default settings
  -- statbar positions
 HUD_HEALTH_POS = {x=0.5,y=0.9}
-HUD_HEALTH_OFFSET = {x=-175, y=2}
+HUD_HEALTH_OFFSET = {x=-175, y=22}
 HUD_HUNGER_POS = {x=0.5,y=0.9}
-HUD_HUNGER_OFFSET = {x=15, y=2}
+HUD_HUNGER_OFFSET = {x=15, y=22}
 HUD_AIR_POS = {x=0.5,y=0.9}
-HUD_AIR_OFFSET = {x=15,y=-17}
+HUD_AIR_OFFSET = {x=15,y=3}
 HUD_ARMOR_POS = {x=0.5,y=0.9}
-HUD_ARMOR_OFFSET = {x=-175, y=-15}
+HUD_ARMOR_OFFSET = {x=-175, y=3}
 
 HUD_TICK = 0.2
 HUD_HUNGER_TICK = 222
