@@ -1,5 +1,5 @@
 
--- Sand Monster
+-- Mutant
 
 mobs:register_mob("mobs_hades:mutant", {
 	type = "monster",
@@ -19,7 +19,7 @@ mobs:register_mob("mobs_hades:mutant", {
 		random = "mobs_mutant",
 		attack = "mobs_mutant",
 	},
-	view_range = 15,
+	view_range = 10,
 	walk_velocity = 1.5,
 	run_velocity = 4,
 	damage = 1,

@@ -13,6 +13,8 @@ local stone_monster = {
 	sounds = {
 		random = "mobs_stonemonster",
 		attack = "mobs_stonemonster",
+		hurt = "default_node_dig",
+		die = "default_node_dug",
 	},
 	view_range = 10,
 	walk_velocity = 0.5,
@@ -53,6 +55,7 @@ local stone_monster = {
 	jump = true,
 	step = 0.5,
 	blood_amount = 0,
+	pathfinding = 1,
 }
 mobs:register_mob("mobs_hades:stone_monster", stone_monster)
 mobs:spawn_specific("mobs_hades:stone_monster", {"default:stone", "default:mossystone"}, "air", 0, 3, 90, 7000, 1, -5000, -50)

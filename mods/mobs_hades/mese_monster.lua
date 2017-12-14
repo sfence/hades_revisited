@@ -13,7 +13,7 @@ local mese_monster = {
 		random = "mobs_mesemonster",
 		attack = "mobs_mesemonster",
 	},
-	view_range = 10,
+	view_range = 16,
 	walk_velocity = 0.5,
 	run_velocity = 2,
 	damage = 3,
@@ -51,6 +51,7 @@ local mese_monster = {
 	step = 0.5,
 	shoot_offset = 2,
 	blood_texture = "default_mese_crystal_fragment.png",
+	pathfinding = 1,
 }
 mobs:register_mob("mobs_hades:mese_monster", mese_monster)
 

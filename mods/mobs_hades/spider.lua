@@ -14,7 +14,7 @@ local spider = {
 		random = "mobs_spider",
 		attack = "mobs_spider",
 	},
-	view_range = 15,
+	view_range = 16,
 	walk_velocity = 1,
 	run_velocity = 3,
 	armor = 100,
@@ -53,6 +53,7 @@ local spider = {
 	jump = true,
 	step = 1,
 	floats = 1,
+	pathfinding = 1,
 }
 mobs:register_mob("mobs_hades:spider", spider)
 
