@@ -215,24 +215,18 @@ minetest.register_node("pipeworks:valve_on_loaded", {
 minetest.register_node("pipeworks:grating", {
 	description = "Decorative Grating",
 	tiles = {
-		"pipeworks_grating_top.png",
+		"pipeworks_grating_sides.png",
 		"pipeworks_grating_sides.png",
 		"pipeworks_grating_sides.png",
 		"pipeworks_grating_sides.png",
 		"pipeworks_grating_sides.png",
 		"pipeworks_grating_sides.png"
 	},
-	sunlight_propagates = true,
 	paramtype = "light",
-	groups = {snappy=3, pipe=1},
+	drawtype = "glasslike",
+	groups = {snappy=3},
 	sounds = default.node_sound_metal_defaults(),
 	walkable = true,
-	after_place_node = function(pos)
-		pipeworks.scan_for_pipe_objects(pos)
-	end,
-	after_dig_node = function(pos)
-		pipeworks.scan_for_pipe_objects(pos)
-	end,
 })
 
 -- outlet spigot
