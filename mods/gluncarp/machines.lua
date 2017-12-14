@@ -50,7 +50,7 @@ minetest.register_node("gluncarp:machine", {
 	after_place_node = function(pos, placer)
 	local meta = minetest.env:get_meta(pos);
 			meta:set_string("owner",  (placer:get_player_name() or ""));
-			meta:set_string("infotext",  "Carpet Workstation is empty (owned by " .. (placer:get_player_name() or "") .. ")");
+			meta:set_string("infotext",  "Carpet workstation is empty (owned by " .. (placer:get_player_name() or "") .. ")");
 		end,
 
 can_dig = function(pos,player)
@@ -77,8 +77,12 @@ on_construct = function(pos)
 		"label[4.5,0;push it]"..
 		"image_button[4.5,0.5;1,1;gluncarp_mach1.png;carpet; ]"..
 
-		"list[current_player;main;1,2;8,4;]")
-	meta:set_string("infotext", "Carpet WorkStation")
+		"list[current_player;main;1,2;8,4;]"..
+		"listring[current_player;main]"..
+		"listring[current_name;ingot]"..
+		"listring[current_player;main]"..
+		"listring[current_name;res]")
+	meta:set_string("infotext", "Carpet workstation")
 	local inv = meta:get_inventory()
 	inv:set_size("ingot", 1)
 	inv:set_size("res", 1)

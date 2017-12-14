@@ -12,6 +12,7 @@ License: GPLv3
 -- get_formspec
 local get_formspec = function(player,page)
 	if page=="bags" then
+		local name = player:get_player_name()
 		return "size[8,7.5]"
 		    ..default.gui_bg_img
 			..default.gui_slots
@@ -21,10 +22,19 @@ local get_formspec = function(player,page)
 			.."button[2,2;2,0.5;bag2;Bag 2]"
 			.."button[4,2;2,0.5;bag3;Bag 3]"
 			.."button[6,2;2,0.5;bag4;Bag 4]"
-			.."list[detached:"..player:get_player_name().."_bags;bag1;0.5,1;1,1;]"
-			.."list[detached:"..player:get_player_name().."_bags;bag2;2.5,1;1,1;]"
-			.."list[detached:"..player:get_player_name().."_bags;bag3;4.5,1;1,1;]"
-			.."list[detached:"..player:get_player_name().."_bags;bag4;6.5,1;1,1;]"
+			.."list[detached:"..name.."_bags;bag1;0.5,1;1,1;]"
+			.."list[detached:"..name.."_bags;bag2;2.5,1;1,1;]"
+			.."list[detached:"..name.."_bags;bag3;4.5,1;1,1;]"
+			.."list[detached:"..name.."_bags;bag4;6.5,1;1,1;]"
+			.."listring[current_player;main]"
+			.."listring[detached:"..name.."_bags;bag1]"
+			.."listring[current_player;main]"
+			.."listring[detached:"..name.."_bags;bag2]"
+			.."listring[current_player;main]"
+			.."listring[detached:"..name.."_bags;bag3]"
+			.."listring[current_player;main]"
+			.."listring[detached:"..name.."_bags;bag4]"
+			.."listring[current_player;main]"
 	end
 	for i=1,4 do
 		if page=="bag"..i then
@@ -37,6 +47,7 @@ local get_formspec = function(player,page)
 				.."button[2,0;2,0.5;bags;Bags]"
 				.."image[7,0;1,1;"..image.."]"
 				.."list[current_player;bag"..i.."contents;0,1;8,3;]"
+				.."listring[]"
 		end
 	end
 end

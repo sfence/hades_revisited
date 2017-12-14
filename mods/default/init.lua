@@ -37,6 +37,8 @@ default.gui_survival_form = "size[8,8.5]"..
 			"list[current_player;craft;3,0.5;3,3;]"..
 			"list[current_player;craftpreview;7,1.5;1,1;]"..
 			"image[6,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]]"..
+			"listring[current_player;main]"..
+			"listring[current_player;craft]"..
 			default.get_hotbar_bg(0,4.25)
 
 -- Load files

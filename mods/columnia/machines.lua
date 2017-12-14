@@ -45,7 +45,7 @@ minetest.register_node("columnia:machine", {
 	after_place_node = function(pos, placer)
 	local meta = minetest.env:get_meta(pos);
 			meta:set_string("owner",  (placer:get_player_name() or ""));
-			meta:set_string("infotext",  "Columnia Workstation is empty (owned by " .. (placer:get_player_name() or "") .. ")");
+			meta:set_string("infotext",  "Columnia workstation is empty (owned by " .. (placer:get_player_name() or "") .. ")");
 		end,
 
 can_dig = function(pos,player)
@@ -69,7 +69,7 @@ on_construct = function(pos)
 		"label[7,4.5;Input:]"..
 		"label[8,4.5;Output:]"..
 
-		"label[1,0;Basic's]"..
+		"label[1,0;Basics]"..
 		"image_button[1,0.5;1,1;columnia_mach1.png;column_bottom; ]"..
 		"image_button[2,0.5;1,1;columnia_mach2.png;column_mid; ]"..
 		"image_button[3,0.5;1,1;columnia_mach3.png;column_top; ]"..
@@ -92,8 +92,13 @@ on_construct = function(pos)
 		"image_button[1,5;1,1;columnia_mach11.png;column_stairsub; ]"..
 		"image_button[2,5;1,1;columnia_mach12.png;column_stairsubpillar; ]"..
 
-		"list[current_player;main;1,6.25;8,4;]")
-	meta:set_string("infotext", "Columnia WorkStation")
+		"list[current_player;main;1,6.25;8,4;]"..
+
+		"listring[current_player;main]"..
+		"listring[current_name;ingot]"..
+		"listring[current_player;main]"..
+		"listring[current_name;res]")
+	meta:set_string("infotext", "Columnia workstation")
 	local inv = meta:get_inventory()
 	inv:set_size("ingot", 1)
 	inv:set_size("res", 1)

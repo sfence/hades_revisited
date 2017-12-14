@@ -9,7 +9,13 @@ function default.get_pfurnace_active_formspec(pos, percent)
 		"list[current_name;dst;5,1;2,2;]"..
 		"list[current_player;main;0,5;8,4;]"..
 		"background[-0.5,-0.65;9,10.35;".."pfurnace.png".."]"..
-	    "listcolors[#001100;#006600;#ffffff;#006600;#ffffff]"
+		"listcolors[#001100;#006600;#ffffff;#006600;#ffffff]"..
+		"listring[current_player;main]"..
+		"listring[current_name;src]"..
+		"listring[current_player;main]"..
+		"listring[current_name;fuel]"..
+		"listring[current_player;main]"..
+		"listring[current_name;dst]"
 	return formspec
 end
 
@@ -21,6 +27,12 @@ default.pfurnace_inactive_formspec =
 	"list[current_name;src;2,1;1,1;]"..
 	"list[current_name;dst;5,1;2,2;]"..
 	"list[current_player;main;0,5;8,4;]"..
+	"listring[current_player;main]"..
+	"listring[current_name;src]"..
+	"listring[current_player;main]"..
+	"listring[current_name;fuel]"..
+	"listring[current_player;main]"..
+	"listring[current_name;dst]"..
 	"background[-0.5,-0.65;9,10.35;".."pfurnace.png".."]"..
 	"listcolors[#001100;#006600;#ffffff;#006600;#ffffff]"
 
