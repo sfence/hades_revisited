@@ -304,16 +304,6 @@ minetest.register_abm({
 
 --Craft
 
-minetest.register_craft({
-  output = 'vines:rope_block',
-  recipe = {
-    {'', 'group:wood', ''},
-    {'', 'vines:side', ''},
-    {'', 'vines:side', ''},
-  }
-})
-
-
 
 minetest.register_craftitem("vines:vines", {
   description = "Vines",
