@@ -2298,3 +2298,21 @@ minetest.register_node("default:stone_with_ruby", {
 	drop = "default:ruby",
 	sounds = default.node_sound_stone_defaults(),
 })
+
+minetest.register_node("default:plate", {
+	description = "Plate",
+	inventory_image = "default_plate.png",
+	wield_image = "default_plate.png",
+	tiles = { "default_plate.png" },
+	drawtype = "signlike",
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	is_ground_content = false,
+	sounds = default.node_sound_stone_defaults(),
+	groups = {dig_immediate=3, attached_node=1},
+	on_rotate = false,
+	walkable = false,
+	selection_box = {
+		type = "wallmounted",
+	},
+})

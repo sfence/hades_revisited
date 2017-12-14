@@ -123,11 +123,6 @@ minetest.register_craftitem("default:ruby", {
 	inventory_image = "default_ruby.png",
 })
 
-minetest.register_craftitem("default:plate", {
-	description = "Plate",
-	inventory_image = "default_plate.png",
-})
-
 minetest.register_craftitem("default:nails", {
 	description = "Nails",
 	inventory_image = "default_nails.png",
