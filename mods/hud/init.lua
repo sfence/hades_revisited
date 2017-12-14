@@ -12,6 +12,7 @@ hud.armor_out = {}
 local health_hud = {}
 local hunger_hud = {}
 local air_hud = {}
+local air_hud_bg = {}
 local armor_hud = {}
 local armor_hud_bg = {}
 
@@ -22,7 +23,7 @@ HUD_HEALTH_OFFSET = {x=-175, y=2}
 HUD_HUNGER_POS = {x=0.5,y=0.9}
 HUD_HUNGER_OFFSET = {x=15, y=2}
 HUD_AIR_POS = {x=0.5,y=0.9}
-HUD_AIR_OFFSET = {x=15,y=-15}
+HUD_AIR_OFFSET = {x=15,y=-17}
 HUD_ARMOR_POS = {x=0.5,y=0.9}
 HUD_ARMOR_OFFSET = {x=-175, y=-15}
 
@@ -109,6 +110,15 @@ local function custom_hud(player)
 	})
 
  --air
+	air_hud_bg[name] = player:hud_add({
+		hud_elem_type = "statbar",
+		position = HUD_AIR_POS,
+		scale = {x=1, y=1},
+		text = "hud_air_bg.png",
+		number = 0,
+		alignment = {x=-1,y=-1},
+		offset = HUD_AIR_OFFSET,
+	})
 	air_hud[name] = player:hud_add({
 		hud_elem_type = "statbar",
 		position = HUD_AIR_POS,
@@ -159,8 +169,13 @@ local function update_hud(player)
 	if player:get_breath() ~= air then
 		air = player:get_breath()
 		hud.air[name] = air
-		if air > 10 then air = 0 end
-		player:hud_change(air_hud[name], "number", air*2)
+		if air > 10 then
+			player:hud_change(air_hud_bg[name], "number", 0)
+			player:hud_change(air_hud[name], "number", 0)
+		else
+			player:hud_change(air_hud_bg[name], "number", 20)
+			player:hud_change(air_hud[name], "number", air*2)
+		end
 	end
  --health
 	local hp = tonumber(hud.health[name])
