@@ -1,23 +1,19 @@
 
 -- Dungeon Master (This one spits out fireballs at you)
 
-mobs:register_mob("mobs:dungeon_master2", {
+mobs:register_mob("mobs_hades:dungeon_master2", {
 	type = "monster",
 	hp_min = 25,
 	hp_max = 35,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 2.6, 0.7},
 	visual = "mesh",
 	mesh = "mobs_dungeon_master.x",
-	--textures = {"mobs_dungeon_master.png"},
-	available_textures = {
-		total = 1,
-		texture_1 = {"mobs_dungeon_master2.png"},
-	},
+	textures = {"mobs_dungeon_master.png"},
 	visual_size = {x=8, y=8},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "mobs_dungeonmaster",
-		attack = "mobs_dungeonmaster",
+		attack = "mobs_fireball",
 	},
 	view_range = 15,
 	walk_velocity = 1,
@@ -48,11 +44,8 @@ mobs:register_mob("mobs:dungeon_master2", {
 	light_damage = 0,
 	on_rightclick = nil,
 	attack_type = "shoot",
-	arrow = "mobs:fireball",
+	arrow = "mobs_hades:fireball",
 	shoot_interval = 2.0,
-	sounds = {
-		attack = "mobs_fireball",
-	},
 	animation = {
 		stand_start = 0,
 		stand_end = 19,
@@ -68,5 +61,5 @@ mobs:register_mob("mobs:dungeon_master2", {
 	shoot_offset = 0,
 	blood_texture = "mobs_blood.png",
 })
-mobs:spawn_specific("mobs:dungeon_master2", {"default:stone"}, "air", 0, 1, 100, 7000, 1, -30000, -7500)
+mobs:spawn_specific("mobs_hades:dungeon_master2", {"default:stone"}, "air", 0, 1, 100, 7000, 1, -30000, -7500)
 

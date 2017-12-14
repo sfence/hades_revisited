@@ -1,16 +1,12 @@
 
 -- Glowtest Spider
 
-mobs:register_mob("mobs:spider3", {
+mobs:register_mob("mobs_hades:spider4", {
 	type = "monster",
-	hp_min = 40,
-	hp_max = 50,
+	hp_min = 50,
+	hp_max = 75,
 	collisionbox = {-0.9, -0.01, -0.7, 0.7, 0.6, 0.7},
-	--textures = {"mobs_spider.png"},
-	available_textures = {
-		total = 1,
-		texture_1 = {"mobs_spider3.png"},
-	},
+	textures = {"mobs_spider4.png"},
 	visual_size = {x=7,y=7},
 	visual = "mesh",
 	mesh = "mobs_spider.x",
@@ -22,11 +18,11 @@ mobs:register_mob("mobs:spider3", {
 	view_range = 15,
 	walk_velocity = 1,
 	run_velocity = 3,
-    armor = 150,
+	armor = 150,
 	damage = 3,
 	replace_rate = 15000,
 	replace_what = {"air"},
-	replace_with = "mobs:cobweb",
+	replace_with = "mobs_hades:cobweb",
 	drops = {
 		{name = "farming:string",
 		chance = 1,
@@ -37,7 +33,6 @@ mobs:register_mob("mobs:spider3", {
 		min = 2,
 		max = 6,},
 	},
-    light_resistant = false,
 	drawtype = "front",
 	water_damage = 5,
 	lava_damage = 5,
@@ -61,7 +56,7 @@ mobs:register_mob("mobs:spider3", {
 	step = 1,
 })
 
-mobs:spawn_specific("mobs:spider3", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -15000, -5000)
+mobs:spawn_specific("mobs_hades:spider4", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -30000, -10000)
 -- Ethereal crystal spike compatibility
 
 if not minetest.get_modpath("ethereal") then

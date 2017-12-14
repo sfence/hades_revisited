@@ -2,18 +2,14 @@
 --= Mese Monster by Zeg9
 
 -- Mese Monster
-mobs:register_mob("mobs:mese_monster2", {
+mobs:register_mob("mobs_hades:mese_monster2", {
 	type = "monster",
 	hp_min = 30,
 	hp_max = 45,
 	collisionbox = {-0.5, -1.5, -0.5, 0.5, 0.5, 0.5},
 	visual = "mesh",
 	mesh = "zmobs_mese_monster.x",
-	--textures = {"zmobs_mese_monster.png"},
-	available_textures = {
-		total = 1,
-		texture_1 = {"zmobs_mese_monster2.png"},
-	},
+	textures = {"zmobs_mese_monster.png"},
 	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,
 	sounds = {
@@ -34,14 +30,13 @@ mobs:register_mob("mobs:mese_monster2", {
 		min = 1,
 		max = 9,},
 	},
-	light_resistant = true,
 	armor = 80,
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
 	light_damage = 0,
 	attack_type = "shoot",
-	arrow = "mobs:mese_arrow",
+	arrow = "mobs_hades:mese_arrow",
 	shoot_interval = .5,
 	animation = {
 		speed_normal = 15,
@@ -60,5 +55,5 @@ mobs:register_mob("mobs:mese_monster2", {
 	shoot_offset = 2,
 	blood_texture = "default_mese_crystal_fragment.png",
 })
-mobs:spawn_specific("mobs:mese_monster2", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -30000, -5000)
+mobs:spawn_specific("mobs_hades:mese_monster2", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -30000, -5000)
 

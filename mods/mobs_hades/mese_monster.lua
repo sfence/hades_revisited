@@ -12,18 +12,14 @@ minetest.register_craft({
 })
 
 -- Mese Monster
-mobs:register_mob("mobs:mese_monster", {
+mobs:register_mob("mobs_hades:mese_monster", {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 30,
 	collisionbox = {-0.5, -1.5, -0.5, 0.5, 0.5, 0.5},
 	visual = "mesh",
 	mesh = "zmobs_mese_monster.x",
-	--textures = {"zmobs_mese_monster.png"},
-	available_textures = {
-		total = 1,
-		texture_1 = {"zmobs_mese_monster.png"},
-	},
+	textures = {"zmobs_mese_monster.png"},
 	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,
 	sounds = {
@@ -44,14 +40,13 @@ mobs:register_mob("mobs:mese_monster", {
 		min = 1,
 		max = 9,},
 	},
-	light_resistant = true,
 	armor = 80,
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
 	light_damage = 0,
 	attack_type = "shoot",
-	arrow = "mobs:mese_arrow",
+	arrow = "mobs_hades:mese_arrow",
 	shoot_interval = .5,
 	animation = {
 		speed_normal = 15,
@@ -70,11 +65,11 @@ mobs:register_mob("mobs:mese_monster", {
 	shoot_offset = 2,
 	blood_texture = "default_mese_crystal_fragment.png",
 })
-mobs:spawn_specific("mobs:mese_monster", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -10000, -250)
+mobs:spawn_specific("mobs_hades:mese_monster", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -10000, -250)
 
 -- Mese Monster Crystal Shards (weapon)
 
-mobs:register_arrow("mobs:mese_arrow", {
+mobs:register_arrow("mobs_hades:mese_arrow", {
 	visual = "sprite",
 	visual_size = {x=.5, y=.5},
 	textures = {"default_mese_crystal_fragment.png"},

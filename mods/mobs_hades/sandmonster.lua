@@ -1,19 +1,17 @@
 
 -- Sand Monster
 
-mobs:register_mob("mobs:sand_monster", {
+mobs:register_mob("mobs_hades:sand_monster", {
 	type = "monster",
 	hp_min = 15,
 	hp_max = 20,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_sand_monster.x",
-	--textures = {"mobs_sand_monster.png"},
-	available_textures = {
-		total = 3,
-		texture_1 = {"mobs_sand_monster.png"},
-		texture_2 = {"mobs_sand_monster2.png"},
-		texture_3 = {"mobs_sand_monster3.png"},
+	textures = {
+		{"mobs_sand_monster.png"},
+		{"mobs_sand_monster2.png"},
+		{"mobs_sand_monster3.png"},
 	},
 	visual_size = {x=8,y=8},
 	makes_footstep_sound = true,
@@ -39,7 +37,6 @@ mobs:register_mob("mobs:sand_monster", {
 		min=1,
 		max=2,},
 	},
-	light_resistant = true,
 	armor = 100,
 	drawtype = "front",
 	water_damage = 3,
@@ -62,5 +59,5 @@ mobs:register_mob("mobs:sand_monster", {
 	step = 0.5,
 	blood_texture = "mobs_blood.png",
 })
-mobs:register_spawn("mobs:sand_monster", {"default:sand"}, 20, -1, 16000, 1, 31000)
-mobs:register_spawn("mobs:sand_monster", {"default:sand"}, 5, -1, 6000, 3, 31000)
+mobs:register_spawn("mobs_hades:sand_monster", {"default:sand"}, 20, -1, 16000, 1, 31000)
+mobs:register_spawn("mobs_hades:sand_monster", {"default:sand"}, 5, -1, 6000, 3, 31000)

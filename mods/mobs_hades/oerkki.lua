@@ -1,19 +1,14 @@
 
 -- Oerkki
 
-mobs:register_mob("mobs:oerkki", {
+mobs:register_mob("mobs_hades:oerkki", {
 	type = "monster",
 	hp_min = 10,
 	hp_max = 15,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_oerkki.x",
-	--textures = {"mobs_oerkki.png"},
-	available_textures = {
-		total = 2,
-		texture_1 = {"mobs_oerkki.png"},
-		texture_2 = {"mobs_oerkki2.png"},
-	},
+	textures = {"mobs_oerkki.png"},
 	visual_size = {x=5, y=5},
 	makes_footstep_sound = false,
 	sounds = {
@@ -36,7 +31,6 @@ mobs:register_mob("mobs:oerkki", {
 	},
 	armor = 100,
 	drawtype = "front",
-	light_resistant = true,
 	water_damage = 1,
 	lava_damage = 1,
 	light_damage = 0,
@@ -57,5 +51,5 @@ mobs:register_mob("mobs:oerkki", {
 	step = 0.5,
 	blood_texture = "mobs_blood.png",
 })
-mobs:register_spawn("mobs:oerkki", {"default:stone"}, 0, -1, 10000, 2, -1200)
-mobs:register_spawn("mobs:oerkki", {"default:stone"}, 1, -1, 10000, 3, -10000)
+mobs:register_spawn("mobs_hades:oerkki", {"default:stone"}, 0, -1, 10000, 2, -1200)
+mobs:register_spawn("mobs_hades:oerkki", {"default:stone"}, 1, -1, 10000, 3, -10000)

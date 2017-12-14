@@ -1,16 +1,12 @@
 
 -- Glowtest Spider
 
-mobs:register_mob("mobs:spider", {
+mobs:register_mob("mobs_hades:spider", {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 25,
 	collisionbox = {-0.9, -0.01, -0.7, 0.7, 0.6, 0.7},
-	--textures = {"mobs_spider.png"},
-	available_textures = {
-		total = 1,
-		texture_1 = {"mobs_spider.png"},
-	},
+	textures = {"mobs_spider.png"},
 	visual_size = {x=7,y=7},
 	visual = "mesh",
 	mesh = "mobs_spider.x",
@@ -22,11 +18,11 @@ mobs:register_mob("mobs:spider", {
 	view_range = 15,
 	walk_velocity = 1,
 	run_velocity = 3,
-    armor = 150,
+	armor = 150,
 	damage = 3,
 	replace_rate = 15000,
 	replace_what = {"air"},
-	replace_with = "mobs:cobweb",
+	replace_with = "mobs_hades:cobweb",
 	drops = {
 		{name = "farming:string",
 		chance = 1,
@@ -37,7 +33,6 @@ mobs:register_mob("mobs:spider", {
 		min = 2,
 		max = 6,},
 	},
-    light_resistant = false,
 	drawtype = "front",
 	water_damage = 5,
 	lava_damage = 5,
@@ -61,16 +56,11 @@ mobs:register_mob("mobs:spider", {
 	step = 1,
 })
 
-mobs:spawn_specific("mobs:spider", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
--- Ethereal crystal spike compatibility
-
-if not minetest.get_modpath("ethereal") then
-	minetest.register_alias("ethereal:crystal_spike", "default:sandstone")
-end
+mobs:spawn_specific("mobs_hades:spider", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
 
 -- Cobweb
 
-minetest.register_node("mobs:cobweb", {
+minetest.register_node("mobs_hades:cobweb", {
 	description = "Cobweb",
 	drawtype = "plantlike",
 	visual_scale = 1.1,
@@ -80,8 +70,8 @@ minetest.register_node("mobs:cobweb", {
 	sunlight_propagates = true,
 	liquid_viscosity = 11,
 	liquidtype = "source",
-	liquid_alternative_flowing = "mobs:cobweb",
-	liquid_alternative_source = "mobs:cobweb",
+	liquid_alternative_flowing = "mobs_hades:cobweb",
+	liquid_alternative_source = "mobs_hades:cobweb",
 	liquid_renewable = false,
 	liquid_range = 0,
 	walkable = false,
@@ -91,7 +81,7 @@ minetest.register_node("mobs:cobweb", {
 })
 
 minetest.register_craft({
-	output = "mobs:cobweb",
+	output = "mobs_hades:cobweb",
 	recipe = {
 		{"farming:string", "farming:string", "farming:string"},
 		{"farming:string", "farming:string", "farming:string"},

@@ -1,18 +1,14 @@
 
 -- Stone Monster
 
-mobs:register_mob("mobs:stone_monster2", {
+mobs:register_mob("mobs_hades:stone_monster2", {
 	type = "monster",
 	hp_min = 25,
 	hp_max = 35,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	visual = "mesh",
 	mesh = "mobs_stone_monster.x",
-	--textures = {"mobs_stone_monster.png"},
-	available_textures = {
-		total = 1,
-		texture_1 = {"mobs_stone_monster2.png"},
-	},
+	textures = {"mobs_stone_monster2.png"},
 	visual_size = {x=3, y=2.6},
 	makes_footstep_sound = true,
 	sounds = {
@@ -37,7 +33,6 @@ mobs:register_mob("mobs:stone_monster2", {
 		min=1,
 		max=3,},
 	},
-	light_resistant = true,
 	armor = 80,
 	drawtype = "front",
 	water_damage = 0,
@@ -60,4 +55,4 @@ mobs:register_mob("mobs:stone_monster2", {
 	step = 0.5,
 	blood_texture = "mobs_blood.png",
 })
-mobs:spawn_specific("mobs:stone_monster2", {"default:stone"}, "air", 0, 3, 90, 7000, 1, -30000, -2500)
+mobs:spawn_specific("mobs_hades:stone_monster2", {"default:stone"}, "air", 0, 3, 90, 7000, 1, -30000, -2500)

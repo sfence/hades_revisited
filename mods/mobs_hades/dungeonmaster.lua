@@ -1,23 +1,19 @@
 
 -- Dungeon Master (This one spits out fireballs at you)
 
-mobs:register_mob("mobs:dungeon_master", {
+mobs:register_mob("mobs_hades:dungeon_master", {
 	type = "monster",
 	hp_min = 25,
 	hp_max = 35,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 2.6, 0.7},
 	visual = "mesh",
 	mesh = "mobs_dungeon_master.x",
-	--textures = {"mobs_dungeon_master.png"},
-	available_textures = {
-		total = 1,
-		texture_1 = {"mobs_dungeon_master.png"},
-	},
+	textures = {"mobs_dungeon_master.png"},
 	visual_size = {x=8, y=8},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "mobs_dungeonmaster",
-		attack = "mobs_dungeonmaster",
+		attack = "mobs_fireball",
 	},
 	view_range = 15,
 	walk_velocity = 1,
@@ -48,11 +44,8 @@ mobs:register_mob("mobs:dungeon_master", {
 	light_damage = 0,
 	on_rightclick = nil,
 	attack_type = "shoot",
-	arrow = "mobs:fireball",
+	arrow = "mobs_hades:fireball",
 	shoot_interval = 2.5,
-	sounds = {
-		attack = "mobs_fireball",
-	},
 	animation = {
 		stand_start = 0,
 		stand_end = 19,
@@ -68,11 +61,11 @@ mobs:register_mob("mobs:dungeon_master", {
 	shoot_offset = 0,
 	blood_texture = "mobs_blood.png",
 })
-mobs:spawn_specific("mobs:dungeon_master", {"default:stone"}, "air", 0, 1, 100, 7000, 1, -10000, -1000)
+mobs:spawn_specific("mobs_hades:dungeon_master", {"default:stone"}, "air", 0, 1, 100, 7000, 1, -10000, -1000)
 
 -- Fireball (weapon)
 
-mobs:register_arrow("mobs:fireball", {
+mobs:register_arrow("mobs_hades:fireball", {
 	visual = "sprite",
 	visual_size = {x=1, y=1},
 	textures = {"mobs_fireball.png"},
@@ -95,13 +88,11 @@ mobs:register_arrow("mobs:fireball", {
 			for dy=-1,1 do
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
-					local n = minetest.env:get_node(p).name
-					if n ~= "default:obsidian" and n ~= "ethereal:obsidian_brick" then	
-					if minetest.registered_nodes[n].groups.flammable or math.random(1, 100) <= 30 then
-						-- minetest.env:set_node(p, {name="fire:basic_flame"})
+					local n = minetest.get_node(p).name
+					if minetest.registered_nodes[n].on_blast then
+						minetest.registered_nodes[n].on_blast(pos, 5)
 					else
-						minetest.env:set_node(p, {name="air"})
-					end
+						minetest.set_node(p, {name="air"})
 					end
 				end
 			end
