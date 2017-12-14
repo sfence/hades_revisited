@@ -794,7 +794,7 @@
 				},
 				drop ="3dforniture:toilet",
 				groups = {cracky=3,},
-				sounds = default.node_sound_stone_defaults(),
+				sounds = default.node_sound_stone_defaults({dig = "3dforniture_dig_toilet",  gain=0.5}),
 			})
 
 			minetest.register_node("3dforniture:toilet_open",
@@ -827,7 +827,6 @@
 				},
 				drop = "3dforniture:toilet",
 				groups = {cracky = 3,not_in_creative_inventory=1},
-				sounds = {dig = "3dforniture_dig_toilet",  gain=0.5},
 				sounds = default.node_sound_stone_defaults(),
 			})
 
@@ -1037,6 +1036,7 @@
 				},
 			},
 			groups = {cracky=1,},
+			sounds = default.node_sound_metal_defaults(),
 		})
 
 		--Chains
@@ -1138,7 +1138,8 @@
 			selection_box = {
 				type = "fixed",
 				fixed = {-1/2, -1/2, 1/4, 1/2, 1/2, 1/2}, },
-				 groups = {cracky=1},
+			groups = {cracky=1},
+			sounds = default.node_sound_metal_defaults(),
 		})  
 
 		--Torch Wakll
