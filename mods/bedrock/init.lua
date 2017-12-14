@@ -65,8 +65,10 @@ minetest.register_on_generated(function(minp, maxp)
 	end
 end)
 
+if minetest.get_modpath("mesecons_mvps") then
+	mesecon:register_mvps_stopper("bedrock:bedrock")
+end
+
 if minetest.setting_getbool("log_mods") then
 	minetest.log("action", "[bedrock] loaded.")
 end
-
-
