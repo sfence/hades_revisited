@@ -52,6 +52,7 @@ local spider = {
 	},
 	jump = true,
 	step = 1,
+	floats = 1,
 }
 mobs:register_mob("mobs_hades:spider", spider)
 

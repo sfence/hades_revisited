@@ -50,6 +50,7 @@ mobs:register_mob("mobs_hades:oerkki", {
 	jump = true,
 	step = 0.5,
 	blood_texture = "mobs_blood.png",
+	floats = 1,
 })
 mobs:register_spawn("mobs_hades:oerkki", {"default:stone"}, 0, -1, 10000, 2, -1200)
 mobs:register_spawn("mobs_hades:oerkki", {"default:stone"}, 1, -1, 10000, 3, -10000)
