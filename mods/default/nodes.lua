@@ -956,7 +956,6 @@ minetest.register_node("default:glass", {
 	description = "Glass",
 	drawtype = "glasslike",
 	tiles = {"default_glass.png"},
-	inventory_image = minetest.inventorycube("default_glass.png"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = false,
@@ -1430,7 +1429,6 @@ minetest.register_node("default:colwood_yellow", {
 
 minetest.register_node("default:water_flowing", {
 	description = "Flowing Water",
-	inventory_image = minetest.inventorycube("default_water.png"),
 	drawtype = "flowingliquid",
 	tiles = {"default_water.png"},
 	special_tiles = {
@@ -1461,12 +1459,12 @@ minetest.register_node("default:water_flowing", {
 	freezemelt = "default:snow",
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {water=3, liquid=3, puts_out_fire=1, not_in_creative_inventory=1, freezes=1, melt_around=1},
+	sounds = default.node_sound_water_defaults(),
 })
 
 
 minetest.register_node("default:water_source", {
 	description = "Water Source",
-	inventory_image = minetest.inventorycube("default_water.png"),
 	drawtype = "liquid",
 	tiles = {
 		{name="default_water_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0}}
@@ -1494,12 +1492,12 @@ minetest.register_node("default:water_source", {
 	freezemelt = "default:ice",
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {water=3, liquid=3, puts_out_fire=1, freezes=1},
+	sounds = default.node_sound_water_defaults(),
 })
 
 
 minetest.register_node("default:lava_flowing", {
 	description = "Flowing Lava",
-	inventory_image = minetest.inventorycube("default_lava.png"),
 	drawtype = "flowingliquid",
 	tiles = {"default_lava.png"},
 	special_tiles = {
@@ -1531,12 +1529,12 @@ minetest.register_node("default:lava_flowing", {
 	damage_per_second = 2*2,
 	post_effect_color = {a=192, r=255, g=64, b=0},
 	groups = {lava=3, liquid=2, hot=3, igniter=1, not_in_creative_inventory=1},
+	sounds = default.node_sound_defaults(),
 })
 
 
 minetest.register_node("default:lava_source", {
 	description = "Lava Source",
-	inventory_image = minetest.inventorycube("default_lava.png"),
 	drawtype = "liquid",
 	tiles = {
 		{name="default_lava_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}}
@@ -1565,6 +1563,7 @@ minetest.register_node("default:lava_source", {
 	damage_per_second = 2*2,
 	post_effect_color = {a=192, r=255, g=64, b=0},
 	groups = {lava=3, liquid=2, hot=3, igniter=1},
+	sounds = default.node_sound_defaults(),
 })
 
 

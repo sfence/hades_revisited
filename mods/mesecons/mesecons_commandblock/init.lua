@@ -167,7 +167,6 @@ end
 minetest.register_node("mesecons_commandblock:commandblock_off", {
 	description = "Command Block",
 	tiles = {"jeija_commandblock_off.png"},
-	inventory_image = minetest.inventorycube("jeija_commandblock_off.png"),
 	groups = {cracky=2, mesecon_effector_off=1},
 	on_construct = construct,
 	after_place_node = after_place,

@@ -28,9 +28,22 @@ function default.node_sound_stone_defaults(table)
 	return table
 end
 
--- TODO: Add actual metal sounds
-default.node_sound_metal_defaults = default.node_sound_stone_defaults
-default.node_sound_heavy_metal_defaults = default.node_sound_stone_defaults
+function default.node_sound_metal_defaults(table)
+	table = table or {}
+	table.footstep = table.footstep or
+			{name = "default_metal_footstep", gain = 0.4}
+	table.dig = table.dig or
+			{name = "default_dig_metal", gain = 0.5}
+	table.dug = table.dug or
+			{name = "default_dug_metal", gain = 0.5}
+	table.place = table.place or
+			{name = "default_place_node_metal", gain = 0.5}
+	default.node_sound_defaults(table)
+	return table
+end
+-- TODO: Add more metal sounds
+
+default.node_sound_heavy_metal_defaults = default.node_sound_metal_defaults
 
 function default.node_sound_dirt_defaults(table)
 	table = table or {}
@@ -94,6 +107,15 @@ function default.node_sound_glass_defaults(table)
 	return table
 end
 
+function default.node_sound_water_defaults(table)
+	table = table or {}
+	table.footstep = table.footstep or
+			{name = "default_water_footstep", gain = 0.2}
+	table.place = table.place or
+			{name = "default_place_node_water", gain = 1.0}
+	default.node_sound_defaults(table)
+	return table
+end
 
 --
 -- Legacy

@@ -135,7 +135,6 @@ minetest.register_craft({
 
 minetest.register_node("mesecons_movestones:sticky_movestone", {
 	tiles = {"jeija_movestone_side.png", "jeija_movestone_side.png", "jeija_movestone_side.png", "jeija_movestone_side.png", "jeija_sticky_movestone.png", "jeija_sticky_movestone.png"},
-	inventory_image = minetest.inventorycube("jeija_sticky_movestone.png", "jeija_movestone_side.png", "jeija_movestone_side.png"),
 	paramtype2 = "facedir",
 	legacy_facedir_simple = true,
 	groups = {cracky=3},

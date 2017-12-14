@@ -59,7 +59,6 @@ minetest.register_node("glowcrystals:glowglass", {
 	description = "Glow Glass",
 	drawtype = "glasslike_framed_optional",
 	tiles = {"glowcrystals_glowglass.png", "glowcrystals_glowglass_detail.png" },
-	inventory_image = minetest.inventorycube("glowcrystals_glowglass.png"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	light_source = 11,
