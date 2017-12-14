@@ -252,11 +252,3 @@
 		},
 	})
 
-	--Torch Wall
-	--minetest.register_craft( {
-		--output = '3dforniture:torch_wall',
-		--recipe = {
-			--{ 'default:coal_lump' },
-			--{ 'default:steel_ingot' },
-		--},
-	--})
