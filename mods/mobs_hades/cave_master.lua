@@ -1,7 +1,8 @@
 
--- Dungeon Master (This one spits out fireballs at you)
+-- Cave Master
+-- (This one spits out fireballs at you)
 
-mobs:register_mob("mobs_hades:dungeon_master", {
+local cave_master = {
 	type = "monster",
 	hp_min = 25,
 	hp_max = 35,
@@ -60,8 +61,20 @@ mobs:register_mob("mobs_hades:dungeon_master", {
 	step = 0.5,
 	shoot_offset = 0,
 	blood_texture = "mobs_blood.png",
-})
-mobs:spawn_specific("mobs_hades:dungeon_master", {"default:stone"}, "air", 0, 1, 100, 7000, 1, -10000, -1000)
+}
+mobs:register_mob("mobs_hades:cave_master", cave_master)
+mobs:spawn_specific("mobs_hades:cave_master", {"default:stone"}, "air", 0, 1, 100, 7000, 1, -30000, -1000)
+
+local cave_elder = table.copy(cave_master)
+cave_elder.hp_min = 40
+cave_elder.hp_max = 50
+cave_elder.damage = 5
+cave_elder.shoot_interval = 2.0
+cave_elder.collisionbox = {-0.875, -0.01, -0.875, 0.875, 3.250, 0.875}
+cave_elder.visual_size = {x=10, y=10}
+
+mobs:register_mob("mobs_hades:cave_elder", cave_elder)
+mobs:spawn_specific("mobs_hades:cave_elder", {"default:stone"}, "air", 0, 1, 100, 10000, 1, -30000, -7500)
 
 -- Fireball (weapon)
 

@@ -1,7 +1,7 @@
 
 -- Sand Monster
 
-mobs:register_mob("mobs_hades:sand_monster", {
+mobs:register_mob("mobs_hades:mutant", {
 	type = "monster",
 	hp_min = 15,
 	hp_max = 20,
@@ -16,7 +16,7 @@ mobs:register_mob("mobs_hades:sand_monster", {
 	visual_size = {x=8,y=8},
 	makes_footstep_sound = true,
 	sounds = {
-		--random = "mobs_mutant",
+		random = "mobs_mutant",
 		attack = "mobs_mutant",
 	},
 	view_range = 15,

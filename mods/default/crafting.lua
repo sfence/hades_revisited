@@ -684,6 +684,15 @@ minetest.register_craft({
 	}
 })
 
+-- 9 mese crystal fragments = 1 mese crystal
+minetest.register_craft({
+	output = "default:mese_crystal",
+	recipe = {
+		{"default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment"},
+		{"default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment"},
+		{"default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment"},
+	}
+})
 
 minetest.register_craft({
 	output = 'default:obsidian_shard 9',

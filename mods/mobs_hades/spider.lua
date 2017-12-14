@@ -1,7 +1,6 @@
+-- Spiders (based on Glowtest)
 
--- Glowtest Spider
-
-mobs:register_mob("mobs_hades:spider", {
+local spider = {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 25,
@@ -18,7 +17,7 @@ mobs:register_mob("mobs_hades:spider", {
 	view_range = 15,
 	walk_velocity = 1,
 	run_velocity = 3,
-	armor = 150,
+	armor = 100,
 	damage = 3,
 	replace_rate = 15000,
 	replace_what = {"air"},
@@ -52,14 +51,36 @@ mobs:register_mob("mobs_hades:spider", {
 		punch_end = 90,
 	},
 	jump = true,
-	sounds = {},
 	step = 1,
-})
+}
+mobs:register_mob("mobs_hades:spider", spider)
 
-mobs:spawn_specific("mobs_hades:spider", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
+local spider2 = table.copy(spider)
+spider2.hp_min = 30
+spider2.hp_max = 40
+spider2.textures = { "mobs_spider2.png" }
+mobs:register_mob("mobs_hades:spider2", spider2)
+
+
+local spider3 = table.copy(spider)
+spider3.hp_min = 40
+spider3.hp_max = 50
+spider3.textures = { "mobs_spider3.png" }
+mobs:register_mob("mobs_hades:spider3", spider3)
+
+local spider4 = table.copy(spider)
+spider4.hp_min = 50
+spider4.hp_max = 75
+spider4.textures = { "mobs_spider4.png" }
+mobs:register_mob("mobs_hades:spider4", spider4)
+
+
+mobs:spawn_specific("mobs_hades:spider_gold", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
+mobs:spawn_specific("mobs_hades:spider2", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -7500, -100)
+mobs:spawn_specific("mobs_hades:spider3", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -15000, -5000)
+mobs:spawn_specific("mobs_hades:spider4", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -30000, -10000)
 
 -- Cobweb
-
 minetest.register_node("mobs_hades:cobweb", {
 	description = "Cobweb",
 	drawtype = "plantlike",

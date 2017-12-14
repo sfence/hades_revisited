@@ -1,18 +1,5 @@
-
---= Mese Monster by Zeg9
-
--- 9 mese crystal fragments = 1 mese crystal
-minetest.register_craft({
-	output = "default:mese_crystal",
-	recipe = {
-		{"default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment"},
-		{"default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment"},
-		{"default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment"},
-	}
-})
-
--- Mese Monster
-mobs:register_mob("mobs_hades:mese_monster", {
+-- Mese monster
+local mese_monster = {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 30,
@@ -64,8 +51,19 @@ mobs:register_mob("mobs_hades:mese_monster", {
 	step = 0.5,
 	shoot_offset = 2,
 	blood_texture = "default_mese_crystal_fragment.png",
-})
+}
+mobs:register_mob("mobs_hades:mese_monster", mese_monster)
+
+-- Deep mese monster
+
+local deep_mese_monster = table.copy(mese_monster)
+deep_mese_monster.hp_min = 30
+deep_mese_monster.hp_max = 45
+mobs:register_mob("mobs_hades:deep_mese_monster", deep_mese_monster)
+
+
 mobs:spawn_specific("mobs_hades:mese_monster", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -10000, -250)
+mobs:spawn_specific("mobs_hades:deep_mese_monster", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -30000, -5000)
 
 -- Mese Monster Crystal Shards (weapon)
 
