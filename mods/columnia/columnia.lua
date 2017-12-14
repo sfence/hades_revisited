@@ -1,6 +1,27 @@
 columnia.registered_materials = {}
 
-function columnia.register_all(mat, desc, image, groups, craft, sounds)
+function columnia.register_all(craft, desc, image, groups, sounds, mat)
+
+if not mat then
+	mat = string.gsub(craft, ":", "_")
+end
+
+if not desc then
+	desc = minetest.registered_items[craft].description
+end
+
+if not image then
+	image = minetest.registered_items[craft].tiles[1]
+end
+
+if not groups then
+	groups = minetest.registered_items[craft].groups
+end
+groups.not_in_creative_inventory = 1
+
+if not sounds then
+	sounds = minetest.registered_items[craft].sounds
+end
 
 columnia.registered_materials[craft] = mat
 
