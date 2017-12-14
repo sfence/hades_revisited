@@ -362,13 +362,12 @@ minetest.register_tool("vines:shears", {
 	stack_max = 1,
 	max_drop_level=3,
 	tool_capabilities = {
-    full_punch_interval = 1.0,
-    max_drop_level=0,
-    groupcaps={
-      snappy={times={[3]=0.2}, uses=20, maxlevel=3},
-      wool={times={[3]=0.2}, uses=20, maxlevel=3}
-    }
-  },
+		full_punch_interval = 1.0,
+		max_drop_level=0,
+		groupcaps={
+		snappy={times={[3]=0.2, [2]=0.5, [1]=1.5}, uses=20, maxlevel=3},
+		}
+	},
 })
 
 minetest.register_craft({
