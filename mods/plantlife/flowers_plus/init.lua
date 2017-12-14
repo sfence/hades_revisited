@@ -542,4 +542,4 @@ minetest.register_alias("flowers:cotton", "farming:string")
 minetest.register_alias("flowers:cotton_wad", "farming:string")
 
 
-print(S("[Flowers] Loaded."))
+minetest.log("action", S("[Flowers] Loaded."))

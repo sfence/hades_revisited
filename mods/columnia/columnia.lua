@@ -18,6 +18,9 @@ if not groups then
 	groups = minetest.registered_items[craft].groups
 end
 groups.not_in_creative_inventory = 1
+groups.wood = nil
+groups.wool = nil
+groups.stone = nil
 
 if not sounds then
 	sounds = minetest.registered_items[craft].sounds

@@ -32,7 +32,6 @@ local DEBUG = false --... except if you want to spam the console with debugging 
 
 function plantslib:dbg(msg)
 	if DEBUG then
-		print("[Plantlife] "..msg)
 		minetest.log("verbose", "[Plantlife] "..msg)
 	end
 end
@@ -609,4 +608,4 @@ end
 
 
 
-print(S("[Plantlife Library] Loaded"))
+minetest.log("action", S("[Plantlife Library] Loaded"))

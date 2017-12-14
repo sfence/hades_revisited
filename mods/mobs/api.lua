@@ -496,7 +496,7 @@ local yaw = 0
 				end
 			elseif self.state == "attack" and self.attack_type == "dogfight" then
 				if not self.attack.player or not self.attack.player:getpos() then
-					print("stop attacking")
+					minetest.log("verbose", "[mobs] Mob stopped attacking")
 					self.state = "stand"
 					self:set_animation("stand")
 					return

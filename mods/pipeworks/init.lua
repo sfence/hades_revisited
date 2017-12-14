@@ -124,5 +124,5 @@ if pipeworks.enable_node_breaker then dofile(pipeworks.modpath.."/node_breaker.l
 
 minetest.register_alias("pipeworks:pipe", "pipeworks:pipe_110000_empty")
 
-print("Pipeworks loaded!")
+minetest.log("action", "Pipeworks loaded!")
 

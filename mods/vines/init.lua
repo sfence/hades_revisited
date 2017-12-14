@@ -442,4 +442,4 @@ if minetest.get_modpath("moreblocks") and ENABLE_STAIRSPLUS then
 	)
 	table.insert(circular_saw.known_stairs, "vines:vines_block")
 end
-print("[Vines] Loaded!")
+minetest.log("action", "[vines] Loaded!")

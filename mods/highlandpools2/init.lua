@@ -65,7 +65,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local t1 = os.clock()
 	local x0 = minp.x
 	local z0 = minp.z
-	print ("[highlandpools2] chunk ("..x0.." "..y0.." "..z0..")")
+	minetest.log("verbose", "[highlandpools2] chunk ("..x0.." "..y0.." "..z0..")")
 	local x1 = maxp.x
 	local y1 = maxp.y
 	local z1 = maxp.z
@@ -257,5 +257,5 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 
 	local chugent = math.ceil((os.clock() - t1) * 1000)
-	print ("[highlandpools2] time "..chugent.." ms")
+	minetest.log("verbose", "[highlandpools2] time "..chugent.." ms")
 end)
