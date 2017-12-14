@@ -56,9 +56,10 @@ dofile(minetest.get_modpath("default").."/prismafurnance.lua")
 --infotext
 minetest.register_on_newplayer(function(player)
 	local cb = function(player)
-	    minetest.chat_send_player(player:get_player_name(), "Welcome on planet Hades")
-		minetest.chat_send_player(player:get_player_name(), "Search for some water. Lay down fertile sand next to the water to become dirt. Look at the crafting guide, what you can craft to survive")
-	    minetest.chat_send_player(player:get_player_name(), "Good Luck - End of transmission")
+		minetest.chat_send_player(player:get_player_name(), "You have been deployed on the planet Hades.")
+		minetest.chat_send_player(player:get_player_name(), "Search for some water. Lay down fertile sand next to the water and it will soon turn into dirt. Use the crafting guide to see what you can craft.")
+		minetest.chat_send_player(player:get_player_name(), "Your mission is to terraform this place and build a nice place to live in.")
+		minetest.chat_send_player(player:get_player_name(), "Good luck! <END OF TRANSMISSION>")
 	end
 	minetest.after(2.0, cb, player)
 end)
