@@ -29,7 +29,16 @@ function hud.item_eat(hunger_change, replace_with_item, poisen)
 			if h>30 then h=30 end
 			hud.hunger[name]=h
 			hud.set_hunger(user)
-			itemstack:add_item(replace_with_item) -- note: replace_with_item is optional
+			if replace_with_item then
+				local inv = user:get_inventory()
+				if itemstack:is_empty() then
+					itemstack:add_item(replace_with_item)
+				elseif inv:room_for_item("main", replace_with_item) then
+					inv:add_item("main", replace_with_item)
+				else
+					minetest.add_item(user:get_pos(), replace_with_item)
+				end
+			end
 			--sound:eat from adventuretest by brandon reese
 			if not sound then
 			sound = "hunger_eat"
@@ -53,14 +62,14 @@ end
 
 overwrite("default:apple", 2)
 overwrite("default:sugar", 1)
-overwrite("default:olive_oil", 2)
+overwrite("default:olive_oil", 2, "vessels:glass_bottle")
 overwrite("default:baked_potato", 4)
 overwrite("default:pie_strawberry_raw", 3)
 overwrite("default:pie_strawberry", 5)
 overwrite("default:pie_apple_raw", 3)
 overwrite("default:pie_apple", 5)
-overwrite("default:tomatosalad", 6)
-overwrite("default:tomato_potato_salad", 8)
+overwrite("default:tomatosalad", 6, "default:plate")
+overwrite("default:tomato_potato_salad", 8, "default:plate")
 if minetest.get_modpath("farming") ~= nil then
 	overwrite("farming:bread", 4)
 	overwrite("farming:strawberry", 2)

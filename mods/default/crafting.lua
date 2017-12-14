@@ -1437,7 +1437,7 @@ minetest.register_craft({
 minetest.register_craftitem("default:bottle_olive_oil", {
 	description = "Bottle of Olive Oil (+2)",
 	inventory_image = "default_bottle_olive_oil.png",
-    on_use = minetest.item_eat(2),
+    on_use = minetest.item_eat(2, "vessels:glass_bottle"),
 })
 
 
@@ -1452,7 +1452,7 @@ minetest.register_craft({
 minetest.register_craftitem("default:tomatosalad", {
 	description = "Tomato Salad (+6)",
 	inventory_image = "default_tomatosalad.png",
-    on_use = minetest.item_eat(6),
+    on_use = minetest.item_eat(6, "default:plate"),
 })
 
 
@@ -1468,7 +1468,7 @@ minetest.register_craft({
 minetest.register_craftitem("default:tomato_potato_salad", {
 	description = "Tomato-Potato Salad (+8)",
 	inventory_image = "default_tpsalad.png",
-    on_use = minetest.item_eat(8),
+    on_use = minetest.item_eat(8, "default:plate"),
 })
 
 minetest.register_craft({
