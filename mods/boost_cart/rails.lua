@@ -13,6 +13,7 @@ minetest.register_node(":default:rail", {
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
 	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+	sounds = default.node_sound_metal_defaults(),
 })
 
 -- Copper rail
@@ -31,6 +32,7 @@ minetest.register_node(":carts:copperrail", {
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
 	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_craft({
@@ -77,6 +79,7 @@ minetest.register_node(":carts:powerrail", {
 			end,
 		},
 	},
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_craft({
@@ -121,6 +124,7 @@ minetest.register_node(":carts:brakerail", {
 			end,
 		},
 	},
+	sounds = default.node_sound_metal_defaults(),
 })
 
 minetest.register_craft({

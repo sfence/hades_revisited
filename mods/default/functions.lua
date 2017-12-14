@@ -28,6 +28,9 @@ function default.node_sound_stone_defaults(table)
 	return table
 end
 
+-- TODO: Add actual metal sounds
+default.node_sound_metal_defaults = default.node_sound_stone_defaults
+default.node_sound_heavy_metal_defaults = default.node_sound_stone_defaults
 
 function default.node_sound_dirt_defaults(table)
 	table = table or {}

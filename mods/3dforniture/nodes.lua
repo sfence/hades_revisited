@@ -147,7 +147,8 @@
 					{-0.3,-0.2,0.3, 0.3,-0.1,0.4},
 				},
 			},
-			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})  
 		
 		minetest.register_node("3dforniture:table_black",
@@ -178,7 +179,8 @@
 					{-0.3,-0.2,0.3, 0.3,-0.1,0.4},
 				},
 			},
-			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})  
 		
 		minetest.register_node("3dforniture:table_white",
@@ -209,7 +211,8 @@
 					{-0.3,-0.2,0.3, 0.3,-0.1,0.4},
 				},
 			},
-			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})  
 
 		--Chair
@@ -242,7 +245,8 @@
 				type = "fixed",
 				fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
 			},
-			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})
 		
 		minetest.register_node("3dforniture:chair_black",
@@ -274,7 +278,8 @@
 				type = "fixed",
 				fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
 			},
-			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})
 		
 		minetest.register_node("3dforniture:chair_white",
@@ -306,7 +311,8 @@
 				type = "fixed",
 				fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
 			},
-			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})
 
 		--Armchair
@@ -348,7 +354,8 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
-			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})
 		
 		minetest.register_node("3dforniture:armchair_white",
@@ -389,7 +396,8 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
-			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})
 		
 		minetest.register_node("3dforniture:armchair_blue",
@@ -430,7 +438,8 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
-			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})
 		
 			minetest.register_node("3dforniture:armchair_brown",
@@ -471,7 +480,8 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
-			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})
 		
 			minetest.register_node("3dforniture:armchair_red",
@@ -512,7 +522,8 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
-			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})
 
 		minetest.register_node("3dforniture:armchair_green",
@@ -553,7 +564,8 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
-			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2}
+			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			sounds = default.node_sound_wood_defaults(),
 		})
 		--Table Lamp
 		minetest.register_node("3dforniture:table_lamp_off",
@@ -592,6 +604,7 @@
 			},
 			groups = {cracky=2,oddly_breakable_by_hand=1,},
 			drop = "3dforniture:table_lamp_off",
+			sounds = default.node_sound_glass_defaults(),
 		})
 
 		minetest.register_node("3dforniture:table_lamp_low",
@@ -631,6 +644,7 @@
 			},
 			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
 			drop = "3dforniture:table_lamp_off",
+			sounds = default.node_sound_glass_defaults(),
 		})
 
 		minetest.register_node("3dforniture:table_lamp_med",
@@ -670,6 +684,7 @@
 			},
 			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
 			drop = "3dforniture:table_lamp_off",
+			sounds = default.node_sound_glass_defaults(),
 		})
 
 		minetest.register_node("3dforniture:table_lamp_hi",
@@ -709,6 +724,7 @@
 			},
 			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
 			drop = "3dforniture:table_lamp_off",
+			sounds = default.node_sound_glass_defaults(),
 		})
 
 		minetest.register_node("3dforniture:table_lamp_max",
@@ -748,6 +764,7 @@
 			},
 			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
 			drop = "3dforniture:table_lamp_off",
+			sounds = default.node_sound_glass_defaults(),
 		})
 
 		-- Bathroom Kit
@@ -776,7 +793,8 @@
 					},
 				},
 				drop ="3dforniture:toilet",
-				groups = {cracky=3,}
+				groups = {cracky=3,},
+				sounds = default.node_sound_stone_defaults(),
 			})
 
 			minetest.register_node("3dforniture:toilet_open",
@@ -810,6 +828,7 @@
 				drop = "3dforniture:toilet",
 				groups = {cracky = 3,not_in_creative_inventory=1},
 				sounds = {dig = "3dforniture_dig_toilet",  gain=0.5},
+				sounds = default.node_sound_stone_defaults(),
 			})
 
 			--Sink
@@ -843,7 +862,8 @@
 					type = "fixed",
 					fixed = {-0.3,0.35,0.1, 0.3,0.5,0.5},
 				},
-				groups = {cracky=2,}
+				groups = {cracky=2,},
+				sounds = default.node_sound_stone_defaults(),
 			})
 
 			--Taps
@@ -882,7 +902,8 @@
 					type = "fixed",
 					fixed = {-0.25,-0.45,0.25, 0.25,-0.3,0.5},
 				},
-				groups = {cracky=2,}
+				groups = {cracky=2,},
+				sounds = default.node_sound_metal_defaults(),
 			})
 
 			--Shower Tray
@@ -916,7 +937,8 @@
 					type = "fixed",
 					fixed = {-0.5,-0.5,-0.5, 0.5,-0.4,0.5},
 				},
-				groups = {cracky=2,}
+				groups = {cracky=2,},
+				sounds = default.node_sound_stone_defaults(),
 			})
 
 			--Shower Head
@@ -949,6 +971,7 @@
 					fixed = {-0.1,-0.5,0.1, 0.1,-0.25,0.5},
 				},
 				groups = {cracky=2,}
+				sounds = default.node_sound_metal_defaults(),
 			})
 
 	-- Medieval Forniture
@@ -982,7 +1005,8 @@
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.1, 0.5, 0.5, 0.1},
 			},
-			groups = {cracky=1}
+			groups  {cracky=1},
+			sounds = default.node_sound_metal_defaults(),
 		})
 
 		--L Binding Bars
@@ -1012,7 +1036,7 @@
 					{-0.05,0.45,-0.5, 0.05,0.5,0},
 				},
 			},
-			groups = {cracky=1,}
+			groups = {cracky=1,},
 		})
 
 		--Chains
@@ -1114,7 +1138,7 @@
 			selection_box = {
 				type = "fixed",
 				fixed = {-1/2, -1/2, 1/4, 1/2, 1/2, 1/2}, },
-				 groups = {cracky=1}
+				 groups = {cracky=1},
 		})  
 
 		--Torch Wakll
@@ -1161,5 +1185,6 @@
 				type = "fixed",
 				fixed = {-0.15, -0.45, 0.15, 0.15,0.35, 0.5},
 			},
-			groups = {cracky=2}
+			groups = {cracky=2},
+			sounds = default.node_sound_metal_defaults(),
 		})

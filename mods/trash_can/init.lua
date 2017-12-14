@@ -23,7 +23,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 				"button[3,0;2,1;empty;Empty Trash]"..
                                 "list[current_name;main;3,1;2,3;]"..
                                 "list[current_player;main;0,5;8,4;]"..
-				"listring[]".
+				"listring[]"..
 								"background[-0.5,-0.55;9,10.25;".."trashcan.png".."]"..
 								"listcolors[#001100;#006600;#ffffff;#006600;#ffffff]")
                 meta:set_string("infotext", "Trash Can")

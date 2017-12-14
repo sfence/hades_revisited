@@ -76,15 +76,15 @@ minetest.register_node("columnia:rusty_block", {
 	tiles = {"columnia_rusty_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_heavy_metal_defaults(),
 })
 
 minetest.register_craft({
-		output = 'columnia:rusty_block 16',
+		output = 'columnia:rusty_block',
 		recipe = {
-			{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
-			{"default:steel_ingot", "pipeworks:pump_off", "default:steel_ingot"},
-			{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
+			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
+			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
 		},
 		replacements = {{"pipeworks:pump_off", "pipeworks:pump_off"}},
 })

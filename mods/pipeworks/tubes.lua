@@ -70,7 +70,7 @@ local register_one_tube = function(name, tname, dropname, desc, plain, noctrs, e
 			fixed = outboxes
 		},
 		groups = tgroups,
-		sounds = default.node_sound_wood_defaults(),
+		sounds = default.node_sound_glass_defaults(),
 		walkable = true,
 		stack_max = 99,
 		basename = name,
@@ -181,7 +181,7 @@ pipeworks.register_tube = function(name, desc, plain, noctrs, ends, short, inv, 
 				wield_image = inv,
 				paramtype = "light",
 				sunlight_propagates = true,
-				description = "Pneumatic tube segment (legacy)",
+				description = "Pneumatic Tube Segment (legacy)",
 				on_construct = function(pos)
 					local meta = minetest.get_meta(pos)
 					meta:set_int("tubelike", 1)
@@ -595,7 +595,7 @@ end
 
 if pipeworks.enable_one_way_tube then
 	minetest.register_node("pipeworks:one_way_tube", {
-		description = "One way tube",
+		description = "One-Way Tube",
 		tiles = {"pipeworks_one_way_tube_top.png", "pipeworks_one_way_tube_top.png", "pipeworks_one_way_tube_output.png",
 			"pipeworks_one_way_tube_input.png", "pipeworks_one_way_tube_side.png", "pipeworks_one_way_tube_top.png"},
 		paramtype2 = "facedir",
@@ -605,7 +605,7 @@ if pipeworks.enable_one_way_tube then
 			fixed = {{-1/2, -9/64, -9/64, 1/2, 9/64, 9/64}}},
 		groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, tubedevice = 1, tubedevice_receiver = 1},
 		legacy_facedir_simple = true,
-		sounds = default.node_sound_wood_defaults(),
+		sounds = default.node_sound_glass_defaults(),
 		on_construct = function(pos)
 			minetest.get_meta(pos):set_int("tubelike", 1)
 		end,

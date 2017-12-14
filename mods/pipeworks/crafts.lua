@@ -88,12 +88,12 @@ minetest.register_craft( {
 if minetest.get_modpath("homedecor") == nil then
 
 	minetest.register_craftitem(":homedecor:plastic_sheeting", {
-		description = "Plastic sheet",
+		description = "Plastic Sheet",
 		inventory_image = "homedecor_plastic_sheeting.png",
 	})
 
 	minetest.register_craftitem(":homedecor:plastic_base", {
-		description = "Unprocessed Plastic base",
+		description = "Unprocessed Plastic Base",
 		wield_image = "homedecor_plastic_base.png",
 		inventory_image = "homedecor_plastic_base_inv.png",
 	})

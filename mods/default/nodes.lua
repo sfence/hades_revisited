@@ -977,7 +977,7 @@ minetest.register_node("default:fence_rusty", {
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 -- rusty fence
@@ -1255,6 +1255,7 @@ minetest.register_node("default:rail", {
                 fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
 	groups = {bendy=2,dig_immediate=2,attached_node=1},
+	sounds = default.node_sound_metal_defaults(),
 })
 
 
@@ -1299,7 +1300,7 @@ minetest.register_node("default:ladder_bronze", {
 	},
 	groups = {choppy=2,oddly_breakable_by_hand=3},
 	legacy_wallmounted = true,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_metal_defaults(),
 })
 
 
@@ -1970,7 +1971,7 @@ minetest.register_node("default:steelblock", {
 	tiles = {"default_steel_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_heavy_metal_defaults(),
 })
 
 minetest.register_node("default:tinblock", {
@@ -1978,7 +1979,7 @@ minetest.register_node("default:tinblock", {
 	tiles = {"default_tin_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_heavy_metal_defaults(),
 })
 
 minetest.register_node("default:copperblock", {
@@ -1986,7 +1987,7 @@ minetest.register_node("default:copperblock", {
 	tiles = {"default_copper_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_heavy_metal_defaults(),
 })
 
 
@@ -1995,7 +1996,7 @@ minetest.register_node("default:bronzeblock", {
 	tiles = {"default_bronze_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_heavy_metal_defaults(),
 })
 
 
@@ -2014,7 +2015,7 @@ minetest.register_node("default:goldblock", {
 	tiles = {"default_gold_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_heavy_metal_defaults(),
 })
 
 minetest.register_node("default:emerald_block", {
