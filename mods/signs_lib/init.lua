@@ -645,7 +645,7 @@ function signs_lib.receive_fields(pos, formname, fields, sender, lock)
 end
 
 minetest.register_node(":default:sign_wall", {
-	description = S("Sign"),
+	description = S("Wooden Sign"),
 	inventory_image = "default_sign_wall.png",
 	wield_image = "default_sign_wall.png",
 	node_placement_prediction = "",
@@ -672,6 +672,7 @@ minetest.register_node(":default:sign_wall", {
 	on_punch = function(pos, node, puncher)
 		signs_lib.update_sign(pos)
 	end,
+    sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node(":signs:sign_yard", {
@@ -700,6 +701,7 @@ minetest.register_node(":signs:sign_yard", {
 	on_punch = function(pos, node, puncher)
 		signs_lib.update_sign(pos)
 	end,
+    sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node(":signs:sign_hanging", {
@@ -735,6 +737,7 @@ minetest.register_node(":signs:sign_hanging", {
 	on_punch = function(pos, node, puncher)
 		signs_lib.update_sign(pos)
 	end,
+    sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node(":signs:sign_post", {
@@ -759,6 +762,7 @@ minetest.register_node(":signs:sign_post", {
 			{ items = { "default:fence_wood" }},
 		},
     },
+    sounds = default.node_sound_wood_defaults(),
 })
 
 -- Locked wall sign
@@ -766,7 +770,7 @@ minetest.register_node(":signs:sign_post", {
 minetest.register_privilege("sign_editor", "Can edit all locked signs")
 
 minetest.register_node(":locked_sign:sign_wall_locked", {
-	description = S("Sign"),
+	description = S("Locked Wooden Sign"),
 	inventory_image = "signs_locked_inv.png",
 	wield_image = "signs_locked_inv.png",
 	node_placement_prediction = "",
@@ -813,15 +817,17 @@ minetest.register_node(":locked_sign:sign_wall_locked", {
 		return pname == owner or pname == minetest.setting_get("name")
 			or minetest.check_player_privs(pname, {sign_editor=true})
 	end,
+	sounds = default.node_sound_wood_defaults(),
 })
 
 -- metal, colored signs
 
 local sign_colors = { "green", "yellow", "red", "white_red", "white_black" }
+local sign_descs = { S("Green Steel Sign"), S("Yellow Steel Sign"), S("Red Steel Sign"), S("White Steel Sign with Red Border"), S("White Steel Sign with Black Border") }
 
-for _, color in ipairs(sign_colors) do
+for i, color in ipairs(sign_colors) do
 	minetest.register_node(":signs:sign_wall_"..color, {
-		description = S("Sign ("..color..", metal)"),
+		description = sign_descs[i],
 		inventory_image = "signs_"..color.."_inv.png",
 		wield_image = "signs_"..color.."_inv.png",
 		node_placement_prediction = "",
@@ -854,6 +860,7 @@ for _, color in ipairs(sign_colors) do
 		on_punch = function(pos, node, puncher)
 			signs_lib.update_sign(pos)
 		end,
+		sounds = default.node_sound_metal_defaults(),
 	})
 end
 

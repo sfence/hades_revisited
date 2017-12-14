@@ -1723,7 +1723,7 @@ minetest.register_node("default:laternrusty", {
 })
 
 minetest.register_node("default:sign_wall", {
-	description = "Sign",
+	description = "Wooden Sign",
 	drawtype = "signlike",
 	tiles = {"default_sign_wall.png"},
 	inventory_image = "default_sign_wall.png",
