@@ -17,7 +17,7 @@ minetest.register_node("columnia:machine", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {oddly_breakable_by_hand=2, cracky=3, dig_immediate=1},
+	groups = {choppy=3, cracky=3, oddly_breakable_by_hand=2},
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -41,6 +41,7 @@ minetest.register_node("columnia:machine", {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, 0.0625, 0.5}
 	},
+	sounds = default.node_sound_wood_defaults(),
 
 	after_place_node = function(pos, placer)
 	local meta = minetest.env:get_meta(pos);

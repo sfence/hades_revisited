@@ -17,7 +17,7 @@ minetest.register_node("gluncarp:machine", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {oddly_breakable_by_hand=2, cracky=3, dig_immediate=1},
+	groups = {oddly_breakable_by_hand=2, choppy=3},
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -46,6 +46,7 @@ minetest.register_node("gluncarp:machine", {
 			{-0.5, -0.5, -0.25, 0.5, 0.5, 0.25} 
 		}
 	},
+	sounds = default.node_sound_wood_defaults(),
 
 	after_place_node = function(pos, placer)
 	local meta = minetest.env:get_meta(pos);
