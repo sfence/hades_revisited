@@ -1,8 +1,3 @@
---[[TODO
-  ropebox rope break results in bottom rope dissapearing and bottom drop rope node to appear at the new bottom
-  and rope does not drop anything!!!!
-]]
-
 local mod_name = "vines"
 local average_height = 12
 local spawn_interval = 90
@@ -10,86 +5,6 @@ local vines_group = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1
 -- globals
 
 local walldir ={}
-
---
--- Nodes
-minetest.register_node("vines:rope_block", {
-  description = "Rope Box",
-  sunlight_propagates = true,
-  paramtype = "light",
-  tiles = {
-    "default_wood.png^vines_rope.png",
-    "default_wood.png^vines_rope.png",
-    "default_wood.png",
-    "default_wood.png",
-    "default_wood.png^vines_rope.png",
-    "default_wood.png^vines_rope.png",
-  },
-  drawtype = "cube",
-  groups = {choppy=2,oddly_breakable_by_hand=1},
-  after_place_node = function(pos)
-    local p = {x=pos.x, y=pos.y-1, z=pos.z}
-    local n = minetest.get_node(p)
-    if n.name == "air" then
-      minetest.add_node(p, {name="vines:rope_end"})
-    end
-  end,
-  after_dig_node = function(pos, node, digger)
-    local p = {x=pos.x, y=pos.y-1, z=pos.z}
-    local n = minetest.get_node(p)
-    while n.name == 'vines:rope' do
-      minetest.remove_node(p)
-      p = {x=p.x, y=p.y-1, z=p.z}
-      n = minetest.get_node(p)
-    end
-    if n.name == 'vines:rope_end' then
-      minetest.remove_node(p)
-    end
-  end
-})
-
-minetest.register_node("vines:rope", {
-  description = "Rope",
-  walkable = false,
-  climbable = true,
-  sunlight_propagates = true,
-  paramtype = "light",
-  drop = "",
-  tiles = { "vines_rope.png" },
-  drawtype = "plantlike",
-  groups = {flammable=2, not_in_creative_inventory=1},
-  sounds =  default.node_sound_leaves_defaults(),
-  selection_box = {
-    type = "fixed",
-    fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-  },
-  on_destruct = function()
-    
-  end,
-})
-
-minetest.register_node("vines:rope_end", {
-  description = "Rope End",
-  walkable = false,
-  climbable = true,
-  sunlight_propagates = true,
-  paramtype = "light",
-  drop = "",
-  tiles = { "vines_rope_end.png" },
-  drawtype = "plantlike",
-  groups = {flammable=2, not_in_creative_inventory=1},
-  sounds =  default.node_sound_leaves_defaults(),
-  after_place_node = function(pos)
-    yesh  = {x = pos.x, y= pos.y-1, z=pos.z}
-    minetest.add_node(yesh, {name="vines:rope"})
-  end,
-  selection_box = {
-	  type = "fixed",
-	  fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-  },
-})
-
-
 
 minetest.register_node("vines:side", {
   description = "Vine",
@@ -284,23 +199,6 @@ minetest.register_abm({
   end
 })
 
-
-
-minetest.register_abm({
-  nodenames = {"vines:rope_end"},
-  interval = 1,
-  chance = 1,
-  drop = "",
-  action = function(pos, node, active_object_count, active_object_count_wider)
-    local p = {x=pos.x, y=pos.y-1, z=pos.z}
-    local n = minetest.get_node(p)
-    --remove if top node is removed
-    if  n.name == "air" then
-      minetest.set_node(pos, {name="vines:rope"})
-      minetest.add_node(p, {name="vines:rope_end"})
-    end 
-  end
-})
 
 --Craft
 
