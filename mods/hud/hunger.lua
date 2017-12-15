@@ -24,7 +24,6 @@ function hud.item_eat(hunger_change, replace_with_item, poisen)
 			local name = user:get_player_name()
 			local h = tonumber(hud.hunger[name])
 			local hp = user:get_hp()
-			user:set_hp(hp+hunger_change)
 			h=h+hunger_change
 			if h>30 then h=30 end
 			hud.hunger[name]=h
