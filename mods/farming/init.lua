@@ -22,9 +22,10 @@ minetest.register_craftitem("farming:flour", {
 })
 
 minetest.register_craftitem("farming:bread", {
-	description = "Bread (+3)",
+	description = "Bread",
 	inventory_image = "farming_bread.png",
 	on_use = minetest.item_eat(3),
+	groups = { food = 2, eatable = 3 },
 })
 
 minetest.register_craft({

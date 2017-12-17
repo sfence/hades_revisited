@@ -60,7 +60,7 @@ end)
 
 
 minetest.register_node("farming_plus:banana", {
-	description = S("Banana (+1)"),
+	description = S("Banana"),
 	tiles = {"farming_banana.png"},
 	inventory_image = "farming_banana.png",
 	wield_image = "farming_banana.png",
@@ -68,9 +68,7 @@ minetest.register_node("farming_plus:banana", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
 	sounds = default.node_sound_defaults(),
-
-
-	on_use = minetest.item_eat(1),
+	on_use = minetest.item_eat(2),
 })

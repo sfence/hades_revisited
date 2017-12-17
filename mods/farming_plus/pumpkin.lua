@@ -440,10 +440,11 @@ minetest.register_craft({
 
 --===============
 minetest.register_craftitem(":farming:pumpkin_bread", {
-	description = "Pumpkin Bread (+5)",
+	description = "Pumpkin Bread",
 	inventory_image = "farming_bread_pumpkin.png",
 	stack_max = 1,
 	on_use = minetest.item_eat(5)
+	groups = {food=2,eatable=5,},
 })
 
 

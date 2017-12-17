@@ -2083,7 +2083,7 @@ minetest.register_node("default:sapling", {
 
 
 minetest.register_node("default:apple", {
-	description = "Apple (+2)",
+	description = "Apple",
 	drawtype = "plantlike",
 	visual_scale = 0.75,
 	tiles = {"default_apple.png"},
@@ -2096,7 +2096,7 @@ minetest.register_node("default:apple", {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
 	},
-	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)

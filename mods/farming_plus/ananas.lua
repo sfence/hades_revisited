@@ -66,10 +66,10 @@ minetest.register_node("farming_plus:ananas", {
 
 
 minetest.register_craftitem("farming_plus:ananas_item", {
-	description = S("Ananas (+1)"),
+	description = S("Pineapple (+1)"),
 	inventory_image = "farming_ananas.png",
-                     on_use = minetest.item_eat(1),
-
+	on_use = minetest.item_eat(1),
+	groups = { food = 2, eatable = 1 },
 })
 
 
