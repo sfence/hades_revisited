@@ -93,7 +93,7 @@ travelnet.restore_data = function()
       travelnet.targets = minetest.deserialize( data );
       file:close();
    else
-      minetest.log("error", "[travelnet] Error: Savefile '"..tostring( path ).."' not found.");
+      minetest.log("info", "[travelnet] Savefile '"..tostring( path ).."' not found. Starting with empty travelnet data.");
    end
 end
 
