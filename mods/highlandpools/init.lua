@@ -6,55 +6,10 @@
 
 -- Parameters
 
-
 local YMAX = 33000 -- Maximum altitude for pools
 local FLOW = 256
 
-
--- Stuff
-
-
-highlandpools = {}
-
-
--- Functions
-
-
-function highlandpools_remtree(x, y, z, area, data)
-	local c_tree = minetest.get_content_id("default:tree")
-	local c_apple = minetest.get_content_id("default:apple")
-	local c_leaves = minetest.get_content_id("default:leaves")
-	local c_air = minetest.get_content_id("air")
-	for j = 1, 7 do
-	for i = -2, 2 do
-	for k = -2, 2 do
-		local vi = area:index(x+i, y+j, z+k)
-		if data[vi] == c_tree
-		or data[vi] == c_apple
-		or data[vi] == c_leaves then
-			data[vi] = c_air
-		end
-	end
-	end
-	end
-	for j = 1, 7 do
-	for i = -2, 2 do
-	for k = -2, 2 do
-		local vi = area:index(x+i, y-j, z+k)
-		if data[vi] == c_tree
-		or data[vi] == c_apple
-		or data[vi] == c_leaves then
-			data[vi] = c_air
-		end
-	end
-	end
-	end
-end
-
-
 -- On generated function
-
-
 minetest.register_on_generated(function(minp, maxp, seed)
 	local y0 = minp.y
 	if y0 < -32 or y0 > YMAX then
@@ -79,12 +34,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 	local c_air = minetest.get_content_id("air")
 	local c_ignore = minetest.get_content_id("ignore")
-	local c_watsour = minetest.get_content_id("default:lava_source")
-	local c_grass = minetest.get_content_id("default:sand")
-	local c_tree = minetest.get_content_id("default:tree")
-	local c_apple = minetest.get_content_id("default:apple")
-	local c_leaves = minetest.get_content_id("default:leaves")
-	local c_dirt = minetest.get_content_id("default:gravel_volcanic")
+	local c_lava = minetest.get_content_id("default:lava_source")
+	local c_sand = minetest.get_content_id("default:sand")
+	local c_vgravel = minetest.get_content_id("default:gravel_volcanic")
 
 
 	for xcen = x0 + 8, x1 - 7, 8 do
@@ -95,9 +47,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local c_node = data[vi]
 			if y == y1 and c_node ~= c_air then -- if top node solid
 				break
-			elseif c_node == c_watsour then
+			elseif c_node == c_lava then
 				break
-			elseif c_node == c_grass then
+			elseif c_node == c_sand then
 				yasurf = y + 1
 				break
 			end
@@ -109,10 +61,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local c_node = data[vi]
 				if xcen + ser == x1 then
 					abort = true
-				elseif c_node ~= c_air
-				and c_node ~= c_tree
-				and c_node ~= c_leaves
-				and c_node ~= c_apple then
+				elseif c_node ~= c_air then
 					break
 				end
 			end
@@ -121,10 +70,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local c_node = data[vi]
 				if xcen - ser == x0 then
 					abort = true
-				elseif c_node ~= c_air
-				and c_node ~= c_tree
-				and c_node ~= c_leaves
-				and c_node ~= c_apple then
+				elseif c_node ~= c_air then
 					break
 				end
 			end
@@ -133,10 +79,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local c_node = data[vi]
 				if zcen + ser == z1 then
 					abort = true
-				elseif c_node ~= c_air
-				and c_node ~= c_tree
-				and c_node ~= c_leaves
-				and c_node ~= c_apple then
+				elseif c_node ~= c_air then
 					break
 				end
 			end
@@ -145,10 +88,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local c_node = data[vi]
 				if zcen - ser == z0 then
 					abort = true
-				elseif c_node ~= c_air
-				and c_node ~= c_tree
-				and c_node ~= c_leaves
-				and c_node ~= c_apple then
+				elseif c_node ~= c_air then
 					break
 				end
 			end
@@ -158,13 +98,13 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 
 			local vi = area:index(xcen, yasurf, zcen)
-			data[vi] = c_watsour
+			data[vi] = c_lava
 			local flab = false -- flow abort
 			for flow = 1, FLOW do
 				for z = z0, z1 do
 					for x = x0, x1 do
 						local vif = area:index(x, yasurf, z)
-						if data[vif] == c_watsour then
+						if data[vif] == c_lava then
 							if x == x0 or x == x1 or z == z0 or z == z1 then
 								flab = true -- if water at chunk edge abort flow
 								break
@@ -173,37 +113,17 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								local viw = area:index(x - 1, yasurf, z)
 								local vin = area:index(x, yasurf, z + 1)
 								local vis = area:index(x, yasurf, z - 1)
-								if data[vie] == c_tree then
-									highlandpools_remtree(x + 1, yasurf, z, area, data)
-									data[vie] = c_watsour
-								elseif data[vie] == c_air
-								or data[vie] == c_apple
-								or data[vie] == c_leaves then
-									data[vie] = c_watsour
+								if data[vie] == c_air then
+									data[vie] = c_lava
 								end
-								if data[viw] == c_tree then
-									highlandpools_remtree(x - 1, yasurf, z, area, data)
-									data[viw] = c_watsour
-								elseif data[viw] == c_air
-								or data[viw] == c_apple
-								or data[viw] == c_leaves then
-									data[viw] = c_watsour
+								if data[viw] == c_air then
+									data[viw] = c_lava
 								end
-								if data[vin] == c_tree then
-									highlandpools_remtree(x, yasurf, z + 1, area, data)
-									data[vin] = c_watsour
-								elseif data[vin] == c_air
-								or data[vin] == c_apple
-								or data[vin] == c_leaves then
-									data[vin] = c_watsour
+								if data[vin] == c_air then
+									data[vin] = c_lava
 								end
-								if data[vis] == c_tree then
-									highlandpools_remtree(x, yasurf, z - 1, area, data)
-									data[vis] = c_watsour
-								elseif data[vis] == c_air
-								or data[vis] == c_apple
-								or data[vis] == c_leaves then
-									data[vis] = c_watsour
+								if data[vis] == c_air then
+									data[vis] = c_lava
 								end
 							end
 						end
@@ -220,7 +140,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				for z = z0, z1 do
 				for x = x0, x1 do
 					local vi = area:index(x, yasurf, z)
-					if data[vi] == c_watsour then
+					if data[vi] == c_lava then
 						data[vi] = c_air
 					end
 				end
@@ -229,13 +149,13 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				for z = z0, z1 do
 				for x = x0, x1 do
 					local vi = area:index(x, yasurf, z)
-					if data[vi] == c_watsour then
+					if data[vi] == c_lava then
 						for y = yasurf - 1, y0, -1 do
 							local viu = area:index(x, y, z)
 							if data[viu] == c_air then
-								data[viu] = c_watsour
-							elseif data[viu] == c_grass then
-								data[viu] = c_dirt
+								data[viu] = c_lava
+							elseif data[viu] == c_sand then
+								data[viu] = c_vgravel
 								break
 							else
 								break
@@ -249,12 +169,10 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	end
 	end
 
-
 	vm:set_data(data)
 	vm:set_lighting({day=0, night=0})
 	vm:calc_lighting()
 	vm:write_to_map(data)
-
 
 	local chugent = math.ceil((os.clock() - t1) * 1000)
 	minetest.log("verbose", "[highlandpools] time "..chugent.." ms")

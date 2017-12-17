@@ -11,50 +11,7 @@ local YMAX = 33000 -- Maximum altitude for pools
 local FLOW = 256
 
 
--- Stuff
-
-
-highlandpools2 = {}
-
-
--- Functions
-
-
-function highlandpools2_remtree(x, y, z, area, data)
-	local c_tree = minetest.get_content_id("default:tree")
-	local c_apple = minetest.get_content_id("default:apple")
-	local c_leaves = minetest.get_content_id("default:leaves")
-	local c_air = minetest.get_content_id("air")
-	for j = 1, 7 do
-	for i = -2, 2 do
-	for k = -2, 2 do
-		local vi = area:index(x+i, y+j, z+k)
-		if data[vi] == c_tree
-		or data[vi] == c_apple
-		or data[vi] == c_leaves then
-			data[vi] = c_air
-		end
-	end
-	end
-	end
-	for j = 1, 7 do
-	for i = -2, 2 do
-	for k = -2, 2 do
-		local vi = area:index(x+i, y-j, z+k)
-		if data[vi] == c_tree
-		or data[vi] == c_apple
-		or data[vi] == c_leaves then
-			data[vi] = c_air
-		end
-	end
-	end
-	end
-end
-
-
 -- On generated function
-
-
 minetest.register_on_generated(function(minp, maxp, seed)
 	local y0 = minp.y
 	if y0 < -32 or y0 > YMAX then
@@ -80,11 +37,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local c_air = minetest.get_content_id("air")
 	local c_ignore = minetest.get_content_id("ignore")
 	local c_watsour = minetest.get_content_id("default:water_source")
-	local c_grass = minetest.get_content_id("default:tuff")
-	local c_tree = minetest.get_content_id("default:tree")
-	local c_apple = minetest.get_content_id("default:apple")
-	local c_leaves = minetest.get_content_id("default:leaves")
-	local c_dirt = minetest.get_content_id("default:gravel")
+	local c_tuff = minetest.get_content_id("default:tuff")
+	local c_gravel = minetest.get_content_id("default:gravel")
 
 
 	for xcen = x0 + 8, x1 - 7, 8 do
@@ -97,7 +51,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				break
 			elseif c_node == c_watsour then
 				break
-			elseif c_node == c_grass then
+			elseif c_node == c_tuff then
 				yasurf = y + 1
 				break
 			end
@@ -109,10 +63,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local c_node = data[vi]
 				if xcen + ser == x1 then
 					abort = true
-				elseif c_node ~= c_air
-				and c_node ~= c_tree
-				and c_node ~= c_leaves
-				and c_node ~= c_apple then
+				elseif c_node ~= c_air then
 					break
 				end
 			end
@@ -121,10 +72,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local c_node = data[vi]
 				if xcen - ser == x0 then
 					abort = true
-				elseif c_node ~= c_air
-				and c_node ~= c_tree
-				and c_node ~= c_leaves
-				and c_node ~= c_apple then
+				elseif c_node ~= c_air then
 					break
 				end
 			end
@@ -133,10 +81,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local c_node = data[vi]
 				if zcen + ser == z1 then
 					abort = true
-				elseif c_node ~= c_air
-				and c_node ~= c_tree
-				and c_node ~= c_leaves
-				and c_node ~= c_apple then
+				elseif c_node ~= c_air then
 					break
 				end
 			end
@@ -145,10 +90,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local c_node = data[vi]
 				if zcen - ser == z0 then
 					abort = true
-				elseif c_node ~= c_air
-				and c_node ~= c_tree
-				and c_node ~= c_leaves
-				and c_node ~= c_apple then
+				elseif c_node ~= c_air then
 					break
 				end
 			end
@@ -173,36 +115,16 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								local viw = area:index(x - 1, yasurf, z)
 								local vin = area:index(x, yasurf, z + 1)
 								local vis = area:index(x, yasurf, z - 1)
-								if data[vie] == c_tree then
-									highlandpools2_remtree(x + 1, yasurf, z, area, data)
-									data[vie] = c_watsour
-								elseif data[vie] == c_air
-								or data[vie] == c_apple
-								or data[vie] == c_leaves then
+								if data[vie] == c_air then
 									data[vie] = c_watsour
 								end
-								if data[viw] == c_tree then
-									highlandpools2_remtree(x - 1, yasurf, z, area, data)
-									data[viw] = c_watsour
-								elseif data[viw] == c_air
-								or data[viw] == c_apple
-								or data[viw] == c_leaves then
+								if data[viw] == c_air then
 									data[viw] = c_watsour
 								end
-								if data[vin] == c_tree then
-									highlandpools2_remtree(x, yasurf, z + 1, area, data)
-									data[vin] = c_watsour
-								elseif data[vin] == c_air
-								or data[vin] == c_apple
-								or data[vin] == c_leaves then
+								if data[vin] == c_air then
 									data[vin] = c_watsour
 								end
-								if data[vis] == c_tree then
-									highlandpools2_remtree(x, yasurf, z - 1, area, data)
-									data[vis] = c_watsour
-								elseif data[vis] == c_air
-								or data[vis] == c_apple
-								or data[vis] == c_leaves then
+								if data[vis] == c_air then
 									data[vis] = c_watsour
 								end
 							end
@@ -234,8 +156,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							local viu = area:index(x, y, z)
 							if data[viu] == c_air then
 								data[viu] = c_watsour
-							elseif data[viu] == c_grass then
-								data[viu] = c_dirt
+							elseif data[viu] == c_tuff then
+								data[viu] = c_gravel
 								break
 							else
 								break
