@@ -287,8 +287,8 @@ minetest.after(2.5, function()
 				-- heal player by 1 hp if not dead and saturation is > 15 (of 30)
 				if h > 15 and hp > 0 and hud.air[name] > 0 then
 					player:set_hp(hp+1)
-				-- or damage player by 1 hp if saturation is < 2 (of 30)
-				elseif h <= 1 and minetest.setting_getbool("enable_damage") then
+				-- or damage player by 1 hp if saturation is 0 (of 30)
+				elseif h == 0 and minetest.setting_getbool("enable_damage") then
 					if hp-1 >= 0 then player:set_hp(hp-1) end
 				end
 			 end
