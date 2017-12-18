@@ -185,7 +185,7 @@ minetest.register_craft({
 
 
 doors.register_trapdoor("doors:trapdoor", {
-	description = "Wooden Trapdoor",
+	description = "Oak Wood Trapdoor",
 	inventory_image = "doors_trapdoor.png",
 	wield_image = "doors_trapdoor.png",
 	tile_front = "doors_trapdoor.png",
@@ -199,11 +199,51 @@ doors.register_trapdoor("doors:trapdoor", {
 minetest.register_craft({
 	output = 'doors:trapdoor 2',
 	recipe = {
-		{'group:wood', 'group:wood', 'group:wood'},
-		{'group:wood', 'group:wood', 'group:wood'},
-		{'', '', ''},
+		{'default:wood', 'default:wood', 'default:wood'},
+		{'default:wood', 'default:wood', 'default:wood'},
 	}
 })
+
+doors.register_trapdoor("doors:trapdoor_jungle", {
+	description = "Jungle Wood Trapdoor",
+	inventory_image = "doors_trapdoor_jungle.png",
+	wield_image = "doors_trapdoor_jungle.png",
+	tile_front = "doors_trapdoor_jungle.png",
+	tile_side = "doors_trapdoor_jungle_side.png",
+	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	sounds = default.node_sound_wood_defaults(),
+	sound_open = "doors_door_open",
+	sound_close = "doors_door_close"
+})
+
+minetest.register_craft({
+	output = 'doors:trapdoor_jungle 2',
+	recipe = {
+		{'default:junglewood', 'default:junglewood', 'default:junglewood'},
+		{'default:junglewood', 'default:junglewood', 'default:junglewood'},
+	}
+})
+
+doors.register_trapdoor("doors:trapdoor_pale", {
+	description = "Pale Wood Trapdoor",
+	inventory_image = "doors_trapdoor_pale.png",
+	wield_image = "doors_trapdoor_pale.png",
+	tile_front = "doors_trapdoor_pale.png",
+	tile_side = "doors_trapdoor_pale_side.png",
+	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	sounds = default.node_sound_wood_defaults(),
+	sound_open = "doors_door_open",
+	sound_close = "doors_door_close"
+})
+
+minetest.register_craft({
+	output = 'doors:trapdoor_pale 2',
+	recipe = {
+		{'default:palewood', 'default:palewood', 'default:palewood'},
+		{'default:palewood', 'default:palewood', 'default:palewood'},
+	}
+})
+
 
 doors.register_trapdoor("doors:trapdoor_steel", {
 	description = "Steel Trapdoor",
@@ -252,6 +292,16 @@ doors.register_fencegate("doors:gate_palewood", {
 minetest.register_craft({
 	type = "fuel",
 	recipe = "doors:trapdoor",
+	burntime = 7,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "doors:trapdoor_jungle",
+	burntime = 7,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "doors:trapdoor_pale",
 	burntime = 7,
 })
 minetest.register_craft({
