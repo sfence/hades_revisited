@@ -9,15 +9,15 @@ License: GPLv3
 ]]--
 
 
--- get_formspec
-local get_formspec = function(player,page)
+local bags_page = {}
+
+local get_formspec = function(player, page)
 	if page=="bags" then
 		local name = player:get_player_name()
 		return "size[8,7.5]"
 		    ..default.gui_bg_img
 			..default.gui_slots
 			.."list[current_player;main;0,3.5;8,4;]"
-			.."button[0,0;2,0.5;main;Back]"
 			.."button[0,2.2;2,0.5;bag1;Bag 1]"
 			.."button[2,2.2;2,0.5;bag2;Bag 2]"
 			.."button[4,2.2;2,0.5;bag3;Bag 3]"
@@ -36,43 +36,59 @@ local get_formspec = function(player,page)
 			.."listring[detached:"..name.."_bags;bag4]"
 			.."listring[current_player;main]"
 	end
-	for i=1,4 do
-		if page=="bag"..i then
-			local image = player:get_inventory():get_stack("bag"..i, 1):get_definition().inventory_image
+	for b=1,4 do
+		if page=="bag"..b then
+			local image = player:get_inventory():get_stack("bag"..b, 1):get_definition().inventory_image
 			return "size[8,8.5]"
 				..default.gui_bg_img
 				..default.gui_slots
 				.."list[current_player;main;0,4.5;8,4;]"
 				.."button[0,0;2,0.5;main;Main]"
-				.."button[2,0;2,0.5;bags;Bags]"
+				.."label[3,0;"..string.format("Bag %d", b).."]"
 				.."image[7,0;1,1;"..image.."]"
-				.."list[current_player;bag"..i.."contents;0,1;8,3;]"
+				.."list[current_player;bag"..b.."contents;0,1;8,3;]"
 				.."listring[]"
 		end
 	end
 end
 
--- register_on_player_receive_fields
-minetest.register_on_player_receive_fields(function(player, formname, fields)
-	if fields.bags then
-		inventory_plus.set_inventory_formspec(player, get_formspec(player,"bags"))
-		return
-	end
-	for i=1,4 do
-		local page = "bag"..i
-		if fields[page] then
-			if player:get_inventory():get_stack(page, 1):get_definition().groups.bagslots==nil then
-				page = "bags"
-			end
-			inventory_plus.set_inventory_formspec(player, get_formspec(player,page))
-			return
+sfinv.register_page("bags:bags", {
+	title = "Bags",
+	is_in_nav = function(self, player, context)
+		return true
+	end,
+	get = function(self, player, context)
+		local player_name = player:get_player_name()
+		local inv = player:get_inventory()
+		local page
+		if not bags_page[player_name] then
+			page = "bags"
+		else
+			page = bags_page[player_name]
 		end
-	end
-end)
+		return sfinv.make_formspec(player, context, get_formspec(player, page))
+	end,
+	on_player_receive_fields = function(self, player, context, fields)
+		local player_name = player:get_player_name()
+		local inv = player:get_inventory()
+		assert(inv)
+
+		if fields.main then
+			bags_page[player_name] = "bags"
+		else
+			for b=1, 4 do
+				if fields["bag"..b] and not inv:get_stack("bag"..b, 1):is_empty() then
+					bags_page[player_name] = "bag"..b
+					break
+				end
+			end
+		end
+		sfinv.set_player_inventory_formspec(player, context)
+	end,
+})
 
 -- register_on_joinplayer
 minetest.register_on_joinplayer(function(player)
-	inventory_plus.register_button(player,"bags","Bags")
 	local player_inv = player:get_inventory()
 	local bags_inv = minetest.create_detached_inventory(player:get_player_name().."_bags",{
 		on_put = function(inv, listname, index, stack, player)
@@ -106,6 +122,10 @@ minetest.register_on_joinplayer(function(player)
 		bags_inv:set_size(bag, 1)
 		bags_inv:set_stack(bag,1,player_inv:get_stack(bag,1))
 	end
+end)
+
+minetest.register_on_leaveplayer(function(player)
+	bags_page[player:get_player_name()] = nil
 end)
 
 -- register bag tools
