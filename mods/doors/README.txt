@@ -67,10 +67,10 @@ Fence gate models by sofar (CC-BY-SA-3.0)
 
 Authors of media (sounds)
 -------------------------
-Opening-Sound created by CGEffex (CC BY 3.0), modified by BlockMen
-  door_open.ogg
-Closing-Sound created by bennstir (CC BY 3.0)
-  door_close.ogg
+Opening sound created by CGEffex (CC BY 3.0), modified by BlockMen
+  door_door_open.ogg
+Closing sound created by bennstir (CC BY 3.0)
+  door_door_close.ogg
 fencegate_open.ogg:
   http://www.freesound.org/people/mhtaylor67/sounds/126041/ - (CC0 1.0)
 fencegate_close.ogg:
@@ -82,3 +82,9 @@ Steel door sounds open & close (CC-BY-3.0) by HazMatt
   doors_steel_door_close.ogg
 doors_glass_door_open.ogg, doors_glass_door_close.ogg:
   https://www.freesound.org/people/SkeetMasterFunk69/sounds/235546/ (CC0 1.0)
+mcl_fences_nether_brick_fence_gate_open.ogg, mcl_fences_nether_brick_fence_gate_close.ogg:
+  https://www.freesound.org/people/Slanesh/sounds/31770
+  CC BY 3.0 <https://creativecommons.org/licenses/by/3.0/>
+  By Freesound.org user Slanesh.
+
+Everything else is under the MIT License.

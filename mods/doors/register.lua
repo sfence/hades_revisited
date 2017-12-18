@@ -128,8 +128,8 @@ doors.register_door("doors:door_stone", {
 	tiles = {{name="doors_door_stone.png", backface_culling=true}},
 	only_placer_can_open = true,
 	sounds = default.node_sound_stone_defaults(),
-	sound_open = "doors_stone_door_open",
-	sound_close = "doors_stone_door_close",
+	sound_open = "mcl_fences_nether_brick_fence_gate_open",
+	sound_close = "mcl_fences_nether_brick_fence_gate_close",
 	sunlight = false,
 })
 
