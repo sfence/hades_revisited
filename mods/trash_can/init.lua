@@ -18,7 +18,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
                 }
         },
         on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 			meta:set_string("formspec",
 				"size[8,9]"..
 				"button[3,0;2,1;empty;Empty Trash]"..
@@ -32,7 +32,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 		inv:set_size("main", 8*4)
 	end,
         can_dig = function(pos,player)
-		local meta = minetest.env:get_meta(pos);
+		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
                 return inv:is_empty("main")
         end,
@@ -76,7 +76,7 @@ minetest.register_craft({
 
 local old_on_step = minetest.registered_entities["__builtin:item"].on_step
 minetest.registered_entities["__builtin:item"].on_step = function(self, dtime)
-    if minetest.env:get_node(self.object:getpos()).name == "trash_can:trash_can_wooden" then
+    if minetest.get_node(self.object:getpos()).name == "trash_can:trash_can_wooden" then
         self.object:remove()
         return
     end

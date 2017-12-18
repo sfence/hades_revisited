@@ -527,7 +527,7 @@ if pipeworks.enable_mese_sand_tube then
 				mese_sand_end_textures, mese_sand_short_texture,mese_sand_inv_texture,
 				{groups = {mese_sand_tube = 1},
 				 on_construct = function(pos)
-					 local meta = minetest.env:get_meta(pos)
+					 local meta = minetest.get_meta(pos)
 					 meta:set_int("dist", 0)
 					 meta:set_string("formspec",
 							 "size[2,1]"..
@@ -535,7 +535,7 @@ if pipeworks.enable_mese_sand_tube then
 					 meta:set_string("infotext", "Mese sand pneumatic tube")
 				 end,
 				 on_receive_fields = function(pos,formname,fields,sender)
-					 local meta = minetest.env:get_meta(pos)
+					 local meta = minetest.get_meta(pos)
 					 local dist
 					 _, dist = pcall(tonumber, fields.dist)
 					 if dist and 0 <= dist and dist <= 8 then meta:set_int("dist", dist) end
@@ -545,7 +545,7 @@ if pipeworks.enable_mese_sand_tube then
 	local function get_objects_with_square_radius(pos, rad)
 		rad = rad + .5;
 		local objs = {}
-		for _,object in ipairs(minetest.env:get_objects_inside_radius(pos, math.sqrt(3)*rad)) do
+		for _,object in ipairs(minetest.get_objects_inside_radius(pos, math.sqrt(3)*rad)) do
 			if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
 				local opos = object:getpos()
 				if pos.x - rad <= opos.x and opos.x <= pos.x + rad and pos.y - rad <= opos.y and opos.y <= pos.y + rad and pos.z - rad <= opos.z and opos.z <= pos.z + rad then
@@ -560,7 +560,7 @@ if pipeworks.enable_mese_sand_tube then
 			       interval = 1,
 			       chance = 1,
 			       action = function(pos, node, active_object_count, active_object_count_wider)
-				       for _,object in ipairs(get_objects_with_square_radius(pos, minetest.env:get_meta(pos):get_int("dist"))) do
+				       for _,object in ipairs(get_objects_with_square_radius(pos, minetest.get_meta(pos):get_int("dist"))) do
 					       if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
 						       if object:get_luaentity().itemstring ~= "" then
 							       local titem = pipeworks.tube_item(pos, object:get_luaentity().itemstring)

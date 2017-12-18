@@ -16,7 +16,6 @@
 -- use too much memory from the sandbox.
 -- You can add more functions to the environment
 -- (see where local env is defined)
--- Something nice to play is is appending minetest.env to it.
 
 -- global
 local handle_timer = {}
