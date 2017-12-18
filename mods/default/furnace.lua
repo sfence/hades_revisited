@@ -3,24 +3,30 @@
 -- Formspecs
 --
 
-local formspec_imgs = {
-	["default:furnace"] = { bg = "gui_furnace_bg.png", flame_bg = "default_furnace_fire_bg.png", flame_fg = "default_furnace_fire_fg.png" },
-	["default:pfurnace"] = { bg = "gui_pfurnace_bg.png", flame_bg = "default_pfurnace_fire_bg.png", flame_fg = "default_pfurnace_fire_fg.png" },
+local formspec_info = {
+	["default:furnace"] = {
+		bg = "gui_furnace_bg.png", flame_bg = "default_furnace_fire_bg.png", flame_fg = "default_furnace_fire_fg.png",
+		output_slots = "4.75,1.5;1,1"
+	},
+	["default:pfurnace"] = {
+		bg = "gui_pfurnace_bg.png", flame_bg = "default_pfurnace_fire_bg.png", flame_fg = "default_pfurnace_fire_fg.png",
+		output_slots = "4.75,0.96;2,2"
+	},
 }
 
 local function active_formspec(ftype, fuel_percent, item_percent)
 	return
 	"size[8,8.5]"..
 	default.gui_bg..
-	"background[-0.5,-0.65;9,10.35;"..formspec_imgs[ftype].bg.."]"..
+	"background[-0.5,-0.65;9,10.35;"..formspec_info[ftype].bg.."]"..
 	default.gui_slots..
 	"list[current_name;src;2.75,0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
-	"image[2.75,1.5;1,1;"..formspec_imgs[ftype].flame_bg.."^[lowpart:"..
-	(100-fuel_percent)..":"..formspec_imgs[ftype].flame_fg.."]"..
+	"image[2.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."^[lowpart:"..
+	(100-fuel_percent)..":"..formspec_info[ftype].flame_fg.."]"..
 	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
 	(item_percent)..":gui_furnace_arrow_fg.png^[transformR270]"..
-	"list[current_name;dst;4.75,0.96;2,2;]"..
+	"list[current_name;dst;"..formspec_info[ftype].output_slots..";]"..
 	"list[current_player;main;0,4.25;8,1;]"..
 	"list[current_player;main;0,5.5;8,3;8]"..
 	"listring[current_name;dst]"..
@@ -36,13 +42,13 @@ local function inactive_formspec(ftype)
 	return
 	"size[8,8.5]"..
 	default.gui_bg..
-	"background[-0.5,-0.65;9,10.35;"..formspec_imgs[ftype].bg.."]"..
+	"background[-0.5,-0.65;9,10.35;"..formspec_info[ftype].bg.."]"..
 	default.gui_slots..
 	"list[current_name;src;2.75,0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
-	"image[2.75,1.5;1,1;"..formspec_imgs[ftype].flame_bg.."]"..
+	"image[2.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."]"..
 	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
-	"list[current_name;dst;4.75,0.96;2,2;]"..
+	"list[current_name;dst;"..formspec_info[ftype].output_slots..";]"..
 	"list[current_player;main;0,4.25;8,1;]"..
 	"list[current_player;main;0,5.5;8,3;8]"..
 	"listring[current_name;dst]"..
@@ -115,8 +121,9 @@ local function swap_node(pos, name)
 end
 
 local furnace_types = {
-	["default:furnace"] = { "Furnace", "furnace", 1.0, 0.75 },
-	["default:pfurnace"] = { "Prism Furnace", "pfurnace", 1.0, 4.25 },
+	-- [id] = { description, texture, fuel time addition, initial burn time, output slots }
+	["default:furnace"] = { "Furnace", "furnace", 1.0, 0.75, 1 },
+	["default:pfurnace"] = { "Prism Furnace", "pfurnace", 1.0, 4.25, 4 },
 }
 local furnace_ids = {}
 for id, finfo in pairs(furnace_types) do
@@ -209,9 +216,9 @@ minetest.register_abm({
 		--
 		local inv = meta:get_inventory()
 		for listname, size in pairs({
-				src = 1,
-				fuel = 1,
-				dst = 4,
+			src = 1,
+			fuel = 1,
+			dst = furnace_types[id_normal][5],
 		}) do
 			if inv:get_size(listname) ~= size then
 				inv:set_size(listname, size)
