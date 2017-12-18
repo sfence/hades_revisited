@@ -458,7 +458,7 @@ mt.register_craft({
 mt.register_craft({
 	output = "craftguide:sign",
 	type = "shapeless",
-	recipe = {"default:sign_wall_wood"}
+	recipe = {"default:sign_wall"}
 })
 
 mt.register_craft({
