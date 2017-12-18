@@ -270,12 +270,18 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
-	nodenames = {"default:stone"},
-    neighbors = {"group:lava"},
+	nodenames = {"default:stone", "default:mossystone"},
+	neighbors = {"group:lava"},
 	interval = 25,
 	chance = 15,
 	action = function(pos, node)
-		minetest.set_node(pos, {name="default:desert_stone"})
+		local nn
+		if node.name == "default:mossystone" then
+			nn = "default:stone"
+		else
+			nn = "default:desert_stone"
+		end
+		minetest.set_node(pos, {name=nn})
 	end,
 })
 
@@ -297,12 +303,17 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
-	nodenames = {"default:tuff"},
-    neighbors = {"group:lava"},
+	nodenames = {"default:tuff", "default:mossytuff"},
+	neighbors = {"group:lava"},
 	interval = 25,
 	chance = 15,
 	action = function(pos, node)
-		minetest.set_node(pos, {name="default:tuff_baked"})
+		local nn = "default:tuff_baked"
+		if node.name == "default:mossytuff" then
+			minetest.set_node(pos, {name="default:tuff"})
+		else
+			minetest.set_node(pos, {name="default:tuff_baked"})
+		end
 	end,
 })
 
@@ -361,7 +372,7 @@ minetest.register_abm({
 --
 minetest.register_abm({
 	nodenames = {"default:cobble"},
-    neighbors = {"group:water"},
+	neighbors = {"group:water"},
 	interval = 500,
 	chance = 35,
 	action = function(pos, node)
@@ -383,8 +394,24 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	nodenames = {"default:cobble", "default:mossycobble"},
+	neighbors = {"group:lava"},
+	interval = 45,
+	chance = 15,
+	action = function(pos, node)
+		local nn
+		if node.name == "default:mossycobble" then
+			nn = "default:cobble"
+		else
+			nn = "default:cobble_baked"
+		end
+		minetest.set_node(pos, {name=nn})
+	end,
+})
+
+minetest.register_abm({
 	nodenames = {"default:mossycobble"},
-    neighbors = {"default:water_flowing"},
+	neighbors = {"default:water_flowing"},
 	interval = 500,
 	chance = 75,
 	action = function(pos, node)

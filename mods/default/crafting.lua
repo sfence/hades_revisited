@@ -947,6 +947,13 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "cooking",
+	cooktime = 15,
+	output = "default:desert_stone",
+	recipe = "default:cobble_baked",
+})
+
+minetest.register_craft({
+	type = "cooking",
 	cooktime = 10,
 	output = "default:cobble",
 	recipe = "default:mossycobble",
