@@ -22,7 +22,7 @@ minetest.register_node("default:mossystone", {
 })
 
 minetest.register_node("default:chondrit", {
-	description = "Chondrit",
+	description = "Chondrite",
 	tiles = {"default_chondrit.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1},
@@ -31,7 +31,7 @@ minetest.register_node("default:chondrit", {
 })
 
 minetest.register_node("default:chondrit_block", {
-	description = "Chondrit Block",
+	description = "Chondrite Block",
 	tiles = {"default_chondrit_block.png"},
 	is_ground_content = false,
 	groups = {cracky=2},
@@ -39,7 +39,7 @@ minetest.register_node("default:chondrit_block", {
 })
 
 minetest.register_node("default:chondrit_brick", {
-	description = "Chondrit Brick",
+	description = "Chondrite Brick",
 	tiles = {"default_chondrit_brick.png"},
 	groups = {cracky=2, stone=1},
 	is_ground_content = false,
@@ -129,7 +129,7 @@ minetest.register_node("default:marble_brick", {
 })
 
 minetest.register_node("default:essexit", {
-	description = "Essexit",
+	description = "Essexite",
 	tiles = {"default_essexit.png"},
 	is_ground_content = true,
 	groups = {cracky=1, stone=1},
@@ -138,7 +138,7 @@ minetest.register_node("default:essexit", {
 })
 
 minetest.register_node("default:essexit_block", {
-	description = "Essexit Block",
+	description = "Essexite Block",
 	tiles = {"default_essexit_block.png"},
 	is_ground_content = false,
 	groups = {cracky=2,},
@@ -146,7 +146,7 @@ minetest.register_node("default:essexit_block", {
 })
 
 minetest.register_node("default:essexit_brick", {
-	description = "Essexit Brick",
+	description = "Essexite Brick",
 	tiles = {"default_essexit_brick.png"},
 	groups = {cracky=1, stone=1},
 	sounds = default.node_sound_stone_defaults(),
@@ -178,7 +178,7 @@ minetest.register_node("default:obsidianbrick", {
 -- floors
 
 minetest.register_node("default:floor_chondrit_stone", {
-	description = "Chondrit/Stone Block",
+	description = "Chondrite/Stone Block",
 	tiles = {"default_floor_chondrit_stone.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=1},
@@ -186,7 +186,7 @@ minetest.register_node("default:floor_chondrit_stone", {
 })
 
 minetest.register_node("default:floor_chondrit_stone2", {
-	description = "Chondrit/Stone Tile",
+	description = "Chondrite/Stone Tile",
 	tiles = {
 		"default_floor_chondrit_stone2.png",
 		"default_floor_chondrit_stone2.png",
@@ -256,7 +256,7 @@ minetest.register_node("default:floor_bstone_sandstone2", {
 })
 
 minetest.register_node("default:floor_marble_essexit", {
-	description = "Marble/Essexit Tile",
+	description = "Marble/Essexite Tile",
 	tiles = {
 		"default_floor_marble_essexit.png",
 		"default_floor_marble_essexit.png",
@@ -270,7 +270,7 @@ minetest.register_node("default:floor_marble_essexit", {
 })
 
 minetest.register_node("default:floor_marble_essexit2", {
-	description = "Marble/Essexit Block",
+	description = "Marble/Essexite Block",
 	tiles = {
 		"default_floor_marble_essexit2.png",
 		"default_floor_marble_essexit2.png",
@@ -284,7 +284,7 @@ minetest.register_node("default:floor_marble_essexit2", {
 })
 
 minetest.register_node("default:floor_essexit_gold", {
-	description = "Golden Essexit Block",
+	description = "Golden Essexite Block",
 	tiles = {"default_floor_essexit_gold.png"},
 	is_ground_content = false,
 	groups = {cracky=2, stone=1},
@@ -292,7 +292,7 @@ minetest.register_node("default:floor_essexit_gold", {
 })
 
 minetest.register_node("default:floor_essexit_gold2", {
-	description = "Golden Essexit Tile",
+	description = "Golden Essexite Tile",
 	tiles = {"default_floor_essexit_gold2.png"},
 	is_ground_content = false,
 	groups = {cracky=2, stone=1},
