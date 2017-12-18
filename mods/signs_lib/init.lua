@@ -647,6 +647,7 @@ minetest.register_node(":default:sign_wall", {
 	description = S("Wooden Sign"),
 	inventory_image = "default_sign_wall.png",
 	wield_image = "default_sign_wall.png",
+	is_ground_content = false,
 	node_placement_prediction = "",
 	paramtype = "light",
 	sunlight_propagates = true,
@@ -677,6 +678,7 @@ minetest.register_node(":default:sign_wall", {
 minetest.register_node(":signs:sign_yard", {
     paramtype = "light",
 	sunlight_propagates = true,
+    is_ground_content = false,
     paramtype2 = "facedir",
     drawtype = "nodebox",
     node_box = signs_lib.yard_sign_model.nodebox,
@@ -706,6 +708,7 @@ minetest.register_node(":signs:sign_yard", {
 minetest.register_node(":signs:sign_hanging", {
     paramtype = "light",
 	sunlight_propagates = true,
+    is_ground_content = false,
     paramtype2 = "facedir",
     drawtype = "nodebox",
     node_box = signs_lib.hanging_sign_model.nodebox,
@@ -742,6 +745,7 @@ minetest.register_node(":signs:sign_hanging", {
 minetest.register_node(":signs:sign_post", {
     paramtype = "light",
 	sunlight_propagates = true,
+    is_ground_content = false,
     paramtype2 = "facedir",
     drawtype = "nodebox",
     node_box = signs_lib.sign_post_model.nodebox,
@@ -772,6 +776,7 @@ minetest.register_node(":locked_sign:sign_wall_locked", {
 	description = S("Locked Wooden Sign"),
 	inventory_image = "signs_locked_inv.png",
 	wield_image = "signs_locked_inv.png",
+	is_ground_content = false,
 	node_placement_prediction = "",
 	paramtype = "light",
 	sunlight_propagates = true,
@@ -828,6 +833,7 @@ for i, color in ipairs(sign_colors) do
 	minetest.register_node(":signs:sign_wall_"..color, {
 		description = sign_descs[i],
 		inventory_image = "signs_"..color.."_inv.png",
+		is_ground_content = false,
 		wield_image = "signs_"..color.."_inv.png",
 		node_placement_prediction = "",
 		paramtype = "light",
@@ -896,6 +902,7 @@ function signs_lib.register_fence_with_sign(fencename, fencewithsignname)
     def_sign = signs_lib.table_copy(def_sign)
     fences_with_sign[fencename] = fencewithsignname
 
+    def.is_ground_content = false
     def.on_place = function(itemstack, placer, pointed_thing, ...)
 		local node_above = minetest.get_node(pointed_thing.above)
 		local node_under = minetest.get_node(pointed_thing.under)
@@ -949,7 +956,8 @@ function signs_lib.register_fence_with_sign(fencename, fencewithsignname)
 	    node.name = fencename
 	    minetest.add_node(pos, node)
 	end
-    def_sign.drop = "default:sign_wall"
+	def_sign.drop = "default:sign_wall"
+	def_sign.is_ground_content = false
 	minetest.register_node(":"..fencename, def)
 	minetest.register_node(":"..fencewithsignname, def_sign)
 	table.insert(signs_lib.sign_node_list, fencewithsignname)

@@ -9,6 +9,7 @@ minetest.register_node("travelnet:travelnet", {
 
     drawtype = "nodebox",
     sunlight_propagates = true,
+    is_ground_content = false,
     paramtype = 'light',
     paramtype2 = "facedir",
 

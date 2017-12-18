@@ -33,7 +33,7 @@ minetest.register_node("default:chondrit", {
 minetest.register_node("default:chondrit_block", {
 	description = "Chondrit Block",
 	tiles = {"default_chondrit_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -42,6 +42,7 @@ minetest.register_node("default:chondrit_brick", {
 	description = "Chondrit Brick",
 	tiles = {"default_chondrit_brick.png"},
 	groups = {cracky=2, stone=1},
+	is_ground_content = false,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -57,7 +58,7 @@ minetest.register_node("default:tuff", {
 minetest.register_node("default:tuff_block", {
 	description = "Tuff Block",
 	tiles = {"default_tuff_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -81,7 +82,7 @@ minetest.register_node("default:tuff_baked", {
 minetest.register_node("default:tuff_baked_block", {
 	description = "Burned Tuff Block",
 	tiles = {"default_tuff_baked_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -115,7 +116,7 @@ minetest.register_node("default:marble", {
 minetest.register_node("default:marble_block", {
 	description = "Marble Block",
 	tiles = {"default_marble_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -139,7 +140,7 @@ minetest.register_node("default:essexit", {
 minetest.register_node("default:essexit_block", {
 	description = "Essexit Block",
 	tiles = {"default_essexit_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=2,},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -163,7 +164,7 @@ minetest.register_node("default:desert_stone", {
 minetest.register_node("default:desert_stone_block", {
 	description = "Burned Stone Block",
 	tiles = {"default_desert_stone_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -179,7 +180,7 @@ minetest.register_node("default:obsidianbrick", {
 minetest.register_node("default:floor_chondrit_stone", {
 	description = "Chondrit/Stone Block",
 	tiles = {"default_floor_chondrit_stone.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -193,7 +194,7 @@ minetest.register_node("default:floor_chondrit_stone2", {
 		"default_floor_chondrit_stone2.png",
 		"default_floor_chondrit_stone2.png^[transformFX",
 	},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -207,7 +208,7 @@ minetest.register_node("default:floor_bstone_stone", {
 		"default_floor_bstone_stone.png",
 		"default_floor_bstone_stone.png^[transformFX",
 	},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -221,7 +222,7 @@ minetest.register_node("default:floor_btuff_tuff", {
 		"default_floor_btuff_tuff.png",
 		"default_floor_btuff_tuff.png^[transformFX",
 	},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -235,7 +236,7 @@ minetest.register_node("default:floor_bstone_sandstone", {
 		"default_floor_bstone_sandstone.png",
 		"default_floor_bstone_sandstone.png^[transformR90",
 	},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -249,7 +250,7 @@ minetest.register_node("default:floor_bstone_sandstone2", {
 		"default_floor_bstone_sandstone2.png",
 		"default_floor_bstone_sandstone2.png^[transformR90",
 	},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -263,7 +264,7 @@ minetest.register_node("default:floor_marble_essexit", {
 		"default_floor_marble_essexit.png",
 		"default_floor_marble_essexit.png^[transformR90",
 	},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=2, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -277,7 +278,7 @@ minetest.register_node("default:floor_marble_essexit2", {
 		"default_floor_marble_essexit2.png",
 		"default_floor_marble_essexit2.png^[transformR90",
 	},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=2, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -285,7 +286,7 @@ minetest.register_node("default:floor_marble_essexit2", {
 minetest.register_node("default:floor_essexit_gold", {
 	description = "Golden Essexit Block",
 	tiles = {"default_floor_essexit_gold.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=2, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -293,7 +294,7 @@ minetest.register_node("default:floor_essexit_gold", {
 minetest.register_node("default:floor_essexit_gold2", {
 	description = "Golden Essexit Tile",
 	tiles = {"default_floor_essexit_gold2.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=2, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -489,7 +490,7 @@ minetest.register_node("default:sand", {
 minetest.register_node("default:sand_block", {
 	description = "Volcanic Ash Block",
 	tiles = {"default_sand_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {crumbly=3},
 	sounds = default.node_sound_sand_defaults(),
 })
@@ -517,7 +518,7 @@ minetest.register_node("default:gravel", {
 minetest.register_node("default:gravel_block", {
 	description = "Gravel Block",
 	tiles = {"default_gravel_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {crumbly=2},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.5},
@@ -539,7 +540,7 @@ minetest.register_node("default:gravel_volcanic", {
 minetest.register_node("default:gravel_volcanic_block", {
 	description = "Volcanic Gravel Block",
 	tiles = {"default_gravel_volcanic_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {crumbly=2},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.5},
@@ -560,7 +561,7 @@ minetest.register_node("default:sandstone", {
 minetest.register_node("default:sandstonebrick", {
 	description = "Sandstone Brick",
 	tiles = {"default_sandstone_brick.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -619,7 +620,7 @@ minetest.register_node("default:brick_cyan", {
 })
 
 minetest.register_node("default:brick_dark_green", {
-	description = "Darkgreen Brick Block",
+	description = "Dark Green Brick Block",
 	tiles = {"default_brick_dark_green.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
@@ -627,7 +628,7 @@ minetest.register_node("default:brick_dark_green", {
 })
 
 minetest.register_node("default:brick_dark_grey", {
-	description = "Darkgrey Brick Block",
+	description = "Dark Grey Brick Block",
 	tiles = {"default_brick_dark_grey.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
@@ -1097,7 +1098,7 @@ minetest.register_node("default:fence_wood_cyan", {
 })
 
 minetest.register_node("default:fence_wood_dark_green", {
-	description = "Darkgreen Wooden Fence",
+	description = "Dark Green Wooden Fence",
 	drawtype = "fencelike",
 	tiles = {"default_colwood_dark_green.png"},
 	inventory_image = "default_fence_dark_green.png",
@@ -1999,7 +2000,7 @@ minetest.register_node("default:cobble_block_baked", {
 minetest.register_node("default:mossycobble", {
 	description = "Mossy Cobblestone",
 	tiles = {"default_mossycobble.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -2122,7 +2123,7 @@ minetest.register_node("default:obsidian", {
 minetest.register_node("default:obsidian_block", {
 	description = "Obsidian Block",
 	tiles = {"default_obsidian_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	sounds = default.node_sound_stone_defaults(),
 	groups = {cracky=2},
 })
@@ -2302,7 +2303,7 @@ minetest.register_node("default:snag", {
 	tiles = {"default_tree.png", "default_tree.png", "default_tree.png"},
                       paramtype = "light",
 	-- paramtype2 = "facedir",
-	is_ground_content = false,
+	is_ground_content = true,
                      drawtype = "nodebox",
                       node_box = {
 		type = "fixed",

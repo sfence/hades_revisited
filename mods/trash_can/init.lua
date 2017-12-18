@@ -6,6 +6,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 	description = "Trash Can",
 	drawtype="nodebox",
 	paramtype = "light",
+	is_ground_content = false,
 	node_box = {
 		type = "fixed",
 		fixed = {

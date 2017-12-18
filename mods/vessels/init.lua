@@ -9,6 +9,7 @@ minetest.register_node("vessels:glass_bottle", {
 	wield_image = "vessels_glass_bottle.png",
 	paramtype = "light",
 	walkable = false,
+	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
@@ -34,6 +35,7 @@ minetest.register_node("vessels:drinking_glass", {
 	wield_image = "vessels_drinking_glass.png",
 	paramtype = "light",
 	walkable = false,
+	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
@@ -59,6 +61,7 @@ minetest.register_node("vessels:steel_bottle", {
 	wield_image = "vessels_steel_bottle.png",
 	paramtype = "light",
 	walkable = false,
+	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}

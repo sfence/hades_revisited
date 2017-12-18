@@ -35,7 +35,7 @@ minetest.register_node("columnia:column_mid_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -88,7 +88,7 @@ minetest.register_node("columnia:column_top_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -143,7 +143,7 @@ minetest.register_node("columnia:column_bottom_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -198,7 +198,7 @@ minetest.register_node("columnia:column_crosslink_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -254,7 +254,7 @@ minetest.register_node("columnia:column_link_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -307,7 +307,7 @@ minetest.register_node("columnia:column_linkdown_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -363,7 +363,7 @@ minetest.register_node("columnia:column_linkcross_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -417,7 +417,7 @@ minetest.register_node("columnia:column_linkcrossdown_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -474,7 +474,7 @@ minetest.register_node("columnia:column_linkvertical_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -531,7 +531,7 @@ minetest.register_node("columnia:column_linkangle_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -585,7 +585,7 @@ minetest.register_node("columnia:column_linkangle_down_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -642,7 +642,7 @@ minetest.register_node("columnia:column_linktee_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -696,7 +696,7 @@ minetest.register_node("columnia:column_linktee_down_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -753,7 +753,7 @@ minetest.register_node("columnia:column_stairsub_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	--sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",
@@ -821,7 +821,7 @@ minetest.register_node("columnia:column_stairsubpillar_"..mat, {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	--sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = groups,
 	node_box = {
 		type = "fixed",

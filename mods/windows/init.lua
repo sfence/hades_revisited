@@ -14,6 +14,7 @@ minetest.register_node("windows:windows_wood", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -48,6 +49,7 @@ minetest.register_node("windows:windows_jwood", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -81,6 +83,7 @@ minetest.register_node("windows:windows_palewood", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -117,6 +120,7 @@ minetest.register_node("windows:windows_obsidian", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 	node_box = {
 		type = "fixed",
@@ -152,6 +156,7 @@ minetest.register_node("windows:windows_wood_white", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -183,6 +188,7 @@ minetest.register_node("windows:windows_wood_black", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -214,6 +220,7 @@ minetest.register_node("windows:windows_wood_blue", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -245,6 +252,7 @@ minetest.register_node("windows:windows_wood_brown", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -276,6 +284,7 @@ minetest.register_node("windows:windows_wood_grey", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -307,6 +316,7 @@ minetest.register_node("windows:windows_wood_darkgrey", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -338,6 +348,7 @@ minetest.register_node("windows:windows_wood_darkgreen", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -369,6 +380,7 @@ minetest.register_node("windows:windows_wood_green", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -400,6 +412,7 @@ minetest.register_node("windows:windows_wood_violet", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -431,6 +444,7 @@ minetest.register_node("windows:windows_wood_cyan", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -462,6 +476,7 @@ minetest.register_node("windows:windows_wood_yellow", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -493,6 +508,7 @@ minetest.register_node("windows:windows_wood_orange", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -524,6 +540,7 @@ minetest.register_node("windows:windows_wood_red", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -555,6 +572,7 @@ minetest.register_node("windows:windows_wood_magenta", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -586,6 +604,7 @@ minetest.register_node("windows:windows_wood_pink", {
 	sunlight_propagates = true,
 	use_texture_alpha = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
 		type = "fixed",
@@ -618,6 +637,7 @@ minetest.register_node("windows:paperwall", {
 		"windows_windows_jwood_seam.png", "windows_paperwall_front.png", "windows_paperwall_front.png"},
 	sunlight_propagates = true,
 	walkable = true,
+	is_ground_content = false,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 	node_box = {
 		type = "fixed",

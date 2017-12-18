@@ -43,7 +43,7 @@ minetest.register_node("travelnet:elevator", {
 
     groups = {cracky=1,choppy=1,snappy=1},
 
-
+    is_ground_content = false,
     light_source = 10,
 
     after_place_node  = function(pos, placer, itemstack)
@@ -104,6 +104,7 @@ minetest.register_node("travelnet:elevator_top", {
     paramtype = 'light',
     paramtype2 = "facedir",
 
+    is_ground_content = false,
     selection_box = {
                 type = "fixed",
                 fixed = { 0, 0, 0,  0, 0, 0 }
