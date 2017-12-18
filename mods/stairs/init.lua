@@ -213,71 +213,6 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 	})
 end
 
--- Node will be called stairs:stair_column_<subname>
-function stairs.register_stair_column(subname, recipeitem, groups, images, description, sounds)
-	minetest.register_node(":stairs:stair_column_" .. subname, {
-		description = description,
-		drawtype = "nodebox",
-		tiles = images,
-		paramtype = "light",
-		paramtype2 = "facedir",
-		is_ground_content = true,
-		groups = groups,
-		sounds = sounds,
-		node_box = {
-			type = "fixed",
-			fixed = {
-			   {-0.5, -0.5, 0, 0, 0.5, 0.5},
-		    },
-		},
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				return itemstack
-			end
-
-			local p0 = pointed_thing.under
-			local p1 = pointed_thing.above
-			local param2 = 0
-
-			local placer_pos = placer:getpos()
-			if placer_pos then
-				local dir = {
-					x = p1.x - placer_pos.x,
-					y = p1.y - placer_pos.y,
-					z = p1.z - placer_pos.z
-				}
-				param2 = minetest.dir_to_facedir(dir)
-			end
-
-			if p0.y-1 == p1.y then
-				param2 = param2 + 20
-				if param2 == 21 then
-					param2 = 23
-				elseif param2 == 23 then
-					param2 = 21
-				end
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
-		end,
-	})
-
-	-- for replace ABM
-	minetest.register_node(":stairs:stair_column_" .. subname.."upside_down", {
-		replace_name = "stairs:stair_column_" .. subname,
-		groups = {slabs_replace=1},
-	})
-
-	minetest.register_craft({
-		output = 'stairs:stair_column_' .. subname .. ' 3',
-		recipe = {
-			{recipeitem, "", ""},
-			{recipeitem, "", ""},
-			{recipeitem, "", ""},
-		},
-	})
-end
-
 -- Node will be called stairs:slab_<subname>
 function stairs.register_slab(subname, recipeitem, groups, images, description, sounds)
 	minetest.register_node(":stairs:slab_" .. subname, {
@@ -406,11 +341,10 @@ minetest.register_abm({
 })
 
 -- Nodes will be called stairs:{stair,slab}_<subname>
-function stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_stair_column, desc_slab, sounds)
+function stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds)
 	stairs.register_stair(subname, recipeitem, groups, images, desc_stair, sounds)
 	stairs.register_stair_out(subname, recipeitem, groups, images, desc_stair_out, sounds)
 	stairs.register_stair_in(subname, recipeitem, groups, images, desc_stair_in, sounds)
-	stairs.register_stair_column(subname, recipeitem, groups, images, desc_stair_column, sounds)
 	stairs.register_slab(subname, recipeitem, groups, images, desc_slab, sounds)
 end
 
@@ -420,7 +354,6 @@ stairs.register_stair_and_slab("wood", "default:wood",
 		"Oak Wood Stair",
 		"Outer Oak Wood Stair",
 		"Inner Oak Wood Stair",
-		"Oak Wood Column",
 		"Oak Wood Slab",
 		default.node_sound_wood_defaults())
 
@@ -430,7 +363,6 @@ stairs.register_stair_and_slab("palewood", "default:palewood",
 		"Pale Wood Stair",
 		"Outer Pale Wood Stair",
 		"Inner Pale Wood Stair",
-		"Pale Wood Column",
 		"Pale Wood Slab",
 		default.node_sound_wood_defaults())		
 		
@@ -442,7 +374,6 @@ stairs.register_stair_and_slab("colwood_black", "default:colwood_black",
 		"Black Wood Stair",
 		"Outer Black Wood Stair",
 		"Inner Black Wood Stair",
-		"Black Wood Column",
 		"Black Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -452,7 +383,6 @@ stairs.register_stair_and_slab("colwood_blue", "default:colwood_blue",
 		"Blue Wood Stair",
 		"Outer Blue Wood Stair",
 		"Inner Blue Wood Stair",
-		"Blue Wood Column",
 		"Blue Wood Slab",
 		default.node_sound_wood_defaults())
 
@@ -462,7 +392,6 @@ stairs.register_stair_and_slab("colwood_brown", "default:colwood_brown",
 		"Brown Wood Stair",
 		"Outer Brown Wood Stair",
 		"Inner Brown Wood Stair",
-		"Brown Wood Column",
 		"Brown Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -472,7 +401,6 @@ stairs.register_stair_and_slab("colwood_cyan", "default:colwood_cyan",
 		"Cyan Wood Stair",
 		"Outer Cyan Wood Stair",
 		"Inner Cyan Wood Stair",
-		"Cyan Wood Column",
 		"Cyan Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -482,7 +410,6 @@ stairs.register_stair_and_slab("colwood_dark_green", "default:colwood_dark_green
 		"Dark Green Wood Stair",
 		"Outer Dark Green Wood Stair",
 		"Inner Dark Green Wood Stair",
-		"Dark Green Wood Column",
 		"Dark Green Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -492,7 +419,6 @@ stairs.register_stair_and_slab("colwood_dark_grey", "default:colwood_dark_grey",
 		"Dark Grey Wood Stair",
 		"Outer Dark Grey Wood Stair",
 		"Inner Dark Grey Wood Stair",
-		"Dark Grey Wood Column",
 		"Dark Grey Wood Slab",
 		default.node_sound_wood_defaults())	
 		
@@ -502,7 +428,6 @@ stairs.register_stair_and_slab("colwood_green", "default:colwood_green",
 		"Green Wood Stair",
 		"Outer Green Wood Stair",
 		"Inner Green Wood Stair",
-		"Green Wood Column",
 		"Green Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -512,7 +437,6 @@ stairs.register_stair_and_slab("colwood_grey", "default:colwood_grey",
 		"Grey Wood Stair",
 		"Outer Grey Wood Stair",
 		"Inner Grey Wood Stair",
-		"Grey Wood Column",
 		"Grey Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -522,7 +446,6 @@ stairs.register_stair_and_slab("colwood_magenta", "default:colwood_magenta",
 		"Magenta Wood Stair",
 		"Outer Magenta Wood Stair",
 		"Inner Magenta Wood Stair",
-		"Magenta Wood Column",
 		"Magenta Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -532,7 +455,6 @@ stairs.register_stair_and_slab("colwood_orange", "default:colwood_orange",
 		"Orange Wood Stair",
 		"Outer Orange Wood Stair",
 		"Inner Orange Wood Stair",
-		"Orange Wood Column",
 		"Orange Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -542,7 +464,6 @@ stairs.register_stair_and_slab("colwood_pink", "default:colwood_pink",
 		"Pink Wood Stair",
 		"Outer Pink Wood Stair",
 		"Inner Pink Wood Stair",
-		"Pink Wood Column",
 		"Pink Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -552,7 +473,6 @@ stairs.register_stair_and_slab("colwood_red", "default:colwood_red",
 		"Red Wood Stair",
 		"Outer Red Wood Stair",
 		"Inner Red Wood Stair",
-		"Red Wood Column",
 		"Red Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -562,7 +482,6 @@ stairs.register_stair_and_slab("colwood_violet", "default:colwood_violet",
 		"Violet Wood Stair",
 		"Outer Violet Wood Stair",
 		"Inner Violet Wood Stair",
-		"Violet Wood Column",
 		"Violet Wood Slab",
 		default.node_sound_wood_defaults())
 	
@@ -572,7 +491,6 @@ stairs.register_stair_and_slab("colwood_white", "default:colwood_white",
 		"White Wood Stair",
 		"Outer White Wood Stair",
 		"Inner White Wood Stair",
-		"White Wood Column",
 		"White Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -582,7 +500,6 @@ stairs.register_stair_and_slab("colwood_yellow", "default:colwood_yellow",
 		"Yellow Wood Stair",
 		"Outer Yellow Wood Stair",
 		"Inner Yellow Wood Stair",
-		"Yellow Wood Column",
 		"Yellow Wood Slab",
 		default.node_sound_wood_defaults())
 		
@@ -593,7 +510,6 @@ stairs.register_stair_and_slab("stone", "default:stone",
 		"Stone Stair",
 		"Outer Stone Stair",
 		"Inner Stone Stair",
-		"Stone Column",
 		"Stone Slab",
 		default.node_sound_stone_defaults())
 
@@ -603,7 +519,6 @@ stairs.register_stair_and_slab("desert_stonebrick", "default:desert_stonebrick",
 		"Burned Stone Brick Stair",
 		"Outer Burned Stone Brick Stair",
 		"Inner Burned Stone Brick Stair",
-		"Burned Stone Brick Column",
 		"Burned Stone Brick Slab",
 		default.node_sound_stone_defaults())	
 
@@ -613,7 +528,6 @@ stairs.register_stair_and_slab("desert_stone", "default:desert_stone",
 		"Burned Stone Stair",
 		"Outer Burned Stone Stair",
 		"Inner Burned Stone Stair",
-		"Burned Stone Column",
 		"Burned Stone Slab",
 		default.node_sound_stone_defaults())		
 		
@@ -623,7 +537,6 @@ stairs.register_stair_and_slab("cobble", "default:cobble",
 		"Cobblestone Stair",
 		"Outer Cobblestone Stair",
 		"Inner Cobblestone Stair",
-		"Cobblestone Column",
 		"Cobblestone Slab",
 		default.node_sound_stone_defaults())
 
@@ -633,7 +546,6 @@ stairs.register_stair_and_slab("cobble_baked", "default:cobble_baked",
 		"Burned Cobblestone Stair",
 		"Outer Burned Cobblestone Stair",
 		"Inner Burned Cobblestone Stair",
-		"Burned Cobblestone Column",
 		"Burned Cobblestone Slab",
 		default.node_sound_stone_defaults())
 
@@ -643,7 +555,6 @@ stairs.register_stair_and_slab("brick", "default:brick",
 		"Uncolored Brick Stair",
 		"Outer Uncolored Brick Stair",
 		"Inner Uncolored Brick Stair",
-		"Uncolored Brick Column",
 		"Uncolored Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -655,7 +566,6 @@ stairs.register_stair_and_slab("brick_black", "default:brick_black",
 		"Black Brick Stair",
 		"Outer Black Brick Stair",
 		"Inner Black Brick Stair",
-		"Black Brick Column",
 		"Black Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -665,7 +575,6 @@ stairs.register_stair_and_slab("brick_blue", "default:brick_blue",
 		"Blue Brick Stair",
 		"Outer Blue Brick Stair",
 		"Inner Blue Brick Stair",
-		"Blue Brick Column",
 		"Blue Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -675,7 +584,6 @@ stairs.register_stair_and_slab("brick_brown", "default:brick_brown",
 		"Brown Brick Stair",
 		"Outer Brown Brick Stair",
 		"Inner Brown Brick Stair",
-		"Brown Brick Column",
 		"Brown Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -685,7 +593,6 @@ stairs.register_stair_and_slab("brick_cyan", "default:brick_cyan",
 		"Cyan Brick Stair",
 		"Outer Cyan Brick Stair",
 		"Inner Cyan Brick Stair",
-		"Cyan Brick Column",
 		"Cyan Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -695,7 +602,6 @@ stairs.register_stair_and_slab("brick_dark_green", "default:brick_dark_green",
 		"Dark Green Brick Stair",
 		"Outer Dark Green Brick Stair",
 		"Inner Dark Green Brick Stair",
-		"Dark Green Brick Column",
 		"Dark Green Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -705,7 +611,6 @@ stairs.register_stair_and_slab("brick_dark_grey", "default:brick_dark_grey",
 		"Dark Grey Brick Stair",
 		"Outer Dark Grey Brick Stair",
 		"Inner Dark Grey Brick Stair",
-		"Dark Grey Brick Column",
 		"Dark Grey Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -715,7 +620,6 @@ stairs.register_stair_and_slab("brick_green", "default:brick_green",
 		"Green Brick Stair",
 		"Outer Green Brick Stair",
 		"Inner Green Brick Stair",
-		"Green Brick Column",
 		"Green Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -725,7 +629,6 @@ stairs.register_stair_and_slab("brick_grey", "default:brick_grey",
 		"Grey Brick Stair",
 		"Outer Grey Brick Stair",
 		"Inner Grey Brick Stair",
-		"Grey Brick Column",
 		"Grey Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -735,7 +638,6 @@ stairs.register_stair_and_slab("brick_magenta", "default:brick_magenta",
 		"Magenta Brick Stair",
 		"Outer Magenta Brick Stair",
 		"Inner Magenta Brick Stair",
-		"Magenta Brick Column",
 		"Magenta Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -745,7 +647,6 @@ stairs.register_stair_and_slab("brick_orange", "default:brick_orange",
 		"Orange Brick Stair",
 		"Outer Orange Brick Stair",
 		"Inner Orange Brick Stair",
-		"Orange Brick Column",
 		"Orange Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -755,7 +656,6 @@ stairs.register_stair_and_slab("brick_pink", "default:brick_pink",
 		"Pink Brick Stair",
 		"Outer Pink Brick Stair",
 		"Inner Pink Brick Stair",
-		"Pink Brick Column",
 		"Pink Brick Slab",
 		default.node_sound_stone_defaults())
 
@@ -765,7 +665,6 @@ stairs.register_stair_and_slab("brick_red", "default:brick_red",
 		"Red Brick Stair",
 		"Outer Red Brick Stair",
 		"Inner Red Brick Stair",
-		"Red Brick Column",
 		"Red Brick Slab",
 		default.node_sound_stone_defaults())		
 
@@ -775,7 +674,6 @@ stairs.register_stair_and_slab("brick_violet", "default:brick_violet",
 		"Violet Brick Stair",
 		"Outer Violet Brick Stair",
 		"Inner Violet Brick Stair",
-		"Violet Brick Column",
 		"Violet Brick Slab",
 		default.node_sound_stone_defaults())
 
@@ -785,7 +683,6 @@ stairs.register_stair_and_slab("brick_white", "default:brick_white",
 		"White Brick Stair",
 		"Outer White Brick Stair",
 		"Inner White Brick Stair",
-		"White Brick Column",
 		"White Brick Slab",
 		default.node_sound_stone_defaults())
 
@@ -795,7 +692,6 @@ stairs.register_stair_and_slab("brick_yellow", "default:brick_yellow",
 		"Yellow Brick Stair",
 		"Outer Yellow Brick Stair",
 		"Inner Yellow Brick Stair",
-		"Yellow Brick Column",
 		"Yellow Brick Slab",
 		default.node_sound_stone_defaults())		
 		
@@ -806,7 +702,6 @@ stairs.register_stair_and_slab("sandstone", "default:sandstone",
 		"Sandstone Stair",
 		"Outer Sandstone Stair",
 		"Inner Sandstone Stair",
-		"Sandstone Column",
 		"Sandstone Slab",
 		default.node_sound_stone_defaults())
 		
@@ -816,7 +711,6 @@ stairs.register_stair_and_slab("sandstonebrick", "default:sandstonebrick",
 		"Sandstone Brick Stair",
 		"Outer Sandstone Brick Stair",
 		"Inner Sandstone Brick Stair",
-		"Sandstone Brick Column",
 		"Sandstone Brick Slab",
 		default.node_sound_stone_defaults())
 
@@ -826,7 +720,6 @@ stairs.register_stair_and_slab("junglewood", "default:junglewood",
 		"Jungle Wood Stair",
 		"Outer Jungle Wood Stair",
 		"Innter Jungle Wood Stair",
-		"Jungle Wood Column",
 		"Jungle Wood Slab",
 		default.node_sound_wood_defaults())
 
@@ -836,7 +729,6 @@ stairs.register_stair_and_slab("stonebrick", "default:stonebrick",
 		"Stone Brick Stair",
 		"Outer Stone Brick Stair",
 		"Inner Stone Brick Stair",
-		"Stone Brick Column",
 		"Stone Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -846,7 +738,6 @@ stairs.register_stair_and_slab("chondrit_brick", "default:chondrit_brick",
 		"Chondrit Brick Stair",
 		"Outer Chondrit Brick Stair",
 		"Inner Chondrit Brick Stair",
-		"Chondrit Brick Column",
 		"Chondrit Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -856,7 +747,6 @@ stairs.register_stair_and_slab("chondrit", "default:chondrit",
 		"Chondrit Stair",
 		"Outer Chondrit Stair",
 		"Inner Chondrit Stair",
-		"Chondrit Column",
 		"Chondrit Slab",
 		default.node_sound_stone_defaults())
 
@@ -866,7 +756,6 @@ stairs.register_stair_and_slab("marble_brick", "default:marble_brick",
 		"Marble Brick Stair",
 		"Outer Marble Brick Stair",
 		"Inner Marble Brick Stair",
-		"Marble Brick Column",
 		"Marble Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -876,7 +765,6 @@ stairs.register_stair_and_slab("marble", "default:marble",
 		"Marble Stair",
 		"Outer Marble Stair",
 		"Inner Marble Stair",
-		"Marble Column",
 		"Marble Slab",
 		default.node_sound_stone_defaults())
 		
@@ -886,7 +774,6 @@ stairs.register_stair_and_slab("tuff_brick", "default:tuff_brick",
 		"Tuff Brick Stair",
 		"Outer Tuff Brick Stair",
 		"Inner Tuff Brick Stair",
-		"Tuff Brick Column",
 		"Tuff Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -896,7 +783,6 @@ stairs.register_stair_and_slab("tuff", "default:tuff",
 		"Tuff Stair",
 		"Outer Tuff Stair",
 		"Inner Tuff Stair",
-		"Tuff Column",
 		"Tuff Slab",
 		default.node_sound_stone_defaults())
 		
@@ -906,7 +792,6 @@ stairs.register_stair_and_slab("tuff_baked_brick", "default:tuff_baked_brick",
 		"Burned Tuff Brick Stair",
 		"Outer Burned Tuff Brick Stair",
 		"Inner Burned Tuff Brick Stair",
-		"Burned Tuff Brick Column",
 		"Burned Tuff Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -916,7 +801,6 @@ stairs.register_stair_and_slab("tuff_baked", "default:tuff_baked",
 		"Burned Tuff Stair",
 		"Outer Burned Tuff Stair",
 		"Inner Burned Tuff Stair",
-		"Burned Tuff Column",
 		"Burned Tuff Slab",
 		default.node_sound_stone_defaults())
 		
@@ -926,7 +810,6 @@ stairs.register_stair_and_slab("essexit_brick", "default:essexit_brick",
 		"Essexit Brick Stair",
 		"Outer Essexit Brick Stair",
 		"Inner Essexit Brick Stair",
-		"Essexit Brick Column",
 		"Essexit Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -936,7 +819,6 @@ stairs.register_stair_and_slab("essexit", "default:essexit",
 		"Essexit Stair",
 		"Outer Essexit Stair",
 		"Inner Essexit Stair",
-		"Essexit Column",
 		"Essexit Slab",
 		default.node_sound_stone_defaults())
 		
@@ -946,7 +828,6 @@ stairs.register_stair_and_slab("rusty_block", "columnia:rusty_block",
 		"Rusty Stair",
 		"Outer Rusty Stair",
 		"Inner Rusty Stair",
-		"Rusty Column",
 		"Rusty Slab",
 		default.node_sound_metal_defaults())
 		
@@ -956,7 +837,6 @@ stairs.register_stair_and_slab("cactus_brick", "default:cactus_brick",
 		"Cactus Brick Stair",
 		"Outer Cactus Brick Stair",
 		"Inner Cactus Brick Stair",
-		"Cactus Brick Column",
 		"Cactus Brick Slab",
 		default.node_sound_wood_defaults())	
 		
@@ -966,7 +846,6 @@ stairs.register_stair_and_slab("obsidianbrick", "default:obsidianbrick",
 		"Obsidian Brick Stair",
 		"Outer Obsidian Brick Stair",
 		"Inner Obsidian Brick Stair",
-		"Obsidian Brick Column",
 		"Obsidian Brick Slab",
 		default.node_sound_stone_defaults())
 		
@@ -976,7 +855,6 @@ stairs.register_stair_and_slab("straw", "farming:straw",
 		"Straw Stair",
 		"Outer Straw Stair",
 		"Inner Straw Stair",
-		"Straw Column",
 		"Straw Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -988,7 +866,6 @@ stairs.register_stair_and_slab("white", "wool:white",
 		"White Wool Stair",
 		"Outer White Wool Stair",
 		"Inner White Wool Stair",
-		"White Wool Column",
 		"White Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -998,7 +875,6 @@ stairs.register_stair_and_slab("grey", "wool:grey",
 		"Grey Wool Stair",
 		"Outer Grey Wool Stair",
 		"Inner Grey Wool Stair",
-		"Grey Wool Column",
 		"Grey Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1008,7 +884,6 @@ stairs.register_stair_and_slab("black", "wool:black",
 		"Black Wool Stair",
 		"Outer Black Wool Stair",
 		"Inner Black Wool Stair",
-		"Black Wool Column",
 		"Black Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1018,7 +893,6 @@ stairs.register_stair_and_slab("red", "wool:red",
 		"Red Wool Stair",
 		"Outer Red Wool Stair",
 		"Inner Red Wool Stair",
-		"Red Wool Column",
 		"Red Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1028,7 +902,6 @@ stairs.register_stair_and_slab("yellow", "wool:yellow",
 		"Yellow Wool Stair",
 		"Outer Yellow Wool Stair",
 		"Inner Yellow Wool Stair",
-		"Yellow Wool Column",
 		"Yellow Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1038,7 +911,6 @@ stairs.register_stair_and_slab("green", "wool:green",
 		"Green Wool Stair",
 		"Outer Green Wool Stair",
 		"Inner Green Wool Stair",
-		"Green Wool Column",
 		"Green Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1048,7 +920,6 @@ stairs.register_stair_and_slab("cyan", "wool:cyan",
 		"Cyan Wool Stair",
 		"Outer Cyan Wool Stair",
 		"Inner Cyan Wool Stair",
-		"Cyan Wool Column",
 		"Cyan Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1058,7 +929,6 @@ stairs.register_stair_and_slab("blue", "wool:blue",
 		"Blue Wool Stair",
 		"Outer Blue Wool Stair",
 		"Inner Blue Wool Stair",
-		"Blue Wool Column",
 		"Blue Wool Slab",
 		default.node_sound_leaves_defaults())
 
@@ -1068,7 +938,6 @@ stairs.register_stair_and_slab("magenta", "wool:magenta",
 		"Magenta Wool Stair",
 		"Outer Magenta Wool Stair",
 		"Inner Magenta Wool Stair",
-		"Magenta Wool Column",
 		"Magenta Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1078,7 +947,6 @@ stairs.register_stair_and_slab("orange", "wool:orange",
 		"Orange Wool Stair",
 		"Outer Orange Wool Stair",
 		"Inner Orange Wool Stair",
-		"Orange Wool Column",
 		"Orange Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1088,7 +956,6 @@ stairs.register_stair_and_slab("violet", "wool:violet",
 		"Violet Wool Stair",
 		"Outer Violet Wool Stair",
 		"Inner Violet Wool Stair",
-		"Violet Wool Column",
 		"Violet Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1098,7 +965,6 @@ stairs.register_stair_and_slab("brown", "wool:brown",
 		"Brown Wool Stair",
 		"Outer Brown Wool Stair",
 		"Inner Brown Wool Stair",
-		"Brown Wool Column",
 		"Brown Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1108,7 +974,6 @@ stairs.register_stair_and_slab("pink", "wool:pink",
 		"Pink Wool Stair",
 		"Outer Pink Wool Stair",
 		"Inner Pink Wool Stair",
-		"Pink Wool Column",
 		"Pink Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1118,7 +983,6 @@ stairs.register_stair_and_slab("dark_grey", "wool:dark_grey",
 		"Dark Grey Wool Stair",
 		"Outer Dark Grey Wool Stair",
 		"Inner Dark Grey Wool Stair",
-		"Dark Grey Wool Column",
 		"Dark Grey Wool Slab",
 		default.node_sound_leaves_defaults())
 		
@@ -1128,7 +992,6 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 		"Dark Green Wool Stair",
 		"Outer Dark Green Wool Stair",
 		"Inner Dark Green Wool Stair",
-		"Dark Green Wool Column",
 		"Dark Green Wool Slab",
 		default.node_sound_leaves_defaults())
 
@@ -1344,72 +1207,6 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 			{"glowcrystals:glowcrystal_block", "", ""},
 			{"glowcrystals:glowcrystal_block", "", ""},
 			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
-		},
-	})
-
-
--- Node will be called stairs:stair_column_<subname>
-	minetest.register_node("stairs:stair_column_glowcrystal_block", {
-		description = "Glowing Column",
-		drawtype = "nodebox",
-		tiles = {"glowcrystals_block_glowcrystal.png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		sunlight_propagates = true,
-	    light_source = 14,
-		is_ground_content = true,
-		groups = {crumbly=2,cracky=2, glowing=1},
-		sounds = default.node_sound_stone_defaults(),
-		node_box = {
-			type = "fixed",
-			fixed = {
-			   {-0.5, -0.5, 0, 0, 0.5, 0.5},
-		    },
-		},
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				return itemstack
-			end
-
-			local p0 = pointed_thing.under
-			local p1 = pointed_thing.above
-			local param2 = 0
-
-			local placer_pos = placer:getpos()
-			if placer_pos then
-				local dir = {
-					x = p1.x - placer_pos.x,
-					y = p1.y - placer_pos.y,
-					z = p1.z - placer_pos.z
-				}
-				param2 = minetest.dir_to_facedir(dir)
-			end
-
-			if p0.y-1 == p1.y then
-				param2 = param2 + 20
-				if param2 == 21 then
-					param2 = 23
-				elseif param2 == 23 then
-					param2 = 21
-				end
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
-		end,
-	})
-
-	-- for replace ABM
-	minetest.register_node("stairs:stair_column_glowcrystal_block_upside_down", {
-		replace_name = "stairs:stair_column_glowcrystal_block",
-		groups = {slabs_replace=1},
-	})
-
-	minetest.register_craft({
-		output = 'stairs:stair_column_glowcrystal_block 3',
-		recipe = {
-			{"glowcrystals:glowcrystal_block", "", ""},
-			{"glowcrystals:glowcrystal_block", "", ""},
-			{"glowcrystals:glowcrystal_block", "", ""},
 		},
 	})
 
