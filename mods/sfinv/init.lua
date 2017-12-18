@@ -10,6 +10,7 @@ sfinv.register_page("sfinv:crafting", {
 				listring[current_player;main]
 				listring[current_player;craft]
 				image_button[6.75,1.5;1,1;craftguide_book.png;__craftguide;]
+				tooltip[__craftguide;Crafting guide]
 			]], true)
 	end,
 })
