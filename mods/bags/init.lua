@@ -17,7 +17,8 @@ local get_formspec = function(player, page)
 		return "size[8,7.5]"
 		    ..default.gui_bg_img
 			..default.gui_slots
-			.."list[current_player;main;0,3.5;8,4;]"
+			.."list[current_player;main;0,4.7;8,1;]"
+			.."list[current_player;main;0,5.85;8,3;8]"
 			.."button[0,2.2;2,0.5;bag1;Bag 1]"
 			.."button[2,2.2;2,0.5;bag2;Bag 2]"
 			.."button[4,2.2;2,0.5;bag3;Bag 3]"
@@ -42,7 +43,8 @@ local get_formspec = function(player, page)
 			return "size[8,8.5]"
 				..default.gui_bg_img
 				..default.gui_slots
-				.."list[current_player;main;0,4.5;8,4;]"
+				.."list[current_player;main;0,4.7;8,1;]"
+				.."list[current_player;main;0,5.85;8,3;8]"
 				.."button[0,0;2,0.5;main;Main]"
 				.."label[3,0;"..string.format("Bag %d", b).."]"
 				.."image[7,0;1,1;"..image.."]"
