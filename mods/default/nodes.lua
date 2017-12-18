@@ -181,70 +181,104 @@ minetest.register_node("default:floor_chondrit_stone", {
 	tiles = {"default_floor_chondrit_stone.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
-	drop = 'default:floor_chondrit_stone',
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_chondrit_stone2", {
 	description = "Chondrit/Stone Tile",
-	tiles = {"default_floor_chondrit_stone2.png"},
+	tiles = {
+		"default_floor_chondrit_stone2.png",
+		"default_floor_chondrit_stone2.png",
+		"default_floor_chondrit_stone2.png",
+		"default_floor_chondrit_stone2.png",
+		"default_floor_chondrit_stone2.png^[transformR90",
+	},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
-	drop = 'default:floor_chondrit_stone2',
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_bstone_stone", {
 	description = "Burned Stone/Stone Tile",
-	tiles = {"default_floor_bstone_stone.png"},
+	tiles = {
+		"default_floor_bstone_stone.png",
+		"default_floor_bstone_stone.png",
+		"default_floor_bstone_stone.png",
+		"default_floor_bstone_stone.png",
+		"default_floor_bstone_stone.png^[transformR90",
+	},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
-	drop = 'default:floor_bstone_stone',
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_btuff_tuff", {
 	description = "Burned Tuff/Tuff Tile",
-	tiles = {"default_floor_btuff_tuff.png"},
+	tiles = {
+		"default_floor_btuff_tuff.png",
+		"default_floor_btuff_tuff.png",
+		"default_floor_btuff_tuff.png",
+		"default_floor_btuff_tuff.png",
+		"default_floor_btuff_tuff.png^[transformR90",
+	},
 	is_ground_content = true,
 	groups = {cracky=3},
-	drop = 'default:floor_btuff_tuff',
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_bstone_sandstone", {
 	description = "Burned Stone/Sandstone Block",
-	tiles = {"default_floor_bstone_sandstone.png"},
+	tiles = {
+		"default_floor_bstone_sandstone.png",
+		"default_floor_bstone_sandstone.png",
+		"default_floor_bstone_sandstone.png",
+		"default_floor_bstone_sandstone.png",
+		"default_floor_bstone_sandstone.png^[transformR90",
+	},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
-	drop = 'default:floor_bstone_sandstone',
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_bstone_sandstone2", {
 	description = "Burned Stone/Sandstone Tile",
-	tiles = {"default_floor_bstone_sandstone2.png"},
+	tiles = {
+		"default_floor_bstone_sandstone2.png",
+		"default_floor_bstone_sandstone2.png",
+		"default_floor_bstone_sandstone2.png",
+		"default_floor_bstone_sandstone2.png",
+		"default_floor_bstone_sandstone2.png^[transformR90",
+	},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
-	drop = 'default:floor_bstone_sandstone2',
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_marble_essexit", {
 	description = "Marble/Essexit Tile",
-	tiles = {"default_floor_marble_essexit.png"},
+	tiles = {
+		"default_floor_marble_essexit.png",
+		"default_floor_marble_essexit.png",
+		"default_floor_marble_essexit.png",
+		"default_floor_marble_essexit.png",
+		"default_floor_marble_essexit.png^[transformR90",
+	},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1},
-	drop = 'default:floor_marble_essexit',
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_marble_essexit2", {
 	description = "Marble/Essexit Block",
-	tiles = {"default_floor_marble_essexit2.png"},
+	tiles = {
+		"default_floor_marble_essexit2.png",
+		"default_floor_marble_essexit2.png",
+		"default_floor_marble_essexit2.png",
+		"default_floor_marble_essexit2.png",
+		"default_floor_marble_essexit2.png^[transformR90",
+	},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1},
-	drop = 'default:floor_marble_essexit2',
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -253,7 +287,6 @@ minetest.register_node("default:floor_essexit_gold", {
 	tiles = {"default_floor_essexit_gold.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1},
-	drop = 'default:floor_essexit_gold',
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -262,27 +295,44 @@ minetest.register_node("default:floor_essexit_gold2", {
 	tiles = {"default_floor_essexit_gold2.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1},
-	drop = 'default:floor_essexit_gold2',
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_wood_jungle", {
 	description = "Oak Wood/Jungle Wood Tile",
-	tiles = {"default_floor_wood_jungle.png"},
+	tiles = {
+		"default_floor_wood_jungle.png",
+		"default_floor_wood_jungle.png",
+		"default_floor_wood_jungle.png",
+		"default_floor_wood_jungle.png",
+		"default_floor_wood_jungle.png^[transformR90",
+	},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:floor_wood_pale", {
 	description = "Oak Wood/Pale Wood Tile",
-	tiles = {"default_floor_wood_pale.png"},
+	tiles = {
+		"default_floor_wood_pale.png",
+		"default_floor_wood_pale.png",
+		"default_floor_wood_pale.png",
+		"default_floor_wood_pale.png",
+		"default_floor_wood_pale.png^[transformR90",
+	},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_node("default:floor_pale_jungle", {
 	description = "Jungle Wood/Pale Wood Tile",
-	tiles = {"default_floor_pale_jungle.png"},
+	tiles = {
+		"default_floor_pale_jungle.png",
+		"default_floor_pale_jungle.png",
+		"default_floor_pale_jungle.png",
+		"default_floor_pale_jungle.png",
+		"default_floor_pale_jungle.png^[transformR90",
+	},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -1681,11 +1731,11 @@ minetest.register_node("default:latern", {
 	node_box = {
 		type = "fixed",
 		fixed = {
-	        {-0.25, -0.1875, -0.25, 0.25, 0.1875, 0.25}, 
-			{-0.1875, -0.25, -0.1875, 0.1875, 0.25, 0.1875}, 
-			{-0.125, -0.3125, -0.125, 0.125, 0.3125, 0.125}, 
-			{-0.0625, -0.5, -0.0625, 0.0625, 0.375, 0.0625}, 
-			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125}, 
+	        {-0.25, -0.1875, -0.25, 0.25, 0.1875, 0.25},
+			{-0.1875, -0.25, -0.1875, 0.1875, 0.25, 0.1875},
+			{-0.125, -0.3125, -0.125, 0.125, 0.3125, 0.125},
+			{-0.0625, -0.5, -0.0625, 0.0625, 0.375, 0.0625},
+			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125},
 		}
 	},
 	sounds = default.node_sound_glass_defaults(),
@@ -1711,11 +1761,11 @@ minetest.register_node("default:laternrusty", {
 	node_box = {
 		type = "fixed",
 		fixed = {
-	        {-0.25, -0.1875, -0.25, 0.25, 0.1875, 0.25}, 
-			{-0.1875, -0.25, -0.1875, 0.1875, 0.25, 0.1875}, 
-			{-0.125, -0.3125, -0.125, 0.125, 0.3125, 0.125}, 
-			{-0.0625, -0.5, -0.0625, 0.0625, 0.375, 0.0625}, 
-			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125}, 
+	        {-0.25, -0.1875, -0.25, 0.25, 0.1875, 0.25},
+			{-0.1875, -0.25, -0.1875, 0.1875, 0.25, 0.1875},
+			{-0.125, -0.3125, -0.125, 0.125, 0.3125, 0.125},
+			{-0.0625, -0.5, -0.0625, 0.0625, 0.375, 0.0625},
+			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125},
 		}
 	},
 	sounds = default.node_sound_glass_defaults(),
@@ -1763,7 +1813,7 @@ minetest.register_node("default:sign_wall", {
 })
 
 
-default.chest_formspec = 
+default.chest_formspec =
 	"size[8,9]"..
 	"list[current_name;main;0,0;8,4;]"..
 	"list[current_player;main;0,5;8,4;]"..
@@ -2260,10 +2310,10 @@ minetest.register_node("default:snag", {
 			{-0.03125, -0.5, -0.03125, 0.03125, -0.0625, 0.03125},
 			{0.03125, -0.15625, -0.03125, 0.09375, -0.09375, 0.03125},
 			{0.0625, -0.1875, -0.03125, 0.125, 0.0625, 0.03125},
-			{-0.09375, -0.21875, -0.03125, -0.03125, -0.15625, 0.03125}, 
-			{-0.15625, -0.25, -0.03125, -0.09375, -0.125, 0.03125}, 
+			{-0.09375, -0.21875, -0.03125, -0.03125, -0.15625, 0.03125},
+			{-0.15625, -0.25, -0.03125, -0.09375, -0.125, 0.03125},
 			{-0.03125, -0.34375, 0.03125, 0.03125, -0.28125, 0.09375},
-			{-0.03125, -0.46875, -0.09375, 0.03125, -0.40625, -0.03125}, 
+			{-0.03125, -0.46875, -0.09375, 0.03125, -0.40625, -0.03125},
 			{-0.03125, -0.375, 0.09375, 0.03125, -0.25, 0.15625},
 		}
 	},
