@@ -20,7 +20,7 @@ minetest.register_node("simple_bushes:green", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
+		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
 	},
 })
 
@@ -48,7 +48,7 @@ minetest.register_node("simple_bushes:white", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
+		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
 	},
 })
 
@@ -76,7 +76,7 @@ minetest.register_node("simple_bushes:yellow", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
+		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
 	},
 })
 
@@ -104,7 +104,7 @@ minetest.register_node("simple_bushes:blue", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
+		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
 	},
 })
 
@@ -132,7 +132,7 @@ minetest.register_node("simple_bushes:red", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
+		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
 	},
 })
 
@@ -160,7 +160,7 @@ minetest.register_node("simple_bushes:orange", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
+		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
 	},
 })
 
@@ -189,7 +189,7 @@ minetest.register_node("simple_bushes:violet", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
+		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
 	},
 })
 

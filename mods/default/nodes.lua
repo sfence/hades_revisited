@@ -801,7 +801,7 @@ minetest.register_node("default:junglegrass", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		fixed = {-7/16, -0.5, -7/16, 7/16, 0.9, 7/16},
 	},
 })
 
@@ -2138,7 +2138,7 @@ minetest.register_node("default:dry_shrub", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		fixed = {-6/16, -0.5, -6/16, 6/16, 4/16, 6/16},
 	},
 })
 
@@ -2158,7 +2158,7 @@ minetest.register_node("default:grass_1", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		fixed = {-6/16, -0.5, -6/16, 6/16, -5/16, 6/16},
 	},
 	on_place = function(itemstack, placer, pointed_thing)
 		-- place a random grass node
@@ -2184,7 +2184,7 @@ minetest.register_node("default:grass_2", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		fixed = {-6/16, -0.5, -6/16, 6/16, -3/16, 6/16},
 	},
 })
 minetest.register_node("default:grass_3", {
@@ -2202,7 +2202,7 @@ minetest.register_node("default:grass_3", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		fixed = {-6/16, -0.5, -6/16, 6/16, -3/16, 6/16},
 	},
 })
 
@@ -2222,7 +2222,7 @@ minetest.register_node("default:grass_4", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		fixed = {-6/16, -0.5, -6/16, 6/16, -3/16, 6/16},
 	},
 })
 
@@ -2242,7 +2242,7 @@ minetest.register_node("default:grass_5", {
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		fixed = {-6/16, -0.5, -6/16, 6/16, -3/16, 6/16},
 	},
 })
 
