@@ -29,7 +29,7 @@ end
 columnia.registered_materials[craft] = mat
 
 minetest.register_node("columnia:column_mid_"..mat, {
-	description = desc.." Column Middle",
+	description = desc.." Column",
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -525,7 +525,7 @@ minetest.register_node(":columnia:column_linkvertical_" .. mat.."upside_down", {
 })
 
 minetest.register_node("columnia:column_linkangle_"..mat, {
-	description = desc.." Column Link Angle",
+	description = desc.." Column Link Corner",
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -579,7 +579,7 @@ minetest.register_node(":columnia:column_linkangle_" .. mat.."upside_down", {
 })
 
 minetest.register_node("columnia:column_linkangle_down_"..mat, {
-	description = desc.." Column Link Angle Down",
+	description = desc.." Column Link Corner Down",
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -636,7 +636,7 @@ minetest.register_node(":columnia:column_linkangle_down_" .. mat.."upside_down",
 })
 
 minetest.register_node("columnia:column_linktee_"..mat, {
-	description = desc.." Column Link  T-Form",
+	description = desc.." Column Link T-Form",
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -690,7 +690,7 @@ minetest.register_node(":columnia:column_linktee_" .. mat.."upside_down", {
 })
 
 minetest.register_node("columnia:column_linktee_down_"..mat, {
-	description = desc.." Column Link  T-Form Down",
+	description = desc.." Column Link T-Form Down",
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -747,7 +747,7 @@ minetest.register_node(":columnia:column_linktee_down_" .. mat.."upside_down", {
 })
 
 minetest.register_node("columnia:column_stairsub_"..mat, {
-	description = desc.." Column Stair Substructure",
+	description = desc.." Stair Substructure",
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -815,7 +815,7 @@ minetest.register_node(":columnia:column_stairsub_" .. mat.."upside_down", {
 })
 
 minetest.register_node("columnia:column_stairsubpillar_"..mat, {
-	description = desc.." Column Stair Substructure Pillar",
+	description = desc.." Stair Substructure Pillar",
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
