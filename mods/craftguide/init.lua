@@ -16,6 +16,12 @@ local group_stereotypes = {
 	vessel	     = "vessels:glass_bottle",
 	coal	     = "default:coal_lump",
 	flower	     = "flowers:dandelion_yellow",
+	window_wood  = "windows:windows_wood",
+	vines        = "vines:vine",
+	chests       = "default:chest",
+	lchests      = "default:chest_locked",
+	stone        = "default:cobble",
+	woodfence    = "default:fence_wood",
 	mesecon_conductor_craftable = "mesecons:wire_00000000_off",
 }
 
