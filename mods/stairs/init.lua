@@ -504,6 +504,42 @@ stairs.register_stair_and_slab("colwood_yellow", "default:colwood_yellow",
 		default.node_sound_wood_defaults())
 		
 		--		
+stairs.register_stair_and_slab("steelblock", "default:steelblock",
+		{cracky=1,level=2},
+		{"default_steel_block.png"},
+		"Steel Block Stair",
+		"Outer Steel Block Stair",
+		"Inner Steel Block Stair",
+		"Steel Block Slab",
+		default.node_sound_metal_defaults())
+
+stairs.register_stair_and_slab("copperblock", "default:copperblock",
+		{cracky=1,level=2},
+		{"default_copper_block.png"},
+		"Copper Block Stair",
+		"Outer Copper Block Stair",
+		"Inner Copper Block Stair",
+		"Copper Block Slab",
+		default.node_sound_metal_defaults())
+
+stairs.register_stair_and_slab("bronzeblock", "default:bronzeblock",
+		{cracky=1,level=2},
+		{"default_bronze_block.png"},
+		"Bronze Block Stair",
+		"Outer Bronze Block Stair",
+		"Inner Bronze Block Stair",
+		"Bronze Block Slab",
+		default.node_sound_metal_defaults())
+
+stairs.register_stair_and_slab("goldblock", "default:goldblock",
+		{cracky=1},
+		{"default_gold_block.png"},
+		"Gold Block Stair",
+		"Outer Gold Block Stair",
+		"Inner Gold Block Stair",
+		"Bronze Gold Slab",
+		default.node_sound_metal_defaults())
+
 stairs.register_stair_and_slab("stone", "default:stone",
 		{cracky=3},
 		{"default_stone.png"},

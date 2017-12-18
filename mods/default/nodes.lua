@@ -2005,20 +2005,18 @@ minetest.register_node("default:mossycobble", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-
 minetest.register_node("default:coalblock", {
 	description = "Coal Block",
 	tiles = {"default_coal_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-
 minetest.register_node("default:steelblock", {
 	description = "Steel Block",
 	tiles = {"default_steel_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=1,level=2},
 	sounds = default.node_sound_heavy_metal_defaults(),
 })
@@ -2026,7 +2024,7 @@ minetest.register_node("default:steelblock", {
 minetest.register_node("default:tinblock", {
 	description = "Tin Block",
 	tiles = {"default_tin_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=1,level=2},
 	sounds = default.node_sound_heavy_metal_defaults(),
 })
@@ -2034,7 +2032,7 @@ minetest.register_node("default:tinblock", {
 minetest.register_node("default:copperblock", {
 	description = "Copper Block",
 	tiles = {"default_copper_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=1,level=2},
 	sounds = default.node_sound_heavy_metal_defaults(),
 })
@@ -2043,7 +2041,7 @@ minetest.register_node("default:copperblock", {
 minetest.register_node("default:bronzeblock", {
 	description = "Bronze Block",
 	tiles = {"default_bronze_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=1,level=2},
 	sounds = default.node_sound_heavy_metal_defaults(),
 })
@@ -2062,7 +2060,7 @@ minetest.register_alias("default:mese_block", "default:mese")
 minetest.register_node("default:goldblock", {
 	description = "Gold Block",
 	tiles = {"default_gold_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=1},
 	sounds = default.node_sound_heavy_metal_defaults(),
 })
