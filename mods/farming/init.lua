@@ -16,6 +16,10 @@ farming.register_plant("farming:wheat", {
 	maxlight = default.LIGHT_MAX,
 	fertility = {"grassland"}
 })
+minetest.register_craftitem("farming:wheat", {
+	description = "Wheat",
+	inventory_image = "farming_wheat.png",
+})
 minetest.register_craftitem("farming:flour", {
 	description = "Flour",
 	inventory_image = "farming_flour.png",
@@ -50,11 +54,16 @@ minetest.register_craft({
 -- Cotton
 farming.register_plant("farming:cotton", {
 	description = "Cotton Seed",
+	description_harvest = "Cotton",
 	inventory_image = "farming_cotton_seed.png",
 	steps = 3,
 	minlight = 13,
 	maxlight = default.LIGHT_MAX,
 	fertility = {"grassland", "desert"}
+})
+minetest.register_craftitem("farming:cotton", {
+	description = "Cotton",
+	inventory_image = "farming_cotton.png",
 })
 
 minetest.register_alias("farming:string", "farming:cotton")
@@ -94,6 +103,12 @@ farming.register_plant("farming:tomato", {
 	maxlight = 20,
 	fertility = {"grassland", "desert"}
 })
+minetest.register_craftitem("farming:tomato", {
+	description = "Tomato",
+	inventory_image = "farming_tomato.png",
+	groups = { food = 2, eatable = 2 },
+	on_use = minetest.item_eat(2),
+})
 
 farming.register_plant("farming:potato", {
 	description = "Potato Seed",
@@ -102,6 +117,12 @@ farming.register_plant("farming:potato", {
 	minlight = 8,
 	maxlight = 20,
 	fertility = {"grassland", "desert"}
+})
+minetest.register_craftitem("farming:potato", {
+	description = "Potato",
+	inventory_image = "farming_potato.png",
+	groups = { food = 2, },
+	on_use = minetest.item_eat(0),
 })
 
 farming.register_plant("farming:strawberry", {
@@ -112,6 +133,12 @@ farming.register_plant("farming:strawberry", {
 	maxlight = 20,
 	fertility = {"grassland", "desert"}
 })
+minetest.register_craftitem("farming:strawberry", {
+	description = "Strawberry",
+	inventory_image = "farming_strawberry.png",
+	groups = { food = 2, eatable = 1 },
+	on_use = minetest.item_eat(1),
+})
 
 farming.register_plant("farming:spice", {
 	description = "Spice Seed",
@@ -121,3 +148,8 @@ farming.register_plant("farming:spice", {
 	maxlight = 20,
 	fertility = {"grassland", "desert"}
 })
+minetest.register_craftitem("farming:spice", {
+	description = "Spice",
+	inventory_image = "farming_spice.png",
+})
+
