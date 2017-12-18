@@ -12,6 +12,7 @@
 columnia.register_all("default:sandstone")
 columnia.register_all("default:sandstonebrick")
 columnia.register_all("default:cobble")
+columnia.register_all("default:cobble_baked")
 columnia.register_all("default:stone")
 columnia.register_all("default:cactus", nil, "default_cactus_side.png")
 columnia.register_all("default:cactus_block")

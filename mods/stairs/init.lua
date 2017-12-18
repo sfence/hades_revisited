@@ -627,6 +627,16 @@ stairs.register_stair_and_slab("cobble", "default:cobble",
 		"Cobblestone Slab",
 		default.node_sound_stone_defaults())
 
+stairs.register_stair_and_slab("cobble_baked", "default:cobble_baked",
+		{cracky=3},
+		{"default_cobble_baked.png"},
+		"Burned Cobblestone Stair",
+		"Outer Burned Cobblestone Stair",
+		"Inner Burned Cobblestone Stair",
+		"Burned Cobblestone Column",
+		"Burned Cobblestone Slab",
+		default.node_sound_stone_defaults())
+
 stairs.register_stair_and_slab("brick", "default:brick",
 		{cracky=3},
 		{"default_brick.png"},
