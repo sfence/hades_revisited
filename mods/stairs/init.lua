@@ -537,7 +537,7 @@ stairs.register_stair_and_slab("goldblock", "default:goldblock",
 		"Gold Block Stair",
 		"Outer Gold Block Stair",
 		"Inner Gold Block Stair",
-		"Bronze Gold Slab",
+		"Gold Block Slab",
 		default.node_sound_metal_defaults())
 
 stairs.register_stair_and_slab("stone", "default:stone",
