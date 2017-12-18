@@ -478,4 +478,10 @@ if rawget(_G, "sfinv_buttons") then
 	})
 end
 
+mt.register_on_player_receive_fields(function(player, formname, fields)
+	if fields.__craftguide then
+		craftguide:on_use(nil, player)
+	end
+end)
+
 mt.register_alias("xdecor:crafting_guide", "craftguide:book")
