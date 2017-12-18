@@ -25,7 +25,7 @@ columnia.register_all("default:obsidianbrick")
 columnia.register_all("default:sandstonebrick")
 columnia.register_all("default:stonebrick")
 
-columnia.register_all("default:wood", "Oak Wood")
+columnia.register_all("default:wood", "Common Wood")
 columnia.register_all("default:junglewood", "Jungle Wood")
 columnia.register_all("default:palewood", "Pale Wood")
 columnia.register_all("default:colwood_black", "Black Wood")

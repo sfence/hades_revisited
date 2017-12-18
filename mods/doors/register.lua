@@ -1,5 +1,5 @@
 doors.register_door("doors:door_wood", {
-	description = "Oak Wood Door",
+	description = "Common Wood Door",
 	inventory_image = "doors_wood.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood.png", backface_culling=true}},
@@ -185,7 +185,7 @@ minetest.register_craft({
 
 
 doors.register_trapdoor("doors:trapdoor", {
-	description = "Oak Wood Trapdoor",
+	description = "Common Wood Trapdoor",
 	inventory_image = "doors_trapdoor.png",
 	wield_image = "doors_trapdoor.png",
 	tile_front = "doors_trapdoor.png",
@@ -267,7 +267,7 @@ minetest.register_craft({
 })
 
 doors.register_fencegate("doors:gate_wood", {
-	description = "Oak Wood Fence Gate",
+	description = "Common Wood Fence Gate",
 	texture = "default_wood.png",
 	material = "default:wood",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}

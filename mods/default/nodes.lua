@@ -300,7 +300,7 @@ minetest.register_node("default:floor_essexit_gold2", {
 })
 
 minetest.register_node("default:floor_wood_jungle", {
-	description = "Oak Wood/Jungle Wood Tile",
+	description = "Common Wood/Jungle Wood Tile",
 	tiles = {
 		"default_floor_wood_jungle.png",
 		"default_floor_wood_jungle.png",
@@ -313,7 +313,7 @@ minetest.register_node("default:floor_wood_jungle", {
 })
 
 minetest.register_node("default:floor_wood_pale", {
-	description = "Oak Wood/Pale Wood Tile",
+	description = "Common Wood/Pale Wood Tile",
 	tiles = {
 		"default_floor_wood_pale.png",
 		"default_floor_wood_pale.png",
@@ -708,7 +708,7 @@ minetest.register_node("default:brick_yellow", {
 })
 
 minetest.register_node("default:tree", {
-	description = "Oak Trunk",
+	description = "Common Tree Trunk",
 	tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
@@ -718,7 +718,7 @@ minetest.register_node("default:tree", {
 })
 
 minetest.register_node("default:paletree",
-		{description = "Pale Trunk",
+		{description = "Pale Tree Trunk",
 		paramtype = "light",
 		tiles = {"default_paletree_top.png", "default_paletree_top.png", "default_paletree.png"},
 		is_ground_content = false,
@@ -739,7 +739,7 @@ minetest.register_node("default:paletree",
 	})
 	
 minetest.register_node("default:tree_birch",
-		{description = "Birch Trunk",
+		{description = "Birch Tree Trunk",
 		paramtype = "light",
 		tiles = {"default_tree_birch_top.png", "default_tree_birch_top.png", "default_tree_birch.png"},
 		is_ground_content = false,
@@ -761,7 +761,7 @@ minetest.register_node("default:tree_birch",
 
 
 minetest.register_node("default:jungletree", {
-	description = "Jungle Trunk",
+	description = "Jungle Tree Trunk",
 	paramtype = "light",
 	tiles = {"default_jungletree_top.png", "default_jungletree_top.png", "default_jungletree.png"},
 	is_ground_content = false,
@@ -792,7 +792,7 @@ minetest.register_node("default:junglewood", {
 
 
 minetest.register_node("default:jungleleaves", {
-	description = "Jungle Leaves",
+	description = "Common Jungle Leaves",
 	drawtype = "allfaces_optional",
 	visual_scale = 1.3,
 	tiles = {"default_jungleleaves.png"},
@@ -820,7 +820,7 @@ minetest.register_node("default:jungleleaves", {
 
 
 minetest.register_node("default:junglesapling", {
-	description = "Simple Jungle Tree Sapling",
+	description = "Common Jungle Tree Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_junglesapling.png"},
@@ -858,7 +858,7 @@ minetest.register_node("default:junglegrass", {
 
 
 minetest.register_node("default:leaves", {
-	description = "Leaves",
+	description = "Common Leaves",
 	drawtype = "allfaces_optional",
 	visual_scale = 1.3,
 	tiles = {"default_leaves.png"},
@@ -1338,7 +1338,7 @@ minetest.register_node("default:ladder_bronze", {
 
 
 minetest.register_node("default:wood", {
-	description = "Oak Wood Planks",
+	description = "Common Wood Planks",
 	tiles = {"default_wood.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
@@ -2128,7 +2128,7 @@ minetest.register_node("default:obsidian_block", {
 
 
 minetest.register_node("default:sapling", {
-	description = "Oak Sapling",
+	description = "Common Tree Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_sapling.png"},

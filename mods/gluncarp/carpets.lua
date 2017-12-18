@@ -34,7 +34,7 @@ local carpetdesc = carpet_tab[i][2]
 	{"obsidian", 	        "Obsidian",		        "default_obsidian",		        "default:obsidian"},
 	{"obsidianbrick", 	    "Obsidian Brick",		"default_obsidian_brick",		"default:obsidianbrick"},
 	{"clay", 	            "Clay",		            "default_clay",		            "default:clay"},
-	{"wood", 	            "Oak Wood",		"default_wood",		            "default:wood"},
+	{"wood", 	            "Common Wood",		"default_wood",		            "default:wood"},
 	{"brick", 	            "Brick Block",		    "default_brick",		        "default:brick"},
 	--end of default
 	{"cactus_block", 	    "Cactus Block",		    "default_cactus_block",		    "default:cactus_block"},
@@ -45,8 +45,8 @@ local carpetdesc = carpet_tab[i][2]
 	{"junglewood", 	        "Jungle Wood",		    "default_junglewood",		    "default:junglewood"},
 	
 	-- wooden floors
-	{"floor_wood_jungle", 	"Oak Wood/Jungle Wood Tile",	"default_floor_wood_jungle",	"default:floor_wood_jungle"},
-	{"floor_wood_pale", 	"Oak Wood/Pale Wood Tile",		 "default_floor_wood_pale",		"default:floor_wood_pale"},
+	{"floor_wood_jungle", 	"Common Wood/Jungle Wood Tile",	"default_floor_wood_jungle",	"default:floor_wood_jungle"},
+	{"floor_wood_pale", 	"Common Wood/Pale Wood Tile",		 "default_floor_wood_pale",		"default:floor_wood_pale"},
 	{"floor_pale_jungle", "Jungle Wood/Pale Wood Tile",		 "default_floor_pale_jungle",	"default:floor_pale_jungle"},
 	-- colored woods
 	{"colwood_black", 	    "Black Wood",   "default_colwood_black",		"default:colwood_black"},

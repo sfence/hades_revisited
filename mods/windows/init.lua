@@ -5,7 +5,7 @@ windows={}
 
 -- wooden windows
 minetest.register_node("windows:windows_wood", {
-    description = "Oak Wood Window",
+    description = "Common Wood Window",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",

@@ -351,10 +351,10 @@ end
 stairs.register_stair_and_slab("wood", "default:wood",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_wood.png"},
-		"Oak Wood Stair",
-		"Outer Oak Wood Stair",
-		"Inner Oak Wood Stair",
-		"Oak Wood Slab",
+		"Common Wood Stair",
+		"Outer Common Wood Stair",
+		"Inner Common Wood Stair",
+		"Common Wood Slab",
 		default.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("palewood", "default:palewood",
