@@ -156,8 +156,7 @@ minetest.register_node("default:desert_stone", {
 	tiles = {"default_desert_stone.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
-	drop = 'default:desert_stone',
-	legacy_mineral = true,
+	drop = "default:cobble_baked",
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1918,7 +1917,7 @@ minetest.register_node("default:chest_locked", {
 minetest.register_node("default:cobble", {
 	description = "Cobblestone",
 	tiles = {"default_cobble.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=3, stone=2},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -1926,7 +1925,23 @@ minetest.register_node("default:cobble", {
 minetest.register_node("default:cobble_block", {
 	description = "Cobblestone Block",
 	tiles = {"default_cobble_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
+	groups = {cracky=3, stone=2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:cobble_baked", {
+	description = "Burned Cobblestone",
+	tiles = {"default_cobble_baked.png"},
+	is_ground_content = false,
+	groups = {cracky=3, stone=2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:cobble_block_baked", {
+	description = "Burned Cobblestone Block",
+	tiles = {"default_cobble_baked_block.png"},
+	is_ground_content = false,
 	groups = {cracky=3, stone=2},
 	sounds = default.node_sound_stone_defaults(),
 })

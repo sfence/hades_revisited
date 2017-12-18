@@ -377,6 +377,21 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = 'default:cobble_baked 9',
+	recipe = {
+		{'default:cobble_block_baked'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:cobble_block_baked',
+	recipe = {
+		{'default:cobble_baked', 'default:cobble_baked', 'default:cobble_baked'},
+		{'default:cobble_baked', 'default:cobble_baked', 'default:cobble_baked'},
+		{'default:cobble_baked', 'default:cobble_baked', 'default:cobble_baked'},
+	}
+})
 
 minetest.register_craft({
 	output = 'default:cobble 9',
@@ -384,6 +399,7 @@ minetest.register_craft({
 		{'default:cobble_block'},
 	}
 })
+
 
 
 minetest.register_craft({
@@ -935,7 +951,6 @@ minetest.register_craft({
 	output = "default:cobble",
 	recipe = "default:mossycobble",
 })
-
 
 minetest.register_craft({
 	type = "cooking",
