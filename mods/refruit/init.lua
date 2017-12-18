@@ -5,7 +5,7 @@ refruit = {}
 
 --replacement
 minetest.register_node(":default:apple", {
-	description = "Apple",
+	description = "Apple (+2)",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_apple.png"},

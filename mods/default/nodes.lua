@@ -2098,7 +2098,7 @@ minetest.register_node("default:sapling", {
 
 
 minetest.register_node("default:apple", {
-	description = "Apple",
+	description = "Apple (+2)",
 	drawtype = "plantlike",
 	visual_scale = 0.75,
 	tiles = {"default_apple.png"},

@@ -26,7 +26,7 @@ minetest.register_craftitem("farming:flour", {
 })
 
 minetest.register_craftitem("farming:bread", {
-	description = "Bread",
+	description = "Bread (+3)",
 	inventory_image = "farming_bread.png",
 	on_use = minetest.item_eat(3),
 	groups = { food = 2, eatable = 3 },
@@ -104,7 +104,7 @@ farming.register_plant("farming:tomato", {
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:tomato", {
-	description = "Tomato",
+	description = "Tomato (+2)",
 	inventory_image = "farming_tomato.png",
 	groups = { food = 2, eatable = 2 },
 	on_use = minetest.item_eat(2),
@@ -119,7 +119,7 @@ farming.register_plant("farming:potato", {
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:potato", {
-	description = "Potato",
+	description = "Potato (+0)",
 	inventory_image = "farming_potato.png",
 	groups = { food = 2, },
 	on_use = minetest.item_eat(0),
@@ -134,7 +134,7 @@ farming.register_plant("farming:strawberry", {
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:strawberry", {
-	description = "Strawberry",
+	description = "Strawberry (+1)",
 	inventory_image = "farming_strawberry.png",
 	groups = { food = 2, eatable = 1 },
 	on_use = minetest.item_eat(1),
