@@ -122,7 +122,8 @@ minetest.register_on_dieplayer(function(player)
 	meta:set_string("formspec", "size[8,9]"..
 	"list[current_name;main;0,0;8,4;]"..
 	"list[current_player;main;0,5;8,4;]"..
-    "background[-0.5,-0.65;9,10.35;".."bones.png".."]"..
+	"listring[]"..
+	"background[-0.5,-0.65;9,10.35;".."bones.png".."]"..
 	"listcolors[#001100;#006600;#ffffff;#006600;#ffffff]")
 	meta:set_string("infotext", player:get_player_name().."'s fresh bones")
 	meta:set_string("owner", player:get_player_name())
