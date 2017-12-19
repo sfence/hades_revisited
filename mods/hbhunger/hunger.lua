@@ -44,7 +44,15 @@ function hbhunger.eat(hp_change, replace_with_item, itemstack, user, pointed_thi
 		def.saturation = hp_change * 1.3
 		def.replace = replace_with_item
 	end
-	local func = hbhunger.item_eat(def.saturation, def.replace, def.poisen, def.healing, def.sound)
+	local sound = def.sound
+	if not sound then
+		if minetest.get_item_group(item, "food") == 3 then
+			sound = "survival_thirst_drink"
+		elseif not sound then
+			sound = "hbhunger_eat_generic"
+		end
+	end
+	local func = hbhunger.item_eat(def.saturation, def.replace, def.poisen, def.healing, sound)
 	return func(itemstack, user, pointed_thing)
 end
 
@@ -76,7 +84,9 @@ function hbhunger.item_eat(hunger_change, replace_with_item, poisen, heal, sound
 			local name = user:get_player_name()
 			local h = tonumber(hbhunger.hunger[name])
 			local hp = user:get_hp()
-			minetest.sound_play({name = sound or "hbhunger_eat_generic", gain = 1}, {pos=user:getpos(), max_hear_distance = 16})
+			if sound ~= nil then
+				minetest.sound_play({name = sound, gain = 1}, {pos=user:getpos(), max_hear_distance = 16})
+			end
 
 			-- Saturation
 			if h < 30 and hunger_change then
