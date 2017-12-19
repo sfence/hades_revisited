@@ -194,5 +194,22 @@ https://www.freesound.org/people/AGFX/packs/1253/
 Voxelands project <http://www.voxelands.com/> (CC BY-SA 3.0)
   default_place_node_water.ogg
 
+Michel Baradari <https://opengameart.org/content/lava-splash> (CC BY 3.0)
+
+  default_place_node_lava.ogg
+
 (Note: Artists from the Voxelands project include: sdzen, darkrose, sapier,
       Tom Peter, Telaron, juskiddink)
+
+sonictechtonic <https://www.freesound.org/people/sonictechtonic/sounds/241872/> (CC BY 3.0):
+  player_damage.ogg
+
+Adam_N (CC0 1.0):
+  player_falling_damage.ogg
+  Source: <https://www.freesound.org/people/Adam_N/sounds/346692/>
+
+----------------------
+License references:
+CC0: <https://creativecommons.org/publicdomain/zero/1.0/>
+CC BY 3.0: <http://creativecommons.org/licenses/by/3.0/>
+CC BY-SA 3.0: <http://creativecommons.org/licenses/by-sa/3.0/>
