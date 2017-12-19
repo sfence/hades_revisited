@@ -39,7 +39,7 @@ minetest.register_node("bedrock:deepstone", {
 	description = "Deepstone",
 	tiles = {"bedrock_deepstone.png"},
 	drop = "default:stone", -- Intended.
-	groups = {cracky = 1},
+	groups = {cracky = 1, level = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
