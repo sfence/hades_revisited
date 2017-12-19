@@ -43,7 +43,7 @@ minetest.register_entity("drippingwater:drop_water", {
 --Create drop
 
 minetest.register_abm({
-	nodenames = {"group:crumbly", "group:stone"},
+	nodenames = {"group:porous"},
 	neighbors = {"group:water"},
         interval = 2,
         chance = 22,
