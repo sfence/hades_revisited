@@ -77,7 +77,7 @@ spider4.textures = { "mobs_spider4.png" }
 mobs:register_mob("mobs_hades:spider4", spider4)
 
 
-mobs:spawn_specific("mobs_hades:spider_gold", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
+mobs:spawn_specific("mobs_hades:spider", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
 mobs:spawn_specific("mobs_hades:spider2", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -7500, -100)
 mobs:spawn_specific("mobs_hades:spider3", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -15000, -5000)
 mobs:spawn_specific("mobs_hades:spider4", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -30000, -10000)
