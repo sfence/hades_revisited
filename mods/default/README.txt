@@ -208,6 +208,9 @@ Adam_N (CC0 1.0):
   player_falling_damage.ogg
   Source: <https://www.freesound.org/people/Adam_N/sounds/346692/>
 
+Dynamicell <http://www.freesound.org/people/Dynamicell/sounds/17548/> (CC BY 3.0):
+  fire_extinguish_flame.*.ogg
+
 ----------------------
 License references:
 CC0: <https://creativecommons.org/publicdomain/zero/1.0/>

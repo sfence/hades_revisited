@@ -121,7 +121,7 @@ end
 function default.node_sound_lava_defaults(table)
 	table = table or {}
 	table.place = table.place or
-			{name = "default_place_node_lava", gain = 0.8, max_hear_distance = mhd}
+			{name = "default_place_node_lava", gain = 1.0, max_hear_distance = mhd}
 	default.node_sound_defaults(table)
 	return table
 end
@@ -238,18 +238,21 @@ minetest.register_abm({
 -- Lavacooling
 --
 
-
 default.cool_lava_source = function(pos)
-            if minetest.find_node_near(pos, 5, {"default:water_flowing"}) == nil then
-               minetest.set_node(pos, {name="default:tuff"})
-            else
-               minetest.set_node(pos, {name="default:water_source"})
+	if minetest.find_node_near(pos, 5, {"default:water_flowing"}) == nil then
+		minetest.sound_play({name="fire_extinguish_flame", gain = 0.2}, {pos=pos, max_hear_distance = 16})
+		minetest.set_node(pos, {name="default:tuff"})
+	else
+		if minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name == "air" then
+			minetest.sound_play({name="fire_extinguish_flame", gain = 0.05}, {pos=pos, max_hear_distance = 6})
+		end
+		minetest.set_node(pos, {name="default:water_source"})
 	end
 end
 
-
 default.cool_lava_flowing = function(pos)
-	         minetest.set_node(pos, {name="default:gravel_volcanic"})
+	minetest.sound_play({name="fire_extinguish_flame", gain = 0.2}, {pos=pos, max_hear_distance = 16})
+	minetest.set_node(pos, {name="default:gravel_volcanic"})
 end
 
 
