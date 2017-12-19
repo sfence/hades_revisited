@@ -365,9 +365,47 @@ stairs.register_stair_and_slab("palewood", "default:palewood",
 		"Inner Pale Wood Stair",
 		"Pale Wood Slab",
 		default.node_sound_wood_defaults())		
-		
-		-- Colored Woods
-		
+
+-- Barks
+
+stairs.register_stair_and_slab("bark", "default:bark",
+		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
+		{"default_tree.png"},
+		"Common Bark Stair",
+		"Outer Common Bark Stair",
+		"Inner Common Bark Stair",
+		"Common Bark Slab",
+		default.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("jungle_bark", "default:jungle_bark",
+		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
+		{"default_jungletree.png"},
+		"Jungle Bark Stair",
+		"Outer Jungle Bark Stair",
+		"Inner Jungle Bark Stair",
+		"Jungle Bark Slab",
+		default.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("pale_bark", "default:pale_bark",
+		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
+		{"default_paletree.png"},
+		"Pale Bark Stair",
+		"Outer Pale Bark Stair",
+		"Inner Pale Bark Stair",
+		"Pale Bark Slab",
+		default.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("birch_bark", "default:birch_bark",
+		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
+		{"default_tree_birch.png"},
+		"Birch Bark Stair",
+		"Outer Birch Bark Stair",
+		"Inner Birch Bark Stair",
+		"Birch Bark Slab",
+		default.node_sound_wood_defaults())
+
+-- Colored Woods
+
 stairs.register_stair_and_slab("colwood_black", "default:colwood_black",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_black.png"},

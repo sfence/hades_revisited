@@ -7,25 +7,51 @@ minetest.register_craft({
 		{'default:tree'},
 	}
 })
-
 minetest.register_craft({
 	output = 'default:palewood 4',
 	recipe = {
 		{'default:paletree'},
 	}
 })
-
 minetest.register_craft({
 	output = 'default:palewood 4',
 	recipe = {
 		{'default:tree_birch'},
 	}
 })
-
 minetest.register_craft({
 	output = 'default:junglewood 4',
 	recipe = {
 		{'default:jungletree'},
+	}
+})
+
+minetest.register_craft({
+	output = "default:bark 3",
+	recipe = {
+		{ "default:tree", "default:tree" },
+		{ "default:tree", "default:tree" },
+	}
+})
+minetest.register_craft({
+	output = "default:birch_bark 3",
+	recipe = {
+		{ "default:tree_birch", "default:tree_birch" },
+		{ "default:tree_birch", "default:tree_birch" },
+	}
+})
+minetest.register_craft({
+	output = "default:jungle_bark 3",
+	recipe = {
+		{ "default:jungletree", "default:jungletree" },
+		{ "default:jungletree", "default:jungletree" },
+	}
+})
+minetest.register_craft({
+	output = "default:pale_bark 3",
+	recipe = {
+		{ "default:paletree", "default:paletree" },
+		{ "default:paletree", "default:paletree" },
 	}
 })
 

@@ -44,6 +44,11 @@ columnia.register_all("default:colwood_violet", "Violet Wood")
 columnia.register_all("default:colwood_white", "White Wood")
 columnia.register_all("default:colwood_yellow", "Yellow Wood")
 
+columnia.register_all("default:bark")
+columnia.register_all("default:jungle_bark")
+columnia.register_all("default:pale_bark")
+columnia.register_all("default:birch_bark")
+
 columnia.register_all("default:brick", "Brick")
 columnia.register_all("default:brick_black", "Black Brick")
 columnia.register_all("default:brick_blue", "Blue Brick")

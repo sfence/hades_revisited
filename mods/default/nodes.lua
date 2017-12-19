@@ -717,27 +717,27 @@ minetest.register_node("default:tree", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("default:paletree",
-		{description = "Pale Tree Trunk",
-		paramtype = "light",
-		tiles = {"default_paletree_top.png", "default_paletree_top.png", "default_paletree.png"},
-		is_ground_content = false,
-		drawtype = "nodebox",
-		node_box = {
-			type = "fixed",
-			fixed = {
-				{-0.35,-0.5,-0.4,0.35,0.5,0.4},
-				{-0.4,-0.5,-0.35, 0.4,0.5,0.35},
-				{-0.25,-0.5,-0.45,0.25,0.5,0.45},
-				{-0.45,-0.5,-0.25, 0.45,0.5,0.25},
-				{-0.15,-0.5,-0.5,0.15,0.5,0.5},
-				{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
-			},
+minetest.register_node("default:paletree", {
+	description = "Pale Tree Trunk",
+	paramtype = "light",
+	tiles = {"default_paletree_top.png", "default_paletree_top.png", "default_paletree.png"},
+	is_ground_content = false,
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.35,-0.5,-0.4,0.35,0.5,0.4},
+			{-0.4,-0.5,-0.35, 0.4,0.5,0.35},
+			{-0.25,-0.5,-0.45,0.25,0.5,0.45},
+			{-0.45,-0.5,-0.25, 0.45,0.5,0.25},
+			{-0.15,-0.5,-0.5,0.15,0.5,0.5},
+			{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
 		},
-		groups = {tree = 1, snappy = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-		sounds = default.node_sound_wood_defaults(),
-	})
-	
+	},
+	groups = {tree = 1, snappy = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+})
+
 minetest.register_node("default:tree_birch",
 		{description = "Birch Tree Trunk",
 		paramtype = "light",
@@ -790,6 +790,41 @@ minetest.register_node("default:junglewood", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
+minetest.register_node("default:bark", {
+	description = "Common Bark",
+	paramtype2 = "facedir",
+	tiles = { "default_tree.png" },
+	is_ground_content = false,
+	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node("default:jungle_bark", {
+	description = "Jungle Bark",
+	paramtype2 = "facedir",
+	tiles = { "default_jungletree.png" },
+	is_ground_content = false,
+	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node("default:pale_bark", {
+	description = "Pale Bark",
+	paramtype2 = "facedir",
+	tiles = { "default_paletree.png" },
+	is_ground_content = false,
+	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node("default:birch_bark", {
+	description = "Birch Bark",
+	paramtype2 = "facedir",
+	tiles = { "default_tree_birch.png" },
+	is_ground_content = false,
+	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
+	sounds = default.node_sound_wood_defaults(),
+})
 
 minetest.register_node("default:jungleleaves", {
 	description = "Common Jungle Leaves",
