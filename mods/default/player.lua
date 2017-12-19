@@ -102,7 +102,6 @@ minetest.register_on_joinplayer(function(player)
 	end
 	player:hud_set_hotbar_image("gui_hotbar.png")
 	player:hud_set_hotbar_selected_image("gui_hotbar_selected.png")
-	player:set_clouds({color="#FFFF72B8", density=0.1, height=200, thickness=24})
 end)
 
 minetest.register_on_leaveplayer(function(player)
