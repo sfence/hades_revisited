@@ -757,7 +757,7 @@
 			},
 			sunlight_propagates = true,
 			walkable = false,
-			light_source = 16,
+			light_source = minetest.LIGHT_MAX,
 			selection_box = {
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},

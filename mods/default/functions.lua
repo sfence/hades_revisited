@@ -5,7 +5,7 @@
 -- Sounds
 --
 
-local mhd = mhd
+local mhd = 32
 
 function default.node_sound_defaults(table)
 	table = table or {}

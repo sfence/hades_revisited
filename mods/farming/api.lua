@@ -213,7 +213,7 @@ farming.register_plant = function(name, def)
 
 	-- Register harvest
 	minetest.register_craftitem(":" .. mname .. ":" .. pname, {
-		description = description_harvest,
+		description = def.description_harvest,
 		groups = { food = 1, eatable = def.food_points },
 		on_use = minetest.item_eat(def.food_points),
 		inventory_image = mname .. "_" .. pname .. ".png",

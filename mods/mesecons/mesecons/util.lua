@@ -1,5 +1,3 @@
---globals
--- local convert_base = {}
 
 function mesecon:move_node(pos, newpos)
 	local node = minetest.get_node(pos)
@@ -104,7 +102,7 @@ function mesecon:rule2meta(findrule, allrules)
 	return allrules[index]
 end
 
-if convert_base then
+if minetest.global_exists("convert_base") then
 	print(
 		"base2dec is tonumber(num,base1)\n"..
 		"commonlib needs dec2base(num,base2)\n"..
