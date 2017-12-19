@@ -798,7 +798,8 @@ minetest.register_node("default:jungleleaves", {
 	tiles = {"default_jungleleaves.png"},
 	paramtype = "light",
 	waving = 1,
-	is_ground_content = false,
+	is_ground_content = true,
+	place_param2 = 1,
 	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1},
 	drop = {
 		max_items = 1,
@@ -864,7 +865,8 @@ minetest.register_node("default:leaves", {
 	tiles = {"default_leaves.png"},
 	paramtype = "light",
 	waving = 1,
-	is_ground_content = false,
+	is_ground_content = true,
+	place_param2 = 1,
 	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1},
 	drop = {
 		max_items = 1,
