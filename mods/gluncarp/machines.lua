@@ -75,7 +75,7 @@ on_construct = function(pos)
 		"label[3,0;Wool:]"..
 		"label[6,0;Output:]"..
 
-		"label[4.5,0;push it]"..
+		"label[4.5,0;Craft:]"..
 		"image_button[4.5,0.5;1,1;gluncarp_mach1.png;carpet; ]"..
 
 		"list[current_player;main;1,2;8,4;]"..

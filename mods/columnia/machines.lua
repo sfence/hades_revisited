@@ -89,6 +89,25 @@ minetest.register_node("columnia:machine", {
 
 			"list[current_player;main;1,6.25;8,4;]"..
 
+			"tooltip[column_bottom;Column Bottom]"..
+			"tooltip[column_mid;Column]"..
+			"tooltip[column_top;Column Top]"..
+			"tooltip[column_crosslink;Column Crosslink]"..
+
+			"tooltip[column_link;Column Link]"..
+			"tooltip[column_linkcross;Column Cross]"..
+			"tooltip[column_linkangle;Column Link Cross]"..
+			"tooltip[column_linktee;Column Link T-Form]"..
+
+			"tooltip[column_linkdown;Column Link Down]"..
+			"tooltip[column_linkcrossdown;Column Cross Down]"..
+			"tooltip[column_linkangle_down;Column Link Cross Down]"..
+			"tooltip[column_linktee_down;Column Link T-Form Down]"..
+			"tooltip[column_linkvertical;Column Link Vertical]"..
+
+			"tooltip[column_stairsub;Stair Substructure]"..
+			"tooltip[column_stairsubpillar;Stair Substructure Pillar]"..
+
 			"listring[current_player;main]"..
 			"listring[current_name;ingot]"..
 			"listring[current_player;main]"..
