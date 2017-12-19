@@ -3357,8 +3357,6 @@ function mobs:capture_mob(self, clicker, chance_hand, chance_net, chance_lasso, 
 
 		else
 			minetest.chat_send_player(name, S("Missed!"))
-
-			mob_sound(self, "mobs_swing")
 		end
 	end
 
@@ -3397,8 +3395,6 @@ function mobs:protect(self, clicker)
 	pos.y = pos.y + self.collisionbox[2] + 0.5
 
 	effect(self.object:get_pos(), 25, "mobs_protect_particle.png", 0.5, 4, 2, 15)
-
-	mob_sound(self, "mobs_spell")
 
 	return true
 end
