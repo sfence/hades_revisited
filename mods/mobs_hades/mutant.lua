@@ -62,3 +62,5 @@ mobs:register_mob("mobs_hades:mutant", {
 })
 mobs:register_spawn("mobs_hades:mutant", {"default:sand"}, minetest.LIGHT_MAX, 0, 16000, 1, 31000)
 mobs:register_spawn("mobs_hades:mutant", {"default:sand"}, 5, 0, 6000, 3, 31000)
+
+mobs:register_egg("mobs_hades:mutant", "Mutant Spawn Egg", "default_sand.png", 1, false)

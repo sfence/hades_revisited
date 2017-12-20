@@ -66,6 +66,9 @@ mobs:register_mob("mobs_hades:deep_mese_monster", deep_mese_monster)
 mobs:spawn_specific("mobs_hades:mese_monster", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -10000, -250)
 mobs:spawn_specific("mobs_hades:deep_mese_monster", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -30000, -5000)
 
+mobs:register_egg("mobs_hades:mese_monster", "Mese Monster Spawn Egg", "default_mese_block.png", 1, false)
+mobs:register_egg("mobs_hades:deep_mese_monster", "Deep Mese Monster Spawn Egg", "default_mese_block.png^[colorize:#000000:65", 1, false)
+
 -- Mese Monster Crystal Shards (weapon)
 
 mobs:register_arrow("mobs_hades:mese_arrow", {

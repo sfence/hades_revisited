@@ -55,32 +55,32 @@ local spider = {
 	floats = 1,
 	pathfinding = 1,
 }
-mobs:register_mob("mobs_hades:spider", spider)
+mobs:register_mob("mobs_hades:spider_gold", spider)
 
 local spider2 = table.copy(spider)
 spider2.hp_min = 30
 spider2.hp_max = 40
 spider2.textures = { "mobs_spider2.png" }
-mobs:register_mob("mobs_hades:spider2", spider2)
+mobs:register_mob("mobs_hades:spider_sapphire", spider2)
 
 
 local spider3 = table.copy(spider)
 spider3.hp_min = 40
 spider3.hp_max = 50
 spider3.textures = { "mobs_spider3.png" }
-mobs:register_mob("mobs_hades:spider3", spider3)
+mobs:register_mob("mobs_hades:spider_ruby", spider3)
 
 local spider4 = table.copy(spider)
 spider4.hp_min = 50
 spider4.hp_max = 75
 spider4.textures = { "mobs_spider4.png" }
-mobs:register_mob("mobs_hades:spider4", spider4)
+mobs:register_mob("mobs_hades:spider_mese", spider4)
 
 
-mobs:spawn_specific("mobs_hades:spider", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
-mobs:spawn_specific("mobs_hades:spider2", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -7500, -100)
-mobs:spawn_specific("mobs_hades:spider3", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -15000, -5000)
-mobs:spawn_specific("mobs_hades:spider4", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -30000, -10000)
+mobs:spawn_specific("mobs_hades:spider_gold", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
+mobs:spawn_specific("mobs_hades:spider_sapphire", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -7500, -100)
+mobs:spawn_specific("mobs_hades:spider_ruby", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -15000, -5000)
+mobs:spawn_specific("mobs_hades:spider_mese", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -30000, -10000)
 
 -- Cobweb
 minetest.register_node("mobs_hades:cobweb", {
@@ -111,3 +111,8 @@ minetest.register_craft({
 		{"farming:string", "farming:string", "farming:string"},
 	}
 })
+
+mobs:register_egg("mobs_hades:spider_gold", "Gold Spider Spawn Egg", "default_gold_block.png", 1, false)
+mobs:register_egg("mobs_hades:spider_sapphire", "Sapphire Spider Spawn Egg", "default_sapphire_block.png", 1, false)
+mobs:register_egg("mobs_hades:spider_ruby", "Ruby Spider Spawn Egg", "default_ruby_block.png", 1, false)
+mobs:register_egg("mobs_hades:spider_mese", "Mese Spider Spawn Egg", "default_mese_block.png^[brighten", 1, false)

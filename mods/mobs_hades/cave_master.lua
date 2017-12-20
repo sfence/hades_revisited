@@ -96,6 +96,9 @@ cave_elder.drops = {
 mobs:register_mob("mobs_hades:cave_elder", cave_elder)
 mobs:spawn_specific("mobs_hades:cave_elder", {"default:stone"}, "air", 0, 1, 100, 10000, 1, -30000, -7500)
 
+mobs:register_egg("mobs_hades:cave_master", "Cave Master Spawn Egg", "mobs_chicken_egg_overlay.png^[colorize:#5D3000:228", 1, false)
+mobs:register_egg("mobs_hades:cave_elder", "Cave Elder Spawn Egg", "mobs_chicken_egg_overlay.png^[colorize:#2D1000:228", 1, false)
+
 -- Fireball (weapon)
 
 mobs:register_arrow("mobs_hades:fireball", {
