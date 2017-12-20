@@ -1046,269 +1046,58 @@ minetest.register_node("default:fence_rusty", {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
+	groups = {cracky=3, fence=1},
 	sounds = default.node_sound_metal_defaults(),
 })
 
--- rusty fence
+local fences = {
+	{ "rusty", "Rusty Fence", "default_rusty.png", {cracky=3}, default.node_sound_metal_defaults() },
+	{ "wood", "Common Wood Fence", "default_wood.png" },
+	{ "pale_wood", "Pale Wood Fence", "default_palewood.png" },
+	{ "jungle_wood", "Jungle Wood Fence", "default_junglewood.png" },
+	{ "wood_black", "Black Wood Fence", "default_colwood_black.png" },
+	{ "wood_blue", "Blue Wood Fence", "default_colwood_blue.png" },
+	{ "wood_cyan", "Cyan Wood Fence", "default_colwood_cyan.png" },
+	{ "wood_magenta", "Magenta Wood Fence", "default_colwood_magenta.png" },
+	{ "wood_violet", "Violet Wood Fence", "default_colwood_violet.png" },
+	{ "wood_red", "Red Wood Fence", "default_colwood_red.png" },
+	{ "wood_pink", "Pink Wood Fence", "default_colwood_pink.png" },
+	{ "wood_orange", "Orange Wood Fence", "default_colwood_orange.png" },
+	{ "wood_brown", "Brown Wood Fence", "default_colwood_brown.png" },
+	{ "wood_yellow", "Yellow Wood Fence", "default_colwood_yellow.png" },
+	{ "wood_green", "Green Wood Fence", "default_colwood_green.png" },
+	{ "wood_dark_green", "Dark Green Wood Fence", "default_colwood_dark_green.png" },
+	{ "wood_white", "White Wood Fence", "default_colwood_white.png" },
+	{ "wood_grey", "Grey Wood Fence", "default_colwood_grey.png" },
+	{ "wood_dark_grey", "Dark Grey Wood Fence", "default_colwood_dark_grey.png" },
+}
 
-minetest.register_node("default:fence_wood", {
-	description = "Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_wood.png"},
-	inventory_image = "default_fence.png",
-	wield_image = "default_fence.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
--- colored Fences
-
-minetest.register_node("default:fence_wood_black", {
-	description = "Black Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_black.png"},
-	inventory_image = "default_fence_black.png",
-	wield_image = "default_fence_black.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_blue", {
-	description = "Blue Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_blue.png"},
-	inventory_image = "default_fence_blue.png",
-	wield_image = "default_fence_blue.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_brown", {
-	description = "Brown Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_brown.png"},
-	inventory_image = "default_fence_brown.png",
-	wield_image = "default_fence_brown.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_cyan", {
-	description = "Cyan Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_cyan.png"},
-	inventory_image = "default_fence_cyan.png",
-	wield_image = "default_fence_cyan.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_dark_green", {
-	description = "Dark Green Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_dark_green.png"},
-	inventory_image = "default_fence_dark_green.png",
-	wield_image = "default_fence_dark_green.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_dark_grey", {
-	description = "Dark Grey Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_dark_grey.png"},
-	inventory_image = "default_fence_dark_grey.png",
-	wield_image = "default_fence_dark_grey.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_green", {
-	description = "Green Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_green.png"},
-	inventory_image = "default_fence_green.png",
-	wield_image = "default_fence_green.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_grey", {
-	description = "Grey Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_grey.png"},
-	inventory_image = "default_fence_grey.png",
-	wield_image = "default_fence_grey.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_magenta", {
-	description = "Magenta Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_magenta.png"},
-	inventory_image = "default_fence_magenta.png",
-	wield_image = "default_fence_magenta.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_orange", {
-	description = "Orange Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_orange.png"},
-	inventory_image = "default_fence_orange.png",
-	wield_image = "default_fence_orange.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_pink", {
-	description = "Pink Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_pink.png"},
-	inventory_image = "default_fence_pink.png",
-	wield_image = "default_fence_pink.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_red", {
-	description = "Red Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_red.png"},
-	inventory_image = "default_fence_red.png",
-	wield_image = "default_fence_red.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_violet", {
-	description = "Violet Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_violet.png"},
-	inventory_image = "default_fence_violet.png",
-	wield_image = "default_fence_violet.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_white", {
-	description = "White Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_white.png"},
-	inventory_image = "default_fence_white.png",
-	wield_image = "default_fence_white.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:fence_wood_yellow", {
-	description = "Yellow Wooden Fence",
-	drawtype = "fencelike",
-	tiles = {"default_colwood_yellow.png"},
-	inventory_image = "default_fence_yellow.png",
-	wield_image = "default_fence_yellow.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2, woodfence=1},
-	sounds = default.node_sound_wood_defaults(),
-})
+for i=1, #fences do
+	local groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, woodfence=1}
+	local sounds = default.node_sound_wood_defaults()
+	if fences[i][4] then
+		groups = fences[i][4]
+	end
+	groups.fence = 1
+	if fences[i][5] then
+		sounds = fences[i][5]
+	end
+	minetest.register_node("default:fence_"..fences[i][1], {
+		description = fences[i][2],
+		drawtype = "fencelike",
+		tiles = {fences[i][3]},
+		inventory_image = "default_fence_mask.png^" .. fences[i][3] .. "^default_fence_mask.png^[makealpha:255,126,126",
+		wield_image = "default_fence_mask.png^" .. fences[i][3] .. "^default_fence_mask.png^[makealpha:255,126,126",
+		paramtype = "light",
+		is_ground_content = false,
+		selection_box = {
+			type = "fixed",
+			fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
+		},
+		groups = groups,
+		sounds = sounds,
+	})
+end
 
 minetest.register_node("default:rail", {
 	description = "Rail",
