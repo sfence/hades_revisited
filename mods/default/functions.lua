@@ -406,6 +406,16 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	nodenames = {"walls:cobble"},
+	neighbors = {"group:water"},
+	interval = 500,
+	chance = 35,
+	action = function(pos, node)
+		minetest.set_node(pos, {name="walls:mossycobble"})
+	end,
+})
+
+minetest.register_abm({
 	nodenames = {"default:cobble", "default:mossycobble"},
 	neighbors = {"group:lava"},
 	interval = 45,
