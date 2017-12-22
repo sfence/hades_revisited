@@ -277,44 +277,25 @@ minetest.register_craft({
 	}
 })
 
-
-
-
-
-
 minetest.register_node("vines:vines_block",{
-        
-                                                description = "Vines Block",
-
-                                                sunlight_propagates = true,
-                                                climbable = true,
-                                                tiles = {"vines_block.png", "vines_block.png", "vines_block.png"},
-                                               drawtype = "allfaces_optional",
- 
-                                               paramtype = "light",
-                                                groups = {snappy=2,oddly_breakable_by_hand=2,flammable=2 },
-        
-                                                sounds = default.node_sound_leaves_defaults(),
+	description = "Vines Block",
+	sunlight_propagates = true,
+	climbable = true,
+	tiles = {"vines_block.png", "vines_block.png", "vines_block.png"},
+	drawtype = "allfaces_optional",
+	paramtype = "light",
+	groups = {snappy=2,flammable=2 },
+	sounds = default.node_sound_leaves_defaults(),
 })
-
-
 
 minetest.register_craft({
         output = 'vines:vines_block',
         recipe = {
-
                 {'farming:string', '', 'farming:string'},
-
                 {'', 'group:vines', ''},
-
                 {'farming:string', '', 'farming:string'},
-
-
-
         }
 })
-
-
 
 local ENABLE_STAIRSPLUS = true
 
