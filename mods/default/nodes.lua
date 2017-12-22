@@ -1093,51 +1093,19 @@ minetest.register_node("default:rail", {
 	sounds = default.node_sound_metal_defaults(),
 })
 
-
-minetest.register_node("default:ladder", {
+default.register_ladder("default:ladder", {
 	description = "Wooden Ladder",
-	drawtype = "signlike",
-	tiles = {"default_ladder.png"},
-	inventory_image = "default_ladder.png",
-	wield_image = "default_ladder.png",
-	paramtype = "light",
-	paramtype2 = "wallmounted",
-	walkable = false,
-	climbable = true,
-	is_ground_content = false,
-	selection_box = {
-		type = "wallmounted",
-		--wall_top = = <default>
-		--wall_bottom = = <default>
-		--wall_side = = <default>
-	},
+	texture = "default_ladder.png",
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2},
-	legacy_wallmounted = true,
 	sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node("default:ladder_bronze", {
+default.register_ladder("default:ladder_bronze", {
 	description = "Bronze Ladder",
-	drawtype = "signlike",
-	tiles = {"default_ladder_bronze.png"},
-	inventory_image = "default_ladder_bronze.png",
-	wield_image = "default_ladder_bronze.png",
-	paramtype = "light",
-	paramtype2 = "wallmounted",
-	walkable = false,
-	climbable = true,
-	is_ground_content = false,
-	selection_box = {
-		type = "wallmounted",
-		--wall_top = = <default>
-		--wall_bottom = = <default>
-		--wall_side = = <default>
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=3},
-	legacy_wallmounted = true,
+	texture = "default_ladder_bronze.png",
+	groups = {cracky=3},
 	sounds = default.node_sound_metal_defaults(),
 })
-
 
 minetest.register_node("default:wood", {
 	description = "Common Wood Planks",
