@@ -1,7 +1,7 @@
 --Node Registration
 local player_name = {}
 minetest.register_node("trash_can:trash_can_wooden",{
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2},
 	tiles = {"trash_can_wooden_top.png", "trash_can_wooden_top.png", "trash_can_wooden.png"},
 	description = "Trash Can",
 	drawtype="nodebox",
@@ -58,6 +58,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 			minetest.sound_play("trash", {to_player=player_name, gain = 1.0})
 		end
         end,
+	sounds = default.node_sound_defaults(),
 })
 
 --Crafting
