@@ -61,7 +61,9 @@ function staffgaia.staff_on_use(itemstack, user, pointed_thing, uses)
 
 
 	cotrig(pt.under)
-	itemstack:add_wear(65535/(uses-1))
+	if not minetest.settings:get_bool("creative_mode") then
+		itemstack:add_wear(65535/(uses-1))
+	end
 	return itemstack
 end
 
