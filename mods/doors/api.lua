@@ -661,6 +661,7 @@ function doors.register_fencegate(name, def)
 	end
 
 	fence.groups.fence = 1
+	fence.groups.fence_gate = 1
 
 	local fence_closed = table.copy(fence)
 	fence_closed.mesh = "doors_fencegate_closed.obj"

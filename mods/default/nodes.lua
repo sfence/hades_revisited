@@ -1034,24 +1034,8 @@ minetest.register_node("default:glass", {
 	sounds = default.node_sound_glass_defaults(),
 })
 
-minetest.register_node("default:fence_rusty", {
-	description = "Rusty Fence",
-	drawtype = "fencelike",
-	tiles = {"default_rusty.png"},
-	inventory_image = "default_fence_rusty.png",
-	wield_image = "default_fence_rusty.png",
-	paramtype = "light",
-	is_ground_content = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	groups = {cracky=3, fence=1},
-	sounds = default.node_sound_metal_defaults(),
-})
-
 local fences = {
-	{ "rusty", "Rusty Fence", "default_rusty.png", {cracky=3}, default.node_sound_metal_defaults() },
+	{ "rusty", "Rusty Fence", "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal"}, default.node_sound_metal_defaults() },
 	{ "wood", "Common Wood Fence", "default_wood.png" },
 	{ "pale_wood", "Pale Wood Fence", "default_palewood.png" },
 	{ "jungle_wood", "Jungle Wood Fence", "default_junglewood.png" },
@@ -1073,29 +1057,21 @@ local fences = {
 }
 
 for i=1, #fences do
-	local groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, woodfence=1}
+	local groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, fence_wood=1}
 	local sounds = default.node_sound_wood_defaults()
 	if fences[i][4] then
 		groups = fences[i][4]
 	end
-	groups.fence = 1
-	if fences[i][5] then
-		sounds = fences[i][5]
+	local connects_to = fences[i][5]
+	if fences[i][6] then
+		sounds = fences[i][6]
 	end
-	minetest.register_node("default:fence_"..fences[i][1], {
+	default.register_fence("default:fence_"..fences[i][1], {
 		description = fences[i][2],
-		drawtype = "fencelike",
-		tiles = {fences[i][3]},
-		inventory_image = "default_fence_mask.png^" .. fences[i][3] .. "^default_fence_mask.png^[makealpha:255,126,126",
-		wield_image = "default_fence_mask.png^" .. fences[i][3] .. "^default_fence_mask.png^[makealpha:255,126,126",
-		paramtype = "light",
-		is_ground_content = false,
-		selection_box = {
-			type = "fixed",
-			fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-		},
+		texture = fences[i][3],
 		groups = groups,
 		sounds = sounds,
+		connects_to = connects_to,
 	})
 end
 
