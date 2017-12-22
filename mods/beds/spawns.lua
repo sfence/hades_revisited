@@ -50,11 +50,9 @@ function beds.save_spawns()
 	writing = false
 end
 
-function beds.set_spawns()
-	for name,_ in pairs(beds.player) do
-		local player = minetest.get_player_by_name(name)
-		local p = player:getpos()
-		beds.spawn[name] = p
-	end
-	beds.save_spawns()
+function beds.set_spawn(player, pos)
+	local name = player:get_player_name()
+	beds.spawn[name] = pos
+	minetest.chat_send_player(name, "Spawn position set!")
 end
+
