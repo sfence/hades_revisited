@@ -127,3 +127,74 @@ minetest.register_craftitem("default:nails", {
 	description = "Nails",
 	inventory_image = "default_nails.png",
 })
+
+-- Foods 
+
+minetest.register_craftitem("default:sugar", {
+	description = "Sugar",
+	inventory_image = "default_sugar.png",
+})
+
+minetest.register_craftitem("default:pie_strawberry_raw", {
+	description = "Raw Strawberry Pie (+3)",
+	inventory_image = "default_strawberry_pie_raw.png",
+	on_use = minetest.item_eat(3),
+	groups = { food = 2, eatable = 3 },
+})
+
+minetest.register_craftitem("default:pie_strawberry", {
+	description = "Strawberry Pie (+5)",
+	inventory_image = "default_strawberry_pie.png",
+	on_use = minetest.item_eat(5),
+	groups = { food = 2, eatable = 5 },
+})
+
+minetest.register_craftitem("default:bottle_olive_oil", {
+	description = "Bottle of Olive Oil (+3)",
+	inventory_image = "default_bottle_olive_oil.png",
+	on_use = minetest.item_eat(3, "vessels:glass_bottle"),
+	groups = { food = 3, eatable = 3 },
+})
+
+minetest.register_craftitem("default:tomatosalad", {
+	description = "Tomato Salad (+6)",
+	inventory_image = "default_tomatosalad.png",
+	on_use = minetest.item_eat(6, "default:plate"),
+	groups = { food = 2, eatable = 6 },
+})
+
+minetest.register_craftitem("default:tomato_potato_salad", {
+	description = "Tomato-Potato Salad (+8)",
+	inventory_image = "default_tpsalad.png",
+	on_use = minetest.item_eat(8, "default:plate"),
+	groups = { food = 2, eatable = 8 },
+})
+
+minetest.register_craftitem("default:spiced_potato", {
+	description = "Spiced Potato (+0)",
+	inventory_image = "default_spiced_potato.png",
+	on_use = minetest.item_eat(0),
+	groups = { food = 2 },
+})
+
+minetest.register_craftitem("default:baked_potato", {
+	description = "Baked Potato (+4)",
+	inventory_image = "default_baked_potato.png",
+	on_use = minetest.item_eat(4),
+	groups = { food = 2, eatable = 4 },
+})
+
+minetest.register_craftitem("default:pie_apple_raw", {
+	description = "Raw Apple Pie (+3)",
+	inventory_image = "default_apple_pie_raw.png",
+	on_use = minetest.item_eat(3),
+	groups = { food = 2, eatable = 3 },
+})
+
+minetest.register_craftitem("default:pie_apple", {
+	description = "Apple Pie (+5)",
+	inventory_image = "default_apple_pie.png",
+	on_use = minetest.item_eat(5),
+	groups = { food = 2, eatable = 5 },
+})
+
