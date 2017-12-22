@@ -1,6 +1,6 @@
-Minetest mod "Beds"
+Minetest mod: "rebeds" (Beds for respawning)
 ===================
-by BlockMen (c) 2014-2015
+Forked from the beds mod by BlockMen (c) 2014-2015.
 
 About
 ~~~~~
@@ -9,8 +9,6 @@ This mod adds a bed which allows to set the respawn position. Just rightclick th
 License of source code, textures: WTFPL
 ---------------------------------------
 (c) Copyright BlockMen (2014-2015)
-
-
 
 This program is free software. It comes without any warranty, to
 the extent permitted by applicable law. You can redistribute it

@@ -11,8 +11,8 @@ if cf ~= nil then
 	bkwd = true
 end
 
-function beds.read_spawns()
-	local spawns = beds.spawn
+function rebeds.read_spawns()
+	local spawns = rebeds.spawn
 	local input = io.open(file, "r")
 	if input and not bkwd then
 		repeat
@@ -27,9 +27,9 @@ function beds.read_spawns()
 		until input:read(0) == nil
 		io.close(input)
 	elseif input and bkwd then
-		beds.spawn = minetest.deserialize(input:read("*all"))
+		rebeds.spawn = minetest.deserialize(input:read("*all"))
 		input:close()
-		beds.save_spawns()
+		rebeds.save_spawns()
 		os.rename(file, file .. ".backup")
 		file = org_file
 	else
@@ -37,22 +37,22 @@ function beds.read_spawns()
 	end
 end
 
-function beds.save_spawns()
-	if not beds.spawn then
+function rebeds.save_spawns()
+	if not rebeds.spawn then
 		return
 	end
 	writing = true
 	local output = io.open(org_file, "w")
-	for i, v in pairs(beds.spawn) do
+	for i, v in pairs(rebeds.spawn) do
 		output:write(v.x.." "..v.y.." "..v.z.." "..i.."\n")
 	end
 	io.close(output)
 	writing = false
 end
 
-function beds.set_spawn(player, pos)
+function rebeds.set_spawn(player, pos)
 	local name = player:get_player_name()
-	beds.spawn[name] = pos
+	rebeds.spawn[name] = pos
 	minetest.chat_send_player(name, "Spawn position set!")
 end
 

@@ -1,18 +1,18 @@
 -- helper functions
 
-function beds.on_rightclick(pos, player)
-	beds.set_spawn(player, pos)
+function rebeds.on_rightclick(pos, player)
+	rebeds.set_spawn(player, pos)
 end
 
 -- callbacks
 
 minetest.register_on_joinplayer(function(player)
-	beds.read_spawns()
+	rebeds.read_spawns()
 end)
 
 minetest.register_on_respawnplayer(function(player)
 	local name = player:get_player_name()
-	local pos = beds.spawn[name] or nil
+	local pos = rebeds.spawn[name] or nil
 	if pos then
 		player:setpos(pos)
 		return true
@@ -20,6 +20,6 @@ minetest.register_on_respawnplayer(function(player)
 end)
 
 minetest.register_on_leaveplayer(function(player)
-	beds.player[name] = nil
+	rebeds.player[name] = nil
 end)
 

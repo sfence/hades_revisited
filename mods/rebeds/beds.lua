@@ -1,5 +1,5 @@
 -- fancy shaped bed
-beds.register_bed("beds:fancy_bed", {
+rebeds.register_bed("rebeds:fancy_bed", {
 	description = "Fancy Bed",
 	inventory_image = "beds_bed_fancy.png",
 	wield_image = "beds_bed_fancy.png",
@@ -49,7 +49,7 @@ beds.register_bed("beds:fancy_bed", {
 })
 
 -- simple shaped bed
-beds.register_bed("beds:bed", {
+rebeds.register_bed("rebeds:bed", {
 	description = "Simple Bed",
 	inventory_image = "beds_bed.png",
 	wield_image = "beds_bed.png",
@@ -87,3 +87,9 @@ beds.register_bed("beds:bed", {
 -- aliases for PA's beds mod
 minetest.register_alias("beds:bed_bottom_red", "beds:bed_bottom")
 minetest.register_alias("beds:bed_top_red", "beds:bed_top")
+
+minetest.register_alias("beds:bed_bottom", "rebeds:bed_bottom")
+minetest.register_alias("beds:bed_top", "rebeds:bed_top")
+minetest.register_alias("beds:fancy_bed_bottom", "rebeds:fancy_bed_bottom")
+minetest.register_alias("beds:fancy_bed_top", "rebeds:fancy_bed_top")
+
