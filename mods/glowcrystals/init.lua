@@ -67,29 +67,27 @@ minetest.register_node("glowcrystals:glowglass", {
 	sounds = default.node_sound_glass_defaults(),
 })
 
-minetest.register_node("glowcrystals:windows_glow", {
-    description = "Glowing Window",
-	drawtype = "nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	tiles = {"glowcrystals_windows_glow_seam.png", "glowcrystals_windows_glow_seam.png", "glowcrystals_windows_glow_seam.png",
-		"glowcrystals_windows_glow_seam.png", "glowcrystals_windows_glow_front.png", "glowcrystals_windows_glow_front.png"},
-	sunlight_propagates = true,
-	light_source = 11,
-	walkable = true,
-	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.4375, -0.4375, -0.0625, 0.4375, 0.4375, 0.0625},
-			{0.4375, -0.5, -0.125, 0.5, 0.5, 0.125},
-			{-0.5, -0.5, -0.125, -0.4375, 0.5, 0.125},
-			{-0.5, -0.5, -0.125, 0.5, -0.4375, 0.125},
-			{-0.5, 0.4375, -0.125, 0.5, 0.5, 0.125},
+if minetest.get_modpath("windows") then
+	windows.register_window("glowcrystals:windows_glow", {
+		description = "Glowing Window",
+		texture_seam = "glowcrystals_windows_glow_seam.png",
+		texture_front = "glowcrystals_windows_glow_front.png",
+		light_source = 11,
+		groups = {cracky=3,oddly_breakable_by_hand=3},
+		sounds = default.node_sound_glass_defaults({
+			footstep = default.node_sound_stone_defaults().footstep,
+		})
+	})
+
+	minetest.register_craft({
+		output = 'glowcrystals:windows_glow 4',
+		recipe = {
+			{'default:obsidian_shard', 'glowcrystals:glowglass', 'default:obsidian_shard'},
+			{'glowcrystals:glowglass', 'glowcrystals:glowglass', 'glowcrystals:glowglass'},
+			{'default:obsidian_shard', 'glowcrystals:glowglass', 'default:obsidian_shard'},
 		}
-	},
-	sounds = default.node_sound_glass_defaults(),
-})
+	})
+end
 
 --///////
 -- Items
@@ -147,15 +145,6 @@ minetest.register_craft({
 	recipe = {
 		{'glowcrystals:glowdust'},
 		{'default:glass'},
-	}
-})
-
-minetest.register_craft({
-	output = 'glowcrystals:windows_glow 4',
-	recipe = {
-		{'default:obsidian_shard', 'glowcrystals:glowglass', 'default:obsidian_shard'},
-		{'glowcrystals:glowglass', 'glowcrystals:glowglass', 'glowcrystals:glowglass'},
-		{'default:obsidian_shard', 'glowcrystals:glowglass', 'default:obsidian_shard'},
 	}
 })
 
