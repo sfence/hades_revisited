@@ -1,4 +1,6 @@
 # Hades Revisited
+Version 0.1.0
+
 A Minetest subgame
 
 To play this game in Minetest, insert this directory into
