@@ -93,7 +93,8 @@ minetest.register_node("travelnet:elevator", {
     on_destruct = function(pos)
             local p = {x=pos.x, y=pos.y+1, z=pos.z}
 	    minetest.remove_node(p)
-    end
+    end,
+    sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("travelnet:elevator_top", {
@@ -140,6 +141,7 @@ minetest.register_node("travelnet:elevator_top", {
     light_source = 10,
 
     groups = {cracky=1,choppy=1,snappy=1,not_in_creative_inventory=1},
+    sounds = default.node_sound_stone_defaults(),
 })
 
 --if( minetest.get_modpath("technic") ~= nil ) then
