@@ -1,8 +1,10 @@
 # Hades Revisited
 Version 0.1.0
 
-A Minetest subgame
+A Minetest subgame focused on terraforming.
+Based on *Minetest Hades* by Glünngi.
 
+## Installation
 To play this game in Minetest, insert this directory into
 
     /games/hades_revisited
@@ -12,7 +14,7 @@ in the Minetest data folder.
 Minetest can be found online at <https://github.com/minetest/minetest/>.
 
 All my work is licenced under the MIT License.
-The extern mods have different licenses. look at the modfolders for details.
+The external mods have different licenses. Look at the mod folders for details.
 
 ## Important notices and short game guide
 
