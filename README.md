@@ -9,7 +9,7 @@ in the Minetest data folder.
 
 Minetest can be found online at <https://github.com/minetest/minetest/>.
 
-All my work is licenced under the WTFPL.
+All my work is licenced under the MIT License.
 The extern mods have different licenses. look at the modfolders for details.
 
 ## Important notices and short game guide
