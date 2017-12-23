@@ -14,35 +14,36 @@ The extern mods have different licenses. look at the modfolders for details.
 
 ## Important notices and short game guide
 
-* It's a subgame, so you must install it in the `games` directory.
-* Be sure that the `minetest.conf` file in the main directory of Minetest doesn't have any parameters who are in conflict with the `minetest.conf` file from the `hades_revisited` directory. Especiall mapgen parameters or stuff like `give_initial_stuff = false` - because the parameter of the main conf file overwrites the Hades conf file parameter, and this can have some unwelcome effects
-* Hades Revisited is developed for mapgen v6.
-* There only 1 biome, with the focus on terraforming. Not everyone will like this game. But maybe there are some freaks out there ;-)
+* Be sure the `minetest.conf` file in the main Minetest directory doesn't have any parameters who are in conflict with the `minetest.conf` file from the `hades_revisited` directory. Especially mapgen parameters or stuff like `give_initial_stuff = false`
+* Hades Revisited only works in mapgen v6.
+* There only 1 biome, with the focus on terraforming.
+* Not everyone will like this game. But maybe there are some freaks out there ;-)
 * Take another map seed if you spawn on lava.
-* External mods can make some trouble, there are many chances on default
+* External mods can make some trouble, there are many changes in default
 
 ## Background story
 
-Your colony ship crashed on the planet Hades. Hades is a very young planet and characterized by highly volcanic activities and a lot of fertile ash. Asteroids have brought some water on Hades.
-So there are the basics for life, you just need to help them to get the nature going, make the planet habitable and survive.
+An attempt to colonize planet Hades went horribly wrong: Your colony ship crashed and you survived with very limited supplies.
+Hades is a very young planet and characterized by highly volcanic activities and a lot of fertile ash. Asteroids have brought some water on Hades.
+So there are the basics for life, you just need to help it to get the nature going, make the planet habitable and survive.
 Not every colonist has duly arrived. Most of them have been mutated and strayed around the planet. But for some unknown reason they don't suffer water.
-Hades wasn't unpeopled. There are creatures and most of them live in the underground and darkness.
+There are creatures and most of them live in the underground and darkness.
 
 ## How to start:
-You crashed on Hades with the following items: 1 steel pickaxe, 12 apples, 1 wall lamp and a stick.
-At first you should look up to be sure that no lava is flowing down on you.
+You start with the following items: 1 steel pickaxe, 12 apples, 1 wall lamp and a stick.
+Watch out for flowing lava above you at first!
 
 Next you should dig some stone to craft a stone sword with the stick.
 Now explore the area and search for some water.
 
 Dig some stone and ash to craft fertile sand and place it in neighbor to water to become dirt.
 Take a dirt and a apple to craft a sapling. Plant the sapling on dirt to become wood and leaves from the tree.
+If you ran out of apples or lost your pickaxe, kill some mutants. They sometimes drop apples, pickaxes and other things.
 Make more dirt and place it above the water.
-((Sometimes the soil dry out, when you leave the area, when is placed on water level - so is better to place the dirt one node above the water level. Then should it not happen))
 
 Take 2 mossy stone (near water) and a dirt to craft grass.
 
-Grass + dirt = junglegrass
+Grass + dirt = jungle grass.
 
 Dig the grass and the junglegrass to get some seeds.
 
@@ -50,30 +51,37 @@ Plant the seeds on the soil that you have placed over the water source.
 
 And now survive with the crafting guide.
 
+
 ## Things you should know
 
+### Block transformations
+* Fertile sand (which must be crafted) turns into dirt in the near of 10 nodes to water and direct contact of a dirt.
+* Volcanic ash turns into fertile sand if leaves are nearly.
+* Volcanic ash slowly turns into clay when next to water.
+* Flowing water turns lava source into water source and flowing lava into volcanic gravel.
+* Stone, tuff and cobblestone become burned when next to lava.
+* Stone, tuff and cobblestone become mossy when next to water.
+* Mossy cobblestone turns into gravel when next to flowing water.
+* Chondrite turns into marble if it is below -500 and it must be in near 4 nodes to lava and it also must have direct contact to water.
+* Volcanic gravel turns into obsidian below Y=-1000. It must have direct contact to lava and water must be nearly.
+* Sugarcane spawns near of papyrus. It dosnt need water to grow, just dirt
+
+### Other gameplay stuff
 * There is no fire
-* Flowing water turns lava source into water source and flowing lava into volcanic gravel
+* Beds do *not* allow you to skip the night, they only set the spawn point
 * Volcanic gravel can only be dug by a shovel.
 * Mobs spawn on stone, ash and tuff
-* Ash turns into clay if it has contact to water.
-* Ash also turns into fertile sand if leaves are nearly.
-* Cobblestone turns into mossy cobblestone if it have contact to water. And mossy cobble turns into gravel if it have contact to flowing water.
 * Tuff is too breakable for tools so it can't be used to craft stone tools
-* There are no buckets, you need a waterpump to spread water.
-* Below Y = -500 you can build a marble factory. Chondrit turns into marble if it is below -500 and it must be in near 4 nodes to lava and it also must have direct contact to water.
-* Volcanic gravel turns into obsidian below Y=-1000. It must have direct contact to lava and water must be nearly.
-* Weak torches can be upgraded with a string to brigtht torches
+* There are no buckets, you need a water pump to spread water.
+* Weak torches can be upgraded with a string to bright torches
 * Plants grow with light level of 8 or higher. Underground farming is thus possible
 * 2 emeralds = 1 sapphire. 2 sapphires = 1 ruby. 2 rubies = 1 diamond.
-* Sugarcane spawns near of papyrus. It dosnt need water to grow, just dirt
-* Fertile sand turns into dirt in the near of 10 nodes to water and direct contact of a dirt.
-* With the Staff of Gaia you can turn following blocks into dirt: ash, fertile sand, burned stone, stone, cobble, mossy stone, tuff, burned tuff, mossytuff, mossycobble
+* With the Staff of Gaia you can turn following blocks into dirt: ash, fertile sand, burned stone, stone, cobble, mossy stone, tuff, burned tuff, mossytuff, mossy cobble
 * Pale tree saplings can be plant on ash
-* Cactus grows on ash
-* Prismatic furnance is faster than the original furnance
+* Cacti grow on ash
+* Prismatic furnance is faster than the original furnance and has more slots
 
-## Ores
+### Ores
 
 Ores generate at and below the following Y levels:
 
@@ -112,73 +120,63 @@ Ores generate at and below the following Y levels:
     ssssssss
     ***********
 
-## List of external mods
+## List of external mods (incomplete)
+**Important**: A lot of the mods used in this game have been heavily changed
+from their original.
 
-3d forniture
+`3dforniture`
 https://forum.minetest.net/viewtopic.php?id=2207
 
-bags
+`bags`
 https://forum.minetest.net/viewtopic.php?id=3081
 
-bedrock
+`bedrock`
 http://www.moontest.org/viewtopic.php?f=11&t=9231
 
-boost_cart
+`boost_cart`
 https://forum.minetest.net/viewtopic.php?f=11&t=10172
 
-farming_plus
+`farming_plus`
 https://forum.minetest.net/viewtopic.php?id=2787
 
-glowcrystals
+`glowcrystals`
 https://forum.minetest.net/viewtopic.php?id=9047
 
-home gui
-https://forum.minetest.net/viewtopic.php?id=3101
-
-highlandpools
+`highlandpools`
 https://forum.minetest.net/viewtopic.php?id=8400
 
-hud
-https://forum.minetest.net/viewtopic.php?id=6342
-
-inventory plus
-https://forum.minetest.net/viewtopic.php?id=3100
-
-item tweaks
+`item_tweaks`
 https://github.com/minetest-technic/item_tweaks
 
-item frames
+`item_frames`
 https://forum.minetest.net/viewtopic.php?id=5600
 
-kerova
+`kerova`
 https://forum.minetest.net/viewtopic.php?id=8054
 
-mesecons
+`mesecons`
 https://forum.minetest.net/viewtopic.php?t=628
 
-mobs redo (an old version with elements from adventuretestgame)
+`mobs` (Mobs Redo)
 https://forum.minetest.net/viewtopic.php?t=9917
 https://forum.minetest.net/viewtopic.php?f=15&t=9184
 
-pipeworks
+`pipeworks`
 https://forum.minetest.net/viewtopic.php?t=2155
 
-plantlife (old destroyed code)
+`plantlife` (old destroyed code)
 https://forum.minetest.net/viewtopic.php?id=3898
 
-signs lib
+`signs_lib`
 https://forum.minetest.net/viewtopic.php?id=2041
 
-trash can
+`trash_can`
 https://forum.minetest.net/viewtopic.php?id=6315
 
-travel net
+`travelnet`
 https://forum.minetest.net/viewtopic.php?id=4877
 
-vines
+`vines`
 https://forum.minetest.net/viewtopic.php?id=2344
-
-zcg
-https://forum.minetest.net/viewtopic.php?id=5564
 
 
