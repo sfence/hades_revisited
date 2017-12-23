@@ -15,7 +15,7 @@ local function replace_old_owner_information(pos)
 	end
 end
 
-local can_interact_with_node = function(player, pod)
+local can_interact_with_node = function(player, pos)
 	if player then
 		if minetest.check_player_privs(player, "protection_bypass") then
 			return true
