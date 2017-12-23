@@ -22,6 +22,7 @@ local group_stereotypes = {
 	lchests      = "default:chest_locked",
 	stone        = "default:cobble",
 	woodfence    = "default:fence_wood",
+	claybricks   = "default:brick",
 	mesecon_conductor_craftable = "mesecons:wire_00000000_off",
 }
 
