@@ -7,7 +7,6 @@ minetest.register_node("default:stone", {
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = 'default:cobble',
-	legacy_mineral = true,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -17,7 +16,6 @@ minetest.register_node("default:mossystone", {
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = 'default:mossycobble',
-	legacy_mineral = true,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -100,7 +98,6 @@ minetest.register_node("default:mossytuff", {
 	is_ground_content = true,
 	groups = {cracky=3, porous=1},
 	drop = 'default:mossytuff',
-	legacy_mineral = true,
 	sounds = default.node_sound_stone_defaults(),
 })
 
