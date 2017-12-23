@@ -15,7 +15,7 @@ if not image then
 end
 
 if not groups then
-	groups = minetest.registered_items[craft].groups
+	groups = table.copy(minetest.registered_items[craft].groups)
 end
 groups.not_in_creative_inventory = 1
 groups.wood = nil
