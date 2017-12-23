@@ -54,7 +54,7 @@ minetest.register_craft({
 -- Cotton
 farming.register_plant("farming:cotton", {
 	description = "Cotton Seed",
-	description_harvest = "Cotton",
+	description_harvest = "String",
 	inventory_image = "farming_cotton_seed.png",
 	steps = 3,
 	minlight = 13,
@@ -62,7 +62,7 @@ farming.register_plant("farming:cotton", {
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:cotton", {
-	description = "Cotton",
+	description = "String",
 	inventory_image = "farming_cotton.png",
 })
 
