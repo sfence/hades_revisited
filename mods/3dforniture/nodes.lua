@@ -567,128 +567,25 @@
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
 			sounds = default.node_sound_wood_defaults(),
 		})
+
+		local lamps = {
+			{ "off" },
+			{ "low", 4 },
+			{ "med", 8 },
+			{ "hi", 12 },
+			{ "max", minetest.LIGHT_MAX },
+		}
+
+		for l=1, #lamps do
+
+		local drop, not_in_creative_inventory
+		if l ~= 1 then
+			drop = "3dforniture:table_lamp_off"
+			not_in_creative_inventory = 1
+		end
 		--Table Lamp
-		minetest.register_node("3dforniture:table_lamp_off",
-			{ description = 'Table Lamp',
-			drawtype = "nodebox",
-			tiles = {
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_l.png",
-			},
-			 paramtype = 'light',
-			paramtype2 = 'facedir',
-			 node_box = {
-				type = "fixed",
-				fixed = {
-
-					--Lamp Base
-					{-0.15,-0.5,-0.15, 0.15,-0.45,0.15},
-					{-0.05,-0.45,-0.05, 0.05,-0.4,0.05},
-					{-0.025,-0.4,-0.025, 0.025,-0.1,0.025},
-					{-0.0125,-0.125,-0.2, 0.0125,-0.1,0.2},
-					{-0.2,-0.125,-0.0125, 0.2,-0.1,0.0125},
-
-					--Lamp Shade
-					{-0.2,-0.1,-0.2, -0.175,0.3,0.2},
-					{0.175,-0.1,-0.2, 0.2,0.3,0.2},
-					{-0.175,-0.1,-0.2, 0.175,0.3,-0.175},
-					{-0.175,-0.1,0.175, 0.175,0.3,0.2},
-				},
-			},
-			sunlight_propagates = true,
-			walkable = false,
-			selection_box = {
-				type = "fixed",
-				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
-			},
-			groups = {cracky=2,oddly_breakable_by_hand=1,},
-			drop = "3dforniture:table_lamp_off",
-			sounds = default.node_sound_glass_defaults(),
-		})
-
-		minetest.register_node("3dforniture:table_lamp_low",
-			{
-			drawtype = "nodebox",
-			tiles = {
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_l.png",
-			},
-			 paramtype = 'light',
-			paramtype2 = 'facedir',
-			 node_box = {
-				type = "fixed",
-				fixed = {
-
-					--Lamp Base
-					{-0.15,-0.5,-0.15, 0.15,-0.45,0.15},
-					{-0.05,-0.45,-0.05, 0.05,-0.4,0.05},
-					{-0.025,-0.4,-0.025, 0.025,-0.1,0.025},
-					{-0.0125,-0.125,-0.2, 0.0125,-0.1,0.2},
-					{-0.2,-0.125,-0.0125, 0.2,-0.1,0.0125},
-
-					--Lamp Shade
-					{-0.2,-0.1,-0.2, -0.175,0.3,0.2},
-					{0.175,-0.1,-0.2, 0.2,0.3,0.2},
-					{-0.175,-0.1,-0.2, 0.175,0.3,-0.175},
-					{-0.175,-0.1,0.175, 0.175,0.3,0.2},
-				},
-			},
-			sunlight_propagates = true,
-			walkable = false,
-			light_source = 4,
-			selection_box = {
-				type = "fixed",
-				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
-			},
-			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
-			drop = "3dforniture:table_lamp_off",
-			sounds = default.node_sound_glass_defaults(),
-		})
-
-		minetest.register_node("3dforniture:table_lamp_med",
-			{
-			drawtype = "nodebox",
-			tiles = {
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_l.png",
-			},
-			 paramtype = 'light',
-			paramtype2 = 'facedir',
-			 node_box = {
-				type = "fixed",
-				fixed = {
-
-					--Lamp Base
-					{-0.15,-0.5,-0.15, 0.15,-0.45,0.15},
-					{-0.05,-0.45,-0.05, 0.05,-0.4,0.05},
-					{-0.025,-0.4,-0.025, 0.025,-0.1,0.025},
-					{-0.0125,-0.125,-0.2, 0.0125,-0.1,0.2},
-					{-0.2,-0.125,-0.0125, 0.2,-0.1,0.0125},
-
-					--Lamp Shade
-					{-0.2,-0.1,-0.2, -0.175,0.3,0.2},
-					{0.175,-0.1,-0.2, 0.2,0.3,0.2},
-					{-0.175,-0.1,-0.2, 0.175,0.3,-0.175},
-					{-0.175,-0.1,0.175, 0.175,0.3,0.2},
-				},
-			},
-			sunlight_propagates = true,
-			walkable = false,
-			light_source = 8,
-			selection_box = {
-				type = "fixed",
-				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
-			},
-			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
-			drop = "3dforniture:table_lamp_off",
-			sounds = default.node_sound_glass_defaults(),
-		})
-
-		minetest.register_node("3dforniture:table_lamp_hi",
-			{
+		minetest.register_node("3dforniture:table_lamp_"..lamps[l][1],
+			{ description = "Table Lamp",
 			drawtype = "nodebox",
 			tiles = {
 				"forniture_table_lamp_s.png",
@@ -697,10 +594,9 @@
 			},
 			paramtype = 'light',
 			paramtype2 = 'facedir',
-			 node_box = {
+			node_box = {
 				type = "fixed",
 				fixed = {
-
 					--Lamp Base
 					{-0.15,-0.5,-0.15, 0.15,-0.45,0.15},
 					{-0.05,-0.45,-0.05, 0.05,-0.4,0.05},
@@ -717,55 +613,17 @@
 			},
 			sunlight_propagates = true,
 			walkable = false,
-			light_source = 12,
+			light_source = lamps[l][2],
 			selection_box = {
 				type = "fixed",
-				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
+				fixed = {-0.2, -0.5, -0.2, 0.2, 0.3, 0.2},
 			},
-			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
-			drop = "3dforniture:table_lamp_off",
+			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=not_in_creative_inventory},
+			drop = drop,
 			sounds = default.node_sound_glass_defaults(),
 		})
 
-		minetest.register_node("3dforniture:table_lamp_max",
-			{
-			drawtype = "nodebox",
-			tiles = {
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_l.png",
-			},
-			paramtype = 'light',
-			paramtype2 = 'facedir',
-			 node_box = {
-				type = "fixed",
-				fixed = {
-
-					--Lamp Base
-					{-0.15,-0.5,-0.15, 0.15,-0.45,0.15},
-					{-0.05,-0.45,-0.05, 0.05,-0.4,0.05},
-					{-0.025,-0.4,-0.025, 0.025,-0.1,0.025},
-					{-0.0125,-0.125,-0.2, 0.0125,-0.1,0.2},
-					{-0.2,-0.125,-0.0125, 0.2,-0.1,0.0125},
-
-					--Lamp Shade
-					{-0.2,-0.1,-0.2, -0.175,0.3,0.2},
-					{0.175,-0.1,-0.2, 0.2,0.3,0.2},
-					{-0.175,-0.1,-0.2, 0.175,0.3,-0.175},
-					{-0.175,-0.1,0.175, 0.175,0.3,0.2},
-				},
-			},
-			sunlight_propagates = true,
-			walkable = false,
-			light_source = minetest.LIGHT_MAX,
-			selection_box = {
-				type = "fixed",
-				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
-			},
-			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=1},
-			drop = "3dforniture:table_lamp_off",
-			sounds = default.node_sound_glass_defaults(),
-		})
+		end
 
 		-- Bathroom Kit
 

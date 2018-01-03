@@ -59,21 +59,16 @@ minetest.register_alias('armchair', '3dforniture:armchair')
 
 local on_lamp_puncher = function (pos, node, puncher)
 	if node.name == "3dforniture:table_lamp_off" then
-		minetest.add_node(pos, {name="3dforniture:table_lamp_low"})
-		nodeupdate(pos)
-	elseif node.name == "3dforniture:table_lamp_low" then
-		minetest.add_node(pos, {name="3dforniture:table_lamp_med"})
-		nodeupdate(pos)
-	elseif node.name == "3dforniture:table_lamp_med" then
-		minetest.add_node(pos, {name="3dforniture:table_lamp_hi"})
-		nodeupdate(pos)
-	elseif node.name == "3dforniture:table_lamp_hi" then
 		minetest.add_node(pos, {name="3dforniture:table_lamp_max"})
-		nodeupdate(pos)
-	elseif node.name == "3dforniture:table_lamp_max" then
+	elseif node.name == "3dforniture:table_lamp_low" then
 		minetest.add_node(pos, {name="3dforniture:table_lamp_off"})
-		nodeupdate(pos)
-    end
+	elseif node.name == "3dforniture:table_lamp_med" then
+		minetest.add_node(pos, {name="3dforniture:table_lamp_low"})
+	elseif node.name == "3dforniture:table_lamp_hi" then
+		minetest.add_node(pos, {name="3dforniture:table_lamp_med"})
+	elseif node.name == "3dforniture:table_lamp_max" then
+		minetest.add_node(pos, {name="3dforniture:table_lamp_hi"})
+	end
 end
 
 
