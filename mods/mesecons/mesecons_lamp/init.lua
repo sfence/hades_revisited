@@ -16,11 +16,11 @@ minetest.register_node("mesecons_lamp:lamp_on", {
 	paramtype2 = "wallmounted",
 	legacy_wallmounted = true,
 	sunlight_propagates = true,
-	walkable = true,
+	walkable = false,
 	light_source = LIGHT_MAX,
 	node_box = mesecon_lamp_box,
 	selection_box = mesecon_lamp_box,
-	groups = {dig_immediate=3,not_in_creative_inventory=1, mesecon_effector_on = 1},
+	groups = {dig_immediate=3,not_in_creative_inventory=1, mesecon_effector_on = 1, attached_node = 1},
 	drop="mesecons_lamp:lamp_off 1",
 	sounds = default.node_sound_glass_defaults(),
 	mesecons = {effector = {
@@ -38,11 +38,11 @@ minetest.register_node("mesecons_lamp:lamp_off", {
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
-	walkable = true,
+	walkable = false,
 	node_box = mesecon_lamp_box,
 	selection_box = mesecon_lamp_box,
-	groups = {dig_immediate=3, mesecon_receptor_off = 1, mesecon_effector_off = 1},
-    	description="Meselamp",
+	groups = {dig_immediate=3, mesecon_receptor_off = 1, mesecon_effector_off = 1, attached_node = 1},
+    	description = "Mese Lamp",
 	sounds = default.node_sound_glass_defaults(),
 	mesecons = {effector = {
 		action_on = function (pos, node)
