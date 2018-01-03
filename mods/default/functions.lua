@@ -213,7 +213,6 @@ default.register_ladder = function(id, def)
 			type = "wallmounted",
 			wall_side = { -0.5, -0.5, -0.5, -7/16, 0.5, 0.5 },
 		},
-		groups = groups,
 		sounds = default.node_sound_wood_defaults(),
 		node_placement_prediction = "",
 		-- Restrict placement of ladders
@@ -271,12 +270,11 @@ default.register_ladder = function(id, def)
 		odef[k] = v
 	end
 
-	local groups = def.groups
-	if not groups then
-		groups = {}
+	if not odef.groups then
+		odef.groups = {}
 	end
-	groups.ladder = 1
-	groups.attached_node = 1
+	odef.groups.ladder = 1
+	odef.groups.attached_node = 1
 
 
 	minetest.register_node(id, odef)
