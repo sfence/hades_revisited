@@ -2041,15 +2041,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:lamp_column 2',
-	recipe = {
-		{'default:torch', 'default:glass', ''},
-		{'default:glass', '', ''},
-		{'', '', ''},
-	}
-})
-
-minetest.register_craft({
 	output = 'default:latern 2',
 	recipe = {
 		{'', 'default:bronze_ingot', ''},

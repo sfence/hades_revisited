@@ -1460,25 +1460,6 @@ minetest.register_node("default:lamp_wall", {
 	sounds = default.node_sound_glass_defaults(),
 })
 
-minetest.register_node("default:lamp_column", {
-    description = "Column Lamp (Stairs)",
-	drawtype = "nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	tiles = {"default_lamp_cl.png"},
-	sunlight_propagates = true,
-	light_source = 11,
-	walkable = false,
-	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.4375, -0.5, 0.0625, -0.0625, -0.375, 0.4375},
-		}
-	},
-	sounds = default.node_sound_glass_defaults(),
-})
-
 minetest.register_node("default:latern", {
     description = "Bronze Floor Lantern",
 	drawtype = "nodebox",
