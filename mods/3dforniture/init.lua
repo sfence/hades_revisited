@@ -71,18 +71,4 @@ local on_lamp_puncher = function (pos, node, puncher)
 	end
 end
 
-
-local on_toilet_puncher = function (pos, node, puncher)
-  if node.name == '3dforniture:toilet' then
-    local dir = node["param2"]
-    minetest.add_node(pos, {name="3dforniture:toilet_open", paramtype2='none', param2=dir})
-    nodeupdate(pos)
-  elseif node.name == '3dforniture:toilet_open' then
-    local dir = node["param2"]
-    minetest.add_node(pos, {name="3dforniture:toilet", paramtype2='none', param2=dir})
-    nodeupdate(pos)
-  end
-end
-
 minetest.register_on_punchnode(on_lamp_puncher)
-minetest.register_on_punchnode(on_toilet_puncher)
