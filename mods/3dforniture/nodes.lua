@@ -569,11 +569,11 @@
 		})
 
 		local lamps = {
-			{ "off" },
-			{ "low", 4 },
-			{ "med", 8 },
-			{ "hi", 12 },
-			{ "max", minetest.LIGHT_MAX },
+			{ "off", "max", },
+			{ "low", "off", 4 },
+			{ "med", "low", 8 },
+			{ "hi", "med", 12 },
+			{ "max", "hi", minetest.LIGHT_MAX },
 		}
 
 		for l=1, #lamps do
@@ -584,8 +584,8 @@
 			not_in_creative_inventory = 1
 		end
 		--Table Lamp
-		minetest.register_node("3dforniture:table_lamp_"..lamps[l][1],
-			{ description = "Table Lamp",
+		minetest.register_node("3dforniture:table_lamp_"..lamps[l][1], {
+			description = "Table Lamp",
 			drawtype = "nodebox",
 			tiles = {
 				"forniture_table_lamp_s.png",
@@ -613,7 +613,7 @@
 			},
 			sunlight_propagates = true,
 			walkable = false,
-			light_source = lamps[l][2],
+			light_source = lamps[l][3],
 			selection_box = {
 				type = "fixed",
 				fixed = {-0.2, -0.5, -0.2, 0.2, 0.3, 0.2},
@@ -621,6 +621,9 @@
 			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=not_in_creative_inventory},
 			drop = drop,
 			sounds = default.node_sound_glass_defaults(),
+			on_rightclick = function(pos, node, clicker)
+				minetest.set_node(pos, {name="3dforniture:table_lamp_"..lamps[l][2]})
+			end,
 		})
 
 		end
