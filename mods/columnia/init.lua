@@ -21,8 +21,8 @@ minetest.register_node("columnia:bracket",	{
 			        {-0.125, -0.375, -0.125, 0.125, -0.25, 0.125},
 		        },
 			},
-			groups = {choppy=2, oddly_breakable_by_hand=2,},
-			sounds = default.node_sound_stone_defaults(),
+			groups = {cracky=3,},
+			sounds = default.node_sound_metal_defaults(),
 })
 		
 minetest.register_craft({
@@ -75,7 +75,7 @@ minetest.register_node("columnia:rusty_block", {
 	description = "Rusty Block",
 	tiles = {"columnia_rusty_block.png"},
 	is_ground_content = true,
-	groups = {cracky=1,level=2},
+	groups = {cracky=1},
 	sounds = default.node_sound_heavy_metal_defaults(),
 })
 
@@ -86,7 +86,6 @@ minetest.register_craft({
 			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
 			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
 		},
-		replacements = {{"pipeworks:pump_off", "pipeworks:pump_off"}},
 })
 
 dofile(minetest.get_modpath("columnia").."/columnia.lua")
