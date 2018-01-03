@@ -4,7 +4,7 @@ columnia = {}
 
 -- Bracket 
 minetest.register_node("columnia:bracket",	{ 
-            description = 'Bracket (Column)',
+            description = 'Bracket',
 			tiles = {"columnia_rusty.png",},
 			drawtype = "nodebox",
 			sunlight_propagates = true,
@@ -37,7 +37,7 @@ minetest.register_craft({
 
 -- Lamp
 minetest.register_node("columnia:lamp_ceiling", {
-    description = "Ceiling Lamp (Column)",
+    description = "Column Lamp",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",

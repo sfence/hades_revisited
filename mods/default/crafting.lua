@@ -2023,14 +2023,6 @@ minetest.register_craft({
 	}
 })
 
-
-minetest.register_craft({
-	output = 'default:lamp_ceiling 2',
-	recipe = {
-		{'default:glass', 'default:torch', 'default:glass'},
-	}
-})
-
 minetest.register_craft({
 	output = 'default:lamp_wall 2',
 	recipe = {
