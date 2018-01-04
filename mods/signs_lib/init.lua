@@ -787,7 +787,7 @@ minetest.register_node(":locked_sign:sign_wall_locked", {
 		"signs_top_locked.png",
 		"signs_bottom_locked.png",
 		"signs_side_locked.png",
-		"signs_side.png",
+		"signs_side_locked.png",
 		"signs_back.png",
 		"signs_front_locked.png"
 	},
