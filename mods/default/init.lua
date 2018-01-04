@@ -8,8 +8,7 @@
 WATER_ALPHA = 160
 WATER_VISC = 1
 LAVA_VISC = 7
-LIGHT_MAX = 14
-
+LIGHT_MAX = minetest.LIGHT_MAX - 1
 
 -- Definitions made by this mod that other mods can use too
 default = {}
@@ -51,6 +50,7 @@ dofile(minetest.get_modpath("default").."/mapgen.lua")
 dofile(minetest.get_modpath("default").."/player.lua")
 dofile(minetest.get_modpath("default").."/trees.lua")
 dofile(minetest.get_modpath("default").."/furnace.lua")
+dofile(minetest.get_modpath("default").."/torch.lua")
 dofile(minetest.get_modpath("default").."/alias.lua")
 
 -- 10 slot hotbar key 1 - 0 (for ppl w/o a mouseweel)

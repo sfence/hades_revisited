@@ -60,8 +60,6 @@ Originating from G4JC's Almost MC Texture Pack:
 
 VanessaE's animated torches (WTFPL):
   default_torch_animated.png
-  default_torch_on_ceiling_animated.png
-  default_torch_on_floor_animated.png
   default_torch_on_floor.png
 
 RealBadAngel's animated water (WTFPL):
