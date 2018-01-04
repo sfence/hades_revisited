@@ -364,7 +364,16 @@ stairs.register_stair_and_slab("palewood", "default:palewood",
 		"Outer Pale Wood Stair",
 		"Inner Pale Wood Stair",
 		"Pale Wood Slab",
-		default.node_sound_wood_defaults())		
+		default.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("birchwood", "default:birchwood",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
+		{"default_birchwood.png"},
+		"Birch Wood Stair",
+		"Outer Birch Wood Stair",
+		"Inner Birch Wood Stair",
+		"Birch Wood Slab",
+		default.node_sound_wood_defaults())
 
 -- Barks
 

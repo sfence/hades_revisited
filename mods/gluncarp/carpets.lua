@@ -42,6 +42,7 @@ local carpetdesc = carpet_tab[i][2]
 	-- glunggi stuff
 	-- woods
 	{"palewood", 	        "Pale Wood",		    "default_palewood",		        "default:palewood"},
+	{"birchwood", 	        "Birch Wood",		    "default_birchwood",		        "default:birchwood"},
 	{"junglewood", 	        "Jungle Wood",		    "default_junglewood",		    "default:junglewood"},
 	
 	-- wooden floors

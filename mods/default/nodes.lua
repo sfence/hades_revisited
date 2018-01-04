@@ -1035,6 +1035,7 @@ local fences = {
 	{ "rusty", "Rusty Fence", "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal"}, default.node_sound_metal_defaults() },
 	{ "wood", "Common Wood Fence", "default_wood.png" },
 	{ "pale_wood", "Pale Wood Fence", "default_palewood.png" },
+	{ "birch_wood", "Birch Wood Fence", "default_birchwood.png" },
 	{ "jungle_wood", "Jungle Wood Fence", "default_junglewood.png" },
 	{ "wood_black", "Black Wood Fence", "default_colwood_black.png" },
 	{ "wood_blue", "Blue Wood Fence", "default_colwood_blue.png" },
@@ -1110,7 +1111,12 @@ minetest.register_node("default:wood", {
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
-
+minetest.register_node("default:birchwood", {
+	description = "Birch Wood Planks",
+	tiles = {"default_birchwood.png"},
+	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
+	sounds = default.node_sound_wood_defaults(),
+})
 minetest.register_node("default:palewood", {
 	description = "Pale Wood Planks",
 	tiles = {"default_palewood.png"},

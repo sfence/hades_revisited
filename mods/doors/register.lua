@@ -35,6 +35,26 @@ minetest.register_craft({
 	}
 })
 
+doors.register_door("doors:door_wood_birch", {
+	description = "Birch Wood Door",
+	inventory_image = "doors_wood_birch.png",
+	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	tiles = {{name="doors_door_wood_birch.png", backface_culling=true}},
+	sounds = default.node_sound_wood_defaults(),
+	sunlight = false,
+})
+
+minetest.register_craft({
+	output = "doors:door_wood_birch",
+	recipe = {
+		{"default:birchwood", "default:birchwood"},
+		{"default:birchwood", "default:birchwood"},
+		{"default:birchwood", "default:birchwood"},
+	}
+})
+
+
+
 doors.register_door("doors:door_wood_jungle", {
 	description = "Jungle Wood Door",
 	inventory_image = "doors_wood_jungle.png",
@@ -244,6 +264,25 @@ minetest.register_craft({
 	}
 })
 
+doors.register_trapdoor("doors:trapdoor_birch", {
+	description = "Birch Wood Trapdoor",
+	inventory_image = "doors_trapdoor_birch.png",
+	wield_image = "doors_trapdoor_birch.png",
+	tile_front = "doors_trapdoor_birch.png",
+	tile_side = "doors_trapdoor_birch_side.png",
+	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	sounds = default.node_sound_wood_defaults(),
+	sound_open = "doors_door_open",
+	sound_close = "doors_door_close"
+})
+
+minetest.register_craft({
+	output = 'doors:trapdoor_birch 2',
+	recipe = {
+		{'default:birchwood', 'default:birchwood', 'default:birchwood'},
+		{'default:birchwood', 'default:birchwood', 'default:birchwood'},
+	}
+})
 
 doors.register_trapdoor("doors:trapdoor_steel", {
 	description = "Steel Trapdoor",
@@ -287,7 +326,12 @@ doors.register_fencegate("doors:gate_palewood", {
 	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}
 })
 
-
+doors.register_fencegate("doors:gate_birchwood", {
+	description = "Birch Wood Fence Gate",
+	texture = "default_birchwood.png",
+	material = "default:birchwood",
+	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}
+})
 
 minetest.register_craft({
 	type = "fuel",
@@ -302,6 +346,11 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "doors:trapdoor_pale",
+	burntime = 7,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "doors:trapdoor_birch",
 	burntime = 7,
 })
 minetest.register_craft({
@@ -321,6 +370,11 @@ minetest.register_craft({
 })
 minetest.register_craft({
 	type = "fuel",
+	recipe = "doors:door_wood_birch",
+	burntime = 14,
+})
+minetest.register_craft({
+	type = "fuel",
 	recipe = "doors:gate_wood",
 	burntime = 7,
 })
@@ -332,6 +386,11 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "doors:gate_palewood",
+	burntime = 7,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "doors:gate_birchwood",
 	burntime = 7,
 })
 

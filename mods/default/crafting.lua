@@ -14,7 +14,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = 'default:palewood 4',
+	output = 'default:birchwood 4',
 	recipe = {
 		{'default:tree_birch'},
 	}
@@ -83,6 +83,13 @@ minetest.register_craft({
 	recipe = {
 		{'default:palewood', 'group:stick', 'default:palewood'},
 		{'default:palewood', 'group:stick', 'default:palewood'},
+	}
+})
+minetest.register_craft({
+	output = 'default:fence_birch_wood 4',
+	recipe = {
+		{'default:birchwood', 'group:stick', 'default:birchwood'},
+		{'default:birchwood', 'group:stick', 'default:birchwood'},
 	}
 })
 
