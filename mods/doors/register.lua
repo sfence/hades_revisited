@@ -375,22 +375,22 @@ minetest.register_craft({
 })
 minetest.register_craft({
 	type = "fuel",
-	recipe = "doors:gate_wood",
+	recipe = "doors:gate_wood_closed",
 	burntime = 7,
 })
 minetest.register_craft({
 	type = "fuel",
-	recipe = "doors:gate_junglewood",
+	recipe = "doors:gate_junglewood_closed",
 	burntime = 7,
 })
 minetest.register_craft({
 	type = "fuel",
-	recipe = "doors:gate_palewood",
+	recipe = "doors:gate_palewood_closed",
 	burntime = 7,
 })
 minetest.register_craft({
 	type = "fuel",
-	recipe = "doors:gate_birchwood",
+	recipe = "doors:gate_birchwood_closed",
 	burntime = 7,
 })
 
