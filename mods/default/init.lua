@@ -51,6 +51,7 @@ dofile(minetest.get_modpath("default").."/mapgen.lua")
 dofile(minetest.get_modpath("default").."/player.lua")
 dofile(minetest.get_modpath("default").."/trees.lua")
 dofile(minetest.get_modpath("default").."/furnace.lua")
+dofile(minetest.get_modpath("default").."/alias.lua")
 
 -- 10 slot hotbar key 1 - 0 (for ppl w/o a mouseweel)
 hotbar_size = minetest.setting_get("hotbar_size") or 10

@@ -1785,7 +1785,6 @@ minetest.register_node("default:mese", {
 	groups = {cracky=1,level=2},
 	sounds = default.node_sound_stone_defaults(),
 })
-minetest.register_alias("default:mese_block", "default:mese")
 
 
 minetest.register_node("default:goldblock", {
