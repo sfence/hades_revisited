@@ -320,4 +320,9 @@ if minetest.get_modpath("moreblocks") and ENABLE_STAIRSPLUS then
 	)
 	table.insert(circular_saw.known_stairs, "vines:vines_block")
 end
+
+minetest.register_alias("vines:rope", "vines:root")
+minetest.register_alias("vines:rope_end", "vines:root")
+minetest.register_alias("vines:rope_block", "default:wood")
+
 minetest.log("action", "[vines] Loaded!")
