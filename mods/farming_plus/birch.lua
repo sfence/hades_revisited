@@ -28,7 +28,7 @@ minetest.register_node("farming_plus:leaves_birch", {
 	waving = 1,
 	is_ground_content = false,
 	place_param2 = 1,
-	groups = {snappy=3, leafdecay=3, flammable=2, not_in_creative_inventory=1, leaves=1, porous=1},
+	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, porous=1},
  	drop = {
 		max_items = 1,
 		items = {

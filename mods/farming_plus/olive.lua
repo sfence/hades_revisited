@@ -21,14 +21,14 @@ minetest.register_node("farming_plus:olive_sapling", {
 
 
 minetest.register_node("farming_plus:olive_leaves", {
-    description = S("Olive Tree Leaves"),
+    description = S("Olive Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"farming_olive_leaves.png"},
 	paramtype = "light",
 	waving = 1,
 	is_ground_content = false,
 	place_param2 = 1,
-	groups = {snappy=3, leafdecay=3, flammable=2, not_in_creative_inventory=1, leaves=1, porous=1},
+	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, porous=1},
  	drop = {
 		max_items = 1,
 		items = {
