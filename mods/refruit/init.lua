@@ -13,7 +13,6 @@ minetest.register_node(":default:apple", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
@@ -22,21 +21,17 @@ minetest.register_node(":default:apple", {
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = function(pos, placer, itemstack)
-		if placer:is_player() then
-			minetest.set_node(pos, {name="default:apple", param2=1})
-		end
-	end,
+	place_param2 = 1,
 	
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		    if oldnode.name == "default:apple" then
-			   if oldnode.param2 ~= 0 then
-			      return
-			   end
-		       minetest.set_node(pos,{name = "refruit:bud_apple"})
-			else 
-		       return
+		if oldnode.name == "default:apple" then
+			if oldnode.param2 ~= 0 then
+				return
 			end
+				minetest.set_node(pos,{name = "refruit:bud_apple"})
+			else 
+				return
+		end
 	end,
 })
 
@@ -51,7 +46,6 @@ minetest.register_node("refruit:bud_apple", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
@@ -72,16 +66,6 @@ minetest.register_node("refruit:bud_apple", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 	
-	-- undestructable bud's
-	--[[
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		    if oldnode.name == "refruit:bud_apple" then
-		       minetest.set_node(pos,{name = "refruit:bud_apple"})
-			else 
-		       return
-			end
-	end,
-	--]]
 })
 
 minetest.register_node("refruit:flower_apple", {
@@ -93,13 +77,12 @@ minetest.register_node("refruit:flower_apple", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
 	},
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
-	drop = { -- a little reward for flowerpuncher's xD
+	drop = { -- a little reward for flowerpunchers xD
 		max_items = 1,
 		items = {
 			{
@@ -114,16 +97,6 @@ minetest.register_node("refruit:flower_apple", {
 	}, 
 	sounds = default.node_sound_leaves_defaults(),
 	
-	-- undestructable flower's
-	--[[
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		    if oldnode.name == "refruit:flower_apple" then
-		       minetest.set_node(pos,{name = "refruit:flower_apple"})
-			else 
-		       return
-			end
-	end,
-	--]]
 })
 
 minetest.register_node(":farming_plus:olive", {
@@ -135,30 +108,25 @@ minetest.register_node(":farming_plus:olive", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
+		fixed = {-0.25, -7/16, -0.25, 0.25, 0.5, 0.25}
 	},
 	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1},
 	on_use = minetest.item_eat(1),
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = function(pos, placer, itemstack)
-		if placer:is_player() then
-			minetest.set_node(pos, {name="farming_plus:olive", param2=1})
-		end
-	end,
+	place_param2 = 1,
 	
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		    if oldnode.name == "farming_plus:olive" then
-			   if oldnode.param2 ~= 0 then
-			      return
-			   end
-		       minetest.set_node(pos,{name = "refruit:bud_olive"})
-			else 
-		       return
+		if oldnode.name == "farming_plus:olive" then
+			if oldnode.param2 ~= 0 then
+				return
 			end
+			minetest.set_node(pos,{name = "refruit:bud_olive"})
+		else 
+			return
+		end
 	end,
 })
 
@@ -173,10 +141,9 @@ minetest.register_node("refruit:bud_olive", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
+		fixed = {-2/16, 1/16, -2/16, 2/16, 0.5, 2/16}
 	},
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1,fruit=1},
 	drop = {
@@ -194,16 +161,6 @@ minetest.register_node("refruit:bud_olive", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 	
-	-- undestructable bud's
-	--[[
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		    if oldnode.name == "refruit:bud_apple" then
-		       minetest.set_node(pos,{name = "refruit:bud_apple"})
-			else 
-		       return
-			end
-	end,
-	--]]
 })
 
 minetest.register_node("refruit:flower_olive", {
@@ -215,13 +172,12 @@ minetest.register_node("refruit:flower_olive", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
+		fixed = {-4/16, -1/16, -4/16, 4/16, 0.5, 4/16}
 	},
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
-	drop = { -- a little reward for flowerpuncher's xD
+	drop = { -- a little reward for flowerpunchers xD
 		max_items = 1,
 		items = {
 			{
@@ -236,16 +192,6 @@ minetest.register_node("refruit:flower_olive", {
 	}, 
 	sounds = default.node_sound_leaves_defaults(),
 	
-	-- undestructable flower's
-	--[[
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		    if oldnode.name == "refruit:flower_apple" then
-		       minetest.set_node(pos,{name = "refruit:flower_apple"})
-			else 
-		       return
-			end
-	end,
-	--]]
 })
 
 
