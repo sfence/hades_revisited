@@ -1333,7 +1333,7 @@ minetest.register_node("default:lava_flowing", {
 	liquid_renewable = true,
 	damage_per_second = 2*2,
 	post_effect_color = {a=192, r=255, g=64, b=0},
-	groups = {lava=3, liquid=2, hot=3, igniter=1, not_in_creative_inventory=1},
+	groups = {lava=3, liquid=2, igniter=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_lava_defaults(),
 })
 
@@ -1367,7 +1367,7 @@ minetest.register_node("default:lava_source", {
 	liquid_renewable = true,
 	damage_per_second = 2*2,
 	post_effect_color = {a=192, r=255, g=64, b=0},
-	groups = {lava=3, liquid=2, hot=3, igniter=1},
+	groups = {lava=3, liquid=2, igniter=1},
 	sounds = default.node_sound_lava_defaults(),
 })
 
