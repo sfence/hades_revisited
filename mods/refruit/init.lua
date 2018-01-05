@@ -17,7 +17,7 @@ minetest.register_node(":default:apple", {
 		type = "fixed",
 		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
-	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
+	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
 
@@ -50,7 +50,7 @@ minetest.register_node("refruit:bud_apple", {
 		type = "fixed",
 		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
 	},
-	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1,fruit=1},
+	groups = {snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	drop = {
 		max_items = 1,
 		items = {
@@ -81,7 +81,7 @@ minetest.register_node("refruit:flower_apple", {
 		type = "fixed",
 		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
 	},
-	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+	groups = {snappy=3,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	drop = { -- a little reward for flowerpunchers xD
 		max_items = 1,
 		items = {
@@ -112,7 +112,7 @@ minetest.register_node(":farming_plus:olive", {
 		type = "fixed",
 		fixed = {-0.25, -7/16, -0.25, 0.25, 0.5, 0.25}
 	},
-	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1},
+	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1},
 	on_use = minetest.item_eat(1),
 	sounds = default.node_sound_leaves_defaults(),
 
@@ -145,7 +145,7 @@ minetest.register_node("refruit:bud_olive", {
 		type = "fixed",
 		fixed = {-2/16, 1/16, -2/16, 2/16, 0.5, 2/16}
 	},
-	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1,fruit=1},
+	groups = {snappy=3,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1,},
 	drop = {
 		max_items = 1,
 		items = {
@@ -176,17 +176,17 @@ minetest.register_node("refruit:flower_olive", {
 		type = "fixed",
 		fixed = {-4/16, -1/16, -4/16, 4/16, 0.5, 4/16}
 	},
-	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+	groups = {snappy=3,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	drop = { -- a little reward for flowerpunchers xD
 		max_items = 1,
 		items = {
 			{
 				items = {'default:stick'},
-				rarity = 99,
+				rarity = 74,
 			},
 			{
 				items = {'default:stick'},
-				rarity = 99
+				rarity = 74
 			}
 		}
 	}, 
