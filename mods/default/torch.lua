@@ -55,7 +55,6 @@ default.register_torch = function(id, def)
 		liquids_pointable = false,
 		light_source = light,
 		groups = {choppy=2, dig_immediate=3, flammable=1, attached_node=1, torch=1},
-		drop = "default:torch",
 		selection_box = {
 			type = "wallmounted",
 			wall_bottom = {-1/8, -1/2, -1/8, 1/8, 2/16, 1/8},
@@ -99,7 +98,7 @@ default.register_torch = function(id, def)
 		walkable = false,
 		light_source = light,
 		groups = {choppy=2, dig_immediate=3, flammable=1, not_in_creative_inventory=1, attached_node=1, torch=1},
-		drop = "default:torch",
+		drop = "default:"..id,
 		selection_box = {
 			type = "wallmounted",
 			wall_side = {-1/2, -1/2, -1/8, -1/8, 1/8, 1/8},
