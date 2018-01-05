@@ -57,8 +57,8 @@ minetest.register_node("flowerpots:flower_pot", {
 			local flower_node = row[2]
 			if item == flower_node then
 				minetest.set_node(pos, {name="flowerpots:flower_pot_"..flower})
-				if not minetest.settings:get_bool("creative") then
-				itemstack:take_item()
+				if not minetest.settings:get_bool("creative_mode") then
+					itemstack:take_item()
 				end
 			end
 		end
@@ -67,8 +67,8 @@ minetest.register_node("flowerpots:flower_pot", {
 			local flower_node = row[2]
 			if item == flower_node then
 				minetest.set_node(pos, {name="flowerpots:flower_pot_"..flower})
-				if not minetest.settings:get_bool("creative") then
-				itemstack:take_item()
+				if not minetest.settings:get_bool("creative_mode") then
+					itemstack:take_item()
 				end
 			end
 		end
@@ -109,7 +109,9 @@ minetest.register_node("flowerpots:flower_pot_"..flower, {
 	groups = {cracky = 1, oddly_breakable_by_hand = 1, not_in_creative_inventory=1, attached_node=1},
 	sounds = default.node_sound_stone_defaults(),
 	on_rightclick = function(pos, item, clicker)
-		minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
+		if not minetest.settings:get_bool("creative_mode") then
+			minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
+		end
 		minetest.set_node(pos, {name="flowerpots:flower_pot"})
 	end,
 	drop = {
@@ -143,7 +145,9 @@ minetest.register_node("flowerpots:flower_pot_"..flower, {
 	groups = {cracky = 1, oddly_breakable_by_hand = 1, not_in_creative_inventory=1, attached_node=1},
 	sounds = default.node_sound_stone_defaults(),
 	on_rightclick = function(pos, item, clicker)
-		minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
+		if not minetest.settings:get_bool("creative_mode") then
+			minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
+		end
 		minetest.set_node(pos, {name="flowerpots:flower_pot"})
 	end,
 	drop = {
