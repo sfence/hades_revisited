@@ -266,43 +266,6 @@ local flowers_list = {
 }
 
 
-for i in ipairs(flowers_list) do
-	local flowerdesc = flowers_list[i][1]
-	local flower     = flowers_list[i][2]
-
-
-	minetest.register_node(":flowers:potted_"..flower, {
-		description = S("Potted "..flowerdesc),
-		drawtype = "plantlike",
-		tiles = { "flowers_potted_"..flower..".png" },
-		inventory_image = "flowers_potted_"..flower..".png",
-		wield_image = "flowers_potted_"..flower..".png",
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		groups = { snappy = 3,flammable=2 },
-		sounds = default.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = { -0.25, -0.5, -0.25, 0.25, 0.5, 0.25 },
-		},	
-	})
-
-
-	minetest.register_craft( {
-		type = "shapeless",
-		output = "flowers:potted_"..flower,
-		recipe = {
-			"flowers:flower_pot",
-			"flowers:"..flower
-		}
-	})
-
-
-	minetest.register_alias("flowers:flower_"..flower.."_pot", "flowers:potted_"..flower)
-end
-
-
 local extra_aliases = {
 	"waterlily",
 	"waterlily_225",
@@ -499,20 +462,6 @@ plantslib:spawn_on_surfaces({
 
 -- crafting recipes!
 
-
-minetest.register_craftitem(":flowers:flower_pot", {
-	description = S("Flower Pot"),
-	inventory_image = "flowers_flowerpot.png",
-})
-
-
-minetest.register_craft( {
-	output = "flowers:flower_pot",
-	recipe = {
-	        { "default:clay_brick", "", "default:clay_brick" },
-	        { "", "default:clay_brick", "" }
-	},
-})
 
 minetest.register_craft({
 	output = 'flowers:seaweed 3',
