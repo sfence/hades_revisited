@@ -79,7 +79,7 @@ minetest.register_node("farming_plus:olive", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1,},
+	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1,},
 	sounds = default.node_sound_defaults(),
 	on_use = minetest.item_eat(1),
 })

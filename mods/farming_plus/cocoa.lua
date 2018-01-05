@@ -57,7 +57,7 @@ minetest.register_node("farming_plus:cocoa", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	groups = {fleshy=3,dig_immediate=3,flammable=2},
+	groups = {dig_immediate=3,flammable=2},
 	sounds = default.node_sound_defaults(),
 })
 
