@@ -81,7 +81,7 @@ minetest.register_node("refruit:flower_apple", {
 		type = "fixed",
 		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
 	},
-	groups = {snappy=3,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+	groups = {snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	drop = { -- a little reward for flowerpunchers xD
 		max_items = 1,
 		items = {
@@ -145,7 +145,7 @@ minetest.register_node("refruit:bud_olive", {
 		type = "fixed",
 		fixed = {-2/16, 1/16, -2/16, 2/16, 0.5, 2/16}
 	},
-	groups = {snappy=3,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1,},
+	groups = {snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1,},
 	drop = {
 		max_items = 1,
 		items = {
@@ -176,7 +176,7 @@ minetest.register_node("refruit:flower_olive", {
 		type = "fixed",
 		fixed = {-4/16, -1/16, -4/16, 4/16, 0.5, 4/16}
 	},
-	groups = {snappy=3,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+	groups = {snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	drop = { -- a little reward for flowerpunchers xD
 		max_items = 1,
 		items = {
