@@ -9,3 +9,5 @@ How this works:
 
 An unconfigured travelnet box can be configured by anyone. If it is misconfigured, just dig it and place it anew.
 All stations that have the same network name set and are owned by the same user connect to the same network.
+
+License: GNU GPL version 3
