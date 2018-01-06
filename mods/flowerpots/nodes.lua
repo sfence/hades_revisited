@@ -1,16 +1,16 @@
 
 local flowers = {
-	{"rose", "flowers:rose", "Rose"},
-	{"tulip", "flowers:tulip", "Tulip"},
-	{"geranium", "flowers:geranium", "Geranium"},
-	{"viola", "flowers:viola", "Viola"},
-	{"dandelion_yellow", "flowers:dandelion_yellow", "Yellow Dandelion"},
-	{"dandelion_white", "flowers:dandelion_white", "White Dandelion"},
+	{"rose", "flowers:rose", "Red Flower"},
+	{"tulip", "flowers:tulip", "Orange Flower"},
+	{"geranium", "flowers:geranium", "Blue Flower"},
+	{"viola", "flowers:viola", "Violet Flower"},
+	{"dandelion_yellow", "flowers:dandelion_yellow", "Yellow Flower"},
+	{"dandelion_white", "flowers:dandelion_white", "White Flower"},
 
+-- TODO: Maybe add these later?
 --	{"grass", "default:grass_1", "Grass"},
 --	{"junglegrass", "default:junglegrass", "junglegrass"},
 --	{"dry_shrub", "default:dry_shrub", "Dry Shrub"},
---	{"papyrus", "default:papyrus", "Papyrus"},
 
 	{"sapling", "default:sapling", "Common Tree Sapling"},
 	{"junglesapling", "default:junglesapling", "Common Jungle Tree Sapling"},
