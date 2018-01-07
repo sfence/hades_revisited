@@ -16,6 +16,7 @@ minetest.register_on_respawnplayer(function(player)
 end)
 
 minetest.register_on_leaveplayer(function(player)
+	local name = player:get_player_name()
 	rebeds.player[name] = nil
 end)
 
