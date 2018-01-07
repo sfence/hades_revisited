@@ -64,7 +64,7 @@ function creative.update_creative_inventory(player_name, tab_content)
 
 	for name, def in pairs(items) do
 		if def.name:find(inv.filter, 1, true) or
-				def.description:lower():find(inv.filter, 1, true) then
+				(type(def.description) == "string" and def.description:lower():find(inv.filter, 1, true)) then
 			creative_list[#creative_list+1] = name
 		end
 	end
