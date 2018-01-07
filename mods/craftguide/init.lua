@@ -23,6 +23,7 @@ local group_stereotypes = {
 	stone        = "default:cobble",
 	woodfence    = "default:fence_wood",
 	claybricks   = "default:brick",
+	vines        = "vines:side",
 	mesecon_conductor_craftable = "mesecons:wire_00000000_off",
 }
 
