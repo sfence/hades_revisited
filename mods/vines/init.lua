@@ -7,7 +7,7 @@ local vines_group = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1
 local walldir ={}
 
 minetest.register_node("vines:side", {
-  description = "Vine",
+  description = "Jungle Vine",
   walkable = false,
   climbable = true,
   drop = "",
@@ -17,6 +17,7 @@ minetest.register_node("vines:side", {
   tiles = { "vines_side.png" },
   drawtype = "signlike",
   inventory_image = "vines_side.png",
+  wield_image = "vines_side.png",
   groups = vines_group,
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
@@ -34,7 +35,7 @@ minetest.register_node("vines:side", {
 })
 
 minetest.register_node("vines:side_rotten", {
-  description = "Rotten Vine",
+  description = "Rotten Jungle Vine",
   walkable = false,
   climbable = false,
   drop = "",
@@ -43,7 +44,8 @@ minetest.register_node("vines:side_rotten", {
   paramtype2 = "wallmounted",
   tiles = { "vines_side_rotten.png" },
   drawtype = "signlike",
-  inventory_image = "vines_side.png",
+  inventory_image = "vines_side_rotten.png",
+  wield_image = "vines_side_rotten.png",
   groups = {snappy = 3,flammable=2, hanging_node=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
@@ -64,6 +66,7 @@ minetest.register_node("vines:willow", {
   tiles = { "vines_willow.png" },
   drawtype = "signlike",
   inventory_image = "vines_willow.png",
+  wield_image = "vines_willow.png",
   groups = vines_group,
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
@@ -92,7 +95,8 @@ minetest.register_node("vines:willow_rotten", {
   paramtype2 = "wallmounted",
   tiles = { "vines_willow_rotten.png" },
   drawtype = "signlike",
-  inventory_image = "vines_willow.png",
+  inventory_image = "vines_willow_rotten.png",
+  wield_image = "vines_willow_rotten.png",
   groups = {snappy = 3,flammable=2, hanging_node=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
@@ -111,6 +115,7 @@ minetest.register_node("vines:root", {
   tiles = { "vines_root.png" },
   drawtype = "plantlike",
   inventory_image = "vines_root.png",
+  wield_image = "vines_root.png",
   groups = {vines=1,snappy = 3,flammable=2, hanging_node=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
@@ -122,7 +127,7 @@ minetest.register_node("vines:root", {
 
 
 minetest.register_node("vines:vine", {
-  description = "Vine",
+  description = "Cave Vine",
   walkable = false,
   climbable = true,
   sunlight_propagates = true,
@@ -150,7 +155,7 @@ minetest.register_node("vines:vine", {
 
 
 minetest.register_node("vines:vine_rotten", {
-  description = "Rotten Vine",
+  description = "Rotten Cave Vine",
   walkable = false,
   climbable = true,
   drop = "",
@@ -159,6 +164,7 @@ minetest.register_node("vines:vine_rotten", {
   tiles = { "vines_vine_rotten.png" },
   drawtype = "plantlike",
   inventory_image = "vines_vine_rotten.png",
+  wield_image = "vines_vine_rotten.png",
   groups = {snappy = 3,flammable=2, hanging_node=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
@@ -204,7 +210,7 @@ minetest.register_abm({
 
 
 minetest.register_craftitem("vines:vines", {
-  description = "Vines",
+  description = "Detached Vine",
   inventory_image = "vines_item.png",
 })
 
