@@ -13,9 +13,6 @@ in the Minetest data folder.
 
 Minetest can be found online at <https://github.com/minetest/minetest/>.
 
-All my work is licenced under the MIT License.
-The external mods have different licenses. Look at the mod folders for details.
-
 ## Important notices and short game guide
 
 * Be sure the `minetest.conf` file in the main Minetest directory doesn't have any parameters who are in conflict with the `minetest.conf` file from the `hades_revisited` directory. Especially mapgen parameters or stuff like `give_initial_stuff = false`
@@ -129,58 +126,78 @@ Ores generate at and below the following Y levels:
 from their original.
 
 `3dforniture`
-https://forum.minetest.net/viewtopic.php?id=2207
+<https://forum.minetest.net/viewtopic.php?id=2207>
 
 `bags`
-https://forum.minetest.net/viewtopic.php?id=3081
+<https://forum.minetest.net/viewtopic.php?id=3081>
 
 `bedrock`
-http://www.moontest.org/viewtopic.php?f=11&t=9231
+<http://www.moontest.org/viewtopic.php?f=11&t=9231>
 
 `boost_cart`
-https://forum.minetest.net/viewtopic.php?f=11&t=10172
+<https://forum.minetest.net/viewtopic.php?f=11&t=10172>
 
 `farming_plus`
-https://forum.minetest.net/viewtopic.php?id=2787
+<https://forum.minetest.net/viewtopic.php?id=2787>
 
 `glowcrystals`
-https://forum.minetest.net/viewtopic.php?id=9047
+<https://forum.minetest.net/viewtopic.php?id=9047>
 
 `highlandpools`
-https://forum.minetest.net/viewtopic.php?id=8400
+<https://forum.minetest.net/viewtopic.php?id=8400>
 
 `item_tweaks`
-https://github.com/minetest-technic/item_tweaks
+<https://github.com/minetest-technic/item_tweaks>
 
 `item_frames`
-https://forum.minetest.net/viewtopic.php?id=5600
+<https://forum.minetest.net/viewtopic.php?id=5600>
 
 `kerova`
-https://forum.minetest.net/viewtopic.php?id=8054
+<https://forum.minetest.net/viewtopic.php?id=8054>
 
 `mesecons`
-https://forum.minetest.net/viewtopic.php?t=628
+<https://forum.minetest.net/viewtopic.php?t=628>
 
 `mobs` (Mobs Redo)
-https://forum.minetest.net/viewtopic.php?t=9917
-https://forum.minetest.net/viewtopic.php?f=15&t=9184
+<https://forum.minetest.net/viewtopic.php?t=9917>
+<https://forum.minetest.net/viewtopic.php?f=15&t=9184>
 
 `pipeworks`
-https://forum.minetest.net/viewtopic.php?t=2155
+<https://forum.minetest.net/viewtopic.php?t=2155>
 
 `plantlife` (old destroyed code)
-https://forum.minetest.net/viewtopic.php?id=3898
+<https://forum.minetest.net/viewtopic.php?id=3898>
 
 `signs_lib`
-https://forum.minetest.net/viewtopic.php?id=2041
+<https://forum.minetest.net/viewtopic.php?id=2041>
 
 `trash_can`
-https://forum.minetest.net/viewtopic.php?id=6315
+<https://forum.minetest.net/viewtopic.php?id=6315>
 
 `travelnet`
-https://forum.minetest.net/viewtopic.php?id=4877
+<https://forum.minetest.net/viewtopic.php?id=4877>
 
 `vines`
-https://forum.minetest.net/viewtopic.php?id=2344
+<https://forum.minetest.net/viewtopic.php?id=2344>
 
 
+## Licensing
+This game is free software. It has been licensed under these licenses:
+
+* GNU LGPLv2.1 (or later) for the code
+* CC BY-SA 3.0 for the media
+
+Some mods have separate licenses:
+
+* `3dfornitore`: GPLv2
+* `travelnet`: GPLv3
+* `bags`: New BSD License
+* `bedrock`: zlib license
+* `signs_lib`: LGPLv3
+* `mesecons` (entire modpack): LGPLv3 for code, CC BY-SA 3.0 for media
+* `simple_bushes`: WTFPL for code, CC BY-SA 4.0 for media
+
+For detailed credits and author information, check out the readme files of the
+individual mods (in the `mods` directory).
+
+Sorry for the mess, it might be cleaned up later.
