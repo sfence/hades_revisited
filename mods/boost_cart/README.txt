@@ -1,4 +1,4 @@
-Some adjustments and expansions for Hades subgame added 2015 by Glünggi
+Some adjustments and expansions for Hades game added 2015 by Glünggi
 
 Minetest mod: boost_cart
 =======================

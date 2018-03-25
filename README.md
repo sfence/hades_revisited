@@ -1,7 +1,7 @@
 # Hades Revisited
 Version 0.2.1
 
-A Minetest subgame focused on terraforming.
+A game for Minetest, focused on terraforming.
 Based on *Minetest Hades* by Glünngi.
 
 ## Installation

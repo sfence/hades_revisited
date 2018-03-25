@@ -1,4 +1,4 @@
-Some (hudge) adjustments and expansions for Hades subgame added 2015 by Glünggi
+Some (hudge) adjustments and expansions for Hades game added 2015 by Glünggi
 
 Minetest 0.4 mod: default
 ==========================

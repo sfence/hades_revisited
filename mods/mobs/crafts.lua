@@ -1,1 +1,1 @@
--- No mob-related craftitems and tools for this subgame.
+-- No mob-related craftitems and tools for this game.
