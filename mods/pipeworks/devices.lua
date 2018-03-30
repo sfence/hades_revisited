@@ -165,7 +165,7 @@ pipeworks.add_node_box(valveboxes, pipeworks.pipe_rightstub)
 pipeworks.add_node_box(valveboxes, pipeworks.pipe_valvehandle_on)
 
 minetest.register_node("pipeworks:valve_on_loaded", {
-	description = "Valve",
+	description = "Valve (on)",
 	drawtype = "nodebox",
 	tiles = {
 		"pipeworks_valvebody_top_on.png",
@@ -276,7 +276,7 @@ minetest.register_node("pipeworks:spigot", {
 })
 
 minetest.register_node("pipeworks:spigot_pouring", {
-	description = "Spigot Outlet",
+	description = "Spigot Outlet (pouring)",
 	drawtype = "nodebox",
 	tiles = {
 		"pipeworks_spigot_sides.png",
@@ -346,7 +346,7 @@ pipeworks.add_node_box(airtightboxes, pipeworks.pipe_backstub)
 pipeworks.add_node_box(airtightboxes, pipeworks.entry_panel)
 
 minetest.register_node("pipeworks:entry_panel_empty", {
-	description = "Airtight Pipe entry/exit",
+	description = "Airtight Pipe Entry/Exit",
 	drawtype = "nodebox",
 	tiles = {
 		"pipeworks_plain.png",
@@ -432,7 +432,7 @@ minetest.register_node("pipeworks:entry_panel_empty", {
 })
 
 minetest.register_node("pipeworks:entry_panel_loaded", {
-	description = "Airtight Pipe entry/exit",
+	description = "Airtight Pipe Entry/Exit (loaded)",
 	drawtype = "nodebox",
 	tiles = {
 		"pipeworks_plain.png",
@@ -569,7 +569,7 @@ for fill = 0, 10 do
 	end
 
 	minetest.register_node("pipeworks:expansion_tank_"..fill, {
-		description = "Expansion Tank ("..filldesc..")... You hacker, you.",
+		description = "Expansion Tank ("..filldesc..")",
 		tiles = {
 			"pipeworks_storage_tank_fittings.png",
 			"pipeworks_storage_tank_fittings.png",
@@ -657,7 +657,7 @@ minetest.register_node("pipeworks:fountainhead", {
 })
 
 minetest.register_node("pipeworks:fountainhead_pouring", {
-	description = "Fountainhead",
+	description = "Fountainhead (pouring)",
 	drawtype = "nodebox",
 	tiles = {
 		"pipeworks_fountainhead_top.png",

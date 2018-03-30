@@ -48,12 +48,12 @@ for index, connects in ipairs(cconnects) do
 	end
 	
 	local pgroups = {snappy = 3, pipe = 1, not_in_creative_inventory = 1}
-	local pipedesc = "Pipe segement".." "..dump(connects).."... You hacker, you."
+	local pipedesc = "Pipe Segment ".." "..dump(connects)
 	local image = nil
 
 	if #connects == 0 then
 		pgroups = {snappy = 3, tube = 1}
-		pipedesc = "Pipe segment"
+		pipedesc = "Pipe Segment"
 		image = "pipeworks_pipe_inv.png"
 	end
 	

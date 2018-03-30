@@ -242,7 +242,7 @@ minetest.register_node("pipeworks:nodebreaker_off", {
 })
 
 minetest.register_node("pipeworks:nodebreaker_on", {
-	description = "Node Breaker",
+	description = "Node Breaker (on)",
 	tiles = {"pipeworks_nodebreaker_top_on.png","pipeworks_nodebreaker_bottom_on.png","pipeworks_nodebreaker_side2_on.png","pipeworks_nodebreaker_side1_on.png",
 			"pipeworks_nodebreaker_back.png","pipeworks_nodebreaker_front_on.png"},
 	mesecons= {effector={rules=pipeworks.rules_all,action_on=node_breaker_on, action_off=node_breaker_off}},

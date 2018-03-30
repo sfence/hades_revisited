@@ -18,11 +18,6 @@ local function facedir_to_right_dir(facedir)
 						z=topdir.x*backdir.y - backdir.x*topdir.y}
 end
 
-minetest.register_craftitem("pipeworks:filter", {
-	description = "Filter",
-	stack_max = 99,
-})
-
 local fakePlayer = {
     get_player_name = function() return ":pipeworks" end,
     -- any other player functions called by allow_metadata_inventory_take anywhere...
@@ -157,13 +152,8 @@ minetest.register_node("pipeworks:filter", {
 	end,
 })
 
-minetest.register_craftitem("pipeworks:mese_filter", {
-	description = "Mese filter",
-	stack_max = 99,
-})
-
 minetest.register_node("pipeworks:mese_filter", {
-	description = "Mese filter",
+	description = "Mese Filter",
 	tiles = {"pipeworks_mese_filter_top.png", "pipeworks_mese_filter_top.png", "pipeworks_mese_filter_output.png",
 		"pipeworks_mese_filter_input.png", "pipeworks_mese_filter_side.png", "pipeworks_mese_filter_top.png"},
 	paramtype2 = "facedir",
@@ -176,7 +166,7 @@ minetest.register_node("pipeworks:mese_filter", {
 				"invsize[8,6.5;]"..
 				"list[current_name;main;0,0;8,2;]"..
 				"list[current_player;main;0,2.5;8,4;]")
-		meta:set_string("infotext", "Mese filter")
+		meta:set_string("infotext", "Mese Filter")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*4)
 	end,

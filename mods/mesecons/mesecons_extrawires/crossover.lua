@@ -19,7 +19,7 @@ local crossover_states = {
 }
 
 minetest.register_node("mesecons_extrawires:crossover_off", {
-	description = "Insulated Crossover",
+	description = "Insulated Mesecon Crossover",
 	drawtype = "nodebox",
 	tiles = {
 		"jeija_insulated_wire_crossing_tb_off.png",
@@ -51,7 +51,6 @@ minetest.register_node("mesecons_extrawires:crossover_off", {
 })
 
 minetest.register_node("mesecons_extrawires:crossover_01", {
-	description = "You hacker you!",
 	drop = "mesecons_extrawires:crossover_off",
 	drawtype = "nodebox",
 	tiles = {
@@ -87,7 +86,6 @@ minetest.register_node("mesecons_extrawires:crossover_01", {
 })
 
 minetest.register_node("mesecons_extrawires:crossover_10", {
-	description = "You hacker you!",
 	drop = "mesecons_extrawires:crossover_off",
 	drawtype = "nodebox",
 	tiles = {
@@ -123,7 +121,6 @@ minetest.register_node("mesecons_extrawires:crossover_10", {
 })
 
 minetest.register_node("mesecons_extrawires:crossover_on", {
-	description = "You hacker you!",
 	drop = "mesecons_extrawires:crossover_off",
 	drawtype = "nodebox",
 	tiles = {

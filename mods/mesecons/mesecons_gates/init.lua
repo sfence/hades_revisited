@@ -94,11 +94,11 @@ function rotate_ports(L, param2)
 end
 
 gates = {
-{name = "diode", inputnumber = 1}, 
-{name = "not"  , inputnumber = 1}, 
-{name = "nand" , inputnumber = 2},
-{name = "and"  , inputnumber = 2},
-{name = "xor"  , inputnumber = 2}}
+{name = "diode", desc = "Diode", inputnumber = 1},
+{name = "not"  , desc = "NOT Gate", inputnumber = 1},
+{name = "nand" , desc = "NAND Gate", inputnumber = 2},
+{name = "and"  , desc = "AND Gate", inputnumber = 2},
+{name = "xor"  , desc = "XOR Gate", inputnumber = 2}}
 
 local onoff, drop, nodename, description, groups
 for _, gate in ipairs(gates) do
@@ -113,13 +113,12 @@ for _, gate in ipairs(gates) do
 			onoff = "on"
 			drop = nodename.."_off"
 			nodename = nodename.."_"..onoff
-			description = "You hacker you!"
 			groups = {dig_immediate=2, not_in_creative_inventory=1, overheat = 1}
 		else
 			onoff = "off"
 			drop = nil
 			nodename = nodename.."_"..onoff
-			description = gate.name.." Gate"
+			description = gate.desc
 			groups = {dig_immediate=2, overheat = 1}
 		end
 
