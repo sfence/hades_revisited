@@ -37,7 +37,7 @@ more of these lines to false:
 
 local enable_flowers = true
 local enable_junglegrass = true
-local enable_poisonivy = true
+local enable_poisonivy = false
 
 Dependencies: Just the game's default stuff.
 
