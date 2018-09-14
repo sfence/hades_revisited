@@ -408,6 +408,14 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = 'default:pfurnace',
+	recipe = {
+		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+		{'default:steel_ingot', 'travelnet:prismatic_gem', 'default:obsidian'},
+		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+	}
+})
 
 minetest.register_craft({
 	type = "shapeless",
