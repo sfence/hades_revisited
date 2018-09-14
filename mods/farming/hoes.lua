@@ -41,3 +41,9 @@ farming.register_hoe(":farming:hoe_diamond", {
 	material = "travelnet:prismatic_gem",
 	material_handle = "default:steel_ingot",
 })
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "farming:hoe_wood",
+	burntime = 10,
+})
