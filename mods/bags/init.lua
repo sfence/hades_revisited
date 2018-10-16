@@ -134,17 +134,17 @@ end)
 minetest.register_tool("bags:small", {
 	description = "Small Bag",
 	inventory_image = "bags_small.png",
-	groups = {bagslots=8},
+	groups = {bagslots=8, disable_repair=1},
 })
 minetest.register_tool("bags:medium", {
 	description = "Medium Bag",
 	inventory_image = "bags_medium.png",
-	groups = {bagslots=16},
+	groups = {bagslots=16, disable_repair=1},
 })
 minetest.register_tool("bags:large", {
 	description = "Large Bag",
 	inventory_image = "bags_large.png",
-	groups = {bagslots=24},
+	groups = {bagslots=24, disable_repair=1},
 })
 
 -- register bag crafts
