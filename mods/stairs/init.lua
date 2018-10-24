@@ -53,12 +53,6 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 		end,
 	})
 
-	-- for replace ABM
-	minetest.register_node(":stairs:stair_" .. subname.."upside_down", {
-		replace_name = "stairs:stair_" .. subname,
-		groups = {slabs_replace=1},
-	})
-
 	minetest.register_craft({
 		output = 'stairs:stair_' .. subname .. ' 6',
 		recipe = {
@@ -130,12 +124,6 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 		end,
 	})
 
-	-- for replace ABM
-	minetest.register_node(":stairs:stair_out_" .. subname.."upside_down", {
-		replace_name = "stairs:stair_out_" .. subname,
-		groups = {slabs_replace=1},
-	})
-
 	minetest.register_craft({
 		output = 'stairs:stair_out_' .. subname .. ' 5',
 		recipe = {
@@ -195,12 +183,6 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 
 			return minetest.item_place(itemstack, placer, pointed_thing, param2)
 		end,
-	})
-
-	-- for replace ABM
-	minetest.register_node(":stairs:stair_in_" .. subname.."upside_down", {
-		replace_name = "stairs:stair_in_" .. subname,
-		groups = {slabs_replace=1},
 	})
 
 	minetest.register_craft({
@@ -309,12 +291,6 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 		end,
 	})
 
-	-- for replace ABM
-	minetest.register_node(":stairs:slab_" .. subname.."upside_down", {
-		replace_name = "stairs:slab_"..subname,
-		groups = {slabs_replace=1},
-	})
-
 	minetest.register_craft({
 		output = 'stairs:slab_' .. subname .. ' 6',
 		recipe = {
@@ -322,23 +298,6 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 		},
 	})
 end
-
--- Replace old "upside_down" nodes with new param2 versions
-minetest.register_abm({
-	nodenames = {"group:slabs_replace"},
-	interval = 1,
-	chance = 1,
-	action = function(pos, node)
-		node.name = minetest.registered_nodes[node.name].replace_name
-		node.param2 = node.param2 + 20
-		if node.param2 == 21 then
-			node.param2 = 23
-		elseif node.param2 == 23 then
-			node.param2 = 21
-		end
-		minetest.set_node(pos, node)
-	end,
-})
 
 -- Nodes will be called stairs:{stair,slab}_<subname>
 function stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds)
@@ -1133,12 +1092,6 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 		end,
 	})
 
-	-- for replace ABM
-	minetest.register_node("stairs:stair_glowcrystal_block_upside_down", {
-		replace_name = "stairs:stair_glowcrystal_block" ,
-		groups = {slabs_replace=1},
-	})
-
 	minetest.register_craft({
 		output = 'stairs:stair_glowcrystal_block 6',
 		recipe = {
@@ -1211,12 +1164,6 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 		end,
 	})
 
-	-- for replace ABM
-	minetest.register_node("stairs:stair_out_glowcrystal_block_upside_down", {
-		replace_name = "stairs:stair_out_glowcrystal_block",
-		groups = {slabs_replace=1},
-	})
-
 	minetest.register_craft({
 		output = 'stairs:stair_out_glowcrystal_block 5',
 		recipe = {
@@ -1276,12 +1223,6 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 
 			return minetest.item_place(itemstack, placer, pointed_thing, param2)
 		end,
-	})
-
-	-- for replace ABM
-	minetest.register_node("stairs:stair_in_glowcrystal_block_upside_down", {
-		replace_name = "stairs:stair_in_glowcrystal_block",
-		groups = {slabs_replace=1},
 	})
 
 	minetest.register_craft({
@@ -1390,12 +1331,6 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 
 			return minetest.item_place(itemstack, placer, pointed_thing, param2)
 		end,
-	})
-
-	-- for replace ABM
-	minetest.register_node("stairs:slab_glowcrystal_block_upside_down", {
-		replace_name = "stairs:slab_glowcrystal_block",
-		groups = {slabs_replace=1},
 	})
 
 	minetest.register_craft({

@@ -76,10 +76,6 @@ minetest.register_node("columnia:column_mid_"..mat, {
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
 })
-minetest.register_node(":columnia:column_mid_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_mid_" .. mat,
-		groups = {slabs_replace=1},
-})
 
 minetest.register_node("columnia:column_top_"..mat, {
 	description = desc.." Column Top",
@@ -131,10 +127,6 @@ minetest.register_node("columnia:column_top_"..mat, {
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
 })
-minetest.register_node(":columnia:column_top_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_top_" .. mat,
-		groups = {slabs_replace=1},
-})
 
 minetest.register_node("columnia:column_bottom_"..mat, {
 	description = desc.." Column Bottom",
@@ -185,10 +177,6 @@ minetest.register_node("columnia:column_bottom_"..mat, {
 		end,
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
-})
-minetest.register_node(":columnia:column_bottom_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_bottom_" .. mat,
-		groups = {slabs_replace=1},
 })
 
 minetest.register_node("columnia:column_crosslink_"..mat, {
@@ -242,10 +230,6 @@ minetest.register_node("columnia:column_crosslink_"..mat, {
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
 })
-minetest.register_node(":columnia:column_crosslink_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_crosslink_" .. mat,
-		groups = {slabs_replace=1},
-})
 
 minetest.register_node("columnia:column_link_"..mat, {
 	description = desc.." Column Link",
@@ -294,10 +278,6 @@ minetest.register_node("columnia:column_link_"..mat, {
 		end,
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
-})
-minetest.register_node(":columnia:column_link_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_link_" .. mat,
-		groups = {slabs_replace=1},
 })
 
 minetest.register_node("columnia:column_linkdown_"..mat, {
@@ -351,10 +331,6 @@ minetest.register_node("columnia:column_linkdown_"..mat, {
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
 })
-minetest.register_node(":columnia:column_linkdown_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_linkdown_" .. mat,
-		groups = {slabs_replace=1},
-})
 
 minetest.register_node("columnia:column_linkcross_"..mat, {
 	description = desc.." Column Link Cross",
@@ -404,10 +380,6 @@ minetest.register_node("columnia:column_linkcross_"..mat, {
 		end,
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
-})
-minetest.register_node(":columnia:column_linkcross_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_linkcross_" .. mat,
-		groups = {slabs_replace=1},
 })
 
 minetest.register_node("columnia:column_linkcrossdown_"..mat, {
@@ -462,10 +434,6 @@ minetest.register_node("columnia:column_linkcrossdown_"..mat, {
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
 })
-minetest.register_node(":columnia:column_linkcrossdown_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_linkcrossdown_" .. mat,
-		groups = {slabs_replace=1},
-})
 
 minetest.register_node("columnia:column_linkvertical_"..mat, {
 	description = desc.." Column Link Vertical",
@@ -519,10 +487,6 @@ minetest.register_node("columnia:column_linkvertical_"..mat, {
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
 })
-minetest.register_node(":columnia:column_linkvertical_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_linkvertical_" .. mat,
-		groups = {slabs_replace=1},
-})
 
 minetest.register_node("columnia:column_linkangle_"..mat, {
 	description = desc.." Column Link Corner",
@@ -572,10 +536,6 @@ minetest.register_node("columnia:column_linkangle_"..mat, {
 		end,
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
-})
-minetest.register_node(":columnia:column_linkangle_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_linkangle_" .. mat,
-		groups = {slabs_replace=1},
 })
 
 minetest.register_node("columnia:column_linkangle_down_"..mat, {
@@ -630,10 +590,6 @@ minetest.register_node("columnia:column_linkangle_down_"..mat, {
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
 })
-minetest.register_node(":columnia:column_linkangle_down_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_linkangle_down_" .. mat,
-		groups = {slabs_replace=1},
-})
 
 minetest.register_node("columnia:column_linktee_"..mat, {
 	description = desc.." Column Link T-Form",
@@ -683,10 +639,6 @@ minetest.register_node("columnia:column_linktee_"..mat, {
 		end,
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
-})
-minetest.register_node(":columnia:column_linktee_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_linktee_" .. mat,
-		groups = {slabs_replace=1},
 })
 
 minetest.register_node("columnia:column_linktee_down_"..mat, {
@@ -740,10 +692,6 @@ minetest.register_node("columnia:column_linktee_down_"..mat, {
 		end,
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
-})
-minetest.register_node(":columnia:column_linktee_down_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_linktee_down_" .. mat,
-		groups = {slabs_replace=1},
 })
 
 minetest.register_node("columnia:column_stairsub_"..mat, {
@@ -808,10 +756,6 @@ minetest.register_node("columnia:column_stairsub_"..mat, {
 		end,
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
-})
-minetest.register_node(":columnia:column_stairsub_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_stairsub_" .. mat,
-		groups = {slabs_replace=1},
 })
 
 minetest.register_node("columnia:column_stairsubpillar_"..mat, {
@@ -878,26 +822,6 @@ minetest.register_node("columnia:column_stairsubpillar_"..mat, {
 	sounds = sounds,
 	-- on_place = minetest.rotate_node,
 })
-minetest.register_node(":columnia:column_stairsubpillar_" .. mat.."upside_down", {
-		replace_name = ":columnia:column_stairsubpillar_" .. mat,
-		groups = {slabs_replace=1},
-})
 
 end
 
--- Replace old "upside_down" nodes with new param2 versions
-minetest.register_abm({
-	nodenames = {"group:slabs_replace"},
-	interval = 1,
-	chance = 1,
-	action = function(pos, node)
-		node.name = minetest.registered_nodes[node.name].replace_name
-		node.param2 = node.param2 + 20
-		if node.param2 == 21 then
-			node.param2 = 23
-		elseif node.param2 == 23 then
-			node.param2 = 21
-		end
-		minetest.set_node(pos, node)
-	end,
-})
