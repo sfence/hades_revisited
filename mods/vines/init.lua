@@ -265,6 +265,7 @@ minetest.register_tool("vines:shears", {
 	wield_image = "shears.png",
 	stack_max = 1,
 	max_drop_level=3,
+	groups = { shears = 1 },
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level=0,
