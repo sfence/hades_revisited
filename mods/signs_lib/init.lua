@@ -109,7 +109,7 @@ end
 
 -- infinite stacks
 
-if minetest.get_modpath("unified_inventory") or not minetest.setting_getbool("creative_mode") then
+if minetest.get_modpath("unified_inventory") or not minetest.settings:get_bool("creative_mode") then
 	signs_lib.expect_infinite_stacks = false
 else
 	signs_lib.expect_infinite_stacks = true
@@ -546,7 +546,7 @@ signs_lib.update_sign = function(pos, fields, owner)
 	local text = minetest.add_entity({x = pos.x + sign_info.delta.x,
 										y = pos.y + sign_info.delta.y,
 										z = pos.z + sign_info.delta.z}, "signs:text")
-	text:setyaw(sign_info.yaw)
+	text:set_yaw(sign_info.yaw)
 end
 
 -- What kind of sign do we need to place, anyway?
@@ -586,7 +586,7 @@ function signs_lib.determine_sign_type(itemstack, placer, pointed_thing, locked)
 
 		local wdir = minetest.dir_to_wallmounted(dir)
 
-		local placer_pos = placer:getpos()
+		local placer_pos = placer:get_pos()
 		if placer_pos then
 			dir = {
 				x = above.x - placer_pos.x,
@@ -805,7 +805,7 @@ minetest.register_node(":locked_sign:sign_wall_locked", {
 		local meta = minetest.get_meta(pos)
 		local owner = meta:get_string("owner")
 		local pname = sender:get_player_name() or ""
-		if pname ~= owner and pname ~= minetest.setting_get("name")
+		if pname ~= owner and pname ~= minetest.settings:get("name")
 		  and not minetest.check_player_privs(pname, {sign_editor=true}) then
 			return
 		end
@@ -818,7 +818,7 @@ minetest.register_node(":locked_sign:sign_wall_locked", {
 		local meta = minetest.get_meta(pos)
 		local owner = meta:get_string("owner")
 		local pname = player:get_player_name()
-		return pname == owner or pname == minetest.setting_get("name")
+		return pname == owner or pname == minetest.settings:get("name")
 			or minetest.check_player_privs(pname, {sign_editor=true})
 	end,
 	sounds = default.node_sound_wood_defaults(),
@@ -872,7 +872,7 @@ end
 local signs_text_on_activate
 
 signs_text_on_activate = function(self)
-	local meta = minetest.get_meta(self.object:getpos())
+	local meta = minetest.get_meta(self.object:get_pos())
 	local text = meta:get_string("text")
 	local new = (meta:get_int("__signslib_new_format") ~= 0)
 	if text then
@@ -1085,6 +1085,6 @@ minetest.register_craft( {
         },
 })
 --]]
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", S("signs loaded"))
 end

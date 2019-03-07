@@ -69,6 +69,6 @@ if minetest.get_modpath("mesecons_mvps") then
 	mesecon:register_mvps_stopper("bedrock:bedrock")
 end
 
-if minetest.setting_getbool("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "[bedrock] loaded.")
 end

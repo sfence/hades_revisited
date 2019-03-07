@@ -10,7 +10,7 @@ minetest.register_on_respawnplayer(function(player)
 	local name = player:get_player_name()
 	local pos = rebeds.get_spawn(player)
 	if pos then
-		player:setpos(pos)
+		player:set_pos(pos)
 		return true
 	end
 end)

@@ -509,7 +509,7 @@ travelnet.on_receive_fields = function(pos, formname, fields, player)
 
    -- transport the player to the target location
    local target_pos = travelnet.targets[ owner_name ][ station_network ][ fields.target ].pos;
-   player:moveto( target_pos, false);
+   player:move_to( target_pos, false);
 
    if( travelnet.travelnet_sound_enabled ) then
       minetest.sound_play("travelnet_travel.wav", {pos = target_pos, gain = 1.0, max_hear_distance = 10,})
@@ -643,7 +643,7 @@ if( travelnet.travelnet_effect_enabled ) then
 
     on_step = function( self, dtime )
        -- this is supposed to be more flickering than smooth animation
-       self.object:setyaw( self.object:getyaw()+1);
+       self.object:set_yaw( self.object:get_yaw()+1);
        self.anz_rotations = self.anz_rotations + 1;
        -- eventually self-destruct
        if( self.anz_rotations > 15 ) then

@@ -159,8 +159,8 @@ local function break_node (pos, facedir)
 	for _, dropped_item in ipairs(drops) do
 		local item1 = pipeworks.tube_item({x=pos.x, y=pos.y, z=pos.z}, dropped_item)
 		item1:get_luaentity().start_pos = {x=pos.x, y=pos.y, z=pos.z}
-		item1:setvelocity(vel)
-		item1:setacceleration({x=0, y=0, z=0})
+		item1:set_velocity(vel)
+		item1:set_acceleration({x=0, y=0, z=0})
 	end
 
 	local oldmetadata = nil
@@ -191,14 +191,14 @@ local node_breaker_on = function(pos, node)
 	if node.name == "pipeworks:nodebreaker_off" then
 		swap_node(pos, "pipeworks:nodebreaker_on")
 		break_node(pos, node.param2)
-		nodeupdate(pos)
+		minetest.check_for_falling(pos)
 	end
 end
 
 local node_breaker_off = function(pos, node)
 	if node.name == "pipeworks:nodebreaker_on" then
 		swap_node(pos, "pipeworks:nodebreaker_off")
-		nodeupdate(pos)
+		minetest.check_for_falling(pos)
 	end
 end
 
@@ -220,7 +220,7 @@ minetest.register_node("pipeworks:nodebreaker_off", {
 	end,
 	after_place_node = function (pos, placer)
 		pipeworks.scan_for_tube_objects(pos, placer)
-		local placer_pos = placer:getpos()
+		local placer_pos = placer:get_pos()
 		
 		--correct for the player's height
 		if placer:is_player() then placer_pos.y = placer_pos.y + 1.5 end
@@ -259,7 +259,7 @@ minetest.register_node("pipeworks:nodebreaker_on", {
 	end,
 	after_place_node = function (pos, placer)
 		pipeworks.scan_for_tube_objects(pos, placer)
-		local placer_pos = placer:getpos()
+		local placer_pos = placer:get_pos()
 		
 		--correct for the player's height
 		if placer:is_player() then placer_pos.y = placer_pos.y + 1.5 end

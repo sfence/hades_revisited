@@ -502,8 +502,8 @@ if pipeworks.enable_sand_tube then
 						       if object:get_luaentity().itemstring ~= "" then
 							       local titem = pipeworks.tube_item(pos,object:get_luaentity().itemstring)
 							       titem:get_luaentity().start_pos = {x = pos.x, y = pos.y-1, z = pos.z}
-							       titem:setvelocity({x = 0.01, y = 1, z = -0.01})
-							       titem:setacceleration({x = 0, y = 0, z = 0})
+							       titem:set_velocity({x = 0.01, y = 1, z = -0.01})
+							       titem:set_acceleration({x = 0, y = 0, z = 0})
 						       end
 						       object:get_luaentity().itemstring = ""
 						       object:remove()
@@ -547,7 +547,7 @@ if pipeworks.enable_mese_sand_tube then
 		local objs = {}
 		for _,object in ipairs(minetest.get_objects_inside_radius(pos, math.sqrt(3)*rad)) do
 			if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
-				local opos = object:getpos()
+				local opos = object:get_pos()
 				if pos.x - rad <= opos.x and opos.x <= pos.x + rad and pos.y - rad <= opos.y and opos.y <= pos.y + rad and pos.z - rad <= opos.z and opos.z <= pos.z + rad then
 					objs[#objs + 1] = object
 				end
@@ -565,8 +565,8 @@ if pipeworks.enable_mese_sand_tube then
 						       if object:get_luaentity().itemstring ~= "" then
 							       local titem = pipeworks.tube_item(pos, object:get_luaentity().itemstring)
 							       titem:get_luaentity().start_pos = {x = pos.x, y = pos.y-1, z = pos.z}
-							       titem:setvelocity({x = 0.01, y = 1, z = -0.01})
-							       titem:setacceleration({x = 0, y = 0, z = 0})
+							       titem:set_velocity({x = 0.01, y = 1, z = -0.01})
+							       titem:set_acceleration({x = 0, y = 0, z = 0})
 						       end
 						       object:get_luaentity().itemstring = ""
 						       object:remove()
@@ -622,8 +622,8 @@ if pipeworks.enable_one_way_tube then
 			insert_object = function(pos, node, stack, direction)
 				item1 = pipeworks.tube_item(pos, stack)
 				item1:get_luaentity().start_pos = pos
-				item1:setvelocity({x = direction.x*direction.speed, y = direction.y*direction.speed, z = direction.z*direction.speed})
-				item1:setacceleration({x = 0, y = 0, z = 0})
+				item1:set_velocity({x = direction.x*direction.speed, y = direction.y*direction.speed, z = direction.z*direction.speed})
+				item1:set_acceleration({x = 0, y = 0, z = 0})
 				return ItemStack("")
 			end,
 			can_insert = function(pos, node, stack, direction)

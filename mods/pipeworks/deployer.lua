@@ -35,7 +35,7 @@ local function deployer_on(pos, node)
 	local pos_under, pos_above = {x = pos.x - dir.x, y = pos.y - dir.y, z = pos.z - dir.z}, {x = pos.x - 2*dir.x, y = pos.y - 2*dir.y, z = pos.z - 2*dir.z}
 	
 	swap_node(pos, "pipeworks:deployer_on")
-	nodeupdate(pos)
+	minetest.check_for_falling(pos)
 	
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
@@ -93,7 +93,7 @@ local function deployer_on(pos, node)
 				set_bone_position = delay(),
 			}
 			local stack2 = minetest.item_place(stack, placer, {type="node", under=pos_under, above=pos_above})
-			if minetest.setting_getbool("creative_mode") and not minetest.get_modpath("unified_inventory") then --infinite stacks ahoy!
+			if minetest.settings:get_bool("creative_mode") and not minetest.get_modpath("unified_inventory") then --infinite stacks ahoy!
 				stack2:take_item()
 			end
 			invlist[i] = stack2
@@ -106,7 +106,7 @@ end
 local deployer_off = function(pos, node)
 	if node.name == "pipeworks:deployer_on" then
 		swap_node(pos, "pipeworks:deployer_off")
-		nodeupdate(pos)
+		minetest.check_for_falling(pos)
 	end
 end
 
@@ -149,7 +149,7 @@ minetest.register_node("pipeworks:deployer_off", {
 	end,
 	after_place_node = function (pos, placer)
 		pipeworks.scan_for_tube_objects(pos, placer)
-		local placer_pos = placer:getpos()
+		local placer_pos = placer:get_pos()
 		
 		--correct for the player's height
 		if placer:is_player() then placer_pos.y = placer_pos.y + 1.5 end
@@ -213,7 +213,7 @@ minetest.register_node("pipeworks:deployer_on", {
 	end,
 	after_place_node = function (pos, placer)
 		pipeworks.scan_for_tube_objects(pos, placer)
-		local placer_pos = placer:getpos()
+		local placer_pos = placer:get_pos()
 		
 		--correct for the player's height
 		if placer:is_player() then placer_pos.y = placer_pos.y + 1.5 end

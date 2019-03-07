@@ -6,7 +6,7 @@ local conv = function(pos)
 	if nodename == "default:sand" or nodename == "default:desert_sand" or nodename == "default:desert_stone" or nodename == "default:stone" or nodename == "default:cobble" or nodename == "default:mossystone" or nodename == "default:tuff" or nodename == "default:tuff_baked" or nodename == "default:mossytuff" or nodename == "default:mossycobble" then
 		-- minetest.remove_node(pos)
         minetest.set_node(pos, {name="default:dirt"})
-		nodeupdate(pos)
+		minetest.check_for_falling(pos)
 	end
 end
 

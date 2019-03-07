@@ -84,7 +84,7 @@ minetest.register_abm(
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		--minetest.remove_node(pos)
 		minetest.add_node(pos, {name="mesecons_blinkyplant:blinky_plant_on"})
-		nodeupdate(pos)	
+		minetest.check_for_falling(pos)	
 		mesecon:receptor_on(pos)
 	end,
 })
@@ -96,7 +96,7 @@ minetest.register_abm({
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		--minetest.remove_node(pos)
 		minetest.add_node(pos, {name="mesecons_blinkyplant:blinky_plant_off"})
-		nodeupdate(pos)	
+		minetest.check_for_falling(pos)	
 		mesecon:receptor_off(pos)
 	end,
 })

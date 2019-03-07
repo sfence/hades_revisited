@@ -70,8 +70,8 @@ local function grabAndFire(frominv,frominvname,frompos,fromnode,sname,tube,idef,
 				end
 				local item1 = pipeworks.tube_item(vector.add(frompos, vector.multiply(dir, 1.4)), item)
 				item1:get_luaentity().start_pos = vector.add(frompos, dir)
-				item1:setvelocity(dir)
-				item1:setacceleration({x=0, y=0, z=0})
+				item1:set_velocity(dir)
+				item1:set_acceleration({x=0, y=0, z=0})
 				return true-- only fire one item, please
 			end
 		end
@@ -352,8 +352,8 @@ minetest.register_entity("pipeworks:tubed_item", {
 
 	get_staticdata = function(self)
 		if self.start_pos==nil then return end
-		local velocity=self.object:getvelocity()
-		self.object:setpos(self.start_pos)
+		local velocity=self.object:get_velocity()
+		self.object:set_pos(self.start_pos)
 		return	minetest.serialize({
 			itemstring=self.itemstring,
 			velocity=velocity,
@@ -373,26 +373,26 @@ minetest.register_entity("pipeworks:tubed_item", {
 		
 		if itemname then 
 		self.start_pos=item.start_pos
-		self.object:setvelocity(item.velocity)
-		self.object:setacceleration({x=0, y=0, z=0})
-		self.object:setpos(item.start_pos)
+		self.object:set_velocity(item.velocity)
+		self.object:set_acceleration({x=0, y=0, z=0})
+		self.object:set_pos(item.start_pos)
 		end
 		self:set_item(item.itemstring)
 	end,
 
 	on_step = function(self, dtime)
 		if self.start_pos==nil then
-			local pos = self.object:getpos()
+			local pos = self.object:get_pos()
 			self.start_pos=roundpos(pos)
 		end
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		local node = minetest.get_node(pos)
 		local meta = minetest.get_meta(pos)
 		local tubelike = meta:get_int("tubelike")
 		local stack = ItemStack(self.itemstring)
 		local drop_pos = nil
 		
-		local velocity=self.object:getvelocity()
+		local velocity=self.object:get_velocity()
 	
 		if velocity == nil then return end
 	
@@ -439,7 +439,7 @@ minetest.register_entity("pipeworks:tubed_item", {
 			velocity.x = -velocity.x
 			velocity.y = -velocity.y
 			velocity.z = -velocity.z
-			self.object:setvelocity(velocity)
+			self.object:set_velocity(velocity)
 			self:set_item(leftover:to_string())
 			return
 		end
@@ -456,8 +456,8 @@ minetest.register_entity("pipeworks:tubed_item", {
 		
 		if velocity.x~=velocitycopy.x or velocity.y~=velocitycopy.y or velocity.z~=velocitycopy.z or 
 				self.start_pos.x~=sposcopy.x or self.start_pos.y~=sposcopy.y or self.start_pos.z~=sposcopy.z then
-			self.object:setpos(self.start_pos)
-			self.object:setvelocity(velocity)
+			self.object:set_pos(self.start_pos)
+			self.object:set_velocity(velocity)
 		end
 	end
 })
@@ -479,7 +479,7 @@ if minetest.get_modpath("mesecons_mvps") ~= nil then
 			local dir = vector.subtract(moved_nodes[1].pos, moved_nodes[1].oldpos)
 			for _, obj in ipairs(objects_to_move) do
 				local entity = obj:get_luaentity()
-				obj:setpos(vector.add(obj:getpos(), dir))
+				obj:set_pos(vector.add(obj:get_pos(), dir))
 				entity.start_pos = vector.add(entity.start_pos, dir)
 			end
 		end

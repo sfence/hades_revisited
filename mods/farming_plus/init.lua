@@ -532,7 +532,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
                         local x1 = minp.x + math.floor((divx+1)*divlen)
                         local z1 = minp.z + math.floor((divz+1)*divlen)
                         -- Determine flowers amount from perlin noise
-                        local grass_amount = math.floor(perlin1:get2d({x=x0, y=z0}) ^ 2 * 2)
+                        local grass_amount = math.floor(perlin1:get_2d({x=x0, y=z0}) ^ 2 * 2)
                         -- Find random positions for flowers based on this random
                         local pr = PseudoRandom(seed+6)
                         for i=0,grass_amount do
@@ -556,7 +556,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
                                                 nn = minetest.get_node({x=x,y=ground_y,z=z}).name
                                                 if nn == "default:dirt_with_grass" then
                                                         --local plant_choice = pr:next(1, #farming.registered_plants)
-                                                        local plant_choice = math.floor(perlin1:get2d({x=x,y=z})*(#farming.registered_plants))
+                                                        local plant_choice = math.floor(perlin1:get_2d({x=x,y=z})*(#farming.registered_plants))
                                                         local plant = farming.registered_plants[plant_choice]
                                                         if plant then
                                                                 minetest.set_node(p, {name=plant.full_grown})
@@ -616,7 +616,7 @@ function farming:place_seed(itemstack, placer, pointed_thing, plantname)
 
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(pt.above, {name=plantname})
-	if not minetest.setting_getbool("creative_mode") then
+	if not minetest.settings:get_bool("creative_mode") then
 		itemstack:take_item()
 	end
 	return itemstack

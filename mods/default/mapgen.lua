@@ -420,7 +420,7 @@ minetest.register_ore({
 	flags          = "absheight",
 })
 
--- if minetest.setting_get("mg_name") == "indev" then
+-- if minetest.settings:get("mg_name") == "indev" then
 	-- Floatlands and high mountains springs
 
 minetest.register_ore({

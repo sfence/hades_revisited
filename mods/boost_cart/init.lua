@@ -93,7 +93,7 @@ function boost_cart.cart:on_punch(puncher, time_from_last_punch, tool_capabiliti
 	if time_from_last_punch > tool_capabilities.full_punch_interval then
 		time_from_last_punch = tool_capabilities.full_punch_interval
 	end
-	local dir = boost_cart:get_rail_direction(self.object:getpos(), cart_dir)
+	local dir = boost_cart:get_rail_direction(self.object:get_pos(), cart_dir)
 	
 	local f = 4 * (time_from_last_punch / tool_capabilities.full_punch_interval)
 	vel.x = dir.x * f
@@ -105,7 +105,7 @@ function boost_cart.cart:on_punch(puncher, time_from_last_punch, tool_capabiliti
 end
 
 function boost_cart.cart:on_step(dtime)
-	local vel = self.object:getvelocity()
+	local vel = self.object:get_velocity()
 	if self.punch then
 		vel = vector.add(vel, self.velocity)
 		self.velocity = {x=0, y=0, z=0}
@@ -114,7 +114,7 @@ function boost_cart.cart:on_step(dtime)
 	end
 	
 	local dir, last_switch = nil, nil
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	if self.old_pos and not self.punch then
 		local flo_pos = vector.floor(pos)
 		local flo_old = vector.floor(self.old_pos)
@@ -167,7 +167,7 @@ function boost_cart.cart:on_step(dtime)
 	end
 	if vector.equals(dir, {x=0, y=0, z=0}) then
 		vel = {x=0, y=0, z=0}
-		self.object:setacceleration({x=0, y=0, z=0})
+		self.object:set_acceleration({x=0, y=0, z=0})
 		self.punch = true
 	else
 		-- If the direction changed
@@ -218,7 +218,7 @@ function boost_cart.cart:on_step(dtime)
 			z = dir.z * acc
 		}
 		
-		self.object:setacceleration(new_acc)
+		self.object:set_acceleration(new_acc)
 	end
 	
 	self.old_pos = vector.new(pos)
@@ -234,13 +234,13 @@ function boost_cart.cart:on_step(dtime)
 	end
 	
 	if dir.x < 0 then
-		self.object:setyaw(math.pi / 2)
+		self.object:set_yaw(math.pi / 2)
 	elseif dir.x > 0 then
-		self.object:setyaw(3 * math.pi / 2)
+		self.object:set_yaw(3 * math.pi / 2)
 	elseif dir.z < 0 then
-		self.object:setyaw(math.pi)
+		self.object:set_yaw(math.pi)
 	elseif dir.z > 0 then
-		self.object:setyaw(0)
+		self.object:set_yaw(0)
 	end
 
 	if dir.y == -1 then
@@ -251,8 +251,8 @@ function boost_cart.cart:on_step(dtime)
 		self.object:set_animation({x=0, y=0}, 1, 0)
 	end
 	if self.punch then
-		self.object:setvelocity(vel)
-		self.object:setpos(pos)
+		self.object:set_velocity(vel)
+		self.object:set_pos(pos)
 	end
 	self.punch = false
 end

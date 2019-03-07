@@ -78,8 +78,8 @@ mobs:register_arrow("mobs_hades:mese_arrow", {
 	velocity = 5,
 	
 	hit_player = function(self, player)
-		local s = self.object:getpos()
-		local p = player:getpos()
+		local s = self.object:get_pos()
+		local p = player:get_pos()
 
 		player:punch(self.object, 1.0,  {
 			full_punch_interval=1.0,

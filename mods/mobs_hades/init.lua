@@ -9,6 +9,6 @@ dofile(minetest.get_modpath("mobs_hades").."/stone_monster.lua")
 dofile(minetest.get_modpath("mobs_hades").."/mese_monster.lua")
 dofile(minetest.get_modpath("mobs_hades").."/spider.lua")
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "mobs_hades loaded")
 end

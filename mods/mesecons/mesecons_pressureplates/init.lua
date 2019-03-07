@@ -28,7 +28,7 @@ pp_on_timer = function (pos, elapsed)
 		end
 	else
 		for k, obj in pairs(objs) do
-			local objpos = obj:getpos()
+			local objpos = obj:get_pos()
 			if objpos.y > pos.y-1 and objpos.y < pos.y then
 				minetest.add_node(pos, {name=ppspec.onstate})
 				mesecon:receptor_on(pos)

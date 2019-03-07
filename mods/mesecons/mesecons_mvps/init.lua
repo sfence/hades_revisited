@@ -42,7 +42,7 @@ end
 function mesecon:mvps_process_stack(stack)
 	-- update mesecons for placed nodes ( has to be done after all nodes have been added )
 	for _, n in ipairs(stack) do
-		nodeupdate(n.pos)
+		minetest.check_for_falling(n.pos)
 		mesecon.on_placenode(n.pos, minetest.get_node(n.pos))
 		mesecon:update_autoconnect(n.pos)
 	end
@@ -137,8 +137,8 @@ function mesecon:mvps_pull_single(pos, dir) -- pos: pos of mvps; direction: dire
 		minetest.add_node(pos, nn)
 		minetest.get_meta(pos):from_table(meta)
 
-		nodeupdate(np)
-		nodeupdate(pos)
+		minetest.check_for_falling(np)
+		minetest.check_for_falling(pos)
 		mesecon.on_dignode(np, nn)
 		mesecon:update_autoconnect(np)
 		on_mvps_move({{pos = pos, oldpos = np, node = nn, meta = meta}})
@@ -176,7 +176,7 @@ function mesecon:mvps_pull_all(pos, direction) -- pos: pos of mvps; direction: d
 		minetest.add_node(oldpos, lnode2)
 		minetest.get_meta(oldpos):from_table(meta)
 		moved_nodes[#moved_nodes+1] = {pos = oldpos, oldpos = lnode2, node = lnode2, meta = meta}
-		nodeupdate(oldpos)
+		minetest.check_for_falling(oldpos)
 		oldpos = {x=lpos2.x, y=lpos2.y, z=lpos2.z}
 		lpos2.x = lpos2.x-direction.x
 		lpos2.y = lpos2.y-direction.y
@@ -208,7 +208,7 @@ function mesecon:mvps_move_objects(pos, dir, nodestack)
 	end
 
 	-- Move objects lying/standing on the stack (before it was pushed - oldstack)
-	if tonumber(minetest.setting_get("movement_gravity")) > 0 and dir.y == 0 then
+	if tonumber(minetest.settings:get("movement_gravity")) > 0 and dir.y == 0 then
 		-- If gravity positive and dir horizontal, push players standing on the stack
 		for _, n in ipairs(nodestack) do
 			local p_above = mesecon:addPosRule(n.pos, {x=0, y=1, z=0})
@@ -222,13 +222,13 @@ function mesecon:mvps_move_objects(pos, dir, nodestack)
 	for _, obj in ipairs(objects_to_move) do
 		local entity = obj:get_luaentity()
 		if not entity or not mesecon:is_mvps_unmov(entity.name) then
-			local np = mesecon:addPosRule(obj:getpos(), dir)
+			local np = mesecon:addPosRule(obj:get_pos(), dir)
 
 			--move only if destination is not solid
 			local nn = minetest.get_node(np)
 			if not ((not minetest.registered_nodes[nn.name])
 			or minetest.registered_nodes[nn.name].walkable) then
-				obj:setpos(np)
+				obj:set_pos(np)
 			end
 		end
 	end
