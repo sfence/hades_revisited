@@ -1501,8 +1501,7 @@ default.chest_formspec =
 	"list[current_name;main;0,0;8,4;]"..
 	"list[current_player;main;0,5;8,4;]"..
 	"listring[]"..
-	"background[-0.5,-0.65;9,10.35;".."chestui.png".."]"..
-	default.gui_slots
+	"background[-0.5,-0.65;9,10.35;".."chestui.png".."]"
 
 function default.get_locked_chest_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
@@ -1511,8 +1510,7 @@ function default.get_locked_chest_formspec(pos)
 		"list[nodemeta:".. spos .. ";main;0,0;8,4;]"..
 		"list[current_player;main;0,5;8,4;]"..
 		"listring[]"..
-		"background[-0.5,-0.65;9,10.35;".."chestui.png".."]"..
-	    default.gui_slots
+		"background[-0.5,-0.65;9,10.35;".."chestui.png".."]"
 	return formspec
 end
 

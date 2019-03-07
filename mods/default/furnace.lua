@@ -17,9 +17,7 @@ local formspec_info = {
 local function active_formspec(ftype, fuel_percent, item_percent)
 	return
 	"size[8,8.5]"..
-	default.gui_bg..
 	"background[-0.5,-0.65;9,10.35;"..formspec_info[ftype].bg.."]"..
-	default.gui_slots..
 	"list[current_name;src;2.75,0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
 	"image[2.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."^[lowpart:"..
@@ -41,9 +39,7 @@ end
 local function inactive_formspec(ftype)
 	return
 	"size[8,8.5]"..
-	default.gui_bg..
 	"background[-0.5,-0.65;9,10.35;"..formspec_info[ftype].bg.."]"..
-	default.gui_slots..
 	"list[current_name;src;2.75,0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
 	"image[2.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."]"..

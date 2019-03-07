@@ -35,10 +35,10 @@ function sfinv.get_nav_fs(player, context, nav, current_idx)
 	end
 end
 
-local theme_main = "bgcolor[#080808BB;true]" .. default.gui_bg ..
-		default.gui_bg_img
+local theme_main = "bgcolor[#080808BB;true]" ..
+		default.gui_inventory_bg_img
 
-local theme_inv = default.gui_slots .. [[
+local theme_inv = [[
 		list[current_player;main;0,4.7;8,1;]
 		list[current_player;main;0,5.85;8,3;8]
 	]]

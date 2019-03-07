@@ -100,8 +100,10 @@ minetest.register_on_joinplayer(function(player)
 	if not minetest.settings:get_bool("creative_mode") then
 		player:set_inventory_formspec(default.gui_survival_form)
 	end
+	player:hud_set_hotbar_itemcount(10)
 	player:hud_set_hotbar_image("gui_hotbar.png")
 	player:hud_set_hotbar_selected_image("gui_hotbar_selected.png")
+	player:set_formspec_prepend("listcolors[#000000;#C68D3C;#ffffff;#C68D3C;#000000]")
 end)
 
 minetest.register_on_leaveplayer(function(player)
