@@ -89,7 +89,7 @@ Calinou (CC BY-SA):
   default_mineral_copper.png
 
 MirceaKitsune (WTFPL):
-  character.x
+  character.b3d, character.blend
 
 Geopbyte (CC BY-SA 3.0):
   character.png
