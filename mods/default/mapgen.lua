@@ -44,14 +44,12 @@ minetest.register_alias("mapgen_stair_sandstonebrick", "stairs:stair_sandstonebr
 minetest.register_alias("mapgen_stair_sandstone_block", "stairs:stair_sandstonebrick")
 minetest.register_alias("mapgen_stair_desert_stone", "stairs:stair_stone")
 
-minetest.register_on_mapgen_init(function(mgparams)
-	if minetest.get_mapgen_setting("mg_name") ~= "singlenode" then
-		minetest.set_mapgen_setting("mg_name", "v6")
-		minetest.set_mapgen_setting("mg_flags", "nodungeons, notrees, caves")
-		minetest.set_mapgen_setting("mgv6_spflags", "mudflow, nosnowbiomes, notrees, nojungles")
-		minetest.set_mapgen_setting("water_level", "-5")
-	end
-end)
+if minetest.get_mapgen_setting("mg_name") ~= "singlenode" then
+	minetest.set_mapgen_setting("mg_name", "v6")
+	minetest.set_mapgen_setting("mg_flags", "nodungeons, notrees, caves")
+	minetest.set_mapgen_setting("mgv6_spflags", "mudflow, nosnowbiomes, notrees, nojungles")
+	minetest.set_mapgen_setting("water_level", "-5")
+end
 
 --
 -- Ore generation
