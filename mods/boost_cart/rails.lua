@@ -1,3 +1,5 @@
+local raillike_group = minetest.raillike_group("rail")
+
 minetest.register_node(":default:rail", {
 	description = "Steel Rail",
 	drawtype = "raillike",
@@ -12,7 +14,7 @@ minetest.register_node(":default:rail", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = raillike_group},
 	sounds = default.node_sound_metal_defaults(),
 })
 
@@ -31,7 +33,7 @@ minetest.register_node(":carts:copperrail", {
 		-- but how to specify the dimensions for curved and sideways rails?
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = raillike_group},
 	sounds = default.node_sound_metal_defaults(),
 })
 
@@ -60,7 +62,7 @@ minetest.register_node(":carts:powerrail", {
 		-- but how to specify the dimensions for curved and sideways rails?
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = raillike_group},
 	
 	after_place_node = function(pos, placer, itemstack)
 		if not mesecon then
@@ -105,7 +107,7 @@ minetest.register_node(":carts:brakerail", {
 		-- but how to specify the dimensions for curved and sideways rails?
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
+	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = raillike_group},
 	
 	after_place_node = function(pos, placer, itemstack)
 		if not mesecon then

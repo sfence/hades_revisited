@@ -127,7 +127,7 @@ minetest.register_node("gluncarp:"..carpetname, {
 		 type = "fixed",
 		 fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 		 },
-		 groups = {dig_immediate=2, gluncarp=1, not_in_creative_inventory=1},
+		 groups = {dig_immediate=2, gluncarp=1, not_in_creative_inventory=1,connect_to_raillike=minetest.raillike_group("carpet")},
 		 
 		 after_place_node = function(pos, placer, itemstack, pointed_thing)
 		
