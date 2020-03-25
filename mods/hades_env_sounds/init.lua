@@ -3,9 +3,9 @@
 local radius = 8 -- Node search radius around player
 
 local around_nodes = {
-	{ nodes = {"default:water_flowing"}, sound = "env_sounds_water" },
-	{ nodes = {"default:lava_flowing"}, sound = "hades_env_sounds_flowing_lava" },
-	{ nodes = {"default:lava_source"}, sound = "hades_env_sounds_lava_source" },
+	{ nodes = {"default:water_flowing"}, sound = "env_sounds_water", min_gain = 0.7 },
+	{ nodes = {"default:lava_flowing"}, sound = "hades_env_sounds_flowing_lava", min_gain = 0.4 },
+	{ nodes = {"default:lava_source"}, sound = "hades_env_sounds_lava_source", min_gain = 1.0 },
 }
 
 -- End of parameters
@@ -36,7 +36,7 @@ local function update_sound(player)
 			{
 				pos = wposav,
 				to_player = player_name,
-				gain = math.min(0.04 + total * 0.004, 0.4),
+				gain = math.min(0.04 + total * 0.004, around_nodes[a].min_gain),
 			}
 		)
 	end
