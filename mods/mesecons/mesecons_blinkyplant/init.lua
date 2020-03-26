@@ -2,6 +2,7 @@
 minetest.register_node("mesecons_blinkyplant:blinky_plant", {
 	drawtype = "plantlike",
 	visual_scale = 1,
+	paramtype = "light",
 	tiles = {"jeija_blinky_plant_off.png"},
 	inventory_image = "jeija_blinky_plant_off.png",
 	walkable = false,
