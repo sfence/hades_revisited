@@ -710,7 +710,7 @@ minetest.register_node("default:rail", {
                 -- but how to specify the dimensions for curved and sideways rails?
                 fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {bendy=2,dig_immediate=2,attached_node=1,connect_to_raillike=minetest.raillike_group("rail")},
+	groups = {dig_immediate=2,attached_node=1,connect_to_raillike=minetest.raillike_group("rail")},
 	sounds = default.node_sound_metal_defaults(),
 })
 
@@ -746,7 +746,7 @@ minetest.register_node("default:water_flowing", {
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
 	post_effect_color = {a=64, r=100, g=100, b=200},
-	groups = {water=3, liquid=3, puts_out_fire=1, not_in_creative_inventory=1, freezes=1, melt_around=1},
+	groups = {water=3, liquid=3, puts_out_fire=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_water_defaults(),
 })
 
@@ -778,7 +778,7 @@ minetest.register_node("default:water_source", {
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = WATER_VISC,
 	post_effect_color = {a=64, r=100, g=100, b=200},
-	groups = {water=3, liquid=3, puts_out_fire=1, freezes=1},
+	groups = {water=3, liquid=3, puts_out_fire=1},
 	sounds = default.node_sound_water_defaults(),
 })
 

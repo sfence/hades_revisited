@@ -78,7 +78,7 @@ minetest.register_craft({
 doors.register_door("doors:door_steel", {
 	description = "Plain Steel Door",
 	inventory_image = "doors_steel.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
+	groups = {snappy=1,cracky=1,level=2,door=1},
 	tiles = {{name="doors_door_steel.png", backface_culling=true}},
 	only_placer_can_open = true,
 	sounds = default.node_sound_metal_defaults(),
@@ -122,7 +122,7 @@ for c=1, #colors do
 	doors.register_door("doors:door_steel_"..id, {
 		description = desc,
 		inventory_image = "doors_steel_"..id..".png",
-		groups = {snappy=1,bendy=2,cracky=1,level=2,door=1,sdoor=1},
+		groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 		tiles = {{name="doors_door_steel_"..id..".png", backface_culling=true}},
 		only_placer_can_open = true,
 		sounds = default.node_sound_metal_defaults(),
@@ -144,7 +144,7 @@ doors.register_door("doors:door_stone", {
 	-- TODO: Make this door more hidden
 	description = "Stone Door",
 	inventory_image = "doors_stone.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
+	groups = {snappy=1,cracky=1,level=2,door=1},
 	tiles = {{name="doors_door_stone.png", backface_culling=true}},
 	only_placer_can_open = true,
 	sounds = default.node_sound_stone_defaults(),

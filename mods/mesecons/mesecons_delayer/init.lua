@@ -36,9 +36,9 @@ end
 for i = 1, 4 do
 local groups = {}
 if i == 1 then 
-	groups = {bendy=2,snappy=1,dig_immediate=2}
+	groups = {snappy=1,dig_immediate=2}
 else
-	groups = {bendy=2,snappy=1,dig_immediate=2, not_in_creative_inventory=1}
+	groups = {snappy=1,dig_immediate=2, not_in_creative_inventory=1}
 end
 
 local delaytime
@@ -136,7 +136,7 @@ minetest.register_node("mesecons_delayer:delayer_on_"..tostring(i), {
 		type = "fixed",
 		fixed = boxes
 	},
-	groups = {bendy = 2, snappy = 1, dig_immediate = 2, not_in_creative_inventory = 1},
+	groups = {snappy = 1, dig_immediate = 2, not_in_creative_inventory = 1},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,

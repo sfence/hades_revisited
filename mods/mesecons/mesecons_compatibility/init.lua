@@ -181,7 +181,7 @@ doors.register_door("doors:door_wood_jungle", {
 doors.register_door("doors:door_steel", {
 	description = "Steel Door",
 	inventory_image = "doors_steel.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
+	groups = {snappy=1,cracky=1,level=2,door=1},
 	tiles_bottom = {"doors_steel_b.png", "doors_grey.png"},
 	tiles_top = {"doors_steel_a.png", "doors_grey.png"},
 	only_placer_can_open = true,
@@ -191,7 +191,7 @@ doors.register_door("doors:door_steel", {
 doors.register_door("doors:door_steel_black", {
 	description = "Black Steel Door",
 	inventory_image = "doors_steel_black.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_black.png", "doors_black.png"},
 	tiles_top = {"doors_steel_a_black.png", "doors_black.png"},
 	only_placer_can_open = true,
@@ -202,7 +202,7 @@ doors.register_door("doors:door_steel_black", {
 doors.register_door("doors:door_steel_blue", {
 	description = "Blue Steel Door",
 	inventory_image = "doors_steel_blue.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_blue.png", "doors_blue.png"},
 	tiles_top = {"doors_steel_a_blue.png", "doors_blue.png"},
 	only_placer_can_open = true,
@@ -213,7 +213,7 @@ doors.register_door("doors:door_steel_blue", {
 doors.register_door("doors:door_steel_brown", {
 	description = "Brown Steel Door",
 	inventory_image = "doors_steel_brown.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_brown.png", "doors_brown.png"},
 	tiles_top = {"doors_steel_a_brown.png", "doors_brown.png"},
 	only_placer_can_open = true,
@@ -224,7 +224,7 @@ doors.register_door("doors:door_steel_brown", {
 doors.register_door("doors:door_steel_cyan", {
 	description = "Cyan Steel Door",
 	inventory_image = "doors_steel_cyan.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_cyan.png", "doors_cyan.png"},
 	tiles_top = {"doors_steel_a_cyan.png", "doors_cyan.png"},
 	only_placer_can_open = true,
@@ -235,7 +235,7 @@ doors.register_door("doors:door_steel_cyan", {
 doors.register_door("doors:door_steel_darkgreen", {
 	description = "Darkgreen Steel Door",
 	inventory_image = "doors_steel_darkgreen.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_darkgreen.png", "doors_darkgreen.png"},
 	tiles_top = {"doors_steel_a_darkgreen.png", "doors_darkgreen.png"},
 	only_placer_can_open = true,
@@ -246,7 +246,7 @@ doors.register_door("doors:door_steel_darkgreen", {
 doors.register_door("doors:door_steel_darkgrey", {
 	description = "Darkgrey Steel Door",
 	inventory_image = "doors_steel_darkgrey.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_darkgrey.png", "doors_darkgrey.png"},
 	tiles_top = {"doors_steel_a_darkgrey.png", "doors_darkgrey.png"},
 	only_placer_can_open = true,
@@ -257,7 +257,7 @@ doors.register_door("doors:door_steel_darkgrey", {
 doors.register_door("doors:door_steel_green", {
 	description = "Green Steel Door",
 	inventory_image = "doors_steel_green.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_green.png", "doors_green.png"},
 	tiles_top = {"doors_steel_a_green.png", "doors_green.png"},
 	only_placer_can_open = true,
@@ -268,7 +268,7 @@ doors.register_door("doors:door_steel_green", {
 doors.register_door("doors:door_steel_magenta", {
 	description = "Magenta Steel Door",
 	inventory_image = "doors_steel_magenta.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_magenta.png", "doors_magenta.png"},
 	tiles_top = {"doors_steel_a_magenta.png", "doors_magenta.png"},
 	only_placer_can_open = true,
@@ -279,7 +279,7 @@ doors.register_door("doors:door_steel_magenta", {
 doors.register_door("doors:door_steel_orange", {
 	description = "Orange Steel Door",
 	inventory_image = "doors_steel_orange.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_orange.png", "doors_orange.png"},
 	tiles_top = {"doors_steel_a_orange.png", "doors_orange.png"},
 	only_placer_can_open = true,
@@ -290,7 +290,7 @@ doors.register_door("doors:door_steel_orange", {
 doors.register_door("doors:door_steel_pink", {
 	description = "Pink Steel Door",
 	inventory_image = "doors_steel_pink.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_pink.png", "doors_pink.png"},
 	tiles_top = {"doors_steel_a_pink.png", "doors_pink.png"},
 	only_placer_can_open = true,
@@ -301,7 +301,7 @@ doors.register_door("doors:door_steel_pink", {
 doors.register_door("doors:door_steel_red", {
 	description = "Red Steel Door",
 	inventory_image = "doors_steel_red.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_red.png", "doors_red.png"},
 	tiles_top = {"doors_steel_a_red.png", "doors_red.png"},
 	only_placer_can_open = true,
@@ -312,7 +312,7 @@ doors.register_door("doors:door_steel_red", {
 doors.register_door("doors:door_steel_violet", {
 	description = "Violet Steel Door",
 	inventory_image = "doors_steel_violet.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_violet.png", "doors_violet.png"},
 	tiles_top = {"doors_steel_a_violet.png", "doors_violet.png"},
 	only_placer_can_open = true,
@@ -323,7 +323,7 @@ doors.register_door("doors:door_steel_violet", {
 doors.register_door("doors:door_steel_white", {
 	description = "White Steel Door",
 	inventory_image = "doors_steel_white.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_white.png", "doors_white.png"},
 	tiles_top = {"doors_steel_a_white.png", "doors_white.png"},
 	only_placer_can_open = true,
@@ -334,7 +334,7 @@ doors.register_door("doors:door_steel_white", {
 doors.register_door("doors:door_steel_yellow", {
 	description = "Yellow Steel Door",
 	inventory_image = "doors_steel_yellow.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1,sdoor=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 	tiles_bottom = {"doors_steel_b_yellow.png", "doors_yellow.png"},
 	tiles_top = {"doors_steel_a_yellow.png", "doors_yellow.png"},
 	only_placer_can_open = true,
@@ -345,7 +345,7 @@ doors.register_door("doors:door_steel_yellow", {
 doors.register_door("doors:door_stone", {
 	description = "Secret Stone Door",
 	inventory_image = "doors_stone.png",
-	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
+	groups = {snappy=1,cracky=1,level=2,door=1},
 	tiles_bottom = {"doors_stone_b.png", "doors_darkgrey.png"},
 	tiles_top = {"doors_stone_a.png", "doors_darkgrey.png"},
 	only_placer_can_open = true,

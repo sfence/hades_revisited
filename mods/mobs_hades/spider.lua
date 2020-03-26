@@ -98,7 +98,7 @@ minetest.register_node("mobs_hades:cobweb", {
 	liquid_renewable = false,
 	liquid_range = 0,
 	walkable = false,
-	groups = {snappy=2,liquid=3,disable_jump=1,fake_liquid=1},
+	groups = {snappy=2,disable_jump=1,fake_liquid=1},
 	drop = "farming:cotton",
 	sounds = default.node_sound_leaves_defaults(),
 })
