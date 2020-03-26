@@ -22,23 +22,25 @@ local function update_sound(player)
 		local nodes = around_nodes[a].nodes
 		local wpos, _ = minetest.find_nodes_in_area(areamin, areamax, nodes)
 		local total = #wpos
-		-- Find average position
-		local wposav = vector.new()
-		for _, pos in ipairs(wpos) do
-			wposav.x = wposav.x + pos.x
-			wposav.y = wposav.y + pos.y
-			wposav.z = wposav.z + pos.z
-		end
-		wposav = vector.divide(wposav, total)
+		if total > 0 then
+			-- Find average position
+			local wposav = vector.new()
+			for _, pos in ipairs(wpos) do
+				wposav.x = wposav.x + pos.x
+				wposav.y = wposav.y + pos.y
+				wposav.z = wposav.z + pos.z
+			end
+			wposav = vector.divide(wposav, total)
 
-		minetest.sound_play(
-			around_nodes[a].sound,
-			{
-				pos = wposav,
-				to_player = player_name,
-				gain = math.min(0.04 + total * 0.004, around_nodes[a].min_gain),
-			}
-		)
+			minetest.sound_play(
+				around_nodes[a].sound,
+				{
+					pos = wposav,
+					to_player = player_name,
+					gain = math.min(0.04 + total * 0.004, around_nodes[a].min_gain),
+				}
+			)
+		end
 	end
 end
 
