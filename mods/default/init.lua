@@ -4,12 +4,6 @@
 
 -- The API documentation in here was moved into doc/lua_api.txt
 
-
-WATER_ALPHA = 160
-WATER_VISC = 1
-LAVA_VISC = 7
-LIGHT_MAX = minetest.LIGHT_MAX - 1
-
 -- Definitions made by this mod that other mods can use too
 default = {}
 

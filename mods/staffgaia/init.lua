@@ -10,7 +10,7 @@ local conv = function(pos)
 	end
 end
 
-cotrig = function(pos)
+local cotrig = function(pos)
     for dx=-4,4 do
 	for dz=-4,4 do
 		for dy=1,-1,-1 do

@@ -166,7 +166,7 @@ end
 
 if minetest.settings:get("enable_item_pickup") == "true" then
 	local tickets = 0 -- XXX: oy vey
-	moveDelay = 0
+	local moveDelay = 0
 	minetest.register_globalstep(function(dtime)
 		-- it's much more efficient to just restart... no way to unregister_globalstep right?
 		if not minetest.settings:get("enable_item_pickup") then return end

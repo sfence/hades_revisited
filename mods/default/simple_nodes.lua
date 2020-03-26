@@ -1,5 +1,9 @@
 -- mods/default/nodes.lua
 
+local WATER_ALPHA = 160
+local WATER_VISC = 1
+local LAVA_VISC = 7
+local LIGHT_MAX = minetest.LIGHT_MAX - 1
 
 minetest.register_node("default:stone", {
 	description = "Stone",

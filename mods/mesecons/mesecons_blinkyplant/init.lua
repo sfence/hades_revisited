@@ -52,7 +52,7 @@ minetest.register_node("mesecons_blinkyplant:blinky_plant_on", {
 	walkable = false,
 	groups = {dig_immediate=3, not_in_creative_inventory=1, mesecon=2},
 	drop="mesecons_blinkyplant:blinky_plant_off 1",
-	light_source = LIGHT_MAX-7,
+	light_source = minetest.LIGHT_MAX-7,
 	description = "Blinky Plant",
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
