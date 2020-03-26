@@ -645,31 +645,3 @@ minetest.register_decoration({
 		decoration = "default:ash",
 	})
 
-function default.make_papyrus(pos, size)
-	for y=0,size-1 do
-		local p = {x=pos.x, y=pos.y+y, z=pos.z}
-		local nn = minetest.get_node(p).name
-		if minetest.registered_nodes[nn] and
-			minetest.registered_nodes[nn].buildable_to then
-			minetest.set_node(p, {name="default:papyrus"})
-		else
-			return
-		end
-	end
-end
-
-
-function default.make_cactus(pos, size)
-	for y=0,size-1 do
-		local p = {x=pos.x, y=pos.y+y, z=pos.z}
-		local nn = minetest.get_node(p).name
-		if minetest.registered_nodes[nn] and
-			minetest.registered_nodes[nn].buildable_to then
-			minetest.set_node(p, {name="default:cactus"})
-		else
-			return
-		end
-	end
-end
-
-

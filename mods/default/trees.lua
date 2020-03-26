@@ -4,6 +4,234 @@ local c_tree = minetest.get_content_id("default:tree")
 local c_leaves = minetest.get_content_id("default:leaves")
 local c_apple = minetest.get_content_id("default:apple")
 
+minetest.register_node("default:apple", {
+	description = "Apple (+2)",
+	drawtype = "plantlike",
+	visual_scale = 0.75,
+	tiles = {"default_apple.png"},
+	inventory_image = "default_apple.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+	},
+	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
+	on_use = minetest.item_eat(2),
+	sounds = default.node_sound_leaves_defaults(),
+	after_place_node = function(pos, placer, itemstack)
+		if placer:is_player() then
+			minetest.set_node(pos, {name="default:apple", param2=1})
+		end
+	end,
+})
+
+-- Saplings
+minetest.register_node("default:sapling", {
+	description = "Common Tree Sapling",
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tiles = {"default_sapling.png"},
+	inventory_image = "default_sapling.png",
+	wield_image = "default_sapling.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1, sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("default:junglesapling", {
+	description = "Common Jungle Tree Sapling",
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tiles = {"default_junglesapling.png"},
+	inventory_image = "default_junglesapling.png",
+	wield_image = "default_junglesapling.png",
+	paramtype = "light",
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1, sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+-- Trunks
+minetest.register_node("default:tree", {
+	description = "Common Tree Trunk",
+	tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
+	paramtype2 = "facedir",
+	is_ground_content = false,
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node
+})
+
+minetest.register_node("default:paletree", {
+	description = "Pale Tree Trunk",
+	paramtype = "light",
+	tiles = {"default_paletree_top.png", "default_paletree_top.png", "default_paletree.png"},
+	is_ground_content = false,
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.35,-0.5,-0.4,0.35,0.5,0.4},
+			{-0.4,-0.5,-0.35, 0.4,0.5,0.35},
+			{-0.25,-0.5,-0.45,0.25,0.5,0.45},
+			{-0.45,-0.5,-0.25, 0.45,0.5,0.25},
+			{-0.15,-0.5,-0.5,0.15,0.5,0.5},
+			{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
+		},
+	},
+	groups = {tree = 1, snappy = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node("default:tree_birch", {
+	description = "Birch Tree Trunk",
+	paramtype = "light",
+	tiles = {"default_tree_birch_top.png", "default_tree_birch_top.png", "default_tree_birch.png"},
+	is_ground_content = false,
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.35,-0.5,-0.4,0.35,0.5,0.4},
+			{-0.4,-0.5,-0.35, 0.4,0.5,0.35},
+			{-0.25,-0.5,-0.45,0.25,0.5,0.45},
+			{-0.45,-0.5,-0.25, 0.45,0.5,0.25},
+			{-0.15,-0.5,-0.5,0.15,0.5,0.5},
+			{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
+		},
+	},
+	groups = {tree = 1, snappy = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node("default:jungletree", {
+	description = "Jungle Tree Trunk",
+	paramtype = "light",
+	tiles = {"default_jungletree_top.png", "default_jungletree_top.png", "default_jungletree.png"},
+	is_ground_content = false,
+	drawtype = "nodebox",
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.35,-0.5,-0.4,0.35,0.5,0.4},
+				{-0.4,-0.5,-0.35, 0.4,0.5,0.35},
+				{-0.25,-0.5,-0.45,0.25,0.5,0.45},
+				{-0.45,-0.5,-0.25, 0.45,0.5,0.25},
+				{-0.15,-0.5,-0.5,0.15,0.5,0.5},
+				{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
+			},
+		},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node
+})
+
+-- Leaves
+minetest.register_node("default:jungleleaves", {
+	description = "Common Jungle Leaves",
+	drawtype = "allfaces_optional",
+	visual_scale = 1.3,
+	tiles = {"default_jungleleaves.png"},
+	paramtype = "light",
+	waving = 1,
+	is_ground_content = true,
+	place_param2 = 1,
+	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, porous=1},
+	drop = {
+		max_items = 1,
+		items = {
+			{
+				-- player will get sapling with 1/20 chance
+				items = {'default:junglesapling'},
+				rarity = 25,
+			},
+			{
+				-- player will get leaves only if he get no saplings,
+				-- this is because max_items is 1
+				items = {'default:jungleleaves'},
+			}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("default:leaves", {
+	description = "Common Leaves",
+	drawtype = "allfaces_optional",
+	visual_scale = 1.3,
+	tiles = {"default_leaves.png"},
+	paramtype = "light",
+	waving = 1,
+	is_ground_content = true,
+	place_param2 = 1,
+	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, porous=1},
+	drop = {
+		max_items = 1,
+		items = {
+			{
+				-- player will get sapling with 1/20 chance
+				items = {'default:sapling'},
+				rarity = 20,
+			},
+			{
+				-- player will get leaves only if he get no saplings,
+				-- this is because max_items is 1
+				items = {'default:leaves'},
+			}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+-- Bark
+minetest.register_node("default:bark", {
+	description = "Common Bark",
+	paramtype2 = "facedir",
+	tiles = { "default_tree.png" },
+	is_ground_content = false,
+	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node("default:jungle_bark", {
+	description = "Jungle Bark",
+	paramtype2 = "facedir",
+	tiles = { "default_jungletree.png" },
+	is_ground_content = false,
+	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node("default:pale_bark", {
+	description = "Pale Bark",
+	paramtype2 = "facedir",
+	tiles = { "default_paletree.png" },
+	is_ground_content = false,
+	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node("default:birch_bark", {
+	description = "Birch Bark",
+	paramtype2 = "facedir",
+	tiles = { "default_tree_birch.png" },
+	is_ground_content = false,
+	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
+	sounds = default.node_sound_wood_defaults(),
+})
 
 function default.grow_tree(data, a, pos, is_apple_tree, seed)
         --[[
@@ -151,3 +379,58 @@ function default.grow_jungletree(data, a, pos, seed)
         end
         end
 end
+
+--
+-- Grow trees
+--
+
+minetest.register_abm({
+	label = "Grow sapling to tree",
+	nodenames = {"default:sapling"},
+	interval = 20,
+	chance = 50,
+	action = function(pos, node)
+		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
+		local is_soil = minetest.get_item_group(nu, "soil")
+		if is_soil == 0 then
+			return
+		end
+
+
+		minetest.log("action", "A sapling grows into a tree at "..minetest.pos_to_string(pos))
+		local vm = minetest.get_voxel_manip()
+		local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
+		local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
+		local data = vm:get_data()
+		default.grow_tree(data, a, pos, math.random(1, 4) == 1, math.random(1,100000))
+		vm:set_data(data)
+		vm:write_to_map(data)
+		vm:update_map()
+	end
+})
+
+minetest.register_abm({
+	label = "Grow jungle sapling to jungle tree",
+	nodenames = {"default:junglesapling"},
+	interval = 20,
+	chance = 50,
+	action = function(pos, node)
+		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
+		local is_soil = minetest.get_item_group(nu, "soil")
+		if is_soil == 0 then
+			return
+		end
+
+
+		minetest.log("action", "A jungle sapling grows into a tree at "..minetest.pos_to_string(pos))
+		local vm = minetest.get_voxel_manip()
+		local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y-1, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
+		local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
+		local data = vm:get_data()
+		default.grow_jungletree(data, a, pos, math.random(1,100000))
+		vm:set_data(data)
+		vm:write_to_map(data)
+		vm:update_map()
+	end
+})
+

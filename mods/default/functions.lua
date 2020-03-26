@@ -2,395 +2,7 @@
 
 
 --
--- Sounds
---
-
-local mhd = 32
-
-function default.node_sound_defaults(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name="", gain=1.0}
-	table.dug = table.dug or
-			{name="default_dug_node", gain=0.25, max_hear_distance = mhd}
-	table.place = table.place or
-			{name="default_place_node_hard", gain=1.0, max_hear_distance = mhd}
-	return table
-end
-
-
-function default.node_sound_stone_defaults(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name="default_hard_footstep", gain=0.5, max_hear_distance = mhd}
-	table.dug = table.dug or
-			{name="default_hard_footstep", gain=1.0, max_hear_distance = mhd}
-	default.node_sound_defaults(table)
-	return table
-end
-
-function default.node_sound_metal_defaults(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name = "default_metal_footstep", gain = 0.4, max_hear_distance = mhd}
-	table.dig = table.dig or
-			{name = "default_dig_metal", gain = 0.5, max_hear_distance = mhd}
-	table.dug = table.dug or
-			{name = "default_dug_metal", gain = 0.5, max_hear_distance = mhd}
-	table.place = table.place or
-			{name = "default_place_node_metal", gain = 0.5, max_hear_distance = mhd}
-	default.node_sound_defaults(table)
-	return table
-end
--- TODO: Add more metal sounds
-
-default.node_sound_heavy_metal_defaults = default.node_sound_metal_defaults
-
-function default.node_sound_dirt_defaults(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name="default_dirt_footstep", gain=1.0, max_hear_distance = mhd}
-	table.dug = table.dug or
-			{name="default_dirt_footstep", gain=1.5, max_hear_distance = mhd}
-	table.place = table.place or
-			{name="default_place_node", gain=1.0, max_hear_distance = mhd}
-	default.node_sound_defaults(table)
-	return table
-end
-
-
-function default.node_sound_sand_defaults(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name="default_sand_footstep", gain=0.5, max_hear_distance = mhd}
-	table.dug = table.dug or
-			{name="default_sand_footstep", gain=1.0, max_hear_distance = mhd}
-	table.place = table.place or
-			{name="default_place_node", gain=1.0, max_hear_distance = mhd}
-	default.node_sound_defaults(table)
-	return table
-end
-
-
-function default.node_sound_wood_defaults(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name="default_wood_footstep", gain=0.5, max_hear_distance = mhd}
-	table.dug = table.dug or
-			{name="default_wood_footstep", gain=1.0, max_hear_distance = mhd}
-	default.node_sound_defaults(table)
-	return table
-end
-
-
-function default.node_sound_leaves_defaults(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name="default_grass_footstep", gain=0.35, max_hear_distance = mhd}
-	table.dug = table.dug or
-			{name="default_grass_footstep", gain=0.85, max_hear_distance = mhd}
-	table.dig = table.dig or
-			{name="default_dig_crumbly", gain=0.4, max_hear_distance = mhd}
-	table.place = table.place or
-			{name="default_place_node", gain=1.0, max_hear_distance = mhd}
-	default.node_sound_defaults(table)
-	return table
-end
-
-
-function default.node_sound_glass_defaults(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name="default_glass_footstep", gain=0.5, max_hear_distance = mhd}
-	table.dug = table.dug or
-			{name="default_break_glass", gain=1.0, max_hear_distance = mhd}
-	default.node_sound_defaults(table)
-	return table
-end
-
-function default.node_sound_water_defaults(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name = "default_water_footstep", gain = 0.2, max_hear_distance = mhd}
-	table.place = table.place or
-			{name = "default_place_node_water", gain = 0.8, max_hear_distance = mhd}
-	default.node_sound_defaults(table)
-	return table
-end
-
-function default.node_sound_lava_defaults(table)
-	table = table or {}
-	table.place = table.place or
-			{name = "default_place_node_lava", gain = 1.0, max_hear_distance = mhd}
-	default.node_sound_defaults(table)
-	return table
-end
-
-
-function default.register_fence(name, def)
-	if def.material then
-		minetest.register_craft({
-			output = name .. " 4",
-			recipe = {
-				{ def.material, 'group:stick', def.material },
-				{ def.material, 'group:stick', def.material },
-			}
-		})
-	end
-
-	local fence_texture = "default_fence_overlay.png^" .. def.texture ..
-			"^default_fence_overlay.png^[makealpha:255,126,126"
-	-- Allow almost everything to be overridden
-	local default_fields = {
-		paramtype = "light",
-		drawtype = "nodebox",
-		node_box = {
-			type = "connected",
-			fixed = {{-1/8, -1/2, -1/8, 1/8, 1/2, 1/8}},
-			-- connect_top =
-			-- connect_bottom =
-			connect_front = {{-1/16,3/16,-1/2,1/16,5/16,-1/8},
-				{-1/16,-5/16,-1/2,1/16,-3/16,-1/8}},
-			connect_left = {{-1/2,3/16,-1/16,-1/8,5/16,1/16},
-				{-1/2,-5/16,-1/16,-1/8,-3/16,1/16}},
-			connect_back = {{-1/16,3/16,1/8,1/16,5/16,1/2},
-				{-1/16,-5/16,1/8,1/16,-3/16,1/2}},
-			connect_right = {{1/8,3/16,-1/16,1/2,5/16,1/16},
-				{1/8,-5/16,-1/16,1/2,-3/16,1/16}},
-		},
-		collision_box = {
-			type = "connected",
-			fixed = {{-1/8, -1/2, -1/8, 1/8, 1/2, 1/8}},
-			connect_front = {{-1/8,-1/2,-1/2,1/8,1/2,-1/8}},
-			connect_left = {{-1/2,-1/2,-1/8,-1/8,1/2,1/8}},
-			connect_back = {{-1/8,-1/2,1/8,1/8,1/2,1/2}},
-			connect_right = {{1/8,-1/2,-1/8,1/2,1/2,1/8}},
-		},
-		connects_to = {"group:fence_wood", "group:wood", "group:tree"},
-		inventory_image = fence_texture,
-		wield_image = fence_texture,
-		tiles = {def.texture},
-		sunlight_propagates = true,
-		is_ground_content = false,
-		groups = {},
-	}
-	for k, v in pairs(default_fields) do
-		if def[k] == nil then
-			def[k] = v
-		end
-	end
-
-	-- Always add to the fence group, even if no group provided
-	def.groups.fence = 1
-	-- Always connect to fence gates regardless of type
-	table.insert(def.connects_to, "group:fence_gate")
-
-	def.texture = nil
-	def.material = nil
-
-	minetest.register_node(name, def)
-end
-
-default.register_ladder = function(id, def)
-	local odef = {
-		description = def.description,
-		_doc_items_longdesc = "A piece of ladder which allows you to climb vertically.",
-		drawtype = "signlike",
-		is_ground_content = false,
-		tiles = { def.texture },
-		inventory_image = def.texture,
-		wield_image = def.texture,
-		paramtype = "light",
-		sunlight_propagates = true,
-		paramtype2 = "wallmounted",
-		walkable = false,
-		climbable = true,
-		node_box = {
-			type = "wallmounted",
-			wall_side = { -0.5, -0.5, -0.5, -7/16, 0.5, 0.5 },
-		},
-		selection_box = {
-			type = "wallmounted",
-			wall_side = { -0.5, -0.5, -0.5, -7/16, 0.5, 0.5 },
-		},
-		sounds = default.node_sound_wood_defaults(),
-		node_placement_prediction = "",
-		-- Restrict placement of ladders
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				-- no interaction possible with entities
-				return itemstack
-			end
-
-			local under = pointed_thing.under
-			local node = minetest.get_node(under)
-			local def = minetest.registered_nodes[node.name]
-			if not def then
-				return itemstack
-			end
-			local groups = def.groups
-
-			-- Don't allow to place the ladder at particular nodes
-			if groups and (groups.ladder or groups.slab or groups.attached_node) then
-				return itemstack
-			end
-
-			-- Check special rightclick action of pointed node
-			if def and def.on_rightclick then
-				if not placer:get_player_control().sneak then
-					return def.on_rightclick(under, node, placer, itemstack,
-						pointed_thing) or itemstack, false
-				end
-			end
-			local above = pointed_thing.above
-			local adef = minetest.registered_nodes[minetest.get_node(above).name]
-			if not adef.buildable_to then
-				return itemstack
-			end
-
-			-- Ladders may not be placed on ceiling or floor
-			if under.y ~= above.y then
-				return itemstack
-			end
-			local idef = itemstack:get_definition()
-			local success = minetest.item_place_node(itemstack, placer, pointed_thing)
-
-			if success then
-				if idef.sounds and idef.sounds.place then
-					minetest.sound_play(idef.sounds.place, {pos=above, gain=1})
-				end
-			end
-			return itemstack
-		end,
-
-		on_rotate = function() return false end,
-	}
-
-	for k, v in pairs(def) do
-		odef[k] = v
-	end
-
-	if not odef.groups then
-		odef.groups = {}
-	end
-	odef.groups.ladder = 1
-	odef.groups.attached_node = 1
-
-
-	minetest.register_node(id, odef)
-end
-
-
---
--- Legacy
---
-
-
-function default.spawn_falling_node(p, nodename)
-	spawn_falling_node(p, nodename)
-end
-
-
--- Horrible crap to support old code
--- Don't use this and never do what this does, it's completely wrong!
--- (More specifically, the client and the C++ code doesn't get the group)
-function default.register_falling_node(nodename, texture)
-	minetest.log("error", debug.traceback())
-	minetest.log('error', "WARNING: default.register_falling_node is deprecated")
-	if minetest.registered_nodes[nodename] then
-		minetest.registered_nodes[nodename].groups.falling_node = 1
-	end
-end
-
-
---
--- Global callbacks
---
-
-
--- Global environment step function
-function on_step(dtime)
-	-- print("on_step")
-end
-minetest.register_globalstep(on_step)
-
-
-function on_placenode(p, node)
-	--print("on_placenode")
-end
-minetest.register_on_placenode(on_placenode)
-
-
-function on_dignode(p, node)
-	--print("on_dignode")
-end
-minetest.register_on_dignode(on_dignode)
-
-
-function on_punchnode(p, node)
-end
-minetest.register_on_punchnode(on_punchnode)
-
-
-
-
---
--- Grow trees
---
-
-
-minetest.register_abm({
-	nodenames = {"default:sapling"},
-	interval = 20,
-	chance = 50,
-	action = function(pos, node)
-		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
-		local is_soil = minetest.get_item_group(nu, "soil")
-		if is_soil == 0 then
-			return
-		end
-
-
-		minetest.log("action", "A sapling grows into a tree at "..minetest.pos_to_string(pos))
-		local vm = minetest.get_voxel_manip()
-		local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
-		local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
-		local data = vm:get_data()
-		default.grow_tree(data, a, pos, math.random(1, 4) == 1, math.random(1,100000))
-		vm:set_data(data)
-		vm:write_to_map(data)
-		vm:update_map()
-	end
-})
-
-
-minetest.register_abm({
-	nodenames = {"default:junglesapling"},
-	interval = 20,
-	chance = 50,
-	action = function(pos, node)
-		local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
-		local is_soil = minetest.get_item_group(nu, "soil")
-		if is_soil == 0 then
-			return
-		end
-
-
-		minetest.log("action", "A jungle sapling grows into a tree at "..minetest.pos_to_string(pos))
-		local vm = minetest.get_voxel_manip()
-		local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y-1, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
-		local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
-		local data = vm:get_data()
-		default.grow_jungletree(data, a, pos, math.random(1,100000))
-		vm:set_data(data)
-		vm:write_to_map(data)
-		vm:update_map()
-	end
-})
-
-
---
--- Lavacooling
+-- Lava cooling
 --
 
 default.cool_lava_source = function(pos)
@@ -410,8 +22,8 @@ default.cool_lava_flowing = function(pos)
 	minetest.set_node(pos, {name="default:gravel_volcanic"})
 end
 
-
 minetest.register_abm({
+	label = "Cool flowing lava",
 	nodenames = {"default:lava_flowing"},
 	neighbors = {"group:water"},
 	interval = 1,
@@ -423,6 +35,7 @@ minetest.register_abm({
 
 
 minetest.register_abm({
+	label = "Cool lava source",
 	nodenames = {"default:lava_source"},
 	neighbors = {"group:water"},
 	interval = 1,
@@ -433,10 +46,11 @@ minetest.register_abm({
 })
 
 --
--- Stonetransformation
+-- Stone transformation
 --
 
 minetest.register_abm({
+	label = "Burn stone",
 	nodenames = {"default:stone", "default:mossystone"},
 	neighbors = {"group:lava"},
 	interval = 25,
@@ -453,6 +67,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Create mossy stone",
 	nodenames = {"default:stone"},
 	interval = 600,
 	chance = 65,
@@ -466,10 +81,11 @@ minetest.register_abm({
 })
 
 --
--- Tufftransformation
+-- Tuff transformation
 --
 
 minetest.register_abm({
+	label = "Burn tuff",
 	nodenames = {"default:tuff", "default:mossytuff"},
 	neighbors = {"group:lava"},
 	interval = 25,
@@ -485,6 +101,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Grow moss on tuff",
 	nodenames = {"default:tuff"},
 	interval = 600,
 	chance = 65,
@@ -498,11 +115,13 @@ minetest.register_abm({
 })
 
 --
--- Marble
+-- Create marble
+-- Requirements: chondrite at Y <= -500 next to water and lava is within reach of 4 nodes
 --
 
 minetest.register_abm({
-	nodenames = {"default:chondrit"},
+	label = "Create marble",
+	nodenames = {"default:chondrite"},
 	neighbors = {"group:water"},
 	interval = 200,
 	chance = 55,
@@ -517,10 +136,12 @@ minetest.register_abm({
 
 
 --
--- Obsidian
+-- Create obsidian
+-- Requirements: Volcanic gravel at Y <= -1000 next to lava and water is within reach of 4 nodes
 --
 
 minetest.register_abm({
+	label = "Create obsidian",
 	nodenames = {"default:gravel_volcanic"},
 	neighbors = {"group:lava"},
 	interval = 1111,
@@ -535,9 +156,11 @@ minetest.register_abm({
 })
 
 --
--- Cobbletransformation
+-- Cobble transformation
 --
+
 minetest.register_abm({
+	label = "Grow moss on cobblestone (neighboring water)",
 	nodenames = {"default:cobble"},
 	neighbors = {"group:water"},
 	interval = 500,
@@ -548,6 +171,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Grow moss on cobblestone (extended water check)",
 	nodenames = {"default:cobble"},
 	interval = 500,
 	chance = 55,
@@ -560,7 +184,42 @@ minetest.register_abm({
 	end,
 })
 
+-- Dirt ABMs
 minetest.register_abm({
+	nodenames = {"default:dirt"},
+	interval = 2,
+	chance = 200,
+	action = function(pos, node)
+		local above = {x=pos.x, y=pos.y+1, z=pos.z}
+		local name = minetest.get_node(above).name
+		local nodedef = minetest.registered_nodes[name]
+		if nodedef and (nodedef.sunlight_propagates or nodedef.paramtype == "light")
+				and nodedef.liquidtype == "none"
+				and (minetest.get_node_light(above) or 0) >= 13 then
+			minetest.set_node(pos, {name = "default:dirt_with_grass"})
+		end
+	end
+})
+
+minetest.register_abm({
+	label = "Grow grass on dirt",
+	nodenames = {"default:dirt_with_grass"},
+	interval = 2,
+	chance = 20,
+	action = function(pos, node)
+		local above = {x=pos.x, y=pos.y+1, z=pos.z}
+		local name = minetest.get_node(above).name
+		local nodedef = minetest.registered_nodes[name]
+		if name ~= "ignore" and nodedef
+				and not ((nodedef.sunlight_propagates or nodedef.paramtype == "light")
+				and nodedef.liquidtype == "none") then
+			minetest.set_node(pos, {name = "default:dirt"})
+		end
+	end
+})
+
+minetest.register_abm({
+	label = "Grow moss on cobblestone wall",
 	nodenames = {"walls:cobble"},
 	neighbors = {"group:water"},
 	interval = 500,
@@ -598,10 +257,11 @@ minetest.register_abm({
 
 
 --
--- Ash_leavetransformation
+-- Ash transformation
 --
 
 minetest.register_abm({
+	label = "Create fertile sand",
 	nodenames = {"default:ash"},
 	interval = 550,
 	chance = 35,
@@ -622,12 +282,13 @@ minetest.register_abm({
 
 
 --
--- Sandtransformation
+-- Fertile sand transformation
 --
 
 minetest.register_abm({
+	label = "Create dirt (direct neighboring water)",
 	nodenames = {"default:fertile_sand"},
-    neighbors = {"group:water"},
+	neighbors = {"group:water"},
 	interval = 25,
 	chance = 5,
 	action = function(pos, node)
@@ -636,8 +297,9 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Create dirt (extended water check)",
 	nodenames = {"default:fertile_sand"},
-    neighbors = {"default:dirt", "default:dirt_with_grass"},
+	neighbors = {"default:dirt", "default:dirt_with_grass"},
 	interval = 50,
 	chance = 5,
 	action = function(pos, node)
@@ -650,8 +312,9 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Create clay",
 	nodenames = {"default:ash"},
-    neighbors = {"group:water"},
+	neighbors = {"group:water"},
 	interval = 700,
 	chance = 75,
 	action = function(pos, node)
@@ -659,11 +322,12 @@ minetest.register_abm({
 	end,
 })
 
-
--- Dirttransformation
+--
+-- Dirt transformation
 --
 
 minetest.register_abm({
+	label = "Grow grass on dirt",
 	nodenames = {"default:dirt"},
 	interval = 50,
 	chance = 20,
@@ -681,33 +345,12 @@ minetest.register_abm({
 	end,
 })
 
--- minetest.register_abm({
-	-- nodenames = {"default:dirt"},
-	-- interval = 50,
-	-- chance = 20,
-	-- action = function(pos, node)
-			-- if minetest.find_node_near(pos, 10, {"group:water"}) == nil then
-               -- minetest.set_node(pos, {name="default:fertile_sand"})
-            -- else
-               -- return 
-			-- end
-	-- end,
--- })
+--
+-- Sugarcane growing
+--
 
--- minetest.register_abm({
-	-- nodenames = {"default:dirt_with_grass"},
-	-- interval = 50,
-	-- chance = 20,
-	-- action = function(pos, node)
-			-- if minetest.find_node_near(pos, 10, {"group:water"}) == nil then
-               -- minetest.set_node(pos, {name="default:dirt"})				
-            -- else
-               -- return 
-			-- end
-	-- end,
--- })
--- sugarcane
 minetest.register_abm({
+	label = "Grow sugarcane",
 	nodenames = {"default:sugarcane"},
 	neighbors = {"default:dirt", "default:dirt_with_grass"},
 	interval = 55,
@@ -732,8 +375,9 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Spread sugarcane",
 	nodenames = {"default:dirt_with_grass"},
-    neighbors = {"default:papyrus"},
+	neighbors = {"default:papyrus"},
 	interval = 500,
 	chance = 25,
 	action = function(pos, node)
@@ -747,12 +391,13 @@ minetest.register_abm({
 			end				
 	end,
 })
+
 --
 -- Papyrus and cactus growing
 --
 
-
 minetest.register_abm({
+	label = "Grow cactus",
 	nodenames = {"default:cactus"},
 	neighbors = {"group:sand"},
 	interval = 50,
@@ -776,8 +421,8 @@ minetest.register_abm({
 	end,
 })
 
-
 minetest.register_abm({
+	label = "Grow papyrus",
 	nodenames = {"default:papyrus"},
 	neighbors = {"default:dirt", "default:dirt_with_grass"},
 	interval = 50,
@@ -823,7 +468,6 @@ end
 -- Leafdecay
 --
 
-
 -- To enable leaf decay for a node, add it to the "leafdecay" group.
 --
 -- The rating of the group determines how far from a node in the group "tree"
@@ -850,6 +494,7 @@ end)
 
 
 minetest.register_abm({
+	label = "Leaf decay",
 	nodenames = {"group:leafdecay"},
 	neighbors = {"air", "group:liquid"},
 	-- A low interval and a high inverse chance spreads the load
