@@ -90,7 +90,7 @@ minetest.register_node("pipeworks:filter", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec",
-				"invsize[8,6.5;]"..
+				"size[8,6.5;]"..
 				"list[current_name;main;0,0;8,2;]"..
 				"list[current_player;main;0,2.5;8,4;]")
 		meta:set_string("infotext", "Filter")
@@ -163,7 +163,7 @@ minetest.register_node("pipeworks:mese_filter", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec",
-				"invsize[8,6.5;]"..
+				"size[8,6.5;]"..
 				"list[current_name;main;0,0;8,2;]"..
 				"list[current_player;main;0,2.5;8,4;]")
 		meta:set_string("infotext", "Mese Filter")
