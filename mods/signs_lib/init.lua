@@ -303,7 +303,7 @@ local function build_char_db()
 
 end
 
-local sign_groups = {choppy=2, dig_immediate=2}
+local sign_groups = {sign=1, choppy=2, dig_immediate=2}
 
 local fences_with_sign = { }
 
@@ -687,7 +687,7 @@ minetest.register_node(":signs:sign_yard", {
 		fixed = {-0.4375, -0.5, -0.0625, 0.4375, 0.375, 0}
 	},
     tiles = {"signs_top.png", "signs_bottom.png", "signs_side.png", "signs_side.png", "signs_back.png", "signs_front.png"},
-    groups = {choppy=2, dig_immediate=2},
+    groups = {sign=1, choppy=2, dig_immediate=2},
     drop = "default:sign_wall",
 
     on_construct = function(pos)
@@ -724,7 +724,7 @@ minetest.register_node(":signs:sign_hanging", {
 		"signs_hanging_back.png",
 		"signs_hanging_front.png"
 	},
-    groups = {choppy=2, dig_immediate=2},
+    groups = {sign=1, choppy=2, dig_immediate=2},
     drop = "default:sign_wall",
 
     on_construct = function(pos)
@@ -757,7 +757,7 @@ minetest.register_node(":signs:sign_post", {
 		"signs_post_back.png",
 		"signs_post_front.png",
 	},
-    groups = {choppy=2, dig_immediate=2},
+    groups = {sign=1, choppy=2, dig_immediate=2},
     drop = {
 		max_items = 2,
 		items = {

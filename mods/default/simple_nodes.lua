@@ -234,7 +234,7 @@ minetest.register_node("default:floor_bstone_sandstone", {
 		"default_floor_bstone_sandstone.png^[transformR90",
 	},
 	is_ground_content = false,
-	groups = {cracky=3, stone=1},
+	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -248,7 +248,7 @@ minetest.register_node("default:floor_bstone_sandstone2", {
 		"default_floor_bstone_sandstone2.png^[transformR90",
 	},
 	is_ground_content = false,
-	groups = {cracky=3, stone=1},
+	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -284,7 +284,7 @@ minetest.register_node("default:floor_essexite_gold", {
 	description = "Golden Essexite Block",
 	tiles = {"default_floor_essexite_gold.png"},
 	is_ground_content = false,
-	groups = {cracky=2, stone=1},
+	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -292,7 +292,7 @@ minetest.register_node("default:floor_essexite_gold2", {
 	description = "Golden Essexite Tile",
 	tiles = {"default_floor_essexite_gold2.png"},
 	is_ground_content = false,
-	groups = {cracky=2, stone=1},
+	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -446,7 +446,7 @@ minetest.register_node("default:ash", {
 	description = "Volcanic Ash",
 	tiles = {"default_ash.png"},
 	is_ground_content = true,
-	groups = {crumbly=3, falling_node=1, sand=1, porous=1},
+	groups = {crumbly=3, falling_node=1, ash=1, porous=1},
 	sounds = default.node_sound_sand_defaults(),
 })
 
@@ -516,7 +516,7 @@ minetest.register_node("default:sandstone", {
 	description = "Sandstone",
 	tiles = {"default_sandstone.png"},
 	is_ground_content = true,
-	groups = {crumbly=2,cracky=3, porous=1},
+	groups = {crumbly=2,cracky=3,sandstone=1, porous=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -671,13 +671,6 @@ minetest.register_node("default:brick_yellow", {
 })
 
 
-
-minetest.register_node("default:junglewood", {
-	description = "Jungle Wood Planks",
-	tiles = {"default_junglewood.png"},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
-	sounds = default.node_sound_wood_defaults(),
-})
 
 minetest.register_node("default:bookshelf", {
 	description = "Bookshelf",

@@ -1708,7 +1708,7 @@ local do_states = function(self, dtime)
 				and minetest.registered_nodes[self.standing_in].groups.water) then
 
 				lp = minetest.find_node_near(s, 5, {"group:soil", "group:stone",
-					"group:sand", node_ice, node_snowblock})
+					"group:sand", "group:ash", node_ice, node_snowblock})
 
 				-- did we find land?
 				if lp then

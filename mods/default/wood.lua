@@ -16,6 +16,12 @@ minetest.register_node("default:palewood", {
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
+minetest.register_node("default:junglewood", {
+	description = "Jungle Wood Planks",
+	tiles = {"default_junglewood.png"},
+	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
+	sounds = default.node_sound_wood_defaults(),
+})
 
 -- Colored wood
 

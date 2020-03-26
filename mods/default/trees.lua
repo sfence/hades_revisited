@@ -18,7 +18,7 @@ minetest.register_node("default:apple", {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
 	},
-	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
+	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)
@@ -92,7 +92,7 @@ minetest.register_node("default:paletree", {
 			{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
 		},
 	},
-	groups = {tree = 1, snappy = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 })
 
@@ -113,7 +113,7 @@ minetest.register_node("default:tree_birch", {
 			{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
 		},
 	},
-	groups = {tree = 1, snappy = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_wood_defaults(),
 })
 

@@ -1956,105 +1956,105 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:fence_wood_black',
 	recipe = {
-		{'group:woodfence', 'dye:black'},
+		{'group:fence_wood', 'dye:black'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_blue',
 	recipe = {
-		{'group:woodfence', 'dye:blue'},
+		{'group:fence_wood', 'dye:blue'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_brown',
 	recipe = {
-		{'group:woodfence', 'dye:brown'},
+		{'group:fence_wood', 'dye:brown'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_cyan',
 	recipe = {
-		{'group:woodfence', 'dye:cyan'},
+		{'group:fence_wood', 'dye:cyan'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_dark_green',
 	recipe = {
-		{'group:woodfence', 'dye:dark_green'},
+		{'group:fence_wood', 'dye:dark_green'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_dark_grey',
 	recipe = {
-		{'group:woodfence', 'dye:dark_grey'},
+		{'group:fence_wood', 'dye:dark_grey'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_green',
 	recipe = {
-		{'group:woodfence', 'dye:green'},
+		{'group:fence_wood', 'dye:green'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_grey',
 	recipe = {
-		{'group:woodfence', 'dye:grey'},
+		{'group:fence_wood', 'dye:grey'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_magenta',
 	recipe = {
-		{'group:woodfence', 'dye:magenta'},
+		{'group:fence_wood', 'dye:magenta'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_orange',
 	recipe = {
-		{'group:woodfence', 'dye:orange'},
+		{'group:fence_wood', 'dye:orange'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_pink',
 	recipe = {
-		{'group:woodfence', 'dye:pink'},
+		{'group:fence_wood', 'dye:pink'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_red',
 	recipe = {
-		{'group:woodfence', 'dye:red'},
+		{'group:fence_wood', 'dye:red'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_violet',
 	recipe = {
-		{'group:woodfence', 'dye:violet'},
+		{'group:fence_wood', 'dye:violet'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_white',
 	recipe = {
-		{'group:woodfence', 'dye:white'},
+		{'group:fence_wood', 'dye:white'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:fence_wood_yellow',
 	recipe = {
-		{'group:woodfence', 'dye:yellow'},
+		{'group:fence_wood', 'dye:yellow'},
 	}
 })
 

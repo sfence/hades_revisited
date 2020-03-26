@@ -399,13 +399,13 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Grow cactus",
 	nodenames = {"default:cactus"},
-	neighbors = {"group:sand"},
+	neighbors = {"group:sand", "group:ash"},
 	interval = 50,
 	chance = 20,
 	action = function(pos, node)
 		pos.y = pos.y-1
 		local name = minetest.get_node(pos).name
-		if minetest.get_item_group(name, "sand") ~= 0 then
+		if minetest.get_item_group(name, "sand") ~= 0 or minetest.get_item_group(name, "ash" ~= 0) then
 			pos.y = pos.y+1
 			local height = 0
 			while minetest.get_node(pos).name == "default:cactus" and height < 4 do

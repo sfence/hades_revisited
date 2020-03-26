@@ -287,7 +287,7 @@ for id, finfo in pairs(furnace_types) do
 			"default_"..tex.."_side.png", "default_"..tex.."_front.png"
 		},
 		paramtype2 = "facedir",
-		groups = {cracky=2},
+		groups = {cracky=2, furnace=1},
 		legacy_facedir_simple = true,
 		is_ground_content = false,
 
@@ -339,7 +339,7 @@ for id, finfo in pairs(furnace_types) do
 		paramtype2 = "facedir",
 		light_source = 8,
 		drop = id,
-		groups = {cracky=2, not_in_creative_inventory=1},
+		groups = {cracky=2, furnace=1, not_in_creative_inventory=1},
 		legacy_facedir_simple = true,
 		is_ground_content = false,
 		sounds = default.node_sound_stone_defaults(),
