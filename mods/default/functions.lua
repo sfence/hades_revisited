@@ -446,7 +446,7 @@ minetest.register_abm({
 		if node.name == "default:mossystone" then
 			nn = "default:stone"
 		else
-			nn = "default:desert_stone"
+			nn = "default:stone_baked"
 		end
 		minetest.set_node(pos, {name=nn})
 	end,
@@ -602,7 +602,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
-	nodenames = {"default:sand"},
+	nodenames = {"default:ash"},
 	interval = 550,
 	chance = 35,
 	action = function(pos, node)
@@ -614,7 +614,7 @@ minetest.register_abm({
 			  return
 			else
 			pos.y = pos.y-1
-			minetest.set_node(pos, {name="default:desert_sand"})
+			minetest.set_node(pos, {name="default:fertile_sand"})
 			end
 		end
 	end,
@@ -626,7 +626,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
-	nodenames = {"default:desert_sand"},
+	nodenames = {"default:fertile_sand"},
     neighbors = {"group:water"},
 	interval = 25,
 	chance = 5,
@@ -636,7 +636,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
-	nodenames = {"default:desert_sand"},
+	nodenames = {"default:fertile_sand"},
     neighbors = {"default:dirt", "default:dirt_with_grass"},
 	interval = 50,
 	chance = 5,
@@ -650,7 +650,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
-	nodenames = {"default:sand"},
+	nodenames = {"default:ash"},
     neighbors = {"group:water"},
 	interval = 700,
 	chance = 75,
@@ -687,7 +687,7 @@ minetest.register_abm({
 	-- chance = 20,
 	-- action = function(pos, node)
 			-- if minetest.find_node_near(pos, 10, {"group:water"}) == nil then
-               -- minetest.set_node(pos, {name="default:desert_sand"})				
+               -- minetest.set_node(pos, {name="default:fertile_sand"})
             -- else
                -- return 
 			-- end

@@ -5,21 +5,18 @@
 --
 minetest.register_alias("mapgen_air", "air")
 minetest.register_alias("mapgen_stone", "default:stone")
-minetest.register_alias("mapgen_stone_with_coal", "default:stone_with_coal")
-minetest.register_alias("mapgen_stone_with_iron", "default:stone_with_iron")
-minetest.register_alias("mapgen_dirt", "default:sand")
-minetest.register_alias("mapgen_dirt_with_grass", "default:sand")
-minetest.register_alias("mapgen_sand", "default:sand")
-minetest.register_alias("mapgen_clay", "default:sand")
+minetest.register_alias("mapgen_dirt", "default:ash")
+minetest.register_alias("mapgen_dirt_with_grass", "default:ash")
+minetest.register_alias("mapgen_sand", "default:ash")
 minetest.register_alias("mapgen_water_source", "default:lava_source")
 minetest.register_alias("mapgen_river_water_source", "default:lava_source")
 minetest.register_alias("mapgen_lava_source", "default:lava_source")
 minetest.register_alias("mapgen_gravel", "default:lava_source")
 minetest.register_alias("mapgen_desert_stone", "default:stone")
-minetest.register_alias("mapgen_desert_sand", "default:sand")
-minetest.register_alias("mapgen_dirt_with_snow", "default:sand")
-minetest.register_alias("mapgen_snowblock", "default:sand")
-minetest.register_alias("mapgen_snow", "default:sand")
+minetest.register_alias("mapgen_desert_sand", "default:ash")
+minetest.register_alias("mapgen_dirt_with_snow", "default:ash")
+minetest.register_alias("mapgen_snowblock", "default:ash")
+minetest.register_alias("mapgen_snow", "default:ash")
 minetest.register_alias("mapgen_ice", "default:stone")
 minetest.register_alias("mapgen_sandstone", "default:tuff")
 
@@ -443,7 +440,7 @@ minetest.register_ore({
 
 	minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "default:sand",
+		ore            = "default:ash",
 		wherein        = "default:stone",
 		clust_scarcity = 20*20*20,
 		clust_num_ores = 5*5*3,
@@ -467,7 +464,7 @@ minetest.register_ore({
 
 	minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "default:chondrit",
+		ore            = "default:chondrite",
 		ore_param2     = 128,
 		wherein        = "default:stone",
 		clust_scarcity = 10*10*10,
@@ -480,7 +477,7 @@ minetest.register_ore({
 	
 	minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "default:chondrit",
+		ore            = "default:chondrite",
 		ore_param2     = 128,
 		wherein        = "default:stone",
 		clust_scarcity = 20*20*20,
@@ -493,7 +490,7 @@ minetest.register_ore({
 	
 	minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "default:chondrit",
+		ore            = "default:chondrite",
 		ore_param2     = 128,
 		wherein        = "default:stone",
 		clust_scarcity = 20*20*20,
@@ -506,7 +503,7 @@ minetest.register_ore({
 	
 	minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "default:essexit",
+		ore            = "default:essexite",
 		ore_param2     = 128,
 		wherein        = "default:stone",
 		clust_scarcity = 10*10*10,
@@ -518,7 +515,7 @@ minetest.register_ore({
 
 minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "default:essexit",
+		ore            = "default:essexite",
 		ore_param2     = 128,
 		wherein        = "default:stone",
 		clust_scarcity = 10*10*10,
@@ -531,7 +528,7 @@ minetest.register_ore({
 	
 	minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "default:essexit",
+		ore            = "default:essexite",
 		ore_param2     = 128,
 		wherein        = "default:stone",
 		clust_scarcity = 20*10*20,
@@ -645,7 +642,7 @@ minetest.register_decoration({
 		},
 		y_min = 1,
 		y_max = 100,
-		decoration = "default:sand",
+		decoration = "default:ash",
 	})
 
 function default.make_papyrus(pos, size)

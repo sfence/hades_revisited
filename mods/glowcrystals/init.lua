@@ -12,7 +12,7 @@ Details: Adds several items for lighting, made out of glowing crystals - a bette
 
 minetest.register_node( "glowcrystals:glowcrystal_ore", {
 	description = "Glowing Crystal Ore",
-	tiles = { "default_essexit.png^glowcrystals_ore_glowcrystal.png" },
+	tiles = { "default_essexite.png^glowcrystals_ore_glowcrystal.png" },
 	is_ground_content = true,
 	paramtype = "light",
 	sunlight_propagates = true,
@@ -163,7 +163,7 @@ minetest.register_craft({
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "glowcrystals:glowcrystal_ore",
-    wherein        = "default:essexit",
+    wherein        = "default:essexite",
     clust_scarcity = 9*9*9,
     clust_num_ores = 4,
     clust_size     = 3,
@@ -174,7 +174,7 @@ minetest.register_ore({
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "glowcrystals:glowcrystal_ore",
-    wherein        = "default:essexit",
+    wherein        = "default:essexite",
     clust_scarcity = 24*24*24,
 	clust_num_ores = 27,
 	clust_size     = 6,

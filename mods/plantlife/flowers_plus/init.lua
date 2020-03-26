@@ -364,7 +364,7 @@ plantslib:register_generate_plant({
     --rarity = seaweed_rarity,
     -- min_elevation = 1,
 	--max_elevation = 100,
-	--near_nodes = {"default:sand"},
+	--near_nodes = {"default:ash"},
 	--near_nodes_size = 1,
 	--near_nodes_vertical = 0,
 	--near_nodes_count = 3,
@@ -375,7 +375,7 @@ plantslib:register_generate_plant({
   --"flowers_plus.grow_seaweed"
 --)
 --plantslib:register_generate_plant({
-    --surface = {"default:sand"},
+    --surface = {"default:ash"},
     --max_count = seaweed_max_count*2,
     --rarity = seaweed_rarity/2,
     -- min_elevation = 1,

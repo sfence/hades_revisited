@@ -27,8 +27,8 @@ local carpetdesc = carpet_tab[i][2]
 	{"cobble", 	            "Cobblestone",		    "default_cobble",		        "default:cobble"},
 	{"stonebrick", 	        "Stone Brick",		    "default_stone_brick",		    "default:stonebrick"},
 	{"mossycobble", 	    "Mossy Cobblestone",	"default_mossycobble",		    "default:mossycobble"},
-	{"desert_stone", 	    "Desert Stone",		    "default_desert_stone",		    "default:desert_stone"},
-	{"desert_stonebrick", 	"Desert Stone Brick",	"default_desert_stone_brick",	"default:desert_stonebrick"},
+	{"stone_baked", 	    "Burned Stone",		    "default_stone_baked",		    "default:stone_baked"},
+	{"stonebrick_baked", 	"Burned Stone Brick",	"default_stone_brick_baked",	"default:stonebrick_baked"},
 	{"sandstone", 	        "Sandstone",		    "default_sandstone",		    "default:sandstone"},
 	{"sandstonebrick", 	    "Sandstone Brick",		"default_sandstone_brick",		"default:sandstonebrick"},
 	{"obsidian", 	        "Obsidian",		        "default_obsidian",		        "default:obsidian"},
@@ -84,24 +84,24 @@ local carpetdesc = carpet_tab[i][2]
 	-- more stones
 	{"marble_brick", 	      "Marble Brick",	           "default_marble_brick",		    "default:marble_brick"},
 	{"marble", 	              "Marble",	                   "default_marble",		        "default:marble"},
-	{"chondrit_brick", 	      "Chondrite Brick",	           "default_chondrit_brick",		"default:chondrit_brick"},
-	{"chondrit", 	          "Chondrite",	               "default_chondrit",		        "default:chondrit"},
+	{"chondrite_brick", 	      "Chondrite Brick",	           "default_chondrite_brick",		"default:chondrite_brick"},
+	{"chondrite", 	          "Chondrite",	               "default_chondrite",		        "default:chondrite"},
 	{"tuff_brick", 	          "Tuff Brick",	               "default_tuff_brick",		    "default:tuff_brick"},
 	{"tuff", 	              "Tuff",	                   "default_tuff",		            "default:tuff"},
 	{"tuff_baked_brick", 	  "Burned Tuff Brick",	       "default_tuff_baked_brick",		"default:tuff_baked_brick"},
 	{"tuff_baked", 	          "Burned Tuff",	           "default_tuff_baked",		    "default:tuff_baked"},
-	{"essexit_brick", 	      "Essexite Brick",	           "default_essexit_brick",		    "default:essexit_brick"},
-	{"essexit", 	          "Essexite",	               "default_essexit",		        "default:essexit"},
-	{"floor_essexit_gold2",   "Golden Essexite Tile",	   "default_floor_essexit_gold2",   "default:floor_essexit_gold2"},
-	{"floor_essexit_gold",   "Golden Essexite Block",	   "default_floor_essexit_gold",    "default:floor_essexit_gold"},
-	{"floor_marble_essexit2", "Marble/Essexite Tile",  "default_floor_marble_essexit2", "default:floor_marble_essexit2"},
-	{"floor_marble_essexit", "Marble/Essexite Block",  "default_floor_marble_essexit", "default:floor_marble_essexit"},
+	{"essexite_brick", 	      "Essexite Brick",	           "default_essexite_brick",		    "default:essexite_brick"},
+	{"essexite", 	          "Essexite",	               "default_essexite",		        "default:essexite"},
+	{"floor_essexite_gold2",   "Golden Essexite Tile",	   "default_floor_essexite_gold2",   "default:floor_essexite_gold2"},
+	{"floor_essexite_gold",   "Golden Essexite Block",	   "default_floor_essexite_gold",    "default:floor_essexite_gold"},
+	{"floor_marble_essexite2", "Marble/Essexite Tile",  "default_floor_marble_essexite2", "default:floor_marble_essexite2"},
+	{"floor_marble_essexite", "Marble/Essexite Block",  "default_floor_marble_essexite", "default:floor_marble_essexite"},
 	{"floor_bstone_sandstone2", "Burned Stone/Sandstone Tile",	"default_floor_bstone_sandstone2", "default:floor_bstone_sandstone2"},
 	{"floor_bstone_sandstone", "Burned Stone/Sandstone Block",	"default_floor_bstone_sandstone", "default:floor_bstone_sandstone"},
 	{"floor_btuff_tuff",      "Burned Tuff/Tuff Tile",  "default_floor_btuff_tuff",      "default:floor_btuff_tuff"},
 	{"floor_bstone_stone",    "Burned Stone/Stone Tile", "default_floor_bstone_stone",   "default:floor_bstone_stone"},
-	{"floor_chondrit_stone2", "Chondrite/Stone Tile",  "default_floor_chondrit_stone2", "default:floor_chondrit_stone2"},
-	{"floor_chondrit_stone",  "Chondrite/Stone Block",   "default_floor_chondrit_stone",  "default:floor_chondrit_stone"},
+	{"floor_chondrite_stone2", "Chondrite/Stone Tile",  "default_floor_chondrite_stone2", "default:floor_chondrite_stone2"},
+	{"floor_chondrite_stone",  "Chondrite/Stone Block",   "default_floor_chondrite_stone",  "default:floor_chondrite_stone"},
 	
     }
 	
@@ -144,14 +144,14 @@ minetest.register_node("gluncarp:"..carpetname, {
 		elseif  nodeu == "default:mossycobble" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_mossycobble"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:desert_stone" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_desert_stone"})
+		elseif  nodeu == "default:stone_baked" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_stone_baked"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:desert_cobble" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_desert_cobble"})
+		elseif  nodeu == "default:cobble_baked" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_cobble_baked"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:desert_stonebrick" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_desert_stonebrick"})
+		elseif  nodeu == "default:stonebrick_baked" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_stonebrick_baked"})
 		   minetest.set_node(pos,{name = "air"})
 		elseif  nodeu == "default:sandstone" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_sandstone"})
@@ -309,11 +309,11 @@ minetest.register_node("gluncarp:"..carpetname, {
 		elseif  nodeu == "default:marble" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_marble"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:chondrit_brick" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_chondrit_brick"})
+		elseif  nodeu == "default:chondrite_brick" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_chondrite_brick"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:chondrit" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_chondrit"})
+		elseif  nodeu == "default:chondrite" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_chondrite"})
 		   minetest.set_node(pos,{name = "air"})
 		elseif  nodeu == "default:tuff_brick" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_tuff_brick"})
@@ -327,23 +327,23 @@ minetest.register_node("gluncarp:"..carpetname, {
 		elseif  nodeu == "default:tuff_baked" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_tuff_baked"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:essexit_brick" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_essexit_brick"})
+		elseif  nodeu == "default:essexite_brick" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_essexite_brick"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:essexit" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_essexit"})
+		elseif  nodeu == "default:essexite" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_essexite"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:floor_essexit_gold2" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_essexit_gold2"})
+		elseif  nodeu == "default:floor_essexite_gold2" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_essexite_gold2"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:floor_essexit_gold" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_essexit_gold"})
+		elseif  nodeu == "default:floor_essexite_gold" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_essexite_gold"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:floor_marble_essexit2" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_marble_essexit2"})
+		elseif  nodeu == "default:floor_marble_essexite2" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_marble_essexite2"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:floor_marble_essexit" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_marble_essexit"})
+		elseif  nodeu == "default:floor_marble_essexite" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_marble_essexite"})
 		   minetest.set_node(pos,{name = "air"})
 		elseif  nodeu == "default:floor_bstone_sandstone2" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_bstone_sandstone2"})
@@ -357,11 +357,11 @@ minetest.register_node("gluncarp:"..carpetname, {
 		elseif  nodeu == "default:floor_bstone_stone" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_bstone_stone"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:floor_chondrit_stone2" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_chondrit_stone2"})
+		elseif  nodeu == "default:floor_chondrite_stone2" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_chondrite_stone2"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:floor_chondrit_stone" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_chondrit_stone"})
+		elseif  nodeu == "default:floor_chondrite_stone" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_floor_chondrite_stone"})
 		   minetest.set_node(pos,{name = "air"})
 		else 
 		   return
@@ -394,12 +394,12 @@ minetest.register_node("gluncarp:"..carpetname.."_on_"..mat, {
 		       minetest.set_node(pos,{name = "default:stonebrick"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_mossycobble" then
 		       minetest.set_node(pos,{name = "default:mossycobble"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_desert_stone" then
-		       minetest.set_node(pos,{name = "default:desert_stone"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_desert_cobble" then
-		       minetest.set_node(pos,{name = "default:desert_cobble"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_desert_stonebrick" then
-		       minetest.set_node(pos,{name = "default:desert_stonebrick"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_stone_baked" then
+		       minetest.set_node(pos,{name = "default:stone_baked"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_cobble_baked" then
+		       minetest.set_node(pos,{name = "default:cobble_baked"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_stonebrick_baked" then
+		       minetest.set_node(pos,{name = "default:stonebrick_baked"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_sandstone" then
 		       minetest.set_node(pos,{name = "default:sandstone"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_sandstonebrick" then
@@ -504,10 +504,10 @@ minetest.register_node("gluncarp:"..carpetname.."_on_"..mat, {
 		       minetest.set_node(pos,{name = "default:marble_brick"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_marble" then
 		       minetest.set_node(pos,{name = "default:marble"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_chondrit_brick" then
-		       minetest.set_node(pos,{name = "default:chondrit_brick"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_chondrit" then
-		       minetest.set_node(pos,{name = "default:chondrit"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_chondrite_brick" then
+		       minetest.set_node(pos,{name = "default:chondrite_brick"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_chondrite" then
+		       minetest.set_node(pos,{name = "default:chondrite"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_tuff_brick" then
 		       minetest.set_node(pos,{name = "default:tuff_brick"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_tuff" then
@@ -516,18 +516,18 @@ minetest.register_node("gluncarp:"..carpetname.."_on_"..mat, {
 		       minetest.set_node(pos,{name = "default:tuff_baked_brick"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_tuff_baked" then
 		       minetest.set_node(pos,{name = "default:tuff_baked"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_essexit_brick" then
-		       minetest.set_node(pos,{name = "default:essexit_brick"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_essexit" then
-		       minetest.set_node(pos,{name = "default:essexit"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_essexit_gold2" then
-		       minetest.set_node(pos,{name = "default:floor_essexit_gold2"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_essexit_gold" then
-		       minetest.set_node(pos,{name = "default:floor_essexit_gold"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_marble_essexit2" then
-		       minetest.set_node(pos,{name = "default:floor_marble_essexit2"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_marble_essexit" then
-		       minetest.set_node(pos,{name = "default:floor_marble_essexit"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_essexite_brick" then
+		       minetest.set_node(pos,{name = "default:essexite_brick"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_essexite" then
+		       minetest.set_node(pos,{name = "default:essexite"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_essexite_gold2" then
+		       minetest.set_node(pos,{name = "default:floor_essexite_gold2"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_essexite_gold" then
+		       minetest.set_node(pos,{name = "default:floor_essexite_gold"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_marble_essexite2" then
+		       minetest.set_node(pos,{name = "default:floor_marble_essexite2"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_marble_essexite" then
+		       minetest.set_node(pos,{name = "default:floor_marble_essexite"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_bstone_sandstone2" then
 		       minetest.set_node(pos,{name = "default:floor_bstone_sandstone2"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_bstone_sandstone" then
@@ -536,10 +536,10 @@ minetest.register_node("gluncarp:"..carpetname.."_on_"..mat, {
 		       minetest.set_node(pos,{name = "default:floor_btuff_tuff"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_bstone_stone" then
 		       minetest.set_node(pos,{name = "default:floor_bstone_stone"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_chondrit_stone2" then
-		       minetest.set_node(pos,{name = "default:floor_chondrit_stone2"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_chondrit_stone" then
-		       minetest.set_node(pos,{name = "default:floor_chondrit_stone"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_chondrite_stone2" then
+		       minetest.set_node(pos,{name = "default:floor_chondrite_stone2"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_chondrite_stone" then
+		       minetest.set_node(pos,{name = "default:floor_chondrite_stone"})
 		    else 
 		       return
 			end

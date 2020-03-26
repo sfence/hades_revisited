@@ -3,7 +3,7 @@ staffgaia = {}
 
 local conv = function(pos)
 	local nodename = minetest.get_node(pos).name
-	if nodename == "default:sand" or nodename == "default:desert_sand" or nodename == "default:desert_stone" or nodename == "default:stone" or nodename == "default:cobble" or nodename == "default:mossystone" or nodename == "default:tuff" or nodename == "default:tuff_baked" or nodename == "default:mossytuff" or nodename == "default:mossycobble" then
+	if nodename == "default:ash" or nodename == "default:fertile_sand" or nodename == "default:stone_baked" or nodename == "default:stone" or nodename == "default:cobble" or nodename == "default:mossystone" or nodename == "default:tuff" or nodename == "default:tuff_baked" or nodename == "default:mossytuff" or nodename == "default:mossycobble" then
 		-- minetest.remove_node(pos)
         minetest.set_node(pos, {name="default:dirt"})
 		minetest.check_for_falling(pos)

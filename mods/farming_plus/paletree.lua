@@ -53,7 +53,7 @@ minetest.register_abm({
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		farming:generate_paletree(pos, "default:paletree", "farming_plus:pale_leaves", {"default:dirt", "default:dirt_with_grass", "default:sand", "default:desert_sand"})
+		farming:generate_paletree(pos, "default:paletree", "farming_plus:pale_leaves", {"default:dirt", "default:dirt_with_grass", "default:ash", "default:fertile_sand"})
 	end
 })
 

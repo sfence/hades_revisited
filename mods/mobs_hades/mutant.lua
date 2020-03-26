@@ -24,7 +24,7 @@ mobs:register_mob("mobs_hades:mutant", {
 	run_velocity = 4,
 	damage = 1,
 	drops = {
-		{name = "default:sand",
+		{name = "default:ash",
 		chance = 2,
 		min = 3,
 		max = 5,},
@@ -68,7 +68,7 @@ mobs:register_mob("mobs_hades:mutant", {
 	blood_texture = "mobs_blood.png",
 	floats = 1,
 })
-mobs:register_spawn("mobs_hades:mutant", {"default:sand"}, minetest.LIGHT_MAX, 0, 16000, 1, 31000)
-mobs:register_spawn("mobs_hades:mutant", {"default:sand"}, 5, 0, 6000, 3, 31000)
+mobs:register_spawn("mobs_hades:mutant", {"default:ash"}, minetest.LIGHT_MAX, 0, 16000, 1, 31000)
+mobs:register_spawn("mobs_hades:mutant", {"default:ash"}, 5, 0, 6000, 3, 31000)
 
-mobs:register_egg("mobs_hades:mutant", "Mutant Spawn Egg", "default_sand.png", 1, false)
+mobs:register_egg("mobs_hades:mutant", "Mutant Spawn Egg", "default_ash.png", 1, false)

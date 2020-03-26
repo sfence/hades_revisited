@@ -56,7 +56,7 @@ minetest.register_craftitem("mesecons_materials:silicon", {
 minetest.register_craft({
 	output = "mesecons_materials:silicon 4",
 	recipe = {
-		{"default:desert_sand", "default:desert_sand"},
-		{"default:desert_sand", "default:steel_ingot"},
+		{"default:fertile_sand", "default:fertile_sand"},
+		{"default:fertile_sand", "default:steel_ingot"},
 	}
 })

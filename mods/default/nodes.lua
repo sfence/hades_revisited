@@ -19,26 +19,26 @@ minetest.register_node("default:mossystone", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:chondrit", {
+minetest.register_node("default:chondrite", {
 	description = "Chondrite",
-	tiles = {"default_chondrit.png"},
+	tiles = {"default_chondrite.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1, porous=1},
-	drop = 'default:chondrit',
+	drop = 'default:chondrite',
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:chondrit_block", {
+minetest.register_node("default:chondrite_block", {
 	description = "Chondrite Block",
-	tiles = {"default_chondrit_block.png"},
+	tiles = {"default_chondrite_block.png"},
 	is_ground_content = false,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:chondrit_brick", {
+minetest.register_node("default:chondrite_brick", {
 	description = "Chondrite Brick",
-	tiles = {"default_chondrit_brick.png"},
+	tiles = {"default_chondrite_brick.png"},
 	groups = {cracky=2, stone=1},
 	is_ground_content = false,
 	sounds = default.node_sound_stone_defaults(),
@@ -125,42 +125,42 @@ minetest.register_node("default:marble_brick", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:essexit", {
+minetest.register_node("default:essexite", {
 	description = "Essexite",
-	tiles = {"default_essexit.png"},
+	tiles = {"default_essexite.png"},
 	is_ground_content = true,
 	groups = {cracky=1, stone=1, porous=1},
-	drop = 'default:essexit',
+	drop = 'default:essexite',
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:essexit_block", {
+minetest.register_node("default:essexite_block", {
 	description = "Essexite Block",
-	tiles = {"default_essexit_block.png"},
+	tiles = {"default_essexite_block.png"},
 	is_ground_content = false,
 	groups = {cracky=2,},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:essexit_brick", {
+minetest.register_node("default:essexite_brick", {
 	description = "Essexite Brick",
-	tiles = {"default_essexit_brick.png"},
+	tiles = {"default_essexite_brick.png"},
 	groups = {cracky=1, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:desert_stone", {
+minetest.register_node("default:stone_baked", {
 	description = "Burned Stone",
-	tiles = {"default_desert_stone.png"},
+	tiles = {"default_stone_baked.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = "default:cobble_baked",
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:desert_stone_block", {
+minetest.register_node("default:stone_block_baked", {
 	description = "Burned Stone Block",
-	tiles = {"default_desert_stone_block.png"},
+	tiles = {"default_stone_block_baked.png"},
 	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
@@ -174,22 +174,22 @@ minetest.register_node("default:obsidianbrick", {
 })
 -- floors
 
-minetest.register_node("default:floor_chondrit_stone", {
+minetest.register_node("default:floor_chondrite_stone", {
 	description = "Chondrite/Stone Block",
-	tiles = {"default_floor_chondrit_stone.png"},
+	tiles = {"default_floor_chondrite_stone.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:floor_chondrit_stone2", {
+minetest.register_node("default:floor_chondrite_stone2", {
 	description = "Chondrite/Stone Tile",
 	tiles = {
-		"default_floor_chondrit_stone2.png",
-		"default_floor_chondrit_stone2.png",
-		"default_floor_chondrit_stone2.png",
-		"default_floor_chondrit_stone2.png",
-		"default_floor_chondrit_stone2.png^[transformFX",
+		"default_floor_chondrite_stone2.png",
+		"default_floor_chondrite_stone2.png",
+		"default_floor_chondrite_stone2.png",
+		"default_floor_chondrite_stone2.png",
+		"default_floor_chondrite_stone2.png^[transformFX",
 	},
 	is_ground_content = false,
 	groups = {cracky=3, stone=1},
@@ -252,45 +252,45 @@ minetest.register_node("default:floor_bstone_sandstone2", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:floor_marble_essexit", {
+minetest.register_node("default:floor_marble_essexite", {
 	description = "Marble/Essexite Tile",
 	tiles = {
-		"default_floor_marble_essexit.png",
-		"default_floor_marble_essexit.png",
-		"default_floor_marble_essexit.png",
-		"default_floor_marble_essexit.png",
-		"default_floor_marble_essexit.png^[transformR90",
+		"default_floor_marble_essexite.png",
+		"default_floor_marble_essexite.png",
+		"default_floor_marble_essexite.png",
+		"default_floor_marble_essexite.png",
+		"default_floor_marble_essexite.png^[transformR90",
 	},
 	is_ground_content = false,
 	groups = {cracky=2, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:floor_marble_essexit2", {
+minetest.register_node("default:floor_marble_essexite2", {
 	description = "Marble/Essexite Block",
 	tiles = {
-		"default_floor_marble_essexit2.png",
-		"default_floor_marble_essexit2.png",
-		"default_floor_marble_essexit2.png",
-		"default_floor_marble_essexit2.png",
-		"default_floor_marble_essexit2.png^[transformR90",
+		"default_floor_marble_essexite2.png",
+		"default_floor_marble_essexite2.png",
+		"default_floor_marble_essexite2.png",
+		"default_floor_marble_essexite2.png",
+		"default_floor_marble_essexite2.png^[transformR90",
 	},
 	is_ground_content = false,
 	groups = {cracky=2, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:floor_essexit_gold", {
+minetest.register_node("default:floor_essexite_gold", {
 	description = "Golden Essexite Block",
-	tiles = {"default_floor_essexit_gold.png"},
+	tiles = {"default_floor_essexite_gold.png"},
 	is_ground_content = false,
 	groups = {cracky=2, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:floor_essexit_gold2", {
+minetest.register_node("default:floor_essexite_gold2", {
 	description = "Golden Essexite Tile",
-	tiles = {"default_floor_essexit_gold2.png"},
+	tiles = {"default_floor_essexite_gold2.png"},
 	is_ground_content = false,
 	groups = {cracky=2, stone=1},
 	sounds = default.node_sound_stone_defaults(),
@@ -413,9 +413,9 @@ minetest.register_node("default:stonebrick", {
 })
 
 
-minetest.register_node("default:desert_stonebrick", {
+minetest.register_node("default:stonebrick_baked", {
 	description = "Burned Stone Brick",
-	tiles = {"default_desert_stone_brick.png"},
+	tiles = {"default_stone_brick_baked.png"},
 	groups = {cracky=2, stone=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -476,25 +476,25 @@ minetest.register_abm({
 })
 
 
-minetest.register_node("default:sand", {
+minetest.register_node("default:ash", {
 	description = "Volcanic Ash",
-	tiles = {"default_sand.png"},
+	tiles = {"default_ash.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, sand=1, porous=1},
 	sounds = default.node_sound_sand_defaults(),
 })
 
-minetest.register_node("default:sand_block", {
+minetest.register_node("default:ash_block", {
 	description = "Volcanic Ash Block",
-	tiles = {"default_sand_block.png"},
+	tiles = {"default_ash_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=3},
 	sounds = default.node_sound_sand_defaults(),
 })
 
-minetest.register_node("default:desert_sand", {
+minetest.register_node("default:fertile_sand", {
 	description = "Fertile Sand",
-	tiles = {"default_desert_sand.png"},
+	tiles = {"default_fertile_sand.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, sand=1, porous=1},
 	sounds = default.node_sound_sand_defaults(),

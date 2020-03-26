@@ -634,14 +634,14 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:sandstone',
 	recipe = {
-		{'default:desert_sand', 'default:desert_sand'},
-		{'default:desert_sand', 'default:desert_sand'},
+		{'default:fertile_sand', 'default:fertile_sand'},
+		{'default:fertile_sand', 'default:fertile_sand'},
 	}
 })
 
 
 minetest.register_craft({
-	output = 'default:desert_sand 4',
+	output = 'default:fertile_sand 4',
 	recipe = {
 		{'default:sandstone'},
 	}
@@ -799,34 +799,34 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:desert_stone_block',
+	output = 'default:stone_baked_block',
 	recipe = {
-		{'default:desert_stone', 'default:desert_stone', 'default:desert_stone'},
-		{'default:desert_stone', 'default:desert_stone', 'default:desert_stone'},
-		{'default:desert_stone', 'default:desert_stone', 'default:desert_stone'},
+		{'default:stone_baked', 'default:stone_baked', 'default:stone_baked'},
+		{'default:stone_baked', 'default:stone_baked', 'default:stone_baked'},
+		{'default:stone_baked', 'default:stone_baked', 'default:stone_baked'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:desert_stone 9',
+	output = 'default:stone_baked 9',
 	recipe = {
-		{'default:desert_stone_block'}
+		{'default:stone_baked_block'}
 	}
 })
 
 minetest.register_craft({
-	output = 'default:essexit_block',
+	output = 'default:essexite_block',
 	recipe = {
-		{'default:essexit', 'default:essexit', 'default:essexit'},
-		{'default:essexit', 'default:essexit', 'default:essexit'},
-		{'default:essexit', 'default:essexit', 'default:essexit'},
+		{'default:essexite', 'default:essexite', 'default:essexite'},
+		{'default:essexite', 'default:essexite', 'default:essexite'},
+		{'default:essexite', 'default:essexite', 'default:essexite'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:essexit 9',
+	output = 'default:essexite 9',
 	recipe = {
-		{'default:essexit_block'}
+		{'default:essexite_block'}
 	}
 })
 
@@ -879,34 +879,34 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:chondrit_block',
+	output = 'default:chondrite_block',
 	recipe = {
-		{'default:chondrit', 'default:chondrit', 'default:chondrit'},
-		{'default:chondrit', 'default:chondrit', 'default:chondrit'},
-		{'default:chondrit', 'default:chondrit', 'default:chondrit'},
+		{'default:chondrite', 'default:chondrite', 'default:chondrite'},
+		{'default:chondrite', 'default:chondrite', 'default:chondrite'},
+		{'default:chondrite', 'default:chondrite', 'default:chondrite'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:chondrit 9',
+	output = 'default:chondrite 9',
 	recipe = {
-		{'default:chondrit_block'}
+		{'default:chondrite_block'}
 	}
 })
 
 minetest.register_craft({
-	output = 'default:sand_block',
+	output = 'default:ash_block',
 	recipe = {
-		{'default:sand', 'default:sand', 'default:sand'},
-		{'default:sand', 'default:sand', 'default:sand'},
-		{'default:sand', 'default:sand', 'default:sand'},
+		{'default:ash', 'default:ash', 'default:ash'},
+		{'default:ash', 'default:ash', 'default:ash'},
+		{'default:ash', 'default:ash', 'default:ash'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:sand 9',
+	output = 'default:ash 9',
 	recipe = {
-		{'default:sand_block'}
+		{'default:ash_block'}
 	}
 })
 
@@ -954,10 +954,10 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'default:desert_stonebrick 4',
+	output = 'default:stone_bakedbrick 4',
 	recipe = {
-		{'default:desert_stone', 'default:desert_stone'},
-		{'default:desert_stone', 'default:desert_stone'},
+		{'default:stone_baked', 'default:stone_baked'},
+		{'default:stone_baked', 'default:stone_baked'},
 	}
 })
 
@@ -981,7 +981,7 @@ minetest.register_craft({
 	type = "cooking",
 	cooktime = 15,
 	output = "default:glass",
-	recipe = "default:desert_sand",
+	recipe = "default:fertile_sand",
 })
 
 
@@ -1003,7 +1003,7 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 15,
-	output = "default:desert_stone",
+	output = "default:stone_baked",
 	recipe = "default:cobble_baked",
 })
 
@@ -1061,21 +1061,21 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "default:desert_stone",
+	output = "default:stone_baked",
 	recipe = "default:stone",
 })
 
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "default:sand",
-	recipe = "default:desert_stone",
+	output = "default:ash",
+	recipe = "default:stone_baked",
 })
 
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "default:sand",
+	output = "default:ash",
 	recipe = "default:tuff_baked",
 })
 
@@ -1337,26 +1337,26 @@ minetest.register_craft({
 })
 minetest.register_craft({
     type = "shapeless",
-	output = 'default:desert_sand 2',
-	recipe = {'default:cobble', 'default:sand'},
+	output = 'default:fertile_sand 2',
+	recipe = {'default:cobble', 'default:ash'},
 })
 
 minetest.register_craft({
     type = "shapeless",
-	output = 'default:desert_sand 2',
-	recipe = {'default:mossycobble', 'default:sand'},
+	output = 'default:fertile_sand 2',
+	recipe = {'default:mossycobble', 'default:ash'},
 })
 
 minetest.register_craft({
     type = "shapeless",
-	output = 'default:desert_sand 2',
-	recipe = {'default:tuff', 'default:sand'},
+	output = 'default:fertile_sand 2',
+	recipe = {'default:tuff', 'default:ash'},
 })
 
 minetest.register_craft({
     type = "shapeless",
-	output = 'default:desert_sand 2',
-	recipe = {'default:mossytuff', 'default:sand'},
+	output = 'default:fertile_sand 2',
+	recipe = {'default:mossytuff', 'default:ash'},
 })
 
 minetest.register_craft({
@@ -1397,7 +1397,7 @@ minetest.register_craft({
 	output = 'default:cactus',
 	recipe = {
 		{'', 'default:papyrus', ''},
-		{'default:sand', 'default:dirt', 'default:sand'},
+		{'default:ash', 'default:dirt', 'default:ash'},
 	}
 })
 
@@ -1422,7 +1422,7 @@ minetest.register_craft({
 	recipe = {
 		{'', 'default:sapling', ''},
 		{'', 'default:sapling', ''},
-		{'default:sand', 'default:dirt', 'default:sand'},
+		{'default:ash', 'default:dirt', 'default:ash'},
 	}
 })
 
@@ -1593,18 +1593,18 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'default:chondrit_brick 4',
+	output = 'default:chondrite_brick 4',
 	recipe = {
-		{'default:chondrit', 'default:chondrit'},
-		{'default:chondrit', 'default:chondrit'},
+		{'default:chondrite', 'default:chondrite'},
+		{'default:chondrite', 'default:chondrite'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:essexit_brick 4',
+	output = 'default:essexite_brick 4',
 	recipe = {
-		{'default:essexit', 'default:essexit'},
-		{'default:essexit', 'default:essexit'},
+		{'default:essexite', 'default:essexite'},
+		{'default:essexite', 'default:essexite'},
 	}
 })
 
@@ -1634,26 +1634,26 @@ minetest.register_craft({
 -- floors
 
 minetest.register_craft({
-	output = 'default:floor_chondrit_stone 4',
+	output = 'default:floor_chondrite_stone 4',
 	recipe = {
-		{'default:stone', 'default:chondrit'},
-		{'default:chondrit', 'default:stone'},
+		{'default:stone', 'default:chondrite'},
+		{'default:chondrite', 'default:stone'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:floor_chondrit_stone2 4',
+	output = 'default:floor_chondrite_stone2 4',
 	recipe = {
-		{'default:chondrit', 'default:stone'},
-		{'default:stone', 'default:chondrit'},
+		{'default:chondrite', 'default:stone'},
+		{'default:stone', 'default:chondrite'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:floor_bstone_stone 4',
 	recipe = {
-		{'default:stone', 'default:desert_stone'},
-		{'default:desert_stone', 'default:stone'},
+		{'default:stone', 'default:stone_baked'},
+		{'default:stone_baked', 'default:stone'},
 	}
 })
 
@@ -1668,48 +1668,48 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:floor_bstone_sandstone 4',
 	recipe = {
-		{'default:desert_stone', 'default:sandstone'},
-		{'default:sandstone', 'default:desert_stone'},
+		{'default:stone_baked', 'default:sandstone'},
+		{'default:sandstone', 'default:stone_baked'},
 	}
 })
 
 minetest.register_craft({
 	output = 'default:floor_bstone_sandstone2 4',
 	recipe = {
-		{'default:sandstone', 'default:desert_stone'},
-		{'default:desert_stone', 'default:sandstone'},
+		{'default:sandstone', 'default:stone_baked'},
+		{'default:stone_baked', 'default:sandstone'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:floor_marble_essexit 4',
+	output = 'default:floor_marble_essexite 4',
 	recipe = {
-		{'default:marble', 'default:essexit'},
-		{'default:essexit', 'default:marble'},
+		{'default:marble', 'default:essexite'},
+		{'default:essexite', 'default:marble'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:floor_marble_essexit2 4',
+	output = 'default:floor_marble_essexite2 4',
 	recipe = {
-		{'default:essexit', 'default:marble'},
-		{'default:marble', 'default:essexit'},
+		{'default:essexite', 'default:marble'},
+		{'default:marble', 'default:essexite'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:floor_essexit_gold 3',
+	output = 'default:floor_essexite_gold 3',
 	recipe = {
-		{'default:essexit', 'default:essexit'},
-		{'default:essexit', 'default:gold_ingot'},
+		{'default:essexite', 'default:essexite'},
+		{'default:essexite', 'default:gold_ingot'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:floor_essexit_gold2 3',
+	output = 'default:floor_essexite_gold2 3',
 	recipe = {
-		{'default:gold_ingot', 'default:essexit'},
-		{'default:essexit', 'default:essexit'},
+		{'default:gold_ingot', 'default:essexite'},
+		{'default:essexite', 'default:essexite'},
 	}
 })
 

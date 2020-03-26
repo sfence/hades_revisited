@@ -90,7 +90,7 @@ local node_permanent_flame = "fire:permanent_flame"
 local node_ice = "default:stone"
 local node_snowblock = "default:stone"
 local node_snow = "default:stone"
-mobs.fallback_node = minetest.registered_aliases["mapgen_sand"] or "default:sand"
+mobs.fallback_node = minetest.registered_aliases["mapgen_sand"] or "default:ash"
 
 
 -- play sound

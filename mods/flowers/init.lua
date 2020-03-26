@@ -123,14 +123,14 @@ minetest.register_node("flowers:viola", {
 
 minetest.register_abm({
 	nodenames = {"group:flora"},
-	neighbors = {"default:dirt_with_grass", "default:desert_sand"},
+	neighbors = {"default:dirt_with_grass", "default:fertile_sand"},
 	interval = 50,
 	chance = 30,
 	action = function(pos, node)
 		pos.y = pos.y - 1
 		local under = minetest.get_node(pos)
 		pos.y = pos.y + 1
-		if under.name == "default:desert_sand" then
+		if under.name == "default:fertile_sand" then
 			minetest.set_node(pos, {name="default:dry_shrub"})
 		elseif under.name ~= "default:dirt_with_grass" then
 			return

@@ -35,7 +35,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local c_air = minetest.get_content_id("air")
 	local c_ignore = minetest.get_content_id("ignore")
 	local c_lava = minetest.get_content_id("default:lava_source")
-	local c_sand = minetest.get_content_id("default:sand")
+	local c_ash = minetest.get_content_id("default:ash")
 	local c_vgravel = minetest.get_content_id("default:gravel_volcanic")
 
 
@@ -49,7 +49,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				break
 			elseif c_node == c_lava then
 				break
-			elseif c_node == c_sand then
+			elseif c_node == c_ash then
 				yasurf = y + 1
 				break
 			end
@@ -154,7 +154,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							local viu = area:index(x, y, z)
 							if data[viu] == c_air then
 								data[viu] = c_lava
-							elseif data[viu] == c_sand then
+							elseif data[viu] == c_ash then
 								data[viu] = c_vgravel
 								break
 							else

@@ -46,7 +46,7 @@ sradius:	Don't spawn within this many nodes of the avoid items
 schance:	The value passed to the ABM's chance parameter, normally in
 		the 10-100 range (1-in-X chance of operating on a given node)
 ssurface:	String with the name of the node on which to spawn the plant
-		in question, such as "default:sand" or
+		in question, such as "default:ash" or
 		"default:dirt_with_grass".  It is not recommended to put air,
 		stone, or plain dirt here if you can use some other node, as
 		doing so will cause the engine to process potentially large
