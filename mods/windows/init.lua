@@ -43,17 +43,17 @@ windows.register_window("windows:windows_wood", {
 	texture_seam = "windows_windows_wood_seam.png",
 	texture_front = "windows_windows_wood_front.png",
 })
-windows.register_window("windows:windows_jwood", {
+windows.register_window("windows:windows_jungle_wood", {
 	description = "Jungle Wood Window",
 	texture_seam = "windows_windows_jwood_seam.png",
 	texture_front = "windows_windows_jwood_front.png",
 })
-windows.register_window("windows:windows_palewood", {
+windows.register_window("windows:windows_pale_wood", {
 	description = "Pale Wood Window",
 	texture_seam = "windows_windows_palewood_seam.png",
 	texture_front = "windows_windows_palewood_front.png",
 })
-windows.register_window("windows:windows_birchwood", {
+windows.register_window("windows:windows_birch_wood", {
 	description = "Birch Wood Window",
 	texture_seam = "windows_windows_birchwood_seam.png",
 	texture_front = "windows_windows_birchwood_front.png",
@@ -68,7 +68,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = 'windows:windows_jwood 4',
+	output = 'windows:windows_jungle_wood 4',
 	recipe = {
 		{'hades_trees:jungle_wood', 'default:glass', 'hades_trees:jungle_wood'},
 		{'default:glass', 'default:glass', 'default:glass'},
@@ -76,7 +76,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = 'windows:windows_palewood 4',
+	output = 'windows:windows_pale_wood 4',
 	recipe = {
 		{'hades_trees:pale_wood', 'default:glass', 'hades_trees:pale_wood'},
 		{'default:glass', 'default:glass', 'default:glass'},
@@ -84,7 +84,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = 'windows:windows_birchwood 4',
+	output = 'windows:windows_birch_wood 4',
 	recipe = {
 		{'hades_trees:birch_wood', 'default:glass', 'hades_trees:birch_wood'},
 		{'default:glass', 'default:glass', 'default:glass'},
