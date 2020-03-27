@@ -863,7 +863,7 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'default:stone_bakedbrick 4',
+	output = 'default:stonebrick_baked 4',
 	recipe = {
 		{'default:stone_baked', 'default:stone_baked'},
 		{'default:stone_baked', 'default:stone_baked'},

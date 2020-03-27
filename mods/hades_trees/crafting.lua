@@ -25,105 +25,105 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:colwood_black',
+	output = 'hades_trees:colwood_black',
 	recipe = {
 		{'group:wood', 'dye:black'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_blue',
+	output = 'hades_trees:colwood_blue',
 	recipe = {
 		{'group:wood', 'dye:blue'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_brown',
+	output = 'hades_trees:colwood_brown',
 	recipe = {
 		{'group:wood', 'dye:brown'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_cyan',
+	output = 'hades_trees:colwood_cyan',
 	recipe = {
 		{'group:wood', 'dye:cyan'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_dark_green',
+	output = 'hades_trees:colwood_dark_green',
 	recipe = {
 		{'group:wood', 'dye:dark_green'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_dark_grey',
+	output = 'hades_trees:colwood_dark_grey',
 	recipe = {
 		{'group:wood', 'dye:dark_grey'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_green',
+	output = 'hades_trees:colwood_green',
 	recipe = {
 		{'group:wood', 'dye:green'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_grey',
+	output = 'hades_trees:colwood_grey',
 	recipe = {
 		{'group:wood', 'dye:grey'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_magenta',
+	output = 'hades_trees:colwood_magenta',
 	recipe = {
 		{'group:wood', 'dye:magenta'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_orange',
+	output = 'hades_trees:colwood_orange',
 	recipe = {
 		{'group:wood', 'dye:orange'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_pink',
+	output = 'hades_trees:colwood_pink',
 	recipe = {
 		{'group:wood', 'dye:pink'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_red',
+	output = 'hades_trees:colwood_red',
 	recipe = {
 		{'group:wood', 'dye:red'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_violet',
+	output = 'hades_trees:colwood_violet',
 	recipe = {
 		{'group:wood', 'dye:violet'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_white',
+	output = 'hades_trees:colwood_white',
 	recipe = {
 		{'group:wood', 'dye:white'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:colwood_yellow',
+	output = 'hades_trees:colwood_yellow',
 	recipe = {
 		{'group:wood', 'dye:yellow'},
 	}
