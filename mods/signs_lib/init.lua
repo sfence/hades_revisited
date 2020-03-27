@@ -82,15 +82,15 @@ signs_lib.gettext = S
 -- the list of standard sign nodes
 
 signs_lib.sign_node_list = {
-		"default:sign_wall",
-		"signs:sign_yard",
-		"signs:sign_hanging",
-		"signs:sign_wall_green",
-		"signs:sign_wall_yellow",
-		"signs:sign_wall_red",
-		"signs:sign_wall_white_red",
-		"signs:sign_wall_white_black",
-		"locked_sign:sign_wall_locked"
+		"signs_lib:sign_wall",
+		"signs_lib:sign_yard",
+		"signs_lib:sign_hanging",
+		"signs_lib:sign_wall_green",
+		"signs_lib:sign_wall_yellow",
+		"signs_lib:sign_wall_red",
+		"signs_lib:sign_wall_white_red",
+		"signs_lib:sign_wall_white_black",
+		"signs_lib:sign_wall_locked"
 }
 
 --table copy
@@ -304,6 +304,7 @@ local function build_char_db()
 end
 
 local sign_groups = {sign=1, choppy=2, dig_immediate=2}
+local sign_wall_groups = {sign=1, sign_wall=1, choppy=2, dig_immediate=2}
 
 local fences_with_sign = { }
 
@@ -475,7 +476,7 @@ signs_lib.destruct_sign = function(pos)
     local objects = minetest.get_objects_inside_radius(pos, 0.5)
     for _, v in ipairs(objects) do
 		local e = v:get_luaentity()
-        if e and e.name == "signs:text" then
+        if e and e.name == "signs_lib:text" then
             v:remove()
         end
     end
@@ -515,7 +516,7 @@ signs_lib.update_sign = function(pos, fields, owner)
     local found
     for _, v in ipairs(objects) do
 		local e = v:get_luaentity()
-		if e and e.name == "signs:text" then
+		if e and e.name == "signs_lib:text" then
 			if found then
 				v:remove()
 			else
@@ -531,11 +532,11 @@ signs_lib.update_sign = function(pos, fields, owner)
 	-- if there is no entity
 	local sign_info
 	local signnode = minetest.get_node(pos)
-	if signnode.name == "signs:sign_yard" then
+	if signnode.name == "signs_lib:sign_yard" then
 		sign_info = signs_lib.yard_sign_model.textpos[minetest.get_node(pos).param2 + 1]
-	elseif signnode.name == "signs:sign_hanging" then
+	elseif signnode.name == "signs_lib:sign_hanging" then
 		sign_info = signs_lib.hanging_sign_model.textpos[minetest.get_node(pos).param2 + 1]
-	elseif string.find(signnode.name, "sign_wall") then
+	elseif minetest.get_item_group(signnode.name, "sign_wall") == 1 then
 		sign_info = signs_lib.wall_sign_model.textpos[minetest.get_node(pos).param2 + 1]
 	else -- ...it must be a sign on a fence post.
 		sign_info = signs_lib.sign_post_model.textpos[minetest.get_node(pos).param2 + 1]
@@ -545,7 +546,7 @@ signs_lib.update_sign = function(pos, fields, owner)
 	end
 	local text = minetest.add_entity({x = pos.x + sign_info.delta.x,
 										y = pos.y + sign_info.delta.y,
-										z = pos.z + sign_info.delta.z}, "signs:text")
+										z = pos.z + sign_info.delta.z}, "signs_lib:text")
 	text:set_yaw(sign_info.yaw)
 end
 
@@ -600,12 +601,12 @@ function signs_lib.determine_sign_type(itemstack, placer, pointed_thing, locked)
 		local pt_name = minetest.get_node(under).name
 		local signname = itemstack:get_name()
 
-		if fences_with_sign[pt_name] and signname == "default:sign_wall" then
+		if fences_with_sign[pt_name] and signname == "signs_lib:sign_wall" then
 			minetest.add_node(under, {name = fences_with_sign[pt_name], param2 = fdir})
-		elseif wdir == 0 and signname == "default:sign_wall" then
-			minetest.add_node(above, {name = "signs:sign_hanging", param2 = fdir})
-		elseif wdir == 1 and signname == "default:sign_wall" then
-			minetest.add_node(above, {name = "signs:sign_yard", param2 = fdir})
+		elseif wdir == 0 and signname == "signs_lib:sign_wall" then
+			minetest.add_node(above, {name = "signs_lib:sign_hanging", param2 = fdir})
+		elseif wdir == 1 and signname == "signs_lib:sign_wall" then
+			minetest.add_node(above, {name = "signs_lib:sign_yard", param2 = fdir})
 		else -- it must be a wooden or metal wall sign.
 			minetest.add_node(above, {name = signname, param2 = fdir})
 			if locked then
@@ -643,7 +644,7 @@ function signs_lib.receive_fields(pos, formname, fields, sender, lock)
 	end
 end
 
-minetest.register_node(":default:sign_wall", {
+minetest.register_node("signs_lib:sign_wall", {
 	description = S("Wooden Sign"),
 	inventory_image = "default_sign_wall.png",
 	wield_image = "default_sign_wall.png",
@@ -655,7 +656,7 @@ minetest.register_node(":default:sign_wall", {
 	drawtype = "nodebox",
 	node_box = signs_lib.wall_sign_model.nodebox,
 	tiles = {"signs_top.png", "signs_bottom.png", "signs_side.png", "signs_side.png", "signs_back.png", "signs_front.png"},
-	groups = sign_groups,
+	groups = sign_wall_groups,
 
 	on_place = function(itemstack, placer, pointed_thing)
 		return signs_lib.determine_sign_type(itemstack, placer, pointed_thing)
@@ -675,7 +676,7 @@ minetest.register_node(":default:sign_wall", {
     sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node(":signs:sign_yard", {
+minetest.register_node("signs_lib:sign_yard", {
     paramtype = "light",
 	sunlight_propagates = true,
     is_ground_content = false,
@@ -687,8 +688,8 @@ minetest.register_node(":signs:sign_yard", {
 		fixed = {-0.4375, -0.5, -0.0625, 0.4375, 0.375, 0}
 	},
     tiles = {"signs_top.png", "signs_bottom.png", "signs_side.png", "signs_side.png", "signs_back.png", "signs_front.png"},
-    groups = {sign=1, choppy=2, dig_immediate=2},
-    drop = "default:sign_wall",
+    groups = sign_groups,
+    drop = "signs_lib:sign_wall",
 
     on_construct = function(pos)
         signs_lib.construct_sign(pos)
@@ -705,7 +706,7 @@ minetest.register_node(":signs:sign_yard", {
     sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node(":signs:sign_hanging", {
+minetest.register_node("signs_lib:sign_hanging", {
     paramtype = "light",
 	sunlight_propagates = true,
     is_ground_content = false,
@@ -724,8 +725,8 @@ minetest.register_node(":signs:sign_hanging", {
 		"signs_hanging_back.png",
 		"signs_hanging_front.png"
 	},
-    groups = {sign=1, choppy=2, dig_immediate=2},
-    drop = "default:sign_wall",
+    groups = sign_groups,
+    drop = "signs_lib:sign_wall",
 
     on_construct = function(pos)
         signs_lib.construct_sign(pos)
@@ -742,37 +743,11 @@ minetest.register_node(":signs:sign_hanging", {
     sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node(":signs:sign_post", {
-    paramtype = "light",
-	sunlight_propagates = true,
-    is_ground_content = false,
-    paramtype2 = "facedir",
-    drawtype = "nodebox",
-    node_box = signs_lib.sign_post_model.nodebox,
-    tiles = {
-		"signs_post_top.png",
-		"signs_post_bottom.png",
-		"signs_post_side.png",
-		"signs_post_side.png",
-		"signs_post_back.png",
-		"signs_post_front.png",
-	},
-    groups = {sign=1, choppy=2, dig_immediate=2},
-    drop = {
-		max_items = 2,
-		items = {
-			{ items = { "default:sign_wall" }},
-			{ items = { "hades_fences:fence_wood" }},
-		},
-    },
-    sounds = default.node_sound_wood_defaults(),
-})
-
 -- Locked wall sign
 
 minetest.register_privilege("sign_editor", "Can edit all locked signs")
 
-minetest.register_node(":locked_sign:sign_wall_locked", {
+minetest.register_node("signs_lib:sign_wall_locked", {
 	description = S("Locked Wooden Sign"),
 	inventory_image = "signs_locked_inv.png",
 	wield_image = "signs_locked_inv.png",
@@ -791,7 +766,7 @@ minetest.register_node(":locked_sign:sign_wall_locked", {
 		"signs_back.png",
 		"signs_front_locked.png"
 	},
-	groups = sign_groups,
+	groups = sign_wall_groups,
 	on_place = function(itemstack, placer, pointed_thing)
 		return signs_lib.determine_sign_type(itemstack, placer, pointed_thing, true)
 	end,
@@ -830,7 +805,7 @@ local sign_colors = { "green", "yellow", "red", "white_red", "white_black" }
 local sign_descs = { S("Green Steel Sign"), S("Yellow Steel Sign"), S("Red Steel Sign"), S("White Steel Sign with Red Border"), S("White Steel Sign with Black Border") }
 
 for i, color in ipairs(sign_colors) do
-	minetest.register_node(":signs:sign_wall_"..color, {
+	minetest.register_node("signs_lib:sign_wall_"..color, {
 		description = sign_descs[i],
 		inventory_image = "signs_"..color.."_inv.png",
 		is_ground_content = false,
@@ -849,7 +824,7 @@ for i, color in ipairs(sign_colors) do
 			"signs_metal_back.png",
 			"signs_"..color.."_front.png"
 		},
-		groups = sign_groups,
+		groups = sign_wall_groups,
 		on_place = function(itemstack, placer, pointed_thing)
 			return signs_lib.determine_sign_type(itemstack, placer, pointed_thing)
 		end,
@@ -881,95 +856,17 @@ signs_text_on_activate = function(self)
 	end
 end
 
-minetest.register_entity(":signs:text", {
-    collisionbox = { 0, 0, 0, 0, 0, 0 },
+minetest.register_entity("signs_lib:text", {
+    physical = false,
+    pointable = false,
     visual = "upright_sprite",
     textures = {},
-
-	on_activate = signs_text_on_activate,
+    on_activate = signs_text_on_activate,
 })
 
 -- And the good stuff here! :-)
 
-function signs_lib.register_fence_with_sign(fencename, fencewithsignname)
-    local def = minetest.registered_nodes[fencename]
-    local def_sign = minetest.registered_nodes[fencewithsignname]
-    if not (def and def_sign) then
-        minetest.log("warning", "[signs_lib] Attempt to register unknown node as fence")
-        return
-    end
-    def = signs_lib.table_copy(def)
-    def_sign = signs_lib.table_copy(def_sign)
-    fences_with_sign[fencename] = fencewithsignname
-
-    def.is_ground_content = false
-    def.on_place = function(itemstack, placer, pointed_thing, ...)
-		local node_above = minetest.get_node(pointed_thing.above)
-		local node_under = minetest.get_node(pointed_thing.under)
-		local def_above = minetest.registered_nodes[node_above.name]
-		local def_under = minetest.registered_nodes[node_under.name]
-		local fdir = minetest.dir_to_facedir(placer:get_look_dir())
-		local playername = placer:get_player_name()
-
-		if minetest.is_protected(pointed_thing.under, playername) then
-			minetest.record_protection_violation(pointed_thing.under, playername)
-			return
-		end
-
-		if minetest.is_protected(pointed_thing.above, playername) then
-			minetest.record_protection_violation(pointed_thing.above, playername)
-			return
-		end
-
-		if def_under and def_under.on_rightclick then
-			return def_under.on_rightclick(pointed_thing.under, node_under, placer, itemstack) or itemstack
-		elseif def_under and def_under.buildable_to then
-			minetest.add_node(pointed_thing.under, {name = fencename, param2 = fdir})
-			if not signs_lib.expect_infinite_stacks then
-				itemstack:take_item()
-			end
-			placer:set_wielded_item(itemstack)
-			return itemstack
-		elseif not def_above or def_above.buildable_to then
-			minetest.add_node(pointed_thing.above, {name = fencename, param2 = fdir})
-			if not signs_lib.expect_infinite_stacks then
-				itemstack:take_item()
-			end
-			placer:set_wielded_item(itemstack)
-			return itemstack
-		end
-	end
-	def_sign.on_construct = function(pos, ...)
-		signs_lib.construct_sign(pos)
-	end
-	def_sign.on_destruct = function(pos, ...)
-		signs_lib.destruct_sign(pos)
-	end
-	def_sign.on_receive_fields = function(pos, formname, fields, sender)
-		signs_lib.receive_fields(pos, formname, fields, sender)
-	end
-	def_sign.on_punch = function(pos, node, puncher, ...)
-		signs_lib.update_sign(pos)
-	end
-	local fencename = fencename
-	def_sign.after_dig_node = function(pos, node, ...)
-	    node.name = fencename
-	    minetest.add_node(pos, node)
-	end
-	def_sign.drop = "default:sign_wall"
-	def_sign.is_ground_content = false
-	minetest.register_node(":"..fencename, def)
-	minetest.register_node(":"..fencewithsignname, def_sign)
-	table.insert(signs_lib.sign_node_list, fencewithsignname)
-	minetest.log("action", "[signs_lib] "..S("Registered %s and %s"):format(fencename, fencewithsignname))
-end
-
 build_char_db()
-
-minetest.register_alias("homedecor:fence_wood_with_sign", "signs:sign_post")
-minetest.register_alias("sign_wall_locked", "locked_sign:sign_wall_locked")
-
-signs_lib.register_fence_with_sign("hades_fences:fence_wood", "signs:sign_post")
 
 -- restore signs' text after /clearobjects and the like
 
@@ -982,13 +879,28 @@ minetest.register_abm({
 	end
 })
 
+minetest.register_craft({
+	output = "signs_lib:sign_wall",
+	recipe = {
+		{"group:wood", "group:wood", "group:wood"},
+		{"group:wood", "group:wood", "group:wood"},
+		{"", "group:stick", ""},
+	},
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "signs_lib:sign_wall",
+	burntime = 10,
+})
+
 -- locked sign
 
 minetest.register_craft({
-	output = "locked_sign:sign_wall_locked",
+	output = "signs_lib:sign_wall_locked",
 	recipe = {
 		{"group:wood", "group:wood", "group:wood"},
-		{"group:wood", "group:wood", "default:steel_ingot"},
+		{"group:wood", "default:steel_ingot", "group:wood"},
 		{"", "group:stick", ""},
 	}
 })
@@ -996,95 +908,56 @@ minetest.register_craft({
 --Alternate recipe.
 
 minetest.register_craft({
-    	output = "locked_sign:sign_wall_locked",
+    	output = "signs_lib:sign_wall_locked",
     	recipe = {
-        	{"default:sign_wall"},
+        	{"signs_lib:sign_wall"},
         	{"default:steel_ingot"},
     },
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "signs_lib:sign_wall_locked",
+	burntime = 10,
 })
 
 -- craft recipes for the metal signs
 
 minetest.register_craft( {
-        output = "signs:sign_wall_green 4",
+        output = "signs_lib:sign_wall_green 4",
         recipe = {
 			{ "dye:dark_green", "dye:white", "dye:dark_green" },
 			{ "default:steel_ingot", "default:steel_ingot", "default:steel_ingot" }
         },
 })
---[[
 minetest.register_craft( {
-        output = "signs:sign_wall_green 2",
-        recipe = {
-			{ "dye:dark_green", "dye:white", "dye:dark_green" },
-			{ "steel:sheet_metal", "steel:sheet_metal", "steel:sheet_metal" }
-        },
-})
---]]
-minetest.register_craft( {
-        output = "signs:sign_wall_yellow 4",
+        output = "signs_lib:sign_wall_yellow 4",
         recipe = {
 			{ "dye:yellow", "dye:black", "dye:yellow" },
 			{ "default:steel_ingot", "default:steel_ingot", "default:steel_ingot" }
         },
 })
---[[
 minetest.register_craft( {
-        output = "signs:sign_wall_yellow 2",
-        recipe = {
-			{ "dye:yellow", "dye:black", "dye:yellow" },
-			{ "steel:sheet_metal", "steel:sheet_metal", "steel:sheet_metal" }
-        },
-})
---]]
-minetest.register_craft( {
-        output = "signs:sign_wall_red 4",
+        output = "signs_lib:sign_wall_red 4",
         recipe = {
 			{ "dye:red", "dye:white", "dye:red" },
 			{ "default:steel_ingot", "default:steel_ingot", "default:steel_ingot" }
         },
 })
---[[
 minetest.register_craft( {
-        output = "signs:sign_wall_red 2",
-        recipe = {
-			{ "dye:red", "dye:white", "dye:red" },
-			{ "steel:sheet_metal", "steel:sheet_metal", "steel:sheet_metal" }
-        },
-})
---]]
-minetest.register_craft( {
-        output = "signs:sign_wall_white_red 4",
+        output = "signs_lib:sign_wall_white_red 4",
         recipe = {
 			{ "dye:white", "dye:red", "dye:white" },
 			{ "default:steel_ingot", "default:steel_ingot", "default:steel_ingot" }
         },
 })
---[[
 minetest.register_craft( {
-        output = "signs:sign_wall_white_red 2",
-        recipe = {
-			{ "dye:white", "dye:red", "dye:white" },
-			{ "steel:sheet_metal", "steel:sheet_metal", "steel:sheet_metal" }
-        },
-})
---]]
-minetest.register_craft( {
-        output = "signs:sign_wall_white_black 4",
+        output = "signs_lib:sign_wall_white_black 4",
         recipe = {
 			{ "dye:white", "dye:black", "dye:white" },
 			{ "default:steel_ingot", "default:steel_ingot", "default:steel_ingot" }
         },
 })
---[[
-minetest.register_craft( {
-        output = "signs:sign_wall_white_black 2",
-        recipe = {
-			{ "dye:white", "dye:black", "dye:white" },
-			{ "steel:sheet_metal", "steel:sheet_metal", "steel:sheet_metal" }
-        },
-})
---]]
 if minetest.settings:get("log_mods") then
 	minetest.log("action", S("signs loaded"))
 end

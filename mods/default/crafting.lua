@@ -9,18 +9,6 @@ minetest.register_craft({
 	}
 })
 
-
-
-minetest.register_craft({
-	output = 'default:sign_wall',
-	recipe = {
-		{'group:wood', 'group:wood', 'group:wood'},
-		{'group:wood', 'group:wood', 'group:wood'},
-		{'', 'group:stick', ''},
-	}
-})
-
-
 minetest.register_craft({
 	output = 'default:torch_low 4',
 	recipe = {
@@ -1062,14 +1050,6 @@ minetest.register_craft({
 	recipe = "default:torch",
 	burntime = 4,
 })
-
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "default:sign_wall",
-	burntime = 10,
-})
-
 
 minetest.register_craft({
 	type = "fuel",
