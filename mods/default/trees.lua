@@ -1,9 +1,3 @@
-local c_air = minetest.get_content_id("air")
-local c_ignore = minetest.get_content_id("ignore")
-local c_tree = minetest.get_content_id("default:tree")
-local c_leaves = minetest.get_content_id("default:leaves")
-local c_apple = minetest.get_content_id("default:apple")
-
 minetest.register_node("default:apple", {
 	description = "Apple (+2)",
 	drawtype = "plantlike",
@@ -232,6 +226,12 @@ minetest.register_node("default:birch_bark", {
 	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
 	sounds = default.node_sound_wood_defaults(),
 })
+
+local c_air = minetest.get_content_id("air")
+local c_ignore = minetest.get_content_id("ignore")
+local c_tree = minetest.get_content_id("default:tree")
+local c_leaves = minetest.get_content_id("default:leaves")
+local c_apple = minetest.get_content_id("default:apple")
 
 function default.grow_tree(data, a, pos, is_apple_tree, seed)
         --[[
