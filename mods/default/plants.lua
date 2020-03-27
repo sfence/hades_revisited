@@ -173,21 +173,50 @@ minetest.register_node("default:glowing_cactus_block", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
-
 minetest.register_node("default:papyrus", {
 	description = "Papyrus",
-	drawtype = "plantlike",
-	tiles = {"default_papyrus.png"},
+	drawtype = "nodebox",
+	tiles = {
+		"default_papyrus_3d.png",
+		"default_papyrus_3d.png",
+		"default_papyrus_3d_s1.png",
+		"default_papyrus_3d_s1.png",
+		"default_papyrus_3d_s2.png",
+		"default_papyrus_3d_s2.png",
+	},
 	inventory_image = "default_papyrus.png",
 	wield_image = "default_papyrus.png",
 	paramtype = "light",
-	walkable = false,
 	is_ground_content = true,
+	walkable = false,
 	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
+		 type = "fixed",
+		 fixed = {-0.4375, -0.5, -0.4375, 0.4375, 0.5, 0.4375}
 	},
-	groups = {snappy=3,flammable=2},
+	node_box = {
+		type = "fixed",
+		fixed = {
+			--papyrus 1
+			{-0.03-0.1,-0.5,-0.03-0.1, 0.03-0.1,0.5,0.03-0.1},
+			{-0.06-0.1,-0.02-0.1,-0.06-0.1, 0.06-0.1,0.02-0.1,0.06-0.1},
+			--papyrus 2
+			{-0.03-0.4,-0.5,-0.03-0.3, 0.03-0.4,0.5,0.03-0.3},
+			{-0.06-0.4,-0.02-0.2,-0.06-0.3, 0.06-0.4,0.02-0.2,0.06-0.3},
+			--papyrus 3
+			{-0.03+0.4,-0.5,-0.03-0.3,0.03+0.4,0.5,0.03-0.3},
+			{-0.06+0.4,-0.02+0.2,-0.06-0.3, 0.06+0.4,0.02+0.2,0.06-0.3},
+			--papyrus 4
+			{-0.03-0.4,-0.5,-0.03+0.4, 0.03-0.4,0.5,0.03+0.4},
+			{-0.06-0.4,0.02+0.4,-0.06+0.4, 0.06-0.4,0.02+0.4,0.06+0.4},
+			--papyrus 5
+			{-0.03-0.2,-0.5,-0.03+0.2, 0.03-0.2,0.5,0.03+0.2},
+			{-0.06-0.2,0.02-0.4,-0.06+0.2, 0.06-0.2,0.02-0.4,0.06+0.2},
+			--papyrus 6
+			{-0.03+0.1,-0.5,-0.03+0.2, 0.03+0.1,0.5,0.03+0.2},
+			{-0.06+0.1,0.02+0.3,-0.06+0.2, 0.06+0.1,0.02+0.3,0.06+0.2},
+		},
+	},
+	groups = {snappy = 3,flammable = 2},
 	sounds = default.node_sound_leaves_defaults(),
 	
 	after_dig_node = function(pos, node, metadata, digger)
