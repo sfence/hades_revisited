@@ -58,7 +58,7 @@ function boost_cart.cart:on_punch(puncher, time_from_last_punch, tool_capabiliti
 
 	if puncher:get_player_control().sneak then
 		if self.driver then
-			default.player_attached[self.driver] = nil
+			hades_player.player_attached[self.driver] = nil
 			local player = minetest.get_player_by_name(self.driver)
 			if player then
 				player:set_detach()

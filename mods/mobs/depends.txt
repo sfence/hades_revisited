@@ -1,4 +1,5 @@
 default
+hades_player
 tnt?
 dye?
 farming?
