@@ -96,7 +96,7 @@ minetest.register_node(":farming:pumpkin_face", {
 minetest.register_node(":farming:pumpkin_face_light", {
 	description = "Pumpkin",
 	paramtype2 = "facedir",
-	light_source = LIGHT_MAX-2,
+	light_source = minetest.LIGHT_MAX-2,
 	tiles = {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_side.png", "farming_pumpkin_face_light.png"},
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2},
 	sounds = default.node_sound_wood_defaults(),
@@ -382,7 +382,7 @@ minetest.register_node(":farming:scarecrow_light", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	paramtype2 = "facedir",
-	light_source = LIGHT_MAX-2,
+	light_source = minetest.LIGHT_MAX-2,
 	tiles = {"farming_scarecrow_top.png", "farming_scarecrow_top.png", "farming_scarecrow_side.png", "farming_scarecrow_side.png", "farming_scarecrow_side.png", "farming_scarecrow_front_light.png"},
 	drawtype = "nodebox",
 	node_box = {
