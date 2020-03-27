@@ -70,4 +70,5 @@ local function cyclic_update()
 	minetest.after(3.5, cyclic_update)
 end
 
-minetest.register_on_mods_loaded(cyclic_update)
+-- Mimimal start delay is required
+minetest.after(0, cyclic_update)
