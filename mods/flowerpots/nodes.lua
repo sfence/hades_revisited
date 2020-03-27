@@ -12,22 +12,22 @@ local flowers = {
 --	{"junglegrass", "default:junglegrass", "junglegrass"},
 --	{"dry_shrub", "default:dry_shrub", "Dry Shrub"},
 
-	{"sapling", "default:sapling", "Common Tree Sapling"},
-	{"junglesapling", "default:junglesapling", "Common Jungle Tree Sapling"},
-	{"cjsapling", "farming_plus:cjsapling", "Cultivated Jungle Tree Sapling"},
-	{"olive_sapling", "farming_plus:olive_sapling", "Olive Tree Sapling"},
-	{"pale_sapling", "farming_plus:pale_sapling", "Pale Tree Sapling"},
-	{"birch_sapling", "farming_plus:birch_sapling", "Birch Tree Sapling"},
+	{"sapling", "hades_trees:sapling", "Common Tree Sapling"},
+	{"jungle_sapling", "hades_trees:jungle_sapling", "Common Jungle Tree Sapling"},
+	{"cultivated_jungle_sapling", "hades_trees:cultivated_jungle_sapling", "Cultivated Jungle Tree Sapling"},
+	{"olive_sapling", "hades_trees:olive_sapling", "Olive Tree Sapling"},
+	{"pale_sapling", "hades_trees:pale_sapling", "Pale Tree Sapling"},
+	{"birch_sapling", "hades_trees:birch_sapling", "Birch Tree Sapling"},
 }
 
 local cubes = {
 	{"cactus", "default:cactus", "Cactus"},
-	{"leaves", "default:leaves", "Common Leaves"},
-	{"jungleleaves", "default:jungleleaves", "Common Jungle Leaves"},
-	{"cj_leaves", "farming_plus:cj_leaves", "Cultivated Jungle Leaves"},
-	{"olive_leaves", "farming_plus:olive_leaves", "Olive Leaves"},
-	{"leaves_birch", "farming_plus:leaves_birch", "Birch Leaves"},
-	{"pale_leaves", "farming_plus:pale_leaves", "Pale Leaves"},
+	{"leaves", "hades_trees:leaves", "Common Leaves"},
+	{"jungle_leaves", "hades_trees:jungle_leaves", "Common Jungle Leaves"},
+	{"cultivated_jungle_leaves", "hades_trees:cultivated_jungle_leaves", "Cultivated Jungle Leaves"},
+	{"olive_leaves", "hades_trees:olive_leaves", "Olive Leaves"},
+	{"birch_leaves", "hades_trees:birch_leaves", "Birch Leaves"},
+	{"pale_leaves", "hades_trees:pale_leaves", "Pale Leaves"},
 }
 
 minetest.register_node("flowerpots:flower_pot", {

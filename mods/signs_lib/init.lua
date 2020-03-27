@@ -762,7 +762,7 @@ minetest.register_node(":signs:sign_post", {
 		max_items = 2,
 		items = {
 			{ items = { "default:sign_wall" }},
-			{ items = { "default:fence_wood" }},
+			{ items = { "hades_fences:fence_wood" }},
 		},
     },
     sounds = default.node_sound_wood_defaults(),
@@ -969,7 +969,7 @@ build_char_db()
 minetest.register_alias("homedecor:fence_wood_with_sign", "signs:sign_post")
 minetest.register_alias("sign_wall_locked", "locked_sign:sign_wall_locked")
 
-signs_lib.register_fence_with_sign("default:fence_wood", "signs:sign_post")
+signs_lib.register_fence_with_sign("hades_fences:fence_wood", "signs:sign_post")
 
 -- restore signs' text after /clearobjects and the like
 

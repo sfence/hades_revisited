@@ -11,9 +11,9 @@ doors.register_door("doors:door_wood", {
 minetest.register_craft({
 	output = "doors:door_wood",
 	recipe = {
-		{"default:wood", "default:wood"},
-		{"default:wood", "default:wood"},
-		{"default:wood", "default:wood"}
+		{"hades_trees:wood", "hades_trees:wood"},
+		{"hades_trees:wood", "hades_trees:wood"},
+		{"hades_trees:wood", "hades_trees:wood"}
 	}
 })
 
@@ -29,9 +29,9 @@ doors.register_door("doors:door_wood_pale", {
 minetest.register_craft({
 	output = "doors:door_wood_pale",
 	recipe = {
-		{"default:palewood", "default:palewood"},
-		{"default:palewood", "default:palewood"},
-		{"default:palewood", "default:palewood"}
+		{"hades_trees:pale_wood", "hades_trees:pale_wood"},
+		{"hades_trees:pale_wood", "hades_trees:pale_wood"},
+		{"hades_trees:pale_wood", "hades_trees:pale_wood"}
 	}
 })
 
@@ -47,9 +47,9 @@ doors.register_door("doors:door_wood_birch", {
 minetest.register_craft({
 	output = "doors:door_wood_birch",
 	recipe = {
-		{"default:birchwood", "default:birchwood"},
-		{"default:birchwood", "default:birchwood"},
-		{"default:birchwood", "default:birchwood"},
+		{"hades_trees:birch_wood", "hades_trees:birch_wood"},
+		{"hades_trees:birch_wood", "hades_trees:birch_wood"},
+		{"hades_trees:birch_wood", "hades_trees:birch_wood"},
 	}
 })
 
@@ -67,9 +67,9 @@ doors.register_door("doors:door_wood_jungle", {
 minetest.register_craft({
 	output = "doors:door_wood_jungle",
 	recipe = {
-		{"default:junglewood", "default:junglewood"},
-		{"default:junglewood", "default:junglewood"},
-		{"default:junglewood", "default:junglewood"}
+		{"hades_trees:jungle_wood", "hades_trees:jungle_wood"},
+		{"hades_trees:jungle_wood", "hades_trees:jungle_wood"},
+		{"hades_trees:jungle_wood", "hades_trees:jungle_wood"}
 	}
 })
 
@@ -219,8 +219,8 @@ doors.register_trapdoor("doors:trapdoor", {
 minetest.register_craft({
 	output = 'doors:trapdoor 2',
 	recipe = {
-		{'default:wood', 'default:wood', 'default:wood'},
-		{'default:wood', 'default:wood', 'default:wood'},
+		{'hades_trees:wood', 'hades_trees:wood', 'hades_trees:wood'},
+		{'hades_trees:wood', 'hades_trees:wood', 'hades_trees:wood'},
 	}
 })
 
@@ -239,8 +239,8 @@ doors.register_trapdoor("doors:trapdoor_jungle", {
 minetest.register_craft({
 	output = 'doors:trapdoor_jungle 2',
 	recipe = {
-		{'default:junglewood', 'default:junglewood', 'default:junglewood'},
-		{'default:junglewood', 'default:junglewood', 'default:junglewood'},
+		{'hades_trees:jungle_wood', 'hades_trees:jungle_wood', 'hades_trees:jungle_wood'},
+		{'hades_trees:jungle_wood', 'hades_trees:jungle_wood', 'hades_trees:jungle_wood'},
 	}
 })
 
@@ -259,8 +259,8 @@ doors.register_trapdoor("doors:trapdoor_pale", {
 minetest.register_craft({
 	output = 'doors:trapdoor_pale 2',
 	recipe = {
-		{'default:palewood', 'default:palewood', 'default:palewood'},
-		{'default:palewood', 'default:palewood', 'default:palewood'},
+		{'hades_trees:pale_wood', 'hades_trees:pale_wood', 'hades_trees:pale_wood'},
+		{'hades_trees:pale_wood', 'hades_trees:pale_wood', 'hades_trees:pale_wood'},
 	}
 })
 
@@ -279,8 +279,8 @@ doors.register_trapdoor("doors:trapdoor_birch", {
 minetest.register_craft({
 	output = 'doors:trapdoor_birch 2',
 	recipe = {
-		{'default:birchwood', 'default:birchwood', 'default:birchwood'},
-		{'default:birchwood', 'default:birchwood', 'default:birchwood'},
+		{'hades_trees:birch_wood', 'hades_trees:birch_wood', 'hades_trees:birch_wood'},
+		{'hades_trees:birch_wood', 'hades_trees:birch_wood', 'hades_trees:birch_wood'},
 	}
 })
 
@@ -308,28 +308,28 @@ minetest.register_craft({
 doors.register_fencegate("doors:gate_wood", {
 	description = "Common Wood Fence Gate",
 	texture = "default_wood.png",
-	material = "default:wood",
+	material = "hades_trees:wood",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
-doors.register_fencegate("doors:gate_junglewood", {
+doors.register_fencegate("doors:gate_jungle_wood", {
 	description = "Jungle Wood Fence Gate",
 	texture = "default_junglewood.png",
-	material = "default:junglewood",
+	material = "hades_trees:jungle_wood",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
-doors.register_fencegate("doors:gate_palewood", {
+doors.register_fencegate("doors:gate_pale_wood", {
 	description = "Pale Wood Fence Gate",
-	texture = "default_palewood.png",
-	material = "default:palewood",
+	texture = "hades_trees_pale_wood.png",
+	material = "hades_trees:pale_wood",
 	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}
 })
 
-doors.register_fencegate("doors:gate_birchwood", {
+doors.register_fencegate("doors:gate_birch_wood", {
 	description = "Birch Wood Fence Gate",
 	texture = "default_birchwood.png",
-	material = "default:birchwood",
+	material = "hades_trees:birch_wood",
 	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}
 })
 
@@ -380,17 +380,17 @@ minetest.register_craft({
 })
 minetest.register_craft({
 	type = "fuel",
-	recipe = "doors:gate_junglewood_closed",
+	recipe = "doors:gate_jungle_wood_closed",
 	burntime = 7,
 })
 minetest.register_craft({
 	type = "fuel",
-	recipe = "doors:gate_palewood_closed",
+	recipe = "doors:gate_pale_wood_closed",
 	burntime = 7,
 })
 minetest.register_craft({
 	type = "fuel",
-	recipe = "doors:gate_birchwood_closed",
+	recipe = "doors:gate_birch_wood_closed",
 	burntime = 7,
 })
 

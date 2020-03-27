@@ -53,7 +53,7 @@ ssurface:	String with the name of the node on which to spawn the plant
 		numbers of such nodes when deciding when to execute the ABM
 		and where it should operate.
 savoid:		Table with a list of groups and/or node names to avoid when
-		spawning the plant, such as {"group:flowers", "default:tree"}.
+		spawning the plant, such as {"group:flowers", "hades_trees:tree"}.
 
 When passed a table as the argument, and thus using the modern calling method,
 you must pass a number of arguments in the form of an ordinary keyed-value

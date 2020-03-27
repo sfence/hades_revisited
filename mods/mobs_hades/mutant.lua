@@ -40,7 +40,7 @@ mobs:register_mob("mobs_hades:mutant", {
 		chance=8,
 		min=1,
 		max=1,},
-		{name = "default:apple",
+		{name = "hades_trees:apple",
 		chance=4,
 		min=1,
 		max=2,},

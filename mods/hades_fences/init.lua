@@ -1,4 +1,5 @@
-function default.register_fence(name, def)
+hades_fences = {}
+function hades_fences.register_fence(name, def)
 	if def.material then
 		minetest.register_craft({
 			output = name .. " 4",
@@ -18,8 +19,6 @@ function default.register_fence(name, def)
 		node_box = {
 			type = "connected",
 			fixed = {{-1/8, -1/2, -1/8, 1/8, 1/2, 1/8}},
-			-- connect_top =
-			-- connect_bottom =
 			connect_front = {{-1/16,3/16,-1/2,1/16,5/16,-1/8},
 				{-1/16,-5/16,-1/2,1/16,-3/16,-1/8}},
 			connect_left = {{-1/2,3/16,-1/16,-1/8,5/16,1/16},
@@ -65,7 +64,7 @@ end
 local fences = {
 	{ "rusty", "Rusty Fence", "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal"}, default.node_sound_metal_defaults() },
 	{ "wood", "Common Wood Fence", "default_wood.png" },
-	{ "pale_wood", "Pale Wood Fence", "default_palewood.png" },
+	{ "pale_wood", "Pale Wood Fence", "hades_trees_pale_wood.png" },
 	{ "birch_wood", "Birch Wood Fence", "default_birchwood.png" },
 	{ "jungle_wood", "Jungle Wood Fence", "default_junglewood.png" },
 	{ "wood_black", "Black Wood Fence", "default_colwood_black.png" },
@@ -95,7 +94,7 @@ for i=1, #fences do
 	if fences[i][6] then
 		sounds = fences[i][6]
 	end
-	default.register_fence("default:fence_"..fences[i][1], {
+	hades_fences.register_fence("hades_fences:fence_"..fences[i][1], {
 		description = fences[i][2],
 		texture = fences[i][3],
 		groups = groups,
@@ -104,4 +103,4 @@ for i=1, #fences do
 	})
 end
 
-
+dofile(minetest.get_modpath("hades_fences").."/crafting.lua")

@@ -110,14 +110,11 @@ minetest.register_node("default:snag", {
 		max_items = 1,
 		items = {
 			{
-				-- player will get sapling with 1/5 chance
 				items = {'default:snag'},
 				rarity = 5,
 			},
 			{
-				-- player will get wood only if he get no saplings,
-				-- this is because max_items is 1
-				items = {'default:wood'},
+				items = {'hades_trees:wood'},
 			}
 		}
 	},

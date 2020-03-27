@@ -307,7 +307,7 @@ function stairs.register_stair_and_slab(subname, recipeitem, groups, images, des
 	stairs.register_slab(subname, recipeitem, groups, images, desc_slab, sounds)
 end
 
-stairs.register_stair_and_slab("wood", "default:wood",
+stairs.register_stair_and_slab("wood", "hades_trees:wood",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_wood.png"},
 		"Common Wood Stair",
@@ -316,16 +316,16 @@ stairs.register_stair_and_slab("wood", "default:wood",
 		"Common Wood Slab",
 		default.node_sound_wood_defaults())
 
-stairs.register_stair_and_slab("palewood", "default:palewood",
+stairs.register_stair_and_slab("pale_wood", "hades_trees:pale_wood",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-		{"default_palewood.png"},
+		{"hades_trees_pale_wood.png"},
 		"Pale Wood Stair",
 		"Outer Pale Wood Stair",
 		"Inner Pale Wood Stair",
 		"Pale Wood Slab",
 		default.node_sound_wood_defaults())
 
-stairs.register_stair_and_slab("birchwood", "default:birchwood",
+stairs.register_stair_and_slab("birch_wood", "hades_trees:birch_wood",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_birchwood.png"},
 		"Birch Wood Stair",
@@ -336,7 +336,7 @@ stairs.register_stair_and_slab("birchwood", "default:birchwood",
 
 -- Barks
 
-stairs.register_stair_and_slab("bark", "default:bark",
+stairs.register_stair_and_slab("bark", "hades_trees:bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
 		{"default_tree.png"},
 		"Common Bark Stair",
@@ -345,7 +345,7 @@ stairs.register_stair_and_slab("bark", "default:bark",
 		"Common Bark Slab",
 		default.node_sound_wood_defaults())
 
-stairs.register_stair_and_slab("jungle_bark", "default:jungle_bark",
+stairs.register_stair_and_slab("jungle_bark", "hades_trees:jungle_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
 		{"default_jungletree.png"},
 		"Jungle Bark Stair",
@@ -354,16 +354,16 @@ stairs.register_stair_and_slab("jungle_bark", "default:jungle_bark",
 		"Jungle Bark Slab",
 		default.node_sound_wood_defaults())
 
-stairs.register_stair_and_slab("pale_bark", "default:pale_bark",
+stairs.register_stair_and_slab("pale_bark", "hades_trees:pale_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
-		{"default_paletree.png"},
+		{"hades_trees_pale_tree.png"},
 		"Pale Bark Stair",
 		"Outer Pale Bark Stair",
 		"Inner Pale Bark Stair",
 		"Pale Bark Slab",
 		default.node_sound_wood_defaults())
 
-stairs.register_stair_and_slab("birch_bark", "default:birch_bark",
+stairs.register_stair_and_slab("birch_bark", "hades_trees:birch_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
 		{"default_tree_birch.png"},
 		"Birch Bark Stair",
@@ -374,7 +374,7 @@ stairs.register_stair_and_slab("birch_bark", "default:birch_bark",
 
 -- Colored Woods
 
-stairs.register_stair_and_slab("colwood_black", "default:colwood_black",
+stairs.register_stair_and_slab("colwood_black", "hades_trees:colwood_black",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_black.png"},
 		"Black Wood Stair",
@@ -383,7 +383,7 @@ stairs.register_stair_and_slab("colwood_black", "default:colwood_black",
 		"Black Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_blue", "default:colwood_blue",
+stairs.register_stair_and_slab("colwood_blue", "hades_trees:colwood_blue",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_blue.png"},
 		"Blue Wood Stair",
@@ -392,7 +392,7 @@ stairs.register_stair_and_slab("colwood_blue", "default:colwood_blue",
 		"Blue Wood Slab",
 		default.node_sound_wood_defaults())
 
-stairs.register_stair_and_slab("colwood_brown", "default:colwood_brown",
+stairs.register_stair_and_slab("colwood_brown", "hades_trees:colwood_brown",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_brown.png"},
 		"Brown Wood Stair",
@@ -401,7 +401,7 @@ stairs.register_stair_and_slab("colwood_brown", "default:colwood_brown",
 		"Brown Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_cyan", "default:colwood_cyan",
+stairs.register_stair_and_slab("colwood_cyan", "hades_trees:colwood_cyan",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_cyan.png"},
 		"Cyan Wood Stair",
@@ -410,7 +410,7 @@ stairs.register_stair_and_slab("colwood_cyan", "default:colwood_cyan",
 		"Cyan Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_dark_green", "default:colwood_dark_green",
+stairs.register_stair_and_slab("colwood_dark_green", "hades_trees:colwood_dark_green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_dark_green.png"},
 		"Dark Green Wood Stair",
@@ -419,7 +419,7 @@ stairs.register_stair_and_slab("colwood_dark_green", "default:colwood_dark_green
 		"Dark Green Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_dark_grey", "default:colwood_dark_grey",
+stairs.register_stair_and_slab("colwood_dark_grey", "hades_trees:colwood_dark_grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_dark_grey.png"},
 		"Dark Grey Wood Stair",
@@ -428,7 +428,7 @@ stairs.register_stair_and_slab("colwood_dark_grey", "default:colwood_dark_grey",
 		"Dark Grey Wood Slab",
 		default.node_sound_wood_defaults())	
 		
-stairs.register_stair_and_slab("colwood_green", "default:colwood_green",
+stairs.register_stair_and_slab("colwood_green", "hades_trees:colwood_green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_green.png"},
 		"Green Wood Stair",
@@ -437,7 +437,7 @@ stairs.register_stair_and_slab("colwood_green", "default:colwood_green",
 		"Green Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_grey", "default:colwood_grey",
+stairs.register_stair_and_slab("colwood_grey", "hades_trees:colwood_grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_grey.png"},
 		"Grey Wood Stair",
@@ -446,7 +446,7 @@ stairs.register_stair_and_slab("colwood_grey", "default:colwood_grey",
 		"Grey Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_magenta", "default:colwood_magenta",
+stairs.register_stair_and_slab("colwood_magenta", "hades_trees:colwood_magenta",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_magenta.png"},
 		"Magenta Wood Stair",
@@ -455,7 +455,7 @@ stairs.register_stair_and_slab("colwood_magenta", "default:colwood_magenta",
 		"Magenta Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_orange", "default:colwood_orange",
+stairs.register_stair_and_slab("colwood_orange", "hades_trees:colwood_orange",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_orange.png"},
 		"Orange Wood Stair",
@@ -464,7 +464,7 @@ stairs.register_stair_and_slab("colwood_orange", "default:colwood_orange",
 		"Orange Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_pink", "default:colwood_pink",
+stairs.register_stair_and_slab("colwood_pink", "hades_trees:colwood_pink",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_pink.png"},
 		"Pink Wood Stair",
@@ -473,7 +473,7 @@ stairs.register_stair_and_slab("colwood_pink", "default:colwood_pink",
 		"Pink Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_red", "default:colwood_red",
+stairs.register_stair_and_slab("colwood_red", "hades_trees:colwood_red",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_red.png"},
 		"Red Wood Stair",
@@ -482,7 +482,7 @@ stairs.register_stair_and_slab("colwood_red", "default:colwood_red",
 		"Red Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_violet", "default:colwood_violet",
+stairs.register_stair_and_slab("colwood_violet", "hades_trees:colwood_violet",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_violet.png"},
 		"Violet Wood Stair",
@@ -491,7 +491,7 @@ stairs.register_stair_and_slab("colwood_violet", "default:colwood_violet",
 		"Violet Wood Slab",
 		default.node_sound_wood_defaults())
 	
-stairs.register_stair_and_slab("colwood_white", "default:colwood_white",
+stairs.register_stair_and_slab("colwood_white", "hades_trees:colwood_white",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_white.png"},
 		"White Wood Stair",
@@ -500,7 +500,7 @@ stairs.register_stair_and_slab("colwood_white", "default:colwood_white",
 		"White Wood Slab",
 		default.node_sound_wood_defaults())
 		
-stairs.register_stair_and_slab("colwood_yellow", "default:colwood_yellow",
+stairs.register_stair_and_slab("colwood_yellow", "hades_trees:colwood_yellow",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_colwood_yellow.png"},
 		"Yellow Wood Stair",
@@ -756,7 +756,7 @@ stairs.register_stair_and_slab("sandstonebrick", "default:sandstonebrick",
 		"Sandstone Brick Slab",
 		default.node_sound_stone_defaults())
 
-stairs.register_stair_and_slab("junglewood", "default:junglewood",
+stairs.register_stair_and_slab("jungle_wood", "hades_trees:jungle_wood",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_junglewood.png"},
 		"Jungle Wood Stair",

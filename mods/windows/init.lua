@@ -62,33 +62,33 @@ windows.register_window("windows:windows_birchwood", {
 minetest.register_craft({
 	output = 'windows:windows_wood 4',
 	recipe = {
-		{'default:wood', 'default:glass', 'default:wood'},
+		{'hades_trees:wood', 'default:glass', 'hades_trees:wood'},
 		{'default:glass', 'default:glass', 'default:glass'},
-		{'default:wood', 'default:glass', 'default:wood'},
+		{'hades_trees:wood', 'default:glass', 'hades_trees:wood'},
 	}
 })
 minetest.register_craft({
 	output = 'windows:windows_jwood 4',
 	recipe = {
-		{'default:junglewood', 'default:glass', 'default:junglewood'},
+		{'hades_trees:jungle_wood', 'default:glass', 'hades_trees:jungle_wood'},
 		{'default:glass', 'default:glass', 'default:glass'},
-		{'default:junglewood', 'default:glass', 'default:junglewood'},
+		{'hades_trees:jungle_wood', 'default:glass', 'hades_trees:jungle_wood'},
 	}
 })
 minetest.register_craft({
 	output = 'windows:windows_palewood 4',
 	recipe = {
-		{'default:palewood', 'default:glass', 'default:palewood'},
+		{'hades_trees:pale_wood', 'default:glass', 'hades_trees:pale_wood'},
 		{'default:glass', 'default:glass', 'default:glass'},
-		{'default:palewood', 'default:glass', 'default:palewood'},
+		{'hades_trees:pale_wood', 'default:glass', 'hades_trees:pale_wood'},
 	}
 })
 minetest.register_craft({
 	output = 'windows:windows_birchwood 4',
 	recipe = {
-		{'default:birchwood', 'default:glass', 'default:birchwood'},
+		{'hades_trees:birch_wood', 'default:glass', 'hades_trees:birch_wood'},
 		{'default:glass', 'default:glass', 'default:glass'},
-		{'default:birchwood', 'default:glass', 'default:birchwood'},
+		{'hades_trees:birch_wood', 'default:glass', 'hades_trees:birch_wood'},
 	}
 })
 

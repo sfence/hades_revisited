@@ -1,11 +1,9 @@
--- main `S` code in init.lua
-local S
-S = farming.S
+local S = minetest.get_translator("hades_trees")
 
-minetest.register_node("farming_plus:cj_leaves", {
+minetest.register_node("hades_trees:cultivated_jungle_leaves", {
     description = S("Cultivated Jungle Leaves"),
 	drawtype = "allfaces_optional",
-	tiles = {"default_jungleleaves_yellow.png"},
+	tiles = {"hades_trees_cultivated_jungle_leaves.png"},
 	paramtype = "light",
 	waving = 1,
 	is_ground_content = false,
@@ -16,25 +14,25 @@ minetest.register_node("farming_plus:cj_leaves", {
 		items = {
 			{
 				-- player will get sapling with 1/20 chance
-				items = {'farming_plus:cjsapling'},
+				items = {'hades_trees:cultivated_jungle_sapling'},
 				rarity = 25,
 			},
 			{
 				-- player will get leaves only if he get no saplings,
 				-- this is because max_items is 1
-				items = {'farming_plus:cj_leaves'},
+				items = {'hades_trees:cultivated_jungle_leaves'},
 			}
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("farming_plus:cjsapling", {
+minetest.register_node("hades_trees:cultivated_jungle_sapling", {
 	description = S("Cultivated Jungle Tree Sapling"),
 	drawtype = "plantlike",
-	tiles = {"default_cjsapling.png"},
-	inventory_image = "default_cjsapling.png",
-	wield_image = "default_cjsapling.png",
+	tiles = {"hades_trees_cultivated_jungle_sapling.png"},
+	inventory_image = "hades_trees_cultivated_jungle_sapling.png",
+	wield_image = "hades_trees_cultivated_jungle_sapling.png",
 	paramtype = "light",
 	walkable = false,
 	selection_box = {
@@ -47,11 +45,11 @@ minetest.register_node("farming_plus:cjsapling", {
 
 
 minetest.register_abm({
-	nodenames = {"farming_plus:cjsapling"},
+	nodenames = {"hades_trees:cultivated_jungle_sapling"},
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		farming:generate_cjtree(pos, "default:jungletree", "farming_plus:cj_leaves", {"default:dirt", "default:dirt_with_grass"})
+		hades_plus:generate_cjtree(pos, "default:jungletree", "hades_trees:cultivated_jungle_leaves", {"default:dirt", "default:dirt_with_grass"})
 	end
 })
 

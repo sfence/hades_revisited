@@ -38,7 +38,7 @@
 	minetest.register_craft( {
 		output = '3dforniture:table',
 		recipe = {
-			{ 'default:wood','default:wood', 'default:wood' },
+			{ 'hades_trees:wood','hades_trees:wood', 'hades_trees:wood' },
 			{ 'default:stick', '', 'default:stick' },
 		},
 	})
@@ -46,7 +46,7 @@
 	minetest.register_craft( {
 		output = '3dforniture:table_black',
 		recipe = {
-			{ 'default:colwood_black','default:colwood_black', 'default:colwood_black' },
+			{ 'hades_trees:colwood_black','hades_trees:colwood_black', 'hades_trees:colwood_black' },
 			{ 'default:stick', '', 'default:stick' },
 		},
 	})
@@ -54,7 +54,7 @@
 	minetest.register_craft( {
 		output = '3dforniture:table_white',
 		recipe = {
-			{ 'default:colwood_white','default:colwood_white', 'default:colwood_white' },
+			{ 'hades_trees:colwood_white','hades_trees:colwood_white', 'hades_trees:colwood_white' },
 			{ 'default:stick', '', 'default:stick' },
 		},
 	})
@@ -70,7 +70,7 @@
 		output = '3dforniture:chair 2',
 		recipe = {
 			{ 'default:stick',''},
-			{ 'default:wood','default:wood' },
+			{ 'hades_trees:wood','hades_trees:wood' },
 			{ 'default:stick','default:stick' },
 		},
 	})
@@ -79,7 +79,7 @@
 		output = '3dforniture:chair_black 2',
 		recipe = {
 			{ 'default:stick',''},
-			{ 'default:colwood_black','default:colwood_black' },
+			{ 'hades_trees:colwood_black','hades_trees:colwood_black' },
 			{ 'default:stick','default:stick' },
 		},
 	})
@@ -88,7 +88,7 @@
 		output = '3dforniture:chair_white 2',
 		recipe = {
 			{ 'default:stick',''},
-			{ 'default:colwood_white','default:colwood_white' },
+			{ 'hades_trees:colwood_white','hades_trees:colwood_white' },
 			{ 'default:stick','default:stick' },
 		},
 	})
@@ -103,54 +103,54 @@
 	minetest.register_craft( {
 		output = '3dforniture:armchair 2',
 		recipe = {
-			{ 'default:wood',''},
-			{ 'default:wood','wool:black' },
-			{ 'default:wood','default:wood' },
+			{ 'hades_trees:wood',''},
+			{ 'hades_trees:wood','wool:black' },
+			{ 'hades_trees:wood','hades_trees:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_white 2',
 		recipe = {
-			{ 'default:wood',''},
-			{ 'default:wood','wool:white' },
-			{ 'default:wood','default:wood' },
+			{ 'hades_trees:wood',''},
+			{ 'hades_trees:wood','wool:white' },
+			{ 'hades_trees:wood','hades_trees:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_blue 2',
 		recipe = {
-			{ 'default:wood',''},
-			{ 'default:wood','wool:blue' },
-			{ 'default:wood','default:wood' },
+			{ 'hades_trees:wood',''},
+			{ 'hades_trees:wood','wool:blue' },
+			{ 'hades_trees:wood','hades_trees:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_brown 2',
 		recipe = {
-			{ 'default:wood',''},
-			{ 'default:wood','wool:brown' },
-			{ 'default:wood','default:wood' },
+			{ 'hades_trees:wood',''},
+			{ 'hades_trees:wood','wool:brown' },
+			{ 'hades_trees:wood','hades_trees:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_red 2',
 		recipe = {
-			{ 'default:wood',''},
-			{ 'default:wood','wool:red' },
-			{ 'default:wood','default:wood' },
+			{ 'hades_trees:wood',''},
+			{ 'hades_trees:wood','wool:red' },
+			{ 'hades_trees:wood','hades_trees:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_green 2',
 		recipe = {
-			{ 'default:wood',''},
-			{ 'default:wood','wool:dark_green' },
-			{ 'default:wood','default:wood' },
+			{ 'hades_trees:wood',''},
+			{ 'hades_trees:wood','wool:dark_green' },
+			{ 'hades_trees:wood','hades_trees:wood' },
 		},
 	})
 

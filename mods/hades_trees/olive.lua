@@ -1,9 +1,6 @@
--- main `S` code in init.lua
-local S
-S = farming.S
+local S = minetest.get_translator("hades_trees")
 
-
-minetest.register_node("farming_plus:olive_sapling", {
+minetest.register_node("hades_trees:olive_sapling", {
 	description = S("Olive Tree Sapling"),
 	drawtype = "plantlike",
 	tiles = {"farming_olive_sapling.png"},
@@ -20,7 +17,7 @@ minetest.register_node("farming_plus:olive_sapling", {
 })
 
 
-minetest.register_node("farming_plus:olive_leaves", {
+minetest.register_node("hades_trees:olive_leaves", {
     description = S("Olive Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"farming_olive_leaves.png"},
@@ -34,13 +31,13 @@ minetest.register_node("farming_plus:olive_leaves", {
 		items = {
 			{
 				-- player will get sapling with 1/20 chance
-				items = {'farming_plus:olive_sapling'},
+				items = {'hades_trees:olive_sapling'},
 				rarity = 25,
 			},
 			{
 				-- player will get leaves only if he get no saplings,
 				-- this is because max_items is 1
-				items = {'farming_plus:olive_leaves'},
+				items = {'hades_trees:olive_leaves'},
 			}
 		}
 	},
@@ -49,11 +46,11 @@ minetest.register_node("farming_plus:olive_leaves", {
 
 
 minetest.register_abm({
-	nodenames = {"farming_plus:olive_sapling"},
+	nodenames = {"hades_trees:olive_sapling"},
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		farming:generate_tree(pos, "default:tree", "farming_plus:olive_leaves", {"default:dirt", "default:dirt_with_grass"}, {["farming_plus:olive"]=10})
+		farming:generate_tree(pos, "hades_trees:tree", "hades_trees:olive_leaves", {"default:dirt", "default:dirt_with_grass"}, {["hades_trees:olive"]=10})
 	end
 })
 
@@ -65,12 +62,11 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 	local tmp = {x=(maxp.x-minp.x)/2+minp.x, y=(maxp.y-minp.y)/2+minp.y, z=(maxp.z-minp.z)/2+minp.z}
 	local pos = minetest.find_node_near(tmp, maxp.x-minp.x, {"default:dirt_with_grass"})
 	if pos ~= nil then
-		farming:generate_tree({x=pos.x, y=pos.y+1, z=pos.z}, "default:tree", "farming_plus:olive_leaves",  {"default:dirt", "default:dirt_with_grass"}, {["farming_plus:olive"]=5})
+		hades_trees:generate_tree({x=pos.x, y=pos.y+1, z=pos.z}, "hades_trees:tree", "hades_trees:olive_leaves",  {"default:dirt", "default:dirt_with_grass"}, {["hades_trees:olive"]=5})
 	end
 end)
 
-
-minetest.register_node("farming_plus:olive", {
+minetest.register_node("hades_trees:olive", {
 	description = S("Olive (+1)"),
 	tiles = {"farming_olive.png"},
 	inventory_image = "farming_olive.png",

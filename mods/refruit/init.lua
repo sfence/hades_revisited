@@ -4,7 +4,7 @@
 refruit = {}
 
 --replacement
-minetest.register_node(":default:apple", {
+minetest.register_node(":hades_trees:apple", {
 	description = "Apple (+2)",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
@@ -24,7 +24,7 @@ minetest.register_node(":default:apple", {
 	place_param2 = 1,
 	
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if oldnode.name == "default:apple" then
+		if oldnode.name == "hades_trees:apple" then
 			if oldnode.param2 ~= 0 then
 				return
 			end
@@ -99,7 +99,7 @@ minetest.register_node("refruit:flower_apple", {
 	
 })
 
-minetest.register_node(":farming_plus:olive", {
+minetest.register_node(":hades_trees:olive", {
 	description = "Olive (+1)",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
@@ -119,7 +119,7 @@ minetest.register_node(":farming_plus:olive", {
 	place_param2 = 1,
 	
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if oldnode.name == "farming_plus:olive" then
+		if oldnode.name == "hades_trees:olive" then
 			if oldnode.param2 ~= 0 then
 				return
 			end
@@ -217,7 +217,7 @@ minetest.register_abm({
 	interval = 33,
 	chance = 60,
 	action = function(pos, node)
-		minetest.set_node(pos, {name="default:apple"})
+		minetest.set_node(pos, {name="hades_trees:apple"})
 	end,
 })
 
@@ -239,7 +239,7 @@ minetest.register_abm({
 	interval = 34,
 	chance = 60,
 	action = function(pos, node)
-		minetest.set_node(pos, {name="farming_plus:olive"})
+		minetest.set_node(pos, {name="hades_trees:olive"})
 	end,
 })
 

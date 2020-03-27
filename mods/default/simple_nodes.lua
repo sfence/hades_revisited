@@ -300,45 +300,6 @@ minetest.register_node("default:floor_essexite_gold2", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:floor_wood_jungle", {
-	description = "Common Wood/Jungle Wood Tile",
-	tiles = {
-		"default_floor_wood_jungle.png",
-		"default_floor_wood_jungle.png",
-		"default_floor_wood_jungle.png",
-		"default_floor_wood_jungle.png",
-		"default_floor_wood_jungle.png^[transformR90",
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:floor_wood_pale", {
-	description = "Common Wood/Pale Wood Tile",
-	tiles = {
-		"default_floor_wood_pale.png",
-		"default_floor_wood_pale.png",
-		"default_floor_wood_pale.png",
-		"default_floor_wood_pale.png",
-		"default_floor_wood_pale.png^[transformR90",
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:floor_pale_jungle", {
-	description = "Jungle Wood/Pale Wood Tile",
-	tiles = {
-		"default_floor_pale_jungle.png",
-		"default_floor_pale_jungle.png",
-		"default_floor_pale_jungle.png",
-		"default_floor_pale_jungle.png",
-		"default_floor_pale_jungle.png^[transformR90",
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
 --minerals
 
 minetest.register_node("default:stone_with_coal", {

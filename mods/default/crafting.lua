@@ -1,60 +1,6 @@
 -- mods/default/crafting.lua
 
 
-minetest.register_craft({
-	output = 'default:wood 4',
-	recipe = {
-		{'default:tree'},
-	}
-})
-minetest.register_craft({
-	output = 'default:palewood 4',
-	recipe = {
-		{'default:paletree'},
-	}
-})
-minetest.register_craft({
-	output = 'default:birchwood 4',
-	recipe = {
-		{'default:tree_birch'},
-	}
-})
-minetest.register_craft({
-	output = 'default:junglewood 4',
-	recipe = {
-		{'default:jungletree'},
-	}
-})
-
-minetest.register_craft({
-	output = "default:bark 3",
-	recipe = {
-		{ "default:tree", "default:tree" },
-		{ "default:tree", "default:tree" },
-	}
-})
-minetest.register_craft({
-	output = "default:birch_bark 3",
-	recipe = {
-		{ "default:tree_birch", "default:tree_birch" },
-		{ "default:tree_birch", "default:tree_birch" },
-	}
-})
-minetest.register_craft({
-	output = "default:jungle_bark 3",
-	recipe = {
-		{ "default:jungletree", "default:jungletree" },
-		{ "default:jungletree", "default:jungletree" },
-	}
-})
-minetest.register_craft({
-	output = "default:pale_bark 3",
-	recipe = {
-		{ "default:paletree", "default:paletree" },
-		{ "default:paletree", "default:paletree" },
-	}
-})
-
 
 minetest.register_craft({
 	output = 'default:stick 4',
@@ -63,43 +9,6 @@ minetest.register_craft({
 	}
 })
 
-
-minetest.register_craft({
-	output = 'default:fence_wood 4',
-	recipe = {
-		{'default:wood', 'group:stick', 'default:wood'},
-		{'default:wood', 'group:stick', 'default:wood'},
-	}
-})
-minetest.register_craft({
-	output = 'default:fence_jungle_wood 4',
-	recipe = {
-		{'default:junglewood', 'group:stick', 'default:junglewood'},
-		{'default:junglewood', 'group:stick', 'default:junglewood'},
-	}
-})
-minetest.register_craft({
-	output = 'default:fence_pale_wood 4',
-	recipe = {
-		{'default:palewood', 'group:stick', 'default:palewood'},
-		{'default:palewood', 'group:stick', 'default:palewood'},
-	}
-})
-minetest.register_craft({
-	output = 'default:fence_birch_wood 4',
-	recipe = {
-		{'default:birchwood', 'group:stick', 'default:birchwood'},
-		{'default:birchwood', 'group:stick', 'default:birchwood'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_rusty 4',
-	recipe = {
-		{'default:iron_lump', 'default:iron_lump', 'default:iron_lump'},
-		{'default:iron_lump', 'default:iron_lump', 'default:iron_lump'},
-	}
-})
 
 
 minetest.register_craft({
@@ -799,7 +708,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:stone_baked_block',
+	output = 'default:stone_block_baked',
 	recipe = {
 		{'default:stone_baked', 'default:stone_baked', 'default:stone_baked'},
 		{'default:stone_baked', 'default:stone_baked', 'default:stone_baked'},
@@ -810,7 +719,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:stone_baked 9',
 	recipe = {
-		{'default:stone_baked_block'}
+		{'default:stone_block_baked'}
 	}
 })
 
@@ -1099,12 +1008,6 @@ minetest.register_craft({
 --
 
 
-minetest.register_craft({
-	type = "fuel",
-	recipe = "group:tree",
-	burntime = 20,
-})
-
 
 minetest.register_craft({
 	type = "fuel",
@@ -1112,12 +1015,6 @@ minetest.register_craft({
 	burntime = 2,
 })
 
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "group:leaves",
-	burntime = 2,
-})
 
 
 minetest.register_craft({
@@ -1155,12 +1052,6 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "group:fence_wood",
-	burntime = 15,
-})
-
-minetest.register_craft({
-	type = "fuel",
 	recipe = "default:lava_source",
 	burntime = 60,
 })
@@ -1194,19 +1085,6 @@ minetest.register_craft({
 })
 
 
-minetest.register_craft({
-	type = "fuel",
-	recipe = "default:sapling",
-	burntime = 10,
-})
-
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "default:apple",
-	burntime = 3,
-})
-
 
 minetest.register_craft({
 	type = "fuel",
@@ -1221,12 +1099,6 @@ minetest.register_craft({
 	burntime = 350,
 })
 
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "default:junglesapling",
-	burntime = 10,
-})
 
 minetest.register_craft({
 	type = "fuel",
@@ -1401,75 +1273,6 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = 'default:sapling',
-	recipe = {
-		{'default:cactus', '', ''},
-		{'default:dirt', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:sapling',
-	recipe = {
-		{'default:apple', '', ''},
-		{'default:dirt', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'farming_plus:pale_sapling',
-	recipe = {
-		{'', 'default:sapling', ''},
-		{'', 'default:sapling', ''},
-		{'default:ash', 'default:dirt', 'default:ash'},
-	}
-})
-
-minetest.register_craft({
-	output = 'farming_plus:cjsapling',
-	recipe = {
-		{'', 'default:junglesapling', ''},
-		{'', 'default:junglesapling', ''},
-		{'', 'default:dirt', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:junglesapling',
-	recipe = {
-		{'default:sapling', '', ''},
-		{'default:junglegrass', '', ''},
-		{'default:dirt', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'farming_plus:olive_sapling',
-	recipe = {
-		{'default:sapling', '', ''},
-		{'default:grass_1', '', ''},
-		{'default:dirt', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'farming_plus:olive_sapling',
-	recipe = {
-		{'farming_plus:olive', '', ''},
-		{'default:dirt', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'farming_plus:birch_sapling',
-	recipe = {
-		{'default:sapling', '', ''},
-		{'farming_plus:pale_sapling', '', ''},
-		{'default:dirt', '', ''},
-	}
-})
-
 -- HadesFood
 
 minetest.register_craft({
@@ -1499,7 +1302,7 @@ minetest.register_craft({
 	output = 'default:pie_apple_raw',
 	recipe = {
 		{'', 'default:sugar', ''},
-        {'default:apple', 'default:apple', 'default:apple'},
+        {'hades_trees:apple', 'hades_trees:apple', 'hades_trees:apple'},
         {'default:sugar', 'farming:flour', 'default:sugar'},
 	}
 })
@@ -1514,7 +1317,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:bottle_olive_oil',
 	recipe = {
-		{'farming_plus:olive', 'farming_plus:olive', 'farming_plus:olive'},
+		{'hades_trees:olive', 'hades_trees:olive', 'hades_trees:olive'},
         {'', 'vessels:glass_bottle', ''},
 	}
 })
@@ -1713,30 +1516,6 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = 'default:floor_wood_jungle 4',
-	recipe = {
-		{'default:wood', 'default:junglewood'},
-		{'default:junglewood', 'default:wood'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:floor_wood_pale 4',
-	recipe = {
-		{'default:wood', 'default:palewood'},
-		{'default:palewood', 'default:wood'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:floor_pale_jungle 4',
-	recipe = {
-		{'default:junglewood', 'default:palewood'},
-		{'default:palewood', 'default:junglewood'},
-	}
-})
-
 -- Color Bricks
 
 minetest.register_craft({
@@ -1841,220 +1620,6 @@ minetest.register_craft({
 	output = 'default:brick_yellow',
 	recipe = {
 		{'group:claybricks', 'dye:yellow'},
-	}
-})
-
--- Colored Wood
-
-minetest.register_craft({
-	output = 'default:colwood_black',
-	recipe = {
-		{'group:wood', 'dye:black'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_blue',
-	recipe = {
-		{'group:wood', 'dye:blue'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_brown',
-	recipe = {
-		{'group:wood', 'dye:brown'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_cyan',
-	recipe = {
-		{'group:wood', 'dye:cyan'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_dark_green',
-	recipe = {
-		{'group:wood', 'dye:dark_green'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_dark_grey',
-	recipe = {
-		{'group:wood', 'dye:dark_grey'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_green',
-	recipe = {
-		{'group:wood', 'dye:green'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_grey',
-	recipe = {
-		{'group:wood', 'dye:grey'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_magenta',
-	recipe = {
-		{'group:wood', 'dye:magenta'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_orange',
-	recipe = {
-		{'group:wood', 'dye:orange'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_pink',
-	recipe = {
-		{'group:wood', 'dye:pink'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_red',
-	recipe = {
-		{'group:wood', 'dye:red'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_violet',
-	recipe = {
-		{'group:wood', 'dye:violet'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_white',
-	recipe = {
-		{'group:wood', 'dye:white'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:colwood_yellow',
-	recipe = {
-		{'group:wood', 'dye:yellow'},
-	}
-})
-
--- Colored fences
-
-minetest.register_craft({
-	output = 'default:fence_wood_black',
-	recipe = {
-		{'group:fence_wood', 'dye:black'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_blue',
-	recipe = {
-		{'group:fence_wood', 'dye:blue'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_brown',
-	recipe = {
-		{'group:fence_wood', 'dye:brown'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_cyan',
-	recipe = {
-		{'group:fence_wood', 'dye:cyan'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_dark_green',
-	recipe = {
-		{'group:fence_wood', 'dye:dark_green'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_dark_grey',
-	recipe = {
-		{'group:fence_wood', 'dye:dark_grey'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_green',
-	recipe = {
-		{'group:fence_wood', 'dye:green'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_grey',
-	recipe = {
-		{'group:fence_wood', 'dye:grey'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_magenta',
-	recipe = {
-		{'group:fence_wood', 'dye:magenta'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_orange',
-	recipe = {
-		{'group:fence_wood', 'dye:orange'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_pink',
-	recipe = {
-		{'group:fence_wood', 'dye:pink'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_red',
-	recipe = {
-		{'group:fence_wood', 'dye:red'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_violet',
-	recipe = {
-		{'group:fence_wood', 'dye:violet'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_white',
-	recipe = {
-		{'group:fence_wood', 'dye:white'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:fence_wood_yellow',
-	recipe = {
-		{'group:fence_wood', 'dye:yellow'},
 	}
 })
 

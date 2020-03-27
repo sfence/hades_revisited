@@ -101,7 +101,7 @@ minetest.register_craft({
 	recipe = {
 		{"", "default:ruby", ""},
 		{"", "default:ruby", ""},
-		{"", "default:tree", ""},
+		{"", "hades_trees:tree", ""},
 	}
 })
 minetest.register_craft({

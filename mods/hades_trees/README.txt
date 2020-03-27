@@ -1,9 +1,3 @@
-Some adjustments and expansions for Hades game added 2015 by Glünggi
-ähhmm its complitly destroyed... its now only a tree_plus.. sorry abouth that.
-
-===FARMING_PLUS MOD for MINETEST===
-by PilzAdam
-
 License:
 Sourcecode: WTFPL (see below)
 Graphics: WTFPL (see below)

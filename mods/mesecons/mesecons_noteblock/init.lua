@@ -68,10 +68,10 @@ mesecon.noteblock_play = function (pos, param2)
 	if block_below_name == "default:chest" then
 		soundname="mesecons_noteblock_snare"
 	end
-	if block_below_name == "default:tree" then
+	if block_below_name == "hades_trees:tree" then
 		soundname="mesecons_noteblock_crash"
 	end
-	if block_below_name == "default:wood" then
+	if block_below_name == "hades_trees:wood" then
 		soundname="mesecons_noteblock_litecrash"
 	end
 	minetest.sound_play(soundname,

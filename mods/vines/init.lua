@@ -235,7 +235,7 @@ plantslib:spawn_on_surfaces({
   spawn_chance = 50,
   spawn_surfaces = {"group:leafdecay"},
   spawn_on_side = true,
-  near_nodes = {"default:water_source", "default:jungletree"},
+  near_nodes = {"default:water_source", "hades_trees:jungle_tree"},
   near_nodes_size = 10,
   near_nodes_vertical = 5,
   near_nodes_count = 3,
@@ -330,6 +330,5 @@ end
 
 minetest.register_alias("vines:rope", "vines:root")
 minetest.register_alias("vines:rope_end", "vines:root")
-minetest.register_alias("vines:rope_block", "default:wood")
 
 minetest.log("action", "[vines] Loaded!")

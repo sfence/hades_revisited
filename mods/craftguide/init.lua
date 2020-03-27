@@ -21,9 +21,13 @@ local group_stereotypes = {
 	chest        = "default:chest",
 	locked_chest = "default:chest_locked",
 	stone        = "default:cobble",
-	fence_wood   = "default:fence_wood",
+	fence_wood   = "hades_fences:fence_wood",
 	claybricks   = "default:brick",
 	vines        = "vines:side",
+	tree         = "hades_trees:tree",
+	leaves       = "hades_trees:leaves",
+	sapling      = "hades_trees:sapling",
+	wood         = "hades_trees:wood",
 	mesecon_conductor_craftable = "mesecons:wire_00000000_off",
 }
 

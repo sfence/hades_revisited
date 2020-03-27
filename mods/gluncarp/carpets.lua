@@ -34,37 +34,37 @@ local carpetdesc = carpet_tab[i][2]
 	{"obsidian", 	        "Obsidian",		        "default_obsidian",		        "default:obsidian"},
 	{"obsidianbrick", 	    "Obsidian Brick",		"default_obsidian_brick",		"default:obsidianbrick"},
 	{"clay", 	            "Clay",		            "default_clay",		            "default:clay"},
-	{"wood", 	            "Common Wood",		"default_wood",		            "default:wood"},
+	{"wood", 	            "Common Wood",		"default_wood",		            "hades_trees:wood"},
 	{"brick", 	            "Brick Block",		    "default_brick",		        "default:brick"},
 	--end of default
 	{"cactus_block", 	    "Cactus Block",		    "default_cactus_block",		    "default:cactus_block"},
 	{"cactus_brick", 	    "Cactus Brick",		    "default_cactus_brick",		    "default:cactus_brick"},
 	-- glunggi stuff
 	-- woods
-	{"palewood", 	        "Pale Wood",		    "default_palewood",		        "default:palewood"},
-	{"birchwood", 	        "Birch Wood",		    "default_birchwood",		        "default:birchwood"},
-	{"junglewood", 	        "Jungle Wood",		    "default_junglewood",		    "default:junglewood"},
+	{"pale_wood", 	        "Pale Wood",		    "hades_trees_pale_wood",		        "hades_trees:pale_wood"},
+	{"birch_wood", 	        "Birch Wood",		    "default_birchwood",		        "hades_trees:birch_wood"},
+	{"jungle_wood", 	        "Jungle Wood",		    "default_junglewood",		    "hades_trees:jungle_wood"},
 	
 	-- wooden floors
 	{"floor_wood_jungle", 	"Common Wood/Jungle Wood Tile",	"default_floor_wood_jungle",	"default:floor_wood_jungle"},
 	{"floor_wood_pale", 	"Common Wood/Pale Wood Tile",		 "default_floor_wood_pale",		"default:floor_wood_pale"},
 	{"floor_pale_jungle", "Jungle Wood/Pale Wood Tile",		 "default_floor_pale_jungle",	"default:floor_pale_jungle"},
 	-- colored woods
-	{"colwood_black", 	    "Black Wood",   "default_colwood_black",		"default:colwood_black"},
-	{"colwood_blue", 	    "Blue Wood",    "default_colwood_blue",		    "default:colwood_blue"},
-	{"colwood_brown", 	    "Brown Wood",   "default_colwood_brown",		"default:colwood_brown"},
-	{"colwood_cyan", 	    "Cyan Wood",    "default_colwood_cyan",		    "default:colwood_cyan"},
-	{"colwood_dark_green", "Dark Green Wood", "default_colwood_dark_green",  "default:colwood_dark_green"},
-	{"colwood_dark_grey",  "Dark Grey Wood", "default_colwood_dark_grey",    "default:colwood_dark_grey"},
-	{"colwood_green",       "Green Wood",   "default_colwood_green",        "default:colwood_green"},
-	{"colwood_grey",        "Grey Wood",    "default_colwood_grey",         "default:colwood_grey"},
-	{"colwood_magenta", 	"Magenta Wood", "default_colwood_magenta",		"default:colwood_magenta"},
-	{"colwood_orange", 	    "Orange Wood",  "default_colwood_orange",		"default:colwood_orange"},
-	{"colwood_pink", 	    "Pink Wood",    "default_colwood_pink",		    "default:colwood_pink"},
-	{"colwood_red", 	    "Red Wood",     "default_colwood_red",		    "default:colwood_red"},
-	{"colwood_violet", 	    "Violet Wood",  "default_colwood_violet",		"default:colwood_violet"},
-	{"colwood_yellow", 	    "Yellow Wood",  "default_colwood_yellow",		"default:colwood_yellow"},
-	{"colwood_white", 	    "White Wood",   "default_colwood_white",		"default:colwood_white"},
+	{"colwood_black", 	    "Black Wood",   "default_colwood_black",		"hades_trees:colwood_black"},
+	{"colwood_blue", 	    "Blue Wood",    "default_colwood_blue",		    "hades_trees:colwood_blue"},
+	{"colwood_brown", 	    "Brown Wood",   "default_colwood_brown",		"hades_trees:colwood_brown"},
+	{"colwood_cyan", 	    "Cyan Wood",    "default_colwood_cyan",		    "hades_trees:colwood_cyan"},
+	{"colwood_dark_green", "Dark Green Wood", "default_colwood_dark_green",  "hades_trees:colwood_dark_green"},
+	{"colwood_dark_grey",  "Dark Grey Wood", "default_colwood_dark_grey",    "hades_trees:colwood_dark_grey"},
+	{"colwood_green",       "Green Wood",   "default_colwood_green",        "hades_trees:colwood_green"},
+	{"colwood_grey",        "Grey Wood",    "default_colwood_grey",         "hades_trees:colwood_grey"},
+	{"colwood_magenta", 	"Magenta Wood", "default_colwood_magenta",		"hades_trees:colwood_magenta"},
+	{"colwood_orange", 	    "Orange Wood",  "default_colwood_orange",		"hades_trees:colwood_orange"},
+	{"colwood_pink", 	    "Pink Wood",    "default_colwood_pink",		    "hades_trees:colwood_pink"},
+	{"colwood_red", 	    "Red Wood",     "default_colwood_red",		    "hades_trees:colwood_red"},
+	{"colwood_violet", 	    "Violet Wood",  "default_colwood_violet",		"hades_trees:colwood_violet"},
+	{"colwood_yellow", 	    "Yellow Wood",  "default_colwood_yellow",		"hades_trees:colwood_yellow"},
+	{"colwood_white", 	    "White Wood",   "default_colwood_white",		"hades_trees:colwood_white"},
 	-- colored bricks
 	{"brick_black", 	    "Black Bricks",		"default_brick_black",		"default:brick_black"},
 	{"brick_blue", 	        "Blue Bricks",		"default_brick_blue",		"default:brick_blue"},
@@ -168,17 +168,11 @@ minetest.register_node("gluncarp:"..carpetname, {
 		elseif  nodeu == "default:clay" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_clay"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:wood" then
+		elseif  nodeu == "hades_trees:wood" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_wood"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:wood_jungle" then -- not defaultname
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_wood_jungle"})
-		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:wood_pine" then -- not defaultname
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_wood_pine"})
-		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:acacia_wood" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_acacia_wood"})
+		elseif  nodeu == "hades_trees:jungle_wood" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_jungle_wood"})
 		   minetest.set_node(pos,{name = "air"})
 		elseif  nodeu == "default:brick" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_brick"})
@@ -192,11 +186,11 @@ minetest.register_node("gluncarp:"..carpetname, {
 		   minetest.set_node(pos,{name = "air"})
 		   --glunggistuff
 		   --wood
-		elseif  nodeu == "default:palewood" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_palewood"})
+		elseif  nodeu == "hades_trees:pale_wood" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_pale_wood"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:junglewood" then
-		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_junglewood"})
+		elseif  nodeu == "hades_trees:jungle_wood" then
+		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_jungle_wood"})
 		   minetest.set_node(pos,{name = "air"})
 		
 		   --wooden floors
@@ -211,49 +205,49 @@ minetest.register_node("gluncarp:"..carpetname, {
 		   minetest.set_node(pos,{name = "air"})
 		   
 		   --color wood
-		elseif  nodeu == "default:colwood_black" then
+		elseif  nodeu == "hades_trees:colwood_black" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_black"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_blue" then
+		elseif  nodeu == "hades_trees:colwood_blue" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_blue"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_brown" then
+		elseif  nodeu == "hades_trees:colwood_brown" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_brown"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_cyan" then
+		elseif  nodeu == "hades_trees:colwood_cyan" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_cyan"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_dark_green" then
+		elseif  nodeu == "hades_trees:colwood_dark_green" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_dark_green"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_dark_grey" then
+		elseif  nodeu == "hades_trees:colwood_dark_grey" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_dark_grey"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_green" then
+		elseif  nodeu == "hades_trees:colwood_green" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_green"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_grey" then
+		elseif  nodeu == "hades_trees:colwood_grey" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_grey"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_magenta" then
+		elseif  nodeu == "hades_trees:colwood_magenta" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_magenta"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_orange" then
+		elseif  nodeu == "hades_trees:colwood_orange" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_orange"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_pink" then
+		elseif  nodeu == "hades_trees:colwood_pink" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_pink"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_red" then
+		elseif  nodeu == "hades_trees:colwood_red" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_red"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_violet" then
+		elseif  nodeu == "hades_trees:colwood_violet" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_violet"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_yellow" then
+		elseif  nodeu == "hades_trees:colwood_yellow" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_yellow"})
 		   minetest.set_node(pos,{name = "air"})
-		elseif  nodeu == "default:colwood_white" then
+		elseif  nodeu == "hades_trees:colwood_white" then
 		   minetest.set_node({x=pos.x, y=pos.y-1, z=pos.z},{name = "gluncarp:"..carpetname.."_on_colwood_white"})
 		   minetest.set_node(pos,{name = "air"})
 		   --color bricks
@@ -411,13 +405,9 @@ minetest.register_node("gluncarp:"..carpetname.."_on_"..mat, {
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_clay" then
 		       minetest.set_node(pos,{name = "default:clay"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_wood" then
-		       minetest.set_node(pos,{name = "default:wood"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_wood_jungle" then -- not defaultname
-		       minetest.set_node(pos,{name = "default:wood_jungle"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_wood_pine" then -- not defaultname
-		       minetest.set_node(pos,{name = "default:wood_pine"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_acacia_wood" then
-		       minetest.set_node(pos,{name = "default:acacia_wood"})
+		       minetest.set_node(pos,{name = "hades_trees:wood"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_jungle_wood" then
+		       minetest.set_node(pos,{name = "hades_trees:jungle_wood"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_brick" then
 		       minetest.set_node(pos,{name = "default:brick"})
 			   --end of default
@@ -426,48 +416,48 @@ minetest.register_node("gluncarp:"..carpetname.."_on_"..mat, {
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_cactus_brick" then
 		       minetest.set_node(pos,{name = "default:cactus_brick"})
 			   -- wood
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_palewood" then
-		       minetest.set_node(pos,{name = "default:palewood"})
-			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_junglewood" then
-		       minetest.set_node(pos,{name = "default:junglewood"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_pale_wood" then
+		       minetest.set_node(pos,{name = "hades_trees:pale_wood"})
+			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_jungle_wood" then
+		       minetest.set_node(pos,{name = "hades_trees:jungle_wood"})
 			   -- wooden floors
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_wood_jungle" then
-		       minetest.set_node(pos,{name = "default:floor_wood_jungle"})
+		       minetest.set_node(pos,{name = "hades_trees:floor_wood_jungle"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_wood_pale" then
-		       minetest.set_node(pos,{name = "default:floor_wood_pale"})
+		       minetest.set_node(pos,{name = "hades_trees:floor_wood_pale"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_floor_pale_jungle" then
-		       minetest.set_node(pos,{name = "default:floor_pale_jungle"})
+		       minetest.set_node(pos,{name = "hades_trees:floor_pale_jungle"})
 			   -- color wood
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_black" then
-		       minetest.set_node(pos,{name = "default:colwood_black"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_black"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_blue" then
-		       minetest.set_node(pos,{name = "default:colwood_blue"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_blue"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_brown" then
-		       minetest.set_node(pos,{name = "default:colwood_brown"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_brown"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_cyan" then
-		       minetest.set_node(pos,{name = "default:colwood_cyan"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_cyan"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_dark_green" then
-		       minetest.set_node(pos,{name = "default:colwood_dark_green"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_dark_green"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_dark_grey" then
-		       minetest.set_node(pos,{name = "default:colwood_dark_grey"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_dark_grey"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_green" then
-		       minetest.set_node(pos,{name = "default:colwood_green"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_green"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_grey" then
-		       minetest.set_node(pos,{name = "default:colwood_grey"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_grey"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_magenta" then
-		       minetest.set_node(pos,{name = "default:colwood_magenta"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_magenta"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_orange" then
-		       minetest.set_node(pos,{name = "default:colwood_orange"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_orange"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_pink" then
-		       minetest.set_node(pos,{name = "default:colwood_pink"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_pink"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_red" then
-		       minetest.set_node(pos,{name = "default:colwood_red"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_red"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_violet" then
-		       minetest.set_node(pos,{name = "default:colwood_violet"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_violet"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_yellow" then
-		       minetest.set_node(pos,{name = "default:colwood_yellow"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_yellow"})
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_colwood_white" then
-		       minetest.set_node(pos,{name = "default:colwood_white"})
+		       minetest.set_node(pos,{name = "hades_trees:colwood_white"})
 			   -- color brick
 			elseif  oldnode.name == "gluncarp:"..carpetname.."_on_brick_black" then
 		       minetest.set_node(pos,{name = "default:brick_black"})
