@@ -9,22 +9,6 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = 'default:torch_low 4',
-	recipe = {
-		{'', 'default:coal_lump', ''},
-		{'', 'group:stick', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:torch',
-	recipe = {
-		{'', 'farming:string', ''},
-		{'', 'default:torch_low', ''},
-	}
-})
-
 
 minetest.register_craft({
 	output = 'default:pick_wood',
@@ -1047,12 +1031,6 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "default:torch",
-	burntime = 4,
-})
-
-minetest.register_craft({
-	type = "fuel",
 	recipe = "default:chest",
 	burntime = 20,
 })
@@ -1607,7 +1585,7 @@ minetest.register_craft({
 	output = 'default:lamp_wall 2',
 	recipe = {
 		{'default:glass', '', ''},
-		{'default:torch', '', ''},
+		{'hades_torches:torch', '', ''},
 		{'default:glass', '', ''},
 	}
 })
@@ -1616,7 +1594,7 @@ minetest.register_craft({
 	output = 'default:latern 2',
 	recipe = {
 		{'', 'default:bronze_ingot', ''},
-		{'default:glass', 'default:torch', 'default:glass'},
+		{'default:glass', 'hades_torches:torch', 'default:glass'},
 		{'', 'default:bronze_ingot', ''},
 	}
 })
@@ -1625,7 +1603,7 @@ minetest.register_craft({
 	output = 'default:laternrusty 2',
 	recipe = {
 		{'', 'default:steel_ingot', ''},
-		{'default:glass', 'default:torch', 'default:glass'},
+		{'default:glass', 'hades_torches:torch', 'default:glass'},
 		{'', 'default:steel_ingot', ''},
 	}
 })

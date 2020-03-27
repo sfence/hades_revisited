@@ -64,7 +64,7 @@ minetest.register_craft({
 		output = 'columnia:lamp_ceiling 4',
 		recipe = {
 			{"default:steel_ingot", "default:steel_ingot", ""},
-			{"", "default:torch", ""},
+			{"", "hades_torches:torch", ""},
 			{"", "default:glass", ""},
 		},
 })

@@ -53,14 +53,7 @@ Cisoun's WTFPL texture pack:
 
 Originating from G4JC's Almost MC Texture Pack:
   default_wood.png
-  default_torch.png
-  default_torch_on_ceiling.png
-  default_torch_on_floor.png
   default_cobble.png
-
-VanessaE's animated torches (WTFPL):
-  default_torch_animated.png
-  default_torch_on_floor.png
 
 RealBadAngel's animated water (WTFPL):
   default_water_source_animated.png
