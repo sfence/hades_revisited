@@ -153,3 +153,34 @@ minetest.register_craftitem("farming:spice", {
 	inventory_image = "farming_spice.png",
 })
 
+
+minetest.register_craft({
+	output = 'farming:flowergrass',
+	recipe = {
+		{'flowers:dandelion_white', 'flowers:dandelion_yellow', 'flowers:geranium'},
+		{'flowers:rose', 'flowers:tulip', 'flowers:viola'},
+		{'default:grass_1', 'default:dirt', 'default:grass_1'},
+	}
+})
+
+minetest.register_craft({
+	output = 'farming:seed_tomato',
+	recipe = {{'farming:tomato'},}
+})
+
+minetest.register_craft({
+	output = 'farming:seed_strawberry',
+	recipe = {{'farming:strawberry'},}
+})
+
+minetest.register_craft({
+	output = 'farming:seed_potato',
+	recipe = {{'farming:potato'},}
+})
+
+minetest.register_craft({
+	output = 'farming:seed_spice',
+	recipe = {{'farming:spice'},}
+})
+
+
