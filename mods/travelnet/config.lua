@@ -31,21 +31,21 @@ minetest.register_craftitem("travelnet:teleporter_device", {
 minetest.register_craft({
 	output = 'travelnet:teleporter_device',
 	recipe = {
-		{'default:tin_ingot', 'default:gold_ingot', 'default:tin_ingot'},
-        {'default:gold_ingot', 'default:prismatic_gem', 'default:gold_ingot'},
-        {'default:tin_ingot', 'mesecons_powerplant:power_plant', 'default:tin_ingot'},
+		{'hades_core:tin_ingot', 'hades_core:gold_ingot', 'hades_core:tin_ingot'},
+        {'hades_core:gold_ingot', 'hades_core:prismatic_gem', 'hades_core:gold_ingot'},
+        {'hades_core:tin_ingot', 'mesecons_powerplant:power_plant', 'hades_core:tin_ingot'},
 	}
 })
 
 travelnet.travelnet_recipe = {
-         {"default:glass", "default:steel_ingot", "default:glass", },
-         {"default:tin_ingot", "travelnet:teleporter_device", "default:tin_ingot", },
-         {"default:glass", "default:steel_ingot", "default:glass", }
+         {"hades_core:glass", "hades_core:steel_ingot", "hades_core:glass", },
+         {"hades_core:tin_ingot", "travelnet:teleporter_device", "hades_core:tin_ingot", },
+         {"hades_core:glass", "hades_core:steel_ingot", "hades_core:glass", }
 }
 travelnet.elevator_recipe = {
-	        {"default:steel_ingot", "default:glass", "default:steel_ingot", },
-		{"default:steel_ingot", "",              "default:steel_ingot", },
-		{"default:steel_ingot", "default:glass", "default:steel_ingot", }
+	        {"hades_core:steel_ingot", "hades_core:glass", "hades_core:steel_ingot", },
+		{"hades_core:steel_ingot", "",              "hades_core:steel_ingot", },
+		{"hades_core:steel_ingot", "hades_core:glass", "hades_core:steel_ingot", }
 }
 
 

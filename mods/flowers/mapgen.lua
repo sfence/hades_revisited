@@ -34,7 +34,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					if minetest.registered_nodes[nn] and
 						minetest.registered_nodes[nn].buildable_to then
 						nn = minetest.get_node({x=x,y=ground_y,z=z}).name
-						if nn == "default:dirt_with_grass" then
+						if nn == "hades_core:dirt_with_grass" then
 							local flower_choice = pr:next(1, 6)
 							local flower
 							if flower_choice == 1 then

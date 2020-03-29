@@ -55,11 +55,11 @@ minetest.register_node("refruit:bud_apple", {
 		max_items = 1,
 		items = {
 			{
-				items = {'default:stick'},
+				items = {'hades_core:stick'},
 				rarity = 99,
 			},
 			{
-				items = {'default:stick'},
+				items = {'hades_core:stick'},
 				rarity = 99
 			}
 		}
@@ -86,11 +86,11 @@ minetest.register_node("refruit:flower_apple", {
 		max_items = 1,
 		items = {
 			{
-				items = {'default:stick'},
+				items = {'hades_core:stick'},
 				rarity = 99,
 			},
 			{
-				items = {'default:stick'},
+				items = {'hades_core:stick'},
 				rarity = 99
 			}
 		}
@@ -150,11 +150,11 @@ minetest.register_node("refruit:bud_olive", {
 		max_items = 1,
 		items = {
 			{
-				items = {'default:stick'},
+				items = {'hades_core:stick'},
 				rarity = 99,
 			},
 			{
-				items = {'default:stick'},
+				items = {'hades_core:stick'},
 				rarity = 99
 			}
 		}
@@ -181,11 +181,11 @@ minetest.register_node("refruit:flower_olive", {
 		max_items = 1,
 		items = {
 			{
-				items = {'default:stick'},
+				items = {'hades_core:stick'},
 				rarity = 74,
 			},
 			{
-				items = {'default:stick'},
+				items = {'hades_core:stick'},
 				rarity = 74
 			}
 		}

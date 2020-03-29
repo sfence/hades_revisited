@@ -16,9 +16,9 @@ minetest.register_node("mesecons_random:removestone", {
 minetest.register_craft({
 	output = 'mesecons_random:removestone 4',
 	recipe = {
-		{"", "default:cobble", ""},
-		{"default:cobble", "group:mesecon_conductor_craftable", "default:cobble"},
-		{"", "default:cobble", ""},
+		{"", "hades_core:cobble", ""},
+		{"hades_core:cobble", "group:mesecon_conductor_craftable", "hades_core:cobble"},
+		{"", "hades_core:cobble", ""},
 	}
 })
 
@@ -76,8 +76,8 @@ minetest.register_node("mesecons_random:ghoststone_active", {
 minetest.register_craft({
 	output = 'mesecons_random:ghoststone 4',
 	recipe = {
-		{"default:steel_ingot", "default:cobble", "default:steel_ingot"},
-		{"default:cobble", "group:mesecon_conductor_craftable", "default:cobble"},
-		{"default:steel_ingot", "default:cobble", "default:steel_ingot"},
+		{"hades_core:steel_ingot", "hades_core:cobble", "hades_core:steel_ingot"},
+		{"hades_core:cobble", "group:mesecon_conductor_craftable", "hades_core:cobble"},
+		{"hades_core:steel_ingot", "hades_core:cobble", "hades_core:steel_ingot"},
 	}
 })

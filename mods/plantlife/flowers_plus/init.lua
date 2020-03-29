@@ -94,9 +94,9 @@ for i in ipairs(lilies_list) do
 
 
 			if plantslib:get_nodedef_field(under_node.name, "buildable_to") then
-				if under_node.name ~= "default:water_source" then
+				if under_node.name ~= "hades_core:water_source" then
 					place_pos = pt.under
-				elseif top_node.name ~= "default:water_source" 
+				elseif top_node.name ~= "hades_core:water_source" 
 				       and plantslib:get_nodedef_field(top_node.name, "buildable_to") then
 					place_pos = top_pos
 				else
@@ -110,7 +110,7 @@ for i in ipairs(lilies_list) do
 			if not plantslib:node_is_owned(place_pos, placer) then
 
 
-			local nodename = "default:cobble" -- if this block appears, something went....wrong :-)
+			local nodename = "hades_core:cobble" -- if this block appears, something went....wrong :-)
 
 
 				if not keys["sneak"] then
@@ -205,9 +205,9 @@ for i in ipairs(algae_list) do
 
 
 			if plantslib:get_nodedef_field(under_node.name, "buildable_to") then
-				if under_node.name ~= "default:water_source" then
+				if under_node.name ~= "hades_core:water_source" then
 					place_pos = pt.under
-				elseif top_node.name ~= "default:water_source" 
+				elseif top_node.name ~= "hades_core:water_source" 
 				       and plantslib:get_nodedef_field(top_node.name, "buildable_to") then
 					place_pos = top_pos
 				else
@@ -221,7 +221,7 @@ for i in ipairs(algae_list) do
 			if not plantslib:node_is_owned(place_pos, placer) then
 
 
-			local nodename = "default:cobble" -- :D
+			local nodename = "hades_core:cobble" -- :D
 
 
 				if not keys["sneak"] then
@@ -317,12 +317,12 @@ end
 
 
 plantslib:register_generate_plant({
-    surface = {"default:water_source"},
+    surface = {"hades_core:water_source"},
     max_count = lilypads_max_count,
     rarity = lilypads_rarity,
     min_elevation = -30,
 	max_elevation = 100,
-	near_nodes = {"default:dirt_with_grass"},
+	near_nodes = {"hades_core:dirt_with_grass"},
 	near_nodes_size = 4,
 	near_nodes_vertical = 1,
 	near_nodes_count = 1,
@@ -341,12 +341,12 @@ end
 
 
 plantslib:register_generate_plant({
-    surface = {"default:water_source"},
+    surface = {"hades_core:water_source"},
     max_count = seaweed_max_count,
     rarity = seaweed_rarity,
     -- min_elevation = 1,
 	max_elevation = 100,
-	near_nodes = {"default:mossystone", "default:dirt_with_grass"},
+	near_nodes = {"hades_core:mossystone", "hades_core:dirt_with_grass"},
 	near_nodes_size = 3,
 	near_nodes_vertical = 2,
 	near_nodes_count = 1,
@@ -359,12 +359,12 @@ plantslib:register_generate_plant({
 -- seaweed at beaches
 -- MM: not satisfied with it, but IMHO some beaches should have some algae
 --plantslib:register_generate_plant({
-    --surface = {"default:water_source"},
+    --surface = {"hades_core:water_source"},
    -- max_count = seaweed_max_count,
     --rarity = seaweed_rarity,
     -- min_elevation = 1,
 	--max_elevation = 100,
-	--near_nodes = {"default:ash"},
+	--near_nodes = {"hades_core:ash"},
 	--near_nodes_size = 1,
 	--near_nodes_vertical = 0,
 	--near_nodes_count = 3,
@@ -375,12 +375,12 @@ plantslib:register_generate_plant({
   --"flowers_plus.grow_seaweed"
 --)
 --plantslib:register_generate_plant({
-    --surface = {"default:ash"},
+    --surface = {"hades_core:ash"},
     --max_count = seaweed_max_count*2,
     --rarity = seaweed_rarity/2,
     -- min_elevation = 1,
 	--max_elevation = 40,
-	--near_nodes = {"default:water_source"},
+	--near_nodes = {"hades_core:water_source"},
 	--near_nodes_size = 1,
 	--near_nodes_vertical = 0,
 	--near_nodes_count = 3,
@@ -407,7 +407,7 @@ plantslib:spawn_on_surfaces({
 	},
 	avoid_radius = 2.5,
 	spawn_chance = SPAWN_CHANCE*4,
-	spawn_surfaces = {"default:water_source"},
+	spawn_surfaces = {"hades_core:water_source"},
 	avoid_nodes = {"group:flower", "group:flora" },
 	seed_diff = flowers_seed_diff,
 	light_min = 9,
@@ -420,12 +420,12 @@ plantslib:spawn_on_surfaces({
 	spawn_delay = SPAWN_DELAY*2,
 	spawn_plants = {"flowers:seaweed"},
 	spawn_chance = SPAWN_CHANCE*2,
-	spawn_surfaces = {"default:water_source"},
+	spawn_surfaces = {"hades_core:water_source"},
 	avoid_nodes = {"group:flower", "group:flora"},
 	seed_diff = flowers_seed_diff,
 	light_min = 4,
 	light_max = 10,
-	neighbors = {"default:dirt_with_grass"},
+	neighbors = {"hades_core:dirt_with_grass"},
 	facedir = 1
 })
 
@@ -434,12 +434,12 @@ plantslib:spawn_on_surfaces({
 	spawn_delay = SPAWN_DELAY*2,
 	spawn_plants = {"flowers:seaweed"},
 	spawn_chance = SPAWN_CHANCE*2,
-	spawn_surfaces = {"default:dirt_with_grass"},
+	spawn_surfaces = {"hades_core:dirt_with_grass"},
 	avoid_nodes = {"group:flower", "group:flora" },
 	seed_diff = flowers_seed_diff,
 	light_min = 4,
 	light_max = 10,
-	neighbors = {"default:water_source"},
+	neighbors = {"hades_core:water_source"},
 	ncount = 1,
 	facedir = 1
 })
@@ -449,12 +449,12 @@ plantslib:spawn_on_surfaces({
 	--spawn_delay = SPAWN_DELAY*2,
 	--spawn_plants = {"flowers:seaweed"},
 	--spawn_chance = SPAWN_CHANCE*2,
-	--spawn_surfaces = {"default:stone"},
+	--spawn_surfaces = {"hades_core:stone"},
 	--avoid_nodes = {"group:flower", "group:flora" },
 	--seed_diff = flowers_seed_diff,
 	--light_min = 4,
 	--light_max = 10,
-	--neighbors = {"default:water_source"},
+	--neighbors = {"hades_core:water_source"},
 	--ncount = 6,
 	--facedir = 1
 --})

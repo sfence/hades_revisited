@@ -3,9 +3,9 @@ staffgaia = {}
 
 local conv = function(pos)
 	local nodename = minetest.get_node(pos).name
-	if nodename == "default:ash" or nodename == "default:fertile_sand" or nodename == "default:stone_baked" or nodename == "default:stone" or nodename == "default:cobble" or nodename == "default:mossystone" or nodename == "default:tuff" or nodename == "default:tuff_baked" or nodename == "default:mossytuff" or nodename == "default:mossycobble" then
+	if nodename == "hades_core:ash" or nodename == "hades_core:fertile_sand" or nodename == "hades_core:stone_baked" or nodename == "hades_core:stone" or nodename == "hades_core:cobble" or nodename == "hades_core:mossystone" or nodename == "hades_core:tuff" or nodename == "hades_core:tuff_baked" or nodename == "hades_core:mossytuff" or nodename == "hades_core:mossycobble" then
 		-- minetest.remove_node(pos)
-        minetest.set_node(pos, {name="default:dirt"})
+        minetest.set_node(pos, {name="hades_core:dirt"})
 		minetest.check_for_falling(pos)
 	end
 end
@@ -90,17 +90,17 @@ minetest.register_craftitem("staffgaia:shaft", {
 minetest.register_craft({
 	output = "staffgaia:head",
 	recipe = {
-		{"default:sapphire", "default:mese_crystal", "default:sapphire"},
-		{"default:mese_crystal", "default:diamond", "default:mese_crystal"},
-        {"default:emerald", "default:mese_crystal", "default:emerald"},
+		{"hades_core:sapphire", "hades_core:mese_crystal", "hades_core:sapphire"},
+		{"hades_core:mese_crystal", "hades_core:diamond", "hades_core:mese_crystal"},
+        {"hades_core:emerald", "hades_core:mese_crystal", "hades_core:emerald"},
 	}
 })
 
 minetest.register_craft({
 	output = "staffgaia:shaft",
 	recipe = {
-		{"", "default:ruby", ""},
-		{"", "default:ruby", ""},
+		{"", "hades_core:ruby", ""},
+		{"", "hades_core:ruby", ""},
 		{"", "hades_trees:tree", ""},
 	}
 })

@@ -13,16 +13,16 @@ local group_stereotypes = {
 	wool	     = "wool:white",
 	dye	     = "dye:white",
 	vessel	     = "vessels:glass_bottle",
-	coal	     = "default:coal_lump",
+	coal	     = "hades_core:coal_lump",
 	flower	     = "flowers:dandelion_yellow",
 	window_wood  = "windows:windows_wood",
 	vines        = "vines:vine",
 	chest        = "hades_chests:chest",
 	unlocked_chest = "hades_chests:chest",
 	locked_chest = "hades_chests:chest_locked",
-	stone        = "default:cobble",
+	stone        = "hades_core:cobble",
 	fence_wood   = "hades_fences:fence_wood",
-	claybricks   = "default:brick",
+	claybricks   = "hades_core:brick",
 	vines        = "vines:side",
 	tree         = "hades_trees:tree",
 	leaves       = "hades_trees:leaves",
@@ -36,8 +36,8 @@ function craftguide:group_to_item(item)
 		local itemsub = item:sub(7)
 		if group_stereotypes[itemsub] then
 			item = group_stereotypes[itemsub]
-		elseif reg_items["default:" .. itemsub] then
-			item = item:gsub("group:", "default:")
+		elseif reg_items["hades_core:" .. itemsub] then
+			item = item:gsub("group:", "hades_core:")
 		else
 			for name, def in pairs(reg_items) do
 				if def.groups[item:match("[^,:]+$")] then

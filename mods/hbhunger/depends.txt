@@ -1,6 +1,6 @@
 hudbars
 intllib?
-default?
+hades_core?
 flowers?
 animalmaterials?
 bucket?

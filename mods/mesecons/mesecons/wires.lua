@@ -242,11 +242,11 @@ function mesecon:update_autoconnect(pos, secondcall, replace_old)
 	end
 end
 
-if not minetest.registered_nodes["default:stone_with_mese"] then --before MESE update, use old recipes
+if not minetest.registered_nodes["hades_core:stone_with_mese"] then --before MESE update, use old recipes
 	minetest.register_craft({
 		output = "mesecons:wire_00000000_off 18",
 		recipe = {
-			{"default:mese"},
+			{"hades_core:mese"},
 		}
 	})
 else
@@ -254,21 +254,21 @@ else
 	minetest.register_craft({
 		type = "cooking",
 		output = "mesecons:wire_00000000_off 2",
-		recipe = "default:mese_crystal_fragment",
+		recipe = "hades_core:mese_crystal_fragment",
 		cooktime = 3,
 	})
 
 	minetest.register_craft({
 		type = "cooking",
 		output = "mesecons:wire_00000000_off 18",
-		recipe = "default:mese_crystal",
+		recipe = "hades_core:mese_crystal",
 		cooktime = 15,
 	})
 
 	minetest.register_craft({
 		type = "cooking",
 		output = "mesecons:wire_00000000_off 162",
-		recipe = "default:mese",
+		recipe = "hades_core:mese",
 		cooktime = 30,
 	})
 
@@ -277,5 +277,5 @@ end
 minetest.register_craft({
 	type = "cooking",
 	output = "mesecons:wire_00000000_off 16",
-	recipe = "default:mese_crystal",
+	recipe = "hades_core:mese_crystal",
 })

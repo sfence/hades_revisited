@@ -24,7 +24,7 @@ minetest.register_item(":", {
 --
 
 
-minetest.register_tool("default:pick_wood", {
+minetest.register_tool("hades_core:pick_wood", {
 	description = "Wooden Pickaxe",
 	inventory_image = "default_tool_woodpick.png",
 	groups = { pickaxe = 1, },
@@ -37,7 +37,7 @@ minetest.register_tool("default:pick_wood", {
 		damage_groups = {fleshy=2},
 	},
 })
-minetest.register_tool("default:pick_stone", {
+minetest.register_tool("hades_core:pick_stone", {
 	description = "Stone Pickaxe",
 	inventory_image = "default_tool_stonepick.png",
 	groups = { pickaxe = 1, },
@@ -50,7 +50,7 @@ minetest.register_tool("default:pick_stone", {
 		damage_groups = {fleshy=3},
 	},
 })
-minetest.register_tool("default:pick_steel", {
+minetest.register_tool("hades_core:pick_steel", {
 	description = "Steel Pickaxe",
 	inventory_image = "default_tool_steelpick.png",
 	groups = { pickaxe = 1, },
@@ -63,7 +63,7 @@ minetest.register_tool("default:pick_steel", {
 		damage_groups = {fleshy=4},
 	},
 })
-minetest.register_tool("default:pick_bronze", {
+minetest.register_tool("hades_core:pick_bronze", {
 	description = "Bronze Pickaxe",
 	inventory_image = "default_tool_bronzepick.png",
 	groups = { pickaxe = 1, },
@@ -76,7 +76,7 @@ minetest.register_tool("default:pick_bronze", {
 		damage_groups = {fleshy=4},
 	},
 })
-minetest.register_tool("default:pick_mese", {
+minetest.register_tool("hades_core:pick_mese", {
 	description = "Mese Pickaxe",
 	inventory_image = "default_tool_mesepick.png",
 	groups = { pickaxe = 1, },
@@ -89,7 +89,7 @@ minetest.register_tool("default:pick_mese", {
 		damage_groups = {fleshy=5},
 	},
 })
-minetest.register_tool("default:pick_prism", {
+minetest.register_tool("hades_core:pick_prism", {
 	description = "Prism Pickaxe",
 	inventory_image = "default_tool_prismpick.png",
 	groups = { pickaxe = 1, },
@@ -109,7 +109,7 @@ minetest.register_tool("default:pick_prism", {
 --
 
 
-minetest.register_tool("default:shovel_wood", {
+minetest.register_tool("hades_core:shovel_wood", {
 	description = "Wooden Shovel",
 	inventory_image = "default_tool_woodshovel.png",
 	groups = { shovel = 1, },
@@ -123,7 +123,7 @@ minetest.register_tool("default:shovel_wood", {
 		damage_groups = {fleshy=2},
 	},
 })
-minetest.register_tool("default:shovel_stone", {
+minetest.register_tool("hades_core:shovel_stone", {
 	description = "Stone Shovel",
 	inventory_image = "default_tool_stoneshovel.png",
 	groups = { shovel = 1, },
@@ -137,7 +137,7 @@ minetest.register_tool("default:shovel_stone", {
 		damage_groups = {fleshy=2},
 	},
 })
-minetest.register_tool("default:shovel_steel", {
+minetest.register_tool("hades_core:shovel_steel", {
 	description = "Steel Shovel",
 	inventory_image = "default_tool_steelshovel.png",
 	groups = { shovel = 1, },
@@ -151,7 +151,7 @@ minetest.register_tool("default:shovel_steel", {
 		damage_groups = {fleshy=3},
 	},
 })
-minetest.register_tool("default:shovel_bronze", {
+minetest.register_tool("hades_core:shovel_bronze", {
 	description = "Bronze Shovel",
 	inventory_image = "default_tool_bronzeshovel.png",
 	groups = { shovel = 1, },
@@ -165,7 +165,7 @@ minetest.register_tool("default:shovel_bronze", {
 		damage_groups = {fleshy=3},
 	},
 })
-minetest.register_tool("default:shovel_mese", {
+minetest.register_tool("hades_core:shovel_mese", {
 	description = "Mese Shovel",
 	inventory_image = "default_tool_meseshovel.png",
 	groups = { shovel = 1, },
@@ -179,7 +179,7 @@ minetest.register_tool("default:shovel_mese", {
 		damage_groups = {fleshy=4},
 	},
 })
-minetest.register_tool("default:shovel_prism", {
+minetest.register_tool("hades_core:shovel_prism", {
 	description = "Prism Shovel",
 	inventory_image = "default_tool_prismshovel.png",
 	groups = { shovel = 1, },
@@ -200,7 +200,7 @@ minetest.register_tool("default:shovel_prism", {
 --
 
 
-minetest.register_tool("default:axe_wood", {
+minetest.register_tool("hades_core:axe_wood", {
 	description = "Wooden Axe",
 	inventory_image = "default_tool_woodaxe.png",
 	groups = { axe = 1, },
@@ -213,7 +213,7 @@ minetest.register_tool("default:axe_wood", {
 		damage_groups = {fleshy=2},
 	},
 })
-minetest.register_tool("default:axe_stone", {
+minetest.register_tool("hades_core:axe_stone", {
 	description = "Stone Axe",
 	inventory_image = "default_tool_stoneaxe.png",
 	groups = { axe = 1, },
@@ -226,7 +226,7 @@ minetest.register_tool("default:axe_stone", {
 		damage_groups = {fleshy=3},
 	},
 })
-minetest.register_tool("default:axe_steel", {
+minetest.register_tool("hades_core:axe_steel", {
 	description = "Steel Axe",
 	inventory_image = "default_tool_steelaxe.png",
 	groups = { axe = 1, },
@@ -239,7 +239,7 @@ minetest.register_tool("default:axe_steel", {
 		damage_groups = {fleshy=4},
 	},
 })
-minetest.register_tool("default:axe_bronze", {
+minetest.register_tool("hades_core:axe_bronze", {
 	description = "Bronze Axe",
 	inventory_image = "default_tool_bronzeaxe.png",
 	groups = { axe = 1, },
@@ -252,7 +252,7 @@ minetest.register_tool("default:axe_bronze", {
 		damage_groups = {fleshy=4},
 	},
 })
-minetest.register_tool("default:axe_mese", {
+minetest.register_tool("hades_core:axe_mese", {
 	description = "Mese Axe",
 	inventory_image = "default_tool_meseaxe.png",
 	groups = { axe = 1, },
@@ -265,7 +265,7 @@ minetest.register_tool("default:axe_mese", {
 		damage_groups = {fleshy=6},
 	},
 })
-minetest.register_tool("default:axe_prism", {
+minetest.register_tool("hades_core:axe_prism", {
 	description = "Prism Axe",
 	inventory_image = "default_tool_prismaxe.png",
 	groups = { axe = 1, },
@@ -285,7 +285,7 @@ minetest.register_tool("default:axe_prism", {
 --
 
 
-minetest.register_tool("default:sword_wood", {
+minetest.register_tool("hades_core:sword_wood", {
 	description = "Wooden Sword",
 	inventory_image = "default_tool_woodsword.png",
 	groups = { sword = 1, },
@@ -298,7 +298,7 @@ minetest.register_tool("default:sword_wood", {
 		damage_groups = {fleshy=2},
 	}
 })
-minetest.register_tool("default:sword_stone", {
+minetest.register_tool("hades_core:sword_stone", {
 	description = "Stone Sword",
 	inventory_image = "default_tool_stonesword.png",
 	groups = { sword = 1, },
@@ -311,7 +311,7 @@ minetest.register_tool("default:sword_stone", {
 		damage_groups = {fleshy=3},
 	}
 })
-minetest.register_tool("default:sword_steel", {
+minetest.register_tool("hades_core:sword_steel", {
 	description = "Steel Sword",
 	inventory_image = "default_tool_steelsword.png",
 	groups = { sword = 1, },
@@ -324,7 +324,7 @@ minetest.register_tool("default:sword_steel", {
 		damage_groups = {fleshy=4},
 	}
 })
-minetest.register_tool("default:sword_bronze", {
+minetest.register_tool("hades_core:sword_bronze", {
 	description = "Bronze Sword",
 	inventory_image = "default_tool_bronzesword.png",
 	groups = { sword = 1, },
@@ -337,7 +337,7 @@ minetest.register_tool("default:sword_bronze", {
 		damage_groups = {fleshy=5},
 	}
 })
-minetest.register_tool("default:sword_mese", {
+minetest.register_tool("hades_core:sword_mese", {
 	description = "Mese Sword",
 	inventory_image = "default_tool_mesesword.png",
 	groups = { sword = 1, },
@@ -350,7 +350,7 @@ minetest.register_tool("default:sword_mese", {
 		damage_groups = {fleshy=7},
 	}
 })
-minetest.register_tool("default:sword_prism", {
+minetest.register_tool("hades_core:sword_prism", {
 	description = "Prism Sword",
 	inventory_image = "default_tool_prismsword.png",
 	groups = { sword = 1, },

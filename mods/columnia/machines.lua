@@ -266,9 +266,9 @@ end
 minetest.register_craft({
 	output = 'columnia:machine',
 	recipe = {
-		{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'},
-		{'group:wood', 'default:stone', 'group:wood'},
-		{'default:stone', "", 'default:stone'},		
+		{'hades_core:steel_ingot', 'hades_core:steel_ingot', 'hades_core:steel_ingot'},
+		{'group:wood', 'hades_core:stone', 'group:wood'},
+		{'hades_core:stone', "", 'hades_core:stone'},		
 	},
 })
 

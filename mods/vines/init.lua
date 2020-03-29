@@ -222,7 +222,7 @@ plantslib:spawn_on_surfaces({
   spawn_delay = spawn_interval,
   spawn_plants = {"vines:vine"},
   spawn_chance = 50,
-  spawn_surfaces = {"default:dirt_with_grass","default:dirt"},
+  spawn_surfaces = {"hades_core:dirt_with_grass","hades_core:dirt"},
   spawn_on_bottom = true,
   plantlife_limit = -0.9,
 })
@@ -235,7 +235,7 @@ plantslib:spawn_on_surfaces({
   spawn_chance = 50,
   spawn_surfaces = {"group:leafdecay"},
   spawn_on_side = true,
-  near_nodes = {"default:water_source", "hades_trees:jungle_tree"},
+  near_nodes = {"hades_core:water_source", "hades_trees:jungle_tree"},
   near_nodes_size = 10,
   near_nodes_vertical = 5,
   near_nodes_count = 3,
@@ -249,7 +249,7 @@ plantslib:spawn_on_surfaces({
   spawn_chance = 50,
   spawn_surfaces = {"group:leaves"},
   spawn_on_side = true,
-  near_nodes = {"default:water_source"},
+  near_nodes = {"hades_core:water_source"},
   near_nodes_size = 7,
   near_nodes_vertical = 4,
   near_nodes_count = 3,
@@ -278,8 +278,8 @@ minetest.register_tool("vines:shears", {
 minetest.register_craft({
 	output = 'vines:shears',
 	recipe = {
-		{'', 'default:steel_ingot', ''},
-		{'group:stick', 'group:wood', 'default:steel_ingot'},
+		{'', 'hades_core:steel_ingot', ''},
+		{'group:stick', 'group:wood', 'hades_core:steel_ingot'},
 		{'', 'group:stick', ''},
 	}
 })

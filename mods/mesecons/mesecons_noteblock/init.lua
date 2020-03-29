@@ -26,7 +26,7 @@ minetest.register_craft({
 	output = "mesecons_noteblock:noteblock 1",
 	recipe = {
 		{"group:wood", "group:wood", "group:wood"},
-		{"group:mesecon_conductor_craftable", "default:steel_ingot", "group:mesecon_conductor_craftable"},
+		{"group:mesecon_conductor_craftable", "hades_core:steel_ingot", "group:mesecon_conductor_craftable"},
 		{"group:wood", "group:wood", "group:wood"},
 	}
 })
@@ -59,10 +59,10 @@ mesecon.noteblock_play = function (pos, param2)
 		soundname="mesecons_noteblock_gsharp"
 	end
 	local block_below_name = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
-	if block_below_name == "default:glass" then
+	if block_below_name == "hades_core:glass" then
 		soundname="mesecons_noteblock_hihat"
 	end
-	if block_below_name == "default:stone" then
+	if block_below_name == "hades_core:stone" then
 		soundname="mesecons_noteblock_kick"
 	end
 	if block_below_name == "hades_chests:chest" then

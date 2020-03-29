@@ -373,9 +373,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_furnaces:prism_furnace',
 	recipe = {
-		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
-		{'default:steel_ingot', 'default:prismatic_gem', 'default:obsidian'},
-		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+		{'hades_core:obsidian', 'hades_core:obsidian', 'hades_core:obsidian'},
+		{'hades_core:steel_ingot', 'hades_core:prismatic_gem', 'hades_core:obsidian'},
+		{'hades_core:obsidian', 'hades_core:obsidian', 'hades_core:obsidian'},
 	}
 })
 

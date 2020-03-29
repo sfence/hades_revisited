@@ -13,7 +13,7 @@ farming.register_plant("farming:wheat", {
 	inventory_image = "farming_wheat_seed.png",
 	steps = 3,
 	minlight = 13,
-	maxlight = default.LIGHT_MAX,
+	maxlight = minetest.LIGHT_MAX,
 	fertility = {"grassland"}
 })
 minetest.register_craftitem("farming:wheat", {
@@ -58,7 +58,7 @@ farming.register_plant("farming:cotton", {
 	inventory_image = "farming_cotton_seed.png",
 	steps = 3,
 	minlight = 13,
-	maxlight = default.LIGHT_MAX,
+	maxlight = minetest.LIGHT_MAX,
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:cotton", {
@@ -159,7 +159,7 @@ minetest.register_craft({
 	recipe = {
 		{'flowers:dandelion_white', 'flowers:dandelion_yellow', 'flowers:geranium'},
 		{'flowers:rose', 'flowers:tulip', 'flowers:viola'},
-		{'default:grass_1', 'default:dirt', 'default:grass_1'},
+		{'hades_core:grass_1', 'hades_core:dirt', 'hades_core:grass_1'},
 	}
 })
 

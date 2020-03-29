@@ -1,7 +1,9 @@
-Some (hudge) adjustments and expansions for Hades game added 2015 by Glünggi
+Core content mod for Hades Revisited
 
-Minetest 0.4 mod: default
-==========================
+Minimal mod that contains fundamental nodes, tools and craftitems for Hades Revisited.
+
+Originally based on Minetest Game's default mod, now changed beyond recognition.
+-----------------------------------------
 
 License of source code:
 -----------------------

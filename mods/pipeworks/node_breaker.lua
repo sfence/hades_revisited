@@ -8,9 +8,9 @@ minetest.register_alias("technic:node_breaker_on", "pipeworks:nodebreaker_on") -
 minetest.register_craft({
 	output = 'pipeworks:nodebreaker_off 1',
 	recipe = {
-		{'group:wood', 'default:pick_mese','group:wood'},
-		{'default:stone', 'mesecons:piston','default:stone'},
-		{'default:stone', 'mesecons:mesecon','default:stone'},
+		{'group:wood', 'hades_core:pick_mese','group:wood'},
+		{'hades_core:stone', 'mesecons:piston','hades_core:stone'},
+		{'hades_core:stone', 'mesecons:mesecon','hades_core:stone'},
 	}
 })
 
@@ -96,7 +96,7 @@ local function break_node (pos, facedir)
 	end
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
-	inv:set_stack("pick", 1, ItemStack("default:pick_mese"))
+	inv:set_stack("pick", 1, ItemStack("hades_core:pick_mese"))
 	local pitch
 	local yaw
 	if vel.z < 0 then
@@ -131,7 +131,7 @@ local function break_node (pos, facedir)
 		getpos = delay({x = pos.x, y = pos.y - 1.5, z = pos.z}), -- Player height
 		get_hp = delay(20),
 		get_inventory = delay(inv),
-		get_wielded_item = delay(ItemStack("default:pick_mese")),
+		get_wielded_item = delay(ItemStack("hades_core:pick_mese")),
 		get_wield_index = delay(1),
 		get_wield_list = delay("pick"),
 		moveto = delay(),
@@ -155,7 +155,7 @@ local function break_node (pos, facedir)
 	end
 
 	--handle node drops
-	local drops = minetest.get_node_drops(node.name, "default:pick_mese")
+	local drops = minetest.get_node_drops(node.name, "hades_core:pick_mese")
 	for _, dropped_item in ipairs(drops) do
 		local item1 = pipeworks.tube_item({x=pos.x, y=pos.y, z=pos.z}, dropped_item)
 		item1:get_luaentity().start_pos = {x=pos.x, y=pos.y, z=pos.z}
@@ -216,7 +216,7 @@ minetest.register_node("pipeworks:nodebreaker_off", {
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		inv:set_size("pick", 1)
-		inv:set_stack("pick", 1, ItemStack("default:pick_mese"))
+		inv:set_stack("pick", 1, ItemStack("hades_core:pick_mese"))
 	end,
 	after_place_node = function (pos, placer)
 		pipeworks.scan_for_tube_objects(pos, placer)
@@ -255,7 +255,7 @@ minetest.register_node("pipeworks:nodebreaker_on", {
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		inv:set_size("pick", 1)
-		inv:set_stack("pick", 1, ItemStack("default:pick_mese"))
+		inv:set_stack("pick", 1, ItemStack("hades_core:pick_mese"))
 	end,
 	after_place_node = function (pos, placer)
 		pipeworks.scan_for_tube_objects(pos, placer)

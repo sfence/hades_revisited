@@ -36,9 +36,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 	local c_air = minetest.get_content_id("air")
 	local c_ignore = minetest.get_content_id("ignore")
-	local c_watsour = minetest.get_content_id("default:water_source")
-	local c_tuff = minetest.get_content_id("default:tuff")
-	local c_gravel = minetest.get_content_id("default:gravel")
+	local c_watsour = minetest.get_content_id("hades_core:water_source")
+	local c_tuff = minetest.get_content_id("hades_core:tuff")
+	local c_gravel = minetest.get_content_id("hades_core:gravel")
 
 
 	for xcen = x0 + 8, x1 - 7, 8 do

@@ -50,7 +50,7 @@ minetest.register_abm({
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		farming:generate_tree(pos, "hades_trees:tree", "hades_trees:olive_leaves", {"default:dirt", "default:dirt_with_grass"}, {["hades_trees:olive"]=10})
+		farming:generate_tree(pos, "hades_trees:tree", "hades_trees:olive_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass"}, {["hades_trees:olive"]=10})
 	end
 })
 
@@ -60,9 +60,9 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 		return
 	end
 	local tmp = {x=(maxp.x-minp.x)/2+minp.x, y=(maxp.y-minp.y)/2+minp.y, z=(maxp.z-minp.z)/2+minp.z}
-	local pos = minetest.find_node_near(tmp, maxp.x-minp.x, {"default:dirt_with_grass"})
+	local pos = minetest.find_node_near(tmp, maxp.x-minp.x, {"hades_core:dirt_with_grass"})
 	if pos ~= nil then
-		hades_trees:generate_tree({x=pos.x, y=pos.y+1, z=pos.z}, "hades_trees:tree", "hades_trees:olive_leaves",  {"default:dirt", "default:dirt_with_grass"}, {["hades_trees:olive"]=5})
+		hades_trees:generate_tree({x=pos.x, y=pos.y+1, z=pos.z}, "hades_trees:tree", "hades_trees:olive_leaves",  {"hades_core:dirt", "hades_core:dirt_with_grass"}, {["hades_trees:olive"]=5})
 	end
 end)
 

@@ -21,19 +21,19 @@ local cave_master = {
 	run_velocity = 3,
 	damage = 4,
 	drops = {
-		{name = "default:mese_crystal_fragment",
+		{name = "hades_core:mese_crystal_fragment",
 		chance = 1,
 		min = 1,
 		max = 3,},
-		{name = "default:diamond",
+		{name = "hades_core:diamond",
 		chance = 4,
 		min = 1,
 		max = 1,},
-		{name = "default:mese_crystal",
+		{name = "hades_core:mese_crystal",
 		chance = 2,
 		min = 1,
 		max = 2,},
-		{name = "default:mese",
+		{name = "hades_core:mese",
 		chance = 30,
 		min = 1,
 		max = 1,},
@@ -65,7 +65,7 @@ local cave_master = {
 	pathfinding = 1,
 }
 mobs:register_mob("mobs_hades:cave_master", cave_master)
-mobs:spawn_specific("mobs_hades:cave_master", {"default:stone"}, "air", 0, 1, 100, 7000, 1, -30000, -1000)
+mobs:spawn_specific("mobs_hades:cave_master", {"hades_core:stone"}, "air", 0, 1, 100, 7000, 1, -30000, -1000)
 
 local cave_elder = table.copy(cave_master)
 cave_elder.hp_min = 40
@@ -75,26 +75,26 @@ cave_elder.collisionbox = {-0.875, -0.01, -0.875, 0.875, 3.250, 0.875}
 cave_elder.visual_size = {x=10, y=10}
 cave_elder.textures = {"mobs_dungeon_master5.png"}
 cave_elder.drops = {
-	{name = "default:mese_crystal_fragment",
+	{name = "hades_core:mese_crystal_fragment",
 	chance = 1,
 	min = 2,
 	max = 6,},
-	{name = "default:diamond",
+	{name = "hades_core:diamond",
 	chance = 3,
 	min = 1,
 	max = 1,},
-	{name = "default:mese_crystal",
+	{name = "hades_core:mese_crystal",
 	chance = 2,
 	min = 2,
 	max = 4,},
-	{name = "default:mese",
+	{name = "hades_core:mese",
 	chance = 20,
 	min = 1,
 	max = 1,},
 },
 
 mobs:register_mob("mobs_hades:cave_elder", cave_elder)
-mobs:spawn_specific("mobs_hades:cave_elder", {"default:stone"}, "air", 0, 1, 100, 10000, 1, -30000, -7500)
+mobs:spawn_specific("mobs_hades:cave_elder", {"hades_core:stone"}, "air", 0, 1, 100, 10000, 1, -30000, -7500)
 
 mobs:register_egg("mobs_hades:cave_master", "Cave Master Spawn Egg", "mobs_chicken_egg_overlay.png^[colorize:#5D3000:228", 1, false)
 mobs:register_egg("mobs_hades:cave_elder", "Cave Elder Spawn Egg", "mobs_chicken_egg_overlay.png^[colorize:#2D1000:228", 1, false)

@@ -1,2 +1,2 @@
-default
+hades_core
 mesecons

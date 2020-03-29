@@ -49,7 +49,7 @@ minetest.register_abm({
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		hades_plus:generate_cjtree(pos, "default:jungletree", "hades_trees:cultivated_jungle_leaves", {"default:dirt", "default:dirt_with_grass"})
+		hades_plus:generate_cjtree(pos, "hades_core:jungletree", "hades_trees:cultivated_jungle_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass"})
 	end
 })
 

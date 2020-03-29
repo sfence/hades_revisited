@@ -82,51 +82,51 @@ minetest.register_node("hades_lamps:lantern_rusty", {
 minetest.register_craft({
 	output = 'hades_lamps:lamp_wall 2',
 	recipe = {
-		{'default:glass', '', ''},
+		{'hades_core:glass', '', ''},
 		{'glowcrystals:glowdust', '', ''},
-		{'default:glass', '', ''},
+		{'hades_core:glass', '', ''},
 	}
 })
 minetest.register_craft({
 	output = 'hades_lamps:lamp_wall 2',
 	recipe = {
-		{'default:glass', '', ''},
+		{'hades_core:glass', '', ''},
 		{'hades_torches:torch', '', ''},
-		{'default:glass', '', ''},
+		{'hades_core:glass', '', ''},
 	}
 })
 
 minetest.register_craft({
 	output = 'hades_lamps:lantern 2',
 	recipe = {
-		{'', 'default:bronze_ingot', ''},
-		{'default:glass', 'glowcrystals:glowdust', 'default:glass'},
-		{'', 'default:bronze_ingot', ''},
+		{'', 'hades_core:bronze_ingot', ''},
+		{'hades_core:glass', 'glowcrystals:glowdust', 'hades_core:glass'},
+		{'', 'hades_core:bronze_ingot', ''},
 	}
 })
 minetest.register_craft({
 	output = 'hades_lamps:lantern 2',
 	recipe = {
-		{'', 'default:bronze_ingot', ''},
-		{'default:glass', 'hades_torches:torch', 'default:glass'},
-		{'', 'default:bronze_ingot', ''},
+		{'', 'hades_core:bronze_ingot', ''},
+		{'hades_core:glass', 'hades_torches:torch', 'hades_core:glass'},
+		{'', 'hades_core:bronze_ingot', ''},
 	}
 })
 
 minetest.register_craft({
 	output = 'hades_lamps:lantern_rusty 2',
 	recipe = {
-		{'', 'default:steel_ingot', ''},
-		{'default:glass', 'glowcrystals:glowdust', 'default:glass'},
-		{'', 'default:steel_ingot', ''},
+		{'', 'hades_core:steel_ingot', ''},
+		{'hades_core:glass', 'glowcrystals:glowdust', 'hades_core:glass'},
+		{'', 'hades_core:steel_ingot', ''},
 	}
 })
 minetest.register_craft({
 	output = 'hades_lamps:lantern_rusty 2',
 	recipe = {
-		{'', 'default:steel_ingot', ''},
-		{'default:glass', 'hades_torches:torch', 'default:glass'},
-		{'', 'default:steel_ingot', ''},
+		{'', 'hades_core:steel_ingot', ''},
+		{'hades_core:glass', 'hades_torches:torch', 'hades_core:glass'},
+		{'', 'hades_core:steel_ingot', ''},
 	}
 })
 

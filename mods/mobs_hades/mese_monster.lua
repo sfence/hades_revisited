@@ -18,11 +18,11 @@ local mese_monster = {
 	run_velocity = 2,
 	damage = 3,
 	drops = {
-		{name = "default:mese_crystal",
+		{name = "hades_core:mese_crystal",
 		chance = 9,
 		min = 1,
 		max = 3,},
-		{name = "default:mese_crystal_fragment",
+		{name = "hades_core:mese_crystal_fragment",
 		chance = 1,
 		min = 1,
 		max = 9,},
@@ -63,8 +63,8 @@ deep_mese_monster.hp_max = 45
 mobs:register_mob("mobs_hades:deep_mese_monster", deep_mese_monster)
 
 
-mobs:spawn_specific("mobs_hades:mese_monster", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -10000, -250)
-mobs:spawn_specific("mobs_hades:deep_mese_monster", {"default:stone"}, "air", 0, 4, 70, 7000, 1, -30000, -5000)
+mobs:spawn_specific("mobs_hades:mese_monster", {"hades_core:stone"}, "air", 0, 4, 70, 7000, 1, -10000, -250)
+mobs:spawn_specific("mobs_hades:deep_mese_monster", {"hades_core:stone"}, "air", 0, 4, 70, 7000, 1, -30000, -5000)
 
 mobs:register_egg("mobs_hades:mese_monster", "Mese Monster Spawn Egg", "default_mese_block.png", 1, false)
 mobs:register_egg("mobs_hades:deep_mese_monster", "Deep Mese Monster Spawn Egg", "default_mese_block.png^[colorize:#000000:65", 1, false)

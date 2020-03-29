@@ -28,9 +28,9 @@ minetest.register_node("columnia:bracket",	{
 minetest.register_craft({
 		output = 'columnia:bracket 4',
 		recipe = {
-			{"default:steel_ingot", "default:steel_ingot", ""},
-			{"", "default:steel_ingot", ""},
-			{"", "default:steel_ingot", ""},
+			{"hades_core:steel_ingot", "hades_core:steel_ingot", ""},
+			{"", "hades_core:steel_ingot", ""},
+			{"", "hades_core:steel_ingot", ""},
 		},
 		replacements = {{"columnia:blueprint", "columnia:blueprint"}},
 })
@@ -63,17 +63,17 @@ minetest.register_node("columnia:lamp_ceiling", {
 minetest.register_craft({
 		output = 'columnia:lamp_ceiling 4',
 		recipe = {
-			{"default:steel_ingot", "default:steel_ingot", ""},
+			{"hades_core:steel_ingot", "hades_core:steel_ingot", ""},
 			{"", "glowcrystals:glowdust", ""},
-			{"", "default:glass", ""},
+			{"", "hades_core:glass", ""},
 		},
 })
 minetest.register_craft({
 		output = 'columnia:lamp_ceiling 4',
 		recipe = {
-			{"default:steel_ingot", "default:steel_ingot", ""},
+			{"hades_core:steel_ingot", "hades_core:steel_ingot", ""},
 			{"", "hades_torches:torch", ""},
-			{"", "default:glass", ""},
+			{"", "hades_core:glass", ""},
 		},
 })
 
@@ -90,9 +90,9 @@ minetest.register_node("columnia:rusty_block", {
 minetest.register_craft({
 		output = 'columnia:rusty_block 3',
 		recipe = {
-			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
-			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
-			{"default:iron_lump", "default:iron_lump", "default:iron_lump"},
+			{"hades_core:iron_lump", "hades_core:iron_lump", "hades_core:iron_lump"},
+			{"hades_core:iron_lump", "hades_core:iron_lump", "hades_core:iron_lump"},
+			{"hades_core:iron_lump", "hades_core:iron_lump", "hades_core:iron_lump"},
 		},
 })
 

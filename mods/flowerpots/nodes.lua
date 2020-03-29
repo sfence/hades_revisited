@@ -8,9 +8,9 @@ local flowers = {
 	{"dandelion_white", "flowers:dandelion_white", "White Flower"},
 
 -- TODO: Maybe add these later?
---	{"grass", "default:grass_1", "Grass"},
---	{"junglegrass", "default:junglegrass", "junglegrass"},
---	{"dry_shrub", "default:dry_shrub", "Dry Shrub"},
+--	{"grass", "hades_core:grass_1", "Grass"},
+--	{"junglegrass", "hades_core:junglegrass", "junglegrass"},
+--	{"dry_shrub", "hades_core:dry_shrub", "Dry Shrub"},
 
 	{"sapling", "hades_trees:sapling", "Common Tree Sapling"},
 	{"jungle_sapling", "hades_trees:jungle_sapling", "Common Jungle Tree Sapling"},
@@ -21,7 +21,7 @@ local flowers = {
 }
 
 local cubes = {
-	{"cactus", "default:cactus", "Cactus"},
+	{"cactus", "hades_core:cactus", "Cactus"},
 	{"leaves", "hades_trees:leaves", "Common Leaves"},
 	{"jungle_leaves", "hades_trees:jungle_leaves", "Common Jungle Leaves"},
 	{"cultivated_jungle_leaves", "hades_trees:cultivated_jungle_leaves", "Cultivated Jungle Leaves"},
@@ -78,8 +78,8 @@ minetest.register_node("flowerpots:flower_pot", {
 minetest.register_craft({
 	output = 'flowerpots:flower_pot',
 	recipe = {
-		{'default:clay_brick', '', 'default:clay_brick'},
-		{'', 'default:clay_brick', ''},
+		{'hades_core:clay_brick', '', 'hades_core:clay_brick'},
+		{'', 'hades_core:clay_brick', ''},
 	}
 })
 

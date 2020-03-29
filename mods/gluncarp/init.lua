@@ -17,7 +17,7 @@ minetest.register_node("gluncarp:wool_blackgold", {
 	minetest.register_craft({
 		type = "shapeless",
 		output = 'gluncarp:wool_blackgold',
-		recipe = {'wool:black','default:gold_ingot'},
+		recipe = {'wool:black','hades_core:gold_ingot'},
 	})
 	
 

@@ -86,9 +86,9 @@ minetest.register_craftitem("hades_food:pie_apple", {
 minetest.register_craft({
 	output = 'hades_food:pie_strawberry_raw',
 	recipe = {
-		{'', 'default:sugar', ''},
+		{'', 'hades_core:sugar', ''},
 		{'farming:strawberry', 'farming:strawberry', 'farming:strawberry'},
-		{'default:sugar', 'farming:flour', 'default:sugar'},
+		{'hades_core:sugar', 'farming:flour', 'hades_core:sugar'},
 	}
 })
 
@@ -102,9 +102,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_food:pie_apple_raw',
 	recipe = {
-		{'', 'default:sugar', ''},
+		{'', 'hades_core:sugar', ''},
 		{'hades_trees:apple', 'hades_trees:apple', 'hades_trees:apple'},
-		{'default:sugar', 'farming:flour', 'default:sugar'},
+		{'hades_core:sugar', 'farming:flour', 'hades_core:sugar'},
 	}
 })
 
@@ -154,9 +154,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_food:plate 10',
 	recipe = {
-		{'', 'default:clay', ''},
-		{'default:clay', 'default:clay', 'default:clay'},
-		{'', 'default:clay', ''},
+		{'', 'hades_core:clay', ''},
+		{'hades_core:clay', 'hades_core:clay', 'hades_core:clay'},
+		{'', 'hades_core:clay', ''},
 	}
 })
 

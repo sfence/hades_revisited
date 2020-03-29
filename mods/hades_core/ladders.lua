@@ -1,4 +1,4 @@
-default.register_ladder = function(id, def)
+hades_core.register_ladder = function(id, def)
 	local odef = {
 		description = def.description,
 		_doc_items_longdesc = "A piece of ladder which allows you to climb vertically.",
@@ -91,14 +91,14 @@ end
 
 
 
-default.register_ladder("default:ladder", {
+hades_core.register_ladder("hades_core:ladder", {
 	description = "Wooden Ladder",
 	texture = "default_ladder.png",
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
-default.register_ladder("default:ladder_bronze", {
+hades_core.register_ladder("hades_core:ladder_bronze", {
 	description = "Bronze Ladder",
 	texture = "default_ladder_bronze.png",
 	groups = {cracky=3},

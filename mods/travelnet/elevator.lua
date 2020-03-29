@@ -148,9 +148,9 @@ minetest.register_node("travelnet:elevator_top", {
 --        minetest.register_craft({
 --                output = "travelnet:elevator",
 --		recipe = {
---                        {"default:steel_ingot", "technic:motor", "default:steel_ingot", },
---                	{"default:steel_ingot", "technic:control_logic_unit", "default:steel_ingot", },
---                	{"default:steel_ingot", "moreores:copper_ingot", "default:steel_ingot", }
+--                        {"hades_core:steel_ingot", "technic:motor", "hades_core:steel_ingot", },
+--                	{"hades_core:steel_ingot", "technic:control_logic_unit", "hades_core:steel_ingot", },
+--                	{"hades_core:steel_ingot", "moreores:copper_ingot", "hades_core:steel_ingot", }
 --                }
 --        })
 --else

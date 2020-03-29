@@ -7,8 +7,8 @@ minetest.register_craft({
 	output = 'pipeworks:deployer_off 1',
 	recipe = {
 		{'group:wood', 'group:chest','group:wood'},
-		{'default:stone', 'mesecons:piston','default:stone'},
-		{'default:stone', 'mesecons:mesecon','default:stone'},
+		{'hades_core:stone', 'mesecons:piston','hades_core:stone'},
+		{'hades_core:stone', 'mesecons:mesecon','hades_core:stone'},
 	}
 })
 

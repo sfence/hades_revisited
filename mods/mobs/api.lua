@@ -87,10 +87,10 @@ local stuck_path_timeout = 10 -- how long will mob follow path before giving up
 -- default nodes
 local node_fire = "fire:basic_flame"
 local node_permanent_flame = "fire:permanent_flame"
-local node_ice = "default:stone"
-local node_snowblock = "default:stone"
-local node_snow = "default:stone"
-mobs.fallback_node = minetest.registered_aliases["mapgen_sand"] or "default:ash"
+local node_ice = "hades_core:stone"
+local node_snowblock = "hades_core:stone"
+local node_snow = "hades_core:stone"
+mobs.fallback_node = minetest.registered_aliases["mapgen_sand"] or "hades_core:ash"
 
 
 -- play sound
@@ -2863,7 +2863,7 @@ minetest.register_entity(name, {
 	lava_damage = def.lava_damage or 0,
 	suffocation = def.suffocation or 2,
 	fall_damage = def.fall_damage or 1,
-	fall_speed = def.fall_speed or -10, -- must be lower than -2 (default: -10)
+	fall_speed = def.fall_speed or -10, -- must be lower than -2 (hades_core: -10)
 	drops = def.drops or {},
 	armor = def.armor or 100,
 	on_rightclick = def.on_rightclick,

@@ -1,4 +1,3 @@
--- Minetest 0.4 mod: default
 -- See README.txt for licensing and other information.
 
 -- Map Generation
@@ -29,7 +28,7 @@ minetest.register_craft({
 	recipe = {
 		{'group:leaves', '', ''},
 		{'group:stick', '', ''},
-		{'default:dirt', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
 
@@ -57,7 +56,7 @@ minetest.register_craft({
 	recipe = {
 		{'flowers:dandelion_white', '', ''},
 		{'simple_bushes:green', '', ''},
-		{'default:dirt', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
 
@@ -85,7 +84,7 @@ minetest.register_craft({
 	recipe = {
 		{'flowers:dandelion_yellow', '', ''},
 		{'simple_bushes:green', '', ''},
-		{'default:dirt', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
 
@@ -113,7 +112,7 @@ minetest.register_craft({
 	recipe = {
 		{'flowers:geranium', '', ''},
 		{'simple_bushes:green', '', ''},
-		{'default:dirt', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
 
@@ -141,7 +140,7 @@ minetest.register_craft({
 	recipe = {
 		{'flowers:rose', '', ''},
 		{'simple_bushes:green', '', ''},
-		{'default:dirt', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
 
@@ -169,7 +168,7 @@ minetest.register_craft({
 	recipe = {
 		{'flowers:tulip', '', ''},
 		{'simple_bushes:green', '', ''},
-		{'default:dirt', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
 
@@ -198,7 +197,7 @@ minetest.register_craft({
 	recipe = {
 		{'flowers:viola', '', ''},
 		{'simple_bushes:green', '', ''},
-		{'default:dirt', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
 
@@ -224,23 +223,23 @@ minetest.register_node("simple_bushes:plant_pot",
 	})
 
 minetest.register_craft({ output = "simple_bushes:plant_pot", recipe = {
-	{"default:clay_brick", "", "default:clay_brick"},
-	{"default:clay_brick", "default:dirt", "default:clay_brick"},
-	{"default:clay_brick", "default:clay_brick", "default:clay_brick"} } })
+	{"hades_core:clay_brick", "", "hades_core:clay_brick"},
+	{"hades_core:clay_brick", "hades_core:dirt", "hades_core:clay_brick"},
+	{"hades_core:clay_brick", "hades_core:clay_brick", "hades_core:clay_brick"} } })
 ---------------
 
 -- abm
 
 minetest.register_abm({
 	nodenames = {"group:flora"},
-	neighbors = {"default:dirt_with_grass"},
+	neighbors = {"hades_core:dirt_with_grass"},
 	interval = 150,
 	chance = 40,
 	action = function(pos, node)
 		pos.y = pos.y - 1
 		local under = minetest.get_node(pos)
 		pos.y = pos.y + 1
-		if under.name ~= "default:dirt_with_grass" then
+		if under.name ~= "hades_core:dirt_with_grass" then
 			return
 		end
 
@@ -264,7 +263,7 @@ minetest.register_abm({
 		end
 
 
-		local seedling = minetest.find_nodes_in_area(pos0, pos1, "default:dirt_with_grass")
+		local seedling = minetest.find_nodes_in_area(pos0, pos1, "hades_core:dirt_with_grass")
 		if #seedling > 0 then
 			seedling = seedling[math.random(#seedling)]
 			seedling.y = seedling.y + 1

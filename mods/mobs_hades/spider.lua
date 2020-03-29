@@ -77,10 +77,10 @@ spider4.textures = { "mobs_spider4.png" }
 mobs:register_mob("mobs_hades:spider_mese", spider4)
 
 
-mobs:spawn_specific("mobs_hades:spider_gold", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
-mobs:spawn_specific("mobs_hades:spider_sapphire", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -7500, -100)
-mobs:spawn_specific("mobs_hades:spider_ruby", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -15000, -5000)
-mobs:spawn_specific("mobs_hades:spider_mese", {"default:tuff", "default:stone"}, "air", 0, 4, 50, 7000, 1, -30000, -10000)
+mobs:spawn_specific("mobs_hades:spider_gold", {"hades_core:tuff", "hades_core:stone"}, "air", 0, 4, 50, 7000, 1, -100, 31000)
+mobs:spawn_specific("mobs_hades:spider_sapphire", {"hades_core:tuff", "hades_core:stone"}, "air", 0, 4, 50, 7000, 1, -7500, -100)
+mobs:spawn_specific("mobs_hades:spider_ruby", {"hades_core:tuff", "hades_core:stone"}, "air", 0, 4, 50, 7000, 1, -15000, -5000)
+mobs:spawn_specific("mobs_hades:spider_mese", {"hades_core:tuff", "hades_core:stone"}, "air", 0, 4, 50, 7000, 1, -30000, -10000)
 
 -- Cobweb
 minetest.register_node("mobs_hades:cobweb", {

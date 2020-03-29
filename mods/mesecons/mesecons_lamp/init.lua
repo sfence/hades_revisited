@@ -54,8 +54,8 @@ minetest.register_node("mesecons_lamp:lamp_off", {
 minetest.register_craft({
 	output = "mesecons_lamp:lamp_off 1",
 	recipe = {
-		{"", "default:glass", ""},
+		{"", "hades_core:glass", ""},
 		{"group:mesecon_conductor_craftable", "glowcrystals:glowdust", "group:mesecon_conductor_craftable"},
-		{"", "default:glass", ""},
+		{"", "hades_core:glass", ""},
 	}
 })

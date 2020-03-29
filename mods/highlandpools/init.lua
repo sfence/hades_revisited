@@ -34,9 +34,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 	local c_air = minetest.get_content_id("air")
 	local c_ignore = minetest.get_content_id("ignore")
-	local c_lava = minetest.get_content_id("default:lava_source")
-	local c_ash = minetest.get_content_id("default:ash")
-	local c_vgravel = minetest.get_content_id("default:gravel_volcanic")
+	local c_lava = minetest.get_content_id("hades_core:lava_source")
+	local c_ash = minetest.get_content_id("hades_core:ash")
+	local c_vgravel = minetest.get_content_id("hades_core:gravel_volcanic")
 
 
 	for xcen = x0 + 8, x1 - 7, 8 do

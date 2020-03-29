@@ -118,7 +118,7 @@ hades_torches.register_torch("torch_low", {
 minetest.register_craft({
 	output = 'hades_torches:torch_low 4',
 	recipe = {
-		{'default:coal_lump'},
+		{'hades_core:coal_lump'},
 		{'group:stick'},
 	}
 })

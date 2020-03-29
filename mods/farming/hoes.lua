@@ -19,7 +19,7 @@ farming.register_hoe(":farming:hoe_steel", {
 	inventory_image = "farming_tool_steelhoe.png",
 	groups = { hoe = 1, },
 	max_uses = 200,
-	material = "default:steel_ingot"
+	material = "hades_core:steel_ingot"
 })
 
 farming.register_hoe(":farming:hoe_bronze", {
@@ -27,7 +27,7 @@ farming.register_hoe(":farming:hoe_bronze", {
 	inventory_image = "farming_tool_bronzehoe.png",
 	groups = { hoe = 1, },
 	max_uses = 220,
-	material = "default:bronze_ingot"
+	material = "hades_core:bronze_ingot"
 })
 
 farming.register_hoe(":farming:hoe_mese", {
@@ -35,8 +35,8 @@ farming.register_hoe(":farming:hoe_mese", {
 	inventory_image = "farming_tool_mesehoe.png",
 	groups = { hoe = 1, },
 	max_uses = 350,
-	material = "default:mese_crystal",
-	material_handle = "default:steel_ingot",
+	material = "hades_core:mese_crystal",
+	material_handle = "hades_core:steel_ingot",
 })
 
 farming.register_hoe(":farming:hoe_prism", {
@@ -44,8 +44,8 @@ farming.register_hoe(":farming:hoe_prism", {
 	inventory_image = "farming_tool_prismhoe.png",
 	groups = { hoe = 1, },
 	max_uses = 1050,
-	material = "default:prismatic_gem",
-	material_handle = "default:steel_ingot",
+	material = "hades_core:prismatic_gem",
+	material_handle = "hades_core:steel_ingot",
 })
 
 minetest.register_craft({

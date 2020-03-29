@@ -122,18 +122,18 @@ minetest.register_node("travelnet:elevator_door_glass_closed", {
 minetest.register_craft({
         output = "travelnet:elevator_door_glass_closed",
         recipe = {
-	        {"default:glass", "", "default:glass", },
-		{"default:glass", "", "default:glass", },
-		{"default:glass", "", "default:glass", }
+	        {"hades_core:glass", "", "hades_core:glass", },
+		{"hades_core:glass", "", "hades_core:glass", },
+		{"hades_core:glass", "", "hades_core:glass", }
 	        }
 })
 
 minetest.register_craft({
         output = "travelnet:elevator_door_steel_closed",
         recipe = {
-	        {"default:stone", "", "default:stone", },
-		{"default:stone", "", "default:stone", },
-		{"default:stone", "", "default:stone", }
+	        {"hades_core:stone", "", "hades_core:stone", },
+		{"hades_core:stone", "", "hades_core:stone", },
+		{"hades_core:stone", "", "hades_core:stone", }
 	        }
 })
 

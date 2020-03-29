@@ -1,3 +1,3 @@
 hades_sounds
-default
+hades_core
 hades_trees

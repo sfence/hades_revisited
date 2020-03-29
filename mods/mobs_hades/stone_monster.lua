@@ -21,15 +21,15 @@ local stone_monster = {
 	run_velocity = 2,
 	damage = 3,
 	drops = {
-		{name = "default:stone",
+		{name = "hades_core:stone",
 		chance = 2,
 		min = 3,
 		max = 5,},
-		{name = "default:chondrite",
+		{name = "hades_core:chondrite",
 		chance=3,
 		min=1,
 		max=2,},
-		{name = "default:coal_lump",
+		{name = "hades_core:coal_lump",
 		chance=5,
 		min=1,
 		max=3,},
@@ -58,7 +58,7 @@ local stone_monster = {
 	pathfinding = 1,
 }
 mobs:register_mob("mobs_hades:stone_monster", stone_monster)
-mobs:spawn_specific("mobs_hades:stone_monster", {"default:stone", "default:mossystone"}, "air", 0, 3, 90, 7000, 1, -5000, -50)
+mobs:spawn_specific("mobs_hades:stone_monster", {"hades_core:stone", "hades_core:mossystone"}, "air", 0, 3, 90, 7000, 1, -5000, -50)
 
 -- Deep stone monster
 local deep_stone_monster = table.copy(stone_monster)
@@ -72,8 +72,8 @@ deep_stone_monster.view_range = 20
 
 mobs:register_mob("mobs_hades:deep_stone_monster", deep_stone_monster)
 
-mobs:spawn_specific("mobs_hades:deep_stone_monster", {"default:stone", "default:mossystone", "default:chondrite", "default:essexite"}, "air", 0, 3, 90, 7000, 1, -5000, -2500)
-mobs:spawn_specific("mobs_hades:deep_stone_monster", {"default:stone", "default:mossystone", "default:chondrite", "default:essexite"}, "air", 0, 3, 90, 7000, 1, -30000, -5000)
+mobs:spawn_specific("mobs_hades:deep_stone_monster", {"hades_core:stone", "hades_core:mossystone", "hades_core:chondrite", "hades_core:essexite"}, "air", 0, 3, 90, 7000, 1, -5000, -2500)
+mobs:spawn_specific("mobs_hades:deep_stone_monster", {"hades_core:stone", "hades_core:mossystone", "hades_core:chondrite", "hades_core:essexite"}, "air", 0, 3, 90, 7000, 1, -30000, -5000)
 
 mobs:register_egg("mobs_hades:stone_monster", "Stone Monster Spawn Egg", "default_stone.png", 1, false)
 mobs:register_egg("mobs_hades:deep_stone_monster", "Deep Stone Monster Spawn Egg", "default_stone.png^[colorize:#000000:127", 1, false)

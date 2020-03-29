@@ -1,5 +1,5 @@
 
-minetest.register_node("default:dry_shrub", {
+minetest.register_node("hades_core:dry_shrub", {
 	description = "Dry Shrub",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
@@ -20,7 +20,7 @@ minetest.register_node("default:dry_shrub", {
 })
 
 
-minetest.register_node("default:grass_1", {
+minetest.register_node("hades_core:grass_1", {
 	description = "Grass",
 	drawtype = "plantlike",
 	tiles = {"default_grass_1.png"},
@@ -39,14 +39,14 @@ minetest.register_node("default:grass_1", {
 	},
 	on_place = function(itemstack, placer, pointed_thing)
 		-- place a random grass node
-		local stack = ItemStack("default:grass_"..math.random(1,5))
+		local stack = ItemStack("hades_core:grass_"..math.random(1,5))
 		local ret = minetest.item_place(stack, placer, pointed_thing)
-		return ItemStack("default:grass_1 "..itemstack:get_count()-(1-ret:get_count()))
+		return ItemStack("hades_core:grass_1 "..itemstack:get_count()-(1-ret:get_count()))
 	end,
 })
 
 for i=2,5 do
-	minetest.register_node("default:grass_"..i, {
+	minetest.register_node("hades_core:grass_"..i, {
 		description = "Grass",
 		drawtype = "plantlike",
 		tiles = {"default_grass_"..i..".png"},
@@ -56,7 +56,7 @@ for i=2,5 do
 		walkable = false,
 		buildable_to = true,
 		is_ground_content = true,
-		drop = "default:grass_1",
+		drop = "hades_core:grass_1",
 		groups = {snappy=3,flammable=3,flora=1,grass=1,attached_node=1,not_in_creative_inventory=1},
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 		selection_box = {
@@ -66,7 +66,7 @@ for i=2,5 do
 	})
 end
 
-minetest.register_node("default:junglegrass", {
+minetest.register_node("hades_core:junglegrass", {
 	description = "Jungle Grass",
 	drawtype = "plantlike",
 	visual_scale = 1.3,
@@ -85,7 +85,7 @@ minetest.register_node("default:junglegrass", {
 	},
 })
 
-minetest.register_node("default:snag", {
+minetest.register_node("hades_core:snag", {
 	description = "Snag",
 	tiles = {"default_tree.png", "default_tree.png", "default_tree.png"},
                       paramtype = "light",
@@ -110,7 +110,7 @@ minetest.register_node("default:snag", {
 		max_items = 1,
 		items = {
 			{
-				items = {'default:snag'},
+				items = {'hades_core:snag'},
 				rarity = 5,
 			},
 			{
@@ -122,7 +122,7 @@ minetest.register_node("default:snag", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("default:cactus", {
+minetest.register_node("hades_core:cactus", {
 	description = "Cactus",
 	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
 	paramtype = "light",
@@ -145,7 +145,7 @@ minetest.register_node("default:cactus", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("default:cactus_block", {
+minetest.register_node("hades_core:cactus_block", {
 	description = "Cactus Block",
 	tiles = {"default_cactus_block.png"},
 	is_ground_content = false,
@@ -153,7 +153,7 @@ minetest.register_node("default:cactus_block", {
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
-minetest.register_node("default:cactus_brick", {
+minetest.register_node("hades_core:cactus_brick", {
 	description = "Cactus Brick",
 	tiles = {"default_cactus_brick.png"},
 	is_ground_content = false,
@@ -161,7 +161,7 @@ minetest.register_node("default:cactus_brick", {
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
-minetest.register_node("default:glowing_cactus_block", {
+minetest.register_node("hades_core:glowing_cactus_block", {
 	description = "Glowing Cactus Block",
 	tiles = {"default_cactus_block.png"},
 	is_ground_content = false,
@@ -182,7 +182,7 @@ local function dig_up(pos, node, digger)
 	end
 end
 
-minetest.register_node("default:papyrus", {
+minetest.register_node("hades_core:papyrus", {
 	description = "Papyrus",
 	drawtype = "nodebox",
 	tiles = {
@@ -233,7 +233,7 @@ minetest.register_node("default:papyrus", {
 	end,
 })
 
-minetest.register_node("default:sugarcane", {
+minetest.register_node("hades_core:sugarcane", {
 	description = "Sugarcane",
 	drawtype = "plantlike",
 	tiles = {"default_sugarcane.png"},

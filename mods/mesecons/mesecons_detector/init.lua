@@ -80,9 +80,9 @@ minetest.register_node("mesecons_detector:object_detector_on", {
 minetest.register_craft({
 	output = 'mesecons_detector:object_detector_off',
 	recipe = {
-		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
-		{"default:steel_ingot", "mesecons_luacontroller:luacontroller0000", "default:steel_ingot"},
-		{"default:steel_ingot", "group:mesecon_conductor_craftable", "default:steel_ingot"},
+		{"hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot"},
+		{"hades_core:steel_ingot", "mesecons_luacontroller:luacontroller0000", "hades_core:steel_ingot"},
+		{"hades_core:steel_ingot", "group:mesecon_conductor_craftable", "hades_core:steel_ingot"},
 	}
 })
 

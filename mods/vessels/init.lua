@@ -21,9 +21,9 @@ minetest.register_node("vessels:glass_bottle", {
 minetest.register_craft( {
 	output = "vessels:glass_bottle 10",
 	recipe = {
-		{ "default:glass", "", "default:glass" },
-		{ "default:glass", "", "default:glass" },
-		{ "", "default:glass", "" }
+		{ "hades_core:glass", "", "hades_core:glass" },
+		{ "hades_core:glass", "", "hades_core:glass" },
+		{ "", "hades_core:glass", "" }
 	}
 })
 
@@ -47,9 +47,9 @@ minetest.register_node("vessels:drinking_glass", {
 minetest.register_craft( {
 	output = "vessels:drinking_glass 14",
 	recipe = {
-		{ "default:glass", "", "default:glass" },
-		{ "default:glass", "", "default:glass" },
-		{ "default:glass", "default:glass", "default:glass" }
+		{ "hades_core:glass", "", "hades_core:glass" },
+		{ "hades_core:glass", "", "hades_core:glass" },
+		{ "hades_core:glass", "hades_core:glass", "hades_core:glass" }
 	}
 })
 
@@ -73,9 +73,9 @@ minetest.register_node("vessels:steel_bottle", {
 minetest.register_craft( {
 	output = "vessels:steel_bottle 5",
 	recipe = {
-		{ "default:steel_ingot", "", "default:steel_ingot" },
-		{ "default:steel_ingot", "", "default:steel_ingot" },
-		{ "", "default:steel_ingot", "" }
+		{ "hades_core:steel_ingot", "", "hades_core:steel_ingot" },
+		{ "hades_core:steel_ingot", "", "hades_core:steel_ingot" },
+		{ "", "hades_core:steel_ingot", "" }
 	}
 })
 
@@ -107,13 +107,13 @@ minetest.register_craft( {
 
 minetest.register_craft({
 	type = "cooking",
-	output = "default:glass",
+	output = "hades_core:glass",
 	recipe = "vessels:glass_fragments",
 })
 
 minetest.register_craft( {
 	type = "cooking",
-	output = "default:steel_ingot",
+	output = "hades_core:steel_ingot",
 	recipe = "vessels:steel_bottle",
 })
 

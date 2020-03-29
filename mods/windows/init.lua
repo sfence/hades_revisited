@@ -62,33 +62,33 @@ windows.register_window("windows:windows_birch_wood", {
 minetest.register_craft({
 	output = 'windows:windows_wood 4',
 	recipe = {
-		{'hades_trees:wood', 'default:glass', 'hades_trees:wood'},
-		{'default:glass', 'default:glass', 'default:glass'},
-		{'hades_trees:wood', 'default:glass', 'hades_trees:wood'},
+		{'hades_trees:wood', 'hades_core:glass', 'hades_trees:wood'},
+		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
+		{'hades_trees:wood', 'hades_core:glass', 'hades_trees:wood'},
 	}
 })
 minetest.register_craft({
 	output = 'windows:windows_jungle_wood 4',
 	recipe = {
-		{'hades_trees:jungle_wood', 'default:glass', 'hades_trees:jungle_wood'},
-		{'default:glass', 'default:glass', 'default:glass'},
-		{'hades_trees:jungle_wood', 'default:glass', 'hades_trees:jungle_wood'},
+		{'hades_trees:jungle_wood', 'hades_core:glass', 'hades_trees:jungle_wood'},
+		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
+		{'hades_trees:jungle_wood', 'hades_core:glass', 'hades_trees:jungle_wood'},
 	}
 })
 minetest.register_craft({
 	output = 'windows:windows_pale_wood 4',
 	recipe = {
-		{'hades_trees:pale_wood', 'default:glass', 'hades_trees:pale_wood'},
-		{'default:glass', 'default:glass', 'default:glass'},
-		{'hades_trees:pale_wood', 'default:glass', 'hades_trees:pale_wood'},
+		{'hades_trees:pale_wood', 'hades_core:glass', 'hades_trees:pale_wood'},
+		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
+		{'hades_trees:pale_wood', 'hades_core:glass', 'hades_trees:pale_wood'},
 	}
 })
 minetest.register_craft({
 	output = 'windows:windows_birch_wood 4',
 	recipe = {
-		{'hades_trees:birch_wood', 'default:glass', 'hades_trees:birch_wood'},
-		{'default:glass', 'default:glass', 'default:glass'},
-		{'hades_trees:birch_wood', 'default:glass', 'hades_trees:birch_wood'},
+		{'hades_trees:birch_wood', 'hades_core:glass', 'hades_trees:birch_wood'},
+		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
+		{'hades_trees:birch_wood', 'hades_core:glass', 'hades_trees:birch_wood'},
 	}
 })
 
@@ -133,9 +133,9 @@ windows.register_window("windows:paperwall", {
 minetest.register_craft({
 	output = 'windows:paperwall 4',
 	recipe = {
-		{'group:wood', 'default:paper', 'group:wood'},
-		{'default:paper', 'default:paper', 'default:paper'},
-		{'group:wood', 'default:paper', 'group:wood'},
+		{'group:wood', 'hades_core:paper', 'group:wood'},
+		{'hades_core:paper', 'hades_core:paper', 'hades_core:paper'},
+		{'group:wood', 'hades_core:paper', 'group:wood'},
 	}
 })
 
@@ -151,8 +151,8 @@ windows.register_window("windows:windows_obsidian", {
 minetest.register_craft({
 	output = 'windows:windows_obsidian 4',
 	recipe = {
-		{'default:obsidian_shard', 'default:obsidian_glass', 'default:obsidian_shard'},
-		{'default:obsidian_glass', 'default:obsidian_glass', 'default:obsidian_glass'},
-		{'default:obsidian_shard', 'default:obsidian_glass', 'default:obsidian_shard'},
+		{'hades_core:obsidian_shard', 'hades_core:obsidian_glass', 'hades_core:obsidian_shard'},
+		{'hades_core:obsidian_glass', 'hades_core:obsidian_glass', 'hades_core:obsidian_glass'},
+		{'hades_core:obsidian_shard', 'hades_core:obsidian_glass', 'hades_core:obsidian_shard'},
 	}
 })

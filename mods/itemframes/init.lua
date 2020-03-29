@@ -240,7 +240,7 @@ minetest.register_craft({
 	output = 'itemframes:frame',
 	recipe = {
 		{'group:stick', 'group:stick', 'group:stick'},
-		{'group:stick', 'default:paper', 'group:stick'},
+		{'group:stick', 'hades_core:paper', 'group:stick'},
 		{'group:stick', 'group:stick', 'group:stick'},
 	}
 })
@@ -248,8 +248,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'itemframes:pedestal',
 	recipe = {
-		{'default:stone', 'default:stone', 'default:stone'},
-		{'', 'default:stone', ''},
-		{'default:stone', 'default:stone', 'default:stone'},
+		{'hades_core:stone', 'hades_core:stone', 'hades_core:stone'},
+		{'', 'hades_core:stone', ''},
+		{'hades_core:stone', 'hades_core:stone', 'hades_core:stone'},
 	}
 })

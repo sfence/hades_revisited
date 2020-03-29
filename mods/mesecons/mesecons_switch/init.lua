@@ -35,7 +35,7 @@ minetest.register_node("mesecons_switch:mesecon_switch_on", {
 minetest.register_craft({
 	output = "mesecons_switch:mesecon_switch_off 2",
 	recipe = {
-		{"default:steel_ingot", "default:cobble", "default:steel_ingot"},
+		{"hades_core:steel_ingot", "hades_core:cobble", "hades_core:steel_ingot"},
 		{"group:mesecon_conductor_craftable","", "group:mesecon_conductor_craftable"},
 	}
 })

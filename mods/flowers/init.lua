@@ -123,16 +123,16 @@ minetest.register_node("flowers:viola", {
 
 minetest.register_abm({
 	nodenames = {"group:flora"},
-	neighbors = {"default:dirt_with_grass", "default:fertile_sand"},
+	neighbors = {"hades_core:dirt_with_grass", "hades_core:fertile_sand"},
 	interval = 50,
 	chance = 30,
 	action = function(pos, node)
 		pos.y = pos.y - 1
 		local under = minetest.get_node(pos)
 		pos.y = pos.y + 1
-		if under.name == "default:fertile_sand" then
-			minetest.set_node(pos, {name="default:dry_shrub"})
-		elseif under.name ~= "default:dirt_with_grass" then
+		if under.name == "hades_core:fertile_sand" then
+			minetest.set_node(pos, {name="hades_core:dry_shrub"})
+		elseif under.name ~= "hades_core:dirt_with_grass" then
 			return
 		end
 
@@ -156,7 +156,7 @@ minetest.register_abm({
 		end
 
 
-		local seedling = minetest.find_nodes_in_area(pos0, pos1, "default:dirt_with_grass")
+		local seedling = minetest.find_nodes_in_area(pos0, pos1, "hades_core:dirt_with_grass")
 		if #seedling > 0 then
 			seedling = seedling[math.random(#seedling)]
 			seedling.y = seedling.y + 1
@@ -175,24 +175,24 @@ minetest.register_craft({
 	output = 'flowers:dandelion_white',
 	recipe = {
 		{'farming:seed_cotton', 'farming:seed_cotton', 'farming:seed_cotton'},
-        {'default:grass_1', 'default:grass_1', 'default:grass_1'},
-		{'default:dirt', 'default:dirt', 'default:dirt'},
+        {'hades_core:grass_1', 'hades_core:grass_1', 'hades_core:grass_1'},
+		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 minetest.register_craft({
 	output = 'flowers:dandelion_yellow',
 	recipe = {
 		{'flowers:dandelion_white', 'flowers:dandelion_white', 'flowers:dandelion_white'},
-        {'default:grass_1', 'default:gold_lump', 'default:grass_1'},
-		{'default:dirt', 'default:dirt', 'default:dirt'},
+        {'hades_core:grass_1', 'hades_core:gold_lump', 'hades_core:grass_1'},
+		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 minetest.register_craft({
 	output = 'flowers:rose',
 	recipe = {
 		{'flowers:dandelion_white', 'flowers:dandelion_white', 'flowers:dandelion_white'},
-        {'default:grass_1', 'default:ruby', 'default:grass_1'},
-		{'default:dirt', 'default:dirt', 'default:dirt'},
+        {'hades_core:grass_1', 'hades_core:ruby', 'hades_core:grass_1'},
+		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 minetest.register_craft({
@@ -200,15 +200,15 @@ minetest.register_craft({
 	recipe = {
 		{'flowers:rose', 'flowers:rose', 'flowers:rose'},
         {'flowers:geranium', 'flowers:geranium', 'flowers:geranium'},
-		{'default:dirt', 'default:dirt', 'default:dirt'},
+		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 minetest.register_craft({
 	output = 'flowers:geranium',
 	recipe = {
 	    {'flowers:dandelion_white', 'flowers:dandelion_white', 'flowers:dandelion_white'},
-        {'default:grass_1', 'default:sapphire', 'default:grass_1'},
-		{'default:dirt', 'default:dirt', 'default:dirt'},
+        {'hades_core:grass_1', 'hades_core:sapphire', 'hades_core:grass_1'},
+		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 minetest.register_craft({
@@ -216,7 +216,7 @@ minetest.register_craft({
 	recipe = {
 		{'flowers:dandelion_yellow', 'flowers:dandelion_yellow', 'flowers:dandelion_yellow'},
         {'flowers:rose', 'flowers:rose', 'flowers:rose'},
-		{'default:dirt', 'default:dirt', 'default:dirt'},
+		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 

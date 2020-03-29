@@ -46,8 +46,8 @@ sradius:	Don't spawn within this many nodes of the avoid items
 schance:	The value passed to the ABM's chance parameter, normally in
 		the 10-100 range (1-in-X chance of operating on a given node)
 ssurface:	String with the name of the node on which to spawn the plant
-		in question, such as "default:ash" or
-		"default:dirt_with_grass".  It is not recommended to put air,
+		in question, such as "hades_core:ash" or
+		"hades_core:dirt_with_grass".  It is not recommended to put air,
 		stone, or plain dirt here if you can use some other node, as
 		doing so will cause the engine to process potentially large
 		numbers of such nodes when deciding when to execute the ABM
@@ -251,7 +251,7 @@ sense at map-generation time.
 
 biome = {
 	surface = something,	-- What node(s).  May be a string such as
-				-- "default:dirt_with_grass" or a table with
+				-- "hades_core:dirt_with_grass" or a table with
 				-- multiple such entries.
 
 	---- Everything else is optional, but you'll definitely want to use
@@ -382,7 +382,7 @@ options = {
 				-- grass (a corner case needed by that mod),
 				-- where it indicates which node the grass
 				-- must be on in order for it to turn from
-				-- the short size to "default:dry_shrub"
+				-- the short size to "hades_core:dry_shrub"
 				-- instead of the medium size.
 	grow_nodes = {table},	-- One of these nodes must be under the plant
 				-- in order for it to grow at all.  Normally
@@ -392,7 +392,7 @@ options = {
 				-- plant can be manually placed on something
 				-- like a flower pot or something without it
 				-- growing and eventually dieing.  Defaults to
-				-- "default:dirt_with_grass".
+				-- "hades_core:dirt_with_grass".
 	facedir = num,		-- Same as with spawning a plant.
 	need_wall = bool,	-- Set this to true if you the plant needs to
 				-- grow against a wall.  Defaults to false.
@@ -414,7 +414,7 @@ options = {
 				-- grow_nodes table, but might also include,
 				-- for example, water or some other
 				-- surrounding material.  Defaults to
-				-- "default:dirt_with_grass".
+				-- "hades_core:dirt_with_grass".
 	grow_function = something, -- [*] see below.
 	seed_diff = num,	-- [*] see below.
 }

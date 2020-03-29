@@ -78,7 +78,7 @@ minetest.register_abm({
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		hades_trees:generate_paletree(pos, "hades_trees:pale_tree", "hades_trees:pale_leaves", {"default:dirt", "default:dirt_with_grass", "default:ash", "default:fertile_sand"})
+		hades_trees:generate_paletree(pos, "hades_trees:pale_tree", "hades_trees:pale_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass", "hades_core:ash", "hades_core:fertile_sand"})
 	end
 })
 

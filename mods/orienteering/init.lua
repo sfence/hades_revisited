@@ -148,76 +148,76 @@ minetest.register_tool("orienteering:gps", {
 	on_use = orienteering.toggle_time_mode,
 })
 
-if minetest.get_modpath("default") ~= nil then
+if minetest.get_modpath("hades_core") ~= nil then
 	-- Register crafts
 	minetest.register_craft({
 		output = "orienteering:altimeter",
 		recipe = {
-			{"default:glass"},
-			{"default:steel_ingot"},
-			{"default:steel_ingot"},
+			{"hades_core:glass"},
+			{"hades_core:steel_ingot"},
+			{"hades_core:steel_ingot"},
 		}
 	})
 	minetest.register_craft({
 		output = "orienteering:triangulator",
 		recipe = {
-			{"", "default:bronze_ingot", ""},
-			{"default:bronze_ingot", "", "default:bronze_ingot"},
+			{"", "hades_core:bronze_ingot", ""},
+			{"hades_core:bronze_ingot", "", "hades_core:bronze_ingot"},
 		}
 	})
 	minetest.register_craft({
 		output = "orienteering:sextant",
 		recipe = {
-			{"", "default:gold_ingot", ""},
-			{"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
+			{"", "hades_core:gold_ingot", ""},
+			{"hades_core:gold_ingot", "hades_core:gold_ingot", "hades_core:gold_ingot"},
 		}
 	})
 	minetest.register_craft({
 		output = "orienteering:compass",
 		recipe = {
-			{"", "default:tin_ingot", ""},
-			{"default:tin_ingot", "group:stick", "default:tin_ingot"},
-			{"", "default:tin_ingot", ""},
+			{"", "hades_core:tin_ingot", ""},
+			{"hades_core:tin_ingot", "group:stick", "hades_core:tin_ingot"},
+			{"", "hades_core:tin_ingot", ""},
 		}
 	})
 	minetest.register_craft({
 		output = "orienteering:speedometer",
 		recipe = {
-			{"", "default:gold_ingot", ""},
-			{"default:steel_ingot", "group:stick", "default:steel_ingot"},
-			{"", "default:steel_ingot", ""},
+			{"", "hades_core:gold_ingot", ""},
+			{"hades_core:steel_ingot", "group:stick", "hades_core:steel_ingot"},
+			{"", "hades_core:steel_ingot", ""},
 		}
 	})
 	minetest.register_craft({
 		output = "orienteering:automapper",
 		recipe = {
-			{"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
-			{"default:emerald", "default:sapphire", "default:emerald"},
-			{"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"}
+			{"hades_core:gold_ingot", "hades_core:gold_ingot", "hades_core:gold_ingot"},
+			{"hades_core:emerald", "hades_core:sapphire", "hades_core:emerald"},
+			{"hades_core:gold_ingot", "hades_core:gold_ingot", "hades_core:gold_ingot"}
 		}
 	})
 	minetest.register_craft({
 		output = "orienteering:gps",
 		recipe = {
-			{ "default:gold_ingot", "orienteering:triangulator", "default:gold_ingot" },
-			{ "orienteering:compass", "default:bronze_ingot", "orienteering:watch" },
-                        { "default:tin_ingot", "orienteering:altimeter", "default:tin_ingot" }
+			{ "hades_core:gold_ingot", "orienteering:triangulator", "hades_core:gold_ingot" },
+			{ "orienteering:compass", "hades_core:bronze_ingot", "orienteering:watch" },
+                        { "hades_core:tin_ingot", "orienteering:altimeter", "hades_core:tin_ingot" }
 		}
 	})
 	minetest.register_craft({
 		output = "orienteering:quadcorder",
 		recipe = {
-			{ "default:gold_ingot", "default:gold_ingot", "default:gold_ingot" },
-			{ "orienteering:speedometer", "default:prismatic_gem", "orienteering:automapper", },
-                        { "orienteering:sextant", "default:diamond", "orienteering:gps" }
+			{ "hades_core:gold_ingot", "hades_core:gold_ingot", "hades_core:gold_ingot" },
+			{ "orienteering:speedometer", "hades_core:prismatic_gem", "orienteering:automapper", },
+                        { "orienteering:sextant", "hades_core:diamond", "orienteering:gps" }
 		}
 	})
 	minetest.register_craft({
 		output = "orienteering:watch",
 		recipe = {
-			{ "default:copper_ingot" },
-			{ "default:glass" },
-			{ "default:copper_ingot" }
+			{ "hades_core:copper_ingot" },
+			{ "hades_core:glass" },
+			{ "hades_core:copper_ingot" }
 		}
 	})
 
@@ -404,7 +404,7 @@ minetest.register_globalstep(function(dtime)
 	end
 end)
 
-if minetest.get_modpath("awards") ~= nil and minetest.get_modpath("default") ~= nil then
+if minetest.get_modpath("awards") ~= nil and minetest.get_modpath("hades_core") ~= nil then
 	awards.register_achievement("orienteering_quadcorder", {
 		title = S("Master of Orienteering"),
 		description = S("Craft a quadcorder."),

@@ -82,9 +82,9 @@ if minetest.get_modpath("windows") then
 	minetest.register_craft({
 		output = 'glowcrystals:windows_glow 4',
 		recipe = {
-			{'default:obsidian_shard', 'glowcrystals:glowglass', 'default:obsidian_shard'},
+			{'hades_core:obsidian_shard', 'glowcrystals:glowglass', 'hades_core:obsidian_shard'},
 			{'glowcrystals:glowglass', 'glowcrystals:glowglass', 'glowcrystals:glowglass'},
-			{'default:obsidian_shard', 'glowcrystals:glowglass', 'default:obsidian_shard'},
+			{'hades_core:obsidian_shard', 'glowcrystals:glowglass', 'hades_core:obsidian_shard'},
 		}
 	})
 end
@@ -144,15 +144,15 @@ minetest.register_craft({
 	output = 'glowcrystals:glowglass',
 	recipe = {
 		{'glowcrystals:glowdust'},
-		{'default:glass'},
+		{'hades_core:glass'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:glowing_cactus_block',
+	output = 'hades_core:glowing_cactus_block',
 	recipe = {
 		{'glowcrystals:glowdust'},
-		{'default:cactus_block'},
+		{'hades_core:cactus_block'},
 	}
 })
 

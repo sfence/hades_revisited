@@ -32,8 +32,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_fences:fence_rusty 4',
 	recipe = {
-		{'default:iron_lump', 'default:iron_lump', 'default:iron_lump'},
-		{'default:iron_lump', 'default:iron_lump', 'default:iron_lump'},
+		{'hades_core:iron_lump', 'hades_core:iron_lump', 'hades_core:iron_lump'},
+		{'hades_core:iron_lump', 'hades_core:iron_lump', 'hades_core:iron_lump'},
 	}
 })
 

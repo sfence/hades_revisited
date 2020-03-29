@@ -123,9 +123,9 @@ minetest.register_entity("mesecons_movestones:movestone_entity", {
 minetest.register_craft({
 	output = "mesecons_movestones:movestone 2",
 	recipe = {
-		{"default:stone", "default:stone", "default:stone"},
+		{"hades_core:stone", "hades_core:stone", "hades_core:stone"},
 		{"group:mesecon_conductor_craftable", "group:mesecon_conductor_craftable", "group:mesecon_conductor_craftable"},
-		{"default:stone", "default:stone", "default:stone"},
+		{"hades_core:stone", "hades_core:stone", "hades_core:stone"},
 	}
 })
 

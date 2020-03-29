@@ -175,7 +175,7 @@ if sub ~= "" then
 	minetest.register_craft({
 		type = "shapeless",
 		output = itemstring_locked,
-		recipe = { itemstring_unlocked, "default:steel_ingot" },
+		recipe = { itemstring_unlocked, "hades_core:steel_ingot" },
 	})
 	minetest.register_craft({
 		type = "shapeless",
@@ -194,7 +194,7 @@ if sub ~= "" then
 		output = itemstring_locked,
 		recipe = {
 			{'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub},
-			{'hades_trees:colwood_'..sub, 'default:steel_ingot', 'hades_trees:colwood_'..sub},
+			{'hades_trees:colwood_'..sub, 'hades_core:steel_ingot', 'hades_trees:colwood_'..sub},
 			{'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub},
 		}
 	})
@@ -214,13 +214,13 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "shapeless",
 	output = 'hades_chests:chest_locked',
-	recipe = {"hades_chests:chest", "default:steel_ingot"},
+	recipe = {"hades_chests:chest", "hades_core:steel_ingot"},
 })
 minetest.register_craft({
 	output = 'hades_chests:chest_locked',
 	recipe = {
 		{'group:wood', 'group:wood', 'group:wood'},
-		{'group:wood', 'default:steel_ingot', 'group:wood'},
+		{'group:wood', 'hades_core:steel_ingot', 'group:wood'},
 		{'group:wood', 'group:wood', 'group:wood'},
 	}
 })

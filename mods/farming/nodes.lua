@@ -1,16 +1,16 @@
-minetest.override_item("default:dirt", {
+minetest.override_item("hades_core:dirt", {
 	groups = {crumbly=3,soil=1},
 	soil = {
-		base = "default:dirt",
+		base = "hades_core:dirt",
 		dry = "farming:soil",
 		wet = "farming:soil_wet"
 	}
 })
 
-minetest.override_item("default:dirt_with_grass", {
+minetest.override_item("hades_core:dirt_with_grass", {
 	groups = {crumbly=3,soil=1},
 	soil = {
-		base = "default:dirt_with_grass",
+		base = "hades_core:dirt_with_grass",
 		dry = "farming:soil",
 		wet = "farming:soil_wet"
 	}
@@ -19,12 +19,12 @@ minetest.override_item("default:dirt_with_grass", {
 minetest.register_node("farming:soil", {
 	description = "Soil",
 	tiles = {"default_dirt.png^farming_soil.png", "default_dirt.png"},
-	drop = "default:dirt",
+	drop = "hades_core:dirt",
 	is_ground_content = true,
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=2, grassland = 1, field = 1},
 	sounds = hades_sounds.node_sound_dirt_defaults(),
 	soil = {
-		base = "default:dirt",
+		base = "hades_core:dirt",
 		dry = "farming:soil",
 		wet = "farming:soil_wet"
 	}
@@ -33,12 +33,12 @@ minetest.register_node("farming:soil", {
 minetest.register_node("farming:soil_wet", {
 	description = "Wet Soil",
 	tiles = {"default_dirt.png^farming_soil_wet.png", "default_dirt.png^farming_soil_wet_side.png"},
-	drop = "default:dirt",
+	drop = "hades_core:dirt",
 	is_ground_content = true,
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=3, wet = 1, grassland = 1, field = 1},
 	sounds = hades_sounds.node_sound_dirt_defaults(),
 	soil = {
-		base = "default:dirt",
+		base = "hades_core:dirt",
 		dry = "farming:soil",
 		wet = "farming:soil_wet"
 	}
@@ -107,24 +107,24 @@ minetest.register_abm({
 
 
 for i = 1, 5 do		
-	minetest.override_item("default:grass_"..i, {drop = {
+	minetest.override_item("hades_core:grass_"..i, {drop = {
 		max_items = 1,
 		items = {
 			{items = {'farming:seed_wheat'},rarity = 10},
 			{items = {'farming:seed_spice'},rarity = 10},
 			{items = {'farming:seed_strawberry'},rarity = 10},
-			{items = {'default:grass_1'}},
+			{items = {'hades_core:grass_1'}},
 		}
 	}})
 end
 	
-minetest.override_item("default:junglegrass", {drop = {
+minetest.override_item("hades_core:junglegrass", {drop = {
 	max_items = 1,
 	items = {
 		{items = {'farming:seed_cotton'},rarity = 10},
 		{items = {'farming:seed_tomato'},rarity = 10},
 		{items = {'farming:seed_potato'},rarity = 10},
-		{items = {'default:junglegrass'}},
+		{items = {'hades_core:junglegrass'}},
 	}
 }})
 

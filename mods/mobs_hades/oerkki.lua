@@ -20,11 +20,11 @@ mobs:register_mob("mobs_hades:oerkki", {
 	run_velocity = 3,
 	damage = 4,
 	drops = {
-		{name = "default:obsidian",
+		{name = "hades_core:obsidian",
 		chance = 3,
 		min = 1,
 		max = 2,},
-		{name = "default:gold_lump",
+		{name = "hades_core:gold_lump",
 		chance = 5,
 		min = 1,
 		max = 2,},
@@ -53,7 +53,7 @@ mobs:register_mob("mobs_hades:oerkki", {
 	floats = 1,
 	pathfinding = 1,
 })
-mobs:register_spawn("mobs_hades:oerkki", {"default:stone"}, 0, -1, 10000, 2, -1200)
-mobs:register_spawn("mobs_hades:oerkki", {"default:stone"}, 1, -1, 10000, 3, -10000)
+mobs:register_spawn("mobs_hades:oerkki", {"hades_core:stone"}, 0, -1, 10000, 2, -1200)
+mobs:register_spawn("mobs_hades:oerkki", {"hades_core:stone"}, 1, -1, 10000, 3, -10000)
 
 mobs:register_egg("mobs_hades:oerkki", "Oerkki Spawn Egg", "default_obsidian.png", 1, false)

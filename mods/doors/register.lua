@@ -90,9 +90,9 @@ doors.register_door("doors:door_steel", {
 minetest.register_craft({
 	output = "doors:door_steel",
 	recipe = {
-		{"default:steel_ingot", "default:steel_ingot"},
-		{"default:steel_ingot", "default:steel_ingot"},
-		{"default:steel_ingot", "default:steel_ingot"}
+		{"hades_core:steel_ingot", "hades_core:steel_ingot"},
+		{"hades_core:steel_ingot", "hades_core:steel_ingot"},
+		{"hades_core:steel_ingot", "hades_core:steel_ingot"}
 	}
 })
 
@@ -155,9 +155,9 @@ doors.register_door("doors:door_stone", {
 minetest.register_craft({
 	output = "doors:door_stone",
 	recipe = {
-		{"default:stone", "default:stone"},
-		{"default:stone", "default:stone"},
-		{"default:stone", "default:stone"}
+		{"hades_core:stone", "hades_core:stone"},
+		{"hades_core:stone", "hades_core:stone"},
+		{"hades_core:stone", "hades_core:stone"}
 	}
 })
 --glass
@@ -175,9 +175,9 @@ doors.register_door("doors:door_glass", {
 minetest.register_craft({
 	output = "doors:door_glass",
 	recipe = {
-		{"default:glass", "default:glass"},
-		{"default:glass", "default:glass"},
-		{"default:glass", "default:glass"}
+		{"hades_core:glass", "hades_core:glass"},
+		{"hades_core:glass", "hades_core:glass"},
+		{"hades_core:glass", "hades_core:glass"}
 	}
 })
 
@@ -196,9 +196,9 @@ doors.register_door("doors:door_obsidian_glass", {
 minetest.register_craft({
 	output = "doors:door_obsidian_glass",
 	recipe = {
-		{"default:obsidian_glass", "default:obsidian_glass"},
-		{"default:obsidian_glass", "default:obsidian_glass"},
-		{"default:obsidian_glass", "default:obsidian_glass"}
+		{"hades_core:obsidian_glass", "hades_core:obsidian_glass"},
+		{"hades_core:obsidian_glass", "hades_core:obsidian_glass"},
+		{"hades_core:obsidian_glass", "hades_core:obsidian_glass"}
 	}
 })
 
@@ -299,8 +299,8 @@ doors.register_trapdoor("doors:trapdoor_steel", {
 minetest.register_craft({
 	output = 'doors:trapdoor_steel',
 	recipe = {
-		{'default:steel_ingot', 'default:steel_ingot'},
-		{'default:steel_ingot', 'default:steel_ingot'},
+		{'hades_core:steel_ingot', 'hades_core:steel_ingot'},
+		{'hades_core:steel_ingot', 'hades_core:steel_ingot'},
 	}
 })
 

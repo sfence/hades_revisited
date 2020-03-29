@@ -3,7 +3,7 @@ local BEDROCK_LAYER = -30912 -- determined as appropriate by experiment
 minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "bedrock:bedrock",
-	wherein        = "default:stone",
+	wherein        = "hades_core:stone",
 	clust_scarcity = 1 * 1 * 1,
 	clust_num_ores = 5,
 	clust_size     = 2,
@@ -14,7 +14,7 @@ minetest.register_ore({
 minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "bedrock:deepstone",
-	wherein        = "default:stone",
+	wherein        = "hades_core:stone",
 	clust_scarcity = 1 * 1 * 1,
 	clust_num_ores = 5,
 	clust_size     = 2,
@@ -38,7 +38,7 @@ minetest.register_node("bedrock:bedrock", {
 minetest.register_node("bedrock:deepstone", {
 	description = "Deepstone",
 	tiles = {"bedrock_deepstone.png"},
-	drop = "default:stone", -- Intended.
+	drop = "hades_core:stone", -- Intended.
 	groups = {cracky = 1, level = 3},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })

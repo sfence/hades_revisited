@@ -24,19 +24,19 @@ mobs:register_mob("mobs_hades:mutant", {
 	run_velocity = 4,
 	damage = 1,
 	drops = {
-		{name = "default:ash",
+		{name = "hades_core:ash",
 		chance = 2,
 		min = 3,
 		max = 5,},
-		{name = "default:iron_lump",
+		{name = "hades_core:iron_lump",
 		chance=9,
 		min=1,
 		max=2,},
-		{name = "default:pick_wood",
+		{name = "hades_core:pick_wood",
 		chance=8,
 		min=1,
 		max=1,},
-		{name = "default:shovel_wood",
+		{name = "hades_core:shovel_wood",
 		chance=8,
 		min=1,
 		max=1,},
@@ -68,7 +68,7 @@ mobs:register_mob("mobs_hades:mutant", {
 	blood_texture = "mobs_blood.png",
 	floats = 1,
 })
-mobs:register_spawn("mobs_hades:mutant", {"default:ash"}, minetest.LIGHT_MAX, 0, 16000, 1, 31000)
-mobs:register_spawn("mobs_hades:mutant", {"default:ash"}, 5, 0, 6000, 3, 31000)
+mobs:register_spawn("mobs_hades:mutant", {"hades_core:ash"}, minetest.LIGHT_MAX, 0, 16000, 1, 31000)
+mobs:register_spawn("mobs_hades:mutant", {"hades_core:ash"}, 5, 0, 6000, 3, 31000)
 
 mobs:register_egg("mobs_hades:mutant", "Mutant Spawn Egg", "default_ash.png", 1, false)

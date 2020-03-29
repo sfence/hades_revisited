@@ -1,6 +1,6 @@
 local raillike_group = minetest.raillike_group("rail")
 
-minetest.register_node(":default:rail", {
+minetest.register_node(":hades_core:rail", {
 	description = "Steel Rail",
 	drawtype = "raillike",
 	tiles = {"default_rail.png", "default_rail_curved.png", "default_rail_t_junction.png", "default_rail_crossing.png"},
@@ -40,9 +40,9 @@ minetest.register_node(":carts:copperrail", {
 minetest.register_craft({
 	output = "carts:copperrail 12",
 	recipe = {
-		{"default:bronze_ingot", "group:stick", "default:bronze_ingot"},
-		{"default:bronze_ingot", "group:stick", "default:bronze_ingot"},
-		{"default:bronze_ingot", "group:stick", "default:bronze_ingot"},
+		{"hades_core:bronze_ingot", "group:stick", "hades_core:bronze_ingot"},
+		{"hades_core:bronze_ingot", "group:stick", "hades_core:bronze_ingot"},
+		{"hades_core:bronze_ingot", "group:stick", "hades_core:bronze_ingot"},
 	}
 })
 
@@ -87,9 +87,9 @@ minetest.register_node(":carts:powerrail", {
 minetest.register_craft({
 	output = "carts:powerrail 6",
 	recipe = {
-		{"default:steel_ingot", "default:mese_crystal_fragment", "default:steel_ingot"},
-		{"default:steel_ingot", "group:stick", "default:steel_ingot"},
-		{"default:steel_ingot", "default:mese_crystal_fragment", "default:steel_ingot"},
+		{"hades_core:steel_ingot", "hades_core:mese_crystal_fragment", "hades_core:steel_ingot"},
+		{"hades_core:steel_ingot", "group:stick", "hades_core:steel_ingot"},
+		{"hades_core:steel_ingot", "hades_core:mese_crystal_fragment", "hades_core:steel_ingot"},
 	}
 })
 
@@ -132,8 +132,8 @@ minetest.register_node(":carts:brakerail", {
 minetest.register_craft({
 	output = "carts:brakerail 6",
 	recipe = {
-		{"default:steel_ingot", "default:coal_lump", "default:steel_ingot"},
-		{"default:steel_ingot", "group:stick", "default:steel_ingot"},
-		{"default:steel_ingot", "default:coal_lump", "default:steel_ingot"},
+		{"hades_core:steel_ingot", "hades_core:coal_lump", "hades_core:steel_ingot"},
+		{"hades_core:steel_ingot", "group:stick", "hades_core:steel_ingot"},
+		{"hades_core:steel_ingot", "hades_core:coal_lump", "hades_core:steel_ingot"},
 	}
 })

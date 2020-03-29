@@ -164,7 +164,7 @@
 	minetest.register_craft( {
 		output = '3dforniture:table_lamp_off',
 		recipe = {
-			{'default:paper','glowcrystals:glowcrystal' ,'default:paper'},
+			{'hades_core:paper','glowcrystals:glowcrystal' ,'hades_core:paper'},
 			{'','group:stick',''},
 			{'','stairs:slab_wood',''},
 		},
@@ -182,8 +182,8 @@
 		minetest.register_craft( {
 			output = '3dforniture:toilet',
 			recipe = {
-				{'default:clay','homedecor:plastic_base',''},
-				{ 'default:clay','default:clay', '' },
+				{'hades_core:clay','homedecor:plastic_base',''},
+				{ 'hades_core:clay','hades_core:clay', '' },
 				{ 'pipeworks:pipe_1_empty', 'pipeworks:pump_off', '' },
 			},
 		})
@@ -192,7 +192,7 @@
 		minetest.register_craft( {
 			output = '3dforniture:sink',
 			recipe = {
-				{ 'default:clay','default:clay', 'default:clay' },
+				{ 'hades_core:clay','hades_core:clay', 'hades_core:clay' },
 				{ '','pipeworks:pipe_1_empty', '' },
 			},
 		})
@@ -201,7 +201,7 @@
 		minetest.register_craft( {
 			output = '3dforniture:taps',
 			recipe = {
-				{ 'default:bronze_ingot','pipeworks:pipe_1_empty', 'default:bronze_ingot' },
+				{ 'hades_core:bronze_ingot','pipeworks:pipe_1_empty', 'hades_core:bronze_ingot' },
 			},
 		})
 
@@ -209,7 +209,7 @@
 		minetest.register_craft( {
 			output = '3dforniture:shower_tray',
 			recipe = {
-				{ 'default:steel_ingot','default:steel_ingot', 'default:steel_ingot' },
+				{ 'hades_core:steel_ingot','hades_core:steel_ingot', 'hades_core:steel_ingot' },
 				{ '','pipeworks:pipe_1_empty', '' },
 			},
 		})
@@ -218,7 +218,7 @@
 		minetest.register_craft( {
 			output = '3dforniture:shower_head',
 			recipe = {
-				{'pipeworks:pipe_1_empty', 'default:bronze_ingot'},
+				{'pipeworks:pipe_1_empty', 'hades_core:bronze_ingot'},
 			},
 		})
 
@@ -228,8 +228,8 @@
 	minetest.register_craft( {
 		output = '3dforniture:bars 10',
 		recipe = {
-			{ 'default:steel_ingot','default:steel_ingot','default:steel_ingot' },
-			{ 'default:steel_ingot','default:steel_ingot','default:steel_ingot' },
+			{ 'hades_core:steel_ingot','hades_core:steel_ingot','hades_core:steel_ingot' },
+			{ 'hades_core:steel_ingot','hades_core:steel_ingot','hades_core:steel_ingot' },
 		},
 	})
 
@@ -246,9 +246,9 @@
 	minetest.register_craft( {
 		output = '3dforniture:chains 4',
 		recipe = {
-			{'','default:steel_ingot',''},
-			{ 'default:steel_ingot','', 'default:steel_ingot' },
-			{ '', 'default:steel_ingot', '' },
+			{'','hades_core:steel_ingot',''},
+			{ 'hades_core:steel_ingot','', 'hades_core:steel_ingot' },
+			{ '', 'hades_core:steel_ingot', '' },
 		},
 	})
 

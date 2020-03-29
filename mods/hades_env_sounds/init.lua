@@ -3,9 +3,9 @@
 local radius = 8 -- Node search radius around player
 
 local around_nodes = {
-	{ nodes = {"default:water_flowing"}, sound = "env_sounds_water", min_gain = 0.7 },
-	{ nodes = {"default:lava_flowing"}, sound = "hades_env_sounds_flowing_lava", min_gain = 0.4 },
-	{ nodes = {"default:lava_source"}, sound = "hades_env_sounds_lava_source", min_gain = 1.0 },
+	{ nodes = {"hades_core:water_flowing"}, sound = "env_sounds_water", min_gain = 0.7 },
+	{ nodes = {"hades_core:lava_flowing"}, sound = "hades_env_sounds_flowing_lava", min_gain = 0.4 },
+	{ nodes = {"hades_core:lava_source"}, sound = "hades_env_sounds_lava_source", min_gain = 1.0 },
 }
 
 -- End of parameters

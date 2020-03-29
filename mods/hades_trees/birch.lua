@@ -78,7 +78,7 @@ minetest.register_abm({
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		farming:generate_birchtree(pos, "hades_trees:birch_tree", "hades_trees:birch_leaves", {"default:dirt", "default:dirt_with_grass"})
+		farming:generate_birchtree(pos, "hades_trees:birch_tree", "hades_trees:birch_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass"})
 	end
 })
 
