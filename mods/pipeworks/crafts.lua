@@ -295,7 +295,7 @@ minetest.register_craft( {
 	output = "pipeworks:autocrafter 2",
 	recipe = {
 	        { "default:steel_ingot", "default:bronze_ingot", "default:steel_ingot" },
-	        { "homedecor:plastic_sheeting", "travelnet:prismatic_gem", "homedecor:plastic_sheeting" },
+	        { "homedecor:plastic_sheeting", "default:prismatic_gem", "homedecor:plastic_sheeting" },
 	        { "default:steel_ingot", "default:bronze_ingot", "default:steel_ingot" }
 	},
 })

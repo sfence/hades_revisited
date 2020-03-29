@@ -63,7 +63,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:pick_prism',
 	recipe = {
-		{'travelnet:prismatic_gem', 'travelnet:prismatic_gem', 'travelnet:prismatic_gem'},
+		{'default:prismatic_gem', 'default:prismatic_gem', 'default:prismatic_gem'},
 		{'', 'default:steel_ingot', ''},
 		{'', 'default:steel_ingot', ''},
 	}
@@ -123,7 +123,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:shovel_prism',
 	recipe = {
-		{'travelnet:prismatic_gem'},
+		{'default:prismatic_gem'},
 		{'default:steel_ingot'},
 		{'default:steel_ingot'},
 	}
@@ -183,8 +183,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:axe_prism',
 	recipe = {
-		{'travelnet:prismatic_gem', 'travelnet:prismatic_gem'},
-		{'travelnet:prismatic_gem', 'default:steel_ingot'},
+		{'default:prismatic_gem', 'default:prismatic_gem'},
+		{'default:prismatic_gem', 'default:steel_ingot'},
 		{'', 'default:steel_ingot'},
 	}
 })
@@ -243,8 +243,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:sword_prism',
 	recipe = {
-		{'travelnet:prismatic_gem'},
-		{'travelnet:prismatic_gem'},
+		{'default:prismatic_gem'},
+		{'default:prismatic_gem'},
 		{'default:steel_ingot'},
 	}
 })
@@ -1073,6 +1073,15 @@ minetest.register_craft({
     type = "shapeless",
 	output = 'default:ruby',
 	recipe = {'default:sapphire', 'default:sapphire'},
+})
+
+minetest.register_craft({
+	output = 'default:prismatic_gem 2',
+	recipe = {
+		{'default:glass', 'default:emerald', 'default:glass'},
+		{'default:diamond', 'default:sapphire', 'default:diamond'},
+		{'default:glass', 'default:ruby', 'default:glass'},
+	}
 })
 
 minetest.register_craft({

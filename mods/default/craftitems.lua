@@ -133,4 +133,10 @@ minetest.register_craftitem("default:sugar", {
 	inventory_image = "default_sugar.png",
 })
 
+minetest.register_craftitem("default:prismatic_gem", {
+	description = "Prismatic Gem",
+	inventory_image = "default_prismatic_gem.png",
+                    
+})
+
 

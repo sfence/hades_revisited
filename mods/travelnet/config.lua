@@ -21,21 +21,6 @@ travelnet.doors_enabled            = true;
 
 -- change these if you want other receipes for travelnet or elevator
 
-minetest.register_craftitem("travelnet:prismatic_gem", {
-	description = "Prismatic Gem",
-	inventory_image = "travelnet_prismatic_gem.png",
-                    
-})
-
-
-minetest.register_craft({
-	output = 'travelnet:prismatic_gem 2',
-	recipe = {
-		{'default:glass', 'default:emerald', 'default:glass'},
-        {'default:diamond', 'default:sapphire', 'default:diamond'},
-        {'default:glass', 'default:ruby', 'default:glass'},
-	}
-})
 --
 minetest.register_craftitem("travelnet:teleporter_device", {
 	description = "Teleporter Device",
@@ -43,12 +28,11 @@ minetest.register_craftitem("travelnet:teleporter_device", {
                     
 })
 
-
 minetest.register_craft({
 	output = 'travelnet:teleporter_device',
 	recipe = {
 		{'default:tin_ingot', 'default:gold_ingot', 'default:tin_ingot'},
-        {'default:gold_ingot', 'travelnet:prismatic_gem', 'default:gold_ingot'},
+        {'default:gold_ingot', 'default:prismatic_gem', 'default:gold_ingot'},
         {'default:tin_ingot', 'mesecons_powerplant:power_plant', 'default:tin_ingot'},
 	}
 })

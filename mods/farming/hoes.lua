@@ -44,7 +44,7 @@ farming.register_hoe(":farming:hoe_prism", {
 	inventory_image = "farming_tool_prismhoe.png",
 	groups = { hoe = 1, },
 	max_uses = 1050,
-	material = "travelnet:prismatic_gem",
+	material = "default:prismatic_gem",
 	material_handle = "default:steel_ingot",
 })
 

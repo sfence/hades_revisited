@@ -208,7 +208,7 @@ if minetest.get_modpath("default") ~= nil then
 		output = "orienteering:quadcorder",
 		recipe = {
 			{ "default:gold_ingot", "default:gold_ingot", "default:gold_ingot" },
-			{ "orienteering:speedometer", "travelnet:prismatic_gem", "orienteering:automapper", },
+			{ "orienteering:speedometer", "default:prismatic_gem", "orienteering:automapper", },
                         { "orienteering:sextant", "default:diamond", "orienteering:gps" }
 		}
 	})
