@@ -64,6 +64,14 @@ minetest.register_craft({
 		output = 'columnia:lamp_ceiling 4',
 		recipe = {
 			{"default:steel_ingot", "default:steel_ingot", ""},
+			{"", "glowcrystals:glowdust", ""},
+			{"", "default:glass", ""},
+		},
+})
+minetest.register_craft({
+		output = 'columnia:lamp_ceiling 4',
+		recipe = {
+			{"default:steel_ingot", "default:steel_ingot", ""},
 			{"", "hades_torches:torch", ""},
 			{"", "default:glass", ""},
 		},

@@ -164,7 +164,7 @@
 	minetest.register_craft( {
 		output = '3dforniture:table_lamp_off',
 		recipe = {
-			{'default:paper','hades_torches:torch' ,'default:paper'},
+			{'default:paper','glowcrystals:glowcrystal' ,'default:paper'},
 			{'','group:stick',''},
 			{'','stairs:slab_wood',''},
 		},

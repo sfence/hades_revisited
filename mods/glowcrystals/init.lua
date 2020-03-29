@@ -17,9 +17,9 @@ minetest.register_node( "glowcrystals:glowcrystal_ore", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	light_source = 10,
-	groups = {cracky=3},
+	groups = {cracky=3, ore=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
-	drop = 'craft "glowcrystals:glowcrystal" 1',
+	drop = 'glowcrystals:glowcrystal',
 })
 
 minetest.register_node( "glowcrystals:glowcrystal_block", {

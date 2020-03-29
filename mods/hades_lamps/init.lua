@@ -83,6 +83,14 @@ minetest.register_craft({
 	output = 'hades_lamps:lamp_wall 2',
 	recipe = {
 		{'default:glass', '', ''},
+		{'glowcrystals:glowdust', '', ''},
+		{'default:glass', '', ''},
+	}
+})
+minetest.register_craft({
+	output = 'hades_lamps:lamp_wall 2',
+	recipe = {
+		{'default:glass', '', ''},
 		{'hades_torches:torch', '', ''},
 		{'default:glass', '', ''},
 	}
@@ -92,11 +100,27 @@ minetest.register_craft({
 	output = 'hades_lamps:lantern 2',
 	recipe = {
 		{'', 'default:bronze_ingot', ''},
+		{'default:glass', 'glowcrystals:glowdust', 'default:glass'},
+		{'', 'default:bronze_ingot', ''},
+	}
+})
+minetest.register_craft({
+	output = 'hades_lamps:lantern 2',
+	recipe = {
+		{'', 'default:bronze_ingot', ''},
 		{'default:glass', 'hades_torches:torch', 'default:glass'},
 		{'', 'default:bronze_ingot', ''},
 	}
 })
 
+minetest.register_craft({
+	output = 'hades_lamps:lantern_rusty 2',
+	recipe = {
+		{'', 'default:steel_ingot', ''},
+		{'default:glass', 'glowcrystals:glowdust', 'default:glass'},
+		{'', 'default:steel_ingot', ''},
+	}
+})
 minetest.register_craft({
 	output = 'hades_lamps:lantern_rusty 2',
 	recipe = {
