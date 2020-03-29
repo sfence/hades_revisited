@@ -4,12 +4,12 @@
 --
 
 local formspec_info = {
-	["default:furnace"] = {
+	["hades_furnaces:furnace"] = {
 		bg = "gui_furnace_bg.png", flame_bg = "default_furnace_fire_bg.png", flame_fg = "default_furnace_fire_fg.png",
 		output_slots = "4.75,1.5;1,1"
 	},
-	["default:pfurnace"] = {
-		bg = "gui_pfurnace_bg.png", flame_bg = "default_pfurnace_fire_bg.png", flame_fg = "default_pfurnace_fire_fg.png",
+	["hades_furnaces:prism_furnace"] = {
+		bg = "gui_prism_furnace_bg.png", flame_bg = "hades_furnaces_prism_furnace_fire_bg.png", flame_fg = "hades_furnaces_prism_furnace_fire_fg.png",
 		output_slots = "4.75,0.96;2,2"
 	},
 }
@@ -118,8 +118,8 @@ end
 
 local furnace_types = {
 	-- [id] = { description, texture, fuel time addition, initial burn time, output slots }
-	["default:furnace"] = { "Furnace", "furnace", 1.0, 0.75, 1 },
-	["default:pfurnace"] = { "Prism Furnace", "pfurnace", 1.0, 4.25, 4 },
+	["hades_furnaces:furnace"] = { "Furnace", "default_furnace", 1.0, 0.75, 1 },
+	["hades_furnaces:prism_furnace"] = { "Prism Furnace", "hades_furnaces_prism_furnace", 1.0, 4.25, 4 },
 }
 
 local function furnace_node_timer(pos, elapsed)
@@ -242,7 +242,7 @@ local function furnace_node_timer(pos, elapsed)
 		swap_node(pos, id_active)
 		-- Furnace burn sound
 		if meta:get_int("sound_played") == nil or ( os.time() - meta:get_int("sound_played") ) >= 4 then
-			minetest.sound_play("default_furnace",{pos=pos})
+			minetest.sound_play("hades_furnaces_burning",{pos=pos})
 			meta:set_string("sound_played",os.time())
 		end
 		-- make sure timer restarts automatically
@@ -282,9 +282,9 @@ for id, finfo in pairs(furnace_types) do
 	minetest.register_node(id, {
 		description = desc,
 		tiles = {
-			"default_"..tex.."_top.png", "default_"..tex.."_bottom.png",
-			"default_"..tex.."_side.png", "default_"..tex.."_side.png",
-			"default_"..tex.."_side.png", "default_"..tex.."_front.png"
+			tex.."_top.png", tex.."_bottom.png",
+			tex.."_side.png", tex.."_side.png",
+			tex.."_side.png", tex.."_front.png"
 		},
 		paramtype2 = "facedir",
 		groups = {cracky=2, furnace=1},
@@ -322,11 +322,11 @@ for id, finfo in pairs(furnace_types) do
 	minetest.register_node(id.."_active", {
 		description = desc,
 		tiles = {
-			"default_"..tex.."_top.png", "default_"..tex.."_bottom.png",
-			"default_"..tex.."_side.png", "default_"..tex.."_side.png",
-			"default_"..tex.."_side.png",
+			tex.."_top.png", tex.."_bottom.png",
+			tex.."_side.png", tex.."_side.png",
+			tex.."_side.png",
 			{
-				image = "default_"..tex.."_front_active.png",
+				image = tex.."_front_active.png",
 				backface_culling = false,
 				animation = {
 					type = "vertical_frames",
@@ -363,3 +363,27 @@ for id, finfo in pairs(furnace_types) do
 	table.insert(furnace_ids, id.."_active")
 end
 
+minetest.register_craft({
+	output = 'hades_furnaces:furnace',
+	recipe = {
+		{'group:stone', 'group:stone', 'group:stone'},
+		{'group:stone', '', 'group:stone'},
+		{'group:stone', 'group:stone', 'group:stone'},
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_furnaces:prism_furnace',
+	recipe = {
+		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+		{'default:steel_ingot', 'travelnet:prismatic_gem', 'default:obsidian'},
+		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+	}
+})
+
+if minetest.get_modpath("mesecons_mvps") then
+	mesecon:register_mvps_stopper("hades_furnaces:furnace")
+	mesecon:register_mvps_stopper("hades_furnaces:furnace_active")
+	mesecon:register_mvps_stopper("hades_furnaces:prism_furnace")
+	mesecon:register_mvps_stopper("hades_furnaces:prism_furnace_active")
+end

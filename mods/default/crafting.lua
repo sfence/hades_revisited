@@ -262,24 +262,6 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'default:furnace',
-	recipe = {
-		{'group:stone', 'group:stone', 'group:stone'},
-		{'group:stone', '', 'group:stone'},
-		{'group:stone', 'group:stone', 'group:stone'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:pfurnace',
-	recipe = {
-		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
-		{'default:steel_ingot', 'travelnet:prismatic_gem', 'default:obsidian'},
-		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
-	}
-})
-
-minetest.register_craft({
 	type = "shapeless",
 	output = "default:bronze_ingot 2",
 	recipe = {"default:copper_ingot", "default:tin_ingot"},

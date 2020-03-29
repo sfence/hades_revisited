@@ -1,5 +1,7 @@
 hades_sounds
 default
+hades_furnaces
+hades_chests
 mesecons?
 mesecons_mvps?
 travelnet

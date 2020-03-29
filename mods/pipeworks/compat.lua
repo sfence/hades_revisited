@@ -10,7 +10,7 @@ function pipeworks.clone_node(name)
 	return node2
 end
 
-local furnace = pipeworks.clone_node("default:furnace")
+local furnace = pipeworks.clone_node("hades_furnaces:furnace")
 	furnace.tiles[1] = "default_furnace_top.png^pipeworks_tube_connection_stony.png"
 	furnace.tiles[2] = "default_furnace_bottom.png^pipeworks_tube_connection_stony.png"
 	furnace.tiles[3] = "default_furnace_side.png^pipeworks_tube_connection_stony.png"
@@ -48,9 +48,9 @@ local furnace = pipeworks.clone_node("default:furnace")
 		pipeworks.scan_for_tube_objects(pos)
 	end
 
-minetest.register_node(":default:furnace", furnace)
+minetest.register_node(":hades_furnaces:furnace", furnace)
 
-local furnace_active = pipeworks.clone_node("default:furnace_active")
+local furnace_active = pipeworks.clone_node("hades_furnaces:furnace_active")
 	furnace_active.tiles[1] = "default_furnace_top.png^pipeworks_tube_connection_stony.png"
 	furnace_active.tiles[2] = "default_furnace_bottom.png^pipeworks_tube_connection_stony.png"
 	furnace_active.tiles[3] = "default_furnace_side.png^pipeworks_tube_connection_stony.png"
@@ -88,7 +88,7 @@ local furnace_active = pipeworks.clone_node("default:furnace_active")
 		pipeworks.scan_for_tube_objects(pos)
 	end
 
-minetest.register_node(":default:furnace_active", furnace_active)
+minetest.register_node(":hades_furnaces:furnace_active", furnace_active)
 
 
 local chest = pipeworks.clone_node("hades_chests:chest")
