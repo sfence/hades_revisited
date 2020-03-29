@@ -413,14 +413,7 @@ function plantslib:grow_plants(opts)
 			end
 			if n_top.name == "air" and (not options.need_wall or (options.need_wall and walldir))
 			  then
-				-- corner case for changing short junglegrass
-				-- to dry shrub in desert
-				if n_bot.name == options.dry_early_node and options.grow_plant == "junglegrass:short" then
-					plantslib:dbg("Die: "..options.grow_plant.." becomes hades_core:dry_shrub at ("..dump(pos)..")")
-					minetest.add_node(pos, { name = "hades_core:dry_shrub" })
-
-
-				elseif options.grow_vertically and walldir then
+				if options.grow_vertically and walldir then
 					if plantslib:search_downward(pos, options.height_limit, options.ground_nodes) then
 						plantslib:dbg("Grow "..options.grow_plant.." vertically to "..dump(p_top))
 						minetest.add_node(p_top, { name = options.grow_plant, param2 = walldir})
