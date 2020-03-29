@@ -411,7 +411,7 @@ local check_for_death = function(self, cause, cmi_cause)
 
 	-- has health actually changed?
 	if self.health == self.old_health and self.health > 0 then
-		return
+		return false
 	end
 
 	self.old_health = self.health
@@ -589,7 +589,7 @@ local do_env_damage = function(self)
 	-- remove mob if beyond map limits
 	if not within_limits(pos, 0) then
 		self.object:remove()
-		return
+		return true
 	end
 
 	-- bright light harms mob
@@ -603,7 +603,7 @@ local do_env_damage = function(self)
 
 		effect(pos, 5, "tnt_smoke.png")
 
-		if check_for_death(self, "light", {type = "light"}) then return end
+		if check_for_death(self, "light", {type = "light"}) then return true end
 	end
 
 	local y_level = self.collisionbox[2]
@@ -637,7 +637,7 @@ local do_env_damage = function(self)
 			effect(pos, 5, "bubble.png", nil, nil, 1, nil)
 
 			if check_for_death(self, "water", {type = "environment",
-					pos = pos, node = self.standing_in}) then return end
+					pos = pos, node = self.standing_in}) then return true end
 		end
 
 	-- lava or fire
@@ -653,7 +653,7 @@ local do_env_damage = function(self)
 			effect(pos, 5, "fire_basic_flame.png", nil, nil, 1, nil)
 
 			if check_for_death(self, "lava", {type = "environment",
-					pos = pos, node = self.standing_in}) then return end
+					pos = pos, node = self.standing_in}) then return true end
 		end
 
 	-- damage_per_second node check
@@ -664,7 +664,7 @@ local do_env_damage = function(self)
 		effect(pos, 5, "tnt_smoke.png")
 
 		if check_for_death(self, "dps", {type = "environment",
-				pos = pos, node = self.standing_in}) then return end
+				pos = pos, node = self.standing_in}) then return true end
 	end
 --[[
 	--- suffocation inside solid node
@@ -676,7 +676,7 @@ local do_env_damage = function(self)
 		self.health = self.health - self.suffocation
 
 		if check_for_death(self, "suffocation", {type = "environment",
-				pos = pos, node = self.standing_in}) then return end
+				pos = pos, node = self.standing_in}) then return true end
 	end
 ]]
 	check_for_death(self, "", {type = "unknown"})
@@ -2786,7 +2786,7 @@ local mob_step = function(self, dtime)
 
 		self.env_damage_timer = 0
 
-		do_env_damage(self)
+		if do_env_damage(self) then return end
 	end
 
 	monster_attack(self)
