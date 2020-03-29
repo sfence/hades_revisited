@@ -538,7 +538,29 @@ minetest.register_ore({
 		y_max     = -10000,
 		flags          = "absheight",
 	})
-	
+
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "glowcrystals:glowcrystal_ore",
+		wherein        = "default:essexite",
+		clust_scarcity = 9*9*9,
+		clust_num_ores = 4,
+		clust_size     = 3,
+		y_min     = -31000,
+		y_max     = -5000,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "glowcrystals:glowcrystal_ore",
+		wherein        = "default:essexite",
+		clust_scarcity = 24*24*24,
+		clust_num_ores = 27,
+		clust_size     = 6,
+		y_min     = -31000,
+		y_max     = -10000,
+		flags          = "absheight",
+	})
+
 	minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:gravel",
@@ -644,4 +666,5 @@ minetest.register_decoration({
 		y_max = 100,
 		decoration = "default:ash",
 	})
+
 
