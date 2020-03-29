@@ -61,7 +61,7 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'default:pick_diamond',
+	output = 'default:pick_prism',
 	recipe = {
 		{'travelnet:prismatic_gem', 'travelnet:prismatic_gem', 'travelnet:prismatic_gem'},
 		{'', 'default:steel_ingot', ''},
@@ -121,7 +121,7 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'default:shovel_diamond',
+	output = 'default:shovel_prism',
 	recipe = {
 		{'travelnet:prismatic_gem'},
 		{'default:steel_ingot'},
@@ -181,7 +181,7 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'default:axe_diamond',
+	output = 'default:axe_prism',
 	recipe = {
 		{'travelnet:prismatic_gem', 'travelnet:prismatic_gem'},
 		{'travelnet:prismatic_gem', 'default:steel_ingot'},
@@ -241,7 +241,7 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'default:sword_diamond',
+	output = 'default:sword_prism',
 	recipe = {
 		{'travelnet:prismatic_gem'},
 		{'travelnet:prismatic_gem'},

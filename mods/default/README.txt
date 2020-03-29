@@ -91,11 +91,6 @@ PilzAdam (WTFPL):
   default_gold_ingot.png
   default_gold_lump.png
   default_mineral_gold.png
-  default_diamond.png
-  default_tool_diamondpick.png
-  default_tool_diamondsword.png
-  default_tool_diamondshovel.png
-  default_tool_diamondaxe.png
   default_tool_meseaxe.png
   default_tool_meseshovel.png
   default_tool_mesesword.png
@@ -107,16 +102,12 @@ PilzAdam (WTFPL):
 jojoa1997 (WTFPL):
   default_obsidian.png
 
-InfinityProject (WTFPL):
-  default_mineral_diamond.png
-
 Zeg9 (CC BY-SA 3.0):
   default_coal_block.png
   default_steel_block.png
   default_copper_block.png
   default_bronze_block.png
   default_gold_block.png
-  default_diamond_block.png
 
 kaeza (WTFPL):
   bubble.png

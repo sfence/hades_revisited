@@ -89,9 +89,9 @@ minetest.register_tool("default:pick_mese", {
 		damage_groups = {fleshy=5},
 	},
 })
-minetest.register_tool("default:pick_diamond", {
+minetest.register_tool("default:pick_prism", {
 	description = "Prism Pickaxe",
-	inventory_image = "default_tool_diamondpick.png",
+	inventory_image = "default_tool_prismpick.png",
 	groups = { pickaxe = 1, },
 	tool_capabilities = {
 		full_punch_interval = 0.9,
@@ -179,11 +179,11 @@ minetest.register_tool("default:shovel_mese", {
 		damage_groups = {fleshy=4},
 	},
 })
-minetest.register_tool("default:shovel_diamond", {
+minetest.register_tool("default:shovel_prism", {
 	description = "Prism Shovel",
-	inventory_image = "default_tool_diamondshovel.png",
+	inventory_image = "default_tool_prismshovel.png",
 	groups = { shovel = 1, },
-	wield_image = "default_tool_diamondshovel.png^[transformR90",
+	wield_image = "default_tool_prismshovel.png^[transformR90",
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
@@ -265,9 +265,9 @@ minetest.register_tool("default:axe_mese", {
 		damage_groups = {fleshy=6},
 	},
 })
-minetest.register_tool("default:axe_diamond", {
+minetest.register_tool("default:axe_prism", {
 	description = "Prism Axe",
-	inventory_image = "default_tool_diamondaxe.png",
+	inventory_image = "default_tool_prismaxe.png",
 	groups = { axe = 1, },
 	tool_capabilities = {
 		full_punch_interval = 0.9,
@@ -350,9 +350,9 @@ minetest.register_tool("default:sword_mese", {
 		damage_groups = {fleshy=7},
 	}
 })
-minetest.register_tool("default:sword_diamond", {
+minetest.register_tool("default:sword_prism", {
 	description = "Prism Sword",
-	inventory_image = "default_tool_diamondsword.png",
+	inventory_image = "default_tool_prismsword.png",
 	groups = { sword = 1, },
 	tool_capabilities = {
 		full_punch_interval = 0.7,
