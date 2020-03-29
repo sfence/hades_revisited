@@ -45,7 +45,15 @@ function mesecon:lightstone_add(name, base_item, texture_off, texture_on, desc)
 		output = "mesecons_lightstone:lightstone_" .. name .. "_off",
 		recipe = {
 			{"","default:glass",""},
-			{base_item,"glowcrystals:glowcrystal",base_item},
+			{base_item,"glowcrystals:glowdust",base_item},
+			{"","group:mesecon_conductor_craftable",""}
+		}
+	})
+	minetest.register_craft({
+		output = "mesecons_lightstone:lightstone_" .. name .. "_off",
+		recipe = {
+			{"","default:glass",""},
+			{base_item,"hades_torches:torch",base_item},
 			{"","group:mesecon_conductor_craftable",""}
 		}
 	})
