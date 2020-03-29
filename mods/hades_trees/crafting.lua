@@ -176,7 +176,21 @@ minetest.register_craft({
 		{'hades_trees:jungle_wood', 'hades_trees:wood'},
 	}
 })
+minetest.register_craft({
+	output = 'hades_trees:floor_wood_jungle 4',
+	recipe = {
+		{'hades_trees:jungle_wood', 'hades_trees:wood'},
+		{'hades_trees:wood', 'hades_trees:jungle_wood'},
+	}
+})
 
+minetest.register_craft({
+	output = 'hades_trees:floor_wood_pale 4',
+	recipe = {
+		{'hades_trees:pale_wood', 'hades_trees:wood'},
+		{'hades_trees:wood', 'hades_trees:pale_wood'},
+	}
+})
 minetest.register_craft({
 	output = 'hades_trees:floor_wood_pale 4',
 	recipe = {
@@ -185,7 +199,13 @@ minetest.register_craft({
 	}
 })
 
--- Sapling crafting
+minetest.register_craft({
+	output = 'hades_trees:floor_pale_jungle 4',
+	recipe = {
+		{'hades_trees:pale_wood', 'hades_trees:jungle_wood'},
+		{'hades_trees:jungle_wood', 'hades_trees:pale_wood'},
+	}
+})
 minetest.register_craft({
 	output = 'hades_trees:floor_pale_jungle 4',
 	recipe = {
@@ -194,6 +214,7 @@ minetest.register_craft({
 	}
 })
 
+-- Sapling crafting
 minetest.register_craft({
 	output = 'hades_trees:sapling',
 	recipe = {

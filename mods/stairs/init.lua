@@ -1045,7 +1045,7 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 	minetest.register_node("stairs:stair_glowcrystal_block", {
 		description = "Glowing Stair",
 		drawtype = "nodebox",
-		tiles = {"default_block_glowcrystal.png"},
+		tiles = {"glowcrystals_block_glowcrystal.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
