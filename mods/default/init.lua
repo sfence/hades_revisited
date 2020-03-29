@@ -9,7 +9,6 @@ default = {}
 
 -- GUI related stuff
 default.gui_inventory_bg_img = "background[5,5;1,1;inventory.png;true]"
-default.gui_chest_bg_img = "background[5,5;1,1;chestui.png;true]"
 
 function default.get_hotbar_bg(x,y)
 	local out = ""
@@ -37,7 +36,6 @@ dofile(minetest.get_modpath("default").."/simple_nodes.lua")
 dofile(minetest.get_modpath("default").."/tools.lua")
 dofile(minetest.get_modpath("default").."/plants.lua")
 dofile(minetest.get_modpath("default").."/furnaces.lua")
-dofile(minetest.get_modpath("default").."/chests.lua")
 dofile(minetest.get_modpath("default").."/ladders.lua")
 dofile(minetest.get_modpath("default").."/deco.lua")
 dofile(minetest.get_modpath("default").."/craftitems.lua")

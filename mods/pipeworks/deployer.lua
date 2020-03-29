@@ -6,7 +6,7 @@ minetest.register_alias("technic:deployer_on", "pipeworks:deployer_on")
 minetest.register_craft({
 	output = 'pipeworks:deployer_off 1',
 	recipe = {
-		{'group:wood', 'default:chest','group:wood'},
+		{'group:wood', 'group:chest','group:wood'},
 		{'default:stone', 'mesecons:piston','default:stone'},
 		{'default:stone', 'mesecons:mesecon','default:stone'},
 	}

@@ -1,12 +1,20 @@
---[[
-Kerova Mod
-By AndromedaKerova (AKA; RommieKerova, Rommie, Andromeda) (rommiekerova@gmail.com)
-License: WTFPL
-Version: 1.2  - is a reduced version only with colored chests.. code deleted by Glunggi :D
---]]
+local chest_formspec =
+	"size[8,9]"..
+	"list[current_name;main;0,0;8,4;]"..
+	"list[current_player;main;0,5;8,4;]"..
+	"listring[]"..
+	"background[-0.5,-0.65;9,10.35;".."hades_chests_chestui.png".."]"
 
-local chest_formspec = default.chest_formspec
-local get_locked_chest_formspec = default.get_locked_chest_formspec
+local function get_locked_chest_formspec(pos)
+	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
+	local formspec =
+		"size[8,9]"..
+		"list[nodemeta:".. spos .. ";main;0,0;8,4;]"..
+		"list[current_player;main;0,5;8,4;]"..
+		"listring[]"..
+		"background[-0.5,-0.65;9,10.35;".."hades_chests_chestui.png".."]"
+	return formspec
+end
 
 local function has_locked_chest_privilege(meta, player)
 	if player:get_player_name() ~= meta:get_string("owner") then
@@ -16,6 +24,7 @@ local function has_locked_chest_privilege(meta, player)
 end
 
 local chests = {
+	{ "", "Chest", "Locked Chest" },
 	{ "white", "White Chest", "White Locked Chest" },
 	{ "grey", "Grey Chest", "Grey Locked Chest" },
 	{ "dark_grey", "Dark Grey Chest", "Dark Grey Locked Chest" },
@@ -38,13 +47,30 @@ for c=1, #chests do
 local sub = chests[c][1]
 local desc_unlocked = chests[c][2]
 local desc_locked = chests[c][3]
+local tiles_unlocked, tiles_locked
+local itemstring_unlocked, itemstring_locked
+if sub == "" then
+	itemstring_unlocked = "hades_chests:chest"
+	itemstring_locked = "hades_chests:chest_locked"
+	tiles_unlocked = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
+		"default_chest_side.png", "default_chest_side.png", "default_chest_front.png"}
+	tiles_locked = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
+		"default_chest_side.png", "default_chest_side.png", "default_chest_lock.png"}
+else
+	itemstring_unlocked = "hades_chests:chest_"..sub
+	itemstring_locked = "hades_chests:chest_"..sub.."_locked"
+	tiles_unlocked = {"kerova_chest_top_"..sub..".png", "kerova_chest_top_"..sub..".png", "kerova_chest_"..sub..".png",
+		"kerova_chest_"..sub..".png", "kerova_chest_"..sub..".png", "kerova_chest_front_"..sub..".png"}
+	tiles_locked = {"kerova_chest_top_"..sub..".png", "kerova_chest_top_"..sub..".png", "kerova_chest_"..sub..".png",
+		"kerova_chest_"..sub..".png", "kerova_chest_"..sub..".png", "kerova_chest_lock_"..sub..".png"}
+end
 
-minetest.register_node("kerova:chest_"..sub, {
+
+minetest.register_node(itemstring_unlocked, {
 	description = desc_unlocked,
-	tiles = {"kerova_chest_top_"..sub..".png", "kerova_chest_top_"..sub..".png", "kerova_chest_"..sub..".png",
-		"kerova_chest_"..sub..".png", "kerova_chest_"..sub..".png", "kerova_chest_front_"..sub..".png"},
+	tiles = tiles_unlocked,
 	paramtype2 = "facedir",
-	groups = {choppy=2,oddly_breakable_by_hand=2, chest=1},
+	groups = {choppy=2,oddly_breakable_by_hand=2, chest=1, unlocked_chest=1},
 	legacy_facedir_simple = true,
 	sounds = default.node_sound_wood_defaults(),
 	on_construct = function(pos)
@@ -72,12 +98,11 @@ minetest.register_node("kerova:chest_"..sub, {
 				" takes stuff from chest at "..minetest.pos_to_string(pos))
 	end,
 })
-minetest.register_node("kerova:chest_"..sub.."_locked", {
+minetest.register_node(itemstring_locked, {
 	description = desc_locked,
-	tiles = {"kerova_chest_top_"..sub..".png", "kerova_chest_top_"..sub..".png", "kerova_chest_"..sub..".png",
-		"kerova_chest_"..sub..".png", "kerova_chest_"..sub..".png", "kerova_chest_lock_"..sub..".png"},
+	tiles = tiles_locked,
 	paramtype2 = "facedir",
-	groups = {choppy=2,oddly_breakable_by_hand=2, locked_chest=1},
+	groups = {choppy=2,oddly_breakable_by_hand=2, chest=2, locked_chest=1},
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults(),
@@ -134,26 +159,74 @@ minetest.register_node("kerova:chest_"..sub.."_locked", {
 		if has_locked_chest_privilege(meta, clicker) then
 			minetest.show_formspec(
 				clicker:get_player_name(),
-				"default:chest_locked",
+				"hades_chests:chest_locked",
 				get_locked_chest_formspec(pos)
 			)
 		end
 	end,
 })
 
+if sub ~= "" then
+	minetest.register_craft({
+		type = "shapeless",
+		output = itemstring_unlocked,
+		recipe = { "group:unlocked_chest", "dye:"..sub },
+	})
+	minetest.register_craft({
+		type = "shapeless",
+		output = itemstring_locked,
+		recipe = { itemstring_unlocked, "default:steel_ingot" },
+	})
+	minetest.register_craft({
+		type = "shapeless",
+		output = itemstring_locked,
+		recipe = { "group:locked_chest", "dye:"..sub },
+	})
+	minetest.register_craft({
+		output = itemstring_unlocked,
+		recipe = {
+			{'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub},
+			{'hades_trees:colwood_'..sub, '', 'hades_trees:colwood_'..sub},
+			{'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub},
+		}
+	})
+	minetest.register_craft({
+		output = itemstring_locked,
+		recipe = {
+			{'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub},
+			{'hades_trees:colwood_'..sub, 'default:steel_ingot', 'hades_trees:colwood_'..sub},
+			{'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub, 'hades_trees:colwood_'..sub},
+		}
+	})
+end
+
+end
+
 minetest.register_craft({
-	output = "kerova:chest_"..sub,
+	output = 'hades_chests:chest',
 	recipe = {
-		{"dye:"..sub},
-		{"group:chest"},
-	}
-})
-minetest.register_craft({
-	output = "kerova:chest_"..sub.."_locked",
-	recipe = {
-		{"dye:"..sub},
-		{"group:locked_chest"},
+		{'group:wood', 'group:wood', 'group:wood'},
+		{'group:wood', '', 'group:wood'},
+		{'group:wood', 'group:wood', 'group:wood'},
 	}
 })
 
-end
+minetest.register_craft({
+	type = "shapeless",
+	output = 'hades_chests:chest_locked',
+	recipe = {"hades_chests:chest", "default:steel_ingot"},
+})
+minetest.register_craft({
+	output = 'hades_chests:chest_locked',
+	recipe = {
+		{'group:wood', 'group:wood', 'group:wood'},
+		{'group:wood', 'default:steel_ingot', 'group:wood'},
+		{'group:wood', 'group:wood', 'group:wood'},
+	}
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "group:chest",
+	burntime = 20,
+})

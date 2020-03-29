@@ -234,5 +234,4 @@ function mesecon:mvps_move_objects(pos, dir, nodestack)
 	end
 end
 
-mesecon:register_mvps_stopper("default:chest_locked")
 mesecon:register_mvps_stopper("default:furnace")

@@ -91,7 +91,7 @@ local furnace_active = pipeworks.clone_node("default:furnace_active")
 minetest.register_node(":default:furnace_active", furnace_active)
 
 
-local chest = pipeworks.clone_node("default:chest")
+local chest = pipeworks.clone_node("hades_chests:chest")
 	chest.tiles[1] = "default_chest_top.png^pipeworks_tube_connection_wooden.png"
 	chest.tiles[2] = "default_chest_top.png^pipeworks_tube_connection_wooden.png"
 	chest.tiles[3] = "default_chest_side.png^pipeworks_tube_connection_wooden.png"
@@ -121,10 +121,10 @@ local chest = pipeworks.clone_node("default:chest")
 		pipeworks.scan_for_tube_objects(pos)
 	end
 
-minetest.register_node(":default:chest", chest)
+minetest.register_node(":hades_chests:chest", chest)
 
 
-local chest_locked = pipeworks.clone_node("default:chest_locked")
+local chest_locked = pipeworks.clone_node("hades_chests:chest_locked")
 	chest_locked.tiles[1] = "default_chest_top.png^pipeworks_tube_connection_wooden.png"
 	chest_locked.tiles[2] = "default_chest_top.png^pipeworks_tube_connection_wooden.png"
 	chest_locked.tiles[3] = "default_chest_side.png^pipeworks_tube_connection_wooden.png"
@@ -146,7 +146,7 @@ local chest_locked = pipeworks.clone_node("default:chest_locked")
 		end,
 		connect_sides = {left=1, right=1, back=1, front=1, bottom=1, top=1}
 	}
-	local old_after_place = minetest.registered_nodes["default:chest_locked"].after_place_node
+	local old_after_place = minetest.registered_nodes["hades_chests:chest_locked"].after_place_node
 	chest_locked.after_place_node = function(pos, placer)
 		pipeworks.scan_for_tube_objects(pos)
 		old_after_place(pos, placer)
@@ -155,4 +155,4 @@ local chest_locked = pipeworks.clone_node("default:chest_locked")
 		pipeworks.scan_for_tube_objects(pos)
 	end
 
-minetest.register_node(":default:chest_locked", chest_locked)
+minetest.register_node(":hades_chests:chest_locked", chest_locked)
