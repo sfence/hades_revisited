@@ -1,7 +1,6 @@
 
--- intllib
 local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP .. "/intllib.lua")
+local S = minetest.get_translator("mobs")
 
 -- mob spawner
 
@@ -21,7 +20,7 @@ minetest.register_node("mobs:spawner", {
 
 		-- text entry formspec
 		meta:set_string("formspec",
-			"field[text;" .. S("Mob MinLight MaxLight Amount PlayerDist") .. ";${command}]")
+			"field[text;" .. minetest.formspec_escape(S("Mob MinLight MaxLight Amount PlayerDist")) .. ";${command}]")
 		meta:set_string("infotext", S("Spawner Not Active (enter settings)"))
 		meta:set_string("command", spawner_default)
 	end,

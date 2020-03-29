@@ -1,9 +1,8 @@
-#Template
-
-Reading cached character database. =
-Font seems to have changed. Rebuilding cache. =
-Could not find font line height in cached DB. Trying brute force. =
-Sign = 
-%s wrote "%s" to sign at %s = 
-Registered %s and %s = 
-signs loaded = 
+# textdomain:signs_lib
+Wooden Sign=
+Locked Wooden Sign=
+Green Steel Sign=
+Yellow Steel Sign=
+Red Steel Sign=
+White Steel Sign with Red Border=
+White Steel Sign with Black Border=

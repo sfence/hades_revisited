@@ -15,17 +15,9 @@ plantslib = {}
 
 
 plantslib.modpath = minetest.get_modpath("plants_lib")
-plantslib.intllib_modpath = minetest.get_modpath("intllib")
 
 
-local S
-if plantslib.intllib_modpath then
-    dofile(plantslib.intllib_modpath.."/intllib.lua")
-    S = intllib.Getter(minetest.get_current_modname())
-else
-    S = function ( s ) return s end
-end
-
+local S = minetest.get_translator("plantlife")
 
 local DEBUG = false --... except if you want to spam the console with debugging info :-)
 
@@ -577,7 +569,7 @@ function plantslib:node_is_owned(pos, placer)
 
 
 	if ownername ~= false then
-		minetest.chat_send_player( placer:get_player_name(), S("Sorry, %s owns that spot."):format(ownername) )
+		minetest.chat_send_player( placer:get_player_name(), S("Sorry, @1 owns that spot.", ownername) )
 		return true
 	else
 		return false
@@ -608,4 +600,4 @@ end
 
 
 
-minetest.log("action", S("[Plantlife Library] Loaded"))
+minetest.log("action", "[Plantlife Library] Loaded")

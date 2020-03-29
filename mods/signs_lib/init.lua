@@ -75,9 +75,7 @@ signs_lib.sign_post_model = {
 	}
 }
 
--- Boilerplate to support localized strings if intllib mod is installed.
-local S = rawget(_G, "intllib") and intllib.Getter() or function(s) return s end
-signs_lib.gettext = S
+local S = minetest.get_translator("signs_lib")
 
 -- the list of standard sign nodes
 
@@ -220,7 +218,7 @@ local function build_char_db()
 	local cdbf = io.open(CHARDB_FILE, "rt")
 
 	if cdbf then
-		minetest.log("info", "[signs_lib] "..S("Reading cached character database."))
+		minetest.log("info", "[signs_lib] Reading cached character database.")
 		for line in cdbf:lines() do
 			local ch, w = line:match("(0x[0-9A-Fa-f]+)%s+([0-9][0-9]*)")
 			if ch and w then
@@ -245,12 +243,12 @@ local function build_char_db()
 			if check_random_chars() then
 				LINE_HEIGHT = nil
 				minetest.log("info", "[signs_lib] "
-					..S("Font seems to have changed. Rebuilding cache.")
+					.."Font seems to have changed. Rebuilding cache."
 				)
 			end
 		else
 			minetest.log("warning", "[signs_lib] "
-				..S("Could not find font line height in cached DB. Trying brute force.")
+				.."Could not find font line height in cached DB. Trying brute force."
 			)
 		end
 	end
@@ -631,7 +629,7 @@ function signs_lib.receive_fields(pos, formname, fields, sender, lock)
 	end
 	local lockstr = lock and "locked " or ""
 	if fields and fields.text and fields.ok then
-		minetest.log("action", S("%s wrote \"%s\" to "..lockstr.."sign at %s"):format(
+		minetest.log("action", ("%s wrote \"%s\" to "..lockstr.."sign at %s"):format(
 			(sender:get_player_name() or ""),
 			fields.text,
 			minetest.pos_to_string(pos)
@@ -959,5 +957,5 @@ minetest.register_craft( {
         },
 })
 if minetest.settings:get("log_mods") then
-	minetest.log("action", S("signs loaded"))
+	minetest.log("action", "signs loaded")
 end

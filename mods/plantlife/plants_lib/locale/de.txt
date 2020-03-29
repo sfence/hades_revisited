@@ -1,5 +1,3 @@
-# Translation by Xanthin
-
-someone = jemand
-Sorry, %s owns that spot. = Entschuldige, %s gehoert diese Stelle.
-[Plantlife Library] Loaded = [Plantlife Library] Geladen
+# textdomain:plants_lib
+someone=jemand
+Sorry, @1 owns that spot.=Tschuldigung, @1 gehört diese Stelle.

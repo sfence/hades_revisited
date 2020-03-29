@@ -1,5 +1,3 @@
-# Template
-
-someone = 
-Sorry, %s owns that spot. = 
-[Plantlife Library] Loaded = 
+# textdomain:plants_lib
+someone=
+Sorry, @1 owns that spot.=

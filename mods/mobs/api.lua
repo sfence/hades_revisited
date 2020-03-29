@@ -8,9 +8,7 @@ mobs.version = "20180328"
 
 -- Intllib
 local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP .. "/intllib.lua")
-mobs.intllib = S
-
+local S = minetest.get_translator("mobs")
 
 -- CMI support check
 local use_cmi = minetest.global_exists("cmi")

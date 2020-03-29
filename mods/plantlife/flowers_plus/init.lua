@@ -1,12 +1,4 @@
--- Boilerplate to support localized strings if intllib mod is installed.
-local S
-if (minetest.get_modpath("intllib")) then
-  dofile(minetest.get_modpath("intllib").."/intllib.lua")
-  S = intllib.Getter(minetest.get_current_modname())
-else
-  S = function ( s ) return s end
-end
-
+local S = minetest.get_translator("flowers_plus")
 
 -- This file supplies a few additional plants and some related crafts
 -- for the plantlife modpack.  Last revision:  2013-04-24
@@ -491,4 +483,4 @@ minetest.register_alias("flowers:cotton", "farming:string")
 minetest.register_alias("flowers:cotton_wad", "farming:string")
 
 
-minetest.log("action", S("[Flowers] Loaded."))
+minetest.log("action", "[Flowers] Loaded.")

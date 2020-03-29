@@ -1,3 +1,2 @@
 hades_core?
-intllib?
 awards?

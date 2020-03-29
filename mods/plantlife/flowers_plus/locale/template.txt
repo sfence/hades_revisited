@@ -1,13 +1,3 @@
-# Template
-
-Waterlily = 
-Seaweed = 
-Potted Rose = 
-Potted Tulip = 
-Potted Yellow Dandelion = 
-Potted White Dandelion = 
-Potted Blue Geranium = 
-Potted Viola = 
-Flower Pot = 
-
-[Flowers] Loaded. = 
+# textdomain:flowers_plus
+Waterlily=
+Seaweed=
