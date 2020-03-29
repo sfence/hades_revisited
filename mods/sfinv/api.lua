@@ -36,7 +36,7 @@ function sfinv.get_nav_fs(player, context, nav, current_idx)
 end
 
 local theme_main = "bgcolor[#080808BB;true]" ..
-		default.gui_inventory_bg_img
+		hades_gui.gui_inventory_bg_img
 
 local theme_inv = [[
 		list[current_player;main;0,4.7;8,1;]

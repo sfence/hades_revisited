@@ -15,7 +15,7 @@ local get_formspec = function(player, page)
 	if page=="bags" then
 		local name = player:get_player_name()
 		return "size[8,7.5]"
-			..default.gui_inventory_bg_img
+			..hades_gui.gui_inventory_bg_img
 			.."list[current_player;main;0,4.7;8,1;]"
 			.."list[current_player;main;0,5.85;8,3;8]"
 			.."button[0,2.2;2,0.5;bag1;Bag 1]"

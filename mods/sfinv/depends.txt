@@ -1,1 +1,3 @@
 default
+hades_player
+hades_gui
