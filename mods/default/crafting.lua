@@ -1110,7 +1110,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:grass_1',
 	recipe = {
-	    {'default:mossycobble', '', ''},
+		{'default:mossycobble', '', ''},
 		{'default:mossycobble', '', ''},
 		{'default:dirt', '', ''},
 	}
@@ -1119,7 +1119,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:grass_1',
 	recipe = {
-	    {'default:mossytuff', '', ''},
+		{'default:mossytuff', '', ''},
 		{'default:mossytuff', '', ''},
 		{'default:dirt', '', ''},
 	}
@@ -1315,108 +1315,93 @@ minetest.register_craft({
 -- Color Bricks
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_black',
-	recipe = {
-		{'group:claybricks', 'dye:black'},
-	}
+	recipe = {'group:claybricks', 'dye:black'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_blue',
-	recipe = {
-		{'group:claybricks', 'dye:blue'},
-	}
+	recipe = {'group:claybricks', 'dye:blue'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_brown',
-	recipe = {
-		{'group:claybricks', 'dye:brown'},
-	}
+	recipe = {'group:claybricks', 'dye:brown'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_cyan',
-	recipe = {
-		{'group:claybricks', 'dye:cyan'},
-	}
+	recipe = {'group:claybricks', 'dye:cyan'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_dark_green',
-	recipe = {
-		{'group:claybricks', 'dye:dark_green'},
-	}
+	recipe = {'group:claybricks', 'dye:dark_green'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_dark_grey',
-	recipe = {
-		{'group:claybricks', 'dye:dark_grey'},
-	}
+	recipe = {'group:claybricks', 'dye:dark_grey'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_green',
-	recipe = {
-		{'group:claybricks', 'dye:green'},
-	}
+	recipe = {'group:claybricks', 'dye:green'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_grey',
-	recipe = {
-		{'group:claybricks', 'dye:grey'},
-	}
+	recipe = {'group:claybricks', 'dye:grey'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_magenta',
-	recipe = {
-		{'group:claybricks', 'dye:magenta'},
-	}
+	recipe = {'group:claybricks', 'dye:magenta'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_orange',
-	recipe = {
-		{'group:claybricks', 'dye:orange'},
-	}
+	recipe = {'group:claybricks', 'dye:orange'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_pink',
-	recipe = {
-		{'group:claybricks', 'dye:pink'},
-	}
+	recipe = {'group:claybricks', 'dye:pink'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_red',
-	recipe = {
-		{'group:claybricks', 'dye:red'},
-	}
+	recipe = {'group:claybricks', 'dye:red'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_violet',
-	recipe = {
-		{'group:claybricks', 'dye:violet'},
-	}
+	recipe = {'group:claybricks', 'dye:violet'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_white',
-	recipe = {
-		{'group:claybricks', 'dye:white'},
-	}
+	recipe = {'group:claybricks', 'dye:white'},
 })
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'default:brick_yellow',
-	recipe = {
-		{'group:claybricks', 'dye:yellow'},
-	}
+	recipe = {'group:claybricks', 'dye:yellow'},
 })
 
 

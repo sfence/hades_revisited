@@ -99,7 +99,7 @@ minetest.register_craft({
 -- colored Steeldoors
 
 local colors = {
-	{ "black", "Black Steel Door" },
+	{ "black", "Black Steel Door", "dye:black" },
 	-- TODO: { "grey", "Grey Steel Door" },
 	{ "darkgrey", "Dark Grey Steel Door", "dye:dark_grey" },
 	{ "white", "White Steel Door", "dye:white" },
@@ -132,10 +132,9 @@ for c=1, #colors do
 	})
 
 	minetest.register_craft({
+		type = "shapeless",
 		output = "doors:door_steel_"..id,
-		recipe = {
-			{"doors:door_steel", colors[c][3]},
-		}
+		recipe = { "doors:door_steel", colors[c][3] },
 	})
 end
 

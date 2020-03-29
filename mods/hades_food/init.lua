@@ -133,15 +133,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'hades_food:tomatosalad 2',
-	recipe = {
-		{'farming:spice', 'hades_food:bottle_olive_oil', 'farming:spice'},
-		{'farming:tomato', 'farming:tomato', 'farming:tomato'},
-		{'hades_food:plate', 'farming:bread', 'hades_food:plate'},
-	}
-})
-
-minetest.register_craft({
 	type = "shapeless",
 	output = 'hades_food:tomato_potato_salad',
 	recipe = {'hades_food:tomatosalad', 'hades_food:baked_potato'},

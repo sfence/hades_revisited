@@ -103,15 +103,6 @@ farming.register_hoe = function(name, def)
 				{"", handle, ""}
 			}
 		})
-		-- Reverse Recipe
-		minetest.register_craft({
-			output = name:sub(2),
-			recipe = {
-				{"", def.material, def.material},
-				{"", handle, ""},
-				{"", handle, ""}
-			}
-		})
 	end
 end
 

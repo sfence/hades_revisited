@@ -103,54 +103,54 @@
 	minetest.register_craft( {
 		output = '3dforniture:armchair 2',
 		recipe = {
-			{ 'hades_trees:wood',''},
-			{ 'hades_trees:wood','wool:black' },
-			{ 'hades_trees:wood','hades_trees:wood' },
+			{ 'group:wood',''},
+			{ 'group:wood','wool:black' },
+			{ 'group:wood','group:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_white 2',
 		recipe = {
-			{ 'hades_trees:wood',''},
-			{ 'hades_trees:wood','wool:white' },
-			{ 'hades_trees:wood','hades_trees:wood' },
+			{ 'group:wood',''},
+			{ 'group:wood','wool:white' },
+			{ 'group:wood','group:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_blue 2',
 		recipe = {
-			{ 'hades_trees:wood',''},
-			{ 'hades_trees:wood','wool:blue' },
-			{ 'hades_trees:wood','hades_trees:wood' },
+			{ 'group:wood',''},
+			{ 'group:wood','wool:blue' },
+			{ 'group:wood','group:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_brown 2',
 		recipe = {
-			{ 'hades_trees:wood',''},
-			{ 'hades_trees:wood','wool:brown' },
-			{ 'hades_trees:wood','hades_trees:wood' },
+			{ 'group:wood',''},
+			{ 'group:wood','wool:brown' },
+			{ 'group:wood','group:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_red 2',
 		recipe = {
-			{ 'hades_trees:wood',''},
-			{ 'hades_trees:wood','wool:red' },
-			{ 'hades_trees:wood','hades_trees:wood' },
+			{ 'group:wood',''},
+			{ 'group:wood','wool:red' },
+			{ 'group:wood','group:wood' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:armchair_green 2',
 		recipe = {
-			{ 'hades_trees:wood',''},
-			{ 'hades_trees:wood','wool:dark_green' },
-			{ 'hades_trees:wood','hades_trees:wood' },
+			{ 'group:wood',''},
+			{ 'group:wood','wool:dark_green' },
+			{ 'group:wood','group:wood' },
 		},
 	})
 

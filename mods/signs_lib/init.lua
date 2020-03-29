@@ -900,7 +900,7 @@ minetest.register_craft({
 	output = "signs_lib:sign_wall_locked",
 	recipe = {
 		{"group:wood", "group:wood", "group:wood"},
-		{"group:wood", "default:steel_ingot", "group:wood"},
+		{"default:steel_ingot", "group:wood", "group:wood"},
 		{"", "group:stick", ""},
 	}
 })
