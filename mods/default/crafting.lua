@@ -1149,92 +1149,12 @@ minetest.register_craft({
 	}
 })
 
--- HadesFood
-
 minetest.register_craft({
 	output = 'default:sugar',
 	recipe = {
 		{'default:sugarcane', 'default:sugarcane', 'default:sugarcane'},
 	}
 })
-
-minetest.register_craft({
-	output = 'default:pie_strawberry_raw',
-	recipe = {
-		{'', 'default:sugar', ''},
-        {'farming:strawberry', 'farming:strawberry', 'farming:strawberry'},
-        {'default:sugar', 'farming:flour', 'default:sugar'},
-	}
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "default:pie_strawberry",
-	recipe = "default:pie_strawberry_raw",
-	cooktime = 10,
-})
-
-minetest.register_craft({
-	output = 'default:pie_apple_raw',
-	recipe = {
-		{'', 'default:sugar', ''},
-        {'hades_trees:apple', 'hades_trees:apple', 'hades_trees:apple'},
-        {'default:sugar', 'farming:flour', 'default:sugar'},
-	}
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "default:pie_apple",
-	recipe = "default:pie_apple_raw",
-	cooktime = 10,
-})
-
-minetest.register_craft({
-	output = 'default:bottle_olive_oil',
-	recipe = {
-		{'hades_trees:olive', 'hades_trees:olive', 'hades_trees:olive'},
-        {'', 'vessels:glass_bottle', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:tomatosalad 2',
-	recipe = {
-	    {'farming:spice', 'default:bottle_olive_oil', 'farming:spice'},
-		{'farming:tomato', 'farming:tomato', 'farming:tomato'},
-		{'default:plate', 'farming:bread', 'default:plate'},
-	}
-})
-
-minetest.register_craft({
-    type = "shapeless",
-	output = 'default:tomato_potato_salad',
-	recipe = {'default:tomatosalad', 'default:baked_potato'},
-})
-
-minetest.register_craft({
-    type = "shapeless",
-	output = 'default:spiced_potato',
-	recipe = {'farming:spice', 'farming:potato'},
-})
-
-minetest.register_craft({
-	type = "cooking",
-	cooktime = 10,
-	output = "default:baked_potato",
-	recipe = "default:spiced_potato",
-})
-
-minetest.register_craft({
-	output = 'default:plate 10',
-	recipe = {
-		{'', 'default:clay', ''},
-        {'default:clay', 'default:clay', 'default:clay'},
-		{'', 'default:clay', ''},
-	}
-})
-
 
 -- New Bricks
 
