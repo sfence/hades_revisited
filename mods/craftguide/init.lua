@@ -12,7 +12,6 @@ local min, max, floor, ceil = math.min, math.max, math.floor, math.ceil
 local group_stereotypes = {
 	wool	     = "wool:white",
 	dye	     = "dye:white",
-	water_bucket = "bucket:bucket_water",
 	vessel	     = "vessels:glass_bottle",
 	coal	     = "default:coal_lump",
 	flower	     = "flowers:dandelion_yellow",
