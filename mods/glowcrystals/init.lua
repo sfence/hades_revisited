@@ -110,11 +110,11 @@ minetest.register_craftitem( "glowcrystals:glowdust", {
 --//////////
 
 minetest.register_craft( {
-	output = 'node "glowcrystals:glowcrystal_block" 1',
+	output = 'glowcrystals:glowcrystal_block',
 	recipe = {
-		{ 'craft "glowcrystals:glowcrystal"', 'craft "glowcrystals:glowcrystal"', 'craft "glowcrystals:glowcrystal"' },
-		{ 'craft "glowcrystals:glowcrystal"', 'craft "glowcrystals:glowcrystal"', 'craft "glowcrystals:glowcrystal"' },
-		{ 'craft "glowcrystals:glowcrystal"', 'craft "glowcrystals:glowcrystal"', 'craft "glowcrystals:glowcrystal"' },
+		{ 'glowcrystals:glowcrystal"', 'glowcrystals:glowcrystal', 'glowcrystals:glowcrystal' },
+		{ 'glowcrystals:glowcrystal"', 'glowcrystals:glowcrystal', 'glowcrystals:glowcrystal' },
+		{ 'glowcrystals:glowcrystal"', 'glowcrystals:glowcrystal', 'glowcrystals:glowcrystal' },
 	}
 })
 
