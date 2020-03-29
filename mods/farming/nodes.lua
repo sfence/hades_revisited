@@ -139,23 +139,7 @@ minetest.register_node("farming:flowergrass", {
 		walkable = false,
 		buildable_to = true,
 		is_ground_content = true,
-		drop = {
-			max_items = 1,
-			items = {
-				{items = {'dye:white 3'},rarity = 22},
-				{items = {'dye:violet 3'},rarity = 22},
-				{items = {'dye:blue 3'},rarity = 22},
-				{items = {'dye:cyan 3'},rarity = 22},
-				{items = {'dye:red 3'},rarity = 22},
-				{items = {'dye:orange 3'},rarity = 22},
-				{items = {'dye:pink 3'},rarity = 22},
-				{items = {'dye:yellow 3'},rarity = 22},
-				{items = {'dye:magenta 3'},rarity = 22},
-				{items = {'dye:dark_green 3'},rarity = 22},
-				{items = {'farming:flowergrass'}},
-			}
-		},
-		groups = {snappy=3,flammable=3,flora=1,attached_node=1,not_in_creative_inventory=1},
+		groups = {snappy=3,flammable=3,flora=1,attached_node=1},
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
