@@ -9,7 +9,7 @@ minetest.register_node("mesecons_blinkyplant:blinky_plant", {
 	groups = {dig_immediate=3, not_in_creative_inventory=1},
 	drop="mesecons_blinkyplant:blinky_plant_off 1",
     description="Deactivated Blinky Plant",
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, -0.5+0.7, 0.3},
@@ -31,7 +31,7 @@ minetest.register_node("mesecons_blinkyplant:blinky_plant_off", {
 	walkable = false,
 	groups = {dig_immediate=3, mesecon=2},
     description="Blinky Plant",
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, -0.5+0.7, 0.3},
@@ -55,7 +55,7 @@ minetest.register_node("mesecons_blinkyplant:blinky_plant_on", {
 	drop="mesecons_blinkyplant:blinky_plant_off 1",
 	light_source = minetest.LIGHT_MAX-7,
 	description = "Blinky Plant",
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, -0.5+0.7, 0.3},

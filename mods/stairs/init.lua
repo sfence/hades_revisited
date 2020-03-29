@@ -314,7 +314,7 @@ stairs.register_stair_and_slab("wood", "hades_trees:wood",
 		"Outer Common Wood Stair",
 		"Inner Common Wood Stair",
 		"Common Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("pale_wood", "hades_trees:pale_wood",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -323,7 +323,7 @@ stairs.register_stair_and_slab("pale_wood", "hades_trees:pale_wood",
 		"Outer Pale Wood Stair",
 		"Inner Pale Wood Stair",
 		"Pale Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("birch_wood", "hades_trees:birch_wood",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -332,7 +332,7 @@ stairs.register_stair_and_slab("birch_wood", "hades_trees:birch_wood",
 		"Outer Birch Wood Stair",
 		"Inner Birch Wood Stair",
 		"Birch Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 
 -- Barks
 
@@ -343,7 +343,7 @@ stairs.register_stair_and_slab("bark", "hades_trees:bark",
 		"Outer Common Bark Stair",
 		"Inner Common Bark Stair",
 		"Common Bark Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("jungle_bark", "hades_trees:jungle_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
@@ -352,7 +352,7 @@ stairs.register_stair_and_slab("jungle_bark", "hades_trees:jungle_bark",
 		"Outer Jungle Bark Stair",
 		"Inner Jungle Bark Stair",
 		"Jungle Bark Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("pale_bark", "hades_trees:pale_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
@@ -361,7 +361,7 @@ stairs.register_stair_and_slab("pale_bark", "hades_trees:pale_bark",
 		"Outer Pale Bark Stair",
 		"Inner Pale Bark Stair",
 		"Pale Bark Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("birch_bark", "hades_trees:birch_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
@@ -370,7 +370,7 @@ stairs.register_stair_and_slab("birch_bark", "hades_trees:birch_bark",
 		"Outer Birch Bark Stair",
 		"Inner Birch Bark Stair",
 		"Birch Bark Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 
 -- Colored Woods
 
@@ -381,7 +381,7 @@ stairs.register_stair_and_slab("colwood_black", "hades_trees:colwood_black",
 		"Outer Black Wood Stair",
 		"Inner Black Wood Stair",
 		"Black Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_blue", "hades_trees:colwood_blue",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -390,7 +390,7 @@ stairs.register_stair_and_slab("colwood_blue", "hades_trees:colwood_blue",
 		"Outer Blue Wood Stair",
 		"Inner Blue Wood Stair",
 		"Blue Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("colwood_brown", "hades_trees:colwood_brown",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -399,7 +399,7 @@ stairs.register_stair_and_slab("colwood_brown", "hades_trees:colwood_brown",
 		"Outer Brown Wood Stair",
 		"Inner Brown Wood Stair",
 		"Brown Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_cyan", "hades_trees:colwood_cyan",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -408,7 +408,7 @@ stairs.register_stair_and_slab("colwood_cyan", "hades_trees:colwood_cyan",
 		"Outer Cyan Wood Stair",
 		"Inner Cyan Wood Stair",
 		"Cyan Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_dark_green", "hades_trees:colwood_dark_green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -417,7 +417,7 @@ stairs.register_stair_and_slab("colwood_dark_green", "hades_trees:colwood_dark_g
 		"Outer Dark Green Wood Stair",
 		"Inner Dark Green Wood Stair",
 		"Dark Green Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_dark_grey", "hades_trees:colwood_dark_grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -426,7 +426,7 @@ stairs.register_stair_and_slab("colwood_dark_grey", "hades_trees:colwood_dark_gr
 		"Outer Dark Grey Wood Stair",
 		"Inner Dark Grey Wood Stair",
 		"Dark Grey Wood Slab",
-		default.node_sound_wood_defaults())	
+		hades_sounds.node_sound_wood_defaults())	
 		
 stairs.register_stair_and_slab("colwood_green", "hades_trees:colwood_green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -435,7 +435,7 @@ stairs.register_stair_and_slab("colwood_green", "hades_trees:colwood_green",
 		"Outer Green Wood Stair",
 		"Inner Green Wood Stair",
 		"Green Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_grey", "hades_trees:colwood_grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -444,7 +444,7 @@ stairs.register_stair_and_slab("colwood_grey", "hades_trees:colwood_grey",
 		"Outer Grey Wood Stair",
 		"Inner Grey Wood Stair",
 		"Grey Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_magenta", "hades_trees:colwood_magenta",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -453,7 +453,7 @@ stairs.register_stair_and_slab("colwood_magenta", "hades_trees:colwood_magenta",
 		"Outer Magenta Wood Stair",
 		"Inner Magenta Wood Stair",
 		"Magenta Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_orange", "hades_trees:colwood_orange",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -462,7 +462,7 @@ stairs.register_stair_and_slab("colwood_orange", "hades_trees:colwood_orange",
 		"Outer Orange Wood Stair",
 		"Inner Orange Wood Stair",
 		"Orange Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_pink", "hades_trees:colwood_pink",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -471,7 +471,7 @@ stairs.register_stair_and_slab("colwood_pink", "hades_trees:colwood_pink",
 		"Outer Pink Wood Stair",
 		"Inner Pink Wood Stair",
 		"Pink Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_red", "hades_trees:colwood_red",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -480,7 +480,7 @@ stairs.register_stair_and_slab("colwood_red", "hades_trees:colwood_red",
 		"Outer Red Wood Stair",
 		"Inner Red Wood Stair",
 		"Red Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_violet", "hades_trees:colwood_violet",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -489,7 +489,7 @@ stairs.register_stair_and_slab("colwood_violet", "hades_trees:colwood_violet",
 		"Outer Violet Wood Stair",
 		"Inner Violet Wood Stair",
 		"Violet Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 	
 stairs.register_stair_and_slab("colwood_white", "hades_trees:colwood_white",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -498,7 +498,7 @@ stairs.register_stair_and_slab("colwood_white", "hades_trees:colwood_white",
 		"Outer White Wood Stair",
 		"Inner White Wood Stair",
 		"White Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 stairs.register_stair_and_slab("colwood_yellow", "hades_trees:colwood_yellow",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -507,7 +507,7 @@ stairs.register_stair_and_slab("colwood_yellow", "hades_trees:colwood_yellow",
 		"Outer Yellow Wood Stair",
 		"Inner Yellow Wood Stair",
 		"Yellow Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 		
 		--		
 stairs.register_stair_and_slab("steelblock", "default:steelblock",
@@ -517,7 +517,7 @@ stairs.register_stair_and_slab("steelblock", "default:steelblock",
 		"Outer Steel Block Stair",
 		"Inner Steel Block Stair",
 		"Steel Block Slab",
-		default.node_sound_metal_defaults())
+		hades_sounds.node_sound_metal_defaults())
 
 stairs.register_stair_and_slab("copperblock", "default:copperblock",
 		{cracky=1,level=2},
@@ -526,7 +526,7 @@ stairs.register_stair_and_slab("copperblock", "default:copperblock",
 		"Outer Copper Block Stair",
 		"Inner Copper Block Stair",
 		"Copper Block Slab",
-		default.node_sound_metal_defaults())
+		hades_sounds.node_sound_metal_defaults())
 
 stairs.register_stair_and_slab("bronzeblock", "default:bronzeblock",
 		{cracky=1,level=2},
@@ -535,7 +535,7 @@ stairs.register_stair_and_slab("bronzeblock", "default:bronzeblock",
 		"Outer Bronze Block Stair",
 		"Inner Bronze Block Stair",
 		"Bronze Block Slab",
-		default.node_sound_metal_defaults())
+		hades_sounds.node_sound_metal_defaults())
 
 stairs.register_stair_and_slab("goldblock", "default:goldblock",
 		{cracky=1},
@@ -544,7 +544,7 @@ stairs.register_stair_and_slab("goldblock", "default:goldblock",
 		"Outer Gold Block Stair",
 		"Inner Gold Block Stair",
 		"Gold Block Slab",
-		default.node_sound_metal_defaults())
+		hades_sounds.node_sound_metal_defaults())
 
 stairs.register_stair_and_slab("stone", "default:stone",
 		{cracky=3},
@@ -553,7 +553,7 @@ stairs.register_stair_and_slab("stone", "default:stone",
 		"Outer Stone Stair",
 		"Inner Stone Stair",
 		"Stone Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("stonebrick_baked", "default:stonebrick_baked",
 		{cracky=3},
@@ -562,7 +562,7 @@ stairs.register_stair_and_slab("stonebrick_baked", "default:stonebrick_baked",
 		"Outer Burned Stone Brick Stair",
 		"Inner Burned Stone Brick Stair",
 		"Burned Stone Brick Slab",
-		default.node_sound_stone_defaults())	
+		hades_sounds.node_sound_stone_defaults())	
 
 stairs.register_stair_and_slab("stone_baked", "default:stone_baked",
 		{cracky=3},
@@ -571,7 +571,7 @@ stairs.register_stair_and_slab("stone_baked", "default:stone_baked",
 		"Outer Burned Stone Stair",
 		"Inner Burned Stone Stair",
 		"Burned Stone Slab",
-		default.node_sound_stone_defaults())		
+		hades_sounds.node_sound_stone_defaults())		
 		
 stairs.register_stair_and_slab("cobble", "default:cobble",
 		{cracky=3},
@@ -580,7 +580,7 @@ stairs.register_stair_and_slab("cobble", "default:cobble",
 		"Outer Cobblestone Stair",
 		"Inner Cobblestone Stair",
 		"Cobblestone Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("cobble_baked", "default:cobble_baked",
 		{cracky=3},
@@ -589,7 +589,7 @@ stairs.register_stair_and_slab("cobble_baked", "default:cobble_baked",
 		"Outer Burned Cobblestone Stair",
 		"Inner Burned Cobblestone Stair",
 		"Burned Cobblestone Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("brick", "default:brick",
 		{cracky=3},
@@ -598,7 +598,7 @@ stairs.register_stair_and_slab("brick", "default:brick",
 		"Outer Uncolored Brick Stair",
 		"Inner Uncolored Brick Stair",
 		"Uncolored Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 -- Colors... too mutch ColOrs...  EvErYwhere
 
@@ -609,7 +609,7 @@ stairs.register_stair_and_slab("brick_black", "default:brick_black",
 		"Outer Black Brick Stair",
 		"Inner Black Brick Stair",
 		"Black Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_blue", "default:brick_blue",
 		{cracky=3},
@@ -618,7 +618,7 @@ stairs.register_stair_and_slab("brick_blue", "default:brick_blue",
 		"Outer Blue Brick Stair",
 		"Inner Blue Brick Stair",
 		"Blue Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_brown", "default:brick_brown",
 		{cracky=3},
@@ -627,7 +627,7 @@ stairs.register_stair_and_slab("brick_brown", "default:brick_brown",
 		"Outer Brown Brick Stair",
 		"Inner Brown Brick Stair",
 		"Brown Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_cyan", "default:brick_cyan",
 		{cracky=3},
@@ -636,7 +636,7 @@ stairs.register_stair_and_slab("brick_cyan", "default:brick_cyan",
 		"Outer Cyan Brick Stair",
 		"Inner Cyan Brick Stair",
 		"Cyan Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_dark_green", "default:brick_dark_green",
 		{cracky=3},
@@ -645,7 +645,7 @@ stairs.register_stair_and_slab("brick_dark_green", "default:brick_dark_green",
 		"Outer Dark Green Brick Stair",
 		"Inner Dark Green Brick Stair",
 		"Dark Green Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_dark_grey", "default:brick_dark_grey",
 		{cracky=3},
@@ -654,7 +654,7 @@ stairs.register_stair_and_slab("brick_dark_grey", "default:brick_dark_grey",
 		"Outer Dark Grey Brick Stair",
 		"Inner Dark Grey Brick Stair",
 		"Dark Grey Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_green", "default:brick_green",
 		{cracky=3},
@@ -663,7 +663,7 @@ stairs.register_stair_and_slab("brick_green", "default:brick_green",
 		"Outer Green Brick Stair",
 		"Inner Green Brick Stair",
 		"Green Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_grey", "default:brick_grey",
 		{cracky=3},
@@ -672,7 +672,7 @@ stairs.register_stair_and_slab("brick_grey", "default:brick_grey",
 		"Outer Grey Brick Stair",
 		"Inner Grey Brick Stair",
 		"Grey Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_magenta", "default:brick_magenta",
 		{cracky=3},
@@ -681,7 +681,7 @@ stairs.register_stair_and_slab("brick_magenta", "default:brick_magenta",
 		"Outer Magenta Brick Stair",
 		"Inner Magenta Brick Stair",
 		"Magenta Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_orange", "default:brick_orange",
 		{cracky=3},
@@ -690,7 +690,7 @@ stairs.register_stair_and_slab("brick_orange", "default:brick_orange",
 		"Outer Orange Brick Stair",
 		"Inner Orange Brick Stair",
 		"Orange Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("brick_pink", "default:brick_pink",
 		{cracky=3},
@@ -699,7 +699,7 @@ stairs.register_stair_and_slab("brick_pink", "default:brick_pink",
 		"Outer Pink Brick Stair",
 		"Inner Pink Brick Stair",
 		"Pink Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("brick_red", "default:brick_red",
 		{cracky=3},
@@ -708,7 +708,7 @@ stairs.register_stair_and_slab("brick_red", "default:brick_red",
 		"Outer Red Brick Stair",
 		"Inner Red Brick Stair",
 		"Red Brick Slab",
-		default.node_sound_stone_defaults())		
+		hades_sounds.node_sound_stone_defaults())		
 
 stairs.register_stair_and_slab("brick_violet", "default:brick_violet",
 		{cracky=3},
@@ -717,7 +717,7 @@ stairs.register_stair_and_slab("brick_violet", "default:brick_violet",
 		"Outer Violet Brick Stair",
 		"Inner Violet Brick Stair",
 		"Violet Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("brick_white", "default:brick_white",
 		{cracky=3},
@@ -726,7 +726,7 @@ stairs.register_stair_and_slab("brick_white", "default:brick_white",
 		"Outer White Brick Stair",
 		"Inner White Brick Stair",
 		"White Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("brick_yellow", "default:brick_yellow",
 		{cracky=3},
@@ -735,7 +735,7 @@ stairs.register_stair_and_slab("brick_yellow", "default:brick_yellow",
 		"Outer Yellow Brick Stair",
 		"Inner Yellow Brick Stair",
 		"Yellow Brick Slab",
-		default.node_sound_stone_defaults())		
+		hades_sounds.node_sound_stone_defaults())		
 		
 	
 stairs.register_stair_and_slab("sandstone", "default:sandstone",
@@ -745,7 +745,7 @@ stairs.register_stair_and_slab("sandstone", "default:sandstone",
 		"Outer Sandstone Stair",
 		"Inner Sandstone Stair",
 		"Sandstone Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("sandstonebrick", "default:sandstonebrick",
 		{crumbly=2,cracky=2},
@@ -754,7 +754,7 @@ stairs.register_stair_and_slab("sandstonebrick", "default:sandstonebrick",
 		"Outer Sandstone Brick Stair",
 		"Inner Sandstone Brick Stair",
 		"Sandstone Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("jungle_wood", "hades_trees:jungle_wood",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -763,7 +763,7 @@ stairs.register_stair_and_slab("jungle_wood", "hades_trees:jungle_wood",
 		"Outer Jungle Wood Stair",
 		"Innter Jungle Wood Stair",
 		"Jungle Wood Slab",
-		default.node_sound_wood_defaults())
+		hades_sounds.node_sound_wood_defaults())
 
 stairs.register_stair_and_slab("stonebrick", "default:stonebrick",
 		{cracky=3},
@@ -772,7 +772,7 @@ stairs.register_stair_and_slab("stonebrick", "default:stonebrick",
 		"Outer Stone Brick Stair",
 		"Inner Stone Brick Stair",
 		"Stone Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("chondrite_brick", "default:chondrite_brick",
 		{cracky=2},
@@ -781,7 +781,7 @@ stairs.register_stair_and_slab("chondrite_brick", "default:chondrite_brick",
 		"Outer Chondrite Brick Stair",
 		"Inner Chondrite Brick Stair",
 		"Chondrite Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("chondrite", "default:chondrite",
 		{cracky=2},
@@ -790,7 +790,7 @@ stairs.register_stair_and_slab("chondrite", "default:chondrite",
 		"Outer Chondrite Stair",
 		"Inner Chondrite Stair",
 		"Chondrite Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("marble_brick", "default:marble_brick",
 		{cracky=3},
@@ -799,7 +799,7 @@ stairs.register_stair_and_slab("marble_brick", "default:marble_brick",
 		"Outer Marble Brick Stair",
 		"Inner Marble Brick Stair",
 		"Marble Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("marble", "default:marble",
 		{cracky=3},
@@ -808,7 +808,7 @@ stairs.register_stair_and_slab("marble", "default:marble",
 		"Outer Marble Stair",
 		"Inner Marble Stair",
 		"Marble Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("tuff_brick", "default:tuff_brick",
 		{cracky=3},
@@ -817,7 +817,7 @@ stairs.register_stair_and_slab("tuff_brick", "default:tuff_brick",
 		"Outer Tuff Brick Stair",
 		"Inner Tuff Brick Stair",
 		"Tuff Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("tuff", "default:tuff",
 		{cracky=3},
@@ -826,7 +826,7 @@ stairs.register_stair_and_slab("tuff", "default:tuff",
 		"Outer Tuff Stair",
 		"Inner Tuff Stair",
 		"Tuff Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("tuff_baked_brick", "default:tuff_baked_brick",
 		{cracky=3},
@@ -835,7 +835,7 @@ stairs.register_stair_and_slab("tuff_baked_brick", "default:tuff_baked_brick",
 		"Outer Burned Tuff Brick Stair",
 		"Inner Burned Tuff Brick Stair",
 		"Burned Tuff Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("tuff_baked", "default:tuff_baked",
 		{cracky=3},
@@ -844,7 +844,7 @@ stairs.register_stair_and_slab("tuff_baked", "default:tuff_baked",
 		"Outer Burned Tuff Stair",
 		"Inner Burned Tuff Stair",
 		"Burned Tuff Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("essexite_brick", "default:essexite_brick",
 		{cracky=1},
@@ -853,7 +853,7 @@ stairs.register_stair_and_slab("essexite_brick", "default:essexite_brick",
 		"Outer Essexite Brick Stair",
 		"Inner Essexite Brick Stair",
 		"Essexite Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("essexite", "default:essexite",
 		{cracky=1},
@@ -862,7 +862,7 @@ stairs.register_stair_and_slab("essexite", "default:essexite",
 		"Outer Essexite Stair",
 		"Inner Essexite Stair",
 		"Essexite Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("rusty_block", "columnia:rusty_block",
 		{cracky=1},
@@ -871,7 +871,7 @@ stairs.register_stair_and_slab("rusty_block", "columnia:rusty_block",
 		"Outer Rusty Stair",
 		"Inner Rusty Stair",
 		"Rusty Slab",
-		default.node_sound_metal_defaults())
+		hades_sounds.node_sound_metal_defaults())
 		
 stairs.register_stair_and_slab("cactus_brick", "default:cactus_brick",
 		{cracky=1},
@@ -880,7 +880,7 @@ stairs.register_stair_and_slab("cactus_brick", "default:cactus_brick",
 		"Outer Cactus Brick Stair",
 		"Inner Cactus Brick Stair",
 		"Cactus Brick Slab",
-		default.node_sound_wood_defaults())	
+		hades_sounds.node_sound_wood_defaults())	
 		
 stairs.register_stair_and_slab("obsidianbrick", "default:obsidianbrick",
 		{cracky=1},
@@ -889,7 +889,7 @@ stairs.register_stair_and_slab("obsidianbrick", "default:obsidianbrick",
 		"Outer Obsidian Brick Stair",
 		"Inner Obsidian Brick Stair",
 		"Obsidian Brick Slab",
-		default.node_sound_stone_defaults())
+		hades_sounds.node_sound_stone_defaults())
 		
 stairs.register_stair_and_slab("straw", "farming:straw",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -898,7 +898,7 @@ stairs.register_stair_and_slab("straw", "farming:straw",
 		"Outer Straw Stair",
 		"Inner Straw Stair",
 		"Straw Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 --wool
 
@@ -909,7 +909,7 @@ stairs.register_stair_and_slab("white", "wool:white",
 		"Outer White Wool Stair",
 		"Inner White Wool Stair",
 		"White Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("grey", "wool:grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -918,7 +918,7 @@ stairs.register_stair_and_slab("grey", "wool:grey",
 		"Outer Grey Wool Stair",
 		"Inner Grey Wool Stair",
 		"Grey Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("black", "wool:black",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -927,7 +927,7 @@ stairs.register_stair_and_slab("black", "wool:black",
 		"Outer Black Wool Stair",
 		"Inner Black Wool Stair",
 		"Black Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("red", "wool:red",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -936,7 +936,7 @@ stairs.register_stair_and_slab("red", "wool:red",
 		"Outer Red Wool Stair",
 		"Inner Red Wool Stair",
 		"Red Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("yellow", "wool:yellow",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -945,7 +945,7 @@ stairs.register_stair_and_slab("yellow", "wool:yellow",
 		"Outer Yellow Wool Stair",
 		"Inner Yellow Wool Stair",
 		"Yellow Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("green", "wool:green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -954,7 +954,7 @@ stairs.register_stair_and_slab("green", "wool:green",
 		"Outer Green Wool Stair",
 		"Inner Green Wool Stair",
 		"Green Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("cyan", "wool:cyan",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -963,7 +963,7 @@ stairs.register_stair_and_slab("cyan", "wool:cyan",
 		"Outer Cyan Wool Stair",
 		"Inner Cyan Wool Stair",
 		"Cyan Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("blue", "wool:blue",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -972,7 +972,7 @@ stairs.register_stair_and_slab("blue", "wool:blue",
 		"Outer Blue Wool Stair",
 		"Inner Blue Wool Stair",
 		"Blue Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 
 stairs.register_stair_and_slab("magenta", "wool:magenta",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -981,7 +981,7 @@ stairs.register_stair_and_slab("magenta", "wool:magenta",
 		"Outer Magenta Wool Stair",
 		"Inner Magenta Wool Stair",
 		"Magenta Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("orange", "wool:orange",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -990,7 +990,7 @@ stairs.register_stair_and_slab("orange", "wool:orange",
 		"Outer Orange Wool Stair",
 		"Inner Orange Wool Stair",
 		"Orange Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("violet", "wool:violet",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -999,7 +999,7 @@ stairs.register_stair_and_slab("violet", "wool:violet",
 		"Outer Violet Wool Stair",
 		"Inner Violet Wool Stair",
 		"Violet Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("brown", "wool:brown",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -1008,7 +1008,7 @@ stairs.register_stair_and_slab("brown", "wool:brown",
 		"Outer Brown Wool Stair",
 		"Inner Brown Wool Stair",
 		"Brown Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("pink", "wool:pink",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -1017,7 +1017,7 @@ stairs.register_stair_and_slab("pink", "wool:pink",
 		"Outer Pink Wool Stair",
 		"Inner Pink Wool Stair",
 		"Pink Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("dark_grey", "wool:dark_grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -1026,7 +1026,7 @@ stairs.register_stair_and_slab("dark_grey", "wool:dark_grey",
 		"Outer Dark Grey Wool Stair",
 		"Inner Dark Grey Wool Stair",
 		"Dark Grey Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 		
 stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -1035,7 +1035,7 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 		"Outer Dark Green Wool Stair",
 		"Inner Dark Green Wool Stair",
 		"Dark Green Wool Slab",
-		default.node_sound_leaves_defaults())
+		hades_sounds.node_sound_leaves_defaults())
 
 
 -- Glowing crystal
@@ -1052,7 +1052,7 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 	    light_source = 14,
 		is_ground_content = false,
 		groups = {crumbly=2,cracky=2, glowing=1},
-		sounds = default.node_sound_stone_defaults(),
+		sounds = hades_sounds.node_sound_stone_defaults(),
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -1123,7 +1123,7 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 	    light_source = 14,
 		is_ground_content = false,
 		groups = {crumbly=2,cracky=2, glowing=1},
-		sounds = default.node_sound_stone_defaults(),
+		sounds = hades_sounds.node_sound_stone_defaults(),
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -1184,7 +1184,7 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 	    light_source = 14,
 		is_ground_content = false,
 		groups = {crumbly=2,cracky=2, glowing=1},
-		sounds = default.node_sound_stone_defaults(),
+		sounds = hades_sounds.node_sound_stone_defaults(),
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -1247,7 +1247,7 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 	    light_source = 14,
 		is_ground_content = false,
 		groups = {crumbly=2,cracky=2, glowing=1},
-		sounds = default.node_sound_stone_defaults(),
+		sounds = hades_sounds.node_sound_stone_defaults(),
 		node_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},

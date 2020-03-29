@@ -76,7 +76,7 @@ for s in ipairs(states) do
 			fixed = pumpboxes
 		},
 		groups = dgroups,
-		sounds = default.node_sound_metal_defaults(),
+		sounds = hades_sounds.node_sound_metal_defaults(),
 		walkable = true,
 		after_place_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
@@ -134,7 +134,7 @@ for s in ipairs(states) do
 			fixed = valveboxes
 		},
 		groups = dgroups,
-		sounds = default.node_sound_metal_defaults(),
+		sounds = hades_sounds.node_sound_metal_defaults(),
 		walkable = true,
 		after_place_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
@@ -187,7 +187,7 @@ minetest.register_node("pipeworks:valve_on_loaded", {
 		fixed = valveboxes
 	},
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
@@ -225,7 +225,7 @@ minetest.register_node("pipeworks:grating", {
 	paramtype = "light",
 	drawtype = "glasslike",
 	groups = {snappy=3},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 })
 
@@ -257,7 +257,7 @@ minetest.register_node("pipeworks:spigot", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
@@ -318,7 +318,7 @@ minetest.register_node("pipeworks:spigot_pouring", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
@@ -359,7 +359,7 @@ minetest.register_node("pipeworks:entry_panel_empty", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
@@ -445,7 +445,7 @@ minetest.register_node("pipeworks:entry_panel_loaded", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
@@ -487,7 +487,7 @@ minetest.register_node("pipeworks:flow_sensor_empty", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
@@ -528,7 +528,7 @@ minetest.register_node("pipeworks:flow_sensor_loaded", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
@@ -582,7 +582,7 @@ for fill = 0, 10 do
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy=3, pipe=1, tankfill=fill+1, not_in_creative_inventory=1},
-		sounds = default.node_sound_metal_defaults(),
+		sounds = hades_sounds.node_sound_metal_defaults(),
 		walkable = true,
 		drop = "pipeworks:storage_tank_"..fill,
 		after_place_node = function(pos)
@@ -608,7 +608,7 @@ for fill = 0, 10 do
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = sgroups,
-		sounds = default.node_sound_metal_defaults(),
+		sounds = hades_sounds.node_sound_metal_defaults(),
 		walkable = true,
 		after_place_node = function(pos)
 			pipeworks.look_for_stackable_tanks(pos)
@@ -633,7 +633,7 @@ minetest.register_node("pipeworks:fountainhead", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	groups = {snappy=3, pipe=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
@@ -667,7 +667,7 @@ minetest.register_node("pipeworks:fountainhead_pouring", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)

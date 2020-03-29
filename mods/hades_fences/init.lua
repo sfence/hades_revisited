@@ -62,7 +62,7 @@ function hades_fences.register_fence(name, def)
 end
 
 local fences = {
-	{ "rusty", "Rusty Fence", "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal"}, default.node_sound_metal_defaults() },
+	{ "rusty", "Rusty Fence", "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal"}, hades_sounds.node_sound_metal_defaults() },
 	{ "wood", "Common Wood Fence", "default_wood.png" },
 	{ "pale_wood", "Pale Wood Fence", "hades_trees_pale_wood.png" },
 	{ "birch_wood", "Birch Wood Fence", "default_birchwood.png" },
@@ -86,7 +86,7 @@ local fences = {
 
 for i=1, #fences do
 	local groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2, fence_wood=1}
-	local sounds = default.node_sound_wood_defaults()
+	local sounds = hades_sounds.node_sound_wood_defaults()
 	if fences[i][4] then
 		groups = fences[i][4]
 	end

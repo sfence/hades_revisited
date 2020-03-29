@@ -92,7 +92,7 @@ minetest.register_node("travelnet:travelnet", {
        end
        return minetest.item_place(itemstack, placer, pointed_thing);
     end,
-    sounds = default.node_sound_stone_defaults(),
+    sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 --[

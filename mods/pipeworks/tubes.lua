@@ -70,7 +70,7 @@ local register_one_tube = function(name, tname, dropname, desc, plain, noctrs, e
 			fixed = outboxes
 		},
 		groups = tgroups,
-		sounds = default.node_sound_glass_defaults(),
+		sounds = hades_sounds.node_sound_glass_defaults(),
 		walkable = true,
 		stack_max = 99,
 		basename = name,
@@ -605,7 +605,7 @@ if pipeworks.enable_one_way_tube then
 			fixed = {{-1/2, -9/64, -9/64, 1/2, 9/64, 9/64}}},
 		groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, tubedevice = 1, tubedevice_receiver = 1},
 		legacy_facedir_simple = true,
-		sounds = default.node_sound_glass_defaults(),
+		sounds = hades_sounds.node_sound_glass_defaults(),
 		on_construct = function(pos)
 			minetest.get_meta(pos):set_int("tubelike", 1)
 		end,

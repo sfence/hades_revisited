@@ -36,14 +36,14 @@ walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sou
 end
 
 walls.register("walls:cobble", "Cobblestone Wall", "default_cobble.png",
-		"default:cobble", default.node_sound_stone_defaults())
+		"default:cobble", hades_sounds.node_sound_stone_defaults())
 
 walls.register("walls:mossycobble", "Mossy Cobblestone Wall", "default_mossycobble.png",
-		"default:mossycobble", default.node_sound_stone_defaults())
+		"default:mossycobble", hades_sounds.node_sound_stone_defaults())
 
 walls.register("walls:cobble_baked", "Burned Cobblestone Wall", "default_cobble_baked.png",
-		"default:cobble_baked", default.node_sound_stone_defaults())
+		"default:cobble_baked", hades_sounds.node_sound_stone_defaults())
 
 walls.register("walls:sandstone", "Sandstone Wall", "default_sandstone.png",
-		"default:sandstone", default.node_sound_stone_defaults())
+		"default:sandstone", hades_sounds.node_sound_stone_defaults())
 

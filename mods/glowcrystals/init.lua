@@ -18,7 +18,7 @@ minetest.register_node( "glowcrystals:glowcrystal_ore", {
 	sunlight_propagates = true,
 	light_source = 10,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	drop = 'craft "glowcrystals:glowcrystal" 1',
 })
 
@@ -30,7 +30,7 @@ minetest.register_node( "glowcrystals:glowcrystal_block", {
 	sunlight_propagates = true,
 	light_source = 14,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("glowcrystals:glowcrystal_torch", {
@@ -52,7 +52,7 @@ minetest.register_node("glowcrystals:glowcrystal_torch", {
 	},
 	groups = {choppy=2,dig_immediate=3,attached_node=1},
 	legacy_wallmounted = true,
-	sounds = default.node_sound_defaults(),
+	sounds = hades_sounds.node_sound_defaults(),
 })
 
 minetest.register_node("glowcrystals:glowglass", {
@@ -64,7 +64,7 @@ minetest.register_node("glowcrystals:glowglass", {
 	light_source = 11,
 	is_ground_content = false,
 	groups = {cracky=3,oddly_breakable_by_hand=3},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
 if minetest.get_modpath("windows") then
@@ -74,8 +74,8 @@ if minetest.get_modpath("windows") then
 		texture_front = "glowcrystals_windows_glow_front.png",
 		light_source = 11,
 		groups = {cracky=3,oddly_breakable_by_hand=3},
-		sounds = default.node_sound_glass_defaults({
-			footstep = default.node_sound_stone_defaults().footstep,
+		sounds = hades_sounds.node_sound_glass_defaults({
+			footstep = hades_sounds.node_sound_stone_defaults().footstep,
 		})
 	})
 

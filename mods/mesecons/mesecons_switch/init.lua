@@ -5,7 +5,7 @@ minetest.register_node("mesecons_switch:mesecon_switch_off", {
 	paramtype2="facedir",
 	groups = {dig_immediate=2},
 	description="Switch",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	mesecons = {receptor = {
 		state = mesecon.state.off
 	}},
@@ -21,7 +21,7 @@ minetest.register_node("mesecons_switch:mesecon_switch_on", {
 	paramtype2="facedir",
 	groups = {dig_immediate=2,not_in_creative_inventory=1},
 	drop="mesecons_switch:mesecon_switch_off 1",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	mesecons = {receptor = {
 		state = mesecon.state.on
 	}},

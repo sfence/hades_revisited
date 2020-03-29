@@ -57,7 +57,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 			minetest.sound_play("trash", {to_player=player_name, gain = 1.0})
 		end
         end,
-	sounds = default.node_sound_defaults(),
+	sounds = hades_sounds.node_sound_defaults(),
 })
 
 --Crafting

@@ -23,7 +23,7 @@ minetest.register_node("flowers:dandelion_white", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_white=1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
@@ -41,7 +41,7 @@ minetest.register_node("flowers:dandelion_yellow", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_yellow=1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = { -0.27, -0.5, -0.27, 0.27, 0.2, 0.27 },
@@ -59,7 +59,7 @@ minetest.register_node("flowers:geranium", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_blue=1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = { -0.175, -0.5, -0.175, 0.175, 0.35, 0.175 },
@@ -77,7 +77,7 @@ minetest.register_node("flowers:rose", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_red=1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.3, 0.15 },
@@ -95,7 +95,7 @@ minetest.register_node("flowers:tulip", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_orange=1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.25, 0.15 },
@@ -113,7 +113,7 @@ minetest.register_node("flowers:viola", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_violet=1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },

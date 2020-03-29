@@ -19,7 +19,7 @@ function mesecon:lightstone_add(name, base_item, texture_off, texture_on, desc)
 		tiles = {texture_off},
 		groups = {cracky=2, mesecon_effector_off = 1, mesecon = 2},
 		description=desc,
-		sounds = default.node_sound_stone_defaults(),
+		sounds = hades_sounds.node_sound_stone_defaults(),
 		mesecons = {effector = {
 			rules = lightstone_rules,
 			action_on = function (pos, node)
@@ -32,7 +32,7 @@ function mesecon:lightstone_add(name, base_item, texture_off, texture_on, desc)
 	groups = {cracky=2,not_in_creative_inventory=1, mesecon = 2},
 	drop = "mesecons_lightstone:lightstone_" .. name .. "_off",
 	light_source = minetest.LIGHT_MAX-2,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	mesecons = {effector = {
 		rules = lightstone_rules,
 		action_off = function (pos, node)

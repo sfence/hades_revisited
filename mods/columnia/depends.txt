@@ -1,2 +1,3 @@
+hades_sounds
 hades_trees
 default

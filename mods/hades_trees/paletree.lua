@@ -13,7 +13,7 @@ minetest.register_node("hades_trees:pale_sapling", {
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
 	},
 	groups = {dig_immediate=3,flammable=2, sapling=1},
-	sounds = default.node_sound_defaults(),
+	sounds = hades_sounds.node_sound_defaults(),
 })
 
 minetest.register_node("hades_trees:pale_tree", {
@@ -34,7 +34,7 @@ minetest.register_node("hades_trees:pale_tree", {
 		},
 	},
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:pale_bark", {
@@ -43,7 +43,7 @@ minetest.register_node("hades_trees:pale_bark", {
 	tiles = { "hades_trees_pale_tree.png" },
 	is_ground_content = false,
 	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:pale_leaves", {
@@ -70,7 +70,7 @@ minetest.register_node("hades_trees:pale_leaves", {
 			}
 		}
 	},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 })
 
 minetest.register_abm({

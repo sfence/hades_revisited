@@ -210,7 +210,7 @@ minetest.register_node("pipeworks:nodebreaker_off", {
 	paramtype2 = "facedir",
 	groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, mesecon = 2,tubedevice=1},
 	mesecons= {effector={rules=pipeworks.rules_all,action_on=node_breaker_on, action_off=node_breaker_off}},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	tube = {connect_sides={back=1}},
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -249,7 +249,7 @@ minetest.register_node("pipeworks:nodebreaker_on", {
 	is_ground_content = true,
 	paramtype2 = "facedir",
 	groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, mesecon = 2,tubedevice=1,not_in_creative_inventory=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	tube = {connect_sides={back=1}},
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)

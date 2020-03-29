@@ -20,7 +20,7 @@ default.register_ladder = function(id, def)
 			type = "wallmounted",
 			wall_side = { -0.5, -0.5, -0.5, -7/16, 0.5, 0.5 },
 		},
-		sounds = default.node_sound_wood_defaults(),
+		sounds = hades_sounds.node_sound_wood_defaults(),
 		node_placement_prediction = "",
 		-- Restrict placement of ladders
 		on_place = function(itemstack, placer, pointed_thing)
@@ -95,14 +95,14 @@ default.register_ladder("default:ladder", {
 	description = "Wooden Ladder",
 	texture = "default_ladder.png",
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 default.register_ladder("default:ladder_bronze", {
 	description = "Bronze Ladder",
 	texture = "default_ladder_bronze.png",
 	groups = {cracky=3},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 })
 
 

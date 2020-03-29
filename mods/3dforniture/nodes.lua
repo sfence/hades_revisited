@@ -64,7 +64,7 @@
 				},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})  
 		
 		minetest.register_node("3dforniture:table_black",
@@ -96,7 +96,7 @@
 				},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})  
 		
 		minetest.register_node("3dforniture:table_white",
@@ -128,7 +128,7 @@
 				},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})  
 
 		--Chair
@@ -162,7 +162,7 @@
 				fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 		
 		minetest.register_node("3dforniture:chair_black",
@@ -195,7 +195,7 @@
 				fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 		
 		minetest.register_node("3dforniture:chair_white",
@@ -228,7 +228,7 @@
 				fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 
 		--Armchair
@@ -271,7 +271,7 @@
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 		
 		minetest.register_node("3dforniture:armchair_white",
@@ -313,7 +313,7 @@
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 		
 		minetest.register_node("3dforniture:armchair_blue",
@@ -355,7 +355,7 @@
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 		
 			minetest.register_node("3dforniture:armchair_brown",
@@ -397,7 +397,7 @@
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 		
 			minetest.register_node("3dforniture:armchair_red",
@@ -439,7 +439,7 @@
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 
 		minetest.register_node("3dforniture:armchair_green",
@@ -481,7 +481,7 @@
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
-			sounds = default.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 
 		local lamps = {
@@ -536,7 +536,7 @@
 			},
 			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=not_in_creative_inventory},
 			drop = drop,
-			sounds = default.node_sound_glass_defaults(),
+			sounds = hades_sounds.node_sound_glass_defaults(),
 			on_rightclick = function(pos, node, clicker)
 				minetest.set_node(pos, {name="3dforniture:table_lamp_"..lamps[l][2]})
 			end,
@@ -571,7 +571,7 @@
 				},
 				drop ="3dforniture:toilet",
 				groups = {cracky=3,},
-				sounds = default.node_sound_stone_defaults(),
+				sounds = hades_sounds.node_sound_stone_defaults(),
 				on_rightclick = function (pos, node, clicker)
 					minetest.add_node(pos, {name="3dforniture:toilet_open", param2=node.param2})
 				end,
@@ -607,7 +607,7 @@
 				},
 				drop = "3dforniture:toilet",
 				groups = {cracky = 3,not_in_creative_inventory=1},
-				sounds = default.node_sound_stone_defaults(),
+				sounds = hades_sounds.node_sound_stone_defaults(),
 				on_rightclick = function (pos, node, clicker)
 					minetest.add_node(pos, {name="3dforniture:toilet", param2=node.param2})
 					minetest.sound_play("3dforniture_dig_toilet", {gain=0.5, pos=pos})
@@ -646,7 +646,7 @@
 					fixed = {-0.3,0.35,0.1, 0.3,0.5,0.5},
 				},
 				groups = {cracky=2,},
-				sounds = default.node_sound_stone_defaults(),
+				sounds = hades_sounds.node_sound_stone_defaults(),
 			})
 
 			--Taps
@@ -686,7 +686,7 @@
 					fixed = {-0.25,-0.45,0.25, 0.25,-0.3,0.5},
 				},
 				groups = {cracky=2,},
-				sounds = default.node_sound_metal_defaults(),
+				sounds = hades_sounds.node_sound_metal_defaults(),
 			})
 
 			--Shower Tray
@@ -721,7 +721,7 @@
 					fixed = {-0.5,-0.5,-0.5, 0.5,-0.4,0.5},
 				},
 				groups = {cracky=2,},
-				sounds = default.node_sound_stone_defaults(),
+				sounds = hades_sounds.node_sound_stone_defaults(),
 			})
 
 			--Shower Head
@@ -754,7 +754,7 @@
 					fixed = {-0.1,-0.5,0.1, 0.1,-0.25,0.5},
 				},
 				groups = {cracky=2,},
-				sounds = default.node_sound_metal_defaults(),
+				sounds = hades_sounds.node_sound_metal_defaults(),
 			})
 
 	-- Medieval Forniture
@@ -789,7 +789,7 @@
 				fixed = {-0.5, -0.5, -0.1, 0.5, 0.5, 0.1},
 			},
 			groups = {cracky=1},
-			sounds = default.node_sound_metal_defaults(),
+			sounds = hades_sounds.node_sound_metal_defaults(),
 		})
 
 		--L Binding Bars
@@ -820,7 +820,7 @@
 				},
 			},
 			groups = {cracky=1,},
-			sounds = default.node_sound_metal_defaults(),
+			sounds = hades_sounds.node_sound_metal_defaults(),
 		})
 
 		--Chains
@@ -923,5 +923,5 @@
 				type = "fixed",
 				fixed = {-1/2, -1/2, 1/4, 1/2, 1/2, 1/2}, },
 			groups = {cracky=1},
-			sounds = default.node_sound_metal_defaults(),
+			sounds = hades_sounds.node_sound_metal_defaults(),
 		})  

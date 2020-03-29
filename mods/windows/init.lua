@@ -25,8 +25,8 @@ windows.register_window = function(id, def)
 				{-0.5, 0.4375, -0.125, 0.5, 0.5, 0.125},
 			}
 		},
-		sounds = default.node_sound_glass_defaults({
-			footstep = default.node_sound_wood_defaults().footstep
+		sounds = hades_sounds.node_sound_glass_defaults({
+			footstep = hades_sounds.node_sound_wood_defaults().footstep
 		}),
 	}
 	for k, v in pairs(def) do
@@ -128,7 +128,7 @@ windows.register_window("windows:paperwall", {
 	texture_seam = "windows_windows_jwood_seam.png",
 	texture_front = "windows_paperwall_front.png",
 	groups = { snappy=2, choppy=2, cracky=3, oddly_breakable_by_hand=3 },
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 minetest.register_craft({
 	output = 'windows:paperwall 4',
@@ -144,8 +144,8 @@ windows.register_window("windows:windows_obsidian", {
 	texture_seam = "windows_windows_obsidian_seam.png",
 	texture_front = "windows_windows_obsidian_front.png",
 	groups = { cracky=3 },
-	sounds = default.node_sound_glass_defaults({
-		footstep = default.node_sound_stone_defaults().footstep
+	sounds = hades_sounds.node_sound_glass_defaults({
+		footstep = hades_sounds.node_sound_stone_defaults().footstep
 	}),
 })
 minetest.register_craft({

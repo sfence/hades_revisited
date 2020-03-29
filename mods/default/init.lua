@@ -31,7 +31,6 @@ default.gui_survival_form = "size[8,8.5]"..
 
 -- Load files
 dofile(minetest.get_modpath("default").."/functions.lua")
-dofile(minetest.get_modpath("default").."/sounds.lua")
 dofile(minetest.get_modpath("default").."/simple_nodes.lua")
 dofile(minetest.get_modpath("default").."/tools.lua")
 dofile(minetest.get_modpath("default").."/plants.lua")

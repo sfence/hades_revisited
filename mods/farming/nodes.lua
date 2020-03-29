@@ -22,7 +22,7 @@ minetest.register_node("farming:soil", {
 	drop = "default:dirt",
 	is_ground_content = true,
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=2, grassland = 1, field = 1},
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = hades_sounds.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dirt",
 		dry = "farming:soil",
@@ -36,7 +36,7 @@ minetest.register_node("farming:soil_wet", {
 	drop = "default:dirt",
 	is_ground_content = true,
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=3, wet = 1, grassland = 1, field = 1},
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = hades_sounds.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dirt",
 		dry = "farming:soil",
@@ -50,7 +50,7 @@ minetest.register_node("farming:straw", {
 	tiles = {"farming_straw.png"},
 	is_ground_content = false,
 	groups = {snappy=3, flammable=4},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 })
 
 minetest.register_abm({
@@ -156,7 +156,7 @@ minetest.register_node("farming:flowergrass", {
 			}
 		},
 		groups = {snappy=3,flammable=3,flora=1,attached_node=1,not_in_creative_inventory=1},
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = hades_sounds.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},

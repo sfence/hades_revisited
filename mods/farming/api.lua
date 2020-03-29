@@ -249,7 +249,7 @@ farming.register_plant = function(name, def)
 				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 			},
 			groups = nodegroups,
-			sounds = default.node_sound_leaves_defaults(),
+			sounds = hades_sounds.node_sound_leaves_defaults(),
 		})
 		elseif pname == "beens" then 
 		   minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
@@ -267,7 +267,7 @@ farming.register_plant = function(name, def)
 				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 			},
 			groups = nodegroups,
-			sounds = default.node_sound_leaves_defaults(),
+			sounds = hades_sounds.node_sound_leaves_defaults(),
 		})
 		else
 		minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
@@ -283,7 +283,7 @@ farming.register_plant = function(name, def)
 				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 			},
 			groups = nodegroups,
-			sounds = default.node_sound_leaves_defaults(),
+			sounds = hades_sounds.node_sound_leaves_defaults(),
 		})
 		end
 	end

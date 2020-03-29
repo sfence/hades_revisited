@@ -19,7 +19,7 @@ minetest.register_node(":hades_trees:apple", {
 	},
 	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
 	on_use = minetest.item_eat(2),
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 
 	place_param2 = 1,
 	
@@ -64,7 +64,7 @@ minetest.register_node("refruit:bud_apple", {
 			}
 		}
 	},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	
 })
 
@@ -95,7 +95,7 @@ minetest.register_node("refruit:flower_apple", {
 			}
 		}
 	}, 
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	
 })
 
@@ -114,7 +114,7 @@ minetest.register_node(":hades_trees:olive", {
 	},
 	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1},
 	on_use = minetest.item_eat(1),
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 
 	place_param2 = 1,
 	
@@ -159,7 +159,7 @@ minetest.register_node("refruit:bud_olive", {
 			}
 		}
 	},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	
 })
 
@@ -190,7 +190,7 @@ minetest.register_node("refruit:flower_olive", {
 			}
 		}
 	}, 
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	
 })
 

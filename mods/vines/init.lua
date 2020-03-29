@@ -19,7 +19,7 @@ minetest.register_node("vines:side", {
   inventory_image = "vines_side.png",
   wield_image = "vines_side.png",
   groups = vines_group,
-  sounds = default.node_sound_leaves_defaults(),
+  sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "wallmounted",
   },
@@ -47,7 +47,7 @@ minetest.register_node("vines:side_rotten", {
   inventory_image = "vines_side_rotten.png",
   wield_image = "vines_side_rotten.png",
   groups = {snappy = 3,flammable=2, hanging_node=1},
-  sounds = default.node_sound_leaves_defaults(),
+  sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "wallmounted",
   },
@@ -68,7 +68,7 @@ minetest.register_node("vines:willow", {
   inventory_image = "vines_willow.png",
   wield_image = "vines_willow.png",
   groups = vines_group,
-  sounds = default.node_sound_leaves_defaults(),
+  sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "wallmounted",
   },
@@ -98,7 +98,7 @@ minetest.register_node("vines:willow_rotten", {
   inventory_image = "vines_willow_rotten.png",
   wield_image = "vines_willow_rotten.png",
   groups = {snappy = 3,flammable=2, hanging_node=1},
-  sounds = default.node_sound_leaves_defaults(),
+  sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "wallmounted",
   },
@@ -117,7 +117,7 @@ minetest.register_node("vines:root", {
   inventory_image = "vines_root.png",
   wield_image = "vines_root.png",
   groups = {vines=1,snappy = 3,flammable=2, hanging_node=1},
-  sounds = default.node_sound_leaves_defaults(),
+  sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "fixed",
     fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
@@ -137,7 +137,7 @@ minetest.register_node("vines:vine", {
   drawtype = "plantlike",
   inventory_image = "vines_vine.png",
   groups = vines_group,
-  sounds = default.node_sound_leaves_defaults(),
+  sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "fixed",
     fixed = {-0.3, -1/2, -0.3, 0.3, 1/2, 0.3},
@@ -166,7 +166,7 @@ minetest.register_node("vines:vine_rotten", {
   inventory_image = "vines_vine_rotten.png",
   wield_image = "vines_vine_rotten.png",
   groups = {snappy = 3,flammable=2, hanging_node=1},
-  sounds = default.node_sound_leaves_defaults(),
+  sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "fixed",
     fixed = {-0.3, -1/2, -0.3, 0.3, 1/2, 0.3},
@@ -292,7 +292,7 @@ minetest.register_node("vines:vines_block",{
 	drawtype = "allfaces_optional",
 	paramtype = "light",
 	groups = {snappy=2,flammable=2 },
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 })
 
 minetest.register_craft({

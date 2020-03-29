@@ -25,7 +25,7 @@ minetest.register_node("default:latern", {
 			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125},
 		}
 	},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
 minetest.register_node("default:laternrusty", {
@@ -55,7 +55,7 @@ minetest.register_node("default:laternrusty", {
 			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125},
 		}
 	},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
 minetest.register_node("default:plate", {
@@ -67,7 +67,7 @@ minetest.register_node("default:plate", {
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	is_ground_content = false,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	groups = {dig_immediate=3, attached_node=1},
 	on_rotate = false,
 	walkable = false,

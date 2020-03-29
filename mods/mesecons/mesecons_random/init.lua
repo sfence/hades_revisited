@@ -4,7 +4,7 @@ minetest.register_node("mesecons_random:removestone", {
 	tiles = {"jeija_removestone.png"},
 	groups = {cracky=3},
 	description="Removestone",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	mesecons = {effector = {
 		action_on = function (pos, node)
 			minetest.remove_node(pos)
@@ -29,7 +29,7 @@ minetest.register_node("mesecons_random:ghoststone", {
 	tiles = {"jeija_ghoststone.png"},
 	is_ground_content = true,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	mesecons = {conductor = {
 		state = mesecon.state.off,
 		rules = { --axes

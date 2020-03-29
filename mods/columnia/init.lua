@@ -22,7 +22,7 @@ minetest.register_node("columnia:bracket",	{
 		        },
 			},
 			groups = {cracky=3,},
-			sounds = default.node_sound_metal_defaults(),
+			sounds = hades_sounds.node_sound_metal_defaults(),
 })
 		
 minetest.register_craft({
@@ -57,7 +57,7 @@ minetest.register_node("columnia:lamp_ceiling", {
 			{-0.125, 0.375, -0.125, 0.125, 0.4375, 0.125}, 
 		},
 	},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
 minetest.register_craft({
@@ -76,7 +76,7 @@ minetest.register_node("columnia:rusty_block", {
 	tiles = {"columnia_rusty_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1},
-	sounds = default.node_sound_heavy_metal_defaults(),
+	sounds = hades_sounds.node_sound_heavy_metal_defaults(),
 })
 
 minetest.register_craft({

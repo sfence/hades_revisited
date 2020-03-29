@@ -35,7 +35,7 @@ minetest.register_node("columnia:machine", {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, 0.0625, 0.5}
 	},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 
 	after_place_node = function(pos, placer)
 	local meta = minetest.get_meta(pos);

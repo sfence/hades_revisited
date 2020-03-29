@@ -1,3 +1,4 @@
+hades_sounds
 default
 hades_player
 mesecons?

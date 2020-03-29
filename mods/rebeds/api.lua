@@ -9,7 +9,7 @@ function rebeds.register_bed(name, def)
 		paramtype2 = "facedir",
 		stack_max = 1,
 		groups = {snappy = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 1},
-		sounds = default.node_sound_wood_defaults(),
+		sounds = hades_sounds.node_sound_wood_defaults(),
 		node_box = {
 			type = "fixed",
 			fixed = def.nodebox.bottom,
@@ -57,7 +57,7 @@ function rebeds.register_bed(name, def)
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 2},
-		sounds = default.node_sound_wood_defaults(),
+		sounds = hades_sounds.node_sound_wood_defaults(),
 		node_box = {
 			type = "fixed",
 			fixed = def.nodebox.top,

@@ -26,7 +26,7 @@ minetest.register_node("bedrock:bedrock", {
 	description = "Bedrock",
 	tiles = {"bedrock_bedrock.png"},
 	groups = {unbreakable = 1, not_in_creative_inventory = 1}, -- For Map Tools' admin pickaxe.
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	is_ground_content = false,
 	on_blast = function() end,
 	on_destruct = function () end,
@@ -40,7 +40,7 @@ minetest.register_node("bedrock:deepstone", {
 	tiles = {"bedrock_deepstone.png"},
 	drop = "default:stone", -- Intended.
 	groups = {cracky = 1, level = 3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 -- Generate a perfect bedrock layer at the world bottom

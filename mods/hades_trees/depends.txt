@@ -1,1 +1,1 @@
-default
+hades_sounds

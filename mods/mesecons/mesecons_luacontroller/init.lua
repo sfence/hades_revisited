@@ -480,7 +480,7 @@ minetest.register_node(nodename, {
 		end
 	end,
 	on_timer = handle_timer,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	mesecons = mesecons,
 	digiline = digiline,
 	virtual_portstates = {	a = a == 1, -- virtual portstates are
@@ -542,7 +542,7 @@ minetest.register_node(BASENAME .. "_burnt", {
 			reset_meta(pos, fields.code, err)
 		end
 	end,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	virtual_portstates = {a = false, b = false, c = false, d = false},
 	mesecons = mesecons_burnt,
 })

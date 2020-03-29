@@ -673,7 +673,7 @@ minetest.register_node("signs_lib:sign_wall", {
 	on_punch = function(pos, node, puncher)
 		signs_lib.update_sign(pos)
 	end,
-    sounds = default.node_sound_wood_defaults(),
+    sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("signs_lib:sign_yard", {
@@ -703,7 +703,7 @@ minetest.register_node("signs_lib:sign_yard", {
 	on_punch = function(pos, node, puncher)
 		signs_lib.update_sign(pos)
 	end,
-    sounds = default.node_sound_wood_defaults(),
+    sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("signs_lib:sign_hanging", {
@@ -740,7 +740,7 @@ minetest.register_node("signs_lib:sign_hanging", {
 	on_punch = function(pos, node, puncher)
 		signs_lib.update_sign(pos)
 	end,
-    sounds = default.node_sound_wood_defaults(),
+    sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 -- Locked wall sign
@@ -796,7 +796,7 @@ minetest.register_node("signs_lib:sign_wall_locked", {
 		return pname == owner or pname == minetest.settings:get("name")
 			or minetest.check_player_privs(pname, {sign_editor=true})
 	end,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 -- metal, colored signs
@@ -840,7 +840,7 @@ for i, color in ipairs(sign_colors) do
 		on_punch = function(pos, node, puncher)
 			signs_lib.update_sign(pos)
 		end,
-		sounds = default.node_sound_metal_defaults(),
+		sounds = hades_sounds.node_sound_metal_defaults(),
 	})
 end
 

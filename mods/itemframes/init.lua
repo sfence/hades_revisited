@@ -132,7 +132,7 @@ minetest.register_node("itemframes:frame",{
 	sunlight_propagates = true,
 	groups = {choppy = 2, dig_immediate = 2},
 	legacy_wallmounted = true,
-	sounds = default.node_sound_defaults(),
+	sounds = hades_sounds.node_sound_defaults(),
 	on_rotate = screwdriver.disallow,
 
 	after_place_node = function(pos, placer, itemstack)
@@ -179,7 +179,7 @@ minetest.register_node("itemframes:pedestal",{
 	tiles = {"itemframes_pedestal.png"},
 	paramtype = "light",
 	groups = {cracky = 3},
-	sounds = default.node_sound_defaults(),
+	sounds = hades_sounds.node_sound_defaults(),
 	on_rotate = screwdriver.disallow,
 
 	after_place_node = function(pos, placer, itemstack)

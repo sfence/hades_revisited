@@ -12,7 +12,7 @@ minetest.register_node("hades_trees:jungle_sapling", {
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
 	},
 	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1, sapling=1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:jungle_tree", {
@@ -33,7 +33,7 @@ minetest.register_node("hades_trees:jungle_tree", {
 		},
 	},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node
 })
 
@@ -62,7 +62,7 @@ minetest.register_node("hades_trees:jungle_leaves", {
 			}
 		}
 	},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:jungle_bark", {
@@ -71,7 +71,7 @@ minetest.register_node("hades_trees:jungle_bark", {
 	tiles = { "default_jungletree.png" },
 	is_ground_content = false,
 	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 local c_air = minetest.get_content_id("air")

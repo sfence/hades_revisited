@@ -13,7 +13,7 @@ minetest.register_node(":default:mese", {
 	tiles = {minetest.registered_nodes["default:mese"].tiles[1]},
 	is_ground_content = true,
 	groups = {cracky=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	mesecons = {conductor = {
 		state = mesecon.state.off,
 		onstate = "mesecons_extrawires:mese_powered",
@@ -25,7 +25,7 @@ minetest.register_node("mesecons_extrawires:mese_powered", {
 	tiles = {minetest.registered_nodes["default:mese"].tiles[1].."^[brighten"},
 	is_ground_content = true,
 	groups = {cracky=1, not_in_creative_inventory = 1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	mesecons = {conductor = {
 		state = mesecon.state.on,
 		offstate = "default:mese",

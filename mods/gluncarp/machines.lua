@@ -46,7 +46,7 @@ minetest.register_node("gluncarp:machine", {
 			{-0.5, -0.5, -0.25, 0.5, 0.5, 0.25} 
 		}
 	},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 
 	after_place_node = function(pos, placer)
 	local meta = minetest.get_meta(pos);

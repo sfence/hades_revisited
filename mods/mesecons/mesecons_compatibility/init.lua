@@ -155,7 +155,7 @@ doors.register_door("doors:door_wood", {
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles_bottom = {"doors_wood_b.png", "doors_brown.png"},
 	tiles_top = {"doors_wood_a.png", "doors_brown.png"},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 doors.register_door("doors:door_wood_pale", {
@@ -164,7 +164,7 @@ doors.register_door("doors:door_wood_pale", {
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles_bottom = {"doors_wood_b_pale.png", "doors_brown.png"},
 	tiles_top = {"doors_wood_a_pale.png", "doors_brown.png"},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -174,7 +174,7 @@ doors.register_door("doors:door_wood_jungle", {
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles_bottom = {"doors_wood_b_jungle.png", "doors_brown.png"},
 	tiles_top = {"doors_wood_a_jungle.png", "doors_brown.png"},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -185,7 +185,7 @@ doors.register_door("doors:door_steel", {
 	tiles_bottom = {"doors_steel_b.png", "doors_grey.png"},
 	tiles_top = {"doors_steel_a.png", "doors_grey.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 doors.register_door("doors:door_steel_black", {
@@ -195,7 +195,7 @@ doors.register_door("doors:door_steel_black", {
 	tiles_bottom = {"doors_steel_b_black.png", "doors_black.png"},
 	tiles_top = {"doors_steel_a_black.png", "doors_black.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -206,7 +206,7 @@ doors.register_door("doors:door_steel_blue", {
 	tiles_bottom = {"doors_steel_b_blue.png", "doors_blue.png"},
 	tiles_top = {"doors_steel_a_blue.png", "doors_blue.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -217,7 +217,7 @@ doors.register_door("doors:door_steel_brown", {
 	tiles_bottom = {"doors_steel_b_brown.png", "doors_brown.png"},
 	tiles_top = {"doors_steel_a_brown.png", "doors_brown.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -228,7 +228,7 @@ doors.register_door("doors:door_steel_cyan", {
 	tiles_bottom = {"doors_steel_b_cyan.png", "doors_cyan.png"},
 	tiles_top = {"doors_steel_a_cyan.png", "doors_cyan.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -239,7 +239,7 @@ doors.register_door("doors:door_steel_darkgreen", {
 	tiles_bottom = {"doors_steel_b_darkgreen.png", "doors_darkgreen.png"},
 	tiles_top = {"doors_steel_a_darkgreen.png", "doors_darkgreen.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -250,7 +250,7 @@ doors.register_door("doors:door_steel_darkgrey", {
 	tiles_bottom = {"doors_steel_b_darkgrey.png", "doors_darkgrey.png"},
 	tiles_top = {"doors_steel_a_darkgrey.png", "doors_darkgrey.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -261,7 +261,7 @@ doors.register_door("doors:door_steel_green", {
 	tiles_bottom = {"doors_steel_b_green.png", "doors_green.png"},
 	tiles_top = {"doors_steel_a_green.png", "doors_green.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -272,7 +272,7 @@ doors.register_door("doors:door_steel_magenta", {
 	tiles_bottom = {"doors_steel_b_magenta.png", "doors_magenta.png"},
 	tiles_top = {"doors_steel_a_magenta.png", "doors_magenta.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -283,7 +283,7 @@ doors.register_door("doors:door_steel_orange", {
 	tiles_bottom = {"doors_steel_b_orange.png", "doors_orange.png"},
 	tiles_top = {"doors_steel_a_orange.png", "doors_orange.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -294,7 +294,7 @@ doors.register_door("doors:door_steel_pink", {
 	tiles_bottom = {"doors_steel_b_pink.png", "doors_pink.png"},
 	tiles_top = {"doors_steel_a_pink.png", "doors_pink.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -305,7 +305,7 @@ doors.register_door("doors:door_steel_red", {
 	tiles_bottom = {"doors_steel_b_red.png", "doors_red.png"},
 	tiles_top = {"doors_steel_a_red.png", "doors_red.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -316,7 +316,7 @@ doors.register_door("doors:door_steel_violet", {
 	tiles_bottom = {"doors_steel_b_violet.png", "doors_violet.png"},
 	tiles_top = {"doors_steel_a_violet.png", "doors_violet.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -327,7 +327,7 @@ doors.register_door("doors:door_steel_white", {
 	tiles_bottom = {"doors_steel_b_white.png", "doors_white.png"},
 	tiles_top = {"doors_steel_a_white.png", "doors_white.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -338,7 +338,7 @@ doors.register_door("doors:door_steel_yellow", {
 	tiles_bottom = {"doors_steel_b_yellow.png", "doors_yellow.png"},
 	tiles_top = {"doors_steel_a_yellow.png", "doors_yellow.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -349,7 +349,7 @@ doors.register_door("doors:door_stone", {
 	tiles_bottom = {"doors_stone_b.png", "doors_darkgrey.png"},
 	tiles_top = {"doors_stone_a.png", "doors_darkgrey.png"},
 	only_placer_can_open = true,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	sunlight = false,
 })
 
@@ -359,7 +359,7 @@ doors.register_door("doors:door_glass", {
 	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
 	tiles_bottom = {"doors_glass_b.png", "doors_glass_side.png"},
 	tiles_top = {"doors_glass_a.png", "doors_glass_side.png"},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 	sunlight = true,
 })
 
@@ -369,6 +369,6 @@ doors.register_door("doors:door_obsidian_glass", {
 	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
 	tiles_bottom = {"doors_obsidian_glass_b.png", "doors_obsidian_glass_side.png"},
 	tiles_top = {"doors_obsidian_glass_a.png", "doors_obsidian_glass_side.png"},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 	sunlight = true,
 })

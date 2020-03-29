@@ -11,7 +11,7 @@ minetest.register_node("default:stone", {
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = 'default:cobble',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:mossystone", {
@@ -20,7 +20,7 @@ minetest.register_node("default:mossystone", {
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = 'default:mossycobble',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:chondrite", {
@@ -29,7 +29,7 @@ minetest.register_node("default:chondrite", {
 	is_ground_content = true,
 	groups = {cracky=2, stone=1, porous=1},
 	drop = 'default:chondrite',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:chondrite_block", {
@@ -37,7 +37,7 @@ minetest.register_node("default:chondrite_block", {
 	tiles = {"default_chondrite_block.png"},
 	is_ground_content = false,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:chondrite_brick", {
@@ -45,7 +45,7 @@ minetest.register_node("default:chondrite_brick", {
 	tiles = {"default_chondrite_brick.png"},
 	groups = {cracky=2, stone=1},
 	is_ground_content = false,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:tuff", {
@@ -54,7 +54,7 @@ minetest.register_node("default:tuff", {
 	is_ground_content = true,
 	groups = {cracky=3, porous=1},
 	drop = 'default:tuff',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:tuff_block", {
@@ -62,14 +62,14 @@ minetest.register_node("default:tuff_block", {
 	tiles = {"default_tuff_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:tuff_brick", {
 	description = "Tuff Brick",
 	tiles = {"default_tuff_brick.png"},
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:tuff_baked", {
@@ -78,7 +78,7 @@ minetest.register_node("default:tuff_baked", {
 	is_ground_content = true,
 	groups = {cracky=3, porous=1},
 	drop = 'default:tuff_baked',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:tuff_baked_block", {
@@ -86,14 +86,14 @@ minetest.register_node("default:tuff_baked_block", {
 	tiles = {"default_tuff_baked_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:tuff_baked_brick", {
 	description = "Burned Tuff Brick",
 	tiles = {"default_tuff_baked_brick.png"},
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:mossytuff", {
@@ -102,7 +102,7 @@ minetest.register_node("default:mossytuff", {
 	is_ground_content = true,
 	groups = {cracky=3, porous=1},
 	drop = 'default:mossytuff',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:marble", {
@@ -111,7 +111,7 @@ minetest.register_node("default:marble", {
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = 'default:marble',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:marble_block", {
@@ -119,14 +119,14 @@ minetest.register_node("default:marble_block", {
 	tiles = {"default_marble_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:marble_brick", {
 	description = "Marble Brick",
 	tiles = {"default_marble_brick.png"},
 	groups = {cracky=3, stone=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:essexite", {
@@ -135,7 +135,7 @@ minetest.register_node("default:essexite", {
 	is_ground_content = true,
 	groups = {cracky=1, stone=1, porous=1},
 	drop = 'default:essexite',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:essexite_block", {
@@ -143,14 +143,14 @@ minetest.register_node("default:essexite_block", {
 	tiles = {"default_essexite_block.png"},
 	is_ground_content = false,
 	groups = {cracky=2,},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:essexite_brick", {
 	description = "Essexite Brick",
 	tiles = {"default_essexite_brick.png"},
 	groups = {cracky=1, stone=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:stone_baked", {
@@ -159,7 +159,7 @@ minetest.register_node("default:stone_baked", {
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = "default:cobble_baked",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:stone_block_baked", {
@@ -167,13 +167,13 @@ minetest.register_node("default:stone_block_baked", {
 	tiles = {"default_stone_block_baked.png"},
 	is_ground_content = false,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:obsidianbrick", {
 	description = "Obsidian Brick",
 	tiles = {"default_obsidian_brick.png"},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	groups = {cracky=1,level=2},
 })
 -- floors
@@ -183,7 +183,7 @@ minetest.register_node("default:floor_chondrite_stone", {
 	tiles = {"default_floor_chondrite_stone.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_chondrite_stone2", {
@@ -197,7 +197,7 @@ minetest.register_node("default:floor_chondrite_stone2", {
 	},
 	is_ground_content = false,
 	groups = {cracky=3, stone=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_bstone_stone", {
@@ -211,7 +211,7 @@ minetest.register_node("default:floor_bstone_stone", {
 	},
 	is_ground_content = false,
 	groups = {cracky=3, stone=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_btuff_tuff", {
@@ -225,7 +225,7 @@ minetest.register_node("default:floor_btuff_tuff", {
 	},
 	is_ground_content = false,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_bstone_sandstone", {
@@ -239,7 +239,7 @@ minetest.register_node("default:floor_bstone_sandstone", {
 	},
 	is_ground_content = false,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_bstone_sandstone2", {
@@ -253,7 +253,7 @@ minetest.register_node("default:floor_bstone_sandstone2", {
 	},
 	is_ground_content = false,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_marble_essexite", {
@@ -267,7 +267,7 @@ minetest.register_node("default:floor_marble_essexite", {
 	},
 	is_ground_content = false,
 	groups = {cracky=2, stone=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_marble_essexite2", {
@@ -281,7 +281,7 @@ minetest.register_node("default:floor_marble_essexite2", {
 	},
 	is_ground_content = false,
 	groups = {cracky=2, stone=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_essexite_gold", {
@@ -289,7 +289,7 @@ minetest.register_node("default:floor_essexite_gold", {
 	tiles = {"default_floor_essexite_gold.png"},
 	is_ground_content = false,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:floor_essexite_gold2", {
@@ -297,7 +297,7 @@ minetest.register_node("default:floor_essexite_gold2", {
 	tiles = {"default_floor_essexite_gold2.png"},
 	is_ground_content = false,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 --minerals
@@ -308,7 +308,7 @@ minetest.register_node("default:stone_with_coal", {
 	is_ground_content = true,
 	groups = {cracky=3, porous=1},
 	drop = 'default:coal_lump',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -318,7 +318,7 @@ minetest.register_node("default:stone_with_iron", {
 	is_ground_content = true,
 	groups = {cracky=2, porous=1},
 	drop = 'default:iron_lump',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:stone_with_tin", {
@@ -327,7 +327,7 @@ minetest.register_node("default:stone_with_tin", {
 	is_ground_content = true,
 	groups = {cracky=2, porous=1},
 	drop = 'default:tin_lump',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:stone_with_copper", {
@@ -336,7 +336,7 @@ minetest.register_node("default:stone_with_copper", {
 	is_ground_content = true,
 	groups = {cracky=2, porous=1},
 	drop = 'default:copper_lump',
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -346,7 +346,7 @@ minetest.register_node("default:stone_with_mese", {
 	is_ground_content = true,
 	groups = {cracky=1, porous=1},
 	drop = "default:mese_crystal",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -356,7 +356,7 @@ minetest.register_node("default:stone_with_gold", {
 	is_ground_content = true,
 	groups = {cracky=2, porous=1},
 	drop = "default:gold_lump",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -366,7 +366,7 @@ minetest.register_node("default:stone_with_diamond", {
 	is_ground_content = true,
 	groups = {cracky=1, porous=1},
 	drop = "default:diamond",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -374,7 +374,7 @@ minetest.register_node("default:stonebrick", {
 	description = "Stone Brick",
 	tiles = {"default_stone_brick.png"},
 	groups = {cracky=2, stone=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -382,7 +382,7 @@ minetest.register_node("default:stonebrick_baked", {
 	description = "Burned Stone Brick",
 	tiles = {"default_stone_brick_baked.png"},
 	groups = {cracky=2, stone=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -392,7 +392,7 @@ minetest.register_node("default:dirt_with_grass", {
 	is_ground_content = true,
 	groups = {crumbly=3,soil=1, porous=1},
 	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults({
+	sounds = hades_sounds.node_sound_dirt_defaults({
 		footstep = {name="default_grass_footstep", gain=0.25},
 	}),
 })
@@ -403,7 +403,7 @@ minetest.register_node("default:dirt", {
 	tiles = {"default_dirt.png"},
 	is_ground_content = true,
 	groups = {crumbly=3,soil=1, porous=1},
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = hades_sounds.node_sound_dirt_defaults(),
 })
 
 
@@ -412,7 +412,7 @@ minetest.register_node("default:ash", {
 	tiles = {"default_ash.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, ash=1, porous=1},
-	sounds = default.node_sound_sand_defaults(),
+	sounds = hades_sounds.node_sound_sand_defaults(),
 })
 
 minetest.register_node("default:ash_block", {
@@ -420,7 +420,7 @@ minetest.register_node("default:ash_block", {
 	tiles = {"default_ash_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=3},
-	sounds = default.node_sound_sand_defaults(),
+	sounds = hades_sounds.node_sound_sand_defaults(),
 })
 
 minetest.register_node("default:fertile_sand", {
@@ -428,7 +428,7 @@ minetest.register_node("default:fertile_sand", {
 	tiles = {"default_fertile_sand.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, sand=1, porous=1},
-	sounds = default.node_sound_sand_defaults(),
+	sounds = hades_sounds.node_sound_sand_defaults(),
 })
 
 
@@ -437,7 +437,7 @@ minetest.register_node("default:gravel", {
 	tiles = {"default_gravel.png"},
 	is_ground_content = true,
 	groups = {crumbly=2, falling_node=1, porous=1},
-	sounds = default.node_sound_dirt_defaults({
+	sounds = hades_sounds.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.5},
 		dug = {name="default_gravel_footstep", gain=1.0},
 	}),
@@ -448,7 +448,7 @@ minetest.register_node("default:gravel_block", {
 	tiles = {"default_gravel_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=2},
-	sounds = default.node_sound_dirt_defaults({
+	sounds = hades_sounds.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.5},
 		dug = {name="default_gravel_footstep", gain=1.0},
 	}),
@@ -459,7 +459,7 @@ minetest.register_node("default:gravel_volcanic", {
 	tiles = {"default_gravel_volcanic.png"},
 	is_ground_content = true,
 	groups = {crumbly=1, porous=1},
-	sounds = default.node_sound_dirt_defaults({
+	sounds = hades_sounds.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.5},
 		dug = {name="default_gravel_footstep", gain=1.0},
 	}),
@@ -470,7 +470,7 @@ minetest.register_node("default:gravel_volcanic_block", {
 	tiles = {"default_gravel_volcanic_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=2},
-	sounds = default.node_sound_dirt_defaults({
+	sounds = hades_sounds.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.5},
 		dug = {name="default_gravel_footstep", gain=1.0},
 	}),
@@ -482,7 +482,7 @@ minetest.register_node("default:sandstone", {
 	tiles = {"default_sandstone.png"},
 	is_ground_content = true,
 	groups = {crumbly=2,cracky=3,sandstone=1, porous=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -491,7 +491,7 @@ minetest.register_node("default:sandstonebrick", {
 	tiles = {"default_sandstone_brick.png"},
 	is_ground_content = false,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -501,7 +501,7 @@ minetest.register_node("default:clay", {
 	is_ground_content = true,
 	groups = {crumbly=3, porous=1},
 	drop = 'default:clay_lump 4',
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = hades_sounds.node_sound_dirt_defaults(),
 })
 
 
@@ -510,7 +510,7 @@ minetest.register_node("default:brick", {
 	tiles = {"default_brick.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 -- Colors are beautiful
@@ -520,7 +520,7 @@ minetest.register_node("default:brick_black", {
 	tiles = {"default_brick_black.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_blue", {
@@ -528,7 +528,7 @@ minetest.register_node("default:brick_blue", {
 	tiles = {"default_brick_blue.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_brown", {
@@ -536,7 +536,7 @@ minetest.register_node("default:brick_brown", {
 	tiles = {"default_brick_brown.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_cyan", {
@@ -544,7 +544,7 @@ minetest.register_node("default:brick_cyan", {
 	tiles = {"default_brick_cyan.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_dark_green", {
@@ -552,7 +552,7 @@ minetest.register_node("default:brick_dark_green", {
 	tiles = {"default_brick_dark_green.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_dark_grey", {
@@ -560,7 +560,7 @@ minetest.register_node("default:brick_dark_grey", {
 	tiles = {"default_brick_dark_grey.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_green", {
@@ -568,7 +568,7 @@ minetest.register_node("default:brick_green", {
 	tiles = {"default_brick_green.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_grey", {
@@ -576,7 +576,7 @@ minetest.register_node("default:brick_grey", {
 	tiles = {"default_brick_grey.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_magenta", {
@@ -584,7 +584,7 @@ minetest.register_node("default:brick_magenta", {
 	tiles = {"default_brick_magenta.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_orange", {
@@ -592,7 +592,7 @@ minetest.register_node("default:brick_orange", {
 	tiles = {"default_brick_orange.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_pink", {
@@ -600,7 +600,7 @@ minetest.register_node("default:brick_pink", {
 	tiles = {"default_brick_pink.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_red", {
@@ -608,7 +608,7 @@ minetest.register_node("default:brick_red", {
 	tiles = {"default_brick_red.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_violet", {
@@ -616,7 +616,7 @@ minetest.register_node("default:brick_violet", {
 	tiles = {"default_brick_violet.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_white", {
@@ -624,7 +624,7 @@ minetest.register_node("default:brick_white", {
 	tiles = {"default_brick_white.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:brick_yellow", {
@@ -632,7 +632,7 @@ minetest.register_node("default:brick_yellow", {
 	tiles = {"default_brick_yellow.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -642,7 +642,7 @@ minetest.register_node("default:bookshelf", {
 	tiles = {"default_wood.png", "default_wood.png", "default_bookshelf.png"},
 	is_ground_content = false,
 	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 
@@ -654,7 +654,7 @@ minetest.register_node("default:glass", {
 	sunlight_propagates = true,
 	is_ground_content = false,
 	groups = {cracky=3,oddly_breakable_by_hand=3},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
 minetest.register_node("default:rail", {
@@ -672,7 +672,7 @@ minetest.register_node("default:rail", {
                 fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
 	groups = {dig_immediate=2,attached_node=1,connect_to_raillike=minetest.raillike_group("rail")},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 })
 
 --- Liquids
@@ -708,7 +708,7 @@ minetest.register_node("default:water_flowing", {
 	liquid_viscosity = WATER_VISC,
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {water=3, liquid=3, puts_out_fire=1, not_in_creative_inventory=1},
-	sounds = default.node_sound_water_defaults(),
+	sounds = hades_sounds.node_sound_water_defaults(),
 })
 
 
@@ -740,7 +740,7 @@ minetest.register_node("default:water_source", {
 	liquid_viscosity = WATER_VISC,
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {water=3, liquid=3, puts_out_fire=1},
-	sounds = default.node_sound_water_defaults(),
+	sounds = hades_sounds.node_sound_water_defaults(),
 })
 
 
@@ -777,7 +777,7 @@ minetest.register_node("default:lava_flowing", {
 	damage_per_second = 2*2,
 	post_effect_color = {a=192, r=255, g=64, b=0},
 	groups = {lava=3, liquid=2, igniter=1, not_in_creative_inventory=1},
-	sounds = default.node_sound_lava_defaults(),
+	sounds = hades_sounds.node_sound_lava_defaults(),
 })
 
 
@@ -811,7 +811,7 @@ minetest.register_node("default:lava_source", {
 	damage_per_second = 2*2,
 	post_effect_color = {a=192, r=255, g=64, b=0},
 	groups = {lava=3, liquid=2, igniter=1},
-	sounds = default.node_sound_lava_defaults(),
+	sounds = hades_sounds.node_sound_lava_defaults(),
 })
 
 
@@ -834,7 +834,7 @@ minetest.register_node("default:lamp_wall", {
 		wall_top = {-0.25, 0.375, -0.25, 0.25, 0.5, 0.25},
 		wall_bottom = {-0.25, -0.5, -0.25, 0.25, -0.375, 0.25},
 	},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
 minetest.register_node("default:cobble", {
@@ -842,7 +842,7 @@ minetest.register_node("default:cobble", {
 	tiles = {"default_cobble.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=2, porous=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:cobble_block", {
@@ -850,7 +850,7 @@ minetest.register_node("default:cobble_block", {
 	tiles = {"default_cobble_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:cobble_baked", {
@@ -858,7 +858,7 @@ minetest.register_node("default:cobble_baked", {
 	tiles = {"default_cobble_baked.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=2, porous=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:cobble_block_baked", {
@@ -866,7 +866,7 @@ minetest.register_node("default:cobble_block_baked", {
 	tiles = {"default_cobble_baked_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:mossycobble", {
@@ -874,7 +874,7 @@ minetest.register_node("default:mossycobble", {
 	tiles = {"default_mossycobble.png"},
 	is_ground_content = false,
 	groups = {cracky=3, porous=1},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:coalblock", {
@@ -882,7 +882,7 @@ minetest.register_node("default:coalblock", {
 	tiles = {"default_coal_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:steelblock", {
@@ -890,7 +890,7 @@ minetest.register_node("default:steelblock", {
 	tiles = {"default_steel_block.png"},
 	is_ground_content = false,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_heavy_metal_defaults(),
+	sounds = hades_sounds.node_sound_heavy_metal_defaults(),
 })
 
 minetest.register_node("default:tinblock", {
@@ -898,7 +898,7 @@ minetest.register_node("default:tinblock", {
 	tiles = {"default_tin_block.png"},
 	is_ground_content = false,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_heavy_metal_defaults(),
+	sounds = hades_sounds.node_sound_heavy_metal_defaults(),
 })
 
 minetest.register_node("default:copperblock", {
@@ -906,7 +906,7 @@ minetest.register_node("default:copperblock", {
 	tiles = {"default_copper_block.png"},
 	is_ground_content = false,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_heavy_metal_defaults(),
+	sounds = hades_sounds.node_sound_heavy_metal_defaults(),
 })
 
 
@@ -915,7 +915,7 @@ minetest.register_node("default:bronzeblock", {
 	tiles = {"default_bronze_block.png"},
 	is_ground_content = false,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_heavy_metal_defaults(),
+	sounds = hades_sounds.node_sound_heavy_metal_defaults(),
 })
 
 
@@ -924,7 +924,7 @@ minetest.register_node("default:mese", {
 	tiles = {"default_mese_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -933,7 +933,7 @@ minetest.register_node("default:goldblock", {
 	tiles = {"default_gold_block.png"},
 	is_ground_content = false,
 	groups = {cracky=1},
-	sounds = default.node_sound_heavy_metal_defaults(),
+	sounds = hades_sounds.node_sound_heavy_metal_defaults(),
 })
 
 minetest.register_node("default:emerald_block", {
@@ -941,7 +941,7 @@ minetest.register_node("default:emerald_block", {
 	tiles = {"default_emerald_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:sapphire_block", {
@@ -949,7 +949,7 @@ minetest.register_node("default:sapphire_block", {
 	tiles = {"default_sapphire_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:ruby_block", {
@@ -957,7 +957,7 @@ minetest.register_node("default:ruby_block", {
 	tiles = {"default_ruby_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:diamondblock", {
@@ -965,7 +965,7 @@ minetest.register_node("default:diamondblock", {
 	tiles = {"default_diamond_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 
@@ -976,7 +976,7 @@ minetest.register_node("default:obsidian_glass", {
 	paramtype = "light",
 	is_ground_content = false,
 	sunlight_propagates = true,
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 	groups = {cracky=3,oddly_breakable_by_hand=3},
 })
 
@@ -985,7 +985,7 @@ minetest.register_node("default:obsidian", {
 	description = "Obsidian",
 	tiles = {"default_obsidian.png"},
 	is_ground_content = true,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	groups = {cracky=1,level=2},
 })
 
@@ -993,7 +993,7 @@ minetest.register_node("default:obsidian_block", {
 	description = "Obsidian Block",
 	tiles = {"default_obsidian_block.png"},
 	is_ground_content = false,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	groups = {cracky=2},
 })
 
@@ -1005,7 +1005,7 @@ minetest.register_node("default:stone_with_emerald", {
 	is_ground_content = true,
 	groups = {cracky=2, porous=1},
 	drop = "default:emerald",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:stone_with_sapphire", {
@@ -1014,7 +1014,7 @@ minetest.register_node("default:stone_with_sapphire", {
 	is_ground_content = true,
 	groups = {cracky=2, porous=1},
 	drop = "default:sapphire",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("default:stone_with_ruby", {
@@ -1023,7 +1023,7 @@ minetest.register_node("default:stone_with_ruby", {
 	is_ground_content = true,
 	groups = {cracky=1, porous=1},
 	drop = "default:ruby",
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 

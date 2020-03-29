@@ -291,7 +291,7 @@ for id, finfo in pairs(furnace_types) do
 		legacy_facedir_simple = true,
 		is_ground_content = false,
 
-		sounds = default.node_sound_stone_defaults(),
+		sounds = hades_sounds.node_sound_stone_defaults(),
 
 		on_timer = furnace_node_timer,
 		on_construct = function(pos)
@@ -342,7 +342,7 @@ for id, finfo in pairs(furnace_types) do
 		groups = {cracky=2, furnace=1, not_in_creative_inventory=1},
 		legacy_facedir_simple = true,
 		is_ground_content = false,
-		sounds = default.node_sound_stone_defaults(),
+		sounds = hades_sounds.node_sound_stone_defaults(),
 
 		on_timer = furnace_node_timer,
 		can_dig = can_dig,

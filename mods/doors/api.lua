@@ -370,7 +370,7 @@ function doors.register(name, def)
 	def.recipe = nil
 
 	if not def.sounds then
-		def.sounds = default.node_sound_wood_defaults()
+		def.sounds = hades_sounds.node_sound_wood_defaults()
 	end
 
 	if not def.sound_open then
@@ -576,7 +576,7 @@ function doors.register_trapdoor(name, def)
 	end
 
 	if not def.sounds then
-		def.sounds = default.node_sound_wood_defaults()
+		def.sounds = hades_sounds.node_sound_wood_defaults()
 	end
 
 	if not def.sound_open then
@@ -657,7 +657,7 @@ function doors.register_fencegate(name, def)
 	}
 
 	if not fence.sounds then
-		fence.sounds = default.node_sound_wood_defaults()
+		fence.sounds = hades_sounds.node_sound_wood_defaults()
 	end
 
 	fence.groups.fence = 1

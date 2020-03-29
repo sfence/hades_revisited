@@ -3,7 +3,7 @@ doors.register_door("doors:door_wood", {
 	inventory_image = "doors_wood.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood.png", backface_culling=true}},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 	backface_culling = true,
 })
@@ -22,7 +22,7 @@ doors.register_door("doors:door_wood_pale", {
 	inventory_image = "doors_wood_pale.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_pale.png", backface_culling=true}},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -40,7 +40,7 @@ doors.register_door("doors:door_wood_birch", {
 	inventory_image = "doors_wood_birch.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_birch.png", backface_culling=true}},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -60,7 +60,7 @@ doors.register_door("doors:door_wood_jungle", {
 	inventory_image = "doors_wood_jungle.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_jungle.png", backface_culling=true}},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
 })
 
@@ -81,7 +81,7 @@ doors.register_door("doors:door_steel", {
 	groups = {snappy=1,cracky=1,level=2,door=1},
 	tiles = {{name="doors_door_steel.png", backface_culling=true}},
 	only_placer_can_open = true,
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	sound_open = "doors_steel_door_open",
 	sound_close = "doors_steel_door_close",
 	sunlight = false,
@@ -125,7 +125,7 @@ for c=1, #colors do
 		groups = {snappy=1,cracky=1,level=2,door=1,sdoor=1},
 		tiles = {{name="doors_door_steel_"..id..".png", backface_culling=true}},
 		only_placer_can_open = true,
-		sounds = default.node_sound_metal_defaults(),
+		sounds = hades_sounds.node_sound_metal_defaults(),
 		sound_open = "doors_steel_door_open",
 		sound_close = "doors_steel_door_close",
 		sunlight = false,
@@ -147,7 +147,7 @@ doors.register_door("doors:door_stone", {
 	groups = {snappy=1,cracky=1,level=2,door=1},
 	tiles = {{name="doors_door_stone.png", backface_culling=true}},
 	only_placer_can_open = true,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	sound_open = "mcl_fences_nether_brick_fence_gate_open",
 	sound_close = "mcl_fences_nether_brick_fence_gate_close",
 	sunlight = false,
@@ -167,7 +167,7 @@ doors.register_door("doors:door_glass", {
 	inventory_image = "doors_glass.png",
 	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
 	tiles = {"doors_door_glass.png"},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 	sound_open = "doors_glass_door_open",
 	sound_close = "doors_glass_door_close",
 	sunlight = true,
@@ -188,7 +188,7 @@ doors.register_door("doors:door_obsidian_glass", {
 	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
 	tiles = {"doors_door_obsidian_glass.png"},
 	sound_open = "doors_open_glass",
-	sounds = default.node_sound_glass_defaults(),
+	sounds = hades_sounds.node_sound_glass_defaults(),
 	sound_open = "doors_glass_door_open",
 	sound_close = "doors_glass_door_close",
 	sunlight = true,
@@ -211,7 +211,7 @@ doors.register_trapdoor("doors:trapdoor", {
 	tile_front = "doors_trapdoor.png",
 	tile_side = "doors_trapdoor_side.png",
 	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
 })
@@ -231,7 +231,7 @@ doors.register_trapdoor("doors:trapdoor_jungle", {
 	tile_front = "doors_trapdoor_jungle.png",
 	tile_side = "doors_trapdoor_jungle_side.png",
 	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
 })
@@ -251,7 +251,7 @@ doors.register_trapdoor("doors:trapdoor_pale", {
 	tile_front = "doors_trapdoor_pale.png",
 	tile_side = "doors_trapdoor_pale_side.png",
 	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
 })
@@ -271,7 +271,7 @@ doors.register_trapdoor("doors:trapdoor_birch", {
 	tile_front = "doors_trapdoor_birch.png",
 	tile_side = "doors_trapdoor_birch_side.png",
 	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
 })
@@ -291,7 +291,7 @@ doors.register_trapdoor("doors:trapdoor_steel", {
 	tile_front = "doors_trapdoor_steel.png",
 	tile_side = "doors_trapdoor_steel_side.png",
 	protected = true,
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	sound_open = "doors_steel_door_open",
 	sound_close = "doors_steel_door_close",
 	groups = {cracky = 1, level = 2, door = 1},

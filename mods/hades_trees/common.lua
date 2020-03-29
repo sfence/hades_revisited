@@ -14,7 +14,7 @@ minetest.register_node("hades_trees:apple", {
 	},
 	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
 	on_use = minetest.item_eat(2),
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)
 		if placer:is_player() then
 			minetest.set_node(pos, {name="hades_trees:apple", param2=1})
@@ -37,7 +37,7 @@ minetest.register_node("hades_trees:sapling", {
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
 	},
 	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1, sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("hades_trees:tree", {
@@ -58,7 +58,7 @@ minetest.register_node("hades_trees:tree", {
 	},
 	is_ground_content = false,
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node
 })
 
@@ -87,7 +87,7 @@ minetest.register_node("hades_trees:leaves", {
 			}
 		}
 	},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("hades_trees:bark", {
@@ -96,7 +96,7 @@ minetest.register_node("hades_trees:bark", {
 	tiles = { "default_tree.png" },
 	is_ground_content = false,
 	groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
-	sounds = default.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 local c_air = minetest.get_content_id("air")
