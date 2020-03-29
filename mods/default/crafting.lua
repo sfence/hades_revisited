@@ -1233,10 +1233,11 @@ minetest.register_craft({
 -- floors
 
 minetest.register_craft({
-	output = 'default:floor_chondrite_stone 4',
+	output = 'default:floor_chondrite_stone 9',
 	recipe = {
-		{'default:stone', 'default:chondrite'},
-		{'default:chondrite', 'default:stone'},
+		{'default:chondrite', 'default:stone', 'default:chondrite'},
+		{'default:stone', 'default:chondrite', 'default:stone'},
+		{'default:chondrite', 'default:stone', 'default:chondrite'},
 	}
 })
 
@@ -1247,7 +1248,21 @@ minetest.register_craft({
 		{'default:stone', 'default:chondrite'},
 	}
 })
+minetest.register_craft({
+	output = 'default:floor_chondrite_stone2 4',
+	recipe = {
+		{'default:stone', 'default:chondrite'},
+		{'default:chondrite', 'default:stone'},
+	}
+})
 
+minetest.register_craft({
+	output = 'default:floor_bstone_stone 4',
+	recipe = {
+		{'default:stone_baked', 'default:stone'},
+		{'default:stone', 'default:stone_baked'},
+	}
+})
 minetest.register_craft({
 	output = 'default:floor_bstone_stone 4',
 	recipe = {
@@ -1259,19 +1274,34 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:floor_btuff_tuff 4',
 	recipe = {
+		{'default:tuff_baked', 'default:tuff'},
+		{'default:tuff', 'default:tuff_baked'},
+	}
+})
+minetest.register_craft({
+	output = 'default:floor_btuff_tuff 4',
+	recipe = {
 		{'default:tuff', 'default:tuff_baked'},
 		{'default:tuff_baked', 'default:tuff'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:floor_bstone_sandstone 4',
+	output = 'default:floor_bstone_sandstone 9',
+	recipe = {
+		{'default:sandstone', 'default:stone_baked', 'default:sandstone'},
+		{'default:stone_baked', 'default:sandstone', 'default:stone_baked'},
+		{'default:sandstone', 'default:stone_baked', 'default:sandstone'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:floor_bstone_sandstone2 4',
 	recipe = {
 		{'default:stone_baked', 'default:sandstone'},
 		{'default:sandstone', 'default:stone_baked'},
 	}
 })
-
 minetest.register_craft({
 	output = 'default:floor_bstone_sandstone2 4',
 	recipe = {
@@ -1287,12 +1317,20 @@ minetest.register_craft({
 		{'default:essexite', 'default:marble'},
 	}
 })
-
 minetest.register_craft({
-	output = 'default:floor_marble_essexite2 4',
+	output = 'default:floor_marble_essexite 4',
 	recipe = {
 		{'default:essexite', 'default:marble'},
 		{'default:marble', 'default:essexite'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:floor_marble_essexite2 9',
+	recipe = {
+		{'default:marble', 'default:essexite', 'default:marble'},
+		{'default:essexite', 'default:marble', 'default:essexite'},
+		{'default:marble', 'default:essexite', 'default:marble'},
 	}
 })
 
