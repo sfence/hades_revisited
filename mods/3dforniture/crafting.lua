@@ -169,14 +169,6 @@
 			{'','stairs:slab_wood',''},
 		},
 	})
-	minetest.register_craft( {
-		output = '3dforniture:table_lamp_off',
-		recipe = {
-			{'default:paper','hades_torches:torch' ,'default:paper'},
-			{'','group:stick',''},
-			{'','stairs:slab_wood',''},
-		},
-	})
 
 	minetest.register_craft({
 		type = 'fuel',
