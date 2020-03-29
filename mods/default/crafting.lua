@@ -1419,31 +1419,4 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = 'default:lamp_wall 2',
-	recipe = {
-		{'default:glass', '', ''},
-		{'hades_torches:torch', '', ''},
-		{'default:glass', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:latern 2',
-	recipe = {
-		{'', 'default:bronze_ingot', ''},
-		{'default:glass', 'hades_torches:torch', 'default:glass'},
-		{'', 'default:bronze_ingot', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:laternrusty 2',
-	recipe = {
-		{'', 'default:steel_ingot', ''},
-		{'default:glass', 'hades_torches:torch', 'default:glass'},
-		{'', 'default:steel_ingot', ''},
-	}
-})
-
 

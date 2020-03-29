@@ -1,2 +1,3 @@
 default
 hades_trees
+hades_lamps

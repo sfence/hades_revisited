@@ -1,11 +1,11 @@
-minetest.register_node("default:lamp_wall", {
-    description = "Attached Lamp",
+minetest.register_node("hades_lamps:lamp_wall", {
+	description = "Attached Lamp",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "wallmounted",
-	tiles = {"default_lamp.png"},
-	wield_image = "default_lamp_inv.png",
-	inventory_image = "default_lamp_inv.png",
+	tiles = {"hades_lamps_lamp.png"},
+	wield_image = "hades_lamps_lamp_inv.png",
+	inventory_image = "hades_lamps_lamp_inv.png",
 	sunlight_propagates = true,
 	light_source = 13,
 	walkable = false,
@@ -19,19 +19,19 @@ minetest.register_node("default:lamp_wall", {
 	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
-minetest.register_node("default:latern", {
+minetest.register_node("hades_lamps:lantern", {
 	description = "Bronze Floor Lantern",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	tiles = {
-		"default_latern_top.png",
-		"default_latern_top.png", -- bottom
-		"default_latern_side.png",
-		"default_latern_side.png",
-		"default_latern_side.png",
-		"default_latern_side.png",
-			},
+		"hades_lamps_lantern_top.png",
+		"hades_lamps_lantern_top.png", -- bottom
+		"hades_lamps_lantern_side.png",
+		"hades_lamps_lantern_side.png",
+		"hades_lamps_lantern_side.png",
+		"hades_lamps_lantern_side.png",
+	},
 	sunlight_propagates = true,
 	light_source = 13,
 	walkable = false,
@@ -49,19 +49,19 @@ minetest.register_node("default:latern", {
 	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
-minetest.register_node("default:laternrusty", {
+minetest.register_node("hades_lamps:lantern_rusty", {
 	description = "Rusty Floor Lantern",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	tiles = {
-		"default_laternrusty_top.png",
-		"default_laternrusty_top.png", -- bottom
-		"default_laternrusty_side.png",
-		"default_laternrusty_side.png",
-		"default_laternrusty_side.png",
-		"default_laternrusty_side.png",
-			},
+		"hades_lamps_lantern_rusty_top.png",
+		"hades_lamps_lantern_rusty_top.png", -- bottom
+		"hades_lamps_lantern_rusty_side.png",
+		"hades_lamps_lantern_rusty_side.png",
+		"hades_lamps_lantern_rusty_side.png",
+		"hades_lamps_lantern_rusty_side.png",
+	},
 	sunlight_propagates = true,
 	light_source = 13,
 	walkable = false,
@@ -79,4 +79,30 @@ minetest.register_node("default:laternrusty", {
 	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
+minetest.register_craft({
+	output = 'hades_lamps:lamp_wall 2',
+	recipe = {
+		{'default:glass', '', ''},
+		{'hades_torches:torch', '', ''},
+		{'default:glass', '', ''},
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_lamps:lantern 2',
+	recipe = {
+		{'', 'default:bronze_ingot', ''},
+		{'default:glass', 'hades_torches:torch', 'default:glass'},
+		{'', 'default:bronze_ingot', ''},
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_lamps:lantern_rusty 2',
+	recipe = {
+		{'', 'default:steel_ingot', ''},
+		{'default:glass', 'hades_torches:torch', 'default:glass'},
+		{'', 'default:steel_ingot', ''},
+	}
+})
 
