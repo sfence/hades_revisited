@@ -1,6 +1,6 @@
 local raillike_group = minetest.raillike_group("rail")
 
-minetest.register_node(":hades_core:rail", {
+minetest.register_node(":carts:rail", {
 	description = "Steel Rail",
 	drawtype = "raillike",
 	tiles = {"default_rail.png", "default_rail_curved.png", "default_rail_t_junction.png", "default_rail_crossing.png"},
@@ -16,6 +16,15 @@ minetest.register_node(":hades_core:rail", {
 	},
 	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = raillike_group},
 	sounds = hades_sounds.node_sound_metal_defaults(),
+})
+
+minetest.register_craft({
+	output = 'carts:rail 18',
+	recipe = {
+		{'hades_core:steel_ingot', '', 'hades_core:steel_ingot'},
+		{'hades_core:steel_ingot', 'group:stick', 'hades_core:steel_ingot'},
+		{'hades_core:steel_ingot', '', 'hades_core:steel_ingot'},
+	}
 })
 
 -- Copper rail

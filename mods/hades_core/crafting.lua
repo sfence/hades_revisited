@@ -251,17 +251,6 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'hades_core:rail 18',
-	recipe = {
-		{'hades_core:steel_ingot', '', 'hades_core:steel_ingot'},
-		{'hades_core:steel_ingot', 'group:stick', 'hades_core:steel_ingot'},
-		{'hades_core:steel_ingot', '', 'hades_core:steel_ingot'},
-	}
-})
-
-
-
-minetest.register_craft({
 	type = "shapeless",
 	output = "hades_core:bronze_ingot 2",
 	recipe = {"hades_core:copper_ingot", "hades_core:tin_ingot"},
