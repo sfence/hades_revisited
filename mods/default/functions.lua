@@ -1,11 +1,10 @@
--- mods/default/functions.lua
-
+-- This file registers ABMs
 
 --
 -- Lava cooling
 --
 
-default.cool_lava_source = function(pos)
+local cool_lava_source = function(pos)
 	if minetest.find_node_near(pos, 5, {"default:water_flowing"}) == nil then
 		minetest.sound_play({name="fire_extinguish_flame", gain = 0.2}, {pos=pos, max_hear_distance = 16})
 		minetest.set_node(pos, {name="default:tuff"})
@@ -17,7 +16,7 @@ default.cool_lava_source = function(pos)
 	end
 end
 
-default.cool_lava_flowing = function(pos)
+local cool_lava_flowing = function(pos)
 	minetest.sound_play({name="fire_extinguish_flame", gain = 0.2}, {pos=pos, max_hear_distance = 16})
 	minetest.set_node(pos, {name="default:gravel_volcanic"})
 end
@@ -29,7 +28,7 @@ minetest.register_abm({
 	interval = 1,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
-		default.cool_lava_flowing(pos, node, active_object_count, active_object_count_wider)
+		cool_lava_flowing(pos, node, active_object_count, active_object_count_wider)
 	end,
 })
 
@@ -41,7 +40,7 @@ minetest.register_abm({
 	interval = 1,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
-		default.cool_lava_source(pos, node, active_object_count, active_object_count_wider)
+		cool_lava_source(pos, node, active_object_count, active_object_count_wider)
 	end,
 })
 
@@ -186,6 +185,7 @@ minetest.register_abm({
 
 -- Dirt ABMs
 minetest.register_abm({
+	label = "Grow grass on dirt",
 	nodenames = {"default:dirt"},
 	interval = 2,
 	chance = 200,
@@ -202,7 +202,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
-	label = "Grow grass on dirt",
+	label = "Turn covered 'dirt with grass' back to dirt",
 	nodenames = {"default:dirt_with_grass"},
 	interval = 2,
 	chance = 20,
@@ -230,6 +230,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Burn cobblestone",
 	nodenames = {"default:cobble", "default:mossycobble"},
 	neighbors = {"group:lava"},
 	interval = 45,
@@ -246,6 +247,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Create gravel near water",
 	nodenames = {"default:mossycobble"},
 	neighbors = {"default:water_flowing"},
 	interval = 500,
@@ -449,16 +451,3 @@ minetest.register_abm({
 	end,
 })
 
-
---
--- dig upwards
---
-
-function default.dig_up(pos, node, digger)
-	if digger == nil then return end
-	local np = {x = pos.x, y = pos.y + 1, z = pos.z}
-	local nn = minetest.get_node(np)
-	if nn.name == node.name then
-		minetest.node_dig(np, nn, digger)
-	end
-end

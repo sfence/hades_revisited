@@ -170,6 +170,18 @@ minetest.register_node("default:glowing_cactus_block", {
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
+-- Dig nodes upwards from
+local function dig_up(pos, node, digger)
+	if digger == nil then
+		return
+	end
+	local np = {x = pos.x, y = pos.y + 1, z = pos.z}
+	local nn = minetest.get_node(np)
+	if nn.name == node.name then
+		minetest.node_dig(np, nn, digger)
+	end
+end
+
 minetest.register_node("default:papyrus", {
 	description = "Papyrus",
 	drawtype = "nodebox",
@@ -217,7 +229,7 @@ minetest.register_node("default:papyrus", {
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	
 	after_dig_node = function(pos, node, metadata, digger)
-		default.dig_up(pos, node, digger)
+		dig_up(pos, node, digger)
 	end,
 })
 
@@ -238,7 +250,7 @@ minetest.register_node("default:sugarcane", {
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	
 	after_dig_node = function(pos, node, metadata, digger)
-		default.dig_up(pos, node, digger)
+		dig_up(pos, node, digger)
 	end,
 })
 
