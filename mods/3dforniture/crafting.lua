@@ -39,7 +39,7 @@
 		output = '3dforniture:table',
 		recipe = {
 			{ 'hades_trees:wood','hades_trees:wood', 'hades_trees:wood' },
-			{ 'default:stick', '', 'default:stick' },
+			{ 'group:stick', '', 'group:stick' },
 		},
 	})
 	
@@ -47,7 +47,7 @@
 		output = '3dforniture:table_black',
 		recipe = {
 			{ 'hades_trees:colwood_black','hades_trees:colwood_black', 'hades_trees:colwood_black' },
-			{ 'default:stick', '', 'default:stick' },
+			{ 'group:stick', '', 'group:stick' },
 		},
 	})
 
@@ -55,7 +55,7 @@
 		output = '3dforniture:table_white',
 		recipe = {
 			{ 'hades_trees:colwood_white','hades_trees:colwood_white', 'hades_trees:colwood_white' },
-			{ 'default:stick', '', 'default:stick' },
+			{ 'group:stick', '', 'group:stick' },
 		},
 	})
 	
@@ -69,27 +69,27 @@
 	minetest.register_craft( {
 		output = '3dforniture:chair 2',
 		recipe = {
-			{ 'default:stick',''},
+			{ 'group:stick',''},
 			{ 'hades_trees:wood','hades_trees:wood' },
-			{ 'default:stick','default:stick' },
+			{ 'group:stick','group:stick' },
 		},
 	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:chair_black 2',
 		recipe = {
-			{ 'default:stick',''},
+			{ 'group:stick',''},
 			{ 'hades_trees:colwood_black','hades_trees:colwood_black' },
-			{ 'default:stick','default:stick' },
+			{ 'group:stick','group:stick' },
 		},
 	})
 	
 		minetest.register_craft( {
 		output = '3dforniture:chair_white 2',
 		recipe = {
-			{ 'default:stick',''},
+			{ 'group:stick',''},
 			{ 'hades_trees:colwood_white','hades_trees:colwood_white' },
-			{ 'default:stick','default:stick' },
+			{ 'group:stick','group:stick' },
 		},
 	})
 
@@ -165,7 +165,7 @@
 		output = '3dforniture:table_lamp_off',
 		recipe = {
 			{'default:paper','hades_torches:torch' ,'default:paper'},
-			{'','default:stick',''},
+			{'','group:stick',''},
 			{'','stairs:slab_wood',''},
 		},
 	})

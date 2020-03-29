@@ -90,6 +90,6 @@ minetest.register_craft({
 	recipe = {
 	    {"group:mesecon_conductor_craftable"},
 		{"default:stone"},
-		{"default:stick"},
+		{"group:stick"},
 	}
 })

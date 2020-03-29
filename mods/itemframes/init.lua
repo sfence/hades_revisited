@@ -239,9 +239,9 @@ minetest.register_abm({
 minetest.register_craft({
 	output = 'itemframes:frame',
 	recipe = {
-		{'default:stick', 'default:stick', 'default:stick'},
-		{'default:stick', 'default:paper', 'default:stick'},
-		{'default:stick', 'default:stick', 'default:stick'},
+		{'group:stick', 'group:stick', 'group:stick'},
+		{'group:stick', 'default:paper', 'group:stick'},
+		{'group:stick', 'group:stick', 'group:stick'},
 	}
 })
 

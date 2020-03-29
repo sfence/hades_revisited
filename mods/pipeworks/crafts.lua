@@ -40,7 +40,7 @@ minetest.register_craft( {
 minetest.register_craft( {
         output = "pipeworks:valve_off_empty 2",
         recipe = {
-                { "", "default:stick", "" },
+                { "", "group:stick", "" },
                 { "default:steel_ingot", "default:steel_ingot", "default:steel_ingot" },
                 { "", "default:steel_ingot", "" }
         },
@@ -134,7 +134,7 @@ minetest.register_craft( {
 	output = "pipeworks:one_way_tube 2",
 	recipe = {
 	        { "homedecor:plastic_sheeting", "homedecor:plastic_sheeting", "homedecor:plastic_sheeting" },
-	        { "default:stick", "default:mese_crystal", "homedecor:plastic_sheeting" },
+	        { "group:stick", "default:mese_crystal", "homedecor:plastic_sheeting" },
 	        { "homedecor:plastic_sheeting", "homedecor:plastic_sheeting", "homedecor:plastic_sheeting" }
 	},
 })
@@ -277,7 +277,7 @@ minetest.register_craft( {
 	output = "pipeworks:filter 2",
 	recipe = {
 	        { "default:steel_ingot", "default:steel_ingot", "homedecor:plastic_sheeting" },
-	        { "default:stick", "default:sapphire", "homedecor:plastic_sheeting" },
+	        { "group:stick", "default:sapphire", "homedecor:plastic_sheeting" },
 	        { "default:steel_ingot", "default:steel_ingot", "homedecor:plastic_sheeting" }
 	},
 })
@@ -286,7 +286,7 @@ minetest.register_craft( {
 	output = "pipeworks:mese_filter 2",
 	recipe = {
 	        { "default:steel_ingot", "default:steel_ingot", "homedecor:plastic_sheeting" },
-	        { "default:stick", "default:mese", "homedecor:plastic_sheeting" },
+	        { "group:stick", "default:mese", "homedecor:plastic_sheeting" },
 	        { "default:steel_ingot", "default:steel_ingot", "homedecor:plastic_sheeting" }
 	},
 })

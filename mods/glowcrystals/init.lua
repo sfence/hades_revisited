@@ -136,7 +136,7 @@ minetest.register_craft({
 	output = 'glowcrystals:glowcrystal_torch 4',
 	recipe = {
 		{'glowcrystals:glowcrystal'},
-		{'default:stick'},
+		{'group:stick'},
 	}
 })
 

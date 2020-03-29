@@ -3,7 +3,7 @@
 
 
 minetest.register_craft({
-	output = 'default:stick 4',
+	output = 'group:stick 4',
 	recipe = {
 		{'group:wood'},
 	}

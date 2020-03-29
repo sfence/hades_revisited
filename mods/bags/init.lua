@@ -157,7 +157,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "bags:medium",
 	recipe = {
-        {"", "default:stick", ""},
+        {"", "group:stick", ""},
         {"bags:small", "farming:string", "bags:small"},
         {"bags:small", "farming:string", "bags:small"},
     },
@@ -165,7 +165,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "bags:large",
 	recipe = {
-        {"", "default:stick", ""},
+        {"", "group:stick", ""},
         {"bags:medium", "farming:string", "bags:medium"},
         {"bags:medium", "farming:string", "bags:medium"},
     },
