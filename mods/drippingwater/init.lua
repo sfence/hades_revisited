@@ -9,12 +9,13 @@ minetest.register_entity("drippingwater:drop_water", {
 	hp_max = 2,
 	physical = true,
 	collide_with_objects = false,
-	collisionbox = {0,0,0,0,0,0},
+	pointable = false,
 	visual = "cube",
 	visual_size = {x=0.05, y=0.1},
 	textures = {"default_water.png","default_water.png","default_water.png","default_water.png", "default_water.png","default_water.png"},
 	spritediv = {x=1, y=1},
 	initial_sprite_basepos = {x=0, y=0},
+	static_save = false,
 
 	on_activate = function(self, staticdata)
 		self.object:set_sprite({x=0,y=0}, 1, 1, true)
