@@ -25,7 +25,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
                                 "list[current_name;main;3,1;2,3;]"..
                                 "list[current_player;main;0,5;8,4;]"..
 				"listring[]"..
-				"background9[-0.5,-0.55;9,10.25;trash_can_inventory.png;false;18,17,-22,-17]")
+				"background9[18,17;8,9;trash_can_inventory.png;true;18,17,-22,-17]")
                 meta:set_string("infotext", "Trash Can")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*4)

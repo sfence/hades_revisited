@@ -3,7 +3,7 @@ local chest_formspec =
 	"list[current_name;main;0,0;8,4;]"..
 	"list[current_player;main;0,5;8,4;]"..
 	"listring[]"..
-	"background9[-0.5,-0.65;9,10.35;hades_chests_chestui.png;false;8]"
+	"background9[8,8;8,9;hades_chests_chestui.png;true;8]"
 
 local function get_locked_chest_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
@@ -12,7 +12,7 @@ local function get_locked_chest_formspec(pos)
 		"list[nodemeta:".. spos .. ";main;0,0;8,4;]"..
 		"list[current_player;main;0,5;8,4;]"..
 		"listring[]"..
-		"background9[-0.5,-0.65;9,10.35;hades_chests_chestui.png;false;8]"
+		"background9[8,8;8,9;hades_chests_chestui.png;true;8]"
 	return formspec
 end
 
