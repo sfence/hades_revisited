@@ -65,7 +65,7 @@ hades_core.register_ladder = function(id, def)
 
 			if success then
 				if idef.sounds and idef.sounds.place then
-					minetest.sound_play(idef.sounds.place, {pos=above, gain=1})
+					minetest.sound_play(idef.sounds.place, {pos=above, gain=1}, true)
 				end
 			end
 			return itemstack

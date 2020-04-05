@@ -27,7 +27,7 @@ minetest.register_node("travelnet:elevator_door_steel_open", {
 	},
 	drop = "travelnet:elevator_door_steel_closed",
 	on_rightclick = function(pos, node, puncher)
-		minetest.sound_play("mcl_fences_nether_brick_fence_gate_close", {pos = pos, gain = 0.3, max_hear_distance = 10}, false)
+		minetest.sound_play("mcl_fences_nether_brick_fence_gate_close", {pos = pos, gain = 0.3, max_hear_distance = 10}, true)
 		minetest.add_node(pos, {name = "travelnet:elevator_door_steel_closed", param2 = node.param2})
 	end,
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -55,7 +55,7 @@ minetest.register_node("travelnet:elevator_door_steel_closed", {
 		},
 	},
 	on_rightclick = function(pos, node, puncher)
-		minetest.sound_play("mcl_fences_nether_brick_fence_gate_open", {pos = pos, gain = 0.3, max_hear_distance = 10}, false)
+		minetest.sound_play("mcl_fences_nether_brick_fence_gate_open", {pos = pos, gain = 0.3, max_hear_distance = 10}, true)
 		minetest.add_node(pos, {name = "travelnet:elevator_door_steel_open", param2 = node.param2})
 	end,
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -85,7 +85,7 @@ minetest.register_node("travelnet:elevator_door_glass_open", {
 	},
 	drop = "travelnet:elevator_door_glass_closed",
 	on_rightclick = function(pos, node, puncher)
-		minetest.sound_play("doors_glass_door_close", {pos = pos, gain = 0.3, max_hear_distance = 10}, false)
+		minetest.sound_play("doors_glass_door_close", {pos = pos, gain = 0.3, max_hear_distance = 10}, true)
 		minetest.add_node(pos, {name = "travelnet:elevator_door_glass_closed", param2 = node.param2})
 	end,
 	sounds = hades_sounds.node_sound_glass_defaults(),
@@ -113,7 +113,7 @@ minetest.register_node("travelnet:elevator_door_glass_closed", {
 		},
 	},
 	on_rightclick = function(pos, node, puncher)
-		minetest.sound_play("doors_glass_door_open", {pos = pos, gain = 0.3, max_hear_distance = 10}, false)
+		minetest.sound_play("doors_glass_door_open", {pos = pos, gain = 0.3, max_hear_distance = 10}, true)
 		minetest.add_node(pos, {name = "travelnet:elevator_door_glass_open", param2 = node.param2})
 	end,
 	sounds = hades_sounds.node_sound_glass_defaults(),

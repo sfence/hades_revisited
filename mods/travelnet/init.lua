@@ -498,7 +498,7 @@ travelnet.on_receive_fields = function(pos, formname, fields, player)
 
 
    if( travelnet.travelnet_sound_enabled ) then
-      minetest.sound_play("128590_7037-lq.mp3", {pos = pos, gain = 1.0, max_hear_distance = 10,}, false)
+      minetest.sound_play("128590_7037-lq.mp3", {pos = pos, gain = 1.0, max_hear_distance = 10,}, true)
    end
    if( travelnet.travelnet_effect_enabled ) then 
       minetest.add_entity( {x=pos.x,y=pos.y+0.5,z=pos.z}, "travelnet:effect"); -- it self-destructs after 20 turns
@@ -512,7 +512,7 @@ travelnet.on_receive_fields = function(pos, formname, fields, player)
    player:move_to( target_pos, false);
 
    if( travelnet.travelnet_sound_enabled ) then
-      minetest.sound_play("travelnet_travel.wav", {pos = target_pos, gain = 1.0, max_hear_distance = 10,}, false)
+      minetest.sound_play("travelnet_travel.wav", {pos = target_pos, gain = 1.0, max_hear_distance = 10,}, true)
    end
    if( travelnet.travelnet_effect_enabled ) then 
       minetest.add_entity( {x=target_pos.x,y=target_pos.y+0.5,z=target_pos.z}, "travelnet:effect"); -- it self-destructs after 20 turns

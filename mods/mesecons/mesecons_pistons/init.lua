@@ -69,7 +69,7 @@ local piston_remove_pusher = function(pos, node)
 		pos = pos,
 		max_hear_distance = 20,
 		gain = 0.3,
-	}, false)
+	}, true)
 	minetest.check_for_falling(pusherpos)
 end
 
@@ -86,7 +86,7 @@ local piston_on = function(pos, node)
 			pos = pos,
 			max_hear_distance = 20,
 			gain = 0.3,
-		}, false)
+		}, true)
 		mesecon:mvps_process_stack (stack)
 		mesecon:mvps_move_objects  (np, dir, oldstack)
 	end

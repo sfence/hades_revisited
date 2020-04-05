@@ -85,7 +85,7 @@ function hbhunger.item_eat(hunger_change, replace_with_item, poisen, heal, sound
 			local h = tonumber(hbhunger.hunger[name])
 			local hp = user:get_hp()
 			if sound ~= nil then
-				minetest.sound_play({name = sound, gain = 1}, {pos=user:get_pos(), max_hear_distance = 16}, false)
+				minetest.sound_play({name = sound, gain = 1}, {pos=user:get_pos(), max_hear_distance = 16}, true)
 			end
 
 			-- Saturation

@@ -6,18 +6,18 @@
 
 local cool_lava_source = function(pos)
 	if minetest.find_node_near(pos, 5, {"hades_core:water_flowing"}) == nil then
-		minetest.sound_play({name="fire_extinguish_flame", gain = 0.2}, {pos=pos, max_hear_distance = 16}, false)
+		minetest.sound_play({name="fire_extinguish_flame", gain = 0.2}, {pos=pos, max_hear_distance = 16}, true)
 		minetest.set_node(pos, {name="hades_core:tuff"})
 	else
 		if minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name == "air" then
-			minetest.sound_play({name="fire_extinguish_flame", gain = 0.05}, {pos=pos, max_hear_distance = 6}, false)
+			minetest.sound_play({name="fire_extinguish_flame", gain = 0.05}, {pos=pos, max_hear_distance = 6}, true)
 		end
 		minetest.set_node(pos, {name="hades_core:water_source"})
 	end
 end
 
 local cool_lava_flowing = function(pos)
-	minetest.sound_play({name="fire_extinguish_flame", gain = 0.2}, {pos=pos, max_hear_distance = 16}, false)
+	minetest.sound_play({name="fire_extinguish_flame", gain = 0.2}, {pos=pos, max_hear_distance = 16}, true)
 	minetest.set_node(pos, {name="hades_core:gravel_volcanic"})
 end
 

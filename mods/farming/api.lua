@@ -43,7 +43,7 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	minetest.sound_play("default_dig_crumbly", {
 		pos = pt.under,
 		gain = 0.5,
-	}, false)
+	}, true)
 	
 	if not minetest.settings:get_bool("creative_mode") then
 		itemstack:add_wear(65535/(uses-1))

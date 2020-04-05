@@ -75,5 +75,5 @@ mesecon.noteblock_play = function (pos, param2)
 		soundname="mesecons_noteblock_litecrash"
 	end
 	minetest.sound_play(soundname,
-	{pos = pos, gain = 1.0, max_hear_distance = 32,}, false)
+	{pos = pos, gain = 1.0, max_hear_distance = 32,}, true)
 end
