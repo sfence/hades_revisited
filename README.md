@@ -154,7 +154,7 @@ from their original.
 `item_frames`
 <https://forum.minetest.net/viewtopic.php?id=5600>
 
-`kerova`
+`hades_chests` (based on `kerova`)
 <https://forum.minetest.net/viewtopic.php?id=8054>
 
 `mesecons`
