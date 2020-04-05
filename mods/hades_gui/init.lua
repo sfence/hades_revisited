@@ -1,6 +1,6 @@
 hades_gui = {}
 
-hades_gui.gui_inventory_bg_img = "background9[5,5;1,1;hades_gui_inventory.png;true;3]"
+hades_gui.gui_inventory_bg_img = "background9[0,0;8,8.5;hades_gui_inventory.png;true;3]"
 
 hades_gui.gui_survival_form = "size[8,8.5]"..
 	hades_gui.gui_inventory_bg_img..
