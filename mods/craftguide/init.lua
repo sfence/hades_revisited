@@ -4,6 +4,9 @@ local get_recipe, get_recipes = mt.get_craft_recipe, mt.get_all_craft_recipes
 local get_result, show_formspec = mt.get_craft_result, mt.show_formspec
 local reg_items = mt.registered_items
 
+local COLOR_TT = "#000000"
+local COLOR_HIGHLIGHT = "#FFFF00"
+
 -- Lua 5.3 removed `table.maxn`, use this alternative in case of breakage:
 -- https://github.com/kilbith/xdecor/blob/master/handlers/helpers.lua#L1
 local remove, maxn, sort = table.remove, table.maxn, table.sort
@@ -56,7 +59,7 @@ end
 
 local function colorize(str)
 	-- If client <= 0.4.14, don't colorize for compatibility.
-	return mt.colorize and mt.colorize("#FFFF00", str) or str
+	return mt.colorize and mt.colorize(COLOR_HIGHLIGHT, str) or str
 end
 
 local function get_fueltime(item)
@@ -79,8 +82,10 @@ function craftguide:get_tooltip(item, recipe_type, cooktime, groups)
 	if groups then
 		local groupstr = "Any item belonging to the "
 		for i=1, #groups do
-			groupstr = groupstr .. colorize(groups[i]) ..
-				  (groups[i + 1] and " and " or "")
+			groupstr = groupstr .. minetest.get_color_escape_sequence(COLOR_HIGHLIGHT) ..
+				groups[i] ..
+				(groups[i + 1] and " and " or "") ..
+				minetest.get_color_escape_sequence(COLOR_TT)
 		end
 		tooltip = tooltip .. groupstr .. " group(s)"
 	end
