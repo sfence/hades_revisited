@@ -125,7 +125,8 @@ mobs:register_arrow("mobs_hades:fireball", {
 				for dz=-1,1 do
 					local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
 					local n = minetest.get_node(p).name
-					if minetest.registered_nodes[n].on_blast then
+					local def = minetest.registered_nodes[n]
+					if def and def.on_blast then
 						minetest.registered_nodes[n].on_blast(pos, 5)
 					else
 						minetest.set_node(p, {name="air"})
