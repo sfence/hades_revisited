@@ -192,17 +192,18 @@ if minetest.settings:get("enable_item_pickup") == "true" then
 					local inv = player:get_inventory()
 
 					for _, object in ipairs(minetest.get_objects_inside_radius(playerPosition, 3)) do
-						if isGood(object) and (object:get_luaentity().dropped_by ~= player:get_player_name() or object:get_luaentity().age > 3) and
+						local lua = object:get_luaentity()
+						if isGood(object) and lua and (lua.dropped_by ~= player:get_player_name() or lua.age > 3) and
 							inv and
-							inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring))
-							then
+							inv:room_for_item("main", ItemStack(lua.itemstring))
+						then
 								local ticket = tickets
 								movers[object] = {player,ticket}
 								tickets = tickets + 1
 								moveTowards(object, player, pickupRadius, attractRadius)
 								-- make sure object doesn't push the player around!
-								object:get_luaentity().physical_state = true
-								object:get_luaentity().object:set_properties({
+								lua.physical_state = true
+								lua.object:set_properties({
 									physical = false,
 									collide_with_objects = false,
 									weight = 0
