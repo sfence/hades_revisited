@@ -57,7 +57,8 @@ minetest.register_node("columnia:machine", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", "size[10,10;]"..
-			"background[-0.20,-0.25;10.40,11;columnia_background.png]"..
+			"bgcolor[#00000000;neither]"..
+			"background9[-0.20,-0.25;10.40,11;columnia_background.png;false;6]"..
 			"list[current_name;ingot;7,5;1,1;]"..
 			"list[current_name;res;8,5;1,1;]"..
 			"label[7,4.5;Input:]"..

@@ -123,7 +123,7 @@ minetest.register_on_dieplayer(function(player)
 	"list[current_name;main;0,0;8,4;]"..
 	"list[current_player;main;0,5;8,4;]"..
 	"listring[]"..
-	"background[-0.5,-0.65;9,10.35;".."bones_inventory.png".."]")
+	"background9[-0.5,-0.65;9,10.35;bones_inventory.png;false;25,22,-20,-23]")
 	meta:set_string("infotext", player:get_player_name().."'s fresh bones")
 	meta:set_string("owner", player:get_player_name())
 	meta:set_int("time", 0)

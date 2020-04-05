@@ -68,7 +68,8 @@ end,
 on_construct = function(pos)
 	local meta = minetest.get_meta(pos)
 	meta:set_string("formspec", "size[10,6;]"..
-		"background[-0.15,-0.25;10.40,7;gluncarp_background.png]"..
+		"bgcolor[#00000000;neither]"..
+		"background9[-0.15,-0.25;10.40,7;gluncarp_background.png;false;6]"..
 		"list[current_name;ingot;3,0.5;1,1;]"..
 		"list[current_name;res;6,0.5;1,1;]"..
 		"label[3,0;Wool:]"..

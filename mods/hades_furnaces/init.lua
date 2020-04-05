@@ -5,11 +5,11 @@
 
 local formspec_info = {
 	["hades_furnaces:furnace"] = {
-		bg = "gui_furnace_bg.png", flame_bg = "default_furnace_fire_bg.png", flame_fg = "default_furnace_fire_fg.png",
+		bg = "gui_furnace_bg.png", bg9middle = "36,36,-34,-34", flame_bg = "default_furnace_fire_bg.png", flame_fg = "default_furnace_fire_fg.png",
 		output_slots = "4.75,1.5;1,1"
 	},
 	["hades_furnaces:prism_furnace"] = {
-		bg = "gui_prism_furnace_bg.png", flame_bg = "hades_furnaces_prism_furnace_fire_bg.png", flame_fg = "hades_furnaces_prism_furnace_fire_fg.png",
+		bg = "gui_prism_furnace_bg.png", bg9middle = "39,36,-36,-37", flame_bg = "hades_furnaces_prism_furnace_fire_bg.png", flame_fg = "hades_furnaces_prism_furnace_fire_fg.png",
 		output_slots = "4.75,0.96;2,2"
 	},
 }
@@ -17,7 +17,7 @@ local formspec_info = {
 local function active_formspec(ftype, fuel_percent, item_percent)
 	return
 	"size[8,8.5]"..
-	"background[-0.5,-0.65;9,10.35;"..formspec_info[ftype].bg.."]"..
+	"background9[-0.5,-0.65;9,10.35;"..formspec_info[ftype].bg..";false;"..formspec_info[ftype].bg9middle.."]"..
 	"list[current_name;src;2.75,0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
 	"image[2.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."^[lowpart:"..
@@ -38,7 +38,7 @@ end
 local function inactive_formspec(ftype)
 	return
 	"size[8,8.5]"..
-	"background[-0.5,-0.65;9,10.35;"..formspec_info[ftype].bg.."]"..
+	"background9[-0.5,-0.65;9,10.35;"..formspec_info[ftype].bg..";false;"..formspec_info[ftype].bg9middle.."]"..
 	"list[current_name;src;2.75,0.5;1,1;]"..
 	"list[current_name;fuel;2.75,2.5;1,1;]"..
 	"image[2.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."]"..
