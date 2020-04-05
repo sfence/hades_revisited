@@ -12,7 +12,7 @@ minetest.register_node("mesecons_switch:mesecon_switch_off", {
 	on_punch = function(pos, node)
 		minetest.swap_node(pos, {name = "mesecons_switch:mesecon_switch_on", param2 = node.param2})
 		mesecon:receptor_on(pos)
-		minetest.sound_play("mesecons_switch", {pos=pos})
+		minetest.sound_play("mesecons_switch", {pos=pos}, false)
 	end
 })
 
@@ -28,7 +28,7 @@ minetest.register_node("mesecons_switch:mesecon_switch_on", {
 	on_punch = function(pos, node)
 		minetest.swap_node(pos, {name = "mesecons_switch:mesecon_switch_off", param2 = node.param2})
 		mesecon:receptor_off(pos)
-		minetest.sound_play("mesecons_switch", {pos=pos})
+		minetest.sound_play("mesecons_switch", {pos=pos}, false)
 	end
 })
 

@@ -6,7 +6,7 @@ mesecon.button_turnoff = function (pos)
 	local node = minetest.get_node(pos)
 	if node.name=="mesecons_button:button_on" then --has not been dug
 		minetest.swap_node(pos, {name = "mesecons_button:button_off", param2=node.param2})
-		minetest.sound_play("mesecons_button_pop", {pos=pos})
+		minetest.sound_play("mesecons_button_pop", {pos=pos}, false)
 		local rules = mesecon.rules.buttonlike_get(node)
 		mesecon:receptor_off(pos, rules)
 	end
@@ -43,7 +43,7 @@ minetest.register_node("mesecons_button:button_off", {
 	on_punch = function (pos, node)
 		minetest.swap_node(pos, {name = "mesecons_button:button_on", param2=node.param2})
 		mesecon:receptor_on(pos, mesecon.rules.buttonlike_get(node))
-		minetest.sound_play("mesecons_button_push", {pos=pos})
+		minetest.sound_play("mesecons_button_push", {pos=pos}, false)
 		minetest.after(1, mesecon.button_turnoff, pos)
 	end,
 	sounds = hades_sounds.node_sound_stone_defaults(),

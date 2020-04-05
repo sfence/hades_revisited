@@ -240,7 +240,7 @@ local function furnace_node_timer(pos, elapsed)
 		swap_node(pos, id_active)
 		-- Furnace burn sound
 		if meta:get_int("sound_played") == nil or ( os.time() - meta:get_int("sound_played") ) >= 4 then
-			minetest.sound_play("hades_furnaces_burning",{pos=pos})
+			minetest.sound_play("hades_furnaces_burning",{pos=pos},false)
 			meta:set_string("sound_played",os.time())
 		end
 		-- make sure timer restarts automatically

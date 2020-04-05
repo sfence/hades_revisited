@@ -34,7 +34,7 @@ minetest.register_node("mesecons_walllever:wall_lever_off", {
 	on_punch = function (pos, node)
 		minetest.swap_node(pos, {name = "mesecons_walllever:wall_lever_on", param2 = node.param2})
 		mesecon:receptor_on(pos, mesecon.rules.buttonlike_get(node))
-		minetest.sound_play("mesecons_lever", {pos=pos})
+		minetest.sound_play("mesecons_lever", {pos=pos}, false)
 	end,
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	mesecons = {receptor = {
@@ -76,7 +76,7 @@ minetest.register_node("mesecons_walllever:wall_lever_on", {
 	on_punch = function (pos, node)
 		minetest.swap_node(pos, {name = "mesecons_walllever:wall_lever_off", param2 = node.param2})
 		mesecon:receptor_off(pos, mesecon.rules.buttonlike_get(node))
-		minetest.sound_play("mesecons_lever", {pos=pos})
+		minetest.sound_play("mesecons_lever", {pos=pos}, false)
 	end,
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	mesecons = {receptor = {

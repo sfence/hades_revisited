@@ -610,7 +610,7 @@
 				sounds = hades_sounds.node_sound_stone_defaults(),
 				on_rightclick = function (pos, node, clicker)
 					minetest.add_node(pos, {name="3dforniture:toilet", param2=node.param2})
-					minetest.sound_play("3dforniture_dig_toilet", {gain=0.5, pos=pos})
+					minetest.sound_play("3dforniture_dig_toilet", {gain=0.5, pos=pos}, false)
 				end,
 			})
 

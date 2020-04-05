@@ -38,7 +38,8 @@ local function update_sound(player)
 					pos = wposav,
 					to_player = player_name,
 					gain = math.min(0.04 + total * 0.004, around_nodes[a].min_gain),
-				}
+				},
+				false
 			)
 		end
 	end

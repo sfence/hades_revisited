@@ -44,7 +44,7 @@ local function removeObjectWithSound(object)
 		pos=pos,
 		gain = 0.2,
 		max_hear_distance = 32,
-	})
+	}, false)
 	object:remove()
 end
 
@@ -66,7 +66,7 @@ local function pickup(player, inv, object, pickupRadius)
 			minetest.sound_play("item_drop_pickup", {
 				to_player = player:get_player_name(),
 				gain = 0.4,
-			})
+			}, false)
 		end
 		lua.itemstring = ''
 		removeObject(object)
@@ -301,7 +301,7 @@ function minetest.item_drop(itemstack, dropper, pos)
 			pos=pos,
 			gain = 1.0,
 			max_hear_distance = 32,
-		})
+		}, false)
 		local obj = minetest.add_item(p, itemstack)
 		if obj then
 			v.x = v.x*2
