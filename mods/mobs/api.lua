@@ -680,7 +680,7 @@ local do_env_damage = function(self)
 				pos = pos, node = self.standing_in}) then return true end
 	end
 ]]
-	check_for_death(self, "", {type = "unknown"})
+	if check_for_death(self, "", {type = "unknown"}) then return true end
 end
 
 
