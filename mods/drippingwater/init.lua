@@ -9,6 +9,7 @@ minetest.register_entity("drippingwater:drop_water", {
 	hp_max = 2,
 	physical = true,
 	collide_with_objects = false,
+	collisionbox = { -0.025, -0.05, -0.025, 0.025, -0.01, 0.025 },
 	pointable = false,
 	visual = "cube",
 	visual_size = {x=0.05, y=0.1},
