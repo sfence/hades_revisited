@@ -869,6 +869,7 @@ build_char_db()
 -- restore signs' text after /clearobjects and the like
 
 minetest.register_abm({
+	label = "Respawn sign text",
 	nodenames = signs_lib.sign_node_list,
 	interval = 15,
 	chance = 1,

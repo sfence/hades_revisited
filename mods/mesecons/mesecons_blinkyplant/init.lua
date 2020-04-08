@@ -78,8 +78,9 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_abm(
-	{nodenames = {"mesecons_blinkyplant:blinky_plant_off"},
+minetest.register_abm({
+	label = "Blink blinky plant on",
+	nodenames = {"mesecons_blinkyplant:blinky_plant_off"},
 	interval = BLINKY_PLANT_INTERVAL,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
@@ -91,6 +92,7 @@ minetest.register_abm(
 })
 
 minetest.register_abm({
+	label = "Blink blinky plant off",
 	nodenames = {"mesecons_blinkyplant:blinky_plant_on"},
 	interval = BLINKY_PLANT_INTERVAL,
 	chance = 1,

@@ -122,7 +122,9 @@ minetest.register_node("pipeworks:autocrafter", {
 	end
 })
 
-minetest.register_abm({nodenames = {"pipeworks:autocrafter"}, interval = 1, chance = 1, 
+minetest.register_abm({
+			label = "Let autocrafter craft stuff",
+			nodenames = {"pipeworks:autocrafter"}, interval = 1, chance = 1,
 			action = function(pos, node)
 				local meta = minetest.get_meta(pos)
 				local inv = meta:get_inventory()

@@ -214,6 +214,7 @@ minetest.register_node("itemframes:pedestal",{
 -- due to /clearobjects or similar
 
 minetest.register_abm({
+	label = "Respawn entities of item frames and pedestals",
 	nodenames = {"itemframes:frame", "itemframes:pedestal"},
 	interval = 15,
 	chance = 1,

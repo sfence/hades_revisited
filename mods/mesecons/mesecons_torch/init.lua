@@ -85,6 +85,7 @@ minetest.register_node("mesecons_torch:mesecon_torch_on", {
 })
 
 minetest.register_abm({
+	label = "Handle mesecon torch",
 	nodenames = {"mesecons_torch:mesecon_torch_off","mesecons_torch:mesecon_torch_on"},
 	interval = 1,
 	chance = 1,

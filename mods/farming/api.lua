@@ -281,6 +281,7 @@ farming.register_plant = function(name, def)
 
 	-- Growing ABM
 	minetest.register_abm({
+		label = "Grow seeds",
 		nodenames = {"group:" .. pname, "group:seed"},
 		neighbors = {"group:soil"},
 		interval = 93,

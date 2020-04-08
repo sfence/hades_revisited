@@ -178,6 +178,7 @@ minetest.register_node("vines:vine_rotten", {
 --ABM
 
 minetest.register_abm({
+  label = "Vine rot",
   nodenames = {"vines:vine", "vines:side", "vines:willow"},
   interval = 300,
   chance = 8,
@@ -192,6 +193,7 @@ minetest.register_abm({
 
 
 minetest.register_abm({
+  label = "Grow vines",
   nodenames = {"vines:vine", "vines:side", "vines:willow"},
   interval = 300,
   chance = 2,

@@ -54,6 +54,7 @@ minetest.register_node("farming:straw", {
 })
 
 minetest.register_abm({
+	label = "Update soil wetness",
 	nodenames = {"group:field"},
 	interval = 15,
 	chance = 4,

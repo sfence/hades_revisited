@@ -58,7 +58,8 @@ minetest.register_node("mesecons_hydroturbine:hydro_turbine_on", {
 
 
 minetest.register_abm({
-nodenames = {"mesecons_hydroturbine:hydro_turbine_off"},
+	label = "Turn on hydroturbine",
+	nodenames = {"mesecons_hydroturbine:hydro_turbine_off"},
 	interval = 1,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
@@ -72,7 +73,8 @@ nodenames = {"mesecons_hydroturbine:hydro_turbine_off"},
 })
 
 minetest.register_abm({
-nodenames = {"mesecons_hydroturbine:hydro_turbine_on"},
+	label = "Turn off hydroturbine",
+	nodenames = {"mesecons_hydroturbine:hydro_turbine_on"},
 	interval = 1,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)

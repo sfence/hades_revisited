@@ -295,6 +295,7 @@ function plantslib:spawn_on_surfaces(sd,sp,sr,sc,ss,sa)
 
 
 	minetest.register_abm({
+		label = "Plantlife: Spawn plants",
 		nodenames = biome.spawn_surfaces,
 		interval = biome.interval,
 		chance = biome.spawn_chance,
@@ -398,6 +399,7 @@ function plantslib:grow_plants(opts)
 
 
 	minetest.register_abm({
+		label = "Plantlib: Plant growth/death",
 		nodenames = { options.grow_plant },
 		interval = options.interval,
 		chance = options.grow_chance,

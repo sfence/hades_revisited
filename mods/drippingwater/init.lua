@@ -45,6 +45,7 @@ minetest.register_entity("drippingwater:drop_water", {
 --Create drop
 
 minetest.register_abm({
+	label = "Spawn water droplets",
 	nodenames = {"group:porous"},
 	neighbors = {"group:water"},
         interval = 2,

@@ -66,8 +66,9 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_abm(
-	{nodenames = {"mesecons_solarpanel:solar_panel_off"},
+minetest.register_abm({
+	label = "Activate solar panel",
+	nodenames = {"mesecons_solarpanel:solar_panel_off"},
 	interval = 1,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
@@ -80,8 +81,9 @@ minetest.register_abm(
 	end,
 })
 
-minetest.register_abm(
-	{nodenames = {"mesecons_solarpanel:solar_panel_on"},
+minetest.register_abm({
+	label = "Deactivate solar panel",
+	nodenames = {"mesecons_solarpanel:solar_panel_on"},
 	interval = 1,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)

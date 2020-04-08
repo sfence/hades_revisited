@@ -166,6 +166,7 @@ if REGISTER_COMPATIBILITY then
 	end
 	end
 	minetest.register_abm({
+		label = "Scan for pipe objects",
 		nodenames = {"group:pipe_to_update"},
 		interval = 1,
 		chance = 1,
@@ -189,6 +190,7 @@ table.insert(pipes_full_nodenames,"pipeworks:entry_panel_loaded")
 table.insert(pipes_full_nodenames,"pipeworks:flow_sensor_loaded")
 
 minetest.register_abm({
+	label = "Check for pipe inflows",
 	nodenames = pipes_empty_nodenames,
 	interval = 1,
 	chance = 1,
@@ -198,6 +200,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Check pipe sources",
 	nodenames = pipes_full_nodenames,
 	interval = 1,
 	chance = 1,
@@ -207,6 +210,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Update pipe spigots",
 	nodenames = {"pipeworks:spigot","pipeworks:spigot_pouring"},
 	interval = 1,
 	chance = 1,
@@ -216,6 +220,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Update fountainheads",
 	nodenames = {"pipeworks:fountainhead","pipeworks:fountainhead_pouring"},
 	interval = 1,
 	chance = 1,

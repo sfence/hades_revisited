@@ -202,6 +202,7 @@ minetest.register_node("refruit:flower_olive", {
 --abm's
 
 minetest.register_abm({
+	label = "Grow apple bud to apple flower",
 	nodenames = {"refruit:bud_apple"},
 	neighbors = {"group:leaves"},
 	interval = 34,
@@ -212,6 +213,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Grow apple flower to apple",
 	nodenames = {"refruit:flower_apple"},
 	neighbors = {"group:leaves"},
 	interval = 33,
@@ -224,6 +226,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "Grow olive bud to olive flower",
 	nodenames = {"refruit:bud_olive"},
 	neighbors = {"group:leaves"},
 	interval = 35,
@@ -234,6 +237,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Grow olive flower to olive",
 	nodenames = {"refruit:flower_olive"},
 	neighbors = {"group:leaves"},
 	interval = 34,

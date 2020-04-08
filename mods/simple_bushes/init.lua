@@ -231,6 +231,7 @@ minetest.register_craft({ output = "simple_bushes:plant_pot", recipe = {
 -- abm
 
 minetest.register_abm({
+	label = "Spread flora",
 	nodenames = {"group:flora"},
 	neighbors = {"hades_core:dirt_with_grass"},
 	interval = 150,

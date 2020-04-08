@@ -86,8 +86,9 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_abm(
-	{nodenames = {"mesecons_detector:object_detector_off"},
+minetest.register_abm({
+	label = "Detect objects at inactive object detector",
+	nodenames = {"mesecons_detector:object_detector_off"},
 	interval = 1.0,
 	chance = 1,
 	action = function(pos)
@@ -98,8 +99,9 @@ minetest.register_abm(
 	end,
 })
 
-minetest.register_abm(
-	{nodenames = {"mesecons_detector:object_detector_on"},
+minetest.register_abm({
+	label = "Detect absense of objects at active cobject detector",
+	nodenames = {"mesecons_detector:object_detector_on"},
 	interval = 1.0,
 	chance = 1,
 	action = function(pos)
