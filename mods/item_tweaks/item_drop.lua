@@ -92,6 +92,9 @@ local PLAYER_G_MASS = 1.7
 -- the player is faaaaaaaat
 
 local function moveTowards(object, player, pickupRadius, attractRadius)
+	-- hacky check to see if objects are valid
+	if not object or not object:get_yaw() then return end
+	if not player or not player:is_player() then return end
 	-- move it towards the player, then pick it up after a delay!
 	local pos1 = player:get_pos()
 	if pos1 == nil then return end
