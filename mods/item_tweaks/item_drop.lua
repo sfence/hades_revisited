@@ -1,19 +1,11 @@
 --	item_drop code by cyisfor
 --	https://github.com/cyisfor/item_drop
-local drops = {}
-local v = {}
-local stopped = {}
-local item = {}
-
-if drops == nil then
-	drops = {}
-end
 
 local movers = {}
 
 local removedAlreadyDammit = {}
 
-vector.fixedNormalize = function(v)
+local vector_fixedNormalize = function(v)
 	assert(v)
 	local len = vector.length(v)
 	if len == 0 then
@@ -24,27 +16,9 @@ vector.fixedNormalize = function(v)
 	end
 end
 
-if not vector.dot then
-	vector.dot = function(p1,p2)
-		return p1.x * p2.x + p1.y * p2.y + p1.z * p2.z
-	end
-end
-
 local function removeObject(object)
 	movers[object] = nil
 	removedAlreadyDammit[object] = true
-	object:remove()
-end
-
-local function removeObjectWithSound(object)
-	movers[object] = nil
-	removedAlreadyDammit[object] = true
-	local pos=object:get_pos() 
-	minetest.sound_play("item_gone", {
-		pos=pos,
-		gain = 0.2,
-		max_hear_distance = 32,
-	}, true)
 	object:remove()
 end
 
@@ -59,7 +33,7 @@ local function pickup(player, inv, object, pickupRadius)
 
 	-- itemstring is serialized item so includes metadata
 	local lua = object:get_luaentity()
-	item = ItemStack(lua.itemstring)
+	local item = ItemStack(lua.itemstring)
 	if inv and inv:room_for_item("main", item) then
 		inv:add_item("main", item)
 		if object:get_luaentity().itemstring ~= "" then
@@ -97,9 +71,6 @@ local function stop(object)
 	if lua then
 		lua.physical_state = false
 	end
-	--object:set_properties({
-	-- physical = true
-	--})
 end
 
 local function pickupOrStop(object, inv, player, pickupRadius)
@@ -117,7 +88,7 @@ end
 -- in the following units:
 -- if G = 6.67×10−11 then
 -- GMass = 1 for 14,992,503,748 kilograms
-drops.playerGMass = 1.7
+local PLAYER_G_MASS = 1.7
 -- the player is faaaaaaaat
 
 local function moveTowards(object, player, pickupRadius, attractRadius)
@@ -129,8 +100,8 @@ local function moveTowards(object, player, pickupRadius, attractRadius)
 	pos1.y = pos1.y+0.5 -- head towards player's belt
 	local direct = vector.subtract(pos1, pos2)
 	local R = vector.length(direct)
-	v = object:get_velocity()
-	stopped = v.x == 0 and v.y == 0 and v.z == 0
+	local v = object:get_velocity()
+	local stopped = v.x == 0 and v.y == 0 and v.z == 0
 	-- when direction(X) = direction(V) we passed the player
 	-- so project V onto X. If same, passed. If not, approaching.
 	-- projection = norm(X) * (length(V) * cos(theta))
@@ -138,7 +109,7 @@ local function moveTowards(object, player, pickupRadius, attractRadius)
 	-- = dot(V,X) / length(X)
 	-- if X is normalized, length(X) == 1 so... dot product!
 	-- sign(dot) > 0 = same direction sign(dot)< 0 = different
-	direct = vector.fixedNormalize(direct)
+	direct = vector_fixedNormalize(direct)
 
 	-- idea, set velocity not acceleration but set it
 	-- not to velocity + acceleration, but to the projection of that
@@ -157,10 +128,10 @@ local function moveTowards(object, player, pickupRadius, attractRadius)
 	-- A1 = G * M2 / R ^2
 	-- G = whatever it takes for stuff to orbit around the player
 	-- and the weight of the player is ^^^
-	-- A1 = C / R^2	
+	-- A1 = C / R^2
 	local A
-	A = drops.playerGMass / R^2
-	A = math.max(A,2*drops.playerGMass)
+	A = PLAYER_G_MASS / R^2
+	A = math.max(A,2*PLAYER_G_MASS)
 	object:set_acceleration(vector.multiply(direct,A))
 end
 
@@ -213,7 +184,7 @@ if minetest.settings:get("enable_item_pickup") == "true" then
 								minetest.after(30, function(object)
 									-- only if it's still moving
 									-- but what if it started moving a second time?
-									pair = movers[object]
+									local pair = movers[object]
 									if pair and pair[2] == ticket then
 										stop(object)
 									end
@@ -229,7 +200,7 @@ end
 if minetest.settings:get("enable_item_drops") == "true" then
 	local old_handle_node_drops = minetest.handle_node_drops
 
-	function new_handle_node_drops(pos, drops, digger)
+	local function new_handle_node_drops(pos, drops, digger)
 		if digger and digger.is_fake_player then
 			return old_handle_node_drops(pos, drops, digger)
 		end
@@ -262,7 +233,7 @@ if minetest.settings:get("enable_item_drops") == "true" then
 						end
 						-- hurl it out into space at a random velocity
 						-- (still falling though)
-					obj:set_velocity({x=1/x, y=obj:get_velocity().y, z=1/z})			
+					obj:set_velocity({x=1/x, y=obj:get_velocity().y, z=1/z})
 					end
 				end
 			end
@@ -272,7 +243,7 @@ if minetest.settings:get("enable_item_drops") == "true" then
 		-- return old_handle_node_drops(pos, drops, digger)
 	end
 
-	function checkSetting(pos, drops, digger)
+	local function checkSetting(pos, drops, digger)
 		if minetest.settings:get("enable_item_drops") == "true" then
 			return new_handle_node_drops(pos, drops, digger)
 		else
