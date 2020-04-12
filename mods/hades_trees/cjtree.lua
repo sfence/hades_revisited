@@ -43,13 +43,12 @@ minetest.register_node("hades_trees:cultivated_jungle_sapling", {
 	sounds = hades_sounds.node_sound_defaults(),
 })
 
-
 minetest.register_abm({
 	nodenames = {"hades_trees:cultivated_jungle_sapling"},
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		hades_plus:generate_cjtree(pos, "hades_core:jungletree", "hades_trees:cultivated_jungle_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass"})
+		hades_trees:generate_cjtree(pos, "hades_trees:jungle_tree", "hades_trees:cultivated_jungle_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass"})
 	end
 })
 

@@ -38,7 +38,7 @@ minetest.register_node("hades_trees:birch_tree", {
 })
 
 minetest.register_node("hades_trees:birch_leaves", {
-    description = S("Birch Leaves"),
+	description = S("Birch Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"default_leaves_birch.png"},
 	paramtype = "light",
@@ -78,7 +78,7 @@ minetest.register_abm({
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		farming:generate_birchtree(pos, "hades_trees:birch_tree", "hades_trees:birch_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass"})
+		hades_trees:generate_birchtree(pos, "hades_trees:birch_tree", "hades_trees:birch_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass"})
 	end
 })
 
