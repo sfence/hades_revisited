@@ -199,7 +199,7 @@ function hades_trees:generate_birchtree(pos, trunk, leaves, underground)
 	end
 
 
-	node = {name = ""}
+	local node = {name = ""}
 	for dy=1,6 do
 		pos.y = pos.y+dy
 		if minetest.get_node(pos).name ~= "air" then
@@ -314,7 +314,7 @@ function hades_trees:generate_cjtree(pos, trunk, leaves, underground)
 					if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 4 then
 						minetest.set_node(pos, node)
 					end
-			    elseif dx == 0 and dz == 0 and dy==2 then
+				elseif dx == 0 and dz == 0 and dy==2 then
 					if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 4 then
 						minetest.set_node(pos, node)
 					end
