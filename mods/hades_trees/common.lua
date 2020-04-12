@@ -179,7 +179,7 @@ minetest.register_abm({
 		end
 
 
-		minetest.log("action", "A sapling grows into an apple tree at "..minetest.pos_to_string(pos))
+		minetest.log("action", "[hades_trees] A sapling grows into an apple tree at "..minetest.pos_to_string(pos))
 		local vm = minetest.get_voxel_manip()
 		local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
 		local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}

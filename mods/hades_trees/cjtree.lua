@@ -1,7 +1,7 @@
 local S = minetest.get_translator("hades_trees")
 
 minetest.register_node("hades_trees:cultivated_jungle_leaves", {
-    description = S("Cultivated Jungle Leaves"),
+	description = S("Cultivated Jungle Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"hades_trees_cultivated_jungle_leaves.png"},
 	paramtype = "light",

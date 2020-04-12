@@ -18,7 +18,7 @@ minetest.register_node("hades_trees:olive_sapling", {
 
 
 minetest.register_node("hades_trees:olive_leaves", {
-    description = S("Olive Leaves"),
+	description = S("Olive Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"farming_olive_leaves.png"},
 	paramtype = "light",
@@ -53,18 +53,6 @@ minetest.register_abm({
 		hades_trees:generate_tree(pos, "hades_trees:tree", "hades_trees:olive_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass"}, {["hades_trees:olive"]=10})
 	end
 })
-
-
-minetest.register_on_generated(function(minp, maxp, blockseed)
-	if math.random(1, 100) > 10 then
-		return
-	end
-	local tmp = {x=(maxp.x-minp.x)/2+minp.x, y=(maxp.y-minp.y)/2+minp.y, z=(maxp.z-minp.z)/2+minp.z}
-	local pos = minetest.find_node_near(tmp, maxp.x-minp.x, {"hades_core:dirt_with_grass"})
-	if pos ~= nil then
-		hades_trees:generate_tree({x=pos.x, y=pos.y+1, z=pos.z}, "hades_trees:tree", "hades_trees:olive_leaves",  {"hades_core:dirt", "hades_core:dirt_with_grass"}, {["hades_trees:olive"]=5})
-	end
-end)
 
 minetest.register_node("hades_trees:olive", {
 	description = S("Olive (+1)"),
