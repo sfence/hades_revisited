@@ -1924,7 +1924,7 @@ local do_states = function(self, dtime)
 						effect(pos, 32, "tnt_smoke.png", nil, nil, node_break_radius, 1, 0)
 					end
 
-					return
+					return true
 				end
 			end
 
@@ -2221,7 +2221,7 @@ local falling = function(self, pos)
 				effect(pos, 5, "tnt_smoke.png", 1, 2, 2, nil)
 
 				if check_for_death(self, "fall", {type = "fall"}) then
-					return
+					return true
 				end
 			end
 
@@ -2735,7 +2735,9 @@ local mob_step = function(self, dtime)
 		end
 	end
 
-	falling(self, pos)
+	if falling(self, pos) then
+		return
+	end
 
 	-- knockback timer
 	if self.pause_timer > 0 then
