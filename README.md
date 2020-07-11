@@ -1,10 +1,10 @@
 # Hades Revisited
-Version 0.4.4
+Version 0.4.5
 
 A game for Minetest, focused on terraforming.
 Based on *Minetest Hades* by Glünngi.
 
-Requires Minetest 5.2.0.
+Requires Minetest 5.3.0.
 
 ## Installation
 To play this game in Minetest, insert this directory into
