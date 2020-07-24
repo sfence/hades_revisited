@@ -61,7 +61,7 @@ minetest.register_node("hades_trees:jungle_leaves", {
 			}
 		}
 	},
-	sounds = hades_sounds.node_sound_wood_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("hades_trees:jungle_bark", {
