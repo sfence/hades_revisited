@@ -538,6 +538,7 @@
 			drop = drop,
 			sounds = hades_sounds.node_sound_glass_defaults(),
 			on_rightclick = function(pos, node, clicker)
+				minetest.sound_play({name="3dforniture_table_lamp_switch"}, {pos=pos, gain=0.35, max_hear_distance=6})
 				minetest.set_node(pos, {name="3dforniture:table_lamp_"..lamps[l][2]})
 			end,
 		})
