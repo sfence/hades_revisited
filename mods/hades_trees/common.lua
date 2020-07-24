@@ -65,7 +65,6 @@ minetest.register_node("hades_trees:tree", {
 minetest.register_node("hades_trees:leaves", {
 	description = "Common Leaves",
 	drawtype = "allfaces_optional",
-	visual_scale = 1.3,
 	tiles = {"default_leaves.png"},
 	paramtype = "light",
 	waving = 1,

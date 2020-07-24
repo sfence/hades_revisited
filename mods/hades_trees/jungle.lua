@@ -40,7 +40,6 @@ minetest.register_node("hades_trees:jungle_tree", {
 minetest.register_node("hades_trees:jungle_leaves", {
 	description = "Common Jungle Leaves",
 	drawtype = "allfaces_optional",
-	visual_scale = 1.3,
 	tiles = {"default_jungleleaves.png"},
 	paramtype = "light",
 	waving = 1,
