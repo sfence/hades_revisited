@@ -5,6 +5,9 @@ local FLOW = 256
 
 local c_air = minetest.CONTENT_AIR
 
+-- c_liquid: Liquid node of lake
+-- c_replace: Will be replaced with c_lakebed
+-- c_lakebed: Node at bottom of lake
 local function generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
 	local y0 = minp.y
 	if y0 < -32 or y0 > YMAX then
@@ -15,12 +18,12 @@ local function generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
 	local t1 = os.clock()
 	local x0 = minp.x
 	local z0 = minp.z
-	minetest.log("verbose", "[highlandpools] chunk ("..x0.." "..y0.." "..z0..")")
 	local x1 = maxp.x
 	local y1 = maxp.y
 	local z1 = maxp.z
 	local sidelen = x1 - x0 -- actually sidelen - 1
 
+	minetest.log("verbose", "[hades_mapgen_lakes] chunk ("..x0.." "..y0.." "..z0..")")
 
 	local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
 	local area = VoxelArea:new{MinEdge=emin, MaxEdge=emax}
@@ -164,19 +167,21 @@ local function generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
 	vm:write_to_map(data)
 
 	local chugent = math.ceil((os.clock() - t1) * 1000)
-	minetest.log("verbose", "[highlandpools] time "..chugent.." ms")
+	minetest.log("verbose", "[hades_mapgen_lakes] time "..chugent.." ms")
 end
 
 minetest.register_on_generated(function(minp, maxp, seed)
-	local c_lava = minetest.get_content_id("hades_core:lava_source")
-	local c_ash = minetest.get_content_id("hades_core:ash")
-	local c_vgravel = minetest.get_content_id("hades_core:gravel_volcanic")
-	generate_lake(minp, maxp, seed, c_lava, c_ash, c_vgravel)
-end)
-
-minetest.register_on_generated(function(minp, maxp, seed)
-	local c_water = minetest.get_content_id("hades_core:water_source")
-	local c_tuff = minetest.get_content_id("hades_core:tuff")
-	local c_gravel = minetest.get_content_id("hades_core:gravel")
-	generate_lake(minp, maxp, seed, c_water, c_tuff, c_gravel)
+	local c_liquid, c_replace, c_lakebed
+	if math.random(1,2) == 1 then
+		-- Lava lake
+		c_liquid = minetest.get_content_id("hades_core:lava_source")
+		c_replace = minetest.get_content_id("hades_core:ash")
+		c_lakebed = minetest.get_content_id("hades_core:gravel_volcanic")
+	else
+		-- Water lake
+		c_liquid = minetest.get_content_id("hades_core:water_source")
+		c_replace = minetest.get_content_id("hades_core:tuff")
+		c_lakebed = minetest.get_content_id("hades_core:gravel")
+	end
+	generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
 end)
