@@ -1,4 +1,5 @@
 local S = minetest.get_translator("craftguide")
+local F = minetest.formspec_escape
 
 local craftguide, datas, mt = {}, {}, minetest
 local progressive_mode = mt.settings:get_bool("craftguide_progressive_mode")
