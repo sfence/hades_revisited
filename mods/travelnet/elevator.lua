@@ -40,6 +40,7 @@ minetest.register_node("travelnet:elevator", {
 	     "travelnet_elevator_inside_bottom.png",   -- front view
 	     "travelnet_elevator_inside_bottom.png",  -- backward view
              },
+    use_texture_alpha = true,
     inventory_image = "travelnet_elevator_inv.png",
     wield_image     = "travelnet_elevator_wield.png",
 
@@ -137,6 +138,7 @@ minetest.register_node("travelnet:elevator_top", {
 	     "travelnet_elevator_inside_top.png",   -- front view
 	     "travelnet_elevator_inside_top.png",  -- backward view
              },
+    use_texture_alpha = true,
     inventory_image = "travelnet_elevator_inv.png",
     wield_image     = "travelnet_elevator_wield.png",
 

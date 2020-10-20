@@ -111,6 +111,7 @@ minetest.register_node("doors:hidden", {
 	groups = {not_in_creative_inventory = 1},
 	on_blast = function() end,
 	tiles = {"blank.png"},
+	use_texture_alpha = true,
 	-- 1px transparent block inside door hinge near node top.
 	node_box = {
 		type = "fixed",
@@ -449,6 +450,7 @@ function doors.register_door(name, def)
 				"did not provide the \"tiles\" parameter. A fallback tiledef " ..
 				"will be used instead.")
 	end
+	def.use_texture_alpha = true
 
 	doors.register(name, def)
 end
