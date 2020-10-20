@@ -12,7 +12,7 @@ minetest.register_item(":", {
 		full_punch_interval = 0.9,
 		max_drop_level = 0,
 		groupcaps = {
-			crumbly = {times={[2]=4.00, [3]=1.10}, uses=0, maxlevel=1},
+			crumbly = {times={[2]=4.00, [3]=2.20}, uses=0, maxlevel=1},
 			snappy = {times={[3]=0.40}, uses=0, maxlevel=1},
 			oddly_breakable_by_hand = {times={[1]=5.50,[2]=4.00,[3]=1.70}, uses=0}
 		},
@@ -190,7 +190,7 @@ minetest.register_tool("hades_core:shovel_prism", {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
 		groupcaps={
-			crumbly = {times={[1]=0.90, [2]=0.40, [3]=0.30}, uses=90, maxlevel=3},
+			crumbly = {times={[1]=0.90, [2]=0.40, [3]=0.25}, uses=90, maxlevel=3},
 		},
 		damage_groups = {fleshy=4},
 	},
