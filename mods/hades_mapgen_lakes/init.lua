@@ -1,10 +1,12 @@
 -- Parameters
 local YMAX = 33000 -- Maximum altitude for pools
+local XZMIN = 50 -- Minimum absolute value of X/Z coord
 local FLOW = 256
 -- End of parameters
 
 local c_air = minetest.CONTENT_AIR
 
+-- minp, maxp, seed: From minetest.register_on_generated
 -- c_liquid: Liquid node of lake
 -- c_replace: Will be replaced with c_lakebed
 -- c_lakebed: Node at bottom of lake
@@ -21,6 +23,14 @@ local function generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
 	local x1 = maxp.x
 	local y1 = maxp.y
 	local z1 = maxp.z
+
+	-- Don't generate lake if chunk is too close to X=0, Z=0.
+	-- We do this to prevent players spawning in lakes.
+	if (x0 < XZMIN and x0 > -XZMIN) or (z0 < XZMIN and z0 > -XZMIN) or
+	   (x1 < XZMIN and x1 > -XZMIN) or (z1 < XZMIN and z1 > -XZMIN) then
+		return
+	end
+
 	local sidelen = x1 - x0 -- actually sidelen - 1
 
 	minetest.log("verbose", "[hades_mapgen_lakes] chunk ("..x0.." "..y0.." "..z0..")")
