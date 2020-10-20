@@ -6,6 +6,8 @@ local FLOW = 256
 
 local c_air = minetest.CONTENT_AIR
 
+local p_lake_heat -- Perlin noise for lake type (water or lava)
+
 -- minp, maxp, seed: From minetest.register_on_generated
 -- c_liquid: Liquid node of lake
 -- c_replace: Will be replaced with c_lakebed
@@ -183,7 +185,18 @@ end
 
 minetest.register_on_generated(function(minp, maxp, seed)
 	local c_liquid, c_replace, c_lakebed, check_spawn
-	if math.random(1,2) == 1 then
+	if not p_lake_heat then
+		p_lake_heat = minetest.get_perlin({
+			offset = 0,
+			scale = 0.2,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 100,
+			octaves = 1,
+			persist = 0.0
+		})
+	end
+	local lake_heat = p_lake_heat:get_2d({x=minp.x, y=0, z=minp.z})
+	if lake_heat > 0 then
 		-- Lava lake
 		c_liquid = minetest.get_content_id("hades_core:lava_source")
 		c_replace = minetest.get_content_id("hades_core:ash")
