@@ -1,3 +1,0 @@
-hades_core
-hades_trees
-hades_sounds
