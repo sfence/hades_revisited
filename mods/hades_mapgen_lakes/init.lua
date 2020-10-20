@@ -10,7 +10,8 @@ local c_air = minetest.CONTENT_AIR
 -- c_liquid: Liquid node of lake
 -- c_replace: Will be replaced with c_lakebed
 -- c_lakebed: Node at bottom of lake
-local function generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
+-- check_spawn: If true, lake won't generate close to X=0, Z=0
+local function generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed, check_spawn)
 	local y0 = minp.y
 	if y0 < -32 or y0 > YMAX then
 		return
@@ -26,8 +27,8 @@ local function generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
 
 	-- Don't generate lake if chunk is too close to X=0, Z=0.
 	-- We do this to prevent players spawning in lakes.
-	if (x0 < XZMIN and x0 > -XZMIN) or (z0 < XZMIN and z0 > -XZMIN) or
-	   (x1 < XZMIN and x1 > -XZMIN) or (z1 < XZMIN and z1 > -XZMIN) then
+	if (check_spawn) and ((x0 < XZMIN and x0 > -XZMIN) or (z0 < XZMIN and z0 > -XZMIN) or
+	   (x1 < XZMIN and x1 > -XZMIN) or (z1 < XZMIN and z1 > -XZMIN)) then
 		return
 	end
 
@@ -181,17 +182,19 @@ local function generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
 end
 
 minetest.register_on_generated(function(minp, maxp, seed)
-	local c_liquid, c_replace, c_lakebed
+	local c_liquid, c_replace, c_lakebed, check_spawn
 	if math.random(1,2) == 1 then
 		-- Lava lake
 		c_liquid = minetest.get_content_id("hades_core:lava_source")
 		c_replace = minetest.get_content_id("hades_core:ash")
 		c_lakebed = minetest.get_content_id("hades_core:gravel_volcanic")
+		check_spawn = true
 	else
 		-- Water lake
 		c_liquid = minetest.get_content_id("hades_core:water_source")
 		c_replace = minetest.get_content_id("hades_core:tuff")
 		c_lakebed = minetest.get_content_id("hades_core:gravel")
+		check_spawn = false
 	end
-	generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
+	generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed, check_spawn)
 end)
