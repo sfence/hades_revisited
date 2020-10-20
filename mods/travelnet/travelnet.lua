@@ -1,3 +1,5 @@
+local S = minetest.get_translator("travelnet")
+
 -- contains the node definition for a general travelnet that can be used by anyone
 --   further travelnets can only be installed by the owner or by people with the travelnet_attach priv
 --   digging of such a travelnet is limited to the owner and to people with the travelnet_remove priv (useful for admins to clean up)
@@ -5,7 +7,7 @@
 -- Autor: Sokomine
 minetest.register_node("travelnet:travelnet", {
 
-    description = "Travelnet Box",
+    description = S("Travelnet Box"),
 
     drawtype = "nodebox",
     sunlight_propagates = true,

@@ -1,3 +1,5 @@
+local S = minetest.get_translator("mobs_hades")
+
 -- Stone monster and deep stone monster
 
 local stone_monster = {
@@ -75,5 +77,5 @@ mobs:register_mob("mobs_hades:deep_stone_monster", deep_stone_monster)
 mobs:spawn_specific("mobs_hades:deep_stone_monster", {"hades_core:stone", "hades_core:mossystone", "hades_core:chondrite", "hades_core:essexite"}, "air", 0, 3, 90, 7000, 1, -5000, -2500)
 mobs:spawn_specific("mobs_hades:deep_stone_monster", {"hades_core:stone", "hades_core:mossystone", "hades_core:chondrite", "hades_core:essexite"}, "air", 0, 3, 90, 7000, 1, -30000, -5000)
 
-mobs:register_egg("mobs_hades:stone_monster", "Stone Monster Spawn Egg", "default_stone.png", 1, false)
-mobs:register_egg("mobs_hades:deep_stone_monster", "Deep Stone Monster Spawn Egg", "default_stone.png^[colorize:#000000:127", 1, false)
+mobs:register_egg("mobs_hades:stone_monster", S("Stone Monster Spawn Egg"), "default_stone.png", 1, false)
+mobs:register_egg("mobs_hades:deep_stone_monster", S("Deep Stone Monster Spawn Egg"), "default_stone.png^[colorize:#000000:127", 1, false)

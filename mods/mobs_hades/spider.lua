@@ -1,3 +1,5 @@
+local S = minetest.get_translator("mobs_hades")
+
 -- Spiders (based on Glowtest)
 
 local spider = {
@@ -112,7 +114,7 @@ minetest.register_craft({
 	}
 })
 
-mobs:register_egg("mobs_hades:spider_gold", "Gold Spider Spawn Egg", "default_gold_block.png", 1, false)
-mobs:register_egg("mobs_hades:spider_sapphire", "Sapphire Spider Spawn Egg", "default_sapphire_block.png", 1, false)
-mobs:register_egg("mobs_hades:spider_ruby", "Ruby Spider Spawn Egg", "default_ruby_block.png", 1, false)
-mobs:register_egg("mobs_hades:spider_mese", "Mese Spider Spawn Egg", "default_mese_block.png^[brighten", 1, false)
+mobs:register_egg("mobs_hades:spider_gold", S("Gold Spider Spawn Egg"), "default_gold_block.png", 1, false)
+mobs:register_egg("mobs_hades:spider_sapphire", S("Sapphire Spider Spawn Egg"), "default_sapphire_block.png", 1, false)
+mobs:register_egg("mobs_hades:spider_ruby", S("Ruby Spider Spawn Egg"), "default_ruby_block.png", 1, false)
+mobs:register_egg("mobs_hades:spider_mese", S("Mese Spider Spawn Egg"), "default_mese_block.png^[brighten", 1, false)

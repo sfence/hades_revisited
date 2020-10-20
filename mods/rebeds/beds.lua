@@ -1,6 +1,8 @@
+local S = minetest.get_translator("rebeds")
+
 -- fancy shaped bed
 rebeds.register_bed("rebeds:fancy_bed", {
-	description = "Fancy Bed",
+	description = S("Fancy Bed"),
 	inventory_image = "beds_bed_fancy.png",
 	wield_image = "beds_bed_fancy.png",
 	tiles = {
@@ -50,7 +52,7 @@ rebeds.register_bed("rebeds:fancy_bed", {
 
 -- simple shaped bed
 rebeds.register_bed("rebeds:bed", {
-	description = "Simple Bed",
+	description = S("Simple Bed"),
 	inventory_image = "beds_bed.png",
 	wield_image = "beds_bed.png",
 	tiles = {

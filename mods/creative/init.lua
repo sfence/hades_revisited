@@ -1,7 +1,9 @@
+local S = minetest.get_translator("creative")
+
 creative = {}
 
 minetest.register_privilege("creative", {
-	description = "Allow player to use creative inventory",
+	description = S("Allow player to use creative inventory"),
 	give_to_singleplayer = false,
 	give_to_admin = false
 })

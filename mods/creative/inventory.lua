@@ -1,3 +1,6 @@
+local S = minetest.get_translator("creative")
+local F = minetest.formspec_escape
+
 local player_inventory = {}
 local inventory_cache = {}
 
@@ -115,8 +118,8 @@ function creative.register_tab(name, title, items)
 					button[7.25,3.2;0.8,0.9;creative_next;>]
 					button[2.1,3.4;0.8,0.5;creative_search;?]
 					button[2.75,3.4;0.8,0.5;creative_clear;X]
-					tooltip[creative_search;Search]
-					tooltip[creative_clear;Reset]
+					tooltip[creative_search;]]..F(S("Search"))..[[]
+					tooltip[creative_clear;]]..F(S("Reset"))..[[]
 					listring[current_player;main]
 					field_close_on_enter[creative_filter;false]
 				]] ..
@@ -174,10 +177,10 @@ function creative.register_tab(name, title, items)
 	})
 end
 
-creative.register_tab("all", "All", minetest.registered_items)
-creative.register_tab("nodes", "Nodes", minetest.registered_nodes)
-creative.register_tab("tools", "Tools", minetest.registered_tools)
-creative.register_tab("craftitems", "Items", minetest.registered_craftitems)
+creative.register_tab("all", S("All"), minetest.registered_items)
+creative.register_tab("nodes", S("Nodes"), minetest.registered_nodes)
+creative.register_tab("tools", S("Tools"), minetest.registered_tools)
+creative.register_tab("craftitems", S("Items"), minetest.registered_craftitems)
 
 local old_homepage_name = sfinv.get_homepage_name
 function sfinv.get_homepage_name(player)

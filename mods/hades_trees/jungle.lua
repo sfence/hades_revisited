@@ -1,5 +1,7 @@
+local S = minetest.get_translator("hades_trees")
+
 minetest.register_node("hades_trees:jungle_sapling", {
-	description = "Common Jungle Tree Sapling",
+	description = S("Common Jungle Tree Sapling"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_junglesapling.png"},
@@ -16,7 +18,7 @@ minetest.register_node("hades_trees:jungle_sapling", {
 })
 
 minetest.register_node("hades_trees:jungle_tree", {
-	description = "Jungle Tree Trunk",
+	description = S("Jungle Tree Trunk"),
 	paramtype = "light",
 	tiles = {"default_jungletree_top.png", "default_jungletree_top.png", "default_jungletree.png"},
 	is_ground_content = false,
@@ -38,7 +40,7 @@ minetest.register_node("hades_trees:jungle_tree", {
 })
 
 minetest.register_node("hades_trees:jungle_leaves", {
-	description = "Common Jungle Leaves",
+	description = S("Common Jungle Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"default_jungleleaves.png"},
 	paramtype = "light",
@@ -65,7 +67,7 @@ minetest.register_node("hades_trees:jungle_leaves", {
 })
 
 minetest.register_node("hades_trees:jungle_bark", {
-	description = "Jungle Bark",
+	description = S("Jungle Bark"),
 	paramtype2 = "facedir",
 	tiles = { "default_jungletree.png" },
 	is_ground_content = false,

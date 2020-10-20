@@ -1,7 +1,9 @@
+local S = minetest.get_translator("hades_core")
+
 hades_core.register_ladder = function(id, def)
 	local odef = {
 		description = def.description,
-		_doc_items_longdesc = "A piece of ladder which allows you to climb vertically.",
+		_doc_items_longdesc = S("A piece of ladder which allows you to climb vertically."),
 		drawtype = "signlike",
 		is_ground_content = false,
 		tiles = { def.texture },
@@ -92,14 +94,14 @@ end
 
 
 hades_core.register_ladder("hades_core:ladder", {
-	description = "Wooden Ladder",
+	description = S("Wooden Ladder"),
 	texture = "default_ladder.png",
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 hades_core.register_ladder("hades_core:ladder_bronze", {
-	description = "Bronze Ladder",
+	description = S("Bronze Ladder"),
 	texture = "default_ladder_bronze.png",
 	groups = {cracky=3},
 	sounds = hades_sounds.node_sound_metal_defaults(),

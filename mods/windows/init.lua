@@ -1,3 +1,5 @@
+local S = minetest.get_translator("windows")
+
 -- Windows
 -- Add some simple window nodes to Minetest.
 -- License: WTFPL - 2014 by Glunggi
@@ -39,22 +41,22 @@ windows.register_window = function(id, def)
 end
 
 windows.register_window("windows:windows_wood", {
-	description = "Common Wood Window",
+	description = S("Common Wood Window"),
 	texture_seam = "windows_windows_wood_seam.png",
 	texture_front = "windows_windows_wood_front.png",
 })
 windows.register_window("windows:windows_jungle_wood", {
-	description = "Jungle Wood Window",
+	description = S("Jungle Wood Window"),
 	texture_seam = "windows_windows_jwood_seam.png",
 	texture_front = "windows_windows_jwood_front.png",
 })
 windows.register_window("windows:windows_pale_wood", {
-	description = "Pale Wood Window",
+	description = S("Pale Wood Window"),
 	texture_seam = "windows_windows_palewood_seam.png",
 	texture_front = "windows_windows_palewood_front.png",
 })
 windows.register_window("windows:windows_birch_wood", {
-	description = "Birch Wood Window",
+	description = S("Birch Wood Window"),
 	texture_seam = "windows_windows_birchwood_seam.png",
 	texture_front = "windows_windows_birchwood_front.png",
 })
@@ -93,21 +95,21 @@ minetest.register_craft({
 })
 
 local windows_simple = {
-	{ "wood_white", "White Wooden Window", "dye:white"},
-	{ "wood_darkgrey", "Dark Grey Wooden Window", "dye:dark_grey"},
-	{ "wood_grey", "Grey Wooden Window", "dye:grey"},
-	{ "wood_black", "Black Wooden Window", "dye:black"},
-	{ "wood_red", "Red Wooden Window", "dye:red"},
-	{ "wood_magenta", "Magenta Wooden Window", "dye:magenta"},
-	{ "wood_violet", "Violet Wooden Window", "dye:violet"},
-	{ "wood_blue", "Blue Wooden Window", "dye:blue"},
-	{ "wood_cyan", "Cyan Wooden Window", "dye:cyan"},
-	{ "wood_green", "Green Wooden Window", "dye:green"},
-	{ "wood_darkgreen", "Dark Green Wooden Window", "dye:dark_green"},
-	{ "wood_pink", "Pink Wooden Window", "dye:pink"},
-	{ "wood_yellow", "Yellow Wooden Window", "dye:yellow"},
-	{ "wood_orange", "Orange Wooden Window", "dye:orange"},
-	{ "wood_brown", "Brown Wooden Window", "dye:brown"},
+	{ "wood_white", S("White Wooden Window"), "dye:white"},
+	{ "wood_darkgrey", S("Dark Grey Wooden Window"), "dye:dark_grey"},
+	{ "wood_grey", S("Grey Wooden Window"), "dye:grey"},
+	{ "wood_black", S("Black Wooden Window"), "dye:black"},
+	{ "wood_red", S("Red Wooden Window"), "dye:red"},
+	{ "wood_magenta", S("Magenta Wooden Window"), "dye:magenta"},
+	{ "wood_violet", S("Violet Wooden Window"), "dye:violet"},
+	{ "wood_blue", S("Blue Wooden Window"), "dye:blue"},
+	{ "wood_cyan", S("Cyan Wooden Window"), "dye:cyan"},
+	{ "wood_green", S("Green Wooden Window"), "dye:green"},
+	{ "wood_darkgreen", S("Dark Green Wooden Window"), "dye:dark_green"},
+	{ "wood_pink", S("Pink Wooden Window"), "dye:pink"},
+	{ "wood_yellow", S("Yellow Wooden Window"), "dye:yellow"},
+	{ "wood_orange", S("Orange Wooden Window"), "dye:orange"},
+	{ "wood_brown", S("Brown Wooden Window"), "dye:brown"},
 }
 for w=1, #windows_simple do
 	windows.register_window("windows:windows_"..windows_simple[w][1], {
@@ -124,7 +126,7 @@ for w=1, #windows_simple do
 end
 
 windows.register_window("windows:paperwall", {
-	description = "Paper Wall",
+	description = S("Paper Wall"),
 	texture_seam = "windows_windows_jwood_seam.png",
 	texture_front = "windows_paperwall_front.png",
 	groups = { snappy=2, choppy=2, cracky=3, oddly_breakable_by_hand=3 },
@@ -140,7 +142,7 @@ minetest.register_craft({
 })
 
 windows.register_window("windows:windows_obsidian", {
-	description = "Obsidian Window",
+	description = S("Obsidian Window"),
 	texture_seam = "windows_windows_obsidian_seam.png",
 	texture_front = "windows_windows_obsidian_front.png",
 	groups = { cracky=3 },

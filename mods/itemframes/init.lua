@@ -1,3 +1,5 @@
+local S = minetest.get_translator("itemframes")
+
 local tmp = {}
 screwdriver = screwdriver or {}
 
@@ -114,7 +116,7 @@ end
 -- nodes
 
 minetest.register_node("itemframes:frame",{
-	description = "Item Frame",
+	description = S("Item Frame"),
 	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",
@@ -137,7 +139,7 @@ minetest.register_node("itemframes:frame",{
 
 	after_place_node = function(pos, placer, itemstack)
 		local meta = minetest.get_meta(pos)
-		meta:set_string("infotext","Item frame (right-click to add/remove item)")
+		meta:set_string("infotext", S("Item frame"))
 	end,
 
 	on_rightclick = function(pos, node, clicker, itemstack)
@@ -164,7 +166,7 @@ minetest.register_node("itemframes:frame",{
 })
 
 minetest.register_node("itemframes:pedestal",{
-	description = "Pedestal",
+	description = S("Pedestal"),
 	drawtype = "nodebox",
 	node_box = { type = "fixed", fixed = {
 		{-7/16, -8/16, -7/16, 7/16, -7/16, 7/16}, -- bottom plate
@@ -184,7 +186,7 @@ minetest.register_node("itemframes:pedestal",{
 
 	after_place_node = function(pos, placer, itemstack)
 		local meta = minetest.get_meta(pos)
-		meta:set_string("infotext","Pedestal (right-click to add/remove item)")
+		meta:set_string("infotext", S("Pedestal"))
 	end,
 
 	on_rightclick = function(pos, node, clicker, itemstack)

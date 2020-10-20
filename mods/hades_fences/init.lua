@@ -1,3 +1,5 @@
+local S = minetest.get_translator("hades_fences")
+
 hades_fences = {}
 function hades_fences.register_fence(name, def)
 	if def.material then
@@ -62,26 +64,26 @@ function hades_fences.register_fence(name, def)
 end
 
 local fences = {
-	{ "rusty", "Rusty Fence", "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal"}, hades_sounds.node_sound_metal_defaults() },
-	{ "wood", "Common Wood Fence", "default_wood.png" },
-	{ "pale_wood", "Pale Wood Fence", "hades_trees_pale_wood.png" },
-	{ "birch_wood", "Birch Wood Fence", "default_birchwood.png" },
-	{ "jungle_wood", "Jungle Wood Fence", "default_junglewood.png" },
-	{ "wood_black", "Black Wood Fence", "default_colwood_black.png" },
-	{ "wood_blue", "Blue Wood Fence", "default_colwood_blue.png" },
-	{ "wood_cyan", "Cyan Wood Fence", "default_colwood_cyan.png" },
-	{ "wood_magenta", "Magenta Wood Fence", "default_colwood_magenta.png" },
-	{ "wood_violet", "Violet Wood Fence", "default_colwood_violet.png" },
-	{ "wood_red", "Red Wood Fence", "default_colwood_red.png" },
-	{ "wood_pink", "Pink Wood Fence", "default_colwood_pink.png" },
-	{ "wood_orange", "Orange Wood Fence", "default_colwood_orange.png" },
-	{ "wood_brown", "Brown Wood Fence", "default_colwood_brown.png" },
-	{ "wood_yellow", "Yellow Wood Fence", "default_colwood_yellow.png" },
-	{ "wood_green", "Green Wood Fence", "default_colwood_green.png" },
-	{ "wood_dark_green", "Dark Green Wood Fence", "default_colwood_dark_green.png" },
-	{ "wood_white", "White Wood Fence", "default_colwood_white.png" },
-	{ "wood_grey", "Grey Wood Fence", "default_colwood_grey.png" },
-	{ "wood_dark_grey", "Dark Grey Wood Fence", "default_colwood_dark_grey.png" },
+	{ "rusty", S("Rusty Fence"), "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal"}, hades_sounds.node_sound_metal_defaults() },
+	{ "wood", S("Common Wood Fence"), "default_wood.png" },
+	{ "pale_wood", S("Pale Wood Fence"), "hades_trees_pale_wood.png" },
+	{ "birch_wood", S("Birch Wood Fence"), "default_birchwood.png" },
+	{ "jungle_wood", S("Jungle Wood Fence"), "default_junglewood.png" },
+	{ "wood_black", S("Black Wood Fence"), "default_colwood_black.png" },
+	{ "wood_blue", S("Blue Wood Fence"), "default_colwood_blue.png" },
+	{ "wood_cyan", S("Cyan Wood Fence"), "default_colwood_cyan.png" },
+	{ "wood_magenta", S("Magenta Wood Fence"), "default_colwood_magenta.png" },
+	{ "wood_violet", S("Violet Wood Fence"), "default_colwood_violet.png" },
+	{ "wood_red", S("Red Wood Fence"), "default_colwood_red.png" },
+	{ "wood_pink", S("Pink Wood Fence"), "default_colwood_pink.png" },
+	{ "wood_orange", S("Orange Wood Fence"), "default_colwood_orange.png" },
+	{ "wood_brown", S("Brown Wood Fence"), "default_colwood_brown.png" },
+	{ "wood_yellow", S("Yellow Wood Fence"), "default_colwood_yellow.png" },
+	{ "wood_green", S("Green Wood Fence"), "default_colwood_green.png" },
+	{ "wood_dark_green", S("Dark Green Wood Fence"), "default_colwood_dark_green.png" },
+	{ "wood_white", S("White Wood Fence"), "default_colwood_white.png" },
+	{ "wood_grey", S("Grey Wood Fence"), "default_colwood_grey.png" },
+	{ "wood_dark_grey", S("Dark Grey Wood Fence"), "default_colwood_dark_grey.png" },
 }
 
 for i=1, #fences do

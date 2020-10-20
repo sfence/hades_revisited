@@ -1,5 +1,7 @@
 local BEDROCK_LAYER = -30912 -- determined as appropriate by experiment
 
+local S = minetest.get_translator("bedrock")
+
 minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "bedrock:bedrock",
@@ -23,7 +25,7 @@ minetest.register_ore({
 })
 
 minetest.register_node("bedrock:bedrock", {
-	description = "Bedrock",
+	description = S("Bedrock"),
 	tiles = {"bedrock_bedrock.png"},
 	groups = {unbreakable = 1, not_in_creative_inventory = 1}, -- For Map Tools' admin pickaxe.
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -36,7 +38,7 @@ minetest.register_node("bedrock:bedrock", {
 })
 
 minetest.register_node("bedrock:deepstone", {
-	description = "Deepstone",
+	description = S("Deepstone"),
 	tiles = {"bedrock_deepstone.png"},
 	drop = "hades_core:stone", -- Intended.
 	groups = {cracky = 1, level = 3},

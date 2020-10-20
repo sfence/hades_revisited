@@ -1,3 +1,5 @@
+local S = minetest.get_translator("walls")
+
 walls = {}
 
 walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sounds)
@@ -35,15 +37,15 @@ walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sou
 
 end
 
-walls.register("walls:cobble", "Cobblestone Wall", "default_cobble.png",
+walls.register("walls:cobble", S("Cobblestone Wall"), "default_cobble.png",
 		"hades_core:cobble", hades_sounds.node_sound_stone_defaults())
 
-walls.register("walls:mossycobble", "Mossy Cobblestone Wall", "default_mossycobble.png",
+walls.register("walls:mossycobble", S("Mossy Cobblestone Wall"), "default_mossycobble.png",
 		"hades_core:mossycobble", hades_sounds.node_sound_stone_defaults())
 
-walls.register("walls:cobble_baked", "Burned Cobblestone Wall", "default_cobble_baked.png",
+walls.register("walls:cobble_baked", S("Burned Cobblestone Wall"), "default_cobble_baked.png",
 		"hades_core:cobble_baked", hades_sounds.node_sound_stone_defaults())
 
-walls.register("walls:sandstone", "Sandstone Wall", "default_sandstone.png",
+walls.register("walls:sandstone", S("Sandstone Wall"), "default_sandstone.png",
 		"hades_core:sandstone", hades_sounds.node_sound_stone_defaults())
 

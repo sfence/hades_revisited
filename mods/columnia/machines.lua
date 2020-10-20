@@ -1,5 +1,8 @@
+local S = minetest.get_translator("columnia")
+local F = minetest.formspec_escape
+
 minetest.register_node("columnia:machine", {
-	description = "Columnia Workstation",
+	description = S("Columnia Workstation"),
 	tiles = {
 		"columnia_machine_top.png",
 		"columnia_machine_bottom.png",
@@ -40,7 +43,12 @@ minetest.register_node("columnia:machine", {
 	after_place_node = function(pos, placer)
 	local meta = minetest.get_meta(pos);
 			meta:set_string("owner",  (placer:get_player_name() or ""));
-			meta:set_string("infotext",  "Columnia workstation is empty (owned by " .. (placer:get_player_name() or "") .. ")");
+			local pname = placer:get_player_name()
+			if pname then
+				meta:set_string("infotext",  S("Columnia workstation is empty (owned by @1)", pname))
+			else
+				meta:set_string("infotext",  S("Columnia workstation is empty"))
+			end
 		end,
 
 	can_dig = function(pos,player)
@@ -61,58 +69,58 @@ minetest.register_node("columnia:machine", {
 			"background9[6,6;10,10;columnia_background.png;true;6]"..
 			"list[current_name;ingot;7,5;1,1;]"..
 			"list[current_name;res;8,5;1,1;]"..
-			"label[7,4.5;Input:]"..
-			"label[8,4.5;Output:]"..
+			"label[7,4.5;"..F(S("Input:")).."]"..
+			"label[8,4.5;"..F(S("Output:")).."]"..
 
-			"label[1,0;Basics]"..
+			"label[1,0;"..F(S("Basics")).."]"..
 			"image_button[1,0.5;1,1;columnia_mach1.png;column_bottom; ]"..
 			"image_button[2,0.5;1,1;columnia_mach2.png;column_mid; ]"..
 			"image_button[3,0.5;1,1;columnia_mach3.png;column_top; ]"..
 			"image_button[4,0.5;1,1;columnia_mach4.png;column_crosslink; ]"..
 
-			"label[1,1.5;Links]"..
+			"label[1,1.5;"..F(S("Links")).."]"..
 			"image_button[1,2;1,1;columnia_mach5.png;column_link; ]"..
 			"image_button[2,2;1,1;columnia_mach7.png;column_linkcross; ]"..
 			"image_button[3,2;1,1;columnia_mach10.png;column_linkangle; ]"..
 			"image_button[4,2;1,1;columnia_mach14.png;column_linktee; ]"..
 
-			"label[1,3;Links with Downs]"..
+			"label[1,3;"..F(S("Links with Downs")).."]"..
 			"image_button[1,3.5;1,1;columnia_mach6.png;column_linkdown; ]"..
 			"image_button[2,3.5;1,1;columnia_mach8.png;column_linkcrossdown; ]"..
 			"image_button[3,3.5;1,1;columnia_mach13.png;column_linkangle_down; ]"..
 			"image_button[4,3.5;1,1;columnia_mach15.png;column_linktee_down; ]"..
 			"image_button[5,3.5;1,1;columnia_mach9.png;column_linkvertical; ]"..
 
-			"label[1,4.5;Stair Substructures]"..
+			"label[1,4.5;"..F(S("Stair Substructures")).."]"..
 			"image_button[1,5;1,1;columnia_mach11.png;column_stairsub; ]"..
 			"image_button[2,5;1,1;columnia_mach12.png;column_stairsubpillar; ]"..
 
 			"list[current_player;main;1,6.25;8,4;]"..
 
-			"tooltip[column_bottom;Column Bottom]"..
-			"tooltip[column_mid;Column]"..
-			"tooltip[column_top;Column Top]"..
-			"tooltip[column_crosslink;Column Crosslink]"..
+			"tooltip[column_bottom;"..F(S("Column Bottom")).."]"..
+			"tooltip[column_mid;"..F(S("Column")).."]"..
+			"tooltip[column_top;"..F(S("Column Top")).."]"..
+			"tooltip[column_crosslink;"..F(S("Column Crosslink")).."]"..
 
-			"tooltip[column_link;Column Link]"..
-			"tooltip[column_linkcross;Column Cross]"..
-			"tooltip[column_linkangle;Column Link Cross]"..
-			"tooltip[column_linktee;Column Link T-Form]"..
+			"tooltip[column_link;"..F(S("Column Link")).."]"..
+			"tooltip[column_linkcross;"..F(S("Column Cross")).."]"..
+			"tooltip[column_linkangle;"..F(S("Column Link Cross")).."]"..
+			"tooltip[column_linktee;"..F(S("Column Link T-Form")).."]"..
 
-			"tooltip[column_linkdown;Column Link Down]"..
-			"tooltip[column_linkcrossdown;Column Cross Down]"..
-			"tooltip[column_linkangle_down;Column Link Cross Down]"..
-			"tooltip[column_linktee_down;Column Link T-Form Down]"..
-			"tooltip[column_linkvertical;Column Link Vertical]"..
+			"tooltip[column_linkdown;"..F(S("Column Link Down")).."]"..
+			"tooltip[column_linkcrossdown;"..F(S("Column Cross Down")).."]"..
+			"tooltip[column_linkangle_down;"..F(S("Column Link Cross Down")).."]"..
+			"tooltip[column_linktee_down;"..F(S("Column Link T-Form Down")).."]"..
+			"tooltip[column_linkvertical;"..F(S("Column Link Vertical")).."]"..
 
-			"tooltip[column_stairsub;Stair Substructure]"..
-			"tooltip[column_stairsubpillar;Stair Substructure Pillar]"..
+			"tooltip[column_stairsub;"..F(S("Stair Substructure")).."]"..
+			"tooltip[column_stairsubpillar;"..F(S("Stair Substructure Pillar")).."]"..
 
 			"listring[current_player;main]"..
 			"listring[current_name;ingot]"..
 			"listring[current_player;main]"..
 			"listring[current_name;res]")
-		meta:set_string("infotext", "Columnia workstation")
+		meta:set_string("infotext", S("Columnia workstation"))
 		local inv = meta:get_inventory()
 		inv:set_size("ingot", 1)
 		inv:set_size("res", 1)

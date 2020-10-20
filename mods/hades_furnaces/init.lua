@@ -1,3 +1,4 @@
+local S = minetest.get_translator("hades_furnaces")
 
 --
 -- Formspecs
@@ -116,8 +117,8 @@ end
 
 local furnace_types = {
 	-- [id] = { description, texture, fuel time addition, initial burn time, output slots }
-	["hades_furnaces:furnace"] = { "Furnace", "default_furnace", 1.0, 0.75, 1 },
-	["hades_furnaces:prism_furnace"] = { "Prism Furnace", "hades_furnaces_prism_furnace", 1.0, 4.25, 4 },
+	["hades_furnaces:furnace"] = { S("Furnace"), "default_furnace", 1.0, 0.75, 1 },
+	["hades_furnaces:prism_furnace"] = { S("Prism Furnace"), "hades_furnaces_prism_furnace", 1.0, 4.25, 4 },
 }
 
 local function furnace_node_timer(pos, elapsed)
@@ -217,25 +218,25 @@ local function furnace_node_timer(pos, elapsed)
 	if cookable then
 		item_percent = math.floor(src_time / cooked.time * 100)
 		if item_percent > 100 then
-			item_state = "100% (output full)"
+			item_state = S("100% (output full)")
 		else
-			item_state = item_percent .. "%"
+			item_state = S("@1%", item_percent)
 		end
 	else
 		if srclist[1]:is_empty() then
-			item_state = "Empty"
+			item_state = S("Empty")
 		else
-			item_state = "Not cookable"
+			item_state = S("Not cookable")
 		end
 	end
 
-	local fuel_state = "Empty"
-	local active = "inactive"
+	local fuel_state = S("Empty")
+	local active = S("inactive")
 	local result = false
 	if fuel_totaltime ~= 0 then
-		active = "active"
+		active = S("active")
 		local fuel_percent = math.floor(fuel_time / fuel_totaltime * 100)
-		fuel_state = fuel_percent .. "%"
+		fuel_state = S("@1%", fuel_percent)
 		formspec = active_formspec(id_normal, fuel_percent, item_percent)
 		swap_node(pos, id_active)
 		-- Furnace burn sound
@@ -247,7 +248,7 @@ local function furnace_node_timer(pos, elapsed)
 		result = true
 	else
 		if not fuellist[1]:is_empty() then
-			fuel_state = "0%"
+			fuel_state = S("@1%", 0)
 		end
 		formspec = inactive_formspec(id_normal)
 		swap_node(pos, id_normal)
@@ -255,9 +256,10 @@ local function furnace_node_timer(pos, elapsed)
 		minetest.get_node_timer(pos):stop()
 	end
 
-	local infotext = string.format("%s %s\n(Item: %s; Fuel: %s)",
+	local infotext = S("@1 @2",
 		minetest.registered_nodes[node.name].description,
-		active,
+		active) .. "\n" ..
+		S("(Item: @1; Fuel: @2)",
 		item_state,
 		fuel_state)
 

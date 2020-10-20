@@ -1,3 +1,5 @@
+local S = minetest.get_translator("columnia")
+
 columnia.registered_materials = {}
 
 function columnia.register_all(craft, desc, image, groups, sounds, mat)
@@ -29,7 +31,7 @@ end
 columnia.registered_materials[craft] = mat
 
 minetest.register_node("columnia:column_mid_"..mat, {
-	description = desc.." Column",
+	description = S("@1 Column", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -78,7 +80,7 @@ minetest.register_node("columnia:column_mid_"..mat, {
 })
 
 minetest.register_node("columnia:column_top_"..mat, {
-	description = desc.." Column Top",
+	description = S("@1 Column Top", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -129,7 +131,7 @@ minetest.register_node("columnia:column_top_"..mat, {
 })
 
 minetest.register_node("columnia:column_bottom_"..mat, {
-	description = desc.." Column Bottom",
+	description = S("@1 Column Bottom", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -180,7 +182,7 @@ minetest.register_node("columnia:column_bottom_"..mat, {
 })
 
 minetest.register_node("columnia:column_crosslink_"..mat, {
-	description = desc.." Column Crosslink",
+	description = S("@1 Column Crosslink", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -232,7 +234,7 @@ minetest.register_node("columnia:column_crosslink_"..mat, {
 })
 
 minetest.register_node("columnia:column_link_"..mat, {
-	description = desc.." Column Link",
+	description = S("@1 Column Link", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -281,7 +283,7 @@ minetest.register_node("columnia:column_link_"..mat, {
 })
 
 minetest.register_node("columnia:column_linkdown_"..mat, {
-	description = desc.." Column Link Down",
+	description = S("@1 Column Link Down", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -333,7 +335,7 @@ minetest.register_node("columnia:column_linkdown_"..mat, {
 })
 
 minetest.register_node("columnia:column_linkcross_"..mat, {
-	description = desc.." Column Link Cross",
+	description = S("@1 Column Link Cross", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -383,7 +385,7 @@ minetest.register_node("columnia:column_linkcross_"..mat, {
 })
 
 minetest.register_node("columnia:column_linkcrossdown_"..mat, {
-	description = desc.." Column Link Cross Down",
+	description = S("@1 Column Link Cross Down", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -436,7 +438,7 @@ minetest.register_node("columnia:column_linkcrossdown_"..mat, {
 })
 
 minetest.register_node("columnia:column_linkvertical_"..mat, {
-	description = desc.." Column Link Vertical",
+	description = S("@1 Column Link Vertical", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -489,7 +491,7 @@ minetest.register_node("columnia:column_linkvertical_"..mat, {
 })
 
 minetest.register_node("columnia:column_linkangle_"..mat, {
-	description = desc.." Column Link Corner",
+	description = S("@1 Column Link Corner", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -539,7 +541,7 @@ minetest.register_node("columnia:column_linkangle_"..mat, {
 })
 
 minetest.register_node("columnia:column_linkangle_down_"..mat, {
-	description = desc.." Column Link Corner Down",
+	description = S("@1 Column Link Corner Down", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -592,7 +594,7 @@ minetest.register_node("columnia:column_linkangle_down_"..mat, {
 })
 
 minetest.register_node("columnia:column_linktee_"..mat, {
-	description = desc.." Column Link T-Form",
+	description = S("@1 Column Link T-Form", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",
@@ -642,7 +644,7 @@ minetest.register_node("columnia:column_linktee_"..mat, {
 })
 
 minetest.register_node("columnia:column_linktee_down_"..mat, {
-	description = desc.." Column Link T-Form Down",
+	description = S("@1 Column Link T-Form Down", desc),
 	drawtype = "nodebox",
 	tiles = {image},
 	paramtype = "light",

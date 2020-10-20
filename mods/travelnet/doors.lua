@@ -1,10 +1,12 @@
+local S = minetest.get_translator("travelnet")
+
 -- Doors that are especially useful for travelnet elevators but can also be used in other situations.
 -- All doors (not only these here) in front of a travelnet or elevator are opened automaticly when a player arrives
 -- and are closed when a player departs from the travelnet or elevator.
 -- Autor: Sokomine
 
 minetest.register_node("travelnet:elevator_door_steel_open", {
-	description = "Stone Elevator Door (open)",
+	description = S("Stone Elevator Door (open)"),
 	drawtype = "nodebox",
 	tiles = {"default_stone.png"},
 	paramtype = "light",
@@ -34,7 +36,7 @@ minetest.register_node("travelnet:elevator_door_steel_open", {
 })
 
 minetest.register_node("travelnet:elevator_door_steel_closed", {
-	description = "Stone Elevator Door",
+	description = S("Stone Elevator Door"),
 	drawtype = "nodebox",
 	tiles = {"default_stone.png"},
 	paramtype = "light",
@@ -62,7 +64,7 @@ minetest.register_node("travelnet:elevator_door_steel_closed", {
 })
 
 minetest.register_node("travelnet:elevator_door_glass_open", {
-	description = "Glass Elevator Door (open)",
+	description = S("Glass Elevator Door (open)"),
 	drawtype = "nodebox",
 	tiles = {"travelnet_elevator_door_glass.png"},
 	paramtype = "light",
@@ -92,7 +94,7 @@ minetest.register_node("travelnet:elevator_door_glass_open", {
 })
 
 minetest.register_node("travelnet:elevator_door_glass_closed", {
-	description = "Glass Elevator Door",
+	description = S("Glass Elevator Door"),
 	drawtype = "nodebox",
 	tiles = {"travelnet_elevator_door_glass.png"},
 	paramtype = "light",

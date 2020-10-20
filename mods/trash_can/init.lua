@@ -1,9 +1,12 @@
+local S = minetest.get_translator("trash_can")
+local F = minetest.formspec_escape
+
 --Node Registration
 local player_name = {}
 minetest.register_node("trash_can:trash_can_wooden",{
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2},
 	tiles = {"trash_can_wooden_top.png", "trash_can_wooden_top.png", "trash_can_wooden.png"},
-	description = "Trash Can",
+	description = S("Trash Can"),
 	drawtype="nodebox",
 	paramtype = "light",
 	is_ground_content = false,
@@ -21,12 +24,12 @@ minetest.register_node("trash_can:trash_can_wooden",{
 		local meta = minetest.get_meta(pos)
 			meta:set_string("formspec",
 				"size[8,9]"..
-				"button[3,0;2,1;empty;Empty Trash]"..
+				"button[3,0;2,1;empty;"..F(S("Empty Trash")).."]"..
                                 "list[current_name;main;3,1;2,3;]"..
                                 "list[current_player;main;0,5;8,4;]"..
 				"listring[]"..
 				"background9[18,17;8,9;trash_can_inventory.png;true;18,17,-22,-17]")
-                meta:set_string("infotext", "Trash Can")
+                meta:set_string("infotext", S("Trash Can"))
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*4)
 	end,

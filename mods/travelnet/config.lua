@@ -1,3 +1,5 @@
+local S = minetest.get_translator("travelnet")
+
 travelnet.MAX_STATIONS_PER_NETWORK = 24;
 
 
@@ -23,7 +25,7 @@ travelnet.doors_enabled            = true;
 
 --
 minetest.register_craftitem("travelnet:teleporter_device", {
-	description = "Teleporter Device",
+	description = S("Teleporter Device"),
 	inventory_image = "travelnet_teleporter_device.png",
                     
 })

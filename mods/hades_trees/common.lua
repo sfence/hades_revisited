@@ -1,5 +1,7 @@
+local S = minetest.get_translator("hades_trees")
+
 minetest.register_node("hades_trees:apple", {
-	description = "Apple (+2)",
+	description = S("Apple (+@1)", 2),
 	drawtype = "plantlike",
 	visual_scale = 0.75,
 	tiles = {"default_apple.png"},
@@ -23,7 +25,7 @@ minetest.register_node("hades_trees:apple", {
 })
 
 minetest.register_node("hades_trees:sapling", {
-	description = "Common Tree Sapling",
+	description = S("Common Tree Sapling"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_sapling.png"},
@@ -41,7 +43,7 @@ minetest.register_node("hades_trees:sapling", {
 })
 
 minetest.register_node("hades_trees:tree", {
-	description = "Common Tree Trunk",
+	description = S("Common Tree Trunk"),
 	tiles = {"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
 	paramtype = "light",
 	drawtype = "nodebox",
@@ -63,7 +65,7 @@ minetest.register_node("hades_trees:tree", {
 })
 
 minetest.register_node("hades_trees:leaves", {
-	description = "Common Leaves",
+	description = S("Common Leaves"),
 	drawtype = "allfaces_optional",
 	tiles = {"default_leaves.png"},
 	paramtype = "light",
@@ -90,7 +92,7 @@ minetest.register_node("hades_trees:leaves", {
 })
 
 minetest.register_node("hades_trees:bark", {
-	description = "Common Bark",
+	description = S("Common Bark"),
 	paramtype2 = "facedir",
 	tiles = { "default_tree.png" },
 	is_ground_content = false,

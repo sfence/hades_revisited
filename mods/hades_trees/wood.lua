@@ -1,24 +1,26 @@
+local S = minetest.get_translator("hades_trees")
+
 -- Wood planks
 minetest.register_node("hades_trees:wood", {
-	description = "Common Wood Planks",
+	description = S("Common Wood Planks"),
 	tiles = {"default_wood.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 minetest.register_node("hades_trees:birch_wood", {
-	description = "Birch Wood Planks",
+	description = S("Birch Wood Planks"),
 	tiles = {"default_birchwood.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 minetest.register_node("hades_trees:pale_wood", {
-	description = "Pale Wood Planks",
+	description = S("Pale Wood Planks"),
 	tiles = {"hades_trees_pale_wood.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 minetest.register_node("hades_trees:jungle_wood", {
-	description = "Jungle Wood Planks",
+	description = S("Jungle Wood Planks"),
 	tiles = {"default_junglewood.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
@@ -26,7 +28,7 @@ minetest.register_node("hades_trees:jungle_wood", {
 
 -- Tiles
 minetest.register_node("hades_trees:floor_wood_jungle", {
-	description = "Common Wood/Jungle Wood Tile",
+	description = S("Common Wood/Jungle Wood Tile"),
 	tiles = {
 		"default_floor_wood_jungle.png",
 		"default_floor_wood_jungle.png",
@@ -39,7 +41,7 @@ minetest.register_node("hades_trees:floor_wood_jungle", {
 })
 
 minetest.register_node("hades_trees:floor_wood_pale", {
-	description = "Common Wood/Pale Wood Tile",
+	description = S("Common Wood/Pale Wood Tile"),
 	tiles = {
 		"default_floor_wood_pale.png",
 		"default_floor_wood_pale.png",
@@ -52,7 +54,7 @@ minetest.register_node("hades_trees:floor_wood_pale", {
 })
 
 minetest.register_node("hades_trees:floor_pale_jungle", {
-	description = "Jungle Wood/Pale Wood Tile",
+	description = S("Jungle Wood/Pale Wood Tile"),
 	tiles = {
 		"default_floor_pale_jungle.png",
 		"default_floor_pale_jungle.png",
@@ -67,35 +69,35 @@ minetest.register_node("hades_trees:floor_pale_jungle", {
 -- Colored wood
 
 minetest.register_node("hades_trees:colwood_black", {
-	description = "Black Wood Planks",
+	description = S("Black Wood Planks"),
 	tiles = {"default_colwood_black.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_blue", {
-	description = "Blue Wood Planks",
+	description = S("Blue Wood Planks"),
 	tiles = {"default_colwood_blue.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_brown", {
-	description = "Brown Wood Planks",
+	description = S("Brown Wood Planks"),
 	tiles = {"default_colwood_brown.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_cyan", {
-	description = "Cyan Wood Planks",
+	description = S("Cyan Wood Planks"),
 	tiles = {"default_colwood_cyan.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_dark_green", {
-	description = "Dark Green Wood Planks",
+	description = S("Dark Green Wood Planks"),
 	tiles = {"default_colwood_dark_green.png"},
 	is_ground_content = false,
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
@@ -103,77 +105,77 @@ minetest.register_node("hades_trees:colwood_dark_green", {
 })
 
 minetest.register_node("hades_trees:colwood_dark_grey", {
-	description = "Dark Grey Wood Planks",
+	description = S("Dark Grey Wood Planks"),
 	tiles = {"default_colwood_dark_grey.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_green", {
-	description = "Green Wood Planks",
+	description = S("Green Wood Planks"),
 	tiles = {"default_colwood_green.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_grey", {
-	description = "Grey Wood Planks",
+	description = S("Grey Wood Planks"),
 	tiles = {"default_colwood_grey.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_magenta", {
-	description = "Magenta Wood Planks",
+	description = S("Magenta Wood Planks"),
 	tiles = {"default_colwood_magenta.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_orange", {
-	description = "Orange Wood Planks",
+	description = S("Orange Wood Planks"),
 	tiles = {"default_colwood_orange.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_pink", {
-	description = "Pink Wood Planks",
+	description = S("Pink Wood Planks"),
 	tiles = {"default_colwood_pink.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_red", {
-	description = "Red Wood Planks",
+	description = S("Red Wood Planks"),
 	tiles = {"default_colwood_red.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_violet", {
-	description = "Violet Wood Planks",
+	description = S("Violet Wood Planks"),
 	tiles = {"default_colwood_violet.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_violet", {
-	description = "Violet Wood Planks",
+	description = S("Violet Wood Planks"),
 	tiles = {"default_colwood_violet.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_white", {
-	description = "White Wood Planks",
+	description = S("White Wood Planks"),
 	tiles = {"default_colwood_white.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
 minetest.register_node("hades_trees:colwood_yellow", {
-	description = "Yellow Wood Planks",
+	description = S("Yellow Wood Planks"),
 	tiles = {"default_colwood_yellow.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),

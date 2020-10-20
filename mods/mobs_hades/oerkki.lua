@@ -1,3 +1,4 @@
+local S = minetest.get_translator("mobs_hades")
 
 -- Oerkki
 
@@ -56,4 +57,4 @@ mobs:register_mob("mobs_hades:oerkki", {
 mobs:register_spawn("mobs_hades:oerkki", {"hades_core:stone"}, 0, -1, 10000, 2, -1200)
 mobs:register_spawn("mobs_hades:oerkki", {"hades_core:stone"}, 1, -1, 10000, 3, -10000)
 
-mobs:register_egg("mobs_hades:oerkki", "Oerkki Spawn Egg", "default_obsidian.png", 1, false)
+mobs:register_egg("mobs_hades:oerkki", S("Oerkki Spawn Egg"), "default_obsidian.png", 1, false)

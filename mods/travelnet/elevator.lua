@@ -1,9 +1,11 @@
+local S = minetest.get_translator("travelnet")
+
 -- This version of the travelnet box allows to move up or down only.
 -- The network name is determined automaticly from the position (x/z coordinates).
 -- >utor: Sokomine
 
 minetest.register_node("travelnet:elevator", {
-    description = "Elevator",
+    description = S("Elevator"),
 
     drawtype = "nodebox",
     sunlight_propagates = true,
@@ -98,7 +100,7 @@ minetest.register_node("travelnet:elevator", {
 })
 
 minetest.register_node("travelnet:elevator_top", {
-    description = "Elevator Top",
+    description = S("Elevator Top"),
 
     drawtype = "nodebox",
     sunlight_propagates = true,

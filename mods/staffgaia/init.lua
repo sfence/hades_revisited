@@ -1,3 +1,5 @@
+local S = minetest.get_translator("staffgaia")
+
 -- WTPFL Licenses
 staffgaia = {}
 
@@ -68,7 +70,7 @@ function staffgaia.staff_on_use(itemstack, user, pointed_thing, uses)
 end
 
 minetest.register_tool("staffgaia:staff", {
-	description = "Staff of Gaia",
+	description = S("Staff of Gaia"),
 	inventory_image = "staff_of_gaia.png",
 
 
@@ -78,12 +80,12 @@ minetest.register_tool("staffgaia:staff", {
 })
 
 minetest.register_craftitem("staffgaia:head", {
-	description = "Head of the Staff of Gaia",
+	description = S("Head of the Staff of Gaia"),
 	inventory_image = "staffgaia_head.png",
 })
 
 minetest.register_craftitem("staffgaia:shaft", {
-	description = "Shaft of the Staff of Gaia",
+	description = S("Shaft of the Staff of Gaia"),
 	inventory_image = "staffgaia_shaft.png",
 })
 

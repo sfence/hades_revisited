@@ -1,3 +1,5 @@
+local S = minetest.get_translator("simple_bushes")
+
 -- See README.txt for licensing and other information.
 
 -- Map Generation
@@ -5,7 +7,7 @@ dofile(minetest.get_modpath("simple_bushes").."/mapgen.lua")
 
 -- nodes and crafting
 minetest.register_node("simple_bushes:green", {
-	description = "Green Bush",
+	description = S("Green Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
 	tiles = { "simple_bushes_green.png" },
@@ -33,7 +35,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("simple_bushes:white", {
-	description = "White Bush",
+	description = S("White Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
 	tiles = { "simple_bushes_white.png" },
@@ -61,7 +63,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("simple_bushes:yellow", {
-	description = "Yellow Bush",
+	description = S("Yellow Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
 	tiles = { "simple_bushes_yellow.png" },
@@ -89,7 +91,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("simple_bushes:blue", {
-	description = "Blue Bush",
+	description = S("Blue Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
 	tiles = { "simple_bushes_blue.png" },
@@ -117,7 +119,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("simple_bushes:red", {
-	description = "Red Bush",
+	description = S("Red Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
 	tiles = { "simple_bushes_red.png" },
@@ -145,7 +147,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("simple_bushes:orange", {
-	description = "Orange Bush",
+	description = S("Orange Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
 	tiles = { "simple_bushes_orange.png" },
@@ -174,7 +176,7 @@ minetest.register_craft({
 
 
 minetest.register_node("simple_bushes:violet", {
-	description = "Violet Bush",
+	description = S("Violet Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
 	tiles = { "simple_bushes_violet.png" },
@@ -202,7 +204,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("simple_bushes:plant_pot",
-		{description = "Plant Pot",
+		{description = S("Plant Pot"),
 		paramtype = "light",
 		tiles = {"simple_bushes_plant_pot_top.png", "simple_bushes_plant_pot_bottom.png", "simple_bushes_plant_pot_sides.png"},
 		is_ground_content = false,

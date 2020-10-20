@@ -1,3 +1,5 @@
+local S = minetest.get_translator("glowcrystals")
+
 --[[
 Glowcrystals
 A Minetest mod by SegFault22
@@ -11,7 +13,7 @@ Details: Adds several items for lighting, made out of glowing crystals - a bette
 --///////////////
 
 minetest.register_node( "glowcrystals:glowcrystal_ore", {
-	description = "Glowing Crystal Ore",
+	description = S("Glowing Crystal Ore"),
 	tiles = { "default_essexite.png^glowcrystals_ore_glowcrystal.png" },
 	is_ground_content = true,
 	paramtype = "light",
@@ -23,7 +25,7 @@ minetest.register_node( "glowcrystals:glowcrystal_ore", {
 })
 
 minetest.register_node( "glowcrystals:glowcrystal_block", {
-	description = "Glowing Crystal Block",
+	description = S("Glowing Crystal Block"),
 	tiles = { "glowcrystals_block_glowcrystal.png" },
 	is_ground_content = true,
 	paramtype = "light",
@@ -34,7 +36,7 @@ minetest.register_node( "glowcrystals:glowcrystal_block", {
 })
 
 minetest.register_node("glowcrystals:glowcrystal_torch", {
-	description = "Glowing Crystal Torch",
+	description = S("Glowing Crystal Torch"),
 	drawtype = "torchlike",
 	tiles = {"glowcrystals_glowtorch_on_floor.png", "glowcrystals_glowtorch_on_ceiling.png", "glowcrystals_glowtorch.png"},
 	inventory_image = "glowcrystals_glowtorch_on_floor.png",
@@ -56,7 +58,7 @@ minetest.register_node("glowcrystals:glowcrystal_torch", {
 })
 
 minetest.register_node("glowcrystals:glowglass", {
-	description = "Glow Glass",
+	description = S("Glow Glass"),
 	drawtype = "glasslike_framed_optional",
 	tiles = {"glowcrystals_glowglass.png", "glowcrystals_glowglass_detail.png" },
 	paramtype = "light",
@@ -69,7 +71,7 @@ minetest.register_node("glowcrystals:glowglass", {
 
 if minetest.get_modpath("windows") then
 	windows.register_window("glowcrystals:windows_glow", {
-		description = "Glowing Window",
+		description = S("Glowing Window"),
 		texture_seam = "glowcrystals_windows_glow_seam.png",
 		texture_front = "glowcrystals_windows_glow_front.png",
 		light_source = 11,
@@ -94,13 +96,13 @@ end
 --///////
 
 minetest.register_craftitem( "glowcrystals:glowcrystal", {
-	description = "Glowing Crystal",
+	description = S("Glowing Crystal"),
 	inventory_image = "glowcrystals_item_glowcrystal.png",
 	on_place_on_ground = minetest.craftitem_place_item,
 })
 
 minetest.register_craftitem( "glowcrystals:glowdust", {
-	description = "Glow Dust",
+	description = S("Glow Dust"),
 	inventory_image = "glowcrystals_item_dust.png",
 	on_place_on_ground = minetest.craftitem_place_item,
 })

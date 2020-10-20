@@ -1,6 +1,8 @@
 -- Minetest 0.4 mod: bones
 -- See README.txt for licensing and other information. 
 
+local S = minetest.get_translator("bones")
+
 local function is_owner(pos, name)
 	local owner = minetest.get_meta(pos):get_string("owner")
 	if owner == "" or owner == name then
@@ -10,7 +12,7 @@ local function is_owner(pos, name)
 end
 
 minetest.register_node("bones:bones", {
-	description = "Bones",
+	description = S("Bones"),
 	tiles = {
 		"bones_top.png",
 		"bones_bottom.png",

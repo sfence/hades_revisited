@@ -1,3 +1,5 @@
+local S = minetest.get_translator("flowers")
+
 -- Minetest 0.4 mod: default
 -- See README.txt for licensing and other information.
 
@@ -13,7 +15,7 @@ minetest.register_alias("flowers:flower_tulip", "flowers:tulip")
 minetest.register_alias("flowers:flower_viola", "flowers:viola")
 
 minetest.register_node("flowers:dandelion_white", {
-	description = "White Flower",
+	description = S("White Flower"),
 	drawtype = "plantlike",
 	tiles = { "flowers_dandelion_white.png" },
 	inventory_image = "flowers_dandelion_white.png",
@@ -31,7 +33,7 @@ minetest.register_node("flowers:dandelion_white", {
 })
 
 minetest.register_node("flowers:dandelion_yellow", {
-	description = "Yellow Flower",
+	description = S("Yellow Flower"),
 	drawtype = "plantlike",
 	tiles = { "flowers_dandelion_yellow.png" },
 	inventory_image = "flowers_dandelion_yellow.png",
@@ -49,7 +51,7 @@ minetest.register_node("flowers:dandelion_yellow", {
 })
 
 minetest.register_node("flowers:geranium", {
-	description = "Blue Flower",
+	description = S("Blue Flower"),
 	drawtype = "plantlike",
 	tiles = { "flowers_geranium.png" },
 	inventory_image = "flowers_geranium.png",
@@ -67,7 +69,7 @@ minetest.register_node("flowers:geranium", {
 })
 
 minetest.register_node("flowers:rose", {
-	description = "Red Flower",
+	description = S("Red Flower"),
 	drawtype = "plantlike",
 	tiles = { "flowers_rose.png" },
 	inventory_image = "flowers_rose.png",
@@ -85,7 +87,7 @@ minetest.register_node("flowers:rose", {
 })
 
 minetest.register_node("flowers:tulip", {
-	description = "Orange Flower",
+	description = S("Orange Flower"),
 	drawtype = "plantlike",
 	tiles = { "flowers_tulip.png" },
 	inventory_image = "flowers_tulip.png",
@@ -103,7 +105,7 @@ minetest.register_node("flowers:tulip", {
 })
 
 minetest.register_node("flowers:viola", {
-	description = "Violet Flower",
+	description = S("Violet Flower"),
 	drawtype = "plantlike",
 	tiles = { "flowers_viola.png" },
 	inventory_image = "flowers_viola.png",

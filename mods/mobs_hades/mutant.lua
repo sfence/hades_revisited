@@ -1,3 +1,4 @@
+local S = minetest.get_translator("mobs_hades")
 
 -- Mutant
 
@@ -71,4 +72,4 @@ mobs:register_mob("mobs_hades:mutant", {
 mobs:register_spawn("mobs_hades:mutant", {"hades_core:ash"}, minetest.LIGHT_MAX, 0, 16000, 1, 31000)
 mobs:register_spawn("mobs_hades:mutant", {"hades_core:ash"}, 5, 0, 6000, 3, 31000)
 
-mobs:register_egg("mobs_hades:mutant", "Mutant Spawn Egg", "default_ash.png", 1, false)
+mobs:register_egg("mobs_hades:mutant", S("Mutant Spawn Egg"), "default_ash.png", 1, false)

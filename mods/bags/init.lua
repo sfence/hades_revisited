@@ -8,6 +8,7 @@ License: GPLv3
 
 ]]--
 
+local S = minetest.get_translator("bags")
 
 local bags_page = {}
 
@@ -130,17 +131,17 @@ end)
 
 -- register bag tools
 minetest.register_tool("bags:small", {
-	description = "Small Bag",
+	description = S("Small Bag"),
 	inventory_image = "bags_small.png",
 	groups = {bagslots=8, disable_repair=1},
 })
 minetest.register_tool("bags:medium", {
-	description = "Medium Bag",
+	description = S("Medium Bag"),
 	inventory_image = "bags_medium.png",
 	groups = {bagslots=16, disable_repair=1},
 })
 minetest.register_tool("bags:large", {
-	description = "Large Bag",
+	description = S("Large Bag"),
 	inventory_image = "bags_large.png",
 	groups = {bagslots=24, disable_repair=1},
 })

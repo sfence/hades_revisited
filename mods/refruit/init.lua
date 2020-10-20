@@ -1,3 +1,5 @@
+local S = minetest.get_translator("refruit")
+
 -- refruit for minetest
 -- makes fruits regrowing on the trees.
 -- images and code are WTFPL license (2015 by Glünggi)
@@ -5,7 +7,7 @@ refruit = {}
 
 --replacement
 minetest.register_node(":hades_trees:apple", {
-	description = "Apple (+2)",
+	description = S("Apple (+@1)", 2),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_apple.png"},
@@ -38,7 +40,7 @@ minetest.register_node(":hades_trees:apple", {
 --register nodes
 
 minetest.register_node("refruit:bud_apple", {
-	description = "Apple Bud",
+	description = S("Apple Bud"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_bud_apple.png"},
@@ -69,7 +71,7 @@ minetest.register_node("refruit:bud_apple", {
 })
 
 minetest.register_node("refruit:flower_apple", {
-	description = "Apple Flower",
+	description = S("Apple Flower"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_flower_apple.png"},
@@ -100,7 +102,7 @@ minetest.register_node("refruit:flower_apple", {
 })
 
 minetest.register_node(":hades_trees:olive", {
-	description = "Olive (+1)",
+	description = S("Olive (+@1)", 1),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"farming_olive.png"},
@@ -133,7 +135,7 @@ minetest.register_node(":hades_trees:olive", {
 --register nodes
 
 minetest.register_node("refruit:bud_olive", {
-	description = "Olive Bud",
+	description = S("Olive Bud"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_bud_olive.png"},
@@ -164,7 +166,7 @@ minetest.register_node("refruit:bud_olive", {
 })
 
 minetest.register_node("refruit:flower_olive", {
-	description = "Olive Flower",
+	description = S("Olive Flower"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_flower_olive.png"},

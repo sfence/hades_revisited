@@ -1,3 +1,5 @@
+local S = minetest.get_translator("farming")
+
 minetest.override_item("hades_core:dirt", {
 	groups = {crumbly=3,soil=1},
 	soil = {
@@ -17,7 +19,7 @@ minetest.override_item("hades_core:dirt_with_grass", {
 })
 
 minetest.register_node("farming:soil", {
-	description = "Soil",
+	description = S("Soil"),
 	tiles = {"default_dirt.png^farming_soil.png", "default_dirt.png"},
 	drop = "hades_core:dirt",
 	is_ground_content = true,
@@ -31,7 +33,7 @@ minetest.register_node("farming:soil", {
 })
 
 minetest.register_node("farming:soil_wet", {
-	description = "Wet Soil",
+	description = S("Wet Soil"),
 	tiles = {"default_dirt.png^farming_soil_wet.png", "default_dirt.png^farming_soil_wet_side.png"},
 	drop = "hades_core:dirt",
 	is_ground_content = true,
@@ -46,7 +48,7 @@ minetest.register_node("farming:soil_wet", {
 
 
 minetest.register_node("farming:straw", {
-	description = "Straw",
+	description = S("Straw"),
 	tiles = {"farming_straw.png"},
 	is_ground_content = false,
 	groups = {snappy=3, flammable=4},
@@ -130,7 +132,7 @@ minetest.override_item("hades_core:junglegrass", {drop = {
 }})
 
 minetest.register_node("farming:flowergrass", {
-		description = "Flower Grass",
+		description = S("Flower Grass"),
 		drawtype = "plantlike",
 		tiles = {"farming_flowergrass.png"},
 		inventory_image = "farming_flowergrass.png",

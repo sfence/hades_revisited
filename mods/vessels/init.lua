@@ -1,8 +1,10 @@
+local S = minetest.get_translator("vessels")
+
 -- Minetest 0.4 mod: vessels
 -- See README.txt for licensing and other information.
 
 minetest.register_node("vessels:glass_bottle", {
-	description = "Empty Glass Bottle",
+	description = S("Empty Glass Bottle"),
 	drawtype = "plantlike",
 	tiles = {"vessels_glass_bottle.png"},
 	inventory_image = "vessels_glass_bottle_inv.png",
@@ -28,7 +30,7 @@ minetest.register_craft( {
 })
 
 minetest.register_node("vessels:drinking_glass", {
-	description = "Empty Drinking Glass",
+	description = S("Empty Drinking Glass"),
 	drawtype = "plantlike",
 	tiles = {"vessels_drinking_glass.png"},
 	inventory_image = "vessels_drinking_glass_inv.png",
@@ -54,7 +56,7 @@ minetest.register_craft( {
 })
 
 minetest.register_node("vessels:steel_bottle", {
-	description = "Empty Heavy Steel Bottle",
+	description = S("Empty Heavy Steel Bottle"),
 	drawtype = "plantlike",
 	tiles = {"vessels_steel_bottle.png"},
 	inventory_image = "vessels_steel_bottle_inv.png",
@@ -83,7 +85,7 @@ minetest.register_craft( {
 -- Make sure we can recycle them
 
 minetest.register_craftitem("vessels:glass_fragments", {
-	description = "Pile of Glass Fragments",
+	description = S("Pile of Glass Fragments"),
 	inventory_image = "vessels_glass_fragments.png",
 })
 

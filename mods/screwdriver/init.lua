@@ -1,3 +1,5 @@
+local S = minetest.get_translator("screwdriver")
+
 screwdriver = {}
 
 local function nextrange(x, max)
@@ -86,7 +88,7 @@ end
 
 -- Screwdriver
 minetest.register_tool("screwdriver:screwdriver", {
-	description = "Screwdriver (left-click rotates face, right-click rotates axis)",
+	description = S("Screwdriver") .. "\n" .. S("(left-click rotates face, right-click rotates axis)"),
 	inventory_image = "screwdriver.png",
 	on_use = function(itemstack, user, pointed_thing)
 		screwdriver_handler(itemstack, user, pointed_thing, screwdriver.ROTATE_FACE)

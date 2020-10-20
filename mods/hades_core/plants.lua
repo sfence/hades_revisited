@@ -1,6 +1,7 @@
+local S = minetest.get_translator("hades_core")
 
 minetest.register_node("hades_core:dry_shrub", {
-	description = "Dry Shrub",
+	description = S("Dry Shrub"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_dry_shrub.png"},
@@ -21,7 +22,7 @@ minetest.register_node("hades_core:dry_shrub", {
 
 
 minetest.register_node("hades_core:grass_1", {
-	description = "Grass",
+	description = S("Grass"),
 	drawtype = "plantlike",
 	tiles = {"default_grass_1.png"},
 	-- use a bigger inventory image
@@ -47,7 +48,7 @@ minetest.register_node("hades_core:grass_1", {
 
 for i=2,5 do
 	minetest.register_node("hades_core:grass_"..i, {
-		description = "Grass",
+		description = S("Grass"),
 		drawtype = "plantlike",
 		tiles = {"default_grass_"..i..".png"},
 		inventory_image = "default_grass_"..i..".png",
@@ -67,7 +68,7 @@ for i=2,5 do
 end
 
 minetest.register_node("hades_core:junglegrass", {
-	description = "Jungle Grass",
+	description = S("Jungle Grass"),
 	drawtype = "plantlike",
 	visual_scale = 1.3,
 	tiles = {"default_junglegrass.png"},
@@ -86,7 +87,7 @@ minetest.register_node("hades_core:junglegrass", {
 })
 
 minetest.register_node("hades_core:snag", {
-	description = "Snag",
+	description = S("Snag"),
 	tiles = {"default_tree.png", "default_tree.png", "default_tree.png"},
                       paramtype = "light",
 	-- paramtype2 = "facedir",
@@ -123,7 +124,7 @@ minetest.register_node("hades_core:snag", {
 })
 
 minetest.register_node("hades_core:cactus", {
-	description = "Cactus",
+	description = S("Cactus"),
 	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -146,7 +147,7 @@ minetest.register_node("hades_core:cactus", {
 })
 
 minetest.register_node("hades_core:cactus_block", {
-	description = "Cactus Block",
+	description = S("Cactus Block"),
 	tiles = {"default_cactus_block.png"},
 	is_ground_content = false,
 	groups = {choppy=3,flammable=2},
@@ -154,7 +155,7 @@ minetest.register_node("hades_core:cactus_block", {
 })
 
 minetest.register_node("hades_core:cactus_brick", {
-	description = "Cactus Brick",
+	description = S("Cactus Brick"),
 	tiles = {"default_cactus_brick.png"},
 	is_ground_content = false,
 	groups = {choppy=3,flammable=2},
@@ -162,7 +163,7 @@ minetest.register_node("hades_core:cactus_brick", {
 })
 
 minetest.register_node("hades_core:glowing_cactus_block", {
-	description = "Glowing Cactus Block",
+	description = S("Glowing Cactus Block"),
 	tiles = {"default_cactus_block.png"},
 	is_ground_content = false,
 	light_source = 5,
@@ -183,7 +184,7 @@ local function dig_up(pos, node, digger)
 end
 
 minetest.register_node("hades_core:papyrus", {
-	description = "Papyrus",
+	description = S("Papyrus"),
 	drawtype = "nodebox",
 	tiles = {
 		"default_papyrus_3d.png",
@@ -234,7 +235,7 @@ minetest.register_node("hades_core:papyrus", {
 })
 
 minetest.register_node("hades_core:sugarcane", {
-	description = "Sugarcane",
+	description = S("Sugarcane"),
 	drawtype = "plantlike",
 	tiles = {"default_sugarcane.png"},
 	inventory_image = "default_sugarcane.png",

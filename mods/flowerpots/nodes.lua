@@ -1,37 +1,38 @@
+local S = minetest.get_translator("flowerpots")
 
 local flowers = {
-	{"rose", "flowers:rose", "Red Flower"},
-	{"tulip", "flowers:tulip", "Orange Flower"},
-	{"geranium", "flowers:geranium", "Blue Flower"},
-	{"viola", "flowers:viola", "Violet Flower"},
-	{"dandelion_yellow", "flowers:dandelion_yellow", "Yellow Flower"},
-	{"dandelion_white", "flowers:dandelion_white", "White Flower"},
+	{"rose", "flowers:rose", S("Red Flower")},
+	{"tulip", "flowers:tulip", S("Orange Flower")},
+	{"geranium", "flowers:geranium", S("Blue Flower")},
+	{"viola", "flowers:viola", S("Violet Flower")},
+	{"dandelion_yellow", "flowers:dandelion_yellow", S("Yellow Flower")},
+	{"dandelion_white", "flowers:dandelion_white", S("White Flower")},
 
 -- TODO: Maybe add these later?
---	{"grass", "hades_core:grass_1", "Grass"},
---	{"junglegrass", "hades_core:junglegrass", "junglegrass"},
---	{"dry_shrub", "hades_core:dry_shrub", "Dry Shrub"},
+--	{"grass", "hades_core:grass_1", S("Grass")},
+--	{"junglegrass", "hades_core:junglegrass", S("Jungle Grass")},
+--	{"dry_shrub", "hades_core:dry_shrub", S("Dry Shrub")},
 
-	{"sapling", "hades_trees:sapling", "Common Tree Sapling"},
-	{"jungle_sapling", "hades_trees:jungle_sapling", "Common Jungle Tree Sapling"},
-	{"cultivated_jungle_sapling", "hades_trees:cultivated_jungle_sapling", "Cultivated Jungle Tree Sapling"},
-	{"olive_sapling", "hades_trees:olive_sapling", "Olive Tree Sapling"},
-	{"pale_sapling", "hades_trees:pale_sapling", "Pale Tree Sapling"},
-	{"birch_sapling", "hades_trees:birch_sapling", "Birch Tree Sapling"},
+	{"sapling", "hades_trees:sapling", S("Common Tree Sapling")},
+	{"jungle_sapling", "hades_trees:jungle_sapling", S("Common Jungle Tree Sapling")},
+	{"cultivated_jungle_sapling", "hades_trees:cultivated_jungle_sapling", S("Cultivated Jungle Tree Sapling")},
+	{"olive_sapling", "hades_trees:olive_sapling", S("Olive Tree Sapling")},
+	{"pale_sapling", "hades_trees:pale_sapling", S("Pale Tree Sapling")},
+	{"birch_sapling", "hades_trees:birch_sapling", S("Birch Tree Sapling")},
 }
 
 local cubes = {
-	{"cactus", "hades_core:cactus", "Cactus"},
-	{"leaves", "hades_trees:leaves", "Common Leaves"},
-	{"jungle_leaves", "hades_trees:jungle_leaves", "Common Jungle Leaves"},
-	{"cultivated_jungle_leaves", "hades_trees:cultivated_jungle_leaves", "Cultivated Jungle Leaves"},
-	{"olive_leaves", "hades_trees:olive_leaves", "Olive Leaves"},
-	{"birch_leaves", "hades_trees:birch_leaves", "Birch Leaves"},
-	{"pale_leaves", "hades_trees:pale_leaves", "Pale Leaves"},
+	{"cactus", "hades_core:cactus", S("Cactus")},
+	{"leaves", "hades_trees:leaves", S("Common Leaves")},
+	{"jungle_leaves", "hades_trees:jungle_leaves", S("Common Jungle Leaves")},
+	{"cultivated_jungle_leaves", "hades_trees:cultivated_jungle_leaves", S("Cultivated Jungle Leaves")},
+	{"olive_leaves", "hades_trees:olive_leaves", S("Olive Leaves")},
+	{"birch_leaves", "hades_trees:birch_leaves", S("Birch Leaves")},
+	{"pale_leaves", "hades_trees:pale_leaves", S("Pale Leaves")},
 }
 
 minetest.register_node("flowerpots:flower_pot", {
-	description = "Flower Pot",
+	description = S("Flower Pot"),
 	drawtype = "mesh",
 	mesh = "flowerpot.obj",
 	tiles = {
@@ -89,7 +90,7 @@ local flower_node = row[2]
 local desc = row[3]
 local texture = minetest.registered_nodes[flower_node]["tiles"]
 minetest.register_node("flowerpots:flower_pot_"..flower, {
-	description = "Flower Pot With "..desc.."",
+	description = S("Flower Pot with @1", desc),
 	drawtype = "mesh",
 	mesh = "flowerpot.obj",
 	tiles = {
@@ -125,7 +126,7 @@ local flower = row[1]
 local flower_node = row[2]
 local desc = row[3]
 minetest.register_node("flowerpots:flower_pot_"..flower, {
-	description = "Flower Pot With "..desc.."",
+	description = S("Flower Pot with @1", desc),
 	drawtype = "mesh",
 	mesh = "flowerpot_with_long_cube.obj",
 	tiles = {

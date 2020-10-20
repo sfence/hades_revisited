@@ -1,3 +1,5 @@
+local S = minetest.get_translator("craftguide")
+
 local craftguide, datas, mt = {}, {}, minetest
 local progressive_mode = mt.settings:get_bool("craftguide_progressive_mode")
 local get_recipe, get_recipes = mt.get_craft_recipe, mt.get_all_craft_recipes
@@ -105,9 +107,9 @@ function craftguide:get_recipe(iY, xoffset, tooltip, item, recipe_num, recipes)
 	local formspec, recipes_total = "", #recipes
 	if recipes_total > 1 then
 		formspec = formspec ..
-			"button[0," .. (iY + 3) .. ";2,1;alternate;Alternate]" ..
-			"label[0," .. (iY + 2) .. ".5;Recipe " ..
-				recipe_num .. " of " .. recipes_total .. "]"
+			"button[0," .. (iY + 3) .. ";2,1;alternate;"..F(S("Alternate")).."]" ..
+			"label[0," .. (iY + 2) .. ".5;".. F(S("Recipe @1 of @2",
+				recipe_num, recipes_total)) .. "]"
 	end
 
 	local recipe_type = recipes[recipe_num].type
@@ -129,8 +131,8 @@ function craftguide:get_recipe(iY, xoffset, tooltip, item, recipe_num, recipes)
 			width > craftgrid_limit or rows > craftgrid_limit then
 		formspec = formspec ..
 			"label[" .. xoffset .. "," .. (iY + 2) ..
-				";Recipe is too big to\nbe displayed (" ..
-				width .. "x" .. rows .. ")]"
+				";"..F(S("Recipe is too big (@1x@2)",
+				width, rows)) .. ")]"
 	else
 		for i, v in pairs(items) do
 			local X = (i - 1) % width + xoffset
@@ -175,10 +177,10 @@ function craftguide:get_formspec(player_name, is_fuel)
 			background[1,1;1,1;craftguide_bg.png;true]
 			button[2.4,0.21;0.8,0.5;search;?]
 			button[3.05,0.21;0.8,0.5;clear;X]
-			tooltip[search;Search]
-			tooltip[clear;Reset]
-			tooltip[size_inc;Increase window size]
-			tooltip[size_dec;Decrease window size]
+			tooltip[search;]]..F(S("Search"))..[[]
+			tooltip[clear;]]..F(S("Reset"))..[[]
+			tooltip[size_inc;]]..F(S("Increase window size"))..[[]
+			tooltip[size_dec;]]..F(S("Decrease window size"))..[[]
 			field_close_on_enter[filter;false] ]] ..
 			"button[" .. (data.iX / 2) .. ",-0.02;0.7,1;size_inc;+]" ..
 			"button[" .. ((data.iX / 2) + 0.5) ..
@@ -195,7 +197,7 @@ function craftguide:get_formspec(player_name, is_fuel)
 
 	if not next(data.items) then
 		formspec = formspec ..
-			"label[" .. (xoffset - (even_num and 1.5 or 1)) .. ",2;No item to show]"
+			"label[" .. (xoffset - (even_num and 1.5 or 1)) .. ",2;"..F(S("No item to show")).."]"
 	end
 
 	local first_item = (data.pagenum - 1) * ipp
@@ -426,8 +428,8 @@ end
 
 if rawget(_G, "sfinv_buttons") then
 	sfinv_buttons.register_button("craftguide", {
-		title = "Crafting guide",
-		tooltip = "Shows a list of available crafting recipes, cooking recipes and fuels",
+		title = S("Crafting guide"),
+		tooltip = S("Shows a list of available crafting recipes, cooking recipes and fuels"),
 		action = function(player)
 			craftguide:on_use(nil, player)
 		end,

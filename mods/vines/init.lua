@@ -1,3 +1,5 @@
+local S = minetest.get_translator("vines")
+
 local mod_name = "vines"
 local average_height = 12
 local spawn_interval = 90
@@ -7,7 +9,7 @@ local vines_group = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1
 local walldir ={}
 
 minetest.register_node("vines:side", {
-  description = "Jungle Vine",
+  description = S("Jungle Vine"),
   walkable = false,
   climbable = true,
   drop = "",
@@ -35,7 +37,7 @@ minetest.register_node("vines:side", {
 })
 
 minetest.register_node("vines:side_rotten", {
-  description = "Rotten Jungle Vine",
+  description = S("Rotten Jungle Vine"),
   walkable = false,
   climbable = false,
   drop = "",
@@ -56,7 +58,7 @@ minetest.register_node("vines:side_rotten", {
 
 
 minetest.register_node("vines:willow", {
-  description = "Willow Vine",
+  description = S("Willow Vine"),
   walkable = false,
   climbable = true,
   drop = "",
@@ -86,7 +88,7 @@ minetest.register_node("vines:willow", {
 
 
 minetest.register_node("vines:willow_rotten", {
-  description = "Rotten Willow Vine",
+  description = S("Rotten Willow Vine"),
   walkable = false,
   climbable = false,
   sunlight_propagates = true,
@@ -107,7 +109,7 @@ minetest.register_node("vines:willow_rotten", {
 
 
 minetest.register_node("vines:root", {
-  description = "Root Vine",
+  description = S("Root Vine"),
   walkable = false,
   climbable = true,
   sunlight_propagates = true,
@@ -127,7 +129,7 @@ minetest.register_node("vines:root", {
 
 
 minetest.register_node("vines:vine", {
-  description = "Cave Vine",
+  description = S("Cave Vine"),
   walkable = false,
   climbable = true,
   sunlight_propagates = true,
@@ -155,7 +157,7 @@ minetest.register_node("vines:vine", {
 
 
 minetest.register_node("vines:vine_rotten", {
-  description = "Rotten Cave Vine",
+  description = S("Rotten Cave Vine"),
   walkable = false,
   climbable = true,
   drop = "",
@@ -212,7 +214,7 @@ minetest.register_abm({
 
 
 minetest.register_craftitem("vines:vines", {
-  description = "Detached Vine",
+  description = S("Detached Vine"),
   inventory_image = "vines_item.png",
 })
 
@@ -262,7 +264,7 @@ plantslib:spawn_on_surfaces({
 
 
 minetest.register_tool("vines:shears", {
-	description = "Shears",
+	description = S("Shears"),
 	inventory_image = "shears.png",
 	wield_image = "shears.png",
 	stack_max = 1,
@@ -287,7 +289,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("vines:vines_block",{
-	description = "Vines Block",
+	description = S("Vines Block"),
 	sunlight_propagates = true,
 	climbable = true,
 	tiles = {"vines_block.png", "vines_block.png", "vines_block.png"},

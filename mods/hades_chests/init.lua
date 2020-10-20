@@ -1,3 +1,5 @@
+local S = minetest.get_translator("hades_chests")
+
 local chest_formspec =
 	"size[8,9]"..
 	"list[current_name;main;0,0;8,4;]"..
@@ -24,21 +26,21 @@ local function has_locked_chest_privilege(meta, player)
 end
 
 local chests = {
-	{ "", "Chest", "Locked Chest" },
-	{ "white", "White Chest", "White Locked Chest" },
-	{ "grey", "Grey Chest", "Grey Locked Chest" },
-	{ "dark_grey", "Dark Grey Chest", "Dark Grey Locked Chest" },
-	{ "black", "Black Chest", "Black Locked Chest" },
-	{ "blue", "Blue Chest", "Blue Locked Chest" },
-	{ "cyan", "Cyan Chest", "Cyan Locked Chest" },
-	{ "dark_green", "Dark Green Chest", "Dark Green Locked Chest" },
-	{ "green", "Green Chest", "Green Locked Chest" },
-	{ "magenta", "Magenta Chest", "Magenta Locked Chest" },
-	{ "orange", "Orange Chest", "Orange Locked Chest" },
-	{ "pink", "Pink Chest", "Pink Locked Chest" },
-	{ "red", "Red Chest", "Red Locked Chest" },
-	{ "violet", "Violet Chest", "Violet Locked Chest" },
-	{ "yellow", "Yellow Chest", "Yellow Locked Chest" },
+	{ "", S("Chest"), S("Locked Chest") },
+	{ "white", S("White Chest"), S("White Locked Chest") },
+	{ "grey", S("Grey Chest"), S("Grey Locked Chest") },
+	{ "dark_grey", S("Dark Grey Chest"), S("Dark Grey Locked Chest") },
+	{ "black", S("Black Chest"), S("Black Locked Chest") },
+	{ "blue", S("Blue Chest"), S("Blue Locked Chest") },
+	{ "cyan", S("Cyan Chest"), S("Cyan Locked Chest") },
+	{ "dark_green", S("Dark Green Chest"), S("Dark Green Locked Chest") },
+	{ "green", S("Green Chest"), S("Green Locked Chest") },
+	{ "magenta", S("Magenta Chest"), S("Magenta Locked Chest") },
+	{ "orange", S("Orange Chest"), S("Orange Locked Chest") },
+	{ "pink", S("Pink Chest"), S("Pink Locked Chest") },
+	{ "red", S("Red Chest"), S("Red Locked Chest") },
+	{ "violet", S("Violet Chest"), S("Violet Locked Chest") },
+	{ "yellow", S("Yellow Chest"), S("Yellow Locked Chest") },
 
 }
 

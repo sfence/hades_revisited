@@ -2,9 +2,11 @@
 
 columnia = {}
 
+local S = minetest.get_translator("columnia")
+
 -- Bracket 
 minetest.register_node("columnia:bracket",	{ 
-            description = 'Bracket',
+            description = S("Bracket"),
 			tiles = {"columnia_rusty.png",},
 			drawtype = "nodebox",
 			sunlight_propagates = true,
@@ -37,7 +39,7 @@ minetest.register_craft({
 
 -- Lamp
 minetest.register_node("columnia:lamp_ceiling", {
-    description = "Column Lamp",
+    description = S("Column Lamp"),
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -80,7 +82,7 @@ minetest.register_craft({
 -- Rusty_Block
 
 minetest.register_node("columnia:rusty_block", {
-	description = "Rusty Block",
+	description = S("Rusty Block"),
 	tiles = {"columnia_rusty_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1},

@@ -1,5 +1,7 @@
+local S = minetest.get_translator("doors")
+
 doors.register_door("doors:door_wood", {
-	description = "Common Wood Door",
+	description = S("Common Wood Door"),
 	inventory_image = "doors_wood.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood.png", backface_culling=true}},
@@ -18,7 +20,7 @@ minetest.register_craft({
 })
 
 doors.register_door("doors:door_wood_pale", {
-	description = "Pale Wood Door",
+	description = S("Pale Wood Door"),
 	inventory_image = "doors_wood_pale.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_pale.png", backface_culling=true}},
@@ -36,7 +38,7 @@ minetest.register_craft({
 })
 
 doors.register_door("doors:door_wood_birch", {
-	description = "Birch Wood Door",
+	description = S("Birch Wood Door"),
 	inventory_image = "doors_wood_birch.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_birch.png", backface_culling=true}},
@@ -56,7 +58,7 @@ minetest.register_craft({
 
 
 doors.register_door("doors:door_wood_jungle", {
-	description = "Jungle Wood Door",
+	description = S("Jungle Wood Door"),
 	inventory_image = "doors_wood_jungle.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_jungle.png", backface_culling=true}},
@@ -76,7 +78,7 @@ minetest.register_craft({
 
 
 doors.register_door("doors:door_steel", {
-	description = "Plain Steel Door",
+	description = S("Plain Steel Door"),
 	inventory_image = "doors_steel.png",
 	groups = {snappy=1,cracky=1,level=2,door=1},
 	tiles = {{name="doors_door_steel.png", backface_culling=true}},
@@ -141,7 +143,7 @@ end
 -- stone
 doors.register_door("doors:door_stone", {
 	-- TODO: Make this door more hidden
-	description = "Stone Door",
+	description = S("Stone Door"),
 	inventory_image = "doors_stone.png",
 	groups = {snappy=1,cracky=1,level=2,door=1},
 	tiles = {{name="doors_door_stone.png", backface_culling=true}},
@@ -162,7 +164,7 @@ minetest.register_craft({
 })
 --glass
 doors.register_door("doors:door_glass", {
-	description = "Glass Door",
+	description = S("Glass Door"),
 	inventory_image = "doors_glass.png",
 	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
 	tiles = {"doors_door_glass.png"},
@@ -182,7 +184,7 @@ minetest.register_craft({
 })
 
 doors.register_door("doors:door_obsidian_glass", {
-	description = "Obsidian Glass Door",
+	description = S("Obsidian Glass Door"),
 	inventory_image = "doors_obsidian_glass.png",
 	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
 	tiles = {"doors_door_obsidian_glass.png"},
@@ -204,7 +206,7 @@ minetest.register_craft({
 
 
 doors.register_trapdoor("doors:trapdoor", {
-	description = "Common Wood Trapdoor",
+	description = S("Common Wood Trapdoor"),
 	inventory_image = "doors_trapdoor.png",
 	wield_image = "doors_trapdoor.png",
 	tile_front = "doors_trapdoor.png",
@@ -224,7 +226,7 @@ minetest.register_craft({
 })
 
 doors.register_trapdoor("doors:trapdoor_jungle", {
-	description = "Jungle Wood Trapdoor",
+	description = S("Jungle Wood Trapdoor"),
 	inventory_image = "doors_trapdoor_jungle.png",
 	wield_image = "doors_trapdoor_jungle.png",
 	tile_front = "doors_trapdoor_jungle.png",
@@ -244,7 +246,7 @@ minetest.register_craft({
 })
 
 doors.register_trapdoor("doors:trapdoor_pale", {
-	description = "Pale Wood Trapdoor",
+	description = S("Pale Wood Trapdoor"),
 	inventory_image = "doors_trapdoor_pale.png",
 	wield_image = "doors_trapdoor_pale.png",
 	tile_front = "doors_trapdoor_pale.png",
@@ -264,7 +266,7 @@ minetest.register_craft({
 })
 
 doors.register_trapdoor("doors:trapdoor_birch", {
-	description = "Birch Wood Trapdoor",
+	description = S("Birch Wood Trapdoor"),
 	inventory_image = "doors_trapdoor_birch.png",
 	wield_image = "doors_trapdoor_birch.png",
 	tile_front = "doors_trapdoor_birch.png",
@@ -284,7 +286,7 @@ minetest.register_craft({
 })
 
 doors.register_trapdoor("doors:trapdoor_steel", {
-	description = "Steel Trapdoor",
+	description = S("Steel Trapdoor"),
 	inventory_image = "doors_trapdoor_steel.png",
 	wield_image = "doors_trapdoor_steel.png",
 	tile_front = "doors_trapdoor_steel.png",
@@ -305,28 +307,28 @@ minetest.register_craft({
 })
 
 doors.register_fencegate("doors:gate_wood", {
-	description = "Common Wood Fence Gate",
+	description = S("Common Wood Fence Gate"),
 	texture = "default_wood.png",
 	material = "hades_trees:wood",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
 doors.register_fencegate("doors:gate_jungle_wood", {
-	description = "Jungle Wood Fence Gate",
+	description = S("Jungle Wood Fence Gate"),
 	texture = "default_junglewood.png",
 	material = "hades_trees:jungle_wood",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
 doors.register_fencegate("doors:gate_pale_wood", {
-	description = "Pale Wood Fence Gate",
+	description = S("Pale Wood Fence Gate"),
 	texture = "hades_trees_pale_wood.png",
 	material = "hades_trees:pale_wood",
 	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}
 })
 
 doors.register_fencegate("doors:gate_birch_wood", {
-	description = "Birch Wood Fence Gate",
+	description = S("Birch Wood Fence Gate"),
 	texture = "default_birchwood.png",
 	material = "hades_trees:birch_wood",
 	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}

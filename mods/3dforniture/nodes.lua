@@ -1,3 +1,5 @@
+local S = minetest.get_translator("3dforniture")
+
 --[[
    Some adjustments and expansions for Hades game added 2015 by Glünggi
    
@@ -36,7 +38,7 @@
 	        
 		--Table
 		minetest.register_node("3dforniture:table",
-			{description = 'Table',
+			{description = S("Table"),
 			tiles = {
 				"forniture_wood.png",
 				"forniture_wood.png",
@@ -68,7 +70,7 @@
 		})  
 		
 		minetest.register_node("3dforniture:table_black",
-			{description = 'Black Table',
+			{description = S("Black Table"),
 			tiles = {
 				"forniture_wood_black.png",
 				"forniture_wood_black.png",
@@ -100,7 +102,7 @@
 		})  
 		
 		minetest.register_node("3dforniture:table_white",
-			{description = 'White Table',
+			{description = S('White Table'),
 			tiles = {
 				"forniture_wood_white.png",
 				"forniture_wood_white.png",
@@ -133,7 +135,7 @@
 
 		--Chair
 		minetest.register_node("3dforniture:chair",
-			{ description = 'Chair',
+			{ description = S("Chair"),
 			tiles = {
 				"forniture_wood.png",
 				"forniture_wood.png",
@@ -166,7 +168,7 @@
 		})
 		
 		minetest.register_node("3dforniture:chair_black",
-			{ description = 'Black Chair',
+			{ description = S("Black Chair"),
 			tiles = {
 				"forniture_wood_black.png",
 				"forniture_wood_black.png",
@@ -199,7 +201,7 @@
 		})
 		
 		minetest.register_node("3dforniture:chair_white",
-			{ description = 'White Chair',
+			{ description = S("White Chair"),
 			tiles = {
 				"forniture_wood_white.png",
 				"forniture_wood_white.png",
@@ -233,7 +235,7 @@
 
 		--Armchair
 		minetest.register_node("3dforniture:armchair",
-			{ description = 'Black Armchair',
+			{ description = S("Black Armchair"),
 			tiles = {
 				"forniture_armchair_top.png",
 				"forniture_armchair_top.png",
@@ -275,7 +277,7 @@
 		})
 		
 		minetest.register_node("3dforniture:armchair_white",
-			{ description = 'White Armchair',
+			{ description = S("White Armchair"),
 			tiles = {
 				"forniture_armchair_top_white.png",
 				"forniture_armchair_top_white.png",
@@ -317,7 +319,7 @@
 		})
 		
 		minetest.register_node("3dforniture:armchair_blue",
-			{ description = 'Blue Armchair',
+			{ description = S("Blue Armchair"),
 			tiles = {
 				"forniture_armchair_top_blue.png",
 				"forniture_armchair_top_blue.png",
@@ -359,7 +361,7 @@
 		})
 		
 			minetest.register_node("3dforniture:armchair_brown",
-			{ description = 'Brown Armchair',
+			{ description = S("Brown Armchair"),
 			tiles = {
 				"forniture_armchair_top_brown.png",
 				"forniture_armchair_top_brown.png",
@@ -401,7 +403,7 @@
 		})
 		
 			minetest.register_node("3dforniture:armchair_red",
-			{ description = 'Red Armchair',
+			{ description = S("Red Armchair"),
 			tiles = {
 				"forniture_armchair_top_red.png",
 				"forniture_armchair_top_red.png",
@@ -443,7 +445,7 @@
 		})
 
 		minetest.register_node("3dforniture:armchair_green",
-			{ description = 'Green Armchair',
+			{ description = S("Green Armchair"),
 			tiles = {
 				"forniture_armchair_top_green.png",
 				"forniture_armchair_top_green.png",
@@ -501,7 +503,7 @@
 		end
 		--Table Lamp
 		minetest.register_node("3dforniture:table_lamp_"..lamps[l][1], {
-			description = "Table Lamp",
+			description = S("Table Lamp"),
 			drawtype = "nodebox",
 			tiles = {
 				"forniture_table_lamp_s.png",

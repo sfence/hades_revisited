@@ -1,7 +1,9 @@
+local S = minetest.get_translator("hades_food")
+
 -- ITEMS
 
 minetest.register_node("hades_food:plate", {
-	description = "Plate",
+	description = S("Plate"),
 	inventory_image = "default_plate.png",
 	wield_image = "default_plate.png",
 	tiles = { "default_plate.png" },
@@ -19,63 +21,63 @@ minetest.register_node("hades_food:plate", {
 })
 
 minetest.register_craftitem("hades_food:pie_strawberry_raw", {
-	description = "Raw Strawberry Pie (+3)",
+	description = S("Raw Strawberry Pie (+@1)", 3),
 	inventory_image = "default_strawberry_pie_raw.png",
 	on_use = minetest.item_eat(3),
 	groups = { food = 2, eatable = 3 },
 })
 
 minetest.register_craftitem("hades_food:pie_strawberry", {
-	description = "Strawberry Pie (+5)",
+	description = S("Strawberry Pie (+@1)", 5),
 	inventory_image = "default_strawberry_pie.png",
 	on_use = minetest.item_eat(5),
 	groups = { food = 2, eatable = 5 },
 })
 
 minetest.register_craftitem("hades_food:bottle_olive_oil", {
-	description = "Bottle of Olive Oil (+3)",
+	description = S("Bottle of Olive Oil (+@1)", 3),
 	inventory_image = "default_bottle_olive_oil.png",
 	on_use = minetest.item_eat(3, "vessels:glass_bottle"),
 	groups = { food = 3, eatable = 3 },
 })
 
 minetest.register_craftitem("hades_food:tomatosalad", {
-	description = "Tomato Salad (+6)",
+	description = S("Tomato Salad (+@1)", 6),
 	inventory_image = "default_tomatosalad.png",
 	on_use = minetest.item_eat(6, "hades_food:plate"),
 	groups = { food = 2, eatable = 6 },
 })
 
 minetest.register_craftitem("hades_food:tomato_potato_salad", {
-	description = "Tomato-Potato Salad (+8)",
+	description = S("Tomato-Potato Salad (+@1)", 8),
 	inventory_image = "default_tpsalad.png",
 	on_use = minetest.item_eat(8, "hades_food:plate"),
 	groups = { food = 2, eatable = 8 },
 })
 
 minetest.register_craftitem("hades_food:spiced_potato", {
-	description = "Spiced Potato (+0)",
+	description = S("Spiced Potato (+@1)", 0),
 	inventory_image = "default_spiced_potato.png",
 	on_use = minetest.item_eat(0),
 	groups = { food = 2 },
 })
 
 minetest.register_craftitem("hades_food:baked_potato", {
-	description = "Baked Potato (+4)",
+	description = S("Baked Potato (+@1)", 4),
 	inventory_image = "default_baked_potato.png",
 	on_use = minetest.item_eat(4),
 	groups = { food = 2, eatable = 4 },
 })
 
 minetest.register_craftitem("hades_food:pie_apple_raw", {
-	description = "Raw Apple Pie (+3)",
+	description = S("Raw Apple Pie (+@1)", 3),
 	inventory_image = "default_apple_pie_raw.png",
 	on_use = minetest.item_eat(3),
 	groups = { food = 2, eatable = 3 },
 })
 
 minetest.register_craftitem("hades_food:pie_apple", {
-	description = "Apple Pie (+5)",
+	description = S("Apple Pie (+@1)", 5),
 	inventory_image = "default_apple_pie.png",
 	on_use = minetest.item_eat(5),
 	groups = { food = 2, eatable = 5 },
