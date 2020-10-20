@@ -1,6 +1,3 @@
-highlandpools 0.1.1 by paramat
-For latest stable Minetest back to 0.4.8
-Depends default
-Licenses: code WTFPL
+This mod generates water and lava lakes.
 
-For use with mapgens V6 or indev, adds pools to floatlands.
+Based on the "highlandpools" mod by paramat.

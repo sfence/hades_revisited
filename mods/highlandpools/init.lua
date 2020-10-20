@@ -1,16 +1,11 @@
--- highlandpools 0.1.1 by paramat
--- For latest stable Minetest back to 0.4.8
--- Depends default
--- Licenses: code WTFPL
-
-
 -- Parameters
-
 local YMAX = 33000 -- Maximum altitude for pools
 local FLOW = 256
+-- End of parameters
 
--- On generated function
-minetest.register_on_generated(function(minp, maxp, seed)
+local c_air = minetest.CONTENT_AIR
+
+local function generate_lake(minp, maxp, seed, c_liquid, c_replace, c_lakebed)
 	local y0 = minp.y
 	if y0 < -32 or y0 > YMAX then
 		return
@@ -32,13 +27,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local data = vm:get_data()
 
 
-	local c_air = minetest.get_content_id("air")
-	local c_ignore = minetest.get_content_id("ignore")
-	local c_lava = minetest.get_content_id("hades_core:lava_source")
-	local c_ash = minetest.get_content_id("hades_core:ash")
-	local c_vgravel = minetest.get_content_id("hades_core:gravel_volcanic")
-
-
 	for xcen = x0 + 8, x1 - 7, 8 do
 	for zcen = z0 + 8, z1 - 7, 8 do
 		local yasurf = false -- y of above surface node
@@ -47,9 +35,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local c_node = data[vi]
 			if y == y1 and c_node ~= c_air then -- if top node solid
 				break
-			elseif c_node == c_lava then
+			elseif c_node == c_liquid then
 				break
-			elseif c_node == c_ash then
+			elseif c_node == c_replace then
 				yasurf = y + 1
 				break
 			end
@@ -98,32 +86,32 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 
 			local vi = area:index(xcen, yasurf, zcen)
-			data[vi] = c_lava
+			data[vi] = c_liquid
 			local flab = false -- flow abort
 			for flow = 1, FLOW do
 				for z = z0, z1 do
 					for x = x0, x1 do
 						local vif = area:index(x, yasurf, z)
-						if data[vif] == c_lava then
+						if data[vif] == c_liquid then
 							if x == x0 or x == x1 or z == z0 or z == z1 then
-								flab = true -- if water at chunk edge abort flow
+								flab = true -- if liquid at chunk edge, abort flow
 								break
-							else -- flow water
+							else -- flow liquid
 								local vie = area:index(x + 1, yasurf, z)
 								local viw = area:index(x - 1, yasurf, z)
 								local vin = area:index(x, yasurf, z + 1)
 								local vis = area:index(x, yasurf, z - 1)
 								if data[vie] == c_air then
-									data[vie] = c_lava
+									data[vie] = c_liquid
 								end
 								if data[viw] == c_air then
-									data[viw] = c_lava
+									data[viw] = c_liquid
 								end
 								if data[vin] == c_air then
-									data[vin] = c_lava
+									data[vin] = c_liquid
 								end
 								if data[vis] == c_air then
-									data[vis] = c_lava
+									data[vis] = c_liquid
 								end
 							end
 						end
@@ -136,26 +124,26 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					break
 				end
 			end
-			if flab then -- erase water from this y level
+			if flab then -- erase liquid from this y level
 				for z = z0, z1 do
 				for x = x0, x1 do
 					local vi = area:index(x, yasurf, z)
-					if data[vi] == c_lava then
+					if data[vi] == c_liquid then
 						data[vi] = c_air
 					end
 				end
 				end
-			else -- flow downwards add dirt
+			else -- flow downwards
 				for z = z0, z1 do
 				for x = x0, x1 do
 					local vi = area:index(x, yasurf, z)
-					if data[vi] == c_lava then
+					if data[vi] == c_liquid then
 						for y = yasurf - 1, y0, -1 do
 							local viu = area:index(x, y, z)
 							if data[viu] == c_air then
-								data[viu] = c_lava
-							elseif data[viu] == c_ash then
-								data[viu] = c_vgravel
+								data[viu] = c_liquid
+							elseif data[viu] == c_replace then
+								data[viu] = c_lakebed
 								break
 							else
 								break
@@ -177,4 +165,18 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 	local chugent = math.ceil((os.clock() - t1) * 1000)
 	minetest.log("verbose", "[highlandpools] time "..chugent.." ms")
+end
+
+minetest.register_on_generated(function(minp, maxp, seed)
+	local c_lava = minetest.get_content_id("hades_core:lava_source")
+	local c_ash = minetest.get_content_id("hades_core:ash")
+	local c_vgravel = minetest.get_content_id("hades_core:gravel_volcanic")
+	generate_lake(minp, maxp, seed, c_lava, c_ash, c_vgravel)
+end)
+
+minetest.register_on_generated(function(minp, maxp, seed)
+	local c_water = minetest.get_content_id("hades_core:water_source")
+	local c_tuff = minetest.get_content_id("hades_core:tuff")
+	local c_gravel = minetest.get_content_id("hades_core:gravel")
+	generate_lake(minp, maxp, seed, c_water, c_tuff, c_gravel)
 end)
