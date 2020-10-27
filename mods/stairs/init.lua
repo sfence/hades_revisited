@@ -56,17 +56,16 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_' .. subname .. ' 6',
+		output = 'stairs:stair_' .. subname .. ' 8',
 		recipe = {
 			{recipeitem, "", ""},
 			{recipeitem, recipeitem, ""},
 			{recipeitem, recipeitem, recipeitem},
 		},
 	})
-
-	-- Flipped recipe for the silly minecrafters
+	-- Flipped recipe
 	minetest.register_craft({
-		output = 'stairs:stair_' .. subname .. ' 6',
+		output = 'stairs:stair_' .. subname .. ' 8',
 		recipe = {
 			{"", "", recipeitem},
 			{"", recipeitem, recipeitem},
@@ -127,10 +126,9 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_out_' .. subname .. ' 5',
+		output = 'stairs:stair_out_' .. subname .. ' 4',
 		recipe = {
-			{"", "", recipeitem},
-			{"", "", recipeitem},
+			{"", recipeitem, ""},
 			{recipeitem, recipeitem, recipeitem},
 		},
 	})
@@ -188,10 +186,10 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_in_' .. subname .. ' 5',
+		output = 'stairs:stair_in_' .. subname .. ' 6',
 		recipe = {
-			{recipeitem, "", ""},
-			{recipeitem, "", ""},
+			{"", recipeitem, ""},
+			{recipeitem, "", recipeitem},
 			{recipeitem, recipeitem, recipeitem},
 		},
 	})
@@ -1095,17 +1093,16 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_glowcrystal_block 6',
+		output = 'stairs:stair_glowcrystal_block 8',
 		recipe = {
 			{"glowcrystals:glowcrystal_block", "", ""},
 			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", ""},
 			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
 		},
 	})
-
-	-- Flipped recipe for the silly minecrafters
+	-- Flipped recipe
 	minetest.register_craft({
-		output = 'stairs:stair_glowcrystal_block 6',
+		output = 'stairs:stair_glowcrystal_block 8',
 		recipe = {
 			{"", "", "glowcrystals:glowcrystal_block"},
 			{"", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
@@ -1167,10 +1164,9 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_out_glowcrystal_block 5',
+		output = 'stairs:stair_out_glowcrystal_block 4',
 		recipe = {
-			{"", "", "glowcrystals:glowcrystal_block"},
-			{"", "", "glowcrystals:glowcrystal_block"},
+			{"", "glowcrystals:glowcrystal_block", ""},
 			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
 		},
 	})
@@ -1228,10 +1224,10 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_in_glowcrystal_block 5',
+		output = 'stairs:stair_in_glowcrystal_block 6',
 		recipe = {
-			{"glowcrystals:glowcrystal_block", "", ""},
-			{"glowcrystals:glowcrystal_block", "", ""},
+			{"", "glowcrystals:glowcrystal_block", ""},
+			{"glowcrystals:glowcrystal_block", "", "glowcrystals:glowcrystal_block"},
 			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
 		},
 	})

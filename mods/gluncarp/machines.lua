@@ -131,12 +131,15 @@ minetest.register_node("gluncarp:machine", {
 			if woolname == "wool:"..color then
 				material = color
 				count = 4
+			elseif woolname == "gluncarp:wool_"..color then
+				material = color
+				count = 4
 			elseif woolname == "stairs:slab_"..color then
 				material = color
 				count = 2
 			elseif woolname == "stairs:stair_"..color then
 				material = color
-				count = 4
+				count = 3
 			elseif woolname == "stairs:stair_in_"..color then
 				material = color
 				count = 4
