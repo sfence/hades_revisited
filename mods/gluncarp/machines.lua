@@ -1,6 +1,25 @@
 local S = minetest.get_translator("gluncarp")
 local F = minetest.formspec_escape
 
+local colors = {
+	"black",
+	"blue",
+	"brown",
+	"cyan",
+	"dark_green",
+	"dark_grey",
+	"green",
+	"grey",
+	"magenta",
+	"orange",
+	"pink",
+	"red",
+	"violet",
+	"white",
+	"yellow",
+	"blackgold",
+}
+
 minetest.register_node("gluncarp:machine", {
 	description = S("Carpet Workstation"),
 	tiles = {
@@ -90,14 +109,11 @@ minetest.register_node("gluncarp:machine", {
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 
-		-----------------------------
 		if not fields["carpet"] then
 			return
 		end
 
-		local count = 4
-		local material
-		--Crown Mould-----------------------------------------
+		local count, material
 		if fields["carpet"] then
 			if inv:is_empty("wool") then
 				return
@@ -110,55 +126,24 @@ minetest.register_node("gluncarp:machine", {
 ----------------------------------------------------------------------
 --Register Items
 ----------------------------------------------------------------------
-		if woolname=="wool:white" then
-			material = "white"
-		end
-		if woolname=="wool:black" then
-			material = "black"
-		end
-		if woolname=="wool:blue" then
-			material = "blue"
-		end
-		if woolname=="wool:brown" then
-			material = "brown"
-		end
-		if woolname=="wool:cyan" then
-			material = "cyan"
-		end
-		if woolname=="wool:dark_green" then
-			material = "dark_green"
-		end
-		if woolname=="wool:dark_grey" then
-			material = "dark_grey"
-		end
-		if woolname=="wool:green" then
-			material = "green"
-		end
-		if woolname=="wool:grey" then
-			material = "grey"
-		end
-		if woolname=="wool:magenta" then
-			material = "magenta"
-		end
-		if woolname=="wool:orange" then
-			material = "orange"
-		end
-		if woolname=="wool:pink" then
-			material = "pink"
-		end
-		if woolname=="wool:red" then
-			material = "red"
-		end
-		if woolname=="wool:violet" then
-			material = "violet"
-		end
-		if woolname=="wool:yellow" then
-			material = "yellow"
-		end
-
-		--more wool
-		if woolname=="gluncarp:wool_blackgold" then
-			material = "blackgold"
+		for col=1,#colors do
+			local color = colors[col]
+			if woolname == "wool:"..color then
+				material = color
+				count = 4
+			elseif woolname == "stairs:slab_"..color then
+				material = color
+				count = 2
+			elseif woolname == "stairs:stair_"..color then
+				material = color
+				count = 4
+			elseif woolname == "stairs:stair_in_"..color then
+				material = color
+				count = 4
+			elseif woolname == "stairs:stair_out_"..color then
+				material = color
+				count = 4
+			end
 		end
 ----------------------------------------------------------------------
 		if material then
