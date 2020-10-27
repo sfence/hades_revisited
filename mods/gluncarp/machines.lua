@@ -1,3 +1,6 @@
+local S = minetest.get_translator("gluncarp")
+local F = minetest.formspec_escape
+
 local material = {}
 local shape = {}
 local make_ok = {}
@@ -5,7 +8,7 @@ local anzahl = {}
 
 
 minetest.register_node("gluncarp:machine", {
-	description = "Carpet Workstation",
+	description = S("Carpet Workstation"),
 	tiles = {
 		"gluncarp_machine_top.png",
 		"gluncarp_machine_bottom.png",
@@ -49,10 +52,10 @@ minetest.register_node("gluncarp:machine", {
 	sounds = hades_sounds.node_sound_wood_defaults(),
 
 	after_place_node = function(pos, placer)
-	local meta = minetest.get_meta(pos);
-			meta:set_string("owner",  (placer:get_player_name() or ""));
-			meta:set_string("infotext",  "Carpet workstation is empty (owned by " .. (placer:get_player_name() or "") .. ")");
-		end,
+		local meta = minetest.get_meta(pos);
+		meta:set_string("owner",  (placer:get_player_name() or ""));
+		meta:set_string("infotext",  S("Carpet workstation is empty (owned by @1)", placer:get_player_name() or ""));
+	end,
 
 can_dig = function(pos,player)
 	local meta = minetest.get_meta(pos);
@@ -72,10 +75,10 @@ on_construct = function(pos)
 		"background9[6,6;10,6;gluncarp_background.png;true;6]"..
 		"list[current_name;ingot;3,0.5;1,1;]"..
 		"list[current_name;res;6,0.5;1,1;]"..
-		"label[3,0;Wool:]"..
-		"label[6,0;Output:]"..
+		"label[3,0;"..F(S("Wool:")).."]"..
+		"label[6,0;"..F(S("Output:")).."]"..
 
-		"label[4.5,0;Craft:]"..
+		"label[4.5,0;"..F(S("Craft:")).."]"..
 		"image_button[4.5,0.5;1,1;gluncarp_mach1.png;carpet; ]"..
 
 		"list[current_player;main;1,2;8,4;]"..
@@ -83,7 +86,7 @@ on_construct = function(pos)
 		"listring[current_name;ingot]"..
 		"listring[current_player;main]"..
 		"listring[current_name;res]")
-	meta:set_string("infotext", "Carpet workstation")
+	meta:set_string("infotext", S("Carpet workstation"))
 	local inv = meta:get_inventory()
 	inv:set_size("ingot", 1)
 	inv:set_size("res", 1)
