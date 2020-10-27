@@ -1,12 +1,6 @@
 local S = minetest.get_translator("gluncarp")
 local F = minetest.formspec_escape
 
-local material = {}
-local shape = {}
-local make_ok = {}
-local anzahl = {}
-
-
 minetest.register_node("gluncarp:machine", {
 	description = S("Carpet Workstation"),
 	tiles = {
@@ -57,133 +51,118 @@ minetest.register_node("gluncarp:machine", {
 		meta:set_string("infotext",  S("Carpet workstation is empty (owned by @1)", placer:get_player_name() or ""));
 	end,
 
-can_dig = function(pos,player)
-	local meta = minetest.get_meta(pos);
-	local inv = meta:get_inventory()
-	if not inv:is_empty("ingot") then
-		return false
-	elseif not inv:is_empty("res") then
-		return false
-	end
-	return true
-end,
+	can_dig = function(pos,player)
+		local meta = minetest.get_meta(pos);
+		local inv = meta:get_inventory()
+		if not inv:is_empty("wool") then
+			return false
+		elseif not inv:is_empty("res") then
+			return false
+		end
+		return true
+	end,
 
-on_construct = function(pos)
-	local meta = minetest.get_meta(pos)
-	meta:set_string("formspec", "size[10,6;]"..
-		"bgcolor[#00000000;neither]"..
-		"background9[6,6;10,6;gluncarp_background.png;true;6]"..
-		"list[current_name;ingot;3,0.5;1,1;]"..
-		"list[current_name;res;6,0.5;1,1;]"..
-		"label[3,0;"..F(S("Wool:")).."]"..
-		"label[6,0;"..F(S("Output:")).."]"..
+	on_construct = function(pos)
+		local meta = minetest.get_meta(pos)
+		meta:set_string("formspec", "size[10,6;]"..
+			"bgcolor[#00000000;neither]"..
+			"background9[6,6;10,6;gluncarp_background.png;true;6]"..
+			"list[current_name;wool;3,0.5;1,1;]"..
+			"list[current_name;res;6,0.5;1,1;]"..
+			"label[3,0;"..F(S("Wool:")).."]"..
+			"label[6,0;"..F(S("Output:")).."]"..
 
-		"label[4.5,0;"..F(S("Craft:")).."]"..
-		"image_button[4.5,0.5;1,1;gluncarp_mach1.png;carpet; ]"..
+			"label[4.5,0;"..F(S("Craft:")).."]"..
+			"image_button[4.5,0.5;1,1;gluncarp_mach1.png;carpet; ]"..
 
-		"list[current_player;main;1,2;8,4;]"..
-		"listring[current_player;main]"..
-		"listring[current_name;ingot]"..
-		"listring[current_player;main]"..
-		"listring[current_name;res]")
-	meta:set_string("infotext", S("Carpet workstation"))
-	local inv = meta:get_inventory()
-	inv:set_size("ingot", 1)
-	inv:set_size("res", 1)
-end,
+			"list[current_player;main;1,2;8,4;]"..
+			"listring[current_player;main]"..
+			"listring[current_name;wool]"..
+			"listring[current_player;main]"..
+			"listring[current_name;res]")
+		meta:set_string("infotext", S("Carpet workstation"))
+		local inv = meta:get_inventory()
+		inv:set_size("wool", 1)
+		inv:set_size("res", 1)
+	end,
 
-on_receive_fields = function(pos, formname, fields, sender)
-	local meta = minetest.get_meta(pos)
-	local inv = meta:get_inventory()
+	on_receive_fields = function(pos, formname, fields, sender)
+		local meta = minetest.get_meta(pos)
+		local inv = meta:get_inventory()
 
------------------------------
-if fields["carpet"] 
-then
-
---Crown Mould-----------------------------------------
-	if fields["carpet"] then
-		make_ok = "0"
-		anzahl = "4"
-		shape = "gluncarp:"
-		if inv:is_empty("ingot") then
+		-----------------------------
+		if not fields["carpet"] then
 			return
 		end
-	end
-	
-	local ingotstack = inv:get_stack("ingot", 1)
-	local resstack = inv:get_stack("res", 1)
+
+		local count = 4
+		local material
+		--Crown Mould-----------------------------------------
+		if fields["carpet"] then
+			if inv:is_empty("wool") then
+				return
+			end
+		end
+
+		local woolstack = inv:get_stack("wool", 1)
+		local woolname = woolstack:get_name()
+		local resstack = inv:get_stack("res", 1)
 ----------------------------------------------------------------------
 --Register Items
 ----------------------------------------------------------------------
-		if ingotstack:get_name()=="wool:white" then
-				material = "white"
-				make_ok = "1"
+		if woolname=="wool:white" then
+			material = "white"
 		end
-		if ingotstack:get_name()=="wool:black" then
-				material = "black"
-				make_ok = "1"
+		if woolname=="wool:black" then
+			material = "black"
 		end
-		if ingotstack:get_name()=="wool:blue" then
-				material = "blue"
-				make_ok = "1"
+		if woolname=="wool:blue" then
+			material = "blue"
 		end
-		if ingotstack:get_name()=="wool:brown" then
-				material = "brown"
-				make_ok = "1"
+		if woolname=="wool:brown" then
+			material = "brown"
 		end
-		if ingotstack:get_name()=="wool:cyan" then
-				material = "cyan"
-				make_ok = "1"
+		if woolname=="wool:cyan" then
+			material = "cyan"
 		end
-		if ingotstack:get_name()=="wool:dark_green" then
-				material = "dark_green"
-				make_ok = "1"
+		if woolname=="wool:dark_green" then
+			material = "dark_green"
 		end
-		if ingotstack:get_name()=="wool:dark_grey" then
-				material = "dark_grey"
-				make_ok = "1"
+		if woolname=="wool:dark_grey" then
+			material = "dark_grey"
 		end
-		if ingotstack:get_name()=="wool:green" then
-				material = "green"
-				make_ok = "1"
+		if woolname=="wool:green" then
+			material = "green"
 		end
-		if ingotstack:get_name()=="wool:grey" then
-				material = "grey"
-				make_ok = "1"
+		if woolname=="wool:grey" then
+			material = "grey"
 		end
-		if ingotstack:get_name()=="wool:magenta" then
-				material = "magenta"
-				make_ok = "1"
+		if woolname=="wool:magenta" then
+			material = "magenta"
 		end
-		if ingotstack:get_name()=="wool:orange" then
-				material = "orange"
-				make_ok = "1"
+		if woolname=="wool:orange" then
+			material = "orange"
 		end
-		if ingotstack:get_name()=="wool:pink" then
-				material = "pink"
-				make_ok = "1"
+		if woolname=="wool:pink" then
+			material = "pink"
 		end
-		if ingotstack:get_name()=="wool:red" then
-				material = "red"
-				make_ok = "1"
+		if woolname=="wool:red" then
+			material = "red"
 		end
-		if ingotstack:get_name()=="wool:violet" then
-				material = "violet"
-				make_ok = "1"
+		if woolname=="wool:violet" then
+			material = "violet"
 		end
-		if ingotstack:get_name()=="wool:yellow" then
-				material = "yellow"
-				make_ok = "1"
+		if woolname=="wool:yellow" then
+			material = "yellow"
 		end
-		--moe wool
-		
-		if ingotstack:get_name()=="gluncarp:wool_blackgold" then
-				material = "blackgold"
-				make_ok = "1"
+
+		--more wool
+		if woolname=="gluncarp:wool_blackgold" then
+			material = "blackgold"
 		end
 ----------------------------------------------------------------------
-		if make_ok == "1" then
-			local output_item = shape..material
+		if material then
+			local output_item = "gluncarp:"..material
 			if not inv:is_empty("res") then
 				if resstack:get_name() ~= output_item then
 					return
@@ -192,33 +171,29 @@ then
 				end
 			end
 			local success = false
-			for i = 0, anzahl-1 do
+			for i = 0, count-1 do
 				local result = inv:add_item("res", output_item)
 				if result ~= nil then
 					success = true
 				end
 			end
 			if success then
-				ingotstack:take_item()
-				inv:set_stack("ingot", 1, ingotstack)
+				woolstack:take_item()
+				inv:set_stack("wool", 1, woolstack)
 			end
 		end            
-
-	
-end
-end
-
+	end,
 
 })
 
 --Craft
 
 minetest.register_craft({
-		output = 'gluncarp:machine',
-		recipe = {
-			{'group:wood', 'group:stick', 'group:wood'},
-			{'farming:string', 'farming:string', 'farming:string'},
-			{'group:wood', "group:stick", 'group:wood'},		
-		},
+	output = 'gluncarp:machine',
+	recipe = {
+		{'group:wood', 'group:stick', 'group:wood'},
+		{'farming:string', 'farming:string', 'farming:string'},
+		{'group:wood', "group:stick", 'group:wood'},
+	},
 })
 
