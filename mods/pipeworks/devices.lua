@@ -99,7 +99,8 @@ for s in ipairs(states) do
 		on_punch = function(pos, node, puncher)
 			local fdir = minetest.get_node(pos).param2
 			minetest.add_node(pos, { name = "pipeworks:pump_"..states[3-s], param2 = fdir })
-		end
+		end,
+		on_rotate = false,
 	})
 	
 	local valveboxes = {}
@@ -158,7 +159,8 @@ for s in ipairs(states) do
 		on_punch = function(pos, node, puncher)
 			local fdir = minetest.get_node(pos).param2
 			minetest.add_node(pos, { name = "pipeworks:valve_"..states[3-s].."_empty", param2 = fdir })
-		end
+		end,
+		on_rotate = false,
 	})
 end
 
@@ -211,7 +213,8 @@ minetest.register_node("pipeworks:valve_on_loaded", {
 	on_punch = function(pos, node, puncher)
 		local fdir = minetest.get_node(pos).param2
 		minetest.add_node(pos, { name = "pipeworks:valve_off_empty", param2 = fdir })
-	end
+	end,
+	on_rotate = false,
 })
 
 -- grating
@@ -274,10 +277,11 @@ minetest.register_node("pipeworks:spigot", {
 		type = "fixed",
 		fixed = spigotboxes,
 	},
+	on_rotate = false,
 	selection_box = {
 		type = "fixed",
 		fixed = { -2/16, -6/16, -2/16, 2/16, 2/16, 8/16 }
-	}
+	},
 })
 
 minetest.register_node("pipeworks:spigot_pouring", {
@@ -331,6 +335,7 @@ minetest.register_node("pipeworks:spigot_pouring", {
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
+	on_rotate = false,
 	node_box = {
 		type = "fixed",
 		fixed = spigotboxes_pouring,
@@ -373,6 +378,7 @@ minetest.register_node("pipeworks:entry_panel_empty", {
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
+	on_rotate = false,
 	node_box = {
 		type = "fixed",
 		fixed = airtightboxes,
@@ -459,6 +465,7 @@ minetest.register_node("pipeworks:entry_panel_loaded", {
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
+	on_rotate = false,
 	node_box = {
 		type = "fixed",
 		fixed = airtightboxes,
@@ -502,6 +509,7 @@ minetest.register_node("pipeworks:flow_sensor_empty", {
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
+	on_rotate = false,
 	on_construct = function(pos)
 		if mesecon then
 			mesecon:receptor_off(pos, rules) 
@@ -548,6 +556,7 @@ minetest.register_node("pipeworks:flow_sensor_loaded", {
 			mesecon:receptor_on(pos, rules) 
 		end
 	end,
+	on_rotate = false,
 	node_box = {
 		type = "fixed",
 		fixed = sensorboxes,
@@ -559,7 +568,8 @@ minetest.register_node("pipeworks:flow_sensor_loaded", {
 		}
 	},
 	drop = "pipeworks:flow_sensor_empty",
-	mesecons = pipereceptor_on
+	mesecons = pipereceptor_on,
+	on_rotate = false,
 })
 
 -- tanks
@@ -599,6 +609,7 @@ for fill = 0, 10 do
 		after_dig_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
+		on_rotate = false,
 	})
 
 	minetest.register_node("pipeworks:storage_tank_"..fill, {
@@ -624,6 +635,7 @@ for fill = 0, 10 do
 		after_dig_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
+		on_rotate = false,
 	})
 end
 
@@ -662,6 +674,7 @@ minetest.register_node("pipeworks:fountainhead", {
 		type = "fixed",
 		fixed = { -2/16, -8/16, -2/16, 2/16, 8/16, 2/16 }
 	},
+	on_rotate = false,
 })
 
 minetest.register_node("pipeworks:fountainhead_pouring", {
@@ -696,7 +709,8 @@ minetest.register_node("pipeworks:fountainhead_pouring", {
 		type = "fixed",
 		fixed = { -2/16, -8/16, -2/16, 2/16, 8/16, 2/16 },
 	},
-	drop = "pipeworks:fountainhead"
+	drop = "pipeworks:fountainhead",
+	on_rotate = false,
 })
 
 minetest.register_alias("pipeworks:valve_off_loaded", "pipeworks:valve_off_empty")

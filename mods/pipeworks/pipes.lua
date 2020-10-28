@@ -88,7 +88,8 @@ for index, connects in ipairs(cconnects) do
 		end,
 		after_dig_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
-		end
+		end,
+		on_rotate = false,
 	})
 	
 	local pgroups = {snappy = 3, pipe = 1, not_in_creative_inventory = 1}
@@ -117,7 +118,8 @@ for index, connects in ipairs(cconnects) do
 		end,
 		after_dig_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
-		end
+		end,
+		on_rotate = false,
 	})
 	
 	table.insert(pipes_empty_nodenames, "pipeworks:pipe_"..index.."_empty")
@@ -141,6 +143,7 @@ if REGISTER_COMPATIBILITY then
 		after_place_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
+		on_rotate = false,
 	})
 	minetest.register_node(cloaded, {
 		drawtype = "airlike",
@@ -152,6 +155,7 @@ if REGISTER_COMPATIBILITY then
 		after_place_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
+		on_rotate = false,
 	})
 	for xm = 0, 1 do
 	for xp = 0, 1 do
