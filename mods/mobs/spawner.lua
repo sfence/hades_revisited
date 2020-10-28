@@ -4,7 +4,7 @@ local S = minetest.get_translator("mobs")
 
 -- mob spawner
 
-local spawner_default = "mobs_animal:pumba 10 15 0 0"
+local spawner_default = "mobs_hades:mutant 0 15 0 0"
 
 minetest.register_node("mobs:spawner", {
 	tiles = {"mob_spawner.png"},
