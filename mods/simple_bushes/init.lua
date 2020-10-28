@@ -17,7 +17,7 @@ minetest.register_node("simple_bushes:green", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_green=1},
+	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_green=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -45,7 +45,7 @@ minetest.register_node("simple_bushes:white", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_white=1},
+	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_white=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -73,7 +73,7 @@ minetest.register_node("simple_bushes:yellow", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_yellow=1},
+	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_yellow=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -101,7 +101,7 @@ minetest.register_node("simple_bushes:blue", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_blue=1},
+	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_blue=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -129,7 +129,7 @@ minetest.register_node("simple_bushes:red", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_red=1},
+	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_red=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -157,7 +157,7 @@ minetest.register_node("simple_bushes:orange", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_orange=1},
+	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_orange=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -186,7 +186,7 @@ minetest.register_node("simple_bushes:violet", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_violet=1},
+	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_violet=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -228,57 +228,3 @@ minetest.register_craft({ output = "simple_bushes:plant_pot", recipe = {
 	{"hades_core:clay_brick", "", "hades_core:clay_brick"},
 	{"hades_core:clay_brick", "hades_core:dirt", "hades_core:clay_brick"},
 	{"hades_core:clay_brick", "hades_core:clay_brick", "hades_core:clay_brick"} } })
----------------
-
--- abm
-
-minetest.register_abm({
-	label = "Spread flora",
-	nodenames = {"group:flora"},
-	neighbors = {"hades_core:dirt_with_grass"},
-	interval = 150,
-	chance = 40,
-	action = function(pos, node)
-		pos.y = pos.y - 1
-		local under = minetest.get_node(pos)
-		pos.y = pos.y + 1
-		if under.name ~= "hades_core:dirt_with_grass" then
-			return
-		end
-
-
-		local light = minetest.get_node_light(pos)
-		if not light or light < 8 then
-			return
-		end
-
-
-		local pos0 = {x=pos.x-4,y=pos.y-4,z=pos.z-4}
-		local pos1 = {x=pos.x+4,y=pos.y+4,z=pos.z+4}
-		-- if #minetest.find_nodes_in_area(pos0, pos1, "group:flora_block") > 0 then
-			-- return
-		-- end
-
-
-		local flowers = minetest.find_nodes_in_area(pos0, pos1, "group:flora")
-		if #flowers > 3 then
-			return
-		end
-
-
-		local seedling = minetest.find_nodes_in_area(pos0, pos1, "hades_core:dirt_with_grass")
-		if #seedling > 0 then
-			seedling = seedling[math.random(#seedling)]
-			seedling.y = seedling.y + 1
-			light = minetest.get_node_light(seedling)
-			if not light or light < 8 then
-				return
-			end
-			if minetest.get_node(seedling).name == "air" then
-				minetest.set_node(seedling, {name=node.name})
-			end
-		end
-	end,
-})
-
-
