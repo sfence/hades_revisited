@@ -4,4 +4,3 @@ hades_furnaces
 hades_chests
 mesecons?
 mesecons_mvps?
-travelnet

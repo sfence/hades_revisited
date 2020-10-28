@@ -23,22 +23,6 @@ travelnet.doors_enabled            = true;
 
 -- change these if you want other receipes for travelnet or elevator
 
---
-minetest.register_craftitem("travelnet:teleporter_device", {
-	description = S("Teleporter Device"),
-	inventory_image = "travelnet_teleporter_device.png",
-                    
-})
-
-minetest.register_craft({
-	output = 'travelnet:teleporter_device',
-	recipe = {
-		{'hades_core:tin_ingot', 'hades_core:gold_ingot', 'hades_core:tin_ingot'},
-        {'hades_core:gold_ingot', 'hades_core:prismatic_gem', 'hades_core:gold_ingot'},
-        {'hades_core:tin_ingot', 'mesecons_powerplant:power_plant', 'hades_core:tin_ingot'},
-	}
-})
-
 travelnet.travelnet_recipe = {
          {"hades_core:glass", "hades_core:steel_ingot", "hades_core:glass", },
          {"hades_core:tin_ingot", "travelnet:teleporter_device", "hades_core:tin_ingot", },

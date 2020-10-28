@@ -23,6 +23,20 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craftitem("hades_materials:teleporter_device", {
+	description = S("Teleporter Device"),
+	inventory_image = "hades_materials_teleporter_device.png",
+})
+
+minetest.register_craft({
+	output = 'travelnet:teleporter_device',
+	recipe = {
+		{'hades_core:tin_ingot', 'hades_core:gold_ingot', 'hades_core:tin_ingot'},
+		{'hades_core:gold_ingot', 'hades_core:prismatic_gem', 'hades_core:gold_ingot'},
+		{'hades_core:tin_ingot', 'mesecons_powerplant:power_plant', 'hades_core:tin_ingot'},
+	}
+})
+
 minetest.register_craft({
 	type = "cooking",
 	output = "hades_materials:plastic_sheeting",
@@ -41,5 +55,6 @@ minetest.register_craft({
 	burntime = 30,
 })
 
-minetest.register_alias("homedecor:plastic_base", "hades_materials_plastic_base")
-minetest.register_alias("homedecor:plastic_sheeting", "hades_materials_plastic_sheeting")
+minetest.register_alias("homedecor:plastic_base", "hades_materials:plastic_base")
+minetest.register_alias("homedecor:plastic_sheeting", "hades_materials:plastic_sheeting")
+minetest.register_alias("travelnet:teleporter_device", "hades_materials:teleporter_device")
