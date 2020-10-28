@@ -5,7 +5,7 @@ staffgaia = {}
 
 local conv = function(pos)
 	local nodename = minetest.get_node(pos).name
-	if nodename == "hades_core:ash" or nodename == "hades_core:fertile_sand" or nodename == "hades_core:stone_baked" or nodename == "hades_core:stone" or nodename == "hades_core:cobble" or nodename == "hades_core:mossystone" or nodename == "hades_core:tuff" or nodename == "hades_core:tuff_baked" or nodename == "hades_core:mossytuff" or nodename == "hades_core:mossycobble" then
+	if nodename == "hades_core:ash" or nodename == "hades_core:fertile_sand" or nodename == "hades_core:stone_baked" or nodename == "hades_core:stone" or nodename == "hades_core:mossystone" or nodename == "hades_core:tuff" or nodename == "hades_core:tuff_baked" or nodename == "hades_core:mossytuff" then
 		-- minetest.remove_node(pos)
         minetest.set_node(pos, {name="hades_core:dirt"})
 		minetest.check_for_falling(pos)
@@ -71,7 +71,7 @@ end
 
 minetest.register_tool("staffgaia:staff", {
 	description = S("Staff of Gaia"),
-	_tt_help = S("Turns ash, sand, stone, tuff and cobblestone to dirt"),
+	_tt_help = S("Turns ash, sand, stone and tuff to dirt"),
 	inventory_image = "staff_of_gaia.png",
 
 
