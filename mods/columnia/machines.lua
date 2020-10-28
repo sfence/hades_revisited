@@ -41,15 +41,15 @@ minetest.register_node("columnia:machine", {
 	sounds = hades_sounds.node_sound_wood_defaults(),
 
 	after_place_node = function(pos, placer)
-	local meta = minetest.get_meta(pos);
-			meta:set_string("owner",  (placer:get_player_name() or ""));
-			local pname = placer:get_player_name()
-			if pname then
-				meta:set_string("infotext",  S("Columnia workstation is empty (owned by @1)", pname))
-			else
-				meta:set_string("infotext",  S("Columnia workstation is empty"))
-			end
-		end,
+		local meta = minetest.get_meta(pos);
+		meta:set_string("owner",  (placer:get_player_name() or ""));
+		local pname = placer:get_player_name()
+		if pname then
+			meta:set_string("infotext",  S("Columnia workstation (owned by @1)", pname))
+		else
+			meta:set_string("infotext",  S("Columnia workstation"))
+		end
+	end,
 
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);

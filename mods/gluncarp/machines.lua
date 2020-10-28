@@ -67,7 +67,7 @@ minetest.register_node("gluncarp:machine", {
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos);
 		meta:set_string("owner",  (placer:get_player_name() or ""));
-		meta:set_string("infotext",  S("Carpet workstation is empty (owned by @1)", placer:get_player_name() or ""));
+		meta:set_string("infotext",  S("Carpet workstation (owned by @1)", placer:get_player_name() or ""));
 	end,
 
 	can_dig = function(pos,player)
