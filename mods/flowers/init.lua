@@ -3,9 +3,6 @@ local S = minetest.get_translator("flowers")
 -- Minetest 0.4 mod: default
 -- See README.txt for licensing and other information.
 
--- Map Generation
-dofile(minetest.get_modpath("flowers").."/mapgen.lua")
-
 -- Aliases for original flowers mod
 minetest.register_alias("flowers:flower_dandelion_white", "flowers:dandelion_white")
 minetest.register_alias("flowers:flower_dandelion_yellow", "flowers:dandelion_yellow")

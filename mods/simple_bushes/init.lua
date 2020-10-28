@@ -2,9 +2,6 @@ local S = minetest.get_translator("simple_bushes")
 
 -- See README.txt for licensing and other information.
 
--- Map Generation
-dofile(minetest.get_modpath("simple_bushes").."/mapgen.lua")
-
 -- nodes and crafting
 minetest.register_node("simple_bushes:green", {
 	description = S("Green Bush"),
