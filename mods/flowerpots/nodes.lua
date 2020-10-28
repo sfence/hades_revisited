@@ -33,6 +33,7 @@ local cubes = {
 
 minetest.register_node("flowerpots:flower_pot", {
 	description = S("Flower Pot"),
+	_tt_help = S("Can hold a flower or other small plant"),
 	drawtype = "mesh",
 	mesh = "flowerpot.obj",
 	tiles = {

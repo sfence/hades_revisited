@@ -1,7 +1,9 @@
 local S = minetest.get_translator("farming")
+local tt = S("Turns Dirt to Soil")
 
 farming.register_hoe(":farming:hoe_wood", {
 	description = S("Wooden Hoe"),
+	_tt_help = tt,
 	inventory_image = "farming_tool_woodhoe.png",
 	groups = { hoe = 1, },
 	max_uses = 30,
@@ -10,6 +12,7 @@ farming.register_hoe(":farming:hoe_wood", {
 
 farming.register_hoe(":farming:hoe_stone", {
 	description = S("Stone Hoe"),
+	_tt_help = tt,
 	inventory_image = "farming_tool_stonehoe.png",
 	groups = { hoe = 1, },
 	max_uses = 90,
@@ -18,6 +21,7 @@ farming.register_hoe(":farming:hoe_stone", {
 
 farming.register_hoe(":farming:hoe_steel", {
 	description = S("Steel Hoe"),
+	_tt_help = tt,
 	inventory_image = "farming_tool_steelhoe.png",
 	groups = { hoe = 1, },
 	max_uses = 200,
@@ -26,6 +30,7 @@ farming.register_hoe(":farming:hoe_steel", {
 
 farming.register_hoe(":farming:hoe_bronze", {
 	description = S("Bronze Hoe"),
+	_tt_help = tt,
 	inventory_image = "farming_tool_bronzehoe.png",
 	groups = { hoe = 1, },
 	max_uses = 220,
@@ -34,6 +39,7 @@ farming.register_hoe(":farming:hoe_bronze", {
 
 farming.register_hoe(":farming:hoe_mese", {
 	description = S("Mese Hoe"),
+	_tt_help = tt,
 	inventory_image = "farming_tool_mesehoe.png",
 	groups = { hoe = 1, },
 	max_uses = 350,
@@ -43,6 +49,7 @@ farming.register_hoe(":farming:hoe_mese", {
 
 farming.register_hoe(":farming:hoe_prism", {
 	description = S("Prism Hoe"),
+	_tt_help = tt,
 	inventory_image = "farming_tool_prismhoe.png",
 	groups = { hoe = 1, },
 	max_uses = 1050,

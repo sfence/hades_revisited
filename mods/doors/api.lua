@@ -237,9 +237,14 @@ function doors.register(name, def)
 	if not name:find(":") then
 		name = "doors:" .. name
 	end
+	local tt
+	if def.protected then
+		tt = S("Owned by placer")
+	end
 
 	minetest.register_craftitem(":" .. name, {
 		description = def.description,
+		_tt_help = tt,
 		inventory_image = def.inventory_image,
 		groups = table.copy(def.groups),
 
@@ -501,6 +506,7 @@ function doors.register_trapdoor(name, def)
 	def.is_ground_content = false
 
 	if def.protected then
+		def._tt_help = S("Owned by placer")
 		def.can_dig = can_dig_door
 		def.after_place_node = function(pos, placer, itemstack, pointed_thing)
 			local pn = placer:get_player_name()

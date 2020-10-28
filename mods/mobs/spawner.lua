@@ -12,6 +12,7 @@ minetest.register_node("mobs:spawner", {
 	paramtype = "light",
 	walkable = true,
 	description = S("Mob Spawner"),
+	_tt_help = S("Periodically spawns mobs around it"),
 	groups = {cracky = 1},
 
 	on_construct = function(pos)

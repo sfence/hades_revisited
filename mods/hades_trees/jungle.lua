@@ -2,6 +2,7 @@ local S = minetest.get_translator("hades_trees")
 
 minetest.register_node("hades_trees:jungle_sapling", {
 	description = S("Common Jungle Tree Sapling"),
+	_tt_help = S("Needs Dirt and light to grow"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_junglesapling.png"},

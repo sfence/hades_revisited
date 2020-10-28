@@ -22,6 +22,7 @@ local colors = {
 
 minetest.register_node("gluncarp:machine", {
 	description = S("Carpet Workstation"),
+	_tt_help = S("Turns wool to carpets"),
 	tiles = {
 		"gluncarp_machine_top.png",
 		"gluncarp_machine_bottom.png",

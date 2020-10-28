@@ -117,6 +117,7 @@ end
 
 minetest.register_node("itemframes:frame",{
 	description = S("Item Frame"),
+	_tt_help = S("You can show off an item here"),
 	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",
@@ -167,6 +168,7 @@ minetest.register_node("itemframes:frame",{
 
 minetest.register_node("itemframes:pedestal",{
 	description = S("Pedestal"),
+	_tt_help = S("You can show off an item here"),
 	drawtype = "nodebox",
 	node_box = { type = "fixed", fixed = {
 		{-7/16, -8/16, -7/16, 7/16, -7/16, 7/16}, -- bottom plate

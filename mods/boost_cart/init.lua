@@ -262,6 +262,7 @@ end
 minetest.register_entity(":carts:cart", boost_cart.cart)
 minetest.register_craftitem(":carts:cart", {
 	description = S("Cart"),
+	_tt_help = S("Vehicle for rails"),
 	inventory_image = minetest.inventorycube("cart_top.png", "cart_side.png", "cart_side.png"),
 	wield_image = "cart_side.png",
 	on_place = function(itemstack, placer, pointed_thing)

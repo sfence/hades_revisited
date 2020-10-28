@@ -4,12 +4,14 @@ local mod_name = "vines"
 local average_height = 12
 local spawn_interval = 90
 local vines_group = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1}
+local tt_surv = S("Needs a tree trunk to survive")
 -- globals
 
 local walldir ={}
 
 minetest.register_node("vines:side", {
   description = S("Jungle Vine"),
+  _tt_help = tt_surv,
   walkable = false,
   climbable = true,
   drop = "",
@@ -59,6 +61,7 @@ minetest.register_node("vines:side_rotten", {
 
 minetest.register_node("vines:willow", {
   description = S("Willow Vine"),
+  _tt_help = tt_surv,
   walkable = false,
   climbable = true,
   drop = "",
@@ -130,6 +133,7 @@ minetest.register_node("vines:root", {
 
 minetest.register_node("vines:vine", {
   description = S("Cave Vine"),
+  _tt_help = tt_surv,
   walkable = false,
   climbable = true,
   sunlight_propagates = true,
@@ -265,6 +269,7 @@ plantslib:spawn_on_surfaces({
 
 minetest.register_tool("vines:shears", {
 	description = S("Shears"),
+	_tt_help = S("Cuts leaves and plants"),
 	inventory_image = "shears.png",
 	wield_image = "shears.png",
 	stack_max = 1,
@@ -291,7 +296,6 @@ minetest.register_craft({
 minetest.register_node("vines:vines_block",{
 	description = S("Vines Block"),
 	sunlight_propagates = true,
-	climbable = true,
 	tiles = {"vines_block.png", "vines_block.png", "vines_block.png"},
 	drawtype = "allfaces_optional",
 	paramtype = "light",

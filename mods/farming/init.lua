@@ -1,6 +1,7 @@
 -- Global farming namespace
 farming = {}
 farming.path = minetest.get_modpath("farming")
+local S = minetest.get_translator("farming")
 
 -- Load files
 dofile(farming.path .. "/api.lua")
@@ -9,7 +10,8 @@ dofile(farming.path .. "/hoes.lua")
 
 -- WHEAT
 farming.register_plant("farming:wheat", {
-	description = "Wheat Seed",
+	description = S("Wheat Seed"),
+	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "farming_wheat_seed.png",
 	steps = 3,
 	minlight = 13,
@@ -17,16 +19,16 @@ farming.register_plant("farming:wheat", {
 	fertility = {"grassland"}
 })
 minetest.register_craftitem("farming:wheat", {
-	description = "Wheat",
+	description = S("Wheat"),
 	inventory_image = "farming_wheat.png",
 })
 minetest.register_craftitem("farming:flour", {
-	description = "Flour",
+	description = S("Flour"),
 	inventory_image = "farming_flour.png",
 })
 
 minetest.register_craftitem("farming:bread", {
-	description = "Bread (+3)",
+	description = S("Bread"),
 	inventory_image = "farming_bread.png",
 	on_use = minetest.item_eat(3),
 	groups = { food = 2, eatable = 3 },
@@ -53,8 +55,9 @@ minetest.register_craft({
 
 -- Cotton
 farming.register_plant("farming:cotton", {
-	description = "Cotton Seed",
-	description_harvest = "String",
+	description = S("Cotton Seed"),
+	_tt_help = S("Grows on Wet Soil in light"),
+	description_harvest = S("String"),
 	inventory_image = "farming_cotton_seed.png",
 	steps = 3,
 	minlight = 13,
@@ -62,7 +65,7 @@ farming.register_plant("farming:cotton", {
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:cotton", {
-	description = "String",
+	description = S("String"),
 	inventory_image = "farming_cotton.png",
 })
 
@@ -96,7 +99,8 @@ minetest.register_craft({
 
 
 farming.register_plant("farming:tomato", {
-	description = "Tomato Seed",
+	description = S("Tomato Seed"),
+	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "farming_tomato_seed.png",
 	steps = 3,
 	minlight = 8,
@@ -104,14 +108,15 @@ farming.register_plant("farming:tomato", {
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:tomato", {
-	description = "Tomato (+2)",
+	description = S("Tomato"),
 	inventory_image = "farming_tomato.png",
 	groups = { food = 2, eatable = 2 },
 	on_use = minetest.item_eat(2),
 })
 
 farming.register_plant("farming:potato", {
-	description = "Potato Seed",
+	description = S("Potato Seed"),
+	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "farming_potato_seed.png",
 	steps = 3,
 	minlight = 8,
@@ -119,14 +124,15 @@ farming.register_plant("farming:potato", {
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:potato", {
-	description = "Potato (+0)",
+	description = S("Potato"),
 	inventory_image = "farming_potato.png",
 	groups = { food = 2, },
 	on_use = minetest.item_eat(0),
 })
 
 farming.register_plant("farming:strawberry", {
-	description = "Strawberry Seed",
+	description = S("Strawberry Seed"),
+	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "farming_strawberry_seed.png",
 	steps = 3,
 	minlight = 8,
@@ -134,14 +140,15 @@ farming.register_plant("farming:strawberry", {
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:strawberry", {
-	description = "Strawberry (+1)",
+	description = S("Strawberry"),
 	inventory_image = "farming_strawberry.png",
 	groups = { food = 2, eatable = 1 },
 	on_use = minetest.item_eat(1),
 })
 
 farming.register_plant("farming:spice", {
-	description = "Spice Seed",
+	description = S("Spice Seed"),
+	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "farming_spice_seed.png",
 	steps = 3,
 	minlight = 8,
@@ -149,7 +156,7 @@ farming.register_plant("farming:spice", {
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("farming:spice", {
-	description = "Spice",
+	description = S("Spice"),
 	inventory_image = "farming_spice.png",
 })
 

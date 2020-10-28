@@ -504,6 +504,7 @@ local S = minetest.get_translator("3dforniture")
 		--Table Lamp
 		minetest.register_node("3dforniture:table_lamp_"..lamps[l][1], {
 			description = S("Table Lamp"),
+			_tt_help = S("4 different luminance levels"),
 			drawtype = "nodebox",
 			tiles = {
 				"forniture_table_lamp_s.png",

@@ -4,6 +4,7 @@ local S = minetest.get_translator("boost_cart")
 
 minetest.register_node(":carts:rail", {
 	description = S("Steel Rail"),
+	_tt_help = S("Track for cart"),
 	drawtype = "raillike",
 	tiles = {"default_rail.png", "default_rail_curved.png", "default_rail_t_junction.png", "default_rail_crossing.png"},
 	inventory_image = "default_rail.png",
@@ -32,6 +33,7 @@ minetest.register_craft({
 -- Copper rail
 minetest.register_node(":carts:copperrail", {
 	description = S("Bronze Rail"),
+	_tt_help = S("Track for cart"),
 	drawtype = "raillike",
 	tiles = {"carts_rail_cp.png", "carts_rail_curved_cp.png", "carts_rail_t_junction_cp.png", "carts_rail_crossing_cp.png"},
 	inventory_image = "carts_rail_cp.png",
@@ -61,6 +63,7 @@ minetest.register_craft({
 
 minetest.register_node(":carts:powerrail", {
 	description = S("Powered Rail"),
+	_tt_help = S("Track for cart, accelerates"),
 	drawtype = "raillike",
 	tiles = {"carts_rail_pwr.png", "carts_rail_curved_pwr.png", "carts_rail_t_junction_pwr.png", "carts_rail_crossing_pwr.png"},
 	inventory_image = "carts_rail_pwr.png",
@@ -106,6 +109,7 @@ minetest.register_craft({
 
 minetest.register_node(":carts:brakerail", {
 	description = S("Brake Rail"),
+	_tt_help = S("Track for cart, slows down"),
 	drawtype = "raillike",
 	tiles = {"carts_rail_brk.png", "carts_rail_curved_brk.png", "carts_rail_t_junction_brk.png", "carts_rail_crossing_brk.png"},
 	inventory_image = "carts_rail_brk.png",

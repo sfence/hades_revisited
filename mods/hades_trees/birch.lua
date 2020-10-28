@@ -2,6 +2,7 @@ local S = minetest.get_translator("hades_trees")
 
 minetest.register_node("hades_trees:birch_sapling", {
 	description = S("Birch Sapling"),
+	_tt_help = S("Needs Dirt and light to grow"),
 	drawtype = "plantlike",
 	tiles = {"default_sapling_birch.png"},
 	inventory_image = "default_sapling_birch.png",

@@ -70,6 +70,7 @@ end
 
 minetest.register_node(itemstring_unlocked, {
 	description = desc_unlocked,
+	_tt_help = S("32 inventory slots"),
 	tiles = tiles_unlocked,
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2, chest=1, unlocked_chest=1},
@@ -102,6 +103,7 @@ minetest.register_node(itemstring_unlocked, {
 })
 minetest.register_node(itemstring_locked, {
 	description = desc_locked,
+	_tt_help = S("32 inventory slots, owned by placer"),
 	tiles = tiles_locked,
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2, chest=2, locked_chest=1},

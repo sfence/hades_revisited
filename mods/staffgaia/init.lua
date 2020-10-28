@@ -71,6 +71,7 @@ end
 
 minetest.register_tool("staffgaia:staff", {
 	description = S("Staff of Gaia"),
+	_tt_help = S("Turns ash, sand, stone, tuff and cobblestone to dirt"),
 	inventory_image = "staff_of_gaia.png",
 
 

@@ -86,7 +86,8 @@ mobs:spawn_specific("mobs_hades:spider_mese", {"hades_core:tuff", "hades_core:st
 
 -- Cobweb
 minetest.register_node("mobs_hades:cobweb", {
-	description = "Cobweb",
+	description = S("Cobweb"),
+	_tt_help = S("Hard to move through"),
 	drawtype = "plantlike",
 	visual_scale = 1.1,
 	tiles = {"mobs_cobweb.png"},

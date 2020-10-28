@@ -644,6 +644,7 @@ end
 
 minetest.register_node("signs_lib:sign_wall", {
 	description = S("Wooden Sign"),
+	_tt_help = S("Write text on it"),
 	inventory_image = "default_sign_wall.png",
 	wield_image = "default_sign_wall.png",
 	is_ground_content = false,
@@ -747,6 +748,7 @@ minetest.register_privilege("sign_editor", "Can edit all locked signs")
 
 minetest.register_node("signs_lib:sign_wall_locked", {
 	description = S("Locked Wooden Sign"),
+	_tt_help = S("Write text on it, owned by placer"),
 	inventory_image = "signs_locked_inv.png",
 	wield_image = "signs_locked_inv.png",
 	is_ground_content = false,
@@ -805,6 +807,7 @@ local sign_descs = { S("Green Steel Sign"), S("Yellow Steel Sign"), S("Red Steel
 for i, color in ipairs(sign_colors) do
 	minetest.register_node("signs_lib:sign_wall_"..color, {
 		description = sign_descs[i],
+		_tt_help = S("Write text on it"),
 		inventory_image = "signs_"..color.."_inv.png",
 		is_ground_content = false,
 		wield_image = "signs_"..color.."_inv.png",

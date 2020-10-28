@@ -7,6 +7,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2},
 	tiles = {"trash_can_wooden_top.png", "trash_can_wooden_top.png", "trash_can_wooden.png"},
 	description = S("Trash Can"),
+	_tt_help = S("Lets you get rid of trash"),
 	drawtype="nodebox",
 	paramtype = "light",
 	is_ground_content = false,
@@ -57,6 +58,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 			for i = 1, inv:get_size("main") do
 				inv:set_stack("main", i, nil)
 			end
+			local player_name = sender:get_player_name()
 			minetest.sound_play("trash", {to_player=player_name, gain = 1.0}, false)
 		end
         end,

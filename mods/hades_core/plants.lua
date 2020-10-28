@@ -125,6 +125,7 @@ minetest.register_node("hades_core:snag", {
 
 minetest.register_node("hades_core:cactus", {
 	description = S("Cactus"),
+	_tt_help = S("Grows on ash and sand"),
 	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -185,6 +186,7 @@ end
 
 minetest.register_node("hades_core:papyrus", {
 	description = S("Papyrus"),
+	_tt_help = S("Grows on Dirt with Grass near water"),
 	drawtype = "nodebox",
 	tiles = {
 		"default_papyrus_3d.png",
@@ -236,6 +238,7 @@ minetest.register_node("hades_core:papyrus", {
 
 minetest.register_node("hades_core:sugarcane", {
 	description = S("Sugarcane"),
+	_tt_help = S("Grows on Dirt with Grass near water"),
 	drawtype = "plantlike",
 	tiles = {"default_sugarcane.png"},
 	inventory_image = "default_sugarcane.png",

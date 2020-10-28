@@ -117,8 +117,8 @@ end
 
 local furnace_types = {
 	-- [id] = { description, texture, fuel time addition, initial burn time, output slots }
-	["hades_furnaces:furnace"] = { S("Furnace"), "default_furnace", 1.0, 0.75, 1 },
-	["hades_furnaces:prism_furnace"] = { S("Prism Furnace"), "hades_furnaces_prism_furnace", 1.0, 4.25, 4 },
+	["hades_furnaces:furnace"] = { S("Furnace"), S("Smelts and cooks items by using fuel"), "default_furnace", 1.0, 0.75, 1 },
+	["hades_furnaces:prism_furnace"] = { S("Prism Furnace"), S("Smelts and cooks items by using fuel").."\n"..S("More efficient than the normal furnace"),  "hades_furnaces_prism_furnace", 1.0, 4.25, 4 },
 }
 
 local function furnace_node_timer(pos, elapsed)
@@ -129,8 +129,8 @@ local function furnace_node_timer(pos, elapsed)
 	-- Inizialize metadata
 	--
 	local meta = minetest.get_meta(pos)
-	local fuel_time = meta:get_float("fuel_time")+furnace_types[id_normal][3]  or 0
-	local src_time = meta:get_float("src_time")+furnace_types[id_normal][4] or 0
+	local fuel_time = meta:get_float("fuel_time")+furnace_types[id_normal][4]  or 0
+	local src_time = meta:get_float("src_time")+furnace_types[id_normal][5] or 0
 
 	local fuel_totaltime = meta:get_float("fuel_totaltime") or 0
 
@@ -278,9 +278,11 @@ end
 local furnace_ids = {}
 for id, finfo in pairs(furnace_types) do
 	local desc = finfo[1]
-	local tex = finfo[2]
+	local tt = finfo[2]
+	local tex = finfo[3]
 	minetest.register_node(id, {
 		description = desc,
+		_tt_help = tt,
 		tiles = {
 			tex.."_top.png", tex.."_bottom.png",
 			tex.."_side.png", tex.."_side.png",
@@ -300,7 +302,7 @@ for id, finfo in pairs(furnace_types) do
 			local inv = meta:get_inventory()
 			inv:set_size('src', 1)
 			inv:set_size('fuel', 1)
-			inv:set_size('dst', finfo[5])
+			inv:set_size('dst', finfo[6])
 		end,
 		can_dig = can_dig,
 

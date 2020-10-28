@@ -1,3 +1,5 @@
+local S = minetest.get_translator("farming")
+
 -- Wear out hoes, place soil
 -- TODO Ignore group:flower
 farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
@@ -77,6 +79,7 @@ farming.register_hoe = function(name, def)
 	-- Register the tool
 	minetest.register_tool(name, {
 		description = def.description,
+		_tt_help = def._tt_help .. "\n" .. S("Uses: @1", def.max_uses),
 		inventory_image = def.inventory_image,
 		on_use = function(itemstack, user, pointed_thing)
 			return farming.hoe_on_use(itemstack, user, pointed_thing, def.max_uses)
@@ -183,6 +186,7 @@ farming.register_plant = function(name, def)
 	end
 	minetest.register_node(":" .. mname .. ":seed_" .. pname, {
 		description = def.description,
+		_tt_help = def._tt_help,
 		tiles = {def.inventory_image},
 		inventory_image = def.inventory_image,
 		wield_image = def.inventory_image,

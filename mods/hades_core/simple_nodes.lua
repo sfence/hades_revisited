@@ -27,6 +27,7 @@ minetest.register_node("hades_core:mossystone", {
 
 minetest.register_node("hades_core:chondrite", {
 	description = S("Chondrite"),
+	_tt_help = S("Becomes Marble when close to water and at Y=-500 or below"),
 	tiles = {"default_chondrite.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1, porous=1},
@@ -402,6 +403,7 @@ minetest.register_node("hades_core:dirt_with_grass", {
 
 minetest.register_node("hades_core:dirt", {
 	description = S("Dirt"),
+	_tt_help = S("Becomes grassy when exposed to light"),
 	tiles = {"default_dirt.png"},
 	is_ground_content = true,
 	groups = {crumbly=3,soil=1,dirt=1, porous=1},
@@ -411,6 +413,7 @@ minetest.register_node("hades_core:dirt", {
 
 minetest.register_node("hades_core:ash", {
 	description = S("Volcanic Ash"),
+	_tt_help = S("Becomes Clay when close to water"),
 	tiles = {"default_ash.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, ash=1, porous=1},
@@ -427,6 +430,7 @@ minetest.register_node("hades_core:ash_block", {
 
 minetest.register_node("hades_core:fertile_sand", {
 	description = S("Fertile Sand"),
+	_tt_help = S("Becomes Dirt when close to water"),
 	tiles = {"default_fertile_sand.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, sand=1, porous=1},
@@ -458,6 +462,7 @@ minetest.register_node("hades_core:gravel_block", {
 
 minetest.register_node("hades_core:gravel_volcanic", {
 	description = S("Volcanic Gravel"),
+	_tt_help = S("Becomes Obsidian when close to water and lava at Y=-1000 or below"),
 	tiles = {"default_gravel_volcanic.png"},
 	is_ground_content = true,
 	groups = {crumbly=1, porous=1},

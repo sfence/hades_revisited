@@ -8,6 +8,7 @@ local S = minetest.get_translator("travelnet")
 minetest.register_node("travelnet:travelnet", {
 
     description = S("Travelnet Box"),
+    _tt_help = S("Teleports to other travelnet boxes"),
 
     drawtype = "nodebox",
     sunlight_propagates = true,

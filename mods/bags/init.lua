@@ -132,16 +132,19 @@ end)
 -- register bag tools
 minetest.register_tool("bags:small", {
 	description = S("Small Bag"),
+	_tt_help = S("+8 inventory slots"),
 	inventory_image = "bags_small.png",
 	groups = {bagslots=8, disable_repair=1},
 })
 minetest.register_tool("bags:medium", {
 	description = S("Medium Bag"),
+	_tt_help = S("+16 inventory slots"),
 	inventory_image = "bags_medium.png",
 	groups = {bagslots=16, disable_repair=1},
 })
 minetest.register_tool("bags:large", {
 	description = S("Large Bag"),
+	_tt_help = S("+24 inventory slots"),
 	inventory_image = "bags_large.png",
 	groups = {bagslots=24, disable_repair=1},
 })

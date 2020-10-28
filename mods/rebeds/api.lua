@@ -1,6 +1,9 @@
+local S = minetest.get_translator("rebeds")
+
 function rebeds.register_bed(name, def)
 	minetest.register_node(name .. "_bottom", {
 		description = def.description,
+		_tt_help = S("Lets you set your respawn position"),
 		inventory_image = def.inventory_image,
 		wield_image = def.wield_image,
 		drawtype = "nodebox",

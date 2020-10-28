@@ -6,6 +6,7 @@ local S = minetest.get_translator("travelnet")
 
 minetest.register_node("travelnet:elevator", {
     description = S("Elevator"),
+    _tt_help = S("Teleports to other elevator vertically"),
 
     drawtype = "nodebox",
     sunlight_propagates = true,

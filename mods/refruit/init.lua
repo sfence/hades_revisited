@@ -1,4 +1,5 @@
 local S = minetest.get_translator("refruit")
+local survgrow = S("Needs a tree trunk to survive").."\n"..S("Needs leaves to grow")
 
 -- refruit for minetest
 -- makes fruits regrowing on the trees.
@@ -7,7 +8,7 @@ refruit = {}
 
 --replacement
 minetest.register_node(":hades_trees:apple", {
-	description = S("Apple (+@1)", 2),
+	description = S("Apple"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_apple.png"},
@@ -19,7 +20,7 @@ minetest.register_node(":hades_trees:apple", {
 		type = "fixed",
 		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
-	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
+	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2,fruit_regrow=1},
 	on_use = minetest.item_eat(2),
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 
@@ -41,6 +42,7 @@ minetest.register_node(":hades_trees:apple", {
 
 minetest.register_node("refruit:bud_apple", {
 	description = S("Apple Bud"),
+	_tt_help = S("Grows to an Apple Flower").."\n"..survgrow,
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_bud_apple.png"},
@@ -72,6 +74,7 @@ minetest.register_node("refruit:bud_apple", {
 
 minetest.register_node("refruit:flower_apple", {
 	description = S("Apple Flower"),
+	_tt_help = S("Grows to an Apple").."\n"..survgrow,
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_flower_apple.png"},
@@ -102,7 +105,7 @@ minetest.register_node("refruit:flower_apple", {
 })
 
 minetest.register_node(":hades_trees:olive", {
-	description = S("Olive (+@1)", 1),
+	description = S("Olive"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"farming_olive.png"},
@@ -114,7 +117,7 @@ minetest.register_node(":hades_trees:olive", {
 		type = "fixed",
 		fixed = {-0.25, -7/16, -0.25, 0.25, 0.5, 0.25}
 	},
-	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1},
+	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1,fruit_regrow=1},
 	on_use = minetest.item_eat(1),
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 
@@ -136,6 +139,7 @@ minetest.register_node(":hades_trees:olive", {
 
 minetest.register_node("refruit:bud_olive", {
 	description = S("Olive Bud"),
+	_tt_help = S("Grows to an Olive Flower").."\n"..survgrow,
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_bud_olive.png"},
@@ -167,6 +171,7 @@ minetest.register_node("refruit:bud_olive", {
 
 minetest.register_node("refruit:flower_olive", {
 	description = S("Olive Flower"),
+	_tt_help = S("Grows to an Olive").."\n"..survgrow,
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_flower_olive.png"},

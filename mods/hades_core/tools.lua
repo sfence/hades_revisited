@@ -20,6 +20,10 @@ minetest.register_item(":", {
 	}
 })
 
+local tt_pick = S("Digs hard, cracky blocks")
+local tt_shovel = S("Digs soft, crumbly blocks")
+local tt_axe = S("Chops wood")
+local tt_sword = S("Melee weapon")
 
 --
 -- Picks
@@ -28,6 +32,7 @@ minetest.register_item(":", {
 
 minetest.register_tool("hades_core:pick_wood", {
 	description = S("Wooden Pickaxe"),
+	_tt_help = tt_pick,
 	inventory_image = "default_tool_woodpick.png",
 	groups = { pickaxe = 1, },
 	tool_capabilities = {
@@ -41,6 +46,7 @@ minetest.register_tool("hades_core:pick_wood", {
 })
 minetest.register_tool("hades_core:pick_stone", {
 	description = S("Stone Pickaxe"),
+	_tt_help = tt_pick,
 	inventory_image = "default_tool_stonepick.png",
 	groups = { pickaxe = 1, },
 	tool_capabilities = {
@@ -54,6 +60,7 @@ minetest.register_tool("hades_core:pick_stone", {
 })
 minetest.register_tool("hades_core:pick_steel", {
 	description = S("Steel Pickaxe"),
+	_tt_help = tt_pick,
 	inventory_image = "default_tool_steelpick.png",
 	groups = { pickaxe = 1, },
 	tool_capabilities = {
@@ -67,6 +74,7 @@ minetest.register_tool("hades_core:pick_steel", {
 })
 minetest.register_tool("hades_core:pick_bronze", {
 	description = S("Bronze Pickaxe"),
+	_tt_help = tt_pick,
 	inventory_image = "default_tool_bronzepick.png",
 	groups = { pickaxe = 1, },
 	tool_capabilities = {
@@ -80,6 +88,7 @@ minetest.register_tool("hades_core:pick_bronze", {
 })
 minetest.register_tool("hades_core:pick_mese", {
 	description = S("Mese Pickaxe"),
+	_tt_help = tt_pick,
 	inventory_image = "default_tool_mesepick.png",
 	groups = { pickaxe = 1, },
 	tool_capabilities = {
@@ -93,6 +102,7 @@ minetest.register_tool("hades_core:pick_mese", {
 })
 minetest.register_tool("hades_core:pick_prism", {
 	description = S("Prism Pickaxe"),
+	_tt_help = tt_pick,
 	inventory_image = "default_tool_prismpick.png",
 	groups = { pickaxe = 1, },
 	tool_capabilities = {
@@ -113,6 +123,7 @@ minetest.register_tool("hades_core:pick_prism", {
 
 minetest.register_tool("hades_core:shovel_wood", {
 	description = S("Wooden Shovel"),
+	_tt_help = tt_shovel,
 	inventory_image = "default_tool_woodshovel.png",
 	groups = { shovel = 1, },
 	wield_image = "default_tool_woodshovel.png^[transformR90",
@@ -127,6 +138,7 @@ minetest.register_tool("hades_core:shovel_wood", {
 })
 minetest.register_tool("hades_core:shovel_stone", {
 	description = S("Stone Shovel"),
+	_tt_help = tt_shovel,
 	inventory_image = "default_tool_stoneshovel.png",
 	groups = { shovel = 1, },
 	wield_image = "default_tool_stoneshovel.png^[transformR90",
@@ -141,6 +153,7 @@ minetest.register_tool("hades_core:shovel_stone", {
 })
 minetest.register_tool("hades_core:shovel_steel", {
 	description = S("Steel Shovel"),
+	_tt_help = tt_shovel,
 	inventory_image = "default_tool_steelshovel.png",
 	groups = { shovel = 1, },
 	wield_image = "default_tool_steelshovel.png^[transformR90",
@@ -155,6 +168,7 @@ minetest.register_tool("hades_core:shovel_steel", {
 })
 minetest.register_tool("hades_core:shovel_bronze", {
 	description = S("Bronze Shovel"),
+	_tt_help = tt_shovel,
 	inventory_image = "default_tool_bronzeshovel.png",
 	groups = { shovel = 1, },
 	wield_image = "default_tool_bronzeshovel.png^[transformR90",
@@ -169,6 +183,7 @@ minetest.register_tool("hades_core:shovel_bronze", {
 })
 minetest.register_tool("hades_core:shovel_mese", {
 	description = S("Mese Shovel"),
+	_tt_help = tt_shovel,
 	inventory_image = "default_tool_meseshovel.png",
 	groups = { shovel = 1, },
 	wield_image = "default_tool_meseshovel.png^[transformR90",
@@ -183,6 +198,7 @@ minetest.register_tool("hades_core:shovel_mese", {
 })
 minetest.register_tool("hades_core:shovel_prism", {
 	description = S("Prism Shovel"),
+	_tt_help = tt_shovel,
 	inventory_image = "default_tool_prismshovel.png",
 	groups = { shovel = 1, },
 	wield_image = "default_tool_prismshovel.png^[transformR90",
@@ -204,6 +220,7 @@ minetest.register_tool("hades_core:shovel_prism", {
 
 minetest.register_tool("hades_core:axe_wood", {
 	description = S("Wooden Axe"),
+	_tt_help = tt_axe,
 	inventory_image = "default_tool_woodaxe.png",
 	groups = { axe = 1, },
 	tool_capabilities = {
@@ -217,6 +234,7 @@ minetest.register_tool("hades_core:axe_wood", {
 })
 minetest.register_tool("hades_core:axe_stone", {
 	description = S("Stone Axe"),
+	_tt_help = tt_axe,
 	inventory_image = "default_tool_stoneaxe.png",
 	groups = { axe = 1, },
 	tool_capabilities = {
@@ -230,6 +248,7 @@ minetest.register_tool("hades_core:axe_stone", {
 })
 minetest.register_tool("hades_core:axe_steel", {
 	description = S("Steel Axe"),
+	_tt_help = tt_axe,
 	inventory_image = "default_tool_steelaxe.png",
 	groups = { axe = 1, },
 	tool_capabilities = {
@@ -243,6 +262,7 @@ minetest.register_tool("hades_core:axe_steel", {
 })
 minetest.register_tool("hades_core:axe_bronze", {
 	description = S("Bronze Axe"),
+	_tt_help = tt_axe,
 	inventory_image = "default_tool_bronzeaxe.png",
 	groups = { axe = 1, },
 	tool_capabilities = {
@@ -256,6 +276,7 @@ minetest.register_tool("hades_core:axe_bronze", {
 })
 minetest.register_tool("hades_core:axe_mese", {
 	description = S("Mese Axe"),
+	_tt_help = tt_axe,
 	inventory_image = "default_tool_meseaxe.png",
 	groups = { axe = 1, },
 	tool_capabilities = {
@@ -269,6 +290,7 @@ minetest.register_tool("hades_core:axe_mese", {
 })
 minetest.register_tool("hades_core:axe_prism", {
 	description = S("Prism Axe"),
+	_tt_help = tt_axe,
 	inventory_image = "default_tool_prismaxe.png",
 	groups = { axe = 1, },
 	tool_capabilities = {
@@ -289,6 +311,7 @@ minetest.register_tool("hades_core:axe_prism", {
 
 minetest.register_tool("hades_core:sword_wood", {
 	description = S("Wooden Sword"),
+	_tt_help = tt_sword,
 	inventory_image = "default_tool_woodsword.png",
 	groups = { sword = 1, },
 	tool_capabilities = {
@@ -302,6 +325,7 @@ minetest.register_tool("hades_core:sword_wood", {
 })
 minetest.register_tool("hades_core:sword_stone", {
 	description = S("Stone Sword"),
+	_tt_help = tt_sword,
 	inventory_image = "default_tool_stonesword.png",
 	groups = { sword = 1, },
 	tool_capabilities = {
@@ -315,6 +339,7 @@ minetest.register_tool("hades_core:sword_stone", {
 })
 minetest.register_tool("hades_core:sword_steel", {
 	description = S("Steel Sword"),
+	_tt_help = tt_sword,
 	inventory_image = "default_tool_steelsword.png",
 	groups = { sword = 1, },
 	tool_capabilities = {
@@ -328,6 +353,7 @@ minetest.register_tool("hades_core:sword_steel", {
 })
 minetest.register_tool("hades_core:sword_bronze", {
 	description = S("Bronze Sword"),
+	_tt_help = tt_sword,
 	inventory_image = "default_tool_bronzesword.png",
 	groups = { sword = 1, },
 	tool_capabilities = {
@@ -341,6 +367,7 @@ minetest.register_tool("hades_core:sword_bronze", {
 })
 minetest.register_tool("hades_core:sword_mese", {
 	description = S("Mese Sword"),
+	_tt_help = tt_sword,
 	inventory_image = "default_tool_mesesword.png",
 	groups = { sword = 1, },
 	tool_capabilities = {
@@ -354,6 +381,7 @@ minetest.register_tool("hades_core:sword_mese", {
 })
 minetest.register_tool("hades_core:sword_prism", {
 	description = S("Prism Sword"),
+	_tt_help = tt_sword,
 	inventory_image = "default_tool_prismsword.png",
 	groups = { sword = 1, },
 	tool_capabilities = {

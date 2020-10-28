@@ -29,6 +29,7 @@ minetest.register_node("hades_trees:cultivated_jungle_leaves", {
 
 minetest.register_node("hades_trees:cultivated_jungle_sapling", {
 	description = S("Cultivated Jungle Tree Sapling"),
+	_tt_help = S("Needs Dirt and light to grow"),
 	drawtype = "plantlike",
 	tiles = {"hades_trees_cultivated_jungle_sapling.png"},
 	inventory_image = "hades_trees_cultivated_jungle_sapling.png",

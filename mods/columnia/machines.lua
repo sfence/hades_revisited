@@ -3,6 +3,7 @@ local F = minetest.formspec_escape
 
 minetest.register_node("columnia:machine", {
 	description = S("Columnia Workstation"),
+	_tt_help = S("Turns blocks to columns and more"),
 	tiles = {
 		"columnia_machine_top.png",
 		"columnia_machine_bottom.png",

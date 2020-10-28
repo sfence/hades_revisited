@@ -26,6 +26,7 @@ minetest.register_node("hades_trees:apple", {
 
 minetest.register_node("hades_trees:sapling", {
 	description = S("Common Tree Sapling"),
+	_tt_help = S("Needs Dirt and light to grow"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"default_sapling.png"},
