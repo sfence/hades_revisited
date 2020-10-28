@@ -1,3 +1,5 @@
+local S = minetest.get_translator("pipeworks")
+
 -- This file supplies the steel pipes
 
 local REGISTER_COMPATIBILITY = true
@@ -48,12 +50,12 @@ for index, connects in ipairs(cconnects) do
 	end
 	
 	local pgroups = {snappy = 3, pipe = 1, not_in_creative_inventory = 1}
-	local pipedesc = "Pipe Segment ".." "..dump(connects)
+	local pipedesc = S("Pipe Segment @1", dump(connects))
 	local image = nil
 
 	if #connects == 0 then
 		pgroups = {snappy = 3, tube = 1}
-		pipedesc = "Pipe Segment"
+		pipedesc = S("Pipe Segment")
 		image = "pipeworks_pipe_inv.png"
 	end
 	
@@ -61,6 +63,7 @@ for index, connects in ipairs(cconnects) do
 	
 	minetest.register_node("pipeworks:pipe_"..index.."_empty", {
 		description = pipedesc,
+		_tt_help = S("Transports liquids"),
 		drawtype = "nodebox",
 		tiles = pipeworks.fix_image_names(outimgs, "_empty"),
 		sunlight_propagates = true,
@@ -132,7 +135,7 @@ if REGISTER_COMPATIBILITY then
 		paramtype = "light",
 		inventory_image = "pipeworks_pipe_inv.png",
 		wield_image = "pipeworks_pipe_inv.png",
-		description = "Pipe Segment (legacy)",
+		description = S("Pipe Segment (legacy)"),
 		groups = {not_in_creative_inventory = 1, pipe_to_update = 1},
 		drop = "pipeworks:pipe_1_empty",
 		after_place_node = function(pos)
