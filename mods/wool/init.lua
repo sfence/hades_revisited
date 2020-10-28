@@ -40,13 +40,11 @@ for _, row in ipairs(wool.dyes) do
 		sounds = hades_sounds.node_sound_defaults(),
 		is_ground_content = false,
 	})
-	if craft_color_group then
-		-- Crafting from dye and white wool
-		minetest.register_craft({
-			type = "shapeless",
-			output = 'wool:'..name,
-			recipe = {'group:dye,'..craft_color_group, 'group:wool'},
-		})
-	end
+	-- Crafting from dye and white wool
+	minetest.register_craft({
+		type = "shapeless",
+		output = 'wool:'..name,
+		recipe = {'dye:'..name, 'group:wool'},
+	})
 end
 
