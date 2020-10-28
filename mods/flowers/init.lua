@@ -147,10 +147,6 @@ minetest.register_abm({
 
 		local pos0 = {x=pos.x-4,y=pos.y-4,z=pos.z-4}
 		local pos1 = {x=pos.x+4,y=pos.y+4,z=pos.z+4}
-		-- if #minetest.find_nodes_in_area(pos0, pos1, "group:flora_block") > 0 then
-			-- return
-		-- end
-
 
 		local flowers = minetest.find_nodes_in_area(pos0, pos1, "group:flora")
 		if #flowers > 3 then

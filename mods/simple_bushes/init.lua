@@ -16,8 +16,7 @@ minetest.register_node("simple_bushes:green", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
-	buildable_to = true,
-	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_green=1},
+	groups = {snappy=3,flammable=2,simple_bush=1,attached_node=1,color_green=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -44,8 +43,7 @@ minetest.register_node("simple_bushes:white", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
-	buildable_to = true,
-	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_white=1},
+	groups = {snappy=3,flammable=2,simple_bush=1,attached_node=1,color_white=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -72,8 +70,7 @@ minetest.register_node("simple_bushes:yellow", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
-	buildable_to = true,
-	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_yellow=1},
+	groups = {snappy=3,flammable=2,simple_bush=1,attached_node=1,color_yellow=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -100,8 +97,7 @@ minetest.register_node("simple_bushes:blue", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
-	buildable_to = true,
-	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_blue=1},
+	groups = {snappy=3,flammable=2,simple_bush=1,attached_node=1,color_blue=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -128,8 +124,7 @@ minetest.register_node("simple_bushes:red", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
-	buildable_to = true,
-	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_red=1},
+	groups = {snappy=3,flammable=2,simple_bush=1,attached_node=1,color_red=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -156,8 +151,7 @@ minetest.register_node("simple_bushes:orange", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
-	buildable_to = true,
-	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_orange=1},
+	groups = {snappy=3,flammable=2,simple_bush=1,attached_node=1,color_orange=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -185,8 +179,7 @@ minetest.register_node("simple_bushes:violet", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
-	buildable_to = true,
-	groups = {snappy=3,flammable=2,flora=1,simple_bush=1,attached_node=1,color_violet=1},
+	groups = {snappy=3,flammable=2,simple_bush=1,attached_node=1,color_violet=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
