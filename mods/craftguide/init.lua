@@ -22,7 +22,6 @@ local group_stereotypes = {
 	coal	     = "hades_core:coal_lump",
 	flower	     = "flowers:dandelion_yellow",
 	window_wood  = "windows:windows_wood",
-	vines        = "vines:vine",
 	chest        = "hades_chests:chest",
 	unlocked_chest = "hades_chests:chest",
 	locked_chest = "hades_chests:chest_locked",
@@ -34,7 +33,30 @@ local group_stereotypes = {
 	leaves       = "hades_trees:leaves",
 	sapling      = "hades_trees:sapling",
 	wood         = "hades_trees:wood",
+	stick        = "hades_core:stick",
 	mesecon_conductor_craftable = "mesecons:wire_00000000_off",
+}
+
+local group_names = {
+	wool	     = S("Any wool"),
+	dye	     = S("Any dye"),
+	vessel	     = S("Any vessel"),
+	coal	     = S("Any coal lump"),
+	flower	     = S("Any flower"),
+	window_wood  = S("Any wooden window"),
+	vines        = S("Any vines"),
+	chest        = S("Any chest"),
+	unlocked_chest = S("Any unlocked chest"),
+	locked_chest = S("Any locked chest"),
+	stone        = S("Any stone"),
+	fence_wood   = S("Any wooden fence"),
+	claybricks   = S("Any clay bricks"),
+	tree         = S("Any tree"),
+	leaves       = S("Any leaves"),
+	sapling      = S("Any sapling"),
+	wood         = S("Any wooden planks"),
+	stick        = S("Any Stick"),
+	mesecon_conductor_craftable = S("Any mesecon conductor"),
 }
 
 function craftguide:group_to_item(item)
@@ -72,33 +94,46 @@ end
 function craftguide:get_tooltip(item, recipe_type, cooktime, groups)
 	local tooltip, item_desc = "tooltip[" .. item .. ";", ""
 	local fueltime = get_fueltime(item)
-	local has_extras = groups or recipe_type == "cooking" or fueltime > 0
+	local has_extras = false
 
 	if reg_items[item] then
 		if not groups then
 			item_desc = reg_items[item].description
 		end
 	else
-		return tooltip .. "Unknown Item (" .. item .. ")]"
+		return tooltip .. F(S("Unknown Item (@1)", item)) .. "]"
 	end
 
 	if groups then
-		local groupstr = "Any item belonging to the "
-		for i=1, #groups do
-			groupstr = groupstr .. minetest.get_color_escape_sequence(COLOR_HIGHLIGHT) ..
-				groups[i] ..
-				(groups[i + 1] and " and " or "") ..
-				minetest.get_color_escape_sequence(COLOR_TT)
+		local tttext = ""
+		if #groups == 1 and group_names[groups[1]] then
+			tttext = colorize(group_names[groups[1]])
+			item_desc = ""
+			has_extras = true
+		else
+			local groupstr = ""
+			for i=1, #groups do
+				groupstr = groupstr .. minetest.get_color_escape_sequence(COLOR_HIGHLIGHT) ..
+					groups[i] ..
+					(groups[i + 1] and ", " or "") ..
+					minetest.get_color_escape_sequence(COLOR_TT)
+			end
+			tttext = S("Any item belonging to group(s): @1", groupstr)
+			item_desc = ""
+			has_extras = true
 		end
-		tooltip = tooltip .. groupstr .. " group(s)"
+		tooltip = tooltip .. F(tttext)
 	end
 
-	if recipe_type == "cooking" then
-		tooltip = tooltip .. item_desc .. "\nCooking time: " .. colorize(cooktime)
-	end
-
-	if fueltime > 0 then
-		tooltip = tooltip .. item_desc .. "\nBurning time: " .. colorize(fueltime)
+	if item_desc ~= "" then
+		if recipe_type == "cooking" then
+			tooltip = tooltip .. item_desc .. "\n"..S("Cooking time: @1", colorize(cooktime))
+			has_extras = true
+		end
+		if fueltime > 0 then
+			tooltip = tooltip .. item_desc .. "\n"..S("Burning time: @1", colorize(fueltime))
+			has_extras = true
+		end
 	end
 
 	return has_extras and tooltip .. "]" or ""
