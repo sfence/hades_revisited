@@ -3,7 +3,8 @@ local S = minetest.get_translator("vines")
 local mod_name = "vines"
 local average_height = 12
 local spawn_interval = 90
-local vines_group = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1}
+local vines_group = {attached_node=1,vines=1,snappy=3,flammable=2}
+local vines_group_cave = {vines=1,snappy=3,flammable=2}
 local tt_surv = S("Needs a tree trunk to survive")
 -- globals
 
@@ -15,6 +16,7 @@ minetest.register_node("vines:side", {
   walkable = false,
   climbable = true,
   drop = "",
+  buildable_to = true,
   sunlight_propagates = true,
   paramtype = "light",
   paramtype2 = "wallmounted",
@@ -41,8 +43,9 @@ minetest.register_node("vines:side", {
 minetest.register_node("vines:side_rotten", {
   description = S("Rotten Jungle Vine"),
   walkable = false,
-  climbable = false,
+  climbable = true,
   drop = "",
+  buildable_to = true,
   sunlight_propagates = true,
   paramtype = "light",
   paramtype2 = "wallmounted",
@@ -50,7 +53,7 @@ minetest.register_node("vines:side_rotten", {
   drawtype = "signlike",
   inventory_image = "vines_side_rotten.png",
   wield_image = "vines_side_rotten.png",
-  groups = {snappy = 3,flammable=2, hanging_node=1},
+  groups = {snappy = 3,flammable=2},
   sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "wallmounted",
@@ -65,6 +68,7 @@ minetest.register_node("vines:willow", {
   walkable = false,
   climbable = true,
   drop = "",
+  buildable_to = true,
   sunlight_propagates = true,
   paramtype = "light",
   paramtype2 = "wallmounted",
@@ -93,16 +97,17 @@ minetest.register_node("vines:willow", {
 minetest.register_node("vines:willow_rotten", {
   description = S("Rotten Willow Vine"),
   walkable = false,
-  climbable = false,
+  climbable = true,
   sunlight_propagates = true,
   paramtype = "light",
   drop = "",
+  buildable_to = true,
   paramtype2 = "wallmounted",
   tiles = { "vines_willow_rotten.png" },
   drawtype = "signlike",
   inventory_image = "vines_willow_rotten.png",
   wield_image = "vines_willow_rotten.png",
-  groups = {snappy = 3,flammable=2, hanging_node=1},
+  groups = {snappy = 3,flammable=2},
   sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "wallmounted",
@@ -121,7 +126,7 @@ minetest.register_node("vines:root", {
   drawtype = "plantlike",
   inventory_image = "vines_root.png",
   wield_image = "vines_root.png",
-  groups = {vines=1,snappy = 3,flammable=2, hanging_node=1},
+  groups = {vines=1,snappy = 3,flammable=2},
   sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "fixed",
@@ -142,7 +147,7 @@ minetest.register_node("vines:vine", {
   tiles = { "vines_vine.png" },
   drawtype = "plantlike",
   inventory_image = "vines_vine.png",
-  groups = vines_group,
+  groups = vines_group_cave,
   sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "fixed",
@@ -171,7 +176,7 @@ minetest.register_node("vines:vine_rotten", {
   drawtype = "plantlike",
   inventory_image = "vines_vine_rotten.png",
   wield_image = "vines_vine_rotten.png",
-  groups = {snappy = 3,flammable=2, hanging_node=1},
+  groups = {snappy = 3,flammable=2},
   sounds = hades_sounds.node_sound_leaves_defaults(),
   selection_box = {
     type = "fixed",
