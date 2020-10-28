@@ -182,7 +182,7 @@
 		minetest.register_craft( {
 			output = '3dforniture:toilet',
 			recipe = {
-				{'hades_core:clay','homedecor:plastic_base',''},
+				{'hades_core:clay','hades_materials:plastic_base',''},
 				{ 'hades_core:clay','hades_core:clay', '' },
 				{ 'pipeworks:pipe_1_empty', 'pipeworks:pump_off', '' },
 			},

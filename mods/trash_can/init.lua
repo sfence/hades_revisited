@@ -68,9 +68,9 @@ minetest.register_node("trash_can:trash_can_wooden",{
 minetest.register_craft({
 	output = 'trash_can:trash_can_wooden',
 	recipe = {
-		{'homedecor:plastic_base', '', 'homedecor:plastic_base'},
-		{'homedecor:plastic_base', '', 'homedecor:plastic_base'},
-		{'homedecor:plastic_base', 'homedecor:plastic_base', 'homedecor:plastic_base'},
+		{'hades_materials:plastic_base', '', 'hades_materials:plastic_base'},
+		{'hades_materials:plastic_base', '', 'hades_materials:plastic_base'},
+		{'hades_materials:plastic_base', 'hades_materials:plastic_base', 'hades_materials:plastic_base'},
 	}
 })
 
