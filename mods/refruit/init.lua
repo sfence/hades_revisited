@@ -1,5 +1,5 @@
 local S = minetest.get_translator("refruit")
-local survgrow = S("Needs a tree trunk to survive").."\n"..S("Needs leaves to grow")
+local surv = S("Needs a tree trunk to survive")
 
 -- refruit for minetest
 -- makes fruits regrowing on the trees.
@@ -42,7 +42,7 @@ minetest.register_node(":hades_trees:apple", {
 
 minetest.register_node("refruit:bud_apple", {
 	description = S("Apple Bud"),
-	_tt_help = S("Grows to an Apple Flower").."\n"..survgrow,
+	_tt_help = S("Grows to an Apple Flower").."\n"..surv.."\n"..S("Needs Common Leaves to grow"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_bud_apple.png"},
@@ -74,7 +74,7 @@ minetest.register_node("refruit:bud_apple", {
 
 minetest.register_node("refruit:flower_apple", {
 	description = S("Apple Flower"),
-	_tt_help = S("Grows to an Apple").."\n"..survgrow,
+	_tt_help = S("Grows to an Apple").."\n"..surv.."\n"..S("Needs Common Leaves to grow"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_flower_apple.png"},
@@ -139,7 +139,7 @@ minetest.register_node(":hades_trees:olive", {
 
 minetest.register_node("refruit:bud_olive", {
 	description = S("Olive Bud"),
-	_tt_help = S("Grows to an Olive Flower").."\n"..survgrow,
+	_tt_help = S("Grows to an Olive Flower").."\n"..surv.."\n"..S("Needs Olive Leaves to grow"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_bud_olive.png"},
@@ -171,7 +171,7 @@ minetest.register_node("refruit:bud_olive", {
 
 minetest.register_node("refruit:flower_olive", {
 	description = S("Olive Flower"),
-	_tt_help = S("Grows to an Olive").."\n"..survgrow,
+	_tt_help = S("Grows to an Olive").."\n"..surv.."\n"..S("Needs Olive Leaves to grow"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"refruit_flower_olive.png"},
@@ -211,7 +211,7 @@ minetest.register_node("refruit:flower_olive", {
 minetest.register_abm({
 	label = "Grow apple bud to apple flower",
 	nodenames = {"refruit:bud_apple"},
-	neighbors = {"group:leaves"},
+	neighbors = {"hades_trees:leaves"},
 	interval = 34,
 	chance = 10,
 	action = function(pos, node)
@@ -222,7 +222,7 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Grow apple flower to apple",
 	nodenames = {"refruit:flower_apple"},
-	neighbors = {"group:leaves"},
+	neighbors = {"hades_trees:leaves"},
 	interval = 33,
 	chance = 60,
 	action = function(pos, node)
@@ -235,7 +235,7 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Grow olive bud to olive flower",
 	nodenames = {"refruit:bud_olive"},
-	neighbors = {"group:leaves"},
+	neighbors = {"hades_trees:olive_leaves"},
 	interval = 35,
 	chance = 10,
 	action = function(pos, node)
@@ -246,7 +246,7 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Grow olive flower to olive",
 	nodenames = {"refruit:flower_olive"},
-	neighbors = {"group:leaves"},
+	neighbors = {"hades_trees:olive_leaves"},
 	interval = 34,
 	chance = 60,
 	action = function(pos, node)
