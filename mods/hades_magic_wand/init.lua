@@ -42,7 +42,7 @@ minetest.register_craftitem("hades_magic_wand:magic_wand", {
 	_tt_help = S("Changes block state"),
 	inventory_image = "default_stick.png^[colorize:#940EFE:127",
 	wield_image = "default_stick.png^[colorize:#940EFE:127",
-	groups = { tool = 1 },
+	groups = { tool = 1, disable_repair = 1 },
 	on_use = function(itemstack, user, pointed_thing)
 		if pointed_thing.type == "node" then
 			local pos = pointed_thing.under
