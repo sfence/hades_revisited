@@ -365,7 +365,7 @@ function hades_trees.generate_cjtree(pos, check_light, trunk, leaves, undergroun
 		return
 	end
 
-	node = {name = ""}
+	local node = {name = ""}
 	for dy=1,12 do
 		pos.y = pos.y+dy
 		if minetest.get_node(pos).name ~= "air" then

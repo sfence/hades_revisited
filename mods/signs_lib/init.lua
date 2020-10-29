@@ -672,7 +672,7 @@ minetest.register_node("signs_lib:sign_wall", {
 	on_punch = function(pos, node, puncher)
 		signs_lib.update_sign(pos)
 	end,
-	on_rotate,
+	on_rotate = false,
     sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
