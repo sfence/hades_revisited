@@ -55,6 +55,7 @@ minetest.register_node("glowcrystals:glowcrystal_torch", {
 	groups = {choppy=2,dig_immediate=3,attached_node=1},
 	legacy_wallmounted = true,
 	sounds = hades_sounds.node_sound_defaults(),
+	on_rotate = false,
 })
 
 minetest.register_node("glowcrystals:glowglass", {

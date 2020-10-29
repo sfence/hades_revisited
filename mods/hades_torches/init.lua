@@ -53,7 +53,8 @@ hades_torches.register_torch = function(id, def)
 			itemstack:set_name("hades_torches:"..id)
 
 			return itemstack
-		end
+		end,
+		on_rotate = false,
 	})
 
 	minetest.register_node("hades_torches:"..id.."_wall", {
@@ -73,6 +74,7 @@ hades_torches.register_torch = function(id, def)
 			wall_side = {-1/2, -1/2, -1/8, -1/8, 1/8, 1/8},
 		},
 		sounds = hades_sounds.node_sound_wood_defaults(),
+		on_rotate = false,
 	})
 
 	minetest.register_node("hades_torches:"..id.."_ceiling", {
@@ -92,6 +94,7 @@ hades_torches.register_torch = function(id, def)
 			wall_top = {-1/8, -1/16, -5/16, 1/8, 1/2, 1/8},
 		},
 		sounds = hades_sounds.node_sound_wood_defaults(),
+		on_rotate = false,
 	})
 
 end
