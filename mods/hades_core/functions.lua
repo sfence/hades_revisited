@@ -122,7 +122,7 @@ minetest.register_abm({
 	label = "Create marble",
 	nodenames = {"hades_core:chondrite"},
 	neighbors = {"group:water"},
-	interval = 200,
+	interval = 171,
 	chance = 55,
 	action = function(pos, node)
 		if minetest.find_node_near(pos, 4, {"group:lava"}) == nil or pos.y > -500 then
@@ -143,7 +143,7 @@ minetest.register_abm({
 	label = "Create obsidian",
 	nodenames = {"hades_core:gravel_volcanic"},
 	neighbors = {"group:lava"},
-	interval = 1111,
+	interval = 180,
 	chance = 65,
 	action = function(pos, node)
 		if minetest.find_node_near(pos, 4, {"group:water"}) == nil or pos.y > -1000 then
