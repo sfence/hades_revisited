@@ -25,6 +25,26 @@ minetest.register_globalstep(function(dtime)
 			math.floor(dtime * finds_per_second)
 end)
 
+local function leafdecay_particles(pos, node)
+	minetest.add_particlespawner({
+		amount = math.random(10, 20),
+		time = 0.1,
+		minpos = vector.add(pos, {x=-0.4, y=-0.4, z=-0.4}),
+		maxpos = vector.add(pos, {x=0.4, y=0.4, z=0.4}),
+		minvel = {x=-0.2, y=-0.2, z=-0.2},
+		maxvel = {x=0.2, y=0.1, z=0.2},
+		minacc = {x=0, y=-9.81, z=0},
+		maxacc = {x=0, y=-9.81, z=0},
+		minexptime = 0.1,
+		maxexptime = 0.5,
+		minsize = 0.5,
+		maxsize = 1.5,
+		collisiondetection = true,
+		vertical = false,
+		node = node,
+	})
+end
+
 minetest.register_abm({
 	label = "Leaf decay",
 	nodenames = {"group:leafdecay"},
@@ -94,6 +114,7 @@ minetest.register_abm({
 			end
 			-- Remove node
 			minetest.remove_node(p0)
+			leafdecay_particles(p0, n0)
 			minetest.check_for_falling(p0)
 		end
 	end
