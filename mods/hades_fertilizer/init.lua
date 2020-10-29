@@ -48,9 +48,6 @@ local get_apply_fertilizer = function(super)
 			return itemstack
 		end
 		local name = placer:get_player_name()
-		if super and (not minetest.check_player_privs(placer, "server")) then
-			return itemstack
-		end
 		local pos = pointed_thing.under
 		local nnode = minetest.get_node(pos)
 		local nname = nnode.name
