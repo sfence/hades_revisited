@@ -264,21 +264,25 @@ minetest.register_abm({
 
 minetest.register_abm({
 	label = "Create fertile sand",
-	nodenames = {"hades_core:ash"},
-	interval = 550,
-	chance = 35,
+	nodenames = {"group:ash_fertilizer"}, -- used by most leaves
+	interval = 60,
+	chance = 260,
 	action = function(pos, node)
-		if minetest.find_node_near(pos, 3, {"group:leaves"}) == nil then
+		local d = minetest.get_item_group(node.name, "ash_fertilizer")
+		local pos1 = vector.add(pos, {x=d ,y=-1, z=d})
+		local pos2 = vector.add(pos, {x=-d, y=-d*2, z=-d})
+		-- Turn ash to fertile sand
+		local ashes = minetest.find_nodes_in_area(pos1, pos2, {"hades_core:ash"})
+		if #ashes == 0 then
 			return
-		else
-		    pos.y = pos.y+1
-			if minetest.get_node(pos).name == "hades_core:cactus" then
-			  return
-			else
-			pos.y = pos.y-1
-			minetest.set_node(pos, {name="hades_core:fertile_sand"})
-			end
 		end
+		local ash = ashes[math.random(1, #ashes)]
+		local aname = minetest.get_node({x=ash.x,y=ash.y+1,z=ash.z}).name
+		local def = minetest.registered_nodes[aname]
+		if def and def.walkable then
+			return
+		end
+		minetest.set_node(ash, {name="hades_core:fertile_sand"})
 	end,
 })
 

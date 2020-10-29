@@ -46,7 +46,7 @@ minetest.register_node("hades_trees:birch_leaves", {
 	waving = 1,
 	is_ground_content = false,
 	place_param2 = 1,
-	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, porous=1},
+	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, ash_fertilizer=3, porous=1},
  	drop = {
 		max_items = 1,
 		items = {
