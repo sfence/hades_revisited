@@ -92,18 +92,19 @@ for i in ipairs(lilies_list) do
 				       and plantslib:get_nodedef_field(top_node.name, "buildable_to") then
 					place_pos = top_pos
 				else
-					return
+					return itemstack
 				end
 			elseif plantslib:get_nodedef_field(above_node.name, "buildable_to") then
 				place_pos = pt.above
 			end
 
+			if not place_pos then
+				return itemstack
+			end
 
 			if not plantslib:node_is_owned(place_pos, placer) then
 
-
-			local nodename = "hades_core:cobble" -- if this block appears, something went....wrong :-)
-
+				local nodename = "hades_core:cobble" -- if this block appears, something went....wrong :-)
 
 				if not keys["sneak"] then
 					local node = minetest.get_node(pt.under)
@@ -204,18 +205,19 @@ for i in ipairs(algae_list) do
 				       and plantslib:get_nodedef_field(top_node.name, "buildable_to") then
 					place_pos = top_pos
 				else
-					return
+					return itemstack
 				end
 			elseif plantslib:get_nodedef_field(above_node.name, "buildable_to") then
 				place_pos = pt.above
 			end
-
+			if not place_pos then
+				return itemstack
+			end
 
 			if not plantslib:node_is_owned(place_pos, placer) then
 
 
-			local nodename = "hades_core:cobble" -- :D
-
+				local nodename = "hades_core:cobble" -- :D
 
 				if not keys["sneak"] then
 					local node = minetest.get_node(pt.under)
