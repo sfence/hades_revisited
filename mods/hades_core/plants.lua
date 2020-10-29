@@ -128,7 +128,6 @@ minetest.register_node("hades_core:cactus", {
 	_tt_help = S("Grows on ash and sand"),
 	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
 	paramtype = "light",
-	paramtype2 = "facedir",
 	is_ground_content = true,
 	drawtype = "nodebox",
 		node_box = {
@@ -144,7 +143,6 @@ minetest.register_node("hades_core:cactus", {
 		},
 	groups = {snappy=1,choppy=3,flammable=2},
 	sounds = hades_sounds.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node
 })
 
 minetest.register_node("hades_core:cactus_block", {
