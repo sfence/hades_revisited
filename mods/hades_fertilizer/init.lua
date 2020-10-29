@@ -64,6 +64,9 @@ minetest.register_tool("hades_fertilizer:super_fertilizer", {
 		if plant_mappings[nname] then
 			-- Cycle through plant growth stages and plant variants
 			minetest.set_node(pos, {name=plant_mappings[nname][1], param2=plant_mappings[nname][2]})
+		elseif minetest.get_item_group(nname, "sapling") ~= 0 then
+			-- Grow sapling to tree
+			hades_trees.grow_sapling(pos)
 		elseif nname == "flowerpots:flower_pot" then
 			-- Grow random flower in empty flowerpot
 			local flowers = {
