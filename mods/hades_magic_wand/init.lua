@@ -49,9 +49,6 @@ minetest.register_craftitem("hades_magic_wand:magic_wand", {
 			local node = minetest.get_node(pointed_thing.under)
 			if conversions[node.name] then
 				node.name = conversions[node.name]
-				if minetest.get_item_group(node.name, "seed") ~= 0 then
-					node.param2 = 1
-				end
 				minetest.swap_node(pos, node)
 			end
 		end

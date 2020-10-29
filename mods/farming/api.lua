@@ -187,15 +187,18 @@ farming.register_plant = function(name, def)
 	minetest.register_node(":" .. mname .. ":seed_" .. pname, {
 		description = def.description,
 		_tt_help = def._tt_help,
-		tiles = {def.inventory_image},
+		tiles = {def.inventory_image, def.inventory_image, "blank.png"},
 		inventory_image = def.inventory_image,
 		wield_image = def.inventory_image,
-		drawtype = "signlike",
+		drawtype = "nodebox",
 		groups = g,
 		paramtype = "light",
-		paramtype2 = "wallmounted",
 		walkable = false,
 		sunlight_propagates = true,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -31/64, 0.5},
+		},
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
