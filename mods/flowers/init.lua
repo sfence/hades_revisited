@@ -121,6 +121,7 @@ minetest.register_node("flowers:viola", {
 
 
 minetest.register_abm({
+	label = "Flora spread and wither",
 	nodenames = {"group:flora"},
 	neighbors = {"hades_core:dirt_with_grass", "hades_core:fertile_sand"},
 	interval = 50,
