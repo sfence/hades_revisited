@@ -2,7 +2,7 @@ local S = minetest.get_translator("hades_trees")
 local pr
 
 minetest.register_node("hades_trees:apple", {
-	description = S("Apple (+@1)", 2),
+	description = S("Apple"),
 	drawtype = "plantlike",
 	visual_scale = 0.75,
 	tiles = {"default_apple.png"},
@@ -41,7 +41,7 @@ minetest.register_node("hades_trees:sapling", {
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
 	},
 	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1, sapling=1},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_defaults(),
 })
 
 minetest.register_node("hades_trees:tree", {

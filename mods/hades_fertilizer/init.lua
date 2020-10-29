@@ -63,7 +63,7 @@ local get_apply_fertilizer = function(super)
 		elseif minetest.get_item_group(nname, "sapling") ~= 0 then
 			if not super and math.random(1,5) ~= 1 then return itemstack end
 			-- Grow sapling to tree
-			hades_trees.grow_sapling(pos)
+			hades_trees.grow_sapling(pos, false)
 		elseif nname == "flowerpots:flower_pot" then
 			if not super then return itemstack end
 			-- [SUPER] Grow random flower in empty flowerpot

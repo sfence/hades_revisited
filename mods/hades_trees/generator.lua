@@ -1,22 +1,35 @@
-function hades_trees.grow_sapling(pos)
-	local node = minetest.get_node(pos)
+local pr_a, pr_j -- PseudoRandom vars
+
+function hades_trees.grow_sapling(pos, check_light)
+	local node = minetest.get_node(pos, check_light)
 	if node.name == "hades_trees:sapling" then
-		hades_trees.generate_appletree(pos)
+		hades_trees.generate_appletree(pos, check_light)
 	elseif node.name == "hades_trees:jungle_sapling" then
-		hades_trees.generate_jungletree(pos)
+		hades_trees.generate_jungletree(pos, check_light)
 	elseif node.name == "hades_trees:cultivated_jungle_sapling" then
-		hades_trees.generate_cjtree(pos)
+		hades_trees.generate_cjtree(pos, check_light)
 	elseif node.name == "hades_trees:olive_sapling" then
-		hades_trees.generate_olivetree(pos)
+		hades_trees.generate_olivetree(pos, check_light)
 	elseif node.name == "hades_trees:birch_sapling" then
-		hades_trees.generate_birchtree(pos)
+		hades_trees.generate_birchtree(pos, check_light)
 	elseif node.name == "hades_trees:pale_sapling" then
-		hades_trees.generate_paletree(pos)
+		hades_trees.generate_paletree(pos, check_light)
 	end
 end
 
+local function check_node_light(pos, minlight, check)
+	if check == false then
+		return true
+	end
+	local l = minetest.get_node_light(pos)
+	if not l or l < minlight then
+		return false
+	end
+	return true
+end
+
 -- Common Tree
-function hades_trees.generate_tree(pos, trunk, leaves, underground, replacements)
+function hades_trees.generate_tree(pos, check_light, trunk, leaves, underground, replacements)
 	if not trunk then
 		trunk = "hades_trees:tree"
 	end
@@ -28,21 +41,20 @@ function hades_trees.generate_tree(pos, trunk, leaves, underground, replacements
 	end
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
-	local ret = true
+	local ret = false
 	for _,name in ipairs(underground) do
 		if nodename == name then
-			ret = false
+			ret = true
 			break
 		end
 	end
+	if not ret then
+		return
+	end
 	pos.y = pos.y+1
-	if not minetest.get_node_light(pos) then
+	if not check_node_light(pos, 8, check_light) then
 		return
 	end
-	if ret or minetest.get_node_light(pos) < 8 then
-		return
-	end
-
 
 	local node = {name = ""}
 	for dy=1,3 do
@@ -125,7 +137,7 @@ function hades_trees.generate_tree(pos, trunk, leaves, underground, replacements
 end
 
 -- Olive Tree
-function hades_trees.generate_olivetree(pos, trunk, leaves, underground, replacements)
+function hades_trees.generate_olivetree(pos, check_light, trunk, leaves, underground, replacements)
 	if not trunk then
 		trunk = "hades_trees:tree"
 	end
@@ -138,11 +150,11 @@ function hades_trees.generate_olivetree(pos, trunk, leaves, underground, replace
 	if not replacements then
 		replacements = {["hades_trees:olive"]=10}
 	end
-	hades_trees.generate_tree(pos, trunk, leaves, underground, replacements)
+	hades_trees.generate_tree(pos, check_light, trunk, leaves, underground, replacements)
 end
 
 -- Pale Tree
-function hades_trees.generate_paletree(pos, trunk, leaves, underground)
+function hades_trees.generate_paletree(pos, check_light, trunk, leaves, underground)
 	if not trunk then
 		trunk = "hades_trees:pale_tree"
 	end
@@ -154,21 +166,20 @@ function hades_trees.generate_paletree(pos, trunk, leaves, underground)
 	end
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
-	local ret = true
+	local ret = false
 	for _,name in ipairs(underground) do
 		if nodename == name then
-			ret = false
+			ret = true
 			break
 		end
 	end
+	if not ret then
+		return
+	end
 	pos.y = pos.y+1
-	if not minetest.get_node_light(pos) then
+	if not check_node_light(pos, 8, check_light) then
 		return
 	end
-	if ret or minetest.get_node_light(pos) < 8 then
-		return
-	end
-
 
 	node = {name = ""}
 	for dy=1,6 do
@@ -233,7 +244,7 @@ function hades_trees.generate_paletree(pos, trunk, leaves, underground)
 end
 
 -- Birch Tree
-function hades_trees.generate_birchtree(pos, trunk, leaves, underground)
+function hades_trees.generate_birchtree(pos, check_light, trunk, leaves, underground)
 	if not trunk then
 		trunk = "hades_trees:birch_tree"
 	end
@@ -245,21 +256,20 @@ function hades_trees.generate_birchtree(pos, trunk, leaves, underground)
 	end
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
-	local ret = true
+	local ret = false
 	for _,name in ipairs(underground) do
 		if nodename == name then
-			ret = false
+			ret = true
 			break
 		end
 	end
+	if not ret then
+		return
+	end
 	pos.y = pos.y+1
-	if not minetest.get_node_light(pos) then
+	if not check_node_light(pos, 8, check_light) then
 		return
 	end
-	if ret or minetest.get_node_light(pos) < 8 then
-		return
-	end
-
 
 	local node = {name = ""}
 	for dy=1,6 do
@@ -327,7 +337,7 @@ end
 
 
 -- Cultivated Jungle Tree
-function hades_trees.generate_cjtree(pos, trunk, leaves, underground)
+function hades_trees.generate_cjtree(pos, check_light, trunk, leaves, underground)
 	if not trunk then
 		trunk = "hades_trees:jungle_tree"
 	end
@@ -340,21 +350,20 @@ function hades_trees.generate_cjtree(pos, trunk, leaves, underground)
 
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
-	local ret = true
+	local ret = false
 	for _,name in ipairs(underground) do
 		if nodename == name then
-			ret = false
+			ret = true
 			break
 		end
 	end
+	if not ret then
+		return
+	end
 	pos.y = pos.y+1
-	if not minetest.get_node_light(pos) then
+	if not check_node_light(pos, 8, check_light) then
 		return
 	end
-	if ret or minetest.get_node_light(pos) < 8 then
-		return
-	end
-
 
 	node = {name = ""}
 	for dy=1,12 do
@@ -427,10 +436,17 @@ local c_tree = minetest.get_content_id("hades_trees:tree")
 local c_leaves = minetest.get_content_id("hades_trees:leaves")
 local c_apple = minetest.get_content_id("hades_trees:apple")
 
-function hades_trees.generate_jungletree(pos)
+function hades_trees.generate_jungletree(pos, check_light)
 	local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
-	local is_soil = minetest.get_item_group(nu, "soil")
-	if is_soil == 0 then
+
+	local ret = false
+	for _,name in ipairs({"hades_core:dirt", "hades_core:dirt_with_grass"}) do
+		if nu == name then
+			ret = true
+			break
+		end
+	end
+	if not ret then
 		return
 	end
 
@@ -440,13 +456,18 @@ function hades_trees.generate_jungletree(pos)
 	local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
 	local data = vm:get_data()
 
-	if not pr then
+	if not pr_j then
 		local seed = math.random(1,100000)
-		pr = PseudoRandom(seed)
+		pr_j = PseudoRandom(seed)
 	end
         local x, y, z = pos.x, pos.y, pos.z
 
-        local th = pr:next(10, 14)
+	local lpos = {x=pos.x, y=pos.y+1, z=pos.z}
+	if not check_node_light(lpos, 8, check_light) then
+		return
+	end
+
+        local th = pr_j:next(10, 14)
         for yy = y, y+th-1 do
                 local vi = a:index(x, yy, z)
                 if a:contains(x, yy, z) and (data[vi] == c_air or yy == y) then
@@ -470,9 +491,9 @@ function hades_trees.generate_jungletree(pos)
         -- Add leaves randomly
         for iii = 1, 30 do
                 local d = 1
-                local xx = pr:next(leaves_a.MinEdge.x, leaves_a.MaxEdge.x - d)
-                local yy = pr:next(leaves_a.MinEdge.y, leaves_a.MaxEdge.y - d)
-                local zz = pr:next(leaves_a.MinEdge.z, leaves_a.MaxEdge.z - d)
+                local xx = pr_j:next(leaves_a.MinEdge.x, leaves_a.MaxEdge.x - d)
+                local yy = pr_j:next(leaves_a.MinEdge.y, leaves_a.MaxEdge.y - d)
+                local zz = pr_j:next(leaves_a.MinEdge.z, leaves_a.MaxEdge.z - d)
 
                 for xi = 0, d do
                 for yi = 0, d do
@@ -504,10 +525,22 @@ function hades_trees.generate_jungletree(pos)
 	vm:update_map()
 end
 
-function hades_trees.generate_appletree(pos, is_apple_tree)
+function hades_trees.generate_appletree(pos, check_light, is_apple_tree)
 	local nu = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
-	local is_soil = minetest.get_item_group(nu, "soil")
-	if is_soil == 0 then
+
+	local ret = false
+	for _,name in ipairs({"hades_core:dirt", "hades_core:dirt_with_grass"}) do
+		if nu == name then
+			ret = true
+			break
+		end
+	end
+	if not ret then
+		return
+	end
+
+	local lpos = {x=pos.x, y=pos.y+1, z=pos.z}
+	if not check_node_light(lpos, 8, check_light) then
 		return
 	end
 
@@ -520,11 +553,11 @@ function hades_trees.generate_appletree(pos, is_apple_tree)
 		is_apple_tree = math.random(1, 4) == 1
 	end
 
-	if not pr then
+	if not pr_a then
 		local seed = math.random(1,100000)
-		pr = PseudoRandom(seed)
+		pr_a = PseudoRandom(seed)
 	end
-        local th = pr:next(4, 6)
+        local th = pr_a:next(4, 6)
         local x, y, z = pos.x, pos.y, pos.z
         for yy = y, y+th-1 do
                 local vi = a:index(x, yy, z)
@@ -549,9 +582,9 @@ function hades_trees.generate_appletree(pos, is_apple_tree)
         -- Add leaves randomly
         for iii = 1, 8 do
                 local d = 1
-                local xx = pr:next(leaves_a.MinEdge.x, leaves_a.MaxEdge.x - d)
-                local yy = pr:next(leaves_a.MinEdge.y, leaves_a.MaxEdge.y - d)
-                local zz = pr:next(leaves_a.MinEdge.z, leaves_a.MaxEdge.z - d)
+                local xx = pr_a:next(leaves_a.MinEdge.x, leaves_a.MaxEdge.x - d)
+                local yy = pr_a:next(leaves_a.MinEdge.y, leaves_a.MaxEdge.y - d)
+                local zz = pr_a:next(leaves_a.MinEdge.z, leaves_a.MaxEdge.z - d)
 
                 for xi = 0, d do
                 for yi = 0, d do
@@ -570,7 +603,7 @@ function hades_trees.generate_appletree(pos, is_apple_tree)
                         local vi = a:index(x+xi, y+yi, z+zi)
                         if data[vi] == c_air or data[vi] == c_ignore then
                                 if leaves_buffer[leaves_a:index(xi, yi, zi)] then
-                                        if pr:next(1, 100) <=  3 then -- is_apple_tree and(zwischen if und pr:next)
+                                        if pr_a:next(1, 100) <=  3 then -- is_apple_tree and(zwischen if und pr:next)
                                                 data[vi] = c_apple
                                         else
                                                 data[vi] = c_leaves
