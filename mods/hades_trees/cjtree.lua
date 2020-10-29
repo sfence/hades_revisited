@@ -40,7 +40,7 @@ minetest.register_node("hades_trees:cultivated_jungle_sapling", {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
 	},
-	groups = {dig_immediate=3,flammable=2, sapling=1},
+	groups = {dig_immediate=3,flammable=2,attached_node=1, sapling=1},
 	sounds = hades_sounds.node_sound_defaults(),
 })
 
