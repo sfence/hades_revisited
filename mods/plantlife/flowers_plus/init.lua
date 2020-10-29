@@ -35,13 +35,13 @@ local lilies_list = {
 for i in ipairs(lilies_list) do
 	local deg1 = ""
 	local deg2 = ""
-	local lily_groups = {snappy = 3,flammable=2,flower=1}
+	local lily_groups = {snappy = 3,flammable=2,waterlily=1}
 
 
 	if lilies_list[i][1] ~= nil then
 		deg1 = "_"..lilies_list[i][1]
 		deg2 = "_"..lilies_list[i][2]
-		lily_groups = { snappy = 3,flammable=2,flower=1, not_in_creative_inventory=1 }
+		lily_groups = { snappy = 3,flammable=2,waterlily=1, not_in_creative_inventory=1 }
 	end
 
 
@@ -148,12 +148,12 @@ local algae_list = { {nil}, {2}, {3}, {4} }
 
 for i in ipairs(algae_list) do
 	local num = ""
-	local algae_groups = {snappy = 3,flammable=2,flower=1}
+	local algae_groups = {snappy = 3,flammable=2,seaweed=1}
 
 
 	if algae_list[i][1] ~= nil then
 		num = "_"..algae_list[i][1]
-		algae_groups = { snappy = 3,flammable=2,flower=1, not_in_creative_inventory=1 }
+		algae_groups = { snappy = 3,flammable=2,seaweed=1, not_in_creative_inventory=1 }
 	end
 
 
