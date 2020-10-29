@@ -8,7 +8,7 @@ do
 	-- Growth stages
 
 	for f=1, #farms do
-		local t = { 0 }
+		local t = { 0, false }
 		table.insert(t, "farming:seed_"..farms[f])
 		for i=1,3 do
 			table.insert(t, "farming:"..farms[f].."_"..i)
@@ -16,13 +16,13 @@ do
 		table.insert(plants_rotate, t)
 	end
 
-	local t = { 0, "refruit:bud_apple", "refruit:flower_apple", "hades_trees:apple" }
+	local t = { 0, true, "refruit:bud_apple", "refruit:flower_apple", "hades_trees:apple" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, "refruit:bud_olive", "refruit:flower_olive", "hades_trees:olive" }
+	local t = { 0, true, "refruit:bud_olive", "refruit:flower_olive", "hades_trees:olive" }
 	table.insert(plants_rotate, t)
 
-	t = { 0 }
+	t = { 0, false }
 	for i=1,5 do
 		table.insert(t, "hades_core:grass_"..i)
 	end
@@ -33,49 +33,51 @@ local plant_mappings = {}
 for p=1, #plants_rotate do
 	local rotate = plants_rotate[p]
 	local param2 = rotate[1]
+	local super = rotate[2]
 	for r=2, #rotate-1 do
 		local nextr = r+1
-		plant_mappings[rotate[r]] = { rotate[nextr], param2 }
+		plant_mappings[rotate[r]] = { rotate[nextr], param2, super }
 	end
 end
 
--- Super Fertilizer makes almost everything grow; only for Creative Mode
-minetest.register_tool("hades_fertilizer:super_fertilizer", {
-	description = S("Super Fertilizer"),
-	_tt_help = S("Makes a lot of plants grow"),
-	inventory_image = "hades_fertilizer_super_fertilizer.png",
-	groups = { disable_repair = 1 },
-	on_place = function(itemstack, placer, pointed_thing)
+-- Returns an on_place function for fertilizer.
+-- 'super' parameter is true for Super Fertilizer and false for normal fertilizer
+local get_apply_fertilizer = function(super)
+	return function(itemstack, placer, pointed_thing)
 		if not pointed_thing or not pointed_thing.under or not placer then
-			return
+			return itemstack
 		end
 		local name = placer:get_player_name()
-		if not minetest.check_player_privs(placer, "server") then
-			return
+		if super and (not minetest.check_player_privs(placer, "server")) then
+			return itemstack
 		end
-		local box = {
-			minp = { x = -32768, y = -32768, z = -32768 },
-			maxp = { x =  32768, y =  32768, z =  32768 },
-		}
 		local pos = pointed_thing.under
 		local nnode = minetest.get_node(pos)
 		local nname = nnode.name
 		local def = minetest.registered_nodes[nname]
 		if plant_mappings[nname] then
-			-- Cycle through plant growth stages and plant variants
+			if (not super) then
+				-- Restrict usable plants if not super fertilizer
+				if plant_mappings[nname][3] == true then return itemstack end
+				if math.random(1,3) == 1 then return itemstack end
+			end
+			-- Add plant growth stage
 			minetest.set_node(pos, {name=plant_mappings[nname][1], param2=plant_mappings[nname][2]})
 		elseif minetest.get_item_group(nname, "sapling") ~= 0 then
+			if not super and math.random(1,5) ~= 1 then return itemstack end
 			-- Grow sapling to tree
 			hades_trees.grow_sapling(pos)
 		elseif nname == "flowerpots:flower_pot" then
-			-- Grow random flower in empty flowerpot
+			if not super then return itemstack end
+			-- [SUPER] Grow random flower in empty flowerpot
 			local flowers = {
 				"rose", "dandelion_white", "dandelion_yellow", "tulip", "geranium", "viola",
 			}
 			local flower = flowers[math.random(1, #flowers)]
 			minetest.set_node(pos, {name="flowerpots:flower_pot_"..flower})
 		elseif minetest.get_item_group(nname, "leaves") == 1 then
-			-- Grow leaves
+			if not super then return itemstack end
+			-- [SUPER] Grow leaves
 			local posses = {
 				{ x=0, y=0, z=1 },
 				{ x=0, y=0, z=-1 },
@@ -91,7 +93,8 @@ minetest.register_tool("hades_fertilizer:super_fertilizer", {
 				end
 			end
 		elseif nname == "hades_core:papyrus" or nname == "hades_core:sugarcane" or nname == "hades_core:cactus" or minetest.get_item_group(nname, "tree") == 1 then
-			-- Grow reeds and tree trunks upwards
+			if not super then return itemstack end
+			-- [SUPER] Grow reeds and tree trunks upwards
 			local above
 			for i=1,15 do
 				above = {x=pos.x,y=pos.y+i,z=pos.z}
@@ -104,7 +107,8 @@ minetest.register_tool("hades_fertilizer:super_fertilizer", {
 				end
 			end
 		elseif minetest.get_item_group(nname, "vines") ~= 0 or nname == "vines:root" then
-			-- Grow vines
+			if not super then return itemstack end
+			-- [SUPER] Grow vines
 			local param2 = nnode.param2
 			if param2 >= 2 or def.paramtype2 ~= "wallmounted" then
 				-- Grow downwards
@@ -121,11 +125,21 @@ minetest.register_tool("hades_fertilizer:super_fertilizer", {
 				end
 			end
 		elseif nname == "hades_core:dirt" or nname == "hades_core:stone" or nname == "hades_core:tuff" or nname == "hades_core:cobble" or nname == "walls:cobble" then
+			-- Grow grass on dirt
+			-- [SUPER] also grow moss
 			local posses = {}
-			-- Grow grass cover on dirt, or grow moss
-			for x = pos.x - 2, pos.x + 2 do
+			local minmax
+			if super then
+				minmax=2
+			else
+				if nname ~= "hades_core:dirt" then
+					return itemstack
+				end
+				minmax=1
+			end
+			for x = pos.x - minmax, pos.x + minmax do
 			for y = pos.y, pos.y do
-			for z = pos.z - 2, pos.z + 2 do
+			for z = pos.z - minmax, pos.z + minmax do
 				local ppos = {x = x, y = y, z = z}
 				if vector.distance(pos, ppos) <= 2.3 then
 					local node = minetest.get_node(ppos)
@@ -153,9 +167,9 @@ minetest.register_tool("hades_fertilizer:super_fertilizer", {
 			end
 		elseif nname == "hades_core:grass" or nname == "hades_core:dirt_with_grass" or nname == "hades_core:fertile_sand" or nname == "hades_core:ash" or nname == "hades_core:gravel" or nname == "hades_core:gravel_volcanic" or nname == "farming:soil" or nname == "farming:soil_wet" then
 			-- Grow grass, flowers and other random plants
-			for x = math.max(box.minp.x + 1, pos.x - 2), math.min(box.maxp.x - 1, pos.x + 2) do
-			for y = math.max(box.minp.y + 1, pos.y), math.min(box.maxp.y - 1, pos.y) do
-			for z = math.max(box.minp.z + 1, pos.z - 2), math.min(box.maxp.z - 1, pos.z + 2) do
+			for x = pos.x - 2, pos.x + 2 do
+			for y = pos.y, pos.y do
+			for z = pos.z - 2, pos.z + 2 do
 				local ppos = {x = x, y = y, z = z}
 				if vector.distance(pos, ppos) <= 2.3 then
 					local node = minetest.get_node(ppos)
@@ -164,6 +178,7 @@ minetest.register_tool("hades_fertilizer:super_fertilizer", {
 					if above_node.name == "air" and math.random() < 0.2 and node.name == nname then
 						local plants
 						if (node.name == "hades_core:grass" or node.name == "hades_core:dirt_with_grass") then
+							if super then
 							plants = {
 							{"hades_core:grass_1", 0},
 							{"hades_core:grass_2", 0},
@@ -197,15 +212,27 @@ minetest.register_tool("hades_fertilizer:super_fertilizer", {
 							{"flowers:viola", 0},
 							{"flowers:geranium", 0},
 							}
+							else
+							plants = {
+							{"hades_core:grass_1",0},
+							{"hades_core:grass_2",0},
+							{"hades_core:grass_3",0},
+							{"hades_core:grass_4",0},
+							{"hades_core:grass_5",0},
+							}
+							end
 						elseif (node.name == "hades_core:ash" or node.name == "hades_core:gravel" or node.name == "hades_core:gravel_volcanic") then
+							if not super then return itemstack end
 							plants = {
 							{ "hades_core:dry_shrub", 0 },
 							}
 						elseif (node.name == "hades_core:fertile_sand") then
+							if not super then return itemstack end
 							plants = {
 							{ "hades_core:dry_shrub", 0 },
 							}
 						elseif (node.name == "farming:soil" or node.name == "farming:soil_wet") then
+							if not super then return itemstack end
 							plants = {
 							{"farming:seed_wheat", 0},
 							{"farming:seed_cotton", 0},
@@ -226,10 +253,11 @@ minetest.register_tool("hades_fertilizer:super_fertilizer", {
 			end
 			end
 		elseif minetest.get_item_group(nname, "waterlily") ~= 0 or minetest.get_item_group(nname, "seaweed") ~= 0 then
-			-- Spread waterlilies and seaweed on water
-			for x = math.max(box.minp.x + 1, pos.x - 3), math.min(box.maxp.x - 1, pos.x + 3) do
-			for y = math.max(box.minp.y + 1, pos.y), math.min(box.maxp.y - 1, pos.y) do
-			for z = math.max(box.minp.z + 1, pos.z - 3), math.min(box.maxp.z - 1, pos.z + 3) do
+			if not super then return itemstack end
+			-- [SUPER] Spread waterlilies and seaweed on water
+			for x = pos.x - 3, pos.x + 3 do
+			for y = pos.y, pos.y do
+			for z = pos.z - 3, pos.z + 3 do
 				local ppos = {x = x, y = y, z = z}
 				if vector.distance(pos, ppos) <= 3.0 then
 					local node = minetest.get_node(ppos)
@@ -248,6 +276,25 @@ minetest.register_tool("hades_fertilizer:super_fertilizer", {
 			end
 
 		end
+		if not super and not minetest.settings:get_bool("creative_mode", false) then
+			itemstack:take_item()
+		end
 		return itemstack
-	end,
+	end
+end
+
+-- Fertilizer helps grow a few plants
+minetest.register_craftitem("hades_fertilizer:fertilizer", {
+	description = S("Fertilizer"),
+	_tt_help = S("Makes plants grow"),
+	inventory_image = "hades_fertilizer_fertilizer.png",
+	on_place = get_apply_fertilizer(false),
+})
+
+-- Super Fertilizer makes almost everything grow; only for Creative Mode
+minetest.register_craftitem("hades_fertilizer:super_fertilizer", {
+	description = S("Super Fertilizer"),
+	_tt_help = S("Makes a lot of plants grow"),
+	inventory_image = "hades_fertilizer_super_fertilizer.png",
+	on_place = get_apply_fertilizer(true),
 })
