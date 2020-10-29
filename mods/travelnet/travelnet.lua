@@ -76,6 +76,7 @@ minetest.register_node("travelnet:travelnet", {
     on_punch          = function(pos, node, puncher)
                           travelnet.update_formspec(pos, puncher:get_player_name())
     end,
+    on_rotate = false,
 
     can_dig = function( pos, player )
                           return travelnet.can_dig( pos, player, 'travelnet box' )

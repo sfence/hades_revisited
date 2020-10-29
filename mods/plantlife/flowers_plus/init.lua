@@ -138,6 +138,7 @@ for i in ipairs(lilies_list) do
 				return itemstack
 			end
 		end,
+		on_rotate = "simple",
 	})
 end
 
@@ -241,21 +242,12 @@ for i in ipairs(algae_list) do
 				return itemstack
 			end
 		end,
+		on_rotate = "simple",
 	})
 end
 
 
 -- register all potted plant nodes, crafts, and most backward-compat aliases
-
-
-local flowers_list = {
-	{ "Red Flower",		"rose"},
-	{ "Orange Flower",		"tulip"},
-	{ "Yellow Flower",	"dandelion_yellow"},
-	{ "White Flower",	"dandelion_white"},
-	{ "Blue Flower",	"geranium"},
-	{ "Violet Flower",		"viola"},
-}
 
 
 local extra_aliases = {

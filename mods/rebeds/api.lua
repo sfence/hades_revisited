@@ -52,6 +52,7 @@ function rebeds.register_bed(name, def)
 		on_rightclick = function(pos, node, clicker)
 			rebeds.on_rightclick(pos, clicker)
 		end,
+		on_rotate = false,
 	})
 
 	minetest.register_node(name .. "_top", {
@@ -69,6 +70,7 @@ function rebeds.register_bed(name, def)
 			type = "fixed",
 			fixed = {0, 0, 0, 0, 0, 0},
 		},
+		on_rotate = false,
 	})
 
 	minetest.register_alias(name, name .. "_bottom")

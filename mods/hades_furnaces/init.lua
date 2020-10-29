@@ -316,6 +316,7 @@ for id, finfo in pairs(furnace_types) do
 		allow_metadata_inventory_put = allow_metadata_inventory_put,
 		allow_metadata_inventory_move = allow_metadata_inventory_move,
 		allow_metadata_inventory_take = allow_metadata_inventory_take,
+		on_rotate = "simple",
 
 		_furnace_normal = id,
 		_furnace_active = id.."_active",
@@ -352,6 +353,7 @@ for id, finfo in pairs(furnace_types) do
 		allow_metadata_inventory_put = allow_metadata_inventory_put,
 		allow_metadata_inventory_move = allow_metadata_inventory_move,
 		allow_metadata_inventory_take = allow_metadata_inventory_take,
+		on_rotate = "simple",
 
 		_furnace_normal = id,
 		_furnace_active = id.."_active",

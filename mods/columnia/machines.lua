@@ -63,6 +63,8 @@ minetest.register_node("columnia:machine", {
 		return true
 	end,
 
+	on_rotate = "simple",
+
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", "size[10,10;]"..

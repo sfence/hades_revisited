@@ -73,6 +73,7 @@ minetest.register_node("travelnet:elevator", {
     on_punch          = function(pos, node, puncher)
                           travelnet.update_formspec(pos, puncher:get_player_name())
     end,
+    on_rotate = false,
 
     can_dig = function( pos, player )
                           return travelnet.can_dig( pos, player, 'elevator' )
@@ -144,6 +145,7 @@ minetest.register_node("travelnet:elevator_top", {
     wield_image     = "travelnet_elevator_wield.png",
 
     light_source = 10,
+    on_rotate = false,
 
     groups = {cracky=1,choppy=1,snappy=1,not_in_creative_inventory=1},
     sounds = hades_sounds.node_sound_stone_defaults(),

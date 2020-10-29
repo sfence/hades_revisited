@@ -544,6 +544,7 @@ local S = minetest.get_translator("3dforniture")
 				minetest.sound_play({name="3dforniture_table_lamp_switch"}, {pos=pos, gain=0.35, max_hear_distance=6})
 				minetest.set_node(pos, {name="3dforniture:table_lamp_"..lamps[l][2]})
 			end,
+			on_rotate = "simple",
 		})
 
 		end
@@ -552,7 +553,7 @@ local S = minetest.get_translator("3dforniture")
 
 			--Toilet
 			minetest.register_node("3dforniture:toilet",
-				{ description = 'Toilet',
+				{ description = S("Toilet"),
 				tiles = { 
 					"forniture_marble.png", "forniture_marble.png", 
 					"forniture_marble_s1.png", "forniture_marble_s1.png", 
@@ -579,6 +580,7 @@ local S = minetest.get_translator("3dforniture")
 				on_rightclick = function (pos, node, clicker)
 					minetest.add_node(pos, {name="3dforniture:toilet_open", param2=node.param2})
 				end,
+				on_rotate = "simple",
 			})
 
 			minetest.register_node("3dforniture:toilet_open",
@@ -616,11 +618,12 @@ local S = minetest.get_translator("3dforniture")
 					minetest.add_node(pos, {name="3dforniture:toilet", param2=node.param2})
 					minetest.sound_play("3dforniture_dig_toilet", {gain=0.5, pos=pos}, false)
 				end,
+				on_rotate = "simple",
 			})
 
 			--Sink
 			minetest.register_node("3dforniture:sink",
-				{description = 'Sink',
+				{description = S("Sink"),
 				tiles = {
 					"forniture_marble_top_sink.png", "forniture_marble.png",
 					"forniture_marble_sb1.png", "forniture_marble_sb1.png",
@@ -651,11 +654,12 @@ local S = minetest.get_translator("3dforniture")
 				},
 				groups = {cracky=2,},
 				sounds = hades_sounds.node_sound_stone_defaults(),
+				on_rotate = "simple",
 			})
 
 			--Taps
 			minetest.register_node("3dforniture:taps",
-				{ description = 'Taps',
+				{ description = S("Taps"),
 				tiles = {
 					"forniture_metal.png", "forniture_metal.png",
 					"forniture_metal_s1.png", "forniture_metal_s1.png",
@@ -691,11 +695,12 @@ local S = minetest.get_translator("3dforniture")
 				},
 				groups = {cracky=2,},
 				sounds = hades_sounds.node_sound_metal_defaults(),
+				on_rotate = "simple",
 			})
 
 			--Shower Tray
 			minetest.register_node("3dforniture:shower_tray",
-				{ description = 'Shower Tray',
+				{ description = S("Shower Tray"),
 				tiles = {
 					"forniture_marble_base_ducha_top.png",
 					"forniture_marble_base_ducha_top.png",
@@ -726,11 +731,12 @@ local S = minetest.get_translator("3dforniture")
 				},
 				groups = {cracky=2,},
 				sounds = hades_sounds.node_sound_stone_defaults(),
+				on_rotate = "simple",
 			})
 
 			--Shower Head
 			minetest.register_node("3dforniture:shower_head",
-				{description = 'Shower Head',
+				{description = S("Shower Head"),
 				tiles = {
 					"forniture_metal.png",
 					"forniture_metal.png",
@@ -759,13 +765,14 @@ local S = minetest.get_translator("3dforniture")
 				},
 				groups = {cracky=2,},
 				sounds = hades_sounds.node_sound_metal_defaults(),
+				on_rotate = "simple",
 			})
 
 	-- Medieval Forniture
 
 		--Bars
 		minetest.register_node("3dforniture:bars",
-			{ description = 'Steel Bars',
+			{ description = S("Steel Bars"),
 			tiles = {
 				"forniture_black_metal.png",
 				"forniture_black_metal.png",
@@ -794,11 +801,12 @@ local S = minetest.get_translator("3dforniture")
 			},
 			groups = {cracky=1},
 			sounds = hades_sounds.node_sound_metal_defaults(),
+			on_rotate = "simple",
 		})
 
 		--L Binding Bars
 		minetest.register_node("3dforniture:L_binding_bars",
-			{ description ='Binding Steel Bars',
+			{ description =S("Binding Steel Bars"),
 			tiles = {
 				"forniture_black_metal.png",
 				"forniture_black_metal.png",
@@ -825,11 +833,12 @@ local S = minetest.get_translator("3dforniture")
 			},
 			groups = {cracky=1,},
 			sounds = hades_sounds.node_sound_metal_defaults(),
+			on_rotate = "simple",
 		})
 
 		--Chains
 		minetest.register_node("3dforniture:chains",
-			{ description = 'Chains',
+			{ description = S("Chains"),
 			tiles = {
 				"forniture_black_metal.png",
 				"forniture_black_metal.png",
@@ -928,4 +937,5 @@ local S = minetest.get_translator("3dforniture")
 				fixed = {-1/2, -1/2, 1/4, 1/2, 1/2, 1/2}, },
 			groups = {cracky=1},
 			sounds = hades_sounds.node_sound_metal_defaults(),
+			on_rotate = "simple",
 		})  

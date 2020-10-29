@@ -51,7 +51,13 @@ local function screwdriver_handler(itemstack, user, pointed_thing, mode)
 	local new_param2 = preservePart + rotationPart
 	local should_rotate = true
 
-	if ndef and ndef.on_rotate then -- Node provides a handler, so let the handler decide instead if the node can be rotated
+	if ndef and ndef.on_rotate == false then
+		return
+	elseif ndef and ndef.on_rotate == "simple" then
+		if mode ~= screwdriver.ROTATE_FACE then
+			return
+		end
+	elseif ndef and ndef.on_rotate then -- Node provides a handler, so let the handler decide instead if the node can be rotated
 		-- Copy pos and node because callback can modify it
 		local result = ndef.on_rotate(vector.new(pos),
 				{name = node.name, param1 = node.param1, param2 = node.param2},
@@ -61,8 +67,6 @@ local function screwdriver_handler(itemstack, user, pointed_thing, mode)
 		elseif result == true then
 			should_rotate = false
 		end
-	elseif ndef and ndef.on_rotate == false then
-		return
 	else
 		if not ndef or not ndef.paramtype2 == "facedir" or
 				(ndef.drawtype == "nodebox" and

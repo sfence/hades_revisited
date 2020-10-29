@@ -45,6 +45,7 @@ function hades_fences.register_fence(name, def)
 		sunlight_propagates = true,
 		is_ground_content = false,
 		groups = {},
+		on_rotate = "simple",
 	}
 	for k, v in pairs(default_fields) do
 		if def[k] == nil then

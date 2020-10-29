@@ -100,6 +100,7 @@ minetest.register_node(itemstring_unlocked, {
 		minetest.log("action", player:get_player_name()..
 				" takes stuff from chest at "..minetest.pos_to_string(pos))
 	end,
+	on_rotate = "simple",
 })
 minetest.register_node(itemstring_locked, {
 	description = desc_locked,
@@ -168,6 +169,7 @@ minetest.register_node(itemstring_locked, {
 			)
 		end
 	end,
+	on_rotate = "simple",
 })
 
 if sub ~= "" then
