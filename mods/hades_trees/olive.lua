@@ -51,7 +51,7 @@ minetest.register_abm({
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		hades_trees:generate_tree(pos, "hades_trees:tree", "hades_trees:olive_leaves", {"hades_core:dirt", "hades_core:dirt_with_grass"}, {["hades_trees:olive"]=10})
+		hades_trees.generate_olivetree(pos)
 	end
 })
 
