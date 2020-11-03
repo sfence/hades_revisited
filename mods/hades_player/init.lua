@@ -166,3 +166,8 @@ minetest.register_on_dieplayer(function(player)
 	local name = player:get_player_name()
 	minetest.sound_play({name="hades_player_death"}, {to_player=name}, true)
 end)
+
+minetest.register_on_respawnplayer(function(player)
+	local name = player:get_player_name()
+	minetest.sound_play({name="hades_player_respawn"}, {to_player=name}, true)
+end)

@@ -7,5 +7,6 @@ Geopbyte (CC BY-SA 3.0):
   character.png
 
 Amatvejuk721 (CC BY 3.0):
-  hades_player_death.ogg
+  hades_player_death.ogg (changes were made)
+  hades_player_respawn.ogg (changes were made)
   Origin: <https://freesound.org/people/Amatvejuk721/sounds/171050/>
