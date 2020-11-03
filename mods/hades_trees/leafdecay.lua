@@ -101,6 +101,7 @@ minetest.register_abm({
 		if not do_preserve then
 			-- Drop stuff other than the node itself
 			local itemstacks = minetest.get_node_drops(n0.name)
+			local drop_items = false
 			for _, itemname in ipairs(itemstacks) do
 				if minetest.get_item_group(n0.name, "leafdecay_drop") ~= 0 or
 						itemname ~= n0.name then
@@ -109,12 +110,15 @@ minetest.register_abm({
 						y = p0.y - 0.5 + math.random(),
 						z = p0.z - 0.5 + math.random(),
 					}
+					drop_items = true
 					minetest.add_item(p_drop, itemname)
 				end
 			end
 			-- Remove node
 			minetest.remove_node(p0)
-			leafdecay_particles(p0, n0)
+			if not drop_items then
+				leafdecay_particles(p0, n0)
+			end
 			minetest.check_for_falling(p0)
 		end
 	end
