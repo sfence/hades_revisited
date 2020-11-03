@@ -181,7 +181,7 @@ function hades_trees.generate_paletree(pos, check_light, trunk, leaves, undergro
 		return
 	end
 
-	node = {name = ""}
+	local node = {name = ""}
 	for dy=1,6 do
 		pos.y = pos.y+dy
 		if minetest.get_node(pos).name ~= "air" then
