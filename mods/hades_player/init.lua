@@ -161,3 +161,8 @@ minetest.register_globalstep(function(dtime)
 		end
 	end
 end)
+
+minetest.register_on_dieplayer(function(player)
+	local name = player:get_player_name()
+	minetest.sound_play({name="hades_player_death"}, {to_player=name}, true)
+end)
