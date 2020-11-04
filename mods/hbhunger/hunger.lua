@@ -41,7 +41,7 @@ function hbhunger.eat(hp_change, replace_with_item, itemstack, user, pointed_thi
 			hp_change = 1
 			minetest.log("error", "Wrong on_use() definition for item '" .. item .. "'")
 		end
-		def.saturation = hp_change * 1.3
+		def.saturation = hp_change
 		def.replace = replace_with_item
 	end
 	local sound = def.sound
