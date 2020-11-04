@@ -1,41 +1,25 @@
 local S = minetest.get_translator("hades_trees")
 
-minetest.register_node("hades_trees:banana_sapling", {
-	description = S("Banana Tree Sapling"),
-	_tt_help = S("Needs Dirt and light to grow"),
-	drawtype = "plantlike",
-	tiles = {"hades_trees_banana_sapling.png"},
-	inventory_image = "hades_trees_banana_sapling.png",
-	wield_image = "hades_trees_banana_sapling.png",
-	paramtype = "light",
-	walkable = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {dig_immediate=3,flammable=2,sapling=1,attached_node=1},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
-})
-
-
-minetest.register_node("hades_trees:banana_leaves", {
+hades_trees.register_leaves("banana_leaves", {
 	description = S("Banana Leaves"),
-	drawtype = "allfaces_optional",
-	tiles = {"hades_trees_banana_leaves.png"},
-	paramtype = "light",
-	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, ash_fertilizer=3, porous=1},
-	place_param2 = 1,
- 	drop = {
-		max_items = 1,
-		items = {
-			{
-				items = {'hades_trees:banana_sapling'},
-				rarity = 10,
-			},
-		}
-	},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
+	image = "hades_trees_banana_leaves.png",
+	ash_fertilizer = 3,
+	drop_item = "hades_trees:banana_sapling",
+	drop_rarity = 10,
 })
+hades_trees.register_sapling("banana_sapling", {
+	description = S("Banana Sapling"),
+	image = "hades_trees_banana_sapling.png",
+	selbox = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3},
+})
+hades_trees.register_fruit("banana", {
+	description = S("Banana"),
+	drawtype = "torchlike",
+	image = "hades_trees_banana.png",
+	selbox = {-4/16, -7/16, -4/16, 4/16, 6/16, 4/16},
+	satiation = 1,
+})
+
 
 minetest.register_abm({
 	nodenames = {"hades_trees:banana_sapling"},
@@ -44,23 +28,4 @@ minetest.register_abm({
 	action = function(pos, node)
 		hades_trees.generate_bananatree(pos)
 	end
-})
-
-minetest.register_node("hades_trees:banana", {
-	description = S("Banana"),
-	tiles = {"hades_trees_banana.png"},
-	inventory_image = "hades_trees_banana.png",
-	wield_image = "hades_trees_banana.png",
-	drawtype = "torchlike",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	groups = {food=2,eatable=1,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
-	selection_box = {
-		type = "fixed",
-		fixed = {-4/16, -7/16, -4/16, 4/16, 6/16, 4/16},
-	},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
-
-	on_use = minetest.item_eat(1),
 })
