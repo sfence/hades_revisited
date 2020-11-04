@@ -50,7 +50,7 @@ function refruit.add_refruit(id, def)
 			fixed = def.bud_selbox,
 		},
 		groups = {fruit_regrow=1, snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
-		drop = def.bud_drop,
+		drop = def.bud_drop or {},
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 	})
 	minetest.register_node(flower_itemstring, {
@@ -68,7 +68,7 @@ function refruit.add_refruit(id, def)
 			fixed = def.flower_selbox,
 		},
 		groups = {fruit_regrow=2, snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
-		drop = def.flower_drop,
+		drop = def.flower_drop or {},
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 	})
 
