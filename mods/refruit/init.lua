@@ -160,8 +160,8 @@ refruit.add_refruit("orange", {
 	flower_interval = 33,
 	flower_chance = 60,
 	neighbors = {"hades_trees:orange_leaves"},
-	bud_selbox = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875},
-	flower_selbox = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875},
+	bud_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
+	flower_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
 })
 
 refruit.add_refruit("banana", {
