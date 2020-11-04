@@ -36,6 +36,21 @@
 
 	--Table
 	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:table_black',
+		recipe = {
+			'group:table', 'dye:black'
+		}
+	})
+	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:table_white',
+		recipe = {
+			'group:table', 'dye:white'
+		}
+	})
+
+	minetest.register_craft( {
 		output = '3dforniture:table',
 		recipe = {
 			{ 'hades_trees:wood','hades_trees:wood', 'hades_trees:wood' },
@@ -50,7 +65,6 @@
 			{ 'group:stick', '', 'group:stick' },
 		},
 	})
-
 	minetest.register_craft( {
 		output = '3dforniture:table_white',
 		recipe = {
@@ -58,10 +72,11 @@
 			{ 'group:stick', '', 'group:stick' },
 		},
 	})
+
 	
 	minetest.register_craft({
 		type = 'fuel',
-		recipe = '3dforniture:table',
+		recipe = 'group:table',
 		burntime = 30,
 	})
 
@@ -74,6 +89,21 @@
 			{ 'group:stick','group:stick' },
 		},
 	})
+
+	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:chair_black',
+		recipe = {
+			'group:chair', 'dye:black'
+		}
+	})
+	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:chair_white',
+		recipe = {
+			'group:chair', 'dye:white'
+		}
+	})
 	
 	minetest.register_craft( {
 		output = '3dforniture:chair_black 2',
@@ -83,8 +113,7 @@
 			{ 'group:stick','group:stick' },
 		},
 	})
-	
-		minetest.register_craft( {
+	minetest.register_craft( {
 		output = '3dforniture:chair_white 2',
 		recipe = {
 			{ 'group:stick',''},
@@ -95,11 +124,43 @@
 
 	minetest.register_craft({
 		type = 'fuel',
-		recipe = '3dforniture:chair',
+		recipe = 'group:chair',
 		burntime = 15,
 	})
 
 	--Armchair
+	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:armchair',
+		recipe = { 'group:armchair', 'dye:black' }
+	})
+	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:armchair_white',
+		recipe = { 'group:armchair', 'dye:white' }
+	})
+	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:armchair_blue',
+		recipe = { 'group:armchair', 'dye:blue' }
+	})
+	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:armchair_brown',
+		recipe = { 'group:armchair', 'dye:brown' }
+	})
+	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:armchair_red',
+		recipe = { 'group:armchair', 'dye:red' }
+	})
+	minetest.register_craft( {
+		type = 'shapeless',
+		output = '3dforniture:armchair_green',
+		recipe = { 'group:armchair', 'dye:green' }
+	})
+
+
 	minetest.register_craft( {
 		output = '3dforniture:armchair 2',
 		recipe = {
@@ -156,7 +217,7 @@
 
 	minetest.register_craft({
 		type = 'fuel',
-		recipe = '3dforniture:armchair',
+		recipe = 'group:armchair',
 		burntime = 30,
 	})
 
