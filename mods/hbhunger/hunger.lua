@@ -80,8 +80,15 @@ end
 
 function hbhunger.item_eat(hunger_change, replace_with_item, poisen, heal, sound)
 	return function(itemstack, user, pointed_thing)
-		if itemstack:take_item() ~= nil and user ~= nil then
+		if user ~= nil then
 			local name = user:get_player_name()
+			local creative = minetest.is_creative_enabled(name)
+			if not creative then
+				local take = itemstack:take_item()
+				if not take then
+					return itemstack
+				end
+			end
 			local h = tonumber(hbhunger.hunger[name])
 			local hp = user:get_hp()
 			if h == nil or hp == nil then
@@ -117,14 +124,16 @@ function hbhunger.item_eat(hunger_change, replace_with_item, poisen, heal, sound
 				poisenp(1, poisen, 0, user)
 			end
 
-			if itemstack:get_count() == 0 then
-				itemstack:add_item(replace_with_item)
-			else
-				local inv = user:get_inventory()
-				if inv:room_for_item("main", replace_with_item) then
-					inv:add_item("main", replace_with_item)
+			if not creative then
+				if itemstack:get_count() == 0 then
+					itemstack:add_item(replace_with_item)
 				else
-					minetest.add_item(user:get_pos(), replace_with_item)
+					local inv = user:get_inventory()
+					if inv:room_for_item("main", replace_with_item) then
+						inv:add_item("main", replace_with_item)
+					else
+						minetest.add_item(user:get_pos(), replace_with_item)
+					end
 				end
 			end
 		end
