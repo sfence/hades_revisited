@@ -1,3 +1,0 @@
-# textdomain:plants_lib
-someone=jemand
-Sorry, @1 owns that spot.=Tschuldigung, @1 gehört diese Stelle.
