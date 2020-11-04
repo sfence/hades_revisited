@@ -101,21 +101,21 @@ minetest.register_craft({
 -- colored Steeldoors
 
 local colors = {
-	{ "black", "Black Steel Door", "dye:black" },
-	-- TODO: { "grey", "Grey Steel Door" },
-	{ "darkgrey", "Dark Grey Steel Door", "dye:dark_grey" },
-	{ "white", "White Steel Door", "dye:white" },
-	{ "magenta", "Magenta Steel Door", "dye:magenta" },
-	{ "violet", "Violet Steel Door", "dye:violet" },
-	{ "blue", "Blue Steel Door", "dye:blue" },
-	{ "cyan", "Cyan Steel Door", "dye:cyan" },
-	{ "green", "Green Steel Door", "dye:green" },
-	{ "darkgreen", "Dark Green Steel Door", "dye:dark_green" },
-	{ "pink", "Pink Steel Door", "dye:pink" },
-	{ "red", "Red Steel Door", "dye:red" },
-	{ "orange", "Orange Steel Door", "dye:orange" },
-	{ "brown", "Brown Steel Door", "dye:brown" },
-	{ "yellow", "Yellow Steel Door", "dye:yellow" },
+	{ "black", S("Black Steel Door"), "dye:black" },
+	-- TODO: { "grey", S("Grey Steel Door") },
+	{ "darkgrey", S("Dark Grey Steel Door"), "dye:dark_grey" },
+	{ "white", S("White Steel Door"), "dye:white" },
+	{ "magenta", S("Magenta Steel Door"), "dye:magenta" },
+	{ "violet", S("Violet Steel Door"), "dye:violet" },
+	{ "blue", S("Blue Steel Door"), "dye:blue" },
+	{ "cyan", S("Cyan Steel Door"), "dye:cyan" },
+	{ "green", S("Green Steel Door"), "dye:green" },
+	{ "darkgreen", S("Dark Green Steel Door"), "dye:dark_green" },
+	{ "pink", S("Pink Steel Door"), "dye:pink" },
+	{ "red", S("Red Steel Door"), "dye:red" },
+	{ "orange", S("Orange Steel Door"), "dye:orange" },
+	{ "brown", S("Brown Steel Door"), "dye:brown" },
+	{ "yellow", S("Yellow Steel Door"), "dye:yellow" },
 }
 
 for c=1, #colors do
@@ -136,7 +136,7 @@ for c=1, #colors do
 	minetest.register_craft({
 		type = "shapeless",
 		output = "doors:door_steel_"..id,
-		recipe = { "doors:door_steel", colors[c][3] },
+		recipe = { "group:steel_door", colors[c][3] },
 	})
 end
 
