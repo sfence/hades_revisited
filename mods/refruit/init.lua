@@ -1,257 +1,149 @@
 local S = minetest.get_translator("refruit")
-local surv = S("Needs a tree trunk to survive")
 
 -- refruit for minetest
 -- makes fruits regrowing on the trees.
 -- images and code are WTFPL license (2015 by Glünggi)
 refruit = {}
 
---replacement
-minetest.register_node(":hades_trees:apple", {
-	description = S("Apple"),
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tiles = {"default_apple.png"},
-	inventory_image = "default_apple.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
-	},
-	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2,fruit_regrow=1},
-	on_use = minetest.item_eat(2),
-	sounds = hades_sounds.node_sound_leaves_defaults(),
+function refruit.add_refruit(id, def)
+	local ndef = minetest.registered_nodes[def.fruit_itemstring]
+	local groups = ndef.groups
+	if not groups then
+		groups = {}
+	else
+		groups = table.copy(ndef.groups)
+	end
+	local groups_fruit, groups_bud, groups_flower
+	groups_fruit = table.copy(groups)
+	groups_fruit.fruit_regrow = 3
 
-	place_param2 = 1,
-	
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if oldnode.name == "hades_trees:apple" then
-			if oldnode.param2 ~= 0 then
-				return
-			end
-				minetest.set_node(pos,{name = "refruit:bud_apple"})
+	minetest.override_item(def.fruit_itemstring, {
+		groups = groups_fruit,
+		place_param2 = 1,
+		after_dig_node = function(pos, oldnode, oldmetadta, digger)
+			if oldnode.name == def.fruit_itemstring then
+				if oldnode.param2 ~= 0 then
+					return
+				end
+				minetest.set_node(pos, {name = "refruit:bud_"..id})
 			else 
 				return
-		end
-	end,
-})
-
---register nodes
-
-minetest.register_node("refruit:bud_apple", {
-	description = S("Apple Bud"),
-	_tt_help = S("Grows to an Apple Flower").."\n"..surv.."\n"..S("Needs Common Leaves to grow"),
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tiles = {"refruit_bud_apple.png"},
-	inventory_image = "refruit_bud_apple.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
-	},
-	groups = {snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
-	drop = {
-		max_items = 1,
-		items = {
-			{
-				items = {'hades_core:stick'},
-				rarity = 99,
-			},
-			{
-				items = {'hades_core:stick'},
-				rarity = 99
-			}
-		}
-	},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
-	
-})
-
-minetest.register_node("refruit:flower_apple", {
-	description = S("Apple Flower"),
-	_tt_help = S("Grows to an Apple").."\n"..surv.."\n"..S("Needs Common Leaves to grow"),
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tiles = {"refruit_flower_apple.png"},
-	inventory_image = "refruit_flower_apple.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
-	},
-	groups = {snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
-	drop = { -- a little reward for flowerpunchers xD
-		max_items = 1,
-		items = {
-			{
-				items = {'hades_core:stick'},
-				rarity = 99,
-			},
-			{
-				items = {'hades_core:stick'},
-				rarity = 99
-			}
-		}
-	}, 
-	sounds = hades_sounds.node_sound_leaves_defaults(),
-	
-})
-
-minetest.register_node(":hades_trees:olive", {
-	description = S("Olive"),
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tiles = {"hades_trees_olive.png"},
-	inventory_image = "hades_trees_olive.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.25, -7/16, -0.25, 0.25, 0.5, 0.25}
-	},
-	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1,fruit_regrow=1},
-	on_use = minetest.item_eat(1),
-	sounds = hades_sounds.node_sound_leaves_defaults(),
-
-	place_param2 = 1,
-	
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if oldnode.name == "hades_trees:olive" then
-			if oldnode.param2 ~= 0 then
-				return
 			end
-			minetest.set_node(pos,{name = "refruit:bud_olive"})
-		else 
-			return
 		end
-	end,
-})
+	})
 
---register nodes
+	local bud_itemstring = "refruit:bud_"..id
+	local flower_itemstring = "refruit:flower_"..id
 
-minetest.register_node("refruit:bud_olive", {
-	description = S("Olive Bud"),
-	_tt_help = S("Grows to an Olive Flower").."\n"..surv.."\n"..S("Needs Olive Leaves to grow"),
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tiles = {"refruit_bud_olive.png"},
-	inventory_image = "refruit_bud_olive.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-2/16, 1/16, -2/16, 2/16, 0.5, 2/16}
-	},
-	groups = {snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1,},
-	drop = {
+	minetest.register_node(bud_itemstring, {
+		description = def.bud_description,
+		_tt_help = def.bud_tt,
+		drawtype = "plantlike",
+		tiles = {"refruit_bud_"..id..".png"},
+		inventory_image = "refruit_bud_"..id..".png",
+		paramtype = "light",
+		sunlight_propagates = true,
+		walkable = false,
+		selection_box = {
+			type = "fixed",
+			fixed = def.bud_selbox,
+		},
+		groups = {fruit_regrow=1, snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+		drop = def.bud_drop,
+		sounds = hades_sounds.node_sound_leaves_defaults(),
+	})
+	minetest.register_node(flower_itemstring, {
+		description = def.flower_description,
+		_tt_help = def.flower_tt,
+		drawtype = "plantlike",
+		tiles = {"refruit_flower_"..id..".png"},
+		inventory_image = "refruit_flower_"..id..".png",
+		paramtype = "light",
+		sunlight_propagates = true,
+		walkable = false,
+		selection_box = {
+			type = "fixed",
+			fixed = def.flower_selbox,
+		},
+		groups = {fruit_regrow=2, snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+		drop = def.flower_drop,
+		sounds = hades_sounds.node_sound_leaves_defaults(),
+	})
+
+	minetest.register_abm({
+		label = "Grow "..bud_itemstring.." to "..flower_itemstring,
+		nodenames = {"refruit:bud_"..id},
+		neighbors = def.neighbors,
+		interval = def.bud_interval,
+		chance = def.bud_chance,
+		action = function(pos, node)
+			minetest.set_node(pos, {name="refruit:flower_"..id})
+		end,
+	})
+
+	minetest.register_abm({
+		label = "Grow "..flower_itemstring.." to "..def.fruit_itemstring,
+		nodenames = {"refruit:flower_"..id},
+		neighbors = def.neighbors,
+		interval = def.flower_interval,
+		chance = def.flower_chance,
+		action = function(pos, node)
+			minetest.set_node(pos, {name="hades_trees:"..id})
+		end,
+	})
+
+end
+
+
+local stick_drop = function(rarity)
+	return {
 		max_items = 1,
 		items = {
 			{
 				items = {'hades_core:stick'},
-				rarity = 99,
+				rarity = rarity,
 			},
 			{
 				items = {'hades_core:stick'},
-				rarity = 99
+				rarity = rarity
 			}
 		}
-	},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
-	
-})
+	}
+end
 
-minetest.register_node("refruit:flower_olive", {
-	description = S("Olive Flower"),
-	_tt_help = S("Grows to an Olive").."\n"..surv.."\n"..S("Needs Olive Leaves to grow"),
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tiles = {"refruit_flower_olive.png"},
-	inventory_image = "refruit_flower_olive.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	selection_box = {
-		type = "fixed",
-		fixed = {-4/16, -1/16, -4/16, 4/16, 0.5, 4/16}
-	},
-	groups = {snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
-	drop = { -- a little reward for flowerpunchers xD
-		max_items = 1,
-		items = {
-			{
-				items = {'hades_core:stick'},
-				rarity = 74,
-			},
-			{
-				items = {'hades_core:stick'},
-				rarity = 74
-			}
-		}
-	}, 
-	sounds = hades_sounds.node_sound_leaves_defaults(),
-	
-})
+local surv = S("Needs a tree trunk to survive")
 
-
-
-
-
-
---abm's
-
-minetest.register_abm({
-	label = "Grow apple bud to apple flower",
-	nodenames = {"refruit:bud_apple"},
+refruit.add_refruit("apple", {
+	fruit_itemstring = "hades_trees:apple",
+	bud_description = S("Apple Bud"),
+	bud_tt = S("Grows to an Apple Flower").."\n"..surv.."\n"..S("Needs Common Leaves to grow"),
+	flower_description = S("Apple Flower"),
+	flower_tt = S("Grows to an Apple").."\n"..surv.."\n"..S("Needs Common Leaves to grow"),
+	bud_drop = stick_drop(99),
+	flower_drop = stick_drop(99),
+	bud_interval = 34,
+	bud_chance = 10,
+	flower_interval = 33,
+	flower_chance = 60,
 	neighbors = {"hades_trees:leaves"},
-	interval = 34,
-	chance = 10,
-	action = function(pos, node)
-		minetest.set_node(pos, {name="refruit:flower_apple"})
-	end,
+	bud_selbox = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875},
+	flower_selbox = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875},
 })
 
-minetest.register_abm({
-	label = "Grow apple flower to apple",
-	nodenames = {"refruit:flower_apple"},
-	neighbors = {"hades_trees:leaves"},
-	interval = 33,
-	chance = 60,
-	action = function(pos, node)
-		minetest.set_node(pos, {name="hades_trees:apple"})
-	end,
-})
-
---
-
-minetest.register_abm({
-	label = "Grow olive bud to olive flower",
-	nodenames = {"refruit:bud_olive"},
+refruit.add_refruit("olive", {
+	fruit_itemstring = "hades_trees:olive",
+	bud_description = S("Olive Bud"),
+	bud_tt = S("Grows to an Olive Flower").."\n"..surv.."\n"..S("Needs Olive Leaves to grow"),
+	flower_description = S("Olive Flower"),
+	flower_tt = S("Grows to an Olive").."\n"..surv.."\n"..S("Needs Olive Leaves to grow"),
+	bud_drop = stick_drop(99),
+	flower_drop = stick_drop(76),
+	bud_interval = 35,
+	bud_chance = 10,
+	flower_interval = 34,
+	flower_chance = 60,
 	neighbors = {"hades_trees:olive_leaves"},
-	interval = 35,
-	chance = 10,
-	action = function(pos, node)
-		minetest.set_node(pos, {name="refruit:flower_olive"})
-	end,
+	bud_selbox = {-2/16, 1/16, -2/16, 2/16, 0.5, 2/16},
+	flower_selbox = {-4/16, -1/16, -4/16, 4/16, 0.5, 4/16},
 })
 
-minetest.register_abm({
-	label = "Grow olive flower to olive",
-	nodenames = {"refruit:flower_olive"},
-	neighbors = {"hades_trees:olive_leaves"},
-	interval = 34,
-	chance = 60,
-	action = function(pos, node)
-		minetest.set_node(pos, {name="hades_trees:olive"})
-	end,
-})
-
---

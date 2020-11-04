@@ -56,15 +56,19 @@ minetest.register_abm({
 })
 
 minetest.register_node("hades_trees:olive", {
-	description = S("Olive (+1)"),
+	description = S("Olive"),
 	tiles = {"hades_trees_olive.png"},
 	inventory_image = "hades_trees_olive.png",
 	wield_image = "hades_trees_olive.png",
 	drawtype = "plantlike",
 	paramtype = "light",
 	sunlight_propagates = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.25, -7/16, -0.25, 0.25, 0.5, 0.25},
+	},
 	walkable = false,
 	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=1,},
-	sounds = hades_sounds.node_sound_defaults(),
+	sounds = hades_sounds.node_sound_leaves_defaults(),
 	on_use = minetest.item_eat(1),
 })

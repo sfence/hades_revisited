@@ -4,7 +4,6 @@ local pr
 minetest.register_node("hades_trees:apple", {
 	description = S("Apple"),
 	drawtype = "plantlike",
-	visual_scale = 0.75,
 	tiles = {"default_apple.png"},
 	inventory_image = "default_apple.png",
 	paramtype = "light",
@@ -13,7 +12,7 @@ minetest.register_node("hades_trees:apple", {
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25},
 	},
 	groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=2},
 	on_use = minetest.item_eat(2),
