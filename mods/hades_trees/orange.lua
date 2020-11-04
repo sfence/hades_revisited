@@ -4,9 +4,9 @@ minetest.register_node("hades_trees:orange_sapling", {
 	description = S("Orange Tree Sapling"),
 	_tt_help = S("Needs Dirt and light to grow"),
 	drawtype = "plantlike",
-	tiles = {"farming_orange_sapling.png"},
-	inventory_image = "farming_orange_sapling.png",
-	wield_image = "farming_orange_sapling.png",
+	tiles = {"hades_trees_orange_sapling.png"},
+	inventory_image = "hades_trees_orange_sapling.png",
+	wield_image = "hades_trees_orange_sapling.png",
 	paramtype = "light",
 	walkable = false,
 	selection_box = {
@@ -21,7 +21,7 @@ minetest.register_node("hades_trees:orange_sapling", {
 minetest.register_node("hades_trees:orange_leaves", {
 	description = S("Orange Leaves"),
 	drawtype = "allfaces_optional",
-	tiles = {"farming_orange_leaves.png"},
+	tiles = {"hades_trees_orange_leaves.png"},
 	paramtype = "light",
 	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, ash_fertilizer=3, porous=1},
 	place_param2 = 1,
@@ -48,9 +48,9 @@ minetest.register_abm({
 
 minetest.register_node("hades_trees:orange", {
 	description = S("Orange"),
-	tiles = {"farming_orange.png"},
-	inventory_image = "farming_orange.png",
-	wield_image = "farming_orange.png",
+	tiles = {"hades_trees_orange.png"},
+	inventory_image = "hades_trees_orange.png",
+	wield_image = "hades_trees_orange.png",
 	drawtype = "plantlike",
 	paramtype = "light",
 	sunlight_propagates = true,

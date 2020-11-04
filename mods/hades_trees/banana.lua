@@ -4,9 +4,9 @@ minetest.register_node("hades_trees:banana_sapling", {
 	description = S("Banana Tree Sapling"),
 	_tt_help = S("Needs Dirt and light to grow"),
 	drawtype = "plantlike",
-	tiles = {"farming_banana_sapling.png"},
-	inventory_image = "farming_banana_sapling.png",
-	wield_image = "farming_banana_sapling.png",
+	tiles = {"hades_trees_banana_sapling.png"},
+	inventory_image = "hades_trees_banana_sapling.png",
+	wield_image = "hades_trees_banana_sapling.png",
 	paramtype = "light",
 	walkable = false,
 	selection_box = {
@@ -21,7 +21,7 @@ minetest.register_node("hades_trees:banana_sapling", {
 minetest.register_node("hades_trees:banana_leaves", {
 	description = S("Banana Leaves"),
 	drawtype = "allfaces_optional",
-	tiles = {"farming_banana_leaves.png"},
+	tiles = {"hades_trees_banana_leaves.png"},
 	paramtype = "light",
 	groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, ash_fertilizer=3, porous=1},
 	place_param2 = 1,
@@ -48,9 +48,9 @@ minetest.register_abm({
 
 minetest.register_node("hades_trees:banana", {
 	description = S("Banana"),
-	tiles = {"farming_banana.png"},
-	inventory_image = "farming_banana.png",
-	wield_image = "farming_banana.png",
+	tiles = {"hades_trees_banana.png"},
+	inventory_image = "hades_trees_banana.png",
+	wield_image = "hades_trees_banana.png",
 	drawtype = "torchlike",
 	paramtype = "light",
 	sunlight_propagates = true,

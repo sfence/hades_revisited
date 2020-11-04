@@ -4,9 +4,9 @@ minetest.register_node("hades_trees:olive_sapling", {
 	description = S("Olive Tree Sapling"),
 	_tt_help = S("Needs Dirt and light to grow"),
 	drawtype = "plantlike",
-	tiles = {"farming_olive_sapling.png"},
-	inventory_image = "farming_olive_sapling.png",
-	wield_image = "farming_olive_sapling.png",
+	tiles = {"hades_trees_olive_sapling.png"},
+	inventory_image = "hades_trees_olive_sapling.png",
+	wield_image = "hades_trees_olive_sapling.png",
 	paramtype = "light",
 	walkable = false,
 	selection_box = {
@@ -21,7 +21,7 @@ minetest.register_node("hades_trees:olive_sapling", {
 minetest.register_node("hades_trees:olive_leaves", {
 	description = S("Olive Leaves"),
 	drawtype = "allfaces_optional",
-	tiles = {"farming_olive_leaves.png"},
+	tiles = {"hades_trees_olive_leaves.png"},
 	paramtype = "light",
 	waving = 1,
 	is_ground_content = false,
@@ -57,9 +57,9 @@ minetest.register_abm({
 
 minetest.register_node("hades_trees:olive", {
 	description = S("Olive (+1)"),
-	tiles = {"farming_olive.png"},
-	inventory_image = "farming_olive.png",
-	wield_image = "farming_olive.png",
+	tiles = {"hades_trees_olive.png"},
+	inventory_image = "hades_trees_olive.png",
+	wield_image = "hades_trees_olive.png",
 	drawtype = "plantlike",
 	paramtype = "light",
 	sunlight_propagates = true,
