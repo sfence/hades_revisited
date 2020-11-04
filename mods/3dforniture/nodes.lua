@@ -444,15 +444,15 @@ local S = minetest.get_translator("3dforniture")
 			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 
-		minetest.register_node("3dforniture:armchair_green",
-			{ description = S("Green Armchair"),
+		minetest.register_node("3dforniture:armchair_dark_green",
+			{ description = S("Dark Green Armchair"),
 			tiles = {
-				"forniture_armchair_top_green.png",
-				"forniture_armchair_top_green.png",
-				"forniture_armchair_lat1_green.png",
-				"forniture_armchair_lat1_green.png",
-				"forniture_armchair_lat2_green.png",
-				"forniture_armchair_lat2_green.png",
+				"forniture_armchair_top_dark_green.png",
+				"forniture_armchair_top_dark_green.png",
+				"forniture_armchair_lat1_dark_green.png",
+				"forniture_armchair_lat1_dark_green.png",
+				"forniture_armchair_lat2_dark_green.png",
+				"forniture_armchair_lat2_dark_green.png",
 			},
 			drawtype = "nodebox",
 			sunlight_propagates = true,

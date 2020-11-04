@@ -156,8 +156,8 @@
 	})
 	minetest.register_craft( {
 		type = 'shapeless',
-		output = '3dforniture:armchair_green',
-		recipe = { 'group:armchair', 'dye:green' }
+		output = '3dforniture:armchair_dark_green',
+		recipe = { 'group:armchair', 'dye:dark_green' }
 	})
 
 
@@ -207,7 +207,7 @@
 	})
 	
 	minetest.register_craft( {
-		output = '3dforniture:armchair_green 2',
+		output = '3dforniture:armchair_dark_green 2',
 		recipe = {
 			{ 'group:wood',''},
 			{ 'group:wood','wool:dark_green' },
