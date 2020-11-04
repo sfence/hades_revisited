@@ -1,8 +1,6 @@
 local S = minetest.get_translator("flowers_plus")
 
--- This file supplies a few additional plants and some related crafts
--- for the plantlife modpack.  Last revision:  2013-04-24
-
+-- This file supplies seaweed and waterlilies
 
 flowers_plus = {}
 
@@ -249,36 +247,6 @@ for i in ipairs(algae_list) do
 end
 
 
--- register all potted plant nodes, crafts, and most backward-compat aliases
-
-
-local extra_aliases = {
-	"waterlily",
-	"waterlily_225",
-	"waterlily_45",
-	"waterlily_675",
-	"seaweed"
-}
-
-
-for i in ipairs(extra_aliases) do
-	local flower = extra_aliases[i]
-	minetest.register_alias("flowers:flower_"..flower, "flowers:"..flower)
-end
-
-
-minetest.register_alias( "trunks:lilypad"         ,	"flowers:waterlily_s1" )
-minetest.register_alias( "along_shore:lilypads_1" , "flowers:waterlily_s1" )
-minetest.register_alias( "along_shore:lilypads_2" , "flowers:waterlily_s2" )
-minetest.register_alias( "along_shore:lilypads_3" , "flowers:waterlily_s3" )
-minetest.register_alias( "along_shore:lilypads_4" , "flowers:waterlily_s4" )
-minetest.register_alias( "along_shore:pondscum_1" ,	"flowers:seaweed"      )
-minetest.register_alias( "along_shore:seaweed_1"  ,	"flowers:seaweed"      )
-minetest.register_alias( "along_shore:seaweed_2"  ,	"flowers:seaweed_2"    )
-minetest.register_alias( "along_shore:seaweed_3"  ,	"flowers:seaweed_3"    )
-minetest.register_alias( "along_shore:seaweed_4"  ,	"flowers:seaweed_4"    )
-
-
 -- ongen registrations
 
 
@@ -341,44 +309,6 @@ plantslib:register_generate_plant({
   "flowers_plus.grow_seaweed"
 )
 
-
--- seaweed at beaches
--- MM: not satisfied with it, but IMHO some beaches should have some algae
---plantslib:register_generate_plant({
-    --surface = {"hades_core:water_source"},
-   -- max_count = seaweed_max_count,
-    --rarity = seaweed_rarity,
-    -- min_elevation = 1,
-	--max_elevation = 100,
-	--near_nodes = {"hades_core:ash"},
-	--near_nodes_size = 1,
-	--near_nodes_vertical = 0,
-	--near_nodes_count = 3,
-    --plantlife_limit = -0.9,
-    --temp_max = -0.64, -- MM: more or less random values, just to make sure it's not everywhere
-    --temp_min = -0.22, -- MM: more or less random values, just to make sure it's not everywhere
-  --},
-  --"flowers_plus.grow_seaweed"
---)
---plantslib:register_generate_plant({
-    --surface = {"hades_core:ash"},
-    --max_count = seaweed_max_count*2,
-    --rarity = seaweed_rarity/2,
-    -- min_elevation = 1,
-	--max_elevation = 40,
-	--near_nodes = {"hades_core:water_source"},
-	--near_nodes_size = 1,
-	--near_nodes_vertical = 0,
-	--near_nodes_count = 3,
-    --plantlife_limit = -0.9,
-    --temp_max = -0.64, -- MM: more or less random values, just to make sure it's not everywhere
-    --temp_min = -0.22, -- MM: more or less random values, just to make sure it's not everywhere
-  --},
-  --"flowers_plus.grow_seaweed"
---)
--- spawn ABM registrations
-
-
 plantslib:spawn_on_surfaces({
 	spawn_delay = SPAWN_DELAY/2,
 	spawn_plants = {
@@ -430,22 +360,6 @@ plantslib:spawn_on_surfaces({
 	facedir = 1
 })
 
-
---plantslib:spawn_on_surfaces({
-	--spawn_delay = SPAWN_DELAY*2,
-	--spawn_plants = {"flowers:seaweed"},
-	--spawn_chance = SPAWN_CHANCE*2,
-	--spawn_surfaces = {"hades_core:stone"},
-	--avoid_nodes = {"group:flower", "group:flora" },
-	--seed_diff = flowers_seed_diff,
-	--light_min = 4,
-	--light_max = 10,
-	--neighbors = {"hades_core:water_source"},
-	--ncount = 6,
-	--facedir = 1
---})
-
-
 -- crafting recipes!
 
 
@@ -455,6 +369,7 @@ minetest.register_craft({
 })
 
 minetest.register_abm({
+	label = "Turn seaweed to waterlily",
 	nodenames = {"flowers:seaweed"},
 	interval = 500,
 	chance = 75,
@@ -463,18 +378,4 @@ minetest.register_abm({
 	end,
 })
 
--- Cotton plants are now provided by the default "farming" mod.
--- old cotton plants -> farming cotton stage 8
--- cotton wads -> string (can be crafted into wool blocks)
--- potted cotton plants -> potted white dandelions
-
-
-minetest.register_alias("flowers:cotton_plant", "farming:cotton_8") 
-minetest.register_alias("flowers:flower_cotton", "farming:cotton_8")
-minetest.register_alias("flowers:flower_cotton_pot", "flowers:potted_dandelion_white")
-minetest.register_alias("flowers:potted_cotton_plant", "flowers:potted_dandelion_white")
-minetest.register_alias("flowers:cotton", "farming:string")
-minetest.register_alias("flowers:cotton_wad", "farming:string")
-
-
-minetest.log("action", "[Flowers] Loaded.")
+minetest.log("action", "[flowers_plus] loaded.")
