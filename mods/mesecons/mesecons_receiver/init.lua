@@ -149,13 +149,14 @@ end)
 
 minetest.register_on_placenode(function (pos, node)
 	if string.find(node.name, "mesecons:wire_") ~=nil then
-		rules = mesecon:get_rules("receiver_pos_all")
+		local rules = mesecon:get_rules("receiver_pos_all")
 		local i = 1
 		while rules[i] ~= nil do
-			np = {
-			x = pos.x + rules[i].x,
-			y = pos.y + rules[i].y,
-			z = pos.z + rules[i].z}
+			local np = {
+				x = pos.x + rules[i].x,
+				y = pos.y + rules[i].y,
+				z = pos.z + rules[i].z
+			}
 			if minetest.get_item_group(minetest.get_node(np).name, "mesecon_needs_receiver") == 1 then
 				mesecon:receiver_place(np)
 			end
