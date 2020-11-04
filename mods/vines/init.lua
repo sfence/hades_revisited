@@ -201,8 +201,8 @@ plantslib:spawn_on_surfaces({
 minetest.register_tool("vines:shears", {
 	description = S("Shears"),
 	_tt_help = S("Cuts leaves, vines and plants"),
-	inventory_image = "shears.png",
-	wield_image = "shears.png",
+	inventory_image = "vines_shears.png",
+	wield_image = "vines_shears.png",
 	stack_max = 1,
 	max_drop_level=3,
 	groups = { shears = 1 },
