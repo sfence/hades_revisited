@@ -42,7 +42,6 @@ local function custom_hud(player)
 end
 
 dofile(minetest.get_modpath("hbhunger").."/hunger.lua")
-dofile(minetest.get_modpath("hbhunger").."/register_foods.lua")
 
 -- register satiation hudbar
 hb.register_hudbar("satiation", 0xFFFFFF, S("Satiation"), { icon = "hbhunger_icon.png", bgicon = "hbhunger_bgicon.png",  bar = "hbhunger_bar.png" }, hbhunger.SAT_INIT, hbhunger.SAT_MAX, false, nil, { format_value = "%.1f", format_max_value = "%d" })
