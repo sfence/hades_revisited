@@ -1,17 +1,5 @@
 dofile(minetest.get_modpath("3dforniture").."/crafting.lua")
 dofile(minetest.get_modpath("3dforniture").."/nodes.lua")
 
---alias
-minetest.register_alias('table', '3dforniture:table')
-minetest.register_alias('chair', '3dforniture:chair')
-minetest.register_alias('bars', '3dforniture:bars')
-minetest.register_alias('binding_bars', '3dforniture:L_binding_bars')
-minetest.register_alias('chains', '3dforniture:chains')
-minetest.register_alias('toilet', '3dforniture:toilet')
-minetest.register_alias('sink', '3dforniture:sink')
-minetest.register_alias('taps', '3dforniture:taps')
-minetest.register_alias('shower_tray', '3dforniture:shower_tray')
-minetest.register_alias('shower_head', '3dforniture:shower_head')
-minetest.register_alias('table_lamp', '3dforniture:table_lamp_off')
-minetest.register_alias('armchair', '3dforniture:armchair')
+-- Aliases
 minetest.register_alias('3dforniture:armchair_green', '3dforniture:armchair_dark_green')
