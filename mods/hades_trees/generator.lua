@@ -14,6 +14,10 @@ function hades_trees.grow_sapling(pos, check_light)
 		hades_trees.generate_birchtree(pos, check_light)
 	elseif node.name == "hades_trees:pale_sapling" then
 		hades_trees.generate_paletree(pos, check_light)
+	elseif node.name == "hades_trees:banana_sapling" then
+		hades_trees.generate_bananatree(pos, check_light)
+	elseif node.name == "hades_trees:orange_sapling" then
+		hades_trees.generate_orangetree(pos, check_light)
 	end
 end
 
@@ -149,6 +153,23 @@ function hades_trees.generate_olivetree(pos, check_light, trunk, leaves, undergr
 	end
 	if not replacements then
 		replacements = {["hades_trees:olive"]=10}
+	end
+	hades_trees.generate_tree(pos, check_light, trunk, leaves, underground, replacements)
+end
+
+-- Orange Tree
+function hades_trees.generate_orangetree(pos, check_light, trunk, leaves, underground, replacements)
+	if not trunk then
+		trunk = "hades_trees:tree"
+	end
+	if not leaves then
+		leaves = "hades_trees:orange_leaves"
+	end
+	if not underground then
+		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+	end
+	if not replacements then
+		replacements = {["hades_trees:orange"]=20}
 	end
 	hades_trees.generate_tree(pos, check_light, trunk, leaves, underground, replacements)
 end
@@ -620,3 +641,104 @@ function hades_trees.generate_appletree(pos, check_light, is_apple_tree)
 	vm:update_map()
 end
 
+-- Banana tree
+function hades_trees.generate_bananatree(pos, check_light, trunk, leaves, underground, replacements)
+	if not trunk then
+		trunk = "hades_trees:tree"
+	end
+	if not leaves then
+		leaves = "hades_trees:banana_leaves"
+	end
+	if not underground then
+		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+	end
+	if not replacements then
+		replacements = {["hades_trees:banana"]=9}
+	end
+
+	pos.y = pos.y-1
+	local nodename = minetest.get_node(pos).name
+	local ret = true
+	for _,name in ipairs(underground) do
+		if nodename == name then
+			ret = false
+			break
+		end
+	end
+	pos.y = pos.y+1
+	if not check_node_light(pos, 8, check_light) then
+		return
+	end
+
+	local node = {name = ""}
+	for dy=1,3 do
+		pos.y = pos.y+dy
+		if minetest.get_node(pos).name ~= "air" then
+			return
+		end
+		pos.y = pos.y-dy
+	end
+	node.name = trunk
+	for dy=0,2 do
+		pos.y = pos.y+dy
+		minetest.set_node(pos, node)
+		pos.y = pos.y-dy
+	end
+
+	node.name = leaves
+	pos.y = pos.y+1
+	for dx=-1,1 do
+		for dz=-1,1 do
+			for dy=0,2 do
+				pos.x = pos.x+dx
+				pos.y = pos.y+dy
+				pos.z = pos.z+dz
+
+
+				if dx == 0 and dz == 0 and dy==3 then
+					if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 2 then
+						minetest.set_node(pos, node)
+						for name,rarity in pairs(replacements) do
+							if math.random(1, rarity) == 1 then
+								minetest.set_node(pos, {name=name})
+							end
+						end
+					end
+				elseif dx == 0 and dz == 0 and dy==4 then
+					if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 2 then
+						minetest.set_node(pos, node)
+						for name,rarity in pairs(replacements) do
+							if math.random(1, rarity) == 1 then
+								minetest.set_node(pos, {name=name})
+							end
+						end
+					end
+				elseif math.abs(dx) ~= 2 and math.abs(dz) ~= 2 then
+					if minetest.get_node(pos).name == "air" then
+						minetest.set_node(pos, node)
+						for name,rarity in pairs(replacements) do
+							if math.random(1, rarity) == 1 then
+								minetest.set_node(pos, {name=name})
+							end
+						end
+					end
+				else
+					if math.abs(dx) ~= 2 or math.abs(dz) ~= 2 then
+						if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 2 then
+							minetest.set_node(pos, node)
+							for name,rarity in pairs(replacements) do
+								if math.random(1, rarity) == 1 then
+								minetest.set_node(pos, {name=name})
+								end
+							end
+						end
+					end
+				end
+
+				pos.x = pos.x-dx
+				pos.y = pos.y-dy
+				pos.z = pos.z-dz
+			end
+		end
+	end
+end
