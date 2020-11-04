@@ -276,6 +276,24 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = 'hades_trees:orange_sapling',
+	recipe = {
+		{'hades_trees:sapling'},
+		{'hades_trees:jungle_sapling'},
+		{'hades_core:dirt'},
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_trees:banana_sapling',
+	recipe = {
+		{'hades_trees:jungle_sapling'},
+		{'hades_core:junglegrass'},
+		{'hades_core:dirt'},
+	}
+})
+
 -- Fuel
 minetest.register_craft({
 	type = "fuel",
