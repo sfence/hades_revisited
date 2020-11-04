@@ -13,7 +13,7 @@ function refruit.add_refruit(id, def)
 	else
 		groups = table.copy(ndef.groups)
 	end
-	local groups_fruit, groups_bud, groups_flower
+	local groups_fruit
 	groups_fruit = table.copy(groups)
 	groups_fruit.fruit_regrow = 3
 
