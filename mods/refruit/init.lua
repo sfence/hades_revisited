@@ -38,7 +38,7 @@ function refruit.add_refruit(id, def)
 	minetest.register_node(bud_itemstring, {
 		description = def.bud_description,
 		_tt_help = def.bud_tt,
-		drawtype = "plantlike",
+		drawtype = ndef.drawtype,
 		tiles = {"refruit_bud_"..id..".png"},
 		inventory_image = "refruit_bud_"..id..".png",
 		paramtype = "light",
@@ -55,7 +55,7 @@ function refruit.add_refruit(id, def)
 	minetest.register_node(flower_itemstring, {
 		description = def.flower_description,
 		_tt_help = def.flower_tt,
-		drawtype = "plantlike",
+		drawtype = ndef.drawtype,
 		tiles = {"refruit_flower_"..id..".png"},
 		inventory_image = "refruit_flower_"..id..".png",
 		paramtype = "light",
@@ -145,5 +145,35 @@ refruit.add_refruit("olive", {
 	neighbors = {"hades_trees:olive_leaves"},
 	bud_selbox = {-2/16, 1/16, -2/16, 2/16, 0.5, 2/16},
 	flower_selbox = {-4/16, -1/16, -4/16, 4/16, 0.5, 4/16},
+})
+
+refruit.add_refruit("orange", {
+	fruit_itemstring = "hades_trees:orange",
+	bud_description = S("Orange Bud"),
+	bud_tt = S("Grows to an Orange Flower").."\n"..surv.."\n"..S("Needs Orange Leaves to grow"),
+	flower_description = S("Orange Flower"),
+	flower_tt = S("Grows to an Orange").."\n"..surv.."\n"..S("Needs Orange Leaves to grow"),
+	bud_interval = 34,
+	bud_chance = 10,
+	flower_interval = 33,
+	flower_chance = 60,
+	neighbors = {"hades_trees:orange_leaves"},
+	bud_selbox = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875},
+	flower_selbox = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875},
+})
+
+refruit.add_refruit("banana", {
+	fruit_itemstring = "hades_trees:banana",
+	bud_description = S("Banana Bud"),
+	bud_tt = S("Grows to a Banana Flower").."\n"..surv.."\n"..S("Needs Banana Leaves to grow"),
+	flower_description = S("Banana Flower"),
+	flower_tt = S("Grows to an Banana").."\n"..surv.."\n"..S("Needs Banana Leaves to grow"),
+	bud_interval = 35,
+	bud_chance = 10,
+	flower_interval = 34,
+	flower_chance = 60,
+	neighbors = {"hades_trees:banana_leaves"},
+	bud_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
+	flower_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
 })
 
