@@ -36,7 +36,7 @@ for p=1, #planks do
 	minetest.register_node("hades_trees:"..id, {
 		description = desc,
 		tiles = {tile},
-		groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1,colwood=1},
+		groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1,colwood=1},
 		sounds = hades_sounds.node_sound_wood_defaults(),
 	})
 end
@@ -51,7 +51,7 @@ minetest.register_node("hades_trees:floor_wood_jungle", {
 		"hades_trees_floor_wood_jungle.png",
 		"hades_trees_floor_wood_jungle.png^[transformR90",
 	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
+	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
@@ -64,7 +64,7 @@ minetest.register_node("hades_trees:floor_wood_pale", {
 		"hades_trees_floor_wood_pale.png",
 		"hades_trees_floor_wood_pale.png^[transformR90",
 	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
+	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 
@@ -77,6 +77,6 @@ minetest.register_node("hades_trees:floor_pale_jungle", {
 		"hades_trees_floor_pale_jungle.png",
 		"hades_trees_floor_pale_jungle.png^[transformR90",
 	},
-	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
+	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
