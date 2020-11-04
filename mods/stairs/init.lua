@@ -909,7 +909,7 @@ stairs.register_stair_and_slab("white", "wool:white",
 		S("Outer White Wool Stair"),
 		S("Inner White Wool Stair"),
 		S("White Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("grey", "wool:grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -918,7 +918,7 @@ stairs.register_stair_and_slab("grey", "wool:grey",
 		S("Outer Grey Wool Stair"),
 		S("Inner Grey Wool Stair"),
 		S("Grey Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("black", "wool:black",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -927,7 +927,7 @@ stairs.register_stair_and_slab("black", "wool:black",
 		S("Outer Black Wool Stair"),
 		S("Inner Black Wool Stair"),
 		S("Black Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("red", "wool:red",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -936,7 +936,7 @@ stairs.register_stair_and_slab("red", "wool:red",
 		S("Outer Red Wool Stair"),
 		S("Inner Red Wool Stair"),
 		S("Red Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("yellow", "wool:yellow",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -945,7 +945,7 @@ stairs.register_stair_and_slab("yellow", "wool:yellow",
 		S("Outer Yellow Wool Stair"),
 		S("Inner Yellow Wool Stair"),
 		S("Yellow Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("green", "wool:green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -954,7 +954,7 @@ stairs.register_stair_and_slab("green", "wool:green",
 		S("Outer Green Wool Stair"),
 		S("Inner Green Wool Stair"),
 		S("Green Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("cyan", "wool:cyan",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -963,7 +963,7 @@ stairs.register_stair_and_slab("cyan", "wool:cyan",
 		S("Outer Cyan Wool Stair"),
 		S("Inner Cyan Wool Stair"),
 		S("Cyan Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("blue", "wool:blue",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -972,7 +972,7 @@ stairs.register_stair_and_slab("blue", "wool:blue",
 		S("Outer Blue Wool Stair"),
 		S("Inner Blue Wool Stair"),
 		S("Blue Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 
 stairs.register_stair_and_slab("magenta", "wool:magenta",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -981,7 +981,7 @@ stairs.register_stair_and_slab("magenta", "wool:magenta",
 		S("Outer Magenta Wool Stair"),
 		S("Inner Magenta Wool Stair"),
 		S("Magenta Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("orange", "wool:orange",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -990,7 +990,7 @@ stairs.register_stair_and_slab("orange", "wool:orange",
 		S("Outer Orange Wool Stair"),
 		S("Inner Orange Wool Stair"),
 		S("Orange Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("violet", "wool:violet",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -999,7 +999,7 @@ stairs.register_stair_and_slab("violet", "wool:violet",
 		S("Outer Violet Wool Stair"),
 		S("Inner Violet Wool Stair"),
 		S("Violet Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("brown", "wool:brown",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -1008,7 +1008,7 @@ stairs.register_stair_and_slab("brown", "wool:brown",
 		S("Outer Brown Wool Stair"),
 		S("Inner Brown Wool Stair"),
 		S("Brown Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("pink", "wool:pink",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -1017,7 +1017,7 @@ stairs.register_stair_and_slab("pink", "wool:pink",
 		S("Outer Pink Wool Stair"),
 		S("Inner Pink Wool Stair"),
 		S("Pink Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("dark_grey", "wool:dark_grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -1026,7 +1026,7 @@ stairs.register_stair_and_slab("dark_grey", "wool:dark_grey",
 		S("Outer Dark Grey Wool Stair"),
 		S("Inner Dark Grey Wool Stair"),
 		S("Dark Grey Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 		
 stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -1035,7 +1035,7 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 		S("Outer Dark Green Wool Stair"),
 		S("S(Inner Dark Green Wool Stair"),
 		S("Dark Green Wool Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_defaults())
 
 
 -- Glowing crystal
