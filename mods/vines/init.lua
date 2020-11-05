@@ -173,7 +173,7 @@ plantslib:spawn_on_surfaces({
 	spawn_delay = spawn_interval,
 	spawn_plants = {"vines:side"},
 	spawn_chance = 50,
-	spawn_surfaces = {"group:leafdecay"},
+	spawn_surfaces = {"group:leaves"},
 	spawn_on_side = true,
 	near_nodes = {"hades_core:water_source", "hades_trees:jungle_tree"},
 	near_nodes_size = 10,
