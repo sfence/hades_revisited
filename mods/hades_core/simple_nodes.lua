@@ -706,15 +706,16 @@ minetest.register_node("hades_core:water_source", {
 	description = S("Water Source"),
 	drawtype = "liquid",
 	tiles = {
-		{name="default_water_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0}}
-	},
-	special_tiles = {
-		-- New-style water source material (mostly unused)
 		{
-			name="default_water_source_animated.png",
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
+			name = "default_water_source_animated.png",
 			backface_culling = false,
-		}
+			animation = {type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
+		},
+		{
+			name = "default_water_source_animated.png",
+			backface_culling = true,
+			animation = {type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
+		},
 	},
 	alpha = WATER_ALPHA,
 	paramtype = "light",
@@ -777,14 +778,15 @@ minetest.register_node("hades_core:lava_source", {
 	description = S("Lava Source"),
 	drawtype = "liquid",
 	tiles = {
-		{name="default_lava_source_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}}
-	},
-	special_tiles = {
-		-- New-style lava source material (mostly unused)
 		{
-			name="default_lava_source_animated.png",
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0},
+			name = "default_lava_source_animated.png",
 			backface_culling = false,
+			animation = {type="vertical_frames", aspect_w=16, aspect_h=16, length=4.0},
+		},
+		{
+			name = "default_lava_source_animated.png",
+			backface_culling = true,
+			animation = {type="vertical_frames", aspect_w=16, aspect_h=16, length=4.0},
 		}
 	},
 	paramtype = "light",
