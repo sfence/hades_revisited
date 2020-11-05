@@ -93,8 +93,10 @@ hades_trees.register_fruit = function(id, def)
 	end
 	local groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=food,eatable=sat}
 	if def.groups then
-		groups.dig_immediate = nil
 		for k,v in pairs(def.groups) do
+			if v == 0 then
+				v = nil
+			end
 			groups[k] = v
 		end
 	end

@@ -28,6 +28,12 @@ do
 	local t = { 0, true, "refruit:bud_banana", "refruit:flower_banana", "hades_trees:banana" }
 	table.insert(plants_rotate, t)
 
+	local t = { 0, true, "refruit:bud_cocoa", "refruit:flower_cocoa", "hades_trees:cocoa_pod" }
+	table.insert(plants_rotate, t)
+
+	local t = { 0, true, "refruit:bud_coconut", "refruit:flower_coconut", "hades_trees:coconut" }
+	table.insert(plants_rotate, t)
+
 	t = { 0, false }
 	for i=1,5 do
 		table.insert(t, "hades_core:grass_"..i)
