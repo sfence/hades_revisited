@@ -97,6 +97,7 @@ Action groups:
 * `fake_liquid`: Node is registerd as liquid but it's not actually a liquid
 * `flora`: This is a plant that spreads on Dirt with Grass
 * `soil`: Usable by hoe
+* `not_in_craft_guide`: Item won't appear in craft guide
 
 Legacy groups:
 * `flammable`: Considered flammable (Note: This game has no fire)
