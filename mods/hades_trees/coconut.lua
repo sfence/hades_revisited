@@ -10,6 +10,7 @@ hades_trees.register_fruit("coconut", {
 	drawtype = "plantlike",
 	image = "hades_trees_coconut.png",
 	selbox = {-5/16, -7/16, -5/16, 5/16, 7/16, 5/16},
+	groups = {choppy=3},
 })
 
 minetest.register_abm({

@@ -12,7 +12,7 @@ hades_trees.register_fruit("cocoa_pod", {
 	image = "hades_trees_cocoa_pod.png",
 	selbox = {-0.25, -7/16, -0.25, 0.25, 0.5, 0.25},
 	-- TODO: Remove when cocoa is ready
-	not_in_craft_guide = 1,
+	groups = {not_in_craft_guide = 1},
 })
 
 minetest.register_craftitem("hades_trees:cocoa_bean", {
