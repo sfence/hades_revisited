@@ -12,6 +12,7 @@ dofile(minetest.get_modpath("hades_trees").."/cjtree.lua")
 dofile(minetest.get_modpath("hades_trees").."/banana.lua")
 dofile(minetest.get_modpath("hades_trees").."/orange.lua")
 dofile(minetest.get_modpath("hades_trees").."/cocoa.lua")
+dofile(minetest.get_modpath("hades_trees").."/coconut.lua")
 
 dofile(minetest.get_modpath("hades_trees").."/wood.lua")
 dofile(minetest.get_modpath("hades_trees").."/crafting.lua")
