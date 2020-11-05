@@ -202,16 +202,17 @@ minetest.register_node("simple_bushes:plant_pot",
 		node_box = {
 			type = "fixed",
 			fixed = {
-				{-0.35,-0.5,-0.4,0.35,0.5,0.4},
-				{-0.4,-0.5,-0.35, 0.4,0.5,0.35},
-				{-0.25,-0.5,-0.45,0.25,0.5,0.45},
-				{-0.45,-0.5,-0.25, 0.45,0.5,0.25},
-				{-0.15,-0.5,-0.5,0.15,0.5,0.5},
-				{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
+				{-0.5,-0.5,-3/16, 0.5,0.5,3/16},
+				{-7/16,-0.5,-5/16, 7/16,0.5,5/16},
+				{-6/16,-0.5,-6/16, 6/16,0.5,6/16},
+				{-5/16,-0.5,-7/16, 5/16,0.5,7/16},
+				{-3/16,-0.5,-0.5, 3/16,0.5,0.5},
 			},
 		},
-		groups = {snappy=3},
-		sounds = hades_sounds.node_sound_wood_defaults(),
+		groups = {cracky=3},
+		sounds = hades_sounds.node_sound_stone_defaults({
+			footstep = hades_sounds.node_sound_dirt_defaults().footstep,
+		}),
 	})
 
 minetest.register_craft({ output = "simple_bushes:plant_pot", recipe = {
