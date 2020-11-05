@@ -66,7 +66,7 @@ hades_trees.register_leaves = function(id, def)
 			{
 				-- player will get leaves only if they get no def.drop_item,
 				-- this is because max_items is 1
-				items = {'hades_trees:leaves'},
+				items = {"hades_trees:"..id},
 			}
 		}
 	}
