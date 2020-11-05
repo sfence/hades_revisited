@@ -34,9 +34,15 @@ hades_trees.register_bark = function(id, def)
 end
 
 hades_trees.register_sapling = function(id, def)
+	local tth
+	if def.growtype == "ash" then
+		tth = S("Needs Dirt, Fertile Sand or Volcanic Ash to grow, and light")
+	else
+		tth = S("Needs Dirt and light to grow")
+	end
 	minetest.register_node("hades_trees:"..id, {
 		description = def.description,
-		_tt_help = S("Needs Dirt and light to grow"),
+		_tt_help = tth,
 		drawtype = "plantlike",
 		tiles = {def.image},
 		inventory_image = def.image,

@@ -18,6 +18,7 @@ hades_trees.register_sapling("pale_sapling", {
 	description = S("Pale Tree Sapling"),
 	image = "hades_trees_pale_sapling.png",
 	selbox = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3},
+	growtype = "ash",
 })
 
 minetest.register_abm({
