@@ -85,6 +85,12 @@ hades_trees.register_leaves = function(id, def)
 end
 
 hades_trees.register_fruit = function(id, def)
+	local sat = def.satiation
+	local on_use, food
+	if def.satiation then
+		food = 2
+		on_use = minetest.item_eat(sat)
+	end
 	minetest.register_node("hades_trees:"..id, {
 		description = def.description,
 		drawtype = def.drawtype,
@@ -98,8 +104,8 @@ hades_trees.register_fruit = function(id, def)
 			type = "fixed",
 			fixed = def.selbox,
 		},
-		groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=2,eatable=def.satiation},
-		on_use = minetest.item_eat(def.satiation),
+		groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=food,eatable=sat},
+		on_use = on_use,
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 		place_param2 = 1,
 	})

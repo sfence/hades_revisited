@@ -294,6 +294,8 @@ minetest.register_craft({
 	}
 })
 
+-- TODO: Cocoa sapling
+
 -- Fuel
 minetest.register_craft({
 	type = "fuel",

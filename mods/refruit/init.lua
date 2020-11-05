@@ -179,3 +179,17 @@ refruit.add_refruit("banana", {
 	flower_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
 })
 
+refruit.add_refruit("cocoa", {
+	fruit_itemstring = "hades_trees:cocoa_pod",
+	bud_description = S("Cocoa Bud"),
+	bud_tt = S("Grows to a Cocoa Flower").."\n"..surv.."\n"..S("Needs Common Jungle Leaves to grow"),
+	flower_description = S("Cocoa Flower"),
+	flower_tt = S("Grows to Cocoa").."\n"..surv.."\n"..S("Needs Common Jungle Leaves to grow"),
+	bud_interval = 35,
+	bud_chance = 10,
+	flower_interval = 34,
+	flower_chance = 60,
+	neighbors = {"hades_trees:jungle_leaves"},
+	bud_selbox = {-0.1875, -0.25, -0.1875, 0.1875, 0.375, 0.1875},
+	flower_selbox = {-0.1875, -0.1875, -0.1875, 0.1875, 0.5, 0.1875},
+})

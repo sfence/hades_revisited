@@ -118,6 +118,12 @@ minetest.register_craft({
 		output = "dye:green 4",
 		recipe = {"hades_core:cactus"},
 })
+
+minetest.register_craft({
+		type = "shapeless",
+		output = "dye:brown",
+		recipe = {"hades_trees:cocoa_bean"},
+})
 -- Mix recipes
 -- Just mix everything to everything somehow sanely
 

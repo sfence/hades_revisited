@@ -18,6 +18,8 @@ function hades_trees.grow_sapling(pos, check_light)
 		hades_trees.generate_bananatree(pos, check_light)
 	elseif node.name == "hades_trees:orange_sapling" then
 		hades_trees.generate_orangetree(pos, check_light)
+	elseif node.name == "hades_trees:cocoa_sapling" then
+		hades_trees.generate_cocoatree(pos, check_light)
 	end
 end
 
@@ -170,6 +172,24 @@ function hades_trees.generate_orangetree(pos, check_light, trunk, leaves, underg
 	end
 	if not replacements then
 		replacements = {["hades_trees:orange"]=20}
+	end
+	hades_trees.generate_tree(pos, check_light, trunk, leaves, underground, replacements)
+end
+
+-- Cocoa Tree
+-- TODO: Customize cocoa tree
+function hades_trees.generate_cocoatree(pos, check_light, trunk, leaves, underground, replacements)
+	if not trunk then
+		trunk = "hades_trees:jungle_tree"
+	end
+	if not leaves then
+		leaves = "hades_trees:jungle_leaves"
+	end
+	if not underground then
+		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+	end
+	if not replacements then
+		replacements = {["hades_trees:cocoa"]=12}
 	end
 	hades_trees.generate_tree(pos, check_light, trunk, leaves, underground, replacements)
 end
