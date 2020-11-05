@@ -145,6 +145,8 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	if minetest.get_item_group(under.name, "soil") < 2 then
 		return
 	end
+
+	minetest.sound_play({name="default_place_node", gain=1.0}, {pos=pt.under})
 	
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(pt.above, {name = plantname, param2 = 1})
