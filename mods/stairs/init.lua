@@ -898,7 +898,7 @@ stairs.register_stair_and_slab("rusty_block", "columnia:rusty_block",
 		hades_sounds.node_sound_metal_defaults())
 		
 stairs.register_stair_and_slab("cactus_brick", "hades_core:cactus_brick",
-		{cracky=1},
+		{choppy=3,flammable=2},
 		{"default_cactus_brick.png"},
 		S("Cactus Brick Stair"),
 		S("Outer Cactus Brick Stair"),
