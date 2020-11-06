@@ -3,12 +3,151 @@ local S = minetest.get_translator("vines")
 local mod_name = "vines"
 local average_height = 12
 local spawn_interval = 90
-local vines_group = {attached_node=1,vines=1,snappy=3,flammable=2}
-local vines_group_cave = {vines=1,snappy=3,flammable=2}
+
+
+--- VINES GROUPS
+-- Sideways vines are at the "side" of the node. They attach to the side of nodes
+local vines_group_side = {vines=1,snappy=3,flammable=2}
+-- Center vines are in the center of the node. They attach/"hang" from a solid node above
+local vines_group_center = {vines=2,snappy=3,flammable=2}
 local tt_surv = S("Needs a tree trunk to survive")
--- globals
+
 
 local walldir ={}
+
+-- Returns true if the node supports vines
+local supports_vines = function(nodename)
+	local def = minetest.registered_nodes[nodename]
+	-- Rules: 1) walkable 2) full cube OR it's a tree node
+	return minetest.get_item_group(nodename, "tree") ~= 0 or (def.walkable and
+			(def.node_box == nil or def.node_box.type == "regular") and
+			(def.collision_box == nil or def.collision_box.type == "regular"))
+end
+
+--[[ Call this for vines nodes only.
+Given the pos and node of a vines node, this returns true if the vines are
+supported and false if the vines are currently floating.
+Vines are considered “supported” if they face a walkable+solid block or
+“hang” from a vines node above. ]]
+local check_vines_supported = function(pos, node)
+	local supported = false
+	local dir = minetest.wallmounted_to_dir(node.param2)
+	local pos1 = vector.add(pos, dir)
+	local node_neighbor = minetest.get_node(pos1)
+	local pos2 = vector.add(pos, {x=0, y=1, z=0})
+	local node2 = minetest.get_node(pos2)
+	local vg = minetest.get_item_group(node.name, "vines")
+	local vg2 = minetest.get_item_group(node2.name, "vines")
+	-- Check if vines are attached to a solid block.
+	-- If ignore, we assume its solid.
+	if (vg == 1) and (node_neighbor.name == "ignore" or supports_vines(node_neighbor.name)) then
+		supported = true
+	elseif (vg == 1) and (dir.y == 0) then
+		-- Vines are not attached, now we check if the vines are “hanging” below another vines block
+		-- of equal orientation.
+		-- Again, ignore means we assume its supported
+		if node2.name == "ignore" or (vg2 == vg and node2.param2 == node.param2) then
+			supported = true
+		end
+	elseif (vg == 2 and supports_vines(node2.name)) then
+		supported = true
+	end
+	return supported
+end
+
+local function get_on_place(centered)
+	-- Restrict placement of vines
+	return function(itemstack, placer, pointed_thing)
+		if pointed_thing.type ~= "node" then
+			-- no interaction possible with entities
+			return itemstack
+		end
+
+		local under = pointed_thing.under
+		local above = pointed_thing.above
+		local node = minetest.get_node(under)
+		local def = minetest.registered_nodes[node.name]
+		if not def then
+			return itemstack
+		end
+		local groups = def.groups
+
+		-- Check special rightclick action of pointed node
+		if def and def.on_rightclick then
+			if not placer:get_player_control().sneak then
+				return def.on_rightclick(under, node, placer, itemstack,
+					pointed_thing) or itemstack, false
+			end
+		end
+
+		local cnode
+		if centered then
+			cnode = minetest.get_node({x=above.x, y=above.y+1, z=above.z})
+		else
+			-- Sideways vines may not be placed on top or below another block
+			if under.y ~= above.y then
+				return itemstack
+			end
+			cnode = node
+		end
+		-- Only place on full cubes
+		if not supports_vines(cnode.name) then
+			-- But centered vines can be placed below centered vines
+			if not (centered and minetest.get_item_group(cnode.name, "vines") == 2) then
+				return itemstack
+			end
+		end
+
+		local idef = itemstack:get_definition()
+		local itemstack, success = minetest.item_place_node(itemstack, placer, pointed_thing)
+
+		if success then
+			if idef.sounds and idef.sounds.place then
+				minetest.sound_play(idef.sounds.place, {pos=above, gain=1}, true)
+			end
+		end
+		return itemstack
+	end
+end
+
+-- Get vines when using shears
+local after_dig_node = function(pos, oldnode, oldmetadata, user)
+	local wielded
+	if not user or not user:is_player() then
+		return
+	end
+	if user:get_wielded_item() ~= nil then
+		wielded = user:get_wielded_item()
+	else
+		return
+	end
+	if minetest.get_item_group(wielded:get_name(), "shears") ~= 0 then
+		local add = true
+		local inv = user:get_inventory()
+		local newstack = ItemStack(oldnode.name)
+		if not inv then
+			add = false
+		elseif minetest.is_creative_enabled(user:get_player_name()) then
+			if inv:contains_item("main", newstack) then
+				add = false
+			end
+		end
+		if add == true then
+			inv:add_item("main", newstack)
+		end
+	end
+end
+
+-- If vine dug, also dig a “dependant” vine below it.
+-- A vine is dependant if it hangs from this node and has no supporting block.
+local on_dig = function(pos, node, digger)
+	local below = {x=pos.x, y=pos.y-1, z=pos.z}
+	local belownode = minetest.get_node(below)
+	minetest.node_dig(pos, node, digger)
+	if belownode.name == node.name and (not check_vines_supported(below, belownode)) then
+		return minetest.registered_nodes[node.name].on_dig(below, node, digger)
+	end
+end
 
 local function register_vine(id, def)
 	local paramtype2, drawtype, buildable_to
@@ -23,6 +162,8 @@ local function register_vine(id, def)
 	local selection_box = def.selection_box or {
 		type = "wallmounted",
 	}
+
+	local is_centered = def.groups.vines == 2
 
 	minetest.register_node("vines:"..id, {
 		description = def.description_normal,
@@ -41,25 +182,16 @@ local function register_vine(id, def)
 		groups = def.groups,
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 		selection_box = selection_box,
-		after_dig_node = function(pos, oldnode, oldmetadata, user)
-			local wielded
-			if user:get_wielded_item() ~= nil then
-				wielded = user:get_wielded_item()
-			else
-				return
-			end
-			if "vines:shears" == wielded:get_name() then
-				local inv = user:get_inventory()
-				if inv then
-					inv:add_item("main", ItemStack(oldnode.name))
-				end
-			end
-		end
-	})
+		node_placement_prediction = "",
+
+		on_place = get_on_place(is_centered),
+		on_dig = on_dig,
+		after_dig_node = after_dig_node,
+		})
 
 	if def.description_rotten then
 		local groups_rotten = table.copy(def.groups)
-		groups_rotten.vines = 2
+		groups_rotten.vines_rotten = 1
 
 		minetest.register_node("vines:"..id.."_rotten", {
 			description = def.description_rotten,
@@ -77,6 +209,10 @@ local function register_vine(id, def)
 			groups = groups_rotten,
 			sounds = hades_sounds.node_sound_leaves_defaults(),
 			selection_box = selection_box,
+			node_placement_prediction = "",
+			on_place = get_on_place(is_centered),
+			on_dig = on_dig,
+			after_dig_node = after_dig_node,
 		})
 	end
 end
@@ -85,21 +221,21 @@ register_vine("side", {
 	vines_type = "side",
 	description_normal = S("Jungle Vine"),
 	description_rotten = S("Rotten Jungle Vine"),
-	groups = vines_group,
+	groups = vines_group_side,
 })
 
 register_vine("willow", {
 	vines_type = "side",
 	description_normal = S("Willow Vine"),
 	description_rotten = S("Rotten Willow Vine"),
-	groups = vines_group,
+	groups = vines_group_side,
 })
 
 register_vine("vine", {
 	vines_type = "center",
 	description_normal = S("Cave Vine"),
 	description_rotten = S("Rotten Cave Vine"),
-	groups = vines_group_cave,
+	groups = vines_group_center,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -1/2, -0.3, 0.3, 1/2, 0.3},
@@ -109,7 +245,7 @@ register_vine("vine", {
 register_vine("root", {
 	vines_type = "center",
 	description_normal = S("Root Vine"),
-	groups = vines_group_cave,
+	groups = vines_group_center,
 	selection_box = {
 		type = "fixed",
 		fixed = {-1/6, -1/2, -1/6, 1/6, 1/2, 1/6},

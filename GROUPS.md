@@ -13,7 +13,9 @@ Node identities:
 * `plant`: Farming plant
 * `grass`: Grass
 * `flower`: Flower
-* `vines`: Vines
+* `vines=1`: Vines (sideways)
+    * `vines=2` Vines (centered)
+* `vines_rotten=1`: Rotten vines
 * `simple_bush`: Bush
 
 * `seed`: Seed
