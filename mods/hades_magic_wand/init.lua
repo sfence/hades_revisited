@@ -11,6 +11,10 @@ local cycles = {
 	{ "vines:vine", "vines:vine_rotten" },
 	{ "refruit:bud_apple", "refruit:flower_apple", "hades_trees:apple" },
 	{ "refruit:bud_olive", "refruit:flower_olive", "hades_trees:olive" },
+	{ "refruit:bud_cocoa", "refruit:flower_cocoa", "hades_trees:cocoa_pod" },
+	{ "refruit:bud_coconut", "refruit:flower_coconut", "hades_trees:coconut" },
+	{ "refruit:bud_banana", "refruit:flower_banana", "hades_trees:banana" },
+	{ "refruit:bud_orange", "refruit:flower_orange", "hades_trees:orange" },
 }
 
 local seeds_3 = { "cotton", "wheat", "spice", "potato", "strawberry", "tomato" }
