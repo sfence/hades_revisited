@@ -606,7 +606,11 @@ local S = minetest.get_translator("3dforniture")
 		},
 		selection_box = {
 			type = "fixed",
-			fixed = {-1/2, -1/2, 1/4, 1/2, 1/2, 1/2}, },
+			fixed = {
+				{-0.45, -0.45, 1/4, -0.2, 1/2, 1/2},
+				{0.2, -0.45, 1/4, 0.45, 1/2, 1/2},
+			},
+		},
 		groups = {cracky=1},
 		sounds = hades_sounds.node_sound_metal_defaults(),
 		on_rotate = "simple",
