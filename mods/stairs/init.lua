@@ -11,6 +11,9 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
 		light_source = rdef.light_source
+		if not images then
+			images = rdef.tiles
+		end
 	end
 	minetest.register_node(":stairs:stair_" .. subname, {
 		description = description,
@@ -86,6 +89,9 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
 		light_source = rdef.light_source
+		if not images then
+			images = rdef.tiles
+		end
 	end
 	minetest.register_node(":stairs:stair_out_" .. subname, {
 		description = description,
@@ -152,6 +158,9 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
 		light_source = rdef.light_source
+		if not images then
+			images = rdef.tiles
+		end
 	end
 	minetest.register_node(":stairs:stair_in_" .. subname, {
 		description = description,
@@ -219,6 +228,9 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
 		light_source = rdef.light_source
+		if not images then
+			images = rdef.tiles
+		end
 	end
 	minetest.register_node(":stairs:slab_" .. subname, {
 		description = description,
@@ -325,10 +337,31 @@ end
 
 -- Nodes will be called stairs:{stair,slab}_<subname>
 function stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds)
-	stairs.register_stair(subname, recipeitem, groups, images, desc_stair, sounds)
-	stairs.register_stair_out(subname, recipeitem, groups, images, desc_stair_out, sounds)
-	stairs.register_stair_in(subname, recipeitem, groups, images, desc_stair_in, sounds)
-	stairs.register_slab(subname, recipeitem, groups, images, desc_slab, sounds)
+	local i_stair, i_stair_out, i_stair_in, i_slab
+	if images and images[1] == "!CUSTOM" then
+		i_stair = images[2]
+		i_stair_in = images[3]
+		i_stair_out = images[4]
+		i_slab = images[5]
+	else
+		i_stair = images
+		i_stair_in = images
+		i_stair_out = images
+		i_slab = images
+	end
+	stairs.register_stair(subname, recipeitem, groups, i_stair, desc_stair, sounds)
+	stairs.register_stair_out(subname, recipeitem, groups, i_stair_out, desc_stair_out, sounds)
+	stairs.register_stair_in(subname, recipeitem, groups, i_stair_in, desc_stair_in, sounds)
+	stairs.register_slab(subname, recipeitem, groups, i_slab, desc_slab, sounds)
+end
+
+local custom_textures = function(block, stair_l, stair_r, outstair, slab)
+	return {"!CUSTOM",
+		{slab, block, stair_l, stair_r, block, slab},
+		{stair_l.."^[transformR180", block, stair_l, block, block, stair_r},
+		{stair_l, block, outstair, stair_r, stair_l, outstair},
+		{block, block, slab},
+	}
 end
 
 stairs.register_stair_and_slab("wood", "hades_trees:wood",
@@ -533,42 +566,28 @@ stairs.register_stair_and_slab("colwood_yellow", "hades_trees:colwood_yellow",
 		S("Yellow Wood Slab"),
 		hades_sounds.node_sound_wood_defaults())
 		
-		--		
-stairs.register_stair_and_slab("steelblock", "hades_core:steelblock",
-		{cracky=1,level=2},
-		{"default_steel_block.png"},
-		S("Steel Block Stair"),
-		S("Outer Steel Block Stair"),
-		S("Inner Steel Block Stair"),
-		S("Steel Block Slab"),
-		hades_sounds.node_sound_metal_defaults())
+		--
 
-stairs.register_stair_and_slab("copperblock", "hades_core:copperblock",
+local metals = {
+	{"steel", S("Steel Stair"), S("Outer Steel Stair"), S("Inner Steel Stair"), S("Steel Slab")},
+	{"copper", S("Copper Stair"), S("Outer Copper Stair"), S("Inner Copper Stair"), S("Copper Slab")},
+	{"bronze", S("Bronze Stair"), S("Outer Bronze Stair"), S("Inner Bronze Stair"), S("Bronze Slab")},
+	{"tin", S("Tin Stair"), S("Outer Tin Stair"), S("Inner Tin Stair"), S("Tin Slab")},
+	{"gold", S("Gold Stair"), S("Outer Gold Stair"), S("Inner Gold Stair"), S("Gold Slab")},
+}
+for m=1, #metals do
+	local name = metals[m][1].."block"
+	local tex = metals[m][1].."_block"
+	stairs.register_stair_and_slab(name, "hades_core:"..name,
 		{cracky=1,level=2},
-		{"default_copper_block.png"},
-		S("Copper Block Stair"),
-		S("Outer Copper Block Stair"),
-		S("Inner Copper Block Stair"),
-		S("Copper Block Slab"),
-		hades_sounds.node_sound_metal_defaults())
-
-stairs.register_stair_and_slab("bronzeblock", "hades_core:bronzeblock",
-		{cracky=1,level=2},
-		{"default_bronze_block.png"},
-		S("Bronze Block Stair"),
-		S("Outer Bronze Block Stair"),
-		S("Inner Bronze Block Stair"),
-		S("Bronze Block Slab"),
-		hades_sounds.node_sound_metal_defaults())
-
-stairs.register_stair_and_slab("goldblock", "hades_core:goldblock",
-		{cracky=1},
-		{"default_gold_block.png"},
-		S("Gold Block Stair"),
-		S("Outer Gold Block Stair"),
-		S("Inner Gold Block Stair"),
-		S("Gold Block Slab"),
-		hades_sounds.node_sound_metal_defaults())
+		custom_textures("default_"..tex..".png", "stairs_"..tex.."_stair_l.png", "stairs_"..tex.."_stair_r.png", "stairs_"..tex.."_stair_out.png", "stairs_"..tex.."_slab.png"),
+		metals[m][2],
+		metals[m][3],
+		metals[m][4],
+		metals[m][5],
+		hades_sounds.node_sound_metal_defaults()
+	)
+end
 
 stairs.register_stair_and_slab("stone", "hades_core:stone",
 		{cracky=3},
