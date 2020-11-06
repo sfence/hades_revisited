@@ -1,6 +1,8 @@
 local S = minetest.get_translator("columnia")
 local F = minetest.formspec_escape
 
+local STEREOTYPE = "hades_core_marble" -- example node to use for item image
+
 minetest.register_node("columnia:machine", {
 	description = S("Columnia Workstation"),
 	_tt_help = S("Turns blocks to columns and more"),
@@ -76,27 +78,27 @@ minetest.register_node("columnia:machine", {
 			"label[8,4.5;"..F(S("Output:")).."]"..
 
 			"label[1,0;"..F(S("Basics")).."]"..
-			"image_button[1,0.5;1,1;columnia_mach1.png;column_bottom; ]"..
-			"image_button[2,0.5;1,1;columnia_mach2.png;column_mid; ]"..
-			"image_button[3,0.5;1,1;columnia_mach3.png;column_top; ]"..
-			"image_button[4,0.5;1,1;columnia_mach4.png;column_crosslink; ]"..
+			"item_image_button[1,0.5;1,1;columnia:column_bottom_"..STEREOTYPE..";column_bottom;]"..
+			"item_image_button[2,0.5;1,1;columnia:column_mid_"..STEREOTYPE..";column_mid;]"..
+			"item_image_button[3,0.5;1,1;columnia:column_top_"..STEREOTYPE..";column_top;]"..
+			"item_image_button[4,0.5;1,1;columnia:column_crosslink_"..STEREOTYPE..";column_crosslink;]"..
 
 			"label[1,1.5;"..F(S("Links")).."]"..
-			"image_button[1,2;1,1;columnia_mach5.png;column_link; ]"..
-			"image_button[2,2;1,1;columnia_mach7.png;column_linkcross; ]"..
-			"image_button[3,2;1,1;columnia_mach10.png;column_linkangle; ]"..
-			"image_button[4,2;1,1;columnia_mach14.png;column_linktee; ]"..
+			"item_image_button[1,2;1,1;columnia:column_link_"..STEREOTYPE..";column_link;]"..
+			"item_image_button[2,2;1,1;columnia:column_linkcross_"..STEREOTYPE..";column_linkcross;]"..
+			"item_image_button[3,2;1,1;columnia:column_linkangle_"..STEREOTYPE..";column_linkangle;]"..
+			"item_image_button[4,2;1,1;columnia:column_linktee_"..STEREOTYPE..";column_linktee;]"..
 
 			"label[1,3;"..F(S("Links with Downs")).."]"..
-			"image_button[1,3.5;1,1;columnia_mach6.png;column_linkdown; ]"..
-			"image_button[2,3.5;1,1;columnia_mach8.png;column_linkcrossdown; ]"..
-			"image_button[3,3.5;1,1;columnia_mach13.png;column_linkangle_down; ]"..
-			"image_button[4,3.5;1,1;columnia_mach15.png;column_linktee_down; ]"..
-			"image_button[5,3.5;1,1;columnia_mach9.png;column_linkvertical; ]"..
+			"item_image_button[1,3.5;1,1;columnia:column_linkdown_"..STEREOTYPE..";column_linkdown;]"..
+			"item_image_button[2,3.5;1,1;columnia:column_linkcrossdown_"..STEREOTYPE..";column_linkcrossdown;]"..
+			"item_image_button[3,3.5;1,1;columnia:column_linkangle_down_"..STEREOTYPE..";column_linkangle_down;]"..
+			"item_image_button[4,3.5;1,1;columnia:column_linktee_down_"..STEREOTYPE..";column_linktee_down;]"..
+			"item_image_button[5,3.5;1,1;columnia:column_linkvertical_"..STEREOTYPE..";column_linkvertical;]"..
 
 			"label[1,4.5;"..F(S("Stair Substructures")).."]"..
-			"image_button[1,5;1,1;columnia_mach11.png;column_stairsub; ]"..
-			"image_button[2,5;1,1;columnia_mach12.png;column_stairsubpillar; ]"..
+			"item_image_button[1,5;1,1;columnia:column_stairsub_"..STEREOTYPE..";column_stairsub;]"..
+			"item_image_button[2,5;1,1;columnia:column_stairsubpillar_"..STEREOTYPE..";column_stairsubpillar;]"..
 
 			"list[current_player;main;1,6.25;8,4;]"..
 
