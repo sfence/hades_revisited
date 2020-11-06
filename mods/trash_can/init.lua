@@ -34,11 +34,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*4)
 	end,
-        can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
-                return inv:is_empty("main")
-        end,
+	-- Intentionally no 'can_dig' function. If you dig this node, items in trash are gone.
         on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
 		minetest.log("action", player:get_player_name()..
 			" moves stuff in trash can at "..minetest.pos_to_string(pos))
