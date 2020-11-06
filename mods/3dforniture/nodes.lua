@@ -52,11 +52,6 @@ local S = minetest.get_translator("3dforniture")
 			{description = desc_t,
 			tiles = {
 				"forniture_wood"..append..".png",
-				"forniture_wood"..append..".png",
-				"forniture_wood_s1"..append..".png",
-				"forniture_wood_s1"..append..".png",
-				"forniture_wood_s2"..append..".png",
-				"forniture_wood_s2"..append..".png",
 			},
 			drawtype = "nodebox",
 			sunlight_propagates = true,
@@ -85,11 +80,6 @@ local S = minetest.get_translator("3dforniture")
 			{ description = desc_c,
 			tiles = {
 				"forniture_wood"..append..".png",
-				"forniture_wood"..append..".png",
-				"forniture_wood_s1"..append..".png",
-				"forniture_wood_s1"..append..".png",
-				"forniture_wood_s2"..append..".png",
-				"forniture_wood_s2"..append..".png",
 			},
 			drawtype = "nodebox",
 			sunlight_propagates = true,
