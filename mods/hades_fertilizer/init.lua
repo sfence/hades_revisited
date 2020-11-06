@@ -285,7 +285,7 @@ local get_apply_fertilizer = function(super)
 			end
 
 		end
-		if not super and not minetest.settings:get_bool("creative_mode", false) then
+		if not super and not minetest.is_creative_enabled(placer:get_player_name()) then
 			itemstack:take_item()
 		end
 		return itemstack

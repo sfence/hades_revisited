@@ -62,12 +62,13 @@ minetest.register_node("flowerpots:flower_pot", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	on_rightclick = function(pos, node, clicker, itemstack)
 		local item = clicker:get_wielded_item():get_name()
+		local name = clicker:get_player_name()
 		for _, row in ipairs(flowers) do
 			local flower = row[1]
 			local flower_node = row[2]
 			if item == flower_node then
 				minetest.set_node(pos, {name="flowerpots:flower_pot_"..flower})
-				if not minetest.settings:get_bool("creative_mode") then
+				if not minetest.is_creative_enabled(name) then
 					itemstack:take_item()
 				end
 			end
@@ -77,7 +78,7 @@ minetest.register_node("flowerpots:flower_pot", {
 			local flower_node = row[2]
 			if item == flower_node then
 				minetest.set_node(pos, {name="flowerpots:flower_pot_"..flower})
-				if not minetest.settings:get_bool("creative_mode") then
+				if not minetest.is_creative_enabled(name) then
 					itemstack:take_item()
 				end
 			end
@@ -120,7 +121,7 @@ minetest.register_node("flowerpots:flower_pot_"..flower, {
 	groups = {cracky = 1, oddly_breakable_by_hand = 1, not_in_creative_inventory=1, attached_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	on_rightclick = function(pos, item, clicker)
-		if not minetest.settings:get_bool("creative_mode") then
+		if not minetest.is_creative_enabled(clicker:get_player_name()) then
 			minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
 		end
 		minetest.set_node(pos, {name="flowerpots:flower_pot"})
@@ -157,7 +158,7 @@ minetest.register_node("flowerpots:flower_pot_"..flower, {
 	groups = {cracky = 1, oddly_breakable_by_hand = 1, not_in_creative_inventory=1, attached_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	on_rightclick = function(pos, item, clicker)
-		if not minetest.settings:get_bool("creative_mode") then
+		if not minetest.is_creative_enabled(clicker:get_player_name()) then
 			minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
 		end
 		minetest.set_node(pos, {name="flowerpots:flower_pot"})

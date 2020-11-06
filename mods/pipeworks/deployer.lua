@@ -93,7 +93,7 @@ local function deployer_on(pos, node)
 				set_bone_position = delay(),
 			}
 			local stack2 = minetest.item_place(stack, placer, {type="node", under=pos_under, above=pos_above})
-			if minetest.settings:get_bool("creative_mode") and not minetest.get_modpath("unified_inventory") then --infinite stacks ahoy!
+			if minetest.is_creative_enabled(placer:get_player_name()) and not minetest.get_modpath("unified_inventory") then --infinite stacks ahoy!
 				stack2:take_item()
 			end
 			invlist[i] = stack2

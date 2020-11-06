@@ -547,8 +547,7 @@ function plantslib:node_is_owned(pos, placer)
 end
 
 
--- Check for infinite stacks
-
+-- Check for infinite stacks (LEGACY)
 
 if minetest.get_modpath("unified_inventory") or not minetest.settings:get_bool("creative_mode") then
 	plantslib.expect_infinite_stacks = false

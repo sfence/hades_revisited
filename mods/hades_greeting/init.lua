@@ -18,7 +18,7 @@ minetest.register_on_newplayer(function(player)
 		end
 		local pname = player:get_player_name()
 		minetest.sound_play({name="hades_greeting_message"}, {to_player=pname, gain=1.0})
-		if minetest.settings:get_bool("creative_mode") then
+		if minetest.is_creative_enabled(pname) then
 			msg(pname, S("Welcome to planet Hades!"))
 			msg(pname, S("Creative Mode is active. You have unlimited supplies."))
 			msg(pname, S("Create the buildings of your dreams and have fun! <END OF TRANSMISSION>"))

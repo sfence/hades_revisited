@@ -98,7 +98,7 @@ minetest.register_on_joinplayer(function(player)
 	player:set_local_animation({x=0, y=79}, {x=168, y=187}, {x=189, y=198}, {x=200, y=219}, 30)
 	
 	-- set GUI
-	if not minetest.settings:get_bool("creative_mode") then
+	if not minetest.is_creative_enabled(player:get_player_name()) then
 		player:set_inventory_formspec(hades_gui.gui_survival_form)
 	end
 	player:hud_set_hotbar_itemcount(10)

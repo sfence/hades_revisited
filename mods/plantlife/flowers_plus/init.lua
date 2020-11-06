@@ -131,7 +131,7 @@ for i in ipairs(lilies_list) do
 				end
 
 
-				if not plantslib.expect_infinite_stacks then
+				if not minetest.is_creative_enabled(placer:get_player_name()) then
 					itemstack:take_item()
 				end
 				return itemstack
@@ -236,7 +236,7 @@ for i in ipairs(algae_list) do
 				end
 
 
-				if not plantslib.expect_infinite_stacks then
+				if not minetest.is_creative_enabled(placer:get_player_name()) then
 					itemstack:take_item()
 				end
 				return itemstack

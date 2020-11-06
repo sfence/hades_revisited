@@ -22,9 +22,8 @@ end
 
 
 -- creative check
-local creative_mode_cache = minetest.settings:get_bool("creative_mode")
 function mobs.is_creative(name)
-	return creative_mode_cache or minetest.check_player_privs(name, {creative = true})
+	return minetest.is_creative_enabled(name)
 end
 
 
@@ -56,7 +55,6 @@ local peaceful_only = minetest.settings:get_bool("only_peaceful_mobs")
 local disable_blood = minetest.settings:get_bool("mobs_disable_blood")
 local mobs_drop_items = minetest.settings:get_bool("mobs_drop_items") ~= false
 local mobs_griefing = minetest.settings:get_bool("mobs_griefing") ~= false
-local creative = minetest.settings:get_bool("creative_mode")
 local spawn_protected = minetest.settings:get_bool("mobs_spawn_protected") ~= false
 local remove_far = minetest.settings:get_bool("remove_far_mobs")
 local difficulty = tonumber(minetest.settings:get("mob_difficulty")) or 1.0

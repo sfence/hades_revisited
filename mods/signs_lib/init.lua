@@ -105,7 +105,7 @@ function signs_lib.table_copy(t)
     return nt
 end
 
--- infinite stacks
+-- infinite stacks (LEGACY)
 
 if minetest.get_modpath("unified_inventory") or not minetest.settings:get_bool("creative_mode") then
 	signs_lib.expect_infinite_stacks = false
@@ -614,7 +614,7 @@ function signs_lib.determine_sign_type(itemstack, placer, pointed_thing, locked)
 			end
 		end
 
-		if not signs_lib.expect_infinite_stacks then
+		if not minetest.is_creative_enabled(placer:get_player_name()) then
 			itemstack:take_item()
 		end
 		return itemstack

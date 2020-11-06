@@ -80,7 +80,7 @@ minetest.register_node("bones:bones", {
 })
 
 minetest.register_on_dieplayer(function(player)
-	if minetest.settings:get_bool("creative_mode") then
+	if minetest.is_creative_enabled(player:get_player_name()) then
 		return
 	end
 	
