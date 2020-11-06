@@ -19,16 +19,23 @@ local flowers = {
 	{"olive_sapling", "hades_trees:olive_sapling", S("Olive Tree Sapling")},
 	{"pale_sapling", "hades_trees:pale_sapling", S("Pale Tree Sapling")},
 	{"birch_sapling", "hades_trees:birch_sapling", S("Birch Tree Sapling")},
+	{"orange_sapling", "hades_trees:orange_sapling", S("Orange Tree Sapling")},
+	{"banana_sapling", "hades_trees:banana_sapling", S("Banana Tree Sapling")},
+	{"cocoa_sapling", "hades_trees:cocoa_sapling", S("Cocoa Tree Sapling")},
+	{"coconut_sapling", "hades_trees:coconut_sapling", S("Coconut Tree Sapling")},
 }
 
 local cubes = {
 	{"cactus", "hades_core:cactus", S("Cactus")},
+
 	{"leaves", "hades_trees:leaves", S("Common Leaves")},
 	{"jungle_leaves", "hades_trees:jungle_leaves", S("Common Jungle Leaves")},
 	{"cultivated_jungle_leaves", "hades_trees:cultivated_jungle_leaves", S("Cultivated Jungle Leaves")},
 	{"olive_leaves", "hades_trees:olive_leaves", S("Olive Leaves")},
 	{"birch_leaves", "hades_trees:birch_leaves", S("Birch Leaves")},
 	{"pale_leaves", "hades_trees:pale_leaves", S("Pale Leaves")},
+	{"orange_leaves", "hades_trees:orange_leaves", S("Orange Leaves")},
+	{"banana_leaves", "hades_trees:banana_leaves", S("Banana Leaves")},
 }
 
 minetest.register_node("flowerpots:flower_pot", {
