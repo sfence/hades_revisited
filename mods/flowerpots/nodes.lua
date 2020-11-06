@@ -140,7 +140,7 @@ minetest.register_node("flowerpots:flower_pot_"..flower, {
 	drawtype = "mesh",
 	mesh = "flowerpot_with_long_cube.obj",
 	tiles = {
-		"flowerpot_"..flower..".png",
+		"flowerpot_cube_base.png^flowerpot_"..flower..".png",
 	},
 	use_texture_alpha = true,
 	visual_scale = 0.5,
