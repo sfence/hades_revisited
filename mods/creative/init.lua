@@ -5,7 +5,25 @@ creative = {}
 minetest.register_privilege("creative", {
 	description = S("Allow player to use creative inventory"),
 	give_to_singleplayer = false,
-	give_to_admin = false
+	give_to_admin = false,
+	on_grant = function(name)
+		minetest.after(0, function(name)
+			local player = minetest.get_player_by_name(name)
+			if player then
+				sfinv.set_player_inventory_formspec(player)
+			end
+		end, name)
+	end,
+	on_revoke = function(name)
+		minetest.after(0, function(name)
+			local player = minetest.get_player_by_name(name)
+			if not player then
+				return
+			end
+			sfinv.set_player_inventory_formspec(player)
+			sfinv.set_page(player, sfinv.get_homepage_name(player))
+		end, name)
+	end,
 })
 
 local creative_mode_cache = minetest.settings:get_bool("creative_mode")
