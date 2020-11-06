@@ -7,12 +7,18 @@ stairs = {}
 
 -- Node will be called stairs:stair_<subname>
 function stairs.register_stair(subname, recipeitem, groups, images, description, sounds)
+	local light_source
+	if recipeitem and minetest.registered_nodes[recipeitem] then
+		local rdef = minetest.registered_nodes[recipeitem]
+		light_source = rdef.light_source
+	end
 	minetest.register_node(":stairs:stair_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
 		paramtype = "light",
 		paramtype2 = "facedir",
+		light_source = light_source,
 		is_ground_content = false,
 		groups = groups,
 		sounds = sounds,
@@ -76,12 +82,18 @@ end
 
 -- Node will be called stairs:stair_out_<subname>
 function stairs.register_stair_out(subname, recipeitem, groups, images, description, sounds)
+	local light_source
+	if recipeitem and minetest.registered_nodes[recipeitem] then
+		local rdef = minetest.registered_nodes[recipeitem]
+		light_source = rdef.light_source
+	end
 	minetest.register_node(":stairs:stair_out_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
 		paramtype = "light",
 		paramtype2 = "facedir",
+		light_source = light_source,
 		is_ground_content = false,
 		groups = groups,
 		sounds = sounds,
@@ -136,12 +148,18 @@ end
 
 -- Node will be called stairs:stair_in_<subname>
 function stairs.register_stair_in(subname, recipeitem, groups, images, description, sounds)
+	local light_source
+	if recipeitem and minetest.registered_nodes[recipeitem] then
+		local rdef = minetest.registered_nodes[recipeitem]
+		light_source = rdef.light_source
+	end
 	minetest.register_node(":stairs:stair_in_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
 		paramtype = "light",
 		paramtype2 = "facedir",
+		light_source = light_source,
 		is_ground_content = false,
 		groups = groups,
 		sounds = sounds,
@@ -197,12 +215,18 @@ end
 
 -- Node will be called stairs:slab_<subname>
 function stairs.register_slab(subname, recipeitem, groups, images, description, sounds)
+	local light_source
+	if recipeitem and minetest.registered_nodes[recipeitem] then
+		local rdef = minetest.registered_nodes[recipeitem]
+		light_source = rdef.light_source
+	end
 	minetest.register_node(":stairs:slab_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
 		paramtype = "light",
 		paramtype2 = "facedir",
+		light_source = light_source,
 		is_ground_content = false,
 		groups = groups,
 		sounds = sounds,
@@ -1033,309 +1057,15 @@ stairs.register_stair_and_slab("dark_green", "wool:dark_green",
 		{"wool_dark_green.png"},
 		S("Dark Green Wool Stair"),
 		S("Outer Dark Green Wool Stair"),
-		S("S(Inner Dark Green Wool Stair"),
+		S("Inner Dark Green Wool Stair"),
 		S("Dark Green Wool Slab"),
 		hades_sounds.node_sound_defaults())
 
-
--- Glowing crystal
-
--- Node will be called stairs:stair_<subname>
-
-	minetest.register_node("stairs:stair_glowcrystal_block", {
-		description = S("Glowing Stair"),
-		drawtype = "nodebox",
-		tiles = {"glowcrystals_block_glowcrystal.png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		sunlight_propagates = true,
-	    light_source = 14,
-		is_ground_content = false,
-		groups = {crumbly=2,cracky=2},
-		sounds = hades_sounds.node_sound_stone_defaults(),
-		node_box = {
-			type = "fixed",
-			fixed = {
-				{-0.5, -0.5, -0.5, 0.5, 0, 0.5},
-				{-0.5, 0, 0, 0.5, 0.5, 0.5},
-			},
-		},
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				return itemstack
-			end
-
-			local p0 = pointed_thing.under
-			local p1 = pointed_thing.above
-			local param2 = 0
-
-			local placer_pos = placer:get_pos()
-			if placer_pos then
-				local dir = {
-					x = p1.x - placer_pos.x,
-					y = p1.y - placer_pos.y,
-					z = p1.z - placer_pos.z
-				}
-				param2 = minetest.dir_to_facedir(dir)
-			end
-
-			if p0.y-1 == p1.y then
-				param2 = param2 + 20
-				if param2 == 21 then
-					param2 = 23
-				elseif param2 == 23 then
-					param2 = 21
-				end
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
-		end,
-	})
-
-	minetest.register_craft({
-		output = 'stairs:stair_glowcrystal_block 8',
-		recipe = {
-			{"glowcrystals:glowcrystal_block", "", ""},
-			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", ""},
-			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
-		},
-	})
-	-- Flipped recipe
-	minetest.register_craft({
-		output = 'stairs:stair_glowcrystal_block 8',
-		recipe = {
-			{"", "", "glowcrystals:glowcrystal_block"},
-			{"", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
-			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
-		},
-	})
-
-
--- Node will be called stairs:stair_out_<subname>
-	minetest.register_node("stairs:stair_out_glowcrystal_block", {
-		description = S("Outer Glowing Stair"),
-		drawtype = "nodebox",
-		tiles = {"glowcrystals_block_glowcrystal.png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		sunlight_propagates = true,
-	    light_source = 14,
-		is_ground_content = false,
-		groups = {crumbly=2,cracky=2},
-		sounds = hades_sounds.node_sound_stone_defaults(),
-		node_box = {
-			type = "fixed",
-			fixed = {
-			   {-0.5, -0.5, -0.5, 0.5, 0, 0},
-			   {-0.5, -0.5, 0, 0, 0.5, 0.5},
-			   {0, -0.5, 0, 0.5, 0, 0.5},
-		    },
-		},
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				return itemstack
-			end
-
-			local p0 = pointed_thing.under
-			local p1 = pointed_thing.above
-			local param2 = 0
-
-			local placer_pos = placer:get_pos()
-			if placer_pos then
-				local dir = {
-					x = p1.x - placer_pos.x,
-					y = p1.y - placer_pos.y,
-					z = p1.z - placer_pos.z
-				}
-				param2 = minetest.dir_to_facedir(dir)
-			end
-
-			if p0.y-1 == p1.y then
-				param2 = param2 + 20
-				if param2 == 21 then
-					param2 = 23
-				elseif param2 == 23 then
-					param2 = 21
-				end
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
-		end,
-	})
-
-	minetest.register_craft({
-		output = 'stairs:stair_out_glowcrystal_block 4',
-		recipe = {
-			{"", "glowcrystals:glowcrystal_block", ""},
-			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
-		},
-	})
-
--- Node will be called stairs:stair_in_<subname>
-	minetest.register_node("stairs:stair_in_glowcrystal_block", {
-		description = S("Inner Glowing Stair"),
-		drawtype = "nodebox",
-		tiles = {"glowcrystals_block_glowcrystal.png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		sunlight_propagates = true,
-	    light_source = 14,
-		is_ground_content = false,
-		groups = {crumbly=2,cracky=2},
-		sounds = hades_sounds.node_sound_stone_defaults(),
-		node_box = {
-			type = "fixed",
-			fixed = {
-			  {-0.5, -0.5, 0, 0.5, 0.5, 0.5},
-			  {-0.5, -0.5, -0.5, 0, 0.5, 0},
-			  {0, -0.5, -0.5, 0.5, 0, 0},
-		    },
-		},
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				return itemstack
-			end
-
-			local p0 = pointed_thing.under
-			local p1 = pointed_thing.above
-			local param2 = 0
-
-			local placer_pos = placer:get_pos()
-			if placer_pos then
-				local dir = {
-					x = p1.x - placer_pos.x,
-					y = p1.y - placer_pos.y,
-					z = p1.z - placer_pos.z
-				}
-				param2 = minetest.dir_to_facedir(dir)
-			end
-
-			if p0.y-1 == p1.y then
-				param2 = param2 + 20
-				if param2 == 21 then
-					param2 = 23
-				elseif param2 == 23 then
-					param2 = 21
-				end
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
-		end,
-	})
-
-	minetest.register_craft({
-		output = 'stairs:stair_in_glowcrystal_block 6',
-		recipe = {
-			{"", "glowcrystals:glowcrystal_block", ""},
-			{"glowcrystals:glowcrystal_block", "", "glowcrystals:glowcrystal_block"},
-			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
-		},
-	})
-
-
--- Node will be called stairs:slab_<subname>
-
-	minetest.register_node("stairs:slab_glowcrystal_block", {
-		description = S("Glowing Slab"),
-		drawtype = "nodebox",
-		tiles = {"glowcrystals_block_glowcrystal.png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		sunlight_propagates = true,
-	    light_source = 14,
-		is_ground_content = false,
-		groups = {crumbly=2,cracky=2},
-		sounds = hades_sounds.node_sound_stone_defaults(),
-		node_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},
-		},
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				return itemstack
-			end
-
-			-- If it's being placed on an another similar one, replace it with
-			-- a full block
-			local slabpos = nil
-			local slabnode = nil
-			local p0 = pointed_thing.under
-			local p1 = pointed_thing.above
-			local n0 = minetest.get_node(p0)
-			local n1 = minetest.get_node(p1)
-			local param2 = 0
-
-			local n0_is_upside_down = (n0.name == "stairs:slab_glowcrystal_block" and
-					n0.param2 >= 20)
-
-			if n0.name == "stairs:slab_glowcrystal_block" and not n0_is_upside_down and p0.y+1 == p1.y then
-				slabpos = p0
-				slabnode = n0
-			elseif n1.name == "stairs:slab_glowcrystal_block" then
-				slabpos = p1
-				slabnode = n1
-			end
-			if slabpos then
-				-- Remove the slab at slabpos
-				minetest.remove_node(slabpos)
-				-- Make a fake stack of a single item and try to place it
-				local fakestack = ItemStack(recipeitem)
-				fakestack:set_count(itemstack:get_count())
-
-				pointed_thing.above = slabpos
-				local success
-				fakestack, success = minetest.item_place(fakestack, placer, pointed_thing)
-				-- If the item was taken from the fake stack, decrement original
-				if success then
-					itemstack:set_count(fakestack:get_count())
-				-- Else put old node back
-				else
-					minetest.set_node(slabpos, slabnode)
-				end
-				return itemstack
-			end
-			
-			-- Upside down slabs
-			if p0.y-1 == p1.y then
-				-- Turn into full block if pointing at a existing slab
-				if n0_is_upside_down  then
-					-- Remove the slab at the position of the slab
-					minetest.remove_node(p0)
-					-- Make a fake stack of a single item and try to place it
-					local fakestack = ItemStack("glowcrystals:glowcrystal_block")
-					fakestack:set_count(itemstack:get_count())
-
-					pointed_thing.above = p0
-					local success
-					fakestack, success = minetest.item_place(fakestack, placer, pointed_thing)
-					-- If the item was taken from the fake stack, decrement original
-					if success then
-						itemstack:set_count(fakestack:get_count())
-					-- Else put old node back
-					else
-						minetest.set_node(p0, n0)
-					end
-					return itemstack
-				end
-
-				-- Place upside down slab
-				param2 = 20
-			end
-
-			-- If pointing at the side of a upside down slab
-			if n0_is_upside_down and p0.y+1 ~= p1.y then
-				param2 = 20
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
-		end,
-	})
-
-	minetest.register_craft({
-		output = 'stairs:slab_glowcrystal_block 6',
-		recipe = {
-			{"glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block", "glowcrystals:glowcrystal_block"},
-		},
-	})
-
-		
+stairs.register_stair_and_slab("glowcrystal_block", "glowcrystals:glowcrystal_block",
+		{cracky=3},
+		{"glowcrystals_block_glowcrystal.png"},
+		S("Glowing Crystal Stair"),
+		S("Outer Glowing Crystal Stair"),
+		S("Inner Glowing Crystal Stair"),
+		S("Glowing Crystal Slab"),
+		hades_sounds.node_sound_stone_defaults())
