@@ -191,7 +191,7 @@ function hades_trees.generate_cocoatree(pos, check_light, trunk, leaves, undergr
 		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
 	end
 	if not replacements then
-		replacements = {["hades_trees:cocoa"]=12}
+		replacements = {["hades_trees:cocoa_pod"]=12}
 	end
 	hades_trees.generate_tree(pos, check_light, trunk, leaves, underground, replacements)
 end
