@@ -144,7 +144,9 @@ local on_dig = function(pos, node, digger)
 	local below = {x=pos.x, y=pos.y-1, z=pos.z}
 	local belownode = minetest.get_node(below)
 	minetest.node_dig(pos, node, digger)
-	if belownode.name == node.name and (not check_vines_supported(below, belownode)) then
+	local vg = minetest.get_item_group(node.name, "vines")
+	local vg2 = minetest.get_item_group(belownode.name, "vines")
+	if vg ~= 0 and vg == vg2 and (not check_vines_supported(below, belownode)) then
 		return minetest.registered_nodes[node.name].on_dig(below, node, digger)
 	end
 end
