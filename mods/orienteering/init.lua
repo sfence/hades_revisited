@@ -130,7 +130,7 @@ minetest.register_tool("orienteering:speedometer", {
 -- Enables minimap
 minetest.register_tool("orienteering:automapper", {
 	description = S("Automapper"),
-	_tt_help = S("Allows you to use the minimap"),
+	_tt_help = S("Allows using the minimap"),
 	_doc_items_longdesc = S("The automapper automatically creates a map of the area around you and enables you to view a minimap of your surroundings. It also has a built-in radar."),
 	_doc_items_usagehelp = S("If you put an automapper in your hotbar, you will be able to access the minimap. By default the minimap can be opened with [F7]."),
 	wield_image = "orienteering_automapper_wield.png",
