@@ -284,6 +284,70 @@ minetest.register_abm({
 	end
 })
 
+local function vinedecay_particles(pos, node)
+	local g = minetest.get_item_group(node.name, "vines")
+	local relpos1, relpos2
+	if g == 1 then
+		local dir = minetest.wallmounted_to_dir(node.param2)
+		if dir.x < 0 then
+			relpos1 = { x = -0.45, y = -0.4, z = -0.5 }
+			relpos2 = { x = -0.4, y = 0.4, z = 0.5 }
+		elseif dir.x > 0 then
+			relpos1 = { x = 0.4, y = -0.4, z = -0.5 }
+			relpos2 = { x = 0.45, y = 0.4, z = 0.5 }
+		elseif dir.z < 0 then
+			relpos1 = { x = -0.5, y = -0.4, z = -0.45 }
+			relpos2 = { x = 0.5, y = 0.4, z = -0.4 }
+		elseif dir.z > 0 then
+			relpos1 = { x = -0.5, y = -0.4, z = 0.4 }
+			relpos2 = { x = 0.5, y = 0.4, z = 0.45 }
+		else
+			return
+		end
+	elseif g == 2 then
+		relpos1 = { x = -0.25, y = -0.5, z = -0.25 }
+		relpos2 = { x = 0.25, y = 0.5, z = 0.25 }
+	else
+		return
+	end
+
+	minetest.add_particlespawner({
+		amount = math.random(8, 16),
+		time = 0.1,
+		minpos = vector.add(pos, relpos1),
+		maxpos = vector.add(pos, relpos2),
+		minvel = {x=-0.2, y=-0.2, z=-0.2},
+		maxvel = {x=0.2, y=0.1, z=0.2},
+		minacc = {x=0, y=-9.81, z=0},
+		maxacc = {x=0, y=-9.81, z=0},
+		minexptime = 0.1,
+		maxexptime = 0.5,
+		minsize = 0.5,
+		maxsize = 1.0,
+		collisiondetection = true,
+		vertical = false,
+		node = node,
+	})
+end
+
+
+minetest.register_abm({
+	label = "Vines decay",
+	nodenames = {"group:vines"},
+	-- A low interval and a high inverse chance spreads the load
+	interval = 2,
+	chance = 5,
+
+	action = function(pos, node)
+		if not check_vines_supported(pos, node) then
+			on_dig(pos, node)
+			vinedecay_particles(pos, node)
+			minetest.remove_node(pos)
+			minetest.check_for_falling(pos)
+		end
+	end,
+})
+
 
 --Craft
 
