@@ -48,7 +48,8 @@ for i in ipairs(lilies_list) do
 		drawtype = "nodebox",
 		tiles = { 
 			"flowers_waterlily"..deg2..".png",
-			"flowers_waterlily"..deg2..".png^[transformFY"
+			"flowers_waterlily"..deg2..".png^[transformFY",
+			"blank.png",
 		},
 		inventory_image = "flowers_waterlily.png",
 		wield_image  = "flowers_waterlily.png",
@@ -60,11 +61,11 @@ for i in ipairs(lilies_list) do
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
-			fixed = { -0.4, -0.5, -0.4, 0.4, -0.45, 0.4 },
+			fixed = { -0.5, -0.5, -0.5, 0.5, -7/16, 0.5 },
 		},
 		node_box = {
 			type = "fixed",
-			fixed = { -0.5, -0.49, -0.5, 0.5, -0.49, 0.5 },
+			fixed = { -0.5, -0.5, -0.5, 0.5, -0.49, 0.5 },
 		},
 		buildable_to = true,
 
@@ -161,7 +162,8 @@ for i in ipairs(algae_list) do
 		drawtype = "nodebox",
 		tiles = { 
 			"flowers_seaweed"..num..".png",
-			"flowers_seaweed"..num..".png^[transformFY"
+			"flowers_seaweed"..num..".png^[transformFY",
+			"blank.png",
 		},
 		inventory_image = "flowers_seaweed_2.png",
 		wield_image  = "flowers_seaweed_2.png",
@@ -171,13 +173,13 @@ for i in ipairs(algae_list) do
 		walkable = false,
 		groups = algae_groups,
 		sounds = hades_sounds.node_sound_leaves_defaults(),
-		selection_box = {
+		node_box = {
 			type = "fixed",
-			fixed = { -0.4, -0.5, -0.4, 0.4, -0.45, 0.4 },
+			fixed = { -0.5, -0.5, -0.5, 0.5, -7/16, 0.5 },
 		},
 		node_box = {
 			type = "fixed",
-			fixed = { -0.5, -0.49, -0.5, 0.5, -0.49, 0.5 },
+			fixed = { -0.5, -0.5, -0.5, 0.5, -0.49, 0.5 },
 		},	
 		buildable_to = true,
 
