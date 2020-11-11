@@ -38,7 +38,7 @@ function hades_fences.register_fence(name, def)
 			connect_back = {{-1/8,-1/2,1/8,1/8,1/2,1/2}},
 			connect_right = {{1/8,-1/2,-1/8,1/2,1/2,1/8}},
 		},
-		connects_to = {"group:fence_wood", "group:wood", "group:tree"},
+		connects_to = {"group:fence_wood", "group:wood", "group:tree", "group:bark"},
 		inventory_image = fence_texture,
 		wield_image = fence_texture,
 		tiles = {def.texture},
@@ -65,7 +65,7 @@ function hades_fences.register_fence(name, def)
 end
 
 local fences = {
-	{ "rusty", S("Rusty Fence"), "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal"}, hades_sounds.node_sound_metal_defaults() },
+	{ "rusty", S("Rusty Fence"), "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal", "columnia:rusty_block"}, hades_sounds.node_sound_metal_defaults() },
 	{ "wood", S("Common Wood Fence"), "default_wood.png" },
 	{ "pale_wood", S("Pale Wood Fence"), "hades_trees_pale_wood.png" },
 	{ "birch_wood", S("Birch Wood Fence"), "default_birchwood.png" },

@@ -28,7 +28,7 @@ hades_trees.register_bark = function(id, def)
 		paramtype2 = "facedir",
 		tiles = { def.image },
 		is_ground_content = false,
-		groups = { choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
+		groups = { bark=1, choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
 		sounds = hades_sounds.node_sound_wood_defaults(),
 	})
 end
