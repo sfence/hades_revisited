@@ -122,11 +122,13 @@ dyelocal.mixes = {
 for one,results in pairs(dyelocal.mixes) do
 	for i,result in ipairs(results) do
 		local another = dyelocal.mixbases[i]
-		minetest.register_craft({
-			type = "shapeless",
-			output = 'dye:'..result..' 2',
-			recipe = {'dye:'..one, 'dye:'..another},
-		})
+		if one ~= another then
+			minetest.register_craft({
+				type = "shapeless",
+				output = 'dye:'..result..' 2',
+				recipe = {'dye:'..one, 'dye:'..another},
+			})
+		end
 	end
 end
 
