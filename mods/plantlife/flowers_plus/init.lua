@@ -292,7 +292,7 @@ plantslib:register_generate_plant({
 
 flowers_plus.grow_seaweed = function(pos)
 	local right_here = {x=pos.x, y=pos.y+1, z=pos.z}
-	minetest.add_node(right_here, {name="along_shore:seaweed_"..math.random(1,4), param2=math.random(1,3)})
+	minetest.add_node(right_here, {name="flowers:seaweed_"..math.random(1,4), param2=math.random(1,3)})
 end
 
 
