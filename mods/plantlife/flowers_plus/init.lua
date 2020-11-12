@@ -65,7 +65,7 @@ for i in ipairs(lilies_list) do
 		},
 		node_box = {
 			type = "fixed",
-			fixed = { -0.5, -0.5, -0.5, 0.5, -0.49, 0.5 },
+			fixed = { -0.5, -0.495, -0.5, 0.5, -0.49, 0.5 },
 		},
 		buildable_to = true,
 
@@ -179,7 +179,7 @@ for i in ipairs(algae_list) do
 		},
 		node_box = {
 			type = "fixed",
-			fixed = { -0.5, -0.5, -0.5, 0.5, -0.49, 0.5 },
+			fixed = { -0.5, -0.495, -0.5, 0.5, -0.49, 0.5 },
 		},	
 		buildable_to = true,
 
