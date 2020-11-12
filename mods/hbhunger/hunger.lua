@@ -7,7 +7,6 @@ function hbhunger.load_hunger(player)
 end
 
 -- wrapper for minetest.item_eat (this way we make sure other mods can't break this one)
-local org_eat = minetest.do_item_eat
 minetest.do_item_eat = function(hp_change, replace_with_item, itemstack, user, pointed_thing)
 	local old_itemstack = itemstack
 	itemstack = hbhunger.eat(hp_change, replace_with_item, itemstack, user, pointed_thing)

@@ -184,4 +184,38 @@ minetest.register_chatcommand("satiation", {
 	end,
 })
 
+else
+
+-- Eating function if damage is disabled
+minetest.do_item_eat = function(hp_change, replace_with_item, itemstack, user, pointed_thing)
+
+	local def = itemstack:get_definition()
+	local sound
+	if def and def.sound then
+		sound = def.sound
+	end
+	if not sound then
+		local item = itemstack:get_name()
+		if minetest.get_item_group(item, "food") == 3 then
+			sound = "survival_thirst_drink"
+		elseif not sound then
+			sound = "hbhunger_eat_generic"
+		end
+	end
+	minetest.sound_play(
+		{name = sound or "hbhunger_eat_generic",
+		gain = 1},
+		{object=user,
+		max_hear_distance = 16,
+		pitch = 1 + math.random(-10, 10)*0.005,},
+		true
+	)
+	local name = user and user:get_player_name() or ""
+	if not minetest.is_creative_enabled(name) then
+		itemstack:take_item()
+	end
+	return itemstack
+
+end
+
 end
