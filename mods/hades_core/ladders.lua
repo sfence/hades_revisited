@@ -64,9 +64,9 @@ hades_core.register_ladder = function(id, def)
 				return itemstack
 			end
 			local idef = itemstack:get_definition()
-			local success = minetest.item_place_node(itemstack, placer, pointed_thing)
+			local itemstack, place_pos = minetest.item_place_node(itemstack, placer, pointed_thing)
 
-			if success then
+			if place_pos ~= nil then
 				if idef.sounds and idef.sounds.place then
 					minetest.sound_play(idef.sounds.place, {pos=above, gain=1}, true)
 				end
