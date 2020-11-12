@@ -18,6 +18,9 @@ local walldir ={}
 -- Returns true if the node supports vines
 local supports_vines = function(nodename)
 	local def = minetest.registered_nodes[nodename]
+	if not def then
+		return true
+	end
 	-- Rules: 1) walkable 2) full cube OR it's a tree node
 	return minetest.get_item_group(nodename, "tree") ~= 0 or (def.walkable and
 			(def.node_box == nil or def.node_box.type == "regular") and
@@ -49,7 +52,7 @@ local check_vines_supported = function(pos, node)
 		if node2.name == "ignore" or (vg2 == vg and node2.param2 == node.param2) then
 			supported = true
 		end
-	elseif (vg == 2 and supports_vines(node2.name)) then
+	elseif (vg == 2 and (supports_vines(node2.name) or vg2 == 2)) then
 		supported = true
 	end
 	return supported
@@ -280,8 +283,7 @@ minetest.register_abm({
 		local p = {x=pos.x, y=pos.y-1, z=pos.z}
 		local n = minetest.get_node(p)
 		if n.name == "air" then
-			walldir = node.param2
-			minetest.add_node(p, {name=node.name, param2 = walldir})
+			minetest.add_node(p, {name=node.name, param2=node.param2})
 		end
 	end
 })
