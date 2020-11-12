@@ -29,17 +29,75 @@ local lilies_list = {
 	{ "s4" , "small_4" , 8	},
 }
 
+local generate_on_place = function(basename, plant_table)
+	return function(itemstack, placer, pt)
+		local place_pos = nil
+		local top_pos = {x=pt.under.x, y=pt.under.y+1, z=pt.under.z}
+		local under_node = minetest.get_node(pt.under)
+		local above_node = minetest.get_node(pt.above)
+		local top_node   = minetest.get_node(top_pos)
+		local udef = minetest.registered_nodes[under_node.name]
+		local adef = minetest.registered_nodes[above_node.name]
+		local tdef = minetest.registered_nodes[top_node.name]
+
+		if udef and udef.buildable_to then
+			if under_node.name ~= "hades_core:water_source" then
+				place_pos = pt.under
+			elseif top_node.name ~= "hades_core:water_source" and tdef and tdef.buildable_to then
+				place_pos = top_pos
+			else
+				return itemstack
+			end
+		elseif adef and adef.buildable_to then
+			place_pos = pt.above
+		end
+		if not place_pos then
+			return itemstack
+		end
+		local below_pos = {x=place_pos.x, y=place_pos.y-1, z=place_pos.z}
+		local below_node = minetest.get_node(below_pos)
+		local bdef = minetest.registered_nodes[below_node.name]
+		if below_node.name ~= "hades_core:water_source" and (bdef and not bdef.walkable) then
+			return itemstack
+		end
+
+		if not plantslib:node_is_owned(place_pos, placer) then
+
+			local nodename = basename
+
+			local node = minetest.get_node(pt.under)
+			local r = math.random(1, #plant_table)
+			local append = plant_table[r][1]
+			if append then
+				nodename = basename .. "_" ..append
+			end
+			minetest.add_node(place_pos, {name = nodename, param2 = math.random(0,3) })
+			minetest.check_single_for_falling(place_pos)
+			local idef = itemstack:get_definition()
+			if idef and idef.sounds and idef.sounds.place then
+				minetest.sound_play(idef.sounds.place, {pos=place_pos, gain=1}, true)
+			end
+
+			if not minetest.is_creative_enabled(placer:get_player_name()) then
+				itemstack:take_item()
+			end
+			return itemstack
+		end
+	end
+end
+
+local on_place_waterlily = generate_on_place("flowers:waterlily", lilies_list)
 
 for i in ipairs(lilies_list) do
 	local deg1 = ""
 	local deg2 = ""
-	local lily_groups = {snappy = 3,flammable=2,waterlily=1}
+	local lily_groups = {snappy = 3,flammable=2,waterlily=1,falling_node=1,float=1}
 
 
 	if lilies_list[i][1] ~= nil then
 		deg1 = "_"..lilies_list[i][1]
 		deg2 = "_"..lilies_list[i][2]
-		lily_groups = { snappy = 3,flammable=2,waterlily=1, not_in_creative_inventory=1 }
+		lily_groups = { snappy = 3,flammable=2,waterlily=1, not_in_creative_inventory=1,falling_node=1,float=1 }
 	end
 
 
@@ -68,92 +126,28 @@ for i in ipairs(lilies_list) do
 			fixed = { -0.5, -0.495, -0.5, 0.5, -0.49, 0.5 },
 		},
 		buildable_to = true,
-
-
 		liquids_pointable = true,
 		drop = "flowers:waterlily",
-		on_place = function(itemstack, placer, pointed_thing)
-			local keys=placer:get_player_control()
-			local pt = pointed_thing
 
-
-			local place_pos = nil
-			local top_pos = {x=pt.under.x, y=pt.under.y+1, z=pt.under.z}
-			local under_node = minetest.get_node(pt.under)
-			local above_node = minetest.get_node(pt.above)
-			local top_node   = minetest.get_node(top_pos)
-
-
-			if plantslib:get_nodedef_field(under_node.name, "buildable_to") then
-				if under_node.name ~= "hades_core:water_source" then
-					place_pos = pt.under
-				elseif top_node.name ~= "hades_core:water_source" 
-				       and plantslib:get_nodedef_field(top_node.name, "buildable_to") then
-					place_pos = top_pos
-				else
-					return itemstack
-				end
-			elseif plantslib:get_nodedef_field(above_node.name, "buildable_to") then
-				place_pos = pt.above
-			end
-
-			if not place_pos then
-				return itemstack
-			end
-
-			if not plantslib:node_is_owned(place_pos, placer) then
-
-				local nodename = "hades_core:cobble" -- if this block appears, something went....wrong :-)
-
-				if not keys["sneak"] then
-					local node = minetest.get_node(pt.under)
-					local waterlily = math.random(1,8)
-					if waterlily == 1 then
-						nodename = "flowers:waterlily"
-					elseif waterlily == 2 then
-						nodename = "flowers:waterlily_225"
-					elseif waterlily == 3 then
-						nodename = "flowers:waterlily_45"
-					elseif waterlily == 4 then
-						nodename = "flowers:waterlily_675"
-					elseif waterlily == 5 then
-						nodename = "flowers:waterlily_s1"
-					elseif waterlily == 6 then
-						nodename = "flowers:waterlily_s2"
-					elseif waterlily == 7 then
-						nodename = "flowers:waterlily_s3"
-					elseif waterlily == 8 then
-						nodename = "flowers:waterlily_s4"
-					end
-					minetest.add_node(place_pos, {name = nodename, param2 = math.random(0,3) })
-				else
-					local fdir = minetest.dir_to_facedir(placer:get_look_dir())
-					minetest.add_node(place_pos, {name = "flowers:waterlily", param2 = fdir})
-				end
-
-
-				if not minetest.is_creative_enabled(placer:get_player_name()) then
-					itemstack:take_item()
-				end
-				return itemstack
-			end
-		end,
+		node_placement_prediction = "",
+		on_place = on_place_waterlily,
 		on_rotate = "simple",
 	})
 end
 
 
-local algae_list = { {nil}, {2}, {3}, {4} }
+local seaweed_list = { {nil}, {2}, {3}, {4} }
 
+local on_place_seaweed = generate_on_place("flowers:seaweed", seaweed_list)
 
-for i in ipairs(algae_list) do
+for i in ipairs(seaweed_list) do
 	local num = ""
-	local algae_groups = {snappy = 3,flammable=2,seaweed=1}
+	local seaweed_groups = {snappy = 3,flammable=2,seaweed=1,falling_node=1,float=1}
 
 
-	if algae_list[i][1] ~= nil then
-		num = "_"..algae_list[i][1]
-		algae_groups = { snappy = 3,flammable=2,seaweed=1, not_in_creative_inventory=1 }
+	if seaweed_list[i][1] ~= nil then
+		num = "_"..seaweed_list[i][1]
+		seaweed_groups = { snappy = 3,flammable=2,seaweed=1, not_in_creative_inventory=1,falling_node=1,float=1 }
 	end
 
 
@@ -171,7 +165,7 @@ for i in ipairs(algae_list) do
 		paramtype = "light",
 		paramtype2 = "facedir",
 		walkable = false,
-		groups = algae_groups,
+		groups = seaweed_groups,
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
@@ -182,68 +176,11 @@ for i in ipairs(algae_list) do
 			fixed = { -0.5, -0.495, -0.5, 0.5, -0.49, 0.5 },
 		},	
 		buildable_to = true,
-
-
 		liquids_pointable = true,
 		drop = "flowers:seaweed",
-		on_place = function(itemstack, placer, pointed_thing)
-			local keys=placer:get_player_control()
-			local pt = pointed_thing
 
-
-			local place_pos = nil
-			local top_pos = {x=pt.under.x, y=pt.under.y+1, z=pt.under.z}
-			local under_node = minetest.get_node(pt.under)
-			local above_node = minetest.get_node(pt.above)
-			local top_node   = minetest.get_node(top_pos)
-
-
-			if plantslib:get_nodedef_field(under_node.name, "buildable_to") then
-				if under_node.name ~= "hades_core:water_source" then
-					place_pos = pt.under
-				elseif top_node.name ~= "hades_core:water_source" 
-				       and plantslib:get_nodedef_field(top_node.name, "buildable_to") then
-					place_pos = top_pos
-				else
-					return itemstack
-				end
-			elseif plantslib:get_nodedef_field(above_node.name, "buildable_to") then
-				place_pos = pt.above
-			end
-			if not place_pos then
-				return itemstack
-			end
-
-			if not plantslib:node_is_owned(place_pos, placer) then
-
-
-				local nodename = "hades_core:cobble" -- :D
-
-				if not keys["sneak"] then
-					local node = minetest.get_node(pt.under)
-					local seaweed = math.random(1,4)
-					if seaweed == 1 then
-						nodename = "flowers:seaweed"
-					elseif seaweed == 2 then
-						nodename = "flowers:seaweed_2"
-					elseif seaweed == 3 then
-						nodename = "flowers:seaweed_3"
-					elseif seaweed == 4 then
-						nodename = "flowers:seaweed_4"
-					end
-					minetest.add_node(place_pos, {name = nodename, param2 = math.random(0,3) })
-				else
-					local fdir = minetest.dir_to_facedir(placer:get_look_dir())
-					minetest.add_node(place_pos, {name = "flowers:seaweed", param2 = fdir})
-				end
-
-
-				if not minetest.is_creative_enabled(placer:get_player_name()) then
-					itemstack:take_item()
-				end
-				return itemstack
-			end
-		end,
+		node_placement_prediction = "",
+		on_place = on_place_seaweed,
 		on_rotate = "simple",
 	})
 end
