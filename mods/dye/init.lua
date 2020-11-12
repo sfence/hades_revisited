@@ -94,36 +94,8 @@ for _, row in ipairs(dyelocal.dyes) do
 		description = description,
 		groups = groups
 	})
-	minetest.register_craft({
-		type = "shapeless",
-		output = item_name.." 4",
-		recipe = {"group:flower,color_"..name},
-	})
 end
 
-minetest.register_craft({
-		type = "shapeless",
-		output = "dye:black 4",
-		recipe = {"hades_core:coal_lump"},
-})
-
-minetest.register_craft({
-		type = "shapeless",
-		output = "dye:green 4",
-		recipe = {"hades_core:papyrus"},
-})
-
-minetest.register_craft({
-		type = "shapeless",
-		output = "dye:green 4",
-		recipe = {"hades_core:cactus"},
-})
-
-minetest.register_craft({
-		type = "shapeless",
-		output = "dye:brown",
-		recipe = {"hades_trees:cocoa_bean"},
-})
 -- Mix recipes
 -- Just mix everything to everything somehow sanely
 
@@ -158,7 +130,57 @@ for one,results in pairs(dyelocal.mixes) do
 	end
 end
 
--- Hide dyelocal
-dyelocal = nil
+minetest.register_craft({
+	type = "shapeless",
+	output = "dye:blue 4",
+	recipe = {"flowers:geranium"},
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "dye:white 4",
+	recipe = {"flowers:dandelion_white"},
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "dye:red 4",
+	recipe = {"flowers:rose"},
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "dye:violet 4",
+	recipe = {"flowers:viola"},
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "dye:orange 4",
+	recipe = {"flowers:tulip"},
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "dye:yellow 4",
+	recipe = {"flowers:dandelion_yellow"},
+})
 
--- EOF
+minetest.register_craft({
+		type = "shapeless",
+		output = "dye:black 4",
+		recipe = {"hades_core:coal_lump"},
+})
+
+minetest.register_craft({
+		type = "shapeless",
+		output = "dye:green 4",
+		recipe = {"hades_core:papyrus"},
+})
+
+minetest.register_craft({
+		type = "shapeless",
+		output = "dye:green 4",
+		recipe = {"hades_core:cactus"},
+})
+
+minetest.register_craft({
+		type = "shapeless",
+		output = "dye:brown",
+		recipe = {"hades_trees:cocoa_bean"},
+})
