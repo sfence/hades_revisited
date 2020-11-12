@@ -14,6 +14,7 @@ hades_core.register_ladder = function(id, def)
 		paramtype2 = "wallmounted",
 		walkable = false,
 		climbable = true,
+		floodable = true,
 		node_box = {
 			type = "wallmounted",
 			wall_side = { -0.5, -0.5, -0.5, -7/16, 0.5, 0.5 },

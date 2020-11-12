@@ -12,6 +12,7 @@ minetest.register_node("vessels:glass_bottle", {
 	paramtype = "light",
 	walkable = false,
 	is_ground_content = false,
+	floodable = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
@@ -38,6 +39,7 @@ minetest.register_node("vessels:drinking_glass", {
 	paramtype = "light",
 	walkable = false,
 	is_ground_content = false,
+	floodable = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
@@ -64,6 +66,7 @@ minetest.register_node("vessels:steel_bottle", {
 	paramtype = "light",
 	walkable = false,
 	is_ground_content = false,
+	floodable = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}

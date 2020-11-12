@@ -13,6 +13,7 @@ minetest.register_node(":carts:rail", {
 	sunlight_propagates = true,
 	is_ground_content = true,
 	walkable = false,
+	floodable = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
@@ -41,6 +42,7 @@ minetest.register_node(":carts:copperrail", {
 	paramtype = "light",
 	is_ground_content = true,
 	walkable = false,
+	floodable = true,
 	selection_box = {
 		type = "fixed",
 		-- but how to specify the dimensions for curved and sideways rails?
@@ -71,6 +73,7 @@ minetest.register_node(":carts:powerrail", {
 	paramtype = "light",
 	is_ground_content = true,
 	walkable = false,
+	floodable = true,
 	selection_box = {
 		type = "fixed",
 		-- but how to specify the dimensions for curved and sideways rails?
@@ -117,6 +120,7 @@ minetest.register_node(":carts:brakerail", {
 	paramtype = "light",
 	is_ground_content = true,
 	walkable = false,
+	floodable = true,
 	selection_box = {
 		type = "fixed",
 		-- but how to specify the dimensions for curved and sideways rails?

@@ -33,6 +33,7 @@ for i in ipairs(carpet_tab) do
 		is_ground_content = false,
 		walkable = false,
 		buildable_to = false,
+		floodable = true,
 		wield_scale= { x=1, y=1, z=0.5 },
 		node_box = {
 			type = "fixed",

@@ -45,6 +45,7 @@ function refruit.add_refruit(id, def)
 		paramtype = "light",
 		sunlight_propagates = true,
 		walkable = false,
+		floodable = true,
 		selection_box = {
 			type = "fixed",
 			fixed = def.bud_selbox,
@@ -63,6 +64,7 @@ function refruit.add_refruit(id, def)
 		paramtype = "light",
 		sunlight_propagates = true,
 		walkable = false,
+		floodable = true,
 		selection_box = {
 			type = "fixed",
 			fixed = def.flower_selbox,

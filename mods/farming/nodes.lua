@@ -146,6 +146,7 @@ minetest.register_node("farming:flowergrass", {
 		waving = 1,
 		walkable = false,
 		buildable_to = true,
+		floodable = true,
 		is_ground_content = true,
 		groups = {snappy=3,flammable=3,flora=1,attached_node=1},
 		sounds = hades_sounds.node_sound_leaves_defaults(),

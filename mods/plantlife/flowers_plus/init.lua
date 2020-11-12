@@ -126,6 +126,7 @@ for i in ipairs(lilies_list) do
 			fixed = { -0.5, -0.495, -0.5, 0.5, -0.49, 0.5 },
 		},
 		buildable_to = true,
+		floodable = true,
 		liquids_pointable = true,
 		drop = "flowers:waterlily",
 
@@ -176,6 +177,7 @@ for i in ipairs(seaweed_list) do
 			fixed = { -0.5, -0.495, -0.5, 0.5, -0.49, 0.5 },
 		},	
 		buildable_to = true,
+		floodable = true,
 		liquids_pointable = true,
 		drop = "flowers:seaweed",
 

@@ -12,6 +12,7 @@ minetest.register_node("hades_core:dry_shrub", {
 	walkable = false,
 	is_ground_content = true,
 	buildable_to = true,
+	floodable = true,
 	groups = {snappy=3,flammable=3,attached_node=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
@@ -33,6 +34,7 @@ minetest.register_node("hades_core:grass_1", {
 	walkable = false,
 	is_ground_content = true,
 	buildable_to = true,
+	floodable = true,
 	groups = {snappy=3,flammable=3,flora=1,grass=1,attached_node=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
@@ -58,6 +60,7 @@ for i=2,5 do
 		waving = 1,
 		walkable = false,
 		buildable_to = true,
+		floodable = true,
 		is_ground_content = true,
 		drop = "hades_core:grass_1",
 		groups = {snappy=3,flammable=3,flora=1,grass=1,attached_node=1,not_in_creative_inventory=1},
@@ -80,6 +83,7 @@ minetest.register_node("hades_core:junglegrass", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
+	floodable = true,
 	is_ground_content = true,
 	groups = {snappy=3,flammable=2,flora=1,grass=1,attached_node=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
@@ -122,6 +126,7 @@ minetest.register_node("hades_core:snag", {
 			}
 		}
 	},
+	floodable = true,
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node
 })
@@ -200,6 +205,7 @@ minetest.register_node("hades_core:papyrus", {
 	wield_image = "default_papyrus.png",
 	paramtype = "light",
 	is_ground_content = true,
+	floodable = true,
 	walkable = false,
 	selection_box = {
 		 type = "fixed",
@@ -246,6 +252,7 @@ minetest.register_node("hades_core:sugarcane", {
 	paramtype = "light",
 	walkable = false,
 	is_ground_content = true,
+	floodable = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}

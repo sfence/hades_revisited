@@ -45,6 +45,7 @@ minetest.register_node("glowcrystals:glowcrystal_torch", {
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
 	walkable = false,
+	floodable = true,
 	light_source = minetest.LIGHT_MAX-1,
 	selection_box = {
 		type = "wallmounted",

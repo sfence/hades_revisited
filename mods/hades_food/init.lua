@@ -11,6 +11,7 @@ minetest.register_node("hades_food:plate", {
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	is_ground_content = false,
+	floodable = true,
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	groups = {dig_immediate=3, attached_node=1},
 	on_rotate = false,

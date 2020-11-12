@@ -22,6 +22,7 @@ minetest.register_node("flowers:dandelion_white", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
+	floodable = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_white=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
@@ -41,6 +42,7 @@ minetest.register_node("flowers:dandelion_yellow", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
+	floodable = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_yellow=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
@@ -60,6 +62,7 @@ minetest.register_node("flowers:geranium", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
+	floodable = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_blue=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
@@ -79,6 +82,7 @@ minetest.register_node("flowers:rose", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
+	floodable = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_red=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
@@ -98,6 +102,7 @@ minetest.register_node("flowers:tulip", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
+	floodable = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_orange=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
@@ -117,6 +122,7 @@ minetest.register_node("flowers:viola", {
 	paramtype = "light",
 	walkable = false,
 	buildable_to = true,
+	floodable = true,
 	groups = {snappy=3,flammable=2,flower=1,flora=1,attached_node=1,color_violet=1},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
