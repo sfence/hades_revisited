@@ -173,7 +173,7 @@ for i in ipairs(algae_list) do
 		walkable = false,
 		groups = algae_groups,
 		sounds = hades_sounds.node_sound_leaves_defaults(),
-		node_box = {
+		selection_box = {
 			type = "fixed",
 			fixed = { -0.5, -0.5, -0.5, 0.5, -7/16, 0.5 },
 		},
