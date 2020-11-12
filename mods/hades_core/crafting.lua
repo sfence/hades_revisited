@@ -251,12 +251,6 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	type = "shapeless",
-	output = "hades_core:bronze_ingot 2",
-	recipe = {"hades_core:copper_ingot", "hades_core:tin_ingot"},
-})
-
-minetest.register_craft({
 	output = 'hades_core:cobble_block',
 	recipe = {
 		{'hades_core:cobble', 'hades_core:cobble', 'hades_core:cobble'},
@@ -378,6 +372,11 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_core:bronze_ingot 2",
+	recipe = {"hades_core:copper_ingot", "hades_core:tin_ingot"},
+})
 
 minetest.register_craft({
 	output = 'hades_core:goldblock',
@@ -607,15 +606,6 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'hades_core:obsidian',
-	recipe = {
-		{'hades_core:obsidian_shard', 'hades_core:obsidian_shard', 'hades_core:obsidian_shard'},
-		{'hades_core:obsidian_shard', 'hades_core:obsidian_shard', 'hades_core:obsidian_shard'},
-		{'hades_core:obsidian_shard', 'hades_core:obsidian_shard', 'hades_core:obsidian_shard'},
-	}
-})
-
-minetest.register_craft({
 	output = 'hades_core:obsidian_block',
 	recipe = {
 		{'hades_core:obsidian', 'hades_core:obsidian', 'hades_core:obsidian'},
@@ -628,6 +618,15 @@ minetest.register_craft({
 	output = 'hades_core:obsidian 9',
 	recipe = {
 		{'hades_core:obsidian_block'}
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_core:obsidian',
+	recipe = {
+		{'hades_core:obsidian_shard', 'hades_core:obsidian_shard', 'hades_core:obsidian_shard'},
+		{'hades_core:obsidian_shard', 'hades_core:obsidian_shard', 'hades_core:obsidian_shard'},
+		{'hades_core:obsidian_shard', 'hades_core:obsidian_shard', 'hades_core:obsidian_shard'},
 	}
 })
 
@@ -1140,14 +1139,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'hades_core:cactus',
-	recipe = {
-		{'', 'hades_core:papyrus', ''},
-		{'hades_core:ash', 'hades_core:dirt', 'hades_core:ash'},
-	}
-})
-
-minetest.register_craft({
 	output = 'hades_core:sugar',
 	recipe = {
 		{'hades_core:sugarcane', 'hades_core:sugarcane', 'hades_core:sugarcane'},
@@ -1157,18 +1148,26 @@ minetest.register_craft({
 -- New Bricks
 
 minetest.register_craft({
+	output = 'hades_core:cactus 9',
+	recipe = {
+		{'hades_core:cactus_block'},
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_core:cactus',
+	recipe = {
+		{'', 'hades_core:papyrus', ''},
+		{'hades_core:ash', 'hades_core:dirt', 'hades_core:ash'},
+	}
+})
+
+minetest.register_craft({
 	output = 'hades_core:cactus_block',
 	recipe = {
 		{'hades_core:cactus', 'hades_core:cactus', 'hades_core:cactus'},
 		{'hades_core:cactus', 'hades_core:cactus', 'hades_core:cactus'},
 		{'hades_core:cactus', 'hades_core:cactus', 'hades_core:cactus'},
-	}
-})
-
-minetest.register_craft({
-	output = 'hades_core:cactus 9',
-	recipe = {
-		{'hades_core:cactus_block'},
 	}
 })
 
