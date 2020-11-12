@@ -1,5 +1,7 @@
+local S = minetest.get_translator("hades_lamps")
+
 minetest.register_node("hades_lamps:lamp_wall", {
-	description = "Attached Lamp",
+	description = S("Attached Lamp"),
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "wallmounted",
@@ -20,7 +22,7 @@ minetest.register_node("hades_lamps:lamp_wall", {
 })
 
 minetest.register_node("hades_lamps:lantern", {
-	description = "Bronze Floor Lantern",
+	description = S("Bronze Floor Lantern"),
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -50,7 +52,7 @@ minetest.register_node("hades_lamps:lantern", {
 })
 
 minetest.register_node("hades_lamps:lantern_rusty", {
-	description = "Rusty Floor Lantern",
+	description = S("Rusty Floor Lantern"),
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
