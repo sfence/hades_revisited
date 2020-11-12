@@ -97,15 +97,16 @@ local update_item = function(pos, node)
 	end
 end
 
-local drop_item = function(pos, node)
+local drop_item = function(pos, node, creative)
 	local meta = minetest.get_meta(pos)
-	if meta:get_string("item") ~= "" then
-		if node.name == "itemframes:frame" then
-			minetest.add_item(pos, meta:get_string("item"))
+	local item = meta:get_string("item")
+	if item ~= "" then
+		if creative then
+			-- Don't drop item
+		elseif node.name == "itemframes:frame" then
+			minetest.add_item(pos, item)
 		elseif node.name == "itemframes:pedestal" then
-			pos.y = pos.y + 1
-			minetest.add_item(pos, meta:get_string("item"))
-			pos.y = pos.y - 1
+			minetest.add_item({x=pos.x, y=pos.y+1, z=pos.z}, item)
 		end
 		meta:set_string("item","")
 	end
@@ -137,7 +138,7 @@ minetest.register_node("itemframes:frame",{
 	sounds = hades_sounds.node_sound_defaults(),
 	on_rotate = false,
 
-	after_place_node = function(pos, placer, itemstack)
+	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("infotext", S("Item Frame"))
 	end,
@@ -146,18 +147,21 @@ minetest.register_node("itemframes:frame",{
 		if not itemstack then return end
 		if minetest.is_protected(pos, clicker:get_player_name()) then return end
 		local meta = minetest.get_meta(pos)
+		local creative = minetest.is_creative_enabled(clicker:get_player_name())
 		if meta:get_string("item") ~= "" then
-			drop_item(pos,node)
+			drop_item(pos, node, creative)
 		else
-			local s = itemstack:take_item()
-			meta:set_string("item", s:to_string())
+			if not creative then
+				itemstack:take_item()
+			end
+			meta:set_string("item", itemstack:to_string())
 			update_item(pos,node)
 			return itemstack
 		end
 	end,
 
 	on_destruct = function(pos)
-		drop_item(pos, minetest.get_node(pos))
+		drop_item(pos, minetest.get_node(pos), minetest.is_creative_enabled(""))
 	end,
 
 	on_punch = function(pos, node, puncher)
@@ -189,7 +193,7 @@ minetest.register_node("itemframes:pedestal",{
 	sounds = hades_sounds.node_sound_defaults(),
 	on_rotate = false,
 
-	after_place_node = function(pos, placer, itemstack)
+	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("infotext", S("Pedestal"))
 	end,
@@ -198,18 +202,21 @@ minetest.register_node("itemframes:pedestal",{
 		if not itemstack then return end
 		if minetest.is_protected(pos, clicker:get_player_name()) then return end
 		local meta = minetest.get_meta(pos)
+		local creative = minetest.is_creative_enabled(clicker:get_player_name())
 		if meta:get_string("item") ~= "" then
-			drop_item(pos, node)
+			drop_item(pos, node, creative)
 		else
-			local s = itemstack:take_item()
-			meta:set_string("item", s:to_string())
+			if not creative then
+				itemstack:take_item()
+			end
+			meta:set_string("item", itemstack:to_string())
 			update_item(pos,node)
 			return itemstack
 		end
 	end,
 
 	on_destruct = function(pos)
-		drop_item(pos, minetest.get_node(pos))
+		drop_item(pos, minetest.get_node(pos), minetest.is_creative_enabled(""))
 	end,
 
 	on_punch = function(pos, node, puncher)
