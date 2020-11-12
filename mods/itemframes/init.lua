@@ -1,7 +1,6 @@
 local S = minetest.get_translator("itemframes")
 
 local tmp = {}
-screwdriver = screwdriver or {}
 
 -- item entity
 
@@ -11,13 +10,13 @@ minetest.register_entity("itemframes:item",{
 	visual_size={x = 0.33, y = 0.33},
 	collisionbox = {0, 0, 0, 0, 0, 0},
 	physical = false,
-	textures = {"air"},
+	textures = {"blank.png"},
 	on_activate = function(self, staticdata)
 
-if mobs and mobs.entity and mobs.entity == false then
-	self.object:remove()
-	return
-end
+		if minetest.global_exists("mobs") and mobs.entity and mobs.entity == false then
+			self.object:remove()
+			return
+		end
 
 		if tmp.nodename ~= nil and tmp.texture ~= nil then
 			self.nodename = tmp.nodename
@@ -136,7 +135,7 @@ minetest.register_node("itemframes:frame",{
 	groups = {choppy = 2, dig_immediate = 2},
 	legacy_wallmounted = true,
 	sounds = hades_sounds.node_sound_defaults(),
-	on_rotate = screwdriver.disallow,
+	on_rotate = false,
 
 	after_place_node = function(pos, placer, itemstack)
 		local meta = minetest.get_meta(pos)
@@ -184,7 +183,7 @@ minetest.register_node("itemframes:pedestal",{
 	paramtype = "light",
 	groups = {cracky = 3},
 	sounds = hades_sounds.node_sound_defaults(),
-	on_rotate = screwdriver.disallow,
+	on_rotate = false,
 
 	after_place_node = function(pos, placer, itemstack)
 		local meta = minetest.get_meta(pos)
@@ -217,15 +216,13 @@ minetest.register_node("itemframes:pedestal",{
 -- automatically restore entities lost from frames/pedestals
 -- due to /clearobjects or similar
 
-minetest.register_abm({
+minetest.register_lbm({
+	name = "itemframes:respawn_entities",
 	label = "Respawn entities of item frames and pedestals",
 	nodenames = {"itemframes:frame", "itemframes:pedestal"},
-	interval = 15,
-	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
-
+	run_at_every_load = true,
+	action = function(pos, node)
 		local num
-
 		if node.name == "itemframes:frame" then
 			num = #minetest.get_objects_inside_radius(pos, 0.5)
 		elseif node.name == "itemframes:pedestal" then
@@ -233,8 +230,9 @@ minetest.register_abm({
 			num = #minetest.get_objects_inside_radius(pos, 0.5)
 			pos.y = pos.y - 1
 		end
-
-		if num > 0 then return end
+		if num > 0 then
+			return
+		end
 		update_item(pos, node)
 	end
 })
