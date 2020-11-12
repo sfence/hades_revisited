@@ -2334,20 +2334,10 @@ local mob_punch = function(self, hitter, tflp, tool_capabilities, dir)
 	if damage >= 1 then
 
 		-- weapon sounds
-		if weapon:get_definition().sounds ~= nil then
-
-			local s = random(0, #weapon:get_definition().sounds)
-
-			minetest.sound_play(weapon:get_definition().sounds[s], {
-				object = self.object, --hitter,
-				max_hear_distance = 8
-			}, true)
-		else
-			minetest.sound_play("default_punch", {
-				object = self.object, --hitter,
-				max_hear_distance = 5
-			}, true)
-		end
+		minetest.sound_play("default_punch", {
+			object = self.object, --hitter,
+			max_hear_distance = 6
+		}, true)
 
 		-- blood_particles
 		if self.blood_amount > 0
