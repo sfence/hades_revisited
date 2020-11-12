@@ -90,7 +90,7 @@ function refruit.add_refruit(id, def)
 		interval = def.flower_interval,
 		chance = def.flower_chance,
 		action = function(pos, node)
-			minetest.set_node(pos, {name="hades_trees:"..id})
+			minetest.set_node(pos, {name=def.fruit_itemstring})
 		end,
 	})
 
