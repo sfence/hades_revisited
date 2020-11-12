@@ -139,7 +139,7 @@ minetest.register_node("itemframes:frame",{
 
 	after_place_node = function(pos, placer, itemstack)
 		local meta = minetest.get_meta(pos)
-		meta:set_string("infotext", S("Item frame"))
+		meta:set_string("infotext", S("Item Frame"))
 	end,
 
 	on_rightclick = function(pos, node, clicker, itemstack)
@@ -161,6 +161,10 @@ minetest.register_node("itemframes:frame",{
 	end,
 
 	on_punch = function(pos, node, puncher)
+		local num = #minetest.get_objects_inside_radius(pos, 0.5)
+		if num > 0 then
+			return
+		end
 		update_item(pos, node)
 	end,
 })
@@ -209,6 +213,10 @@ minetest.register_node("itemframes:pedestal",{
 	end,
 
 	on_punch = function(pos, node, puncher)
+		local num = #minetest.get_objects_inside_radius({x=pos.x,y=pos.y+1,z=pos.z}, 0.5)
+		if num > 0 then
+			return
+		end
 		update_item(pos, node)
 	end,
 })
