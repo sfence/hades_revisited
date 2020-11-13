@@ -66,7 +66,7 @@ local mob_chance_multiplier = tonumber(minetest.settings:get("mob_chance_multipl
 if peaceful_only then
 	minetest.register_on_joinplayer(function(player)
 		minetest.chat_send_player(player:get_player_name(),
-			S("** Peaceful Mode Active - No Monsters Will Spawn"))
+			"** "..S("Peaceful Mode active - No monsters will spawn"))
 	end)
 end
 

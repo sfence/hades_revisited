@@ -1,0 +1,21 @@
+# textdomain: mobs
+Peaceful Mode active - No monsters will spawn=Mode pacifique activé - Aucun monstre ne sera généré
+Mob has been protected!=L'animal a été protégé !
+lifetimer expired, removed @1=
+@1 (Tamed)=@1 (apprivoisé)
+Not tamed!=Non-apprivoisé !
+@1 is owner!=Appartient à @1 !
+Missed!=Raté !
+Already protected!=Déjà protégé !
+@1 at full health (@2)=@1 est en pleine forme (@2) 
+@1 has been tamed!=@1 a été apprivoisé ! 
+Enter name:=Saisissez un nom :
+Rename=Renommer
+Mob Spawner=Générateur de mob
+Periodically spawns mobs around it=
+Mob MinLight MaxLight Amount PlayerDist=Mob MinLumière MaxLumière Quantité DistanceJoueur
+Spawner Not Active (enter settings)=Générateur non actif (entrez les paramètres)
+Spawner Active (@1)=Générateur actif (@1)
+Mob Spawner settings failed!=Echec des paramètres du générateur
+
+Syntax: “name min_light[0-14] max_light[0-14] max_mobs_in_area[0 to disable] distance[1-20] y_offset[-10 to 10]”=Syntaxe : “nom min_lumière[0-14] max_lumière[0-14] max_mobs_dans_zone[0 pour désactiver] distance[1-20] décalage_y[-10 à 10]“

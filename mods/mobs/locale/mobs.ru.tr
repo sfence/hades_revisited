@@ -1,0 +1,21 @@
+# textdomain: mobs
+Peaceful Mode active - No monsters will spawn=Мирный модус активирован - монстры не спаунятся
+Mob has been protected!=Моб защищен!
+lifetimer expired, removed @1=
+@1 (Tamed)=@1 (Прирученный)
+Not tamed!=Не прирученный
+@1 is owner!=@1 владелец
+Missed!=Промазал!
+Already protected!=Уже защищен!
+@1 at full health (@2)=@1 при полном здоровье (@2)
+@1 has been tamed!=@1 приручен
+Enter name:=Введите имя:
+Rename=Переименовать
+Mob Spawner=Спаунер моба
+Periodically spawns mobs around it=
+Mob MinLight MaxLight Amount PlayerDist=
+Spawner Not Active (enter settings)=Спаунер не активен (введите настройки)
+Spawner Active (@1)=Активные спаунер (@1)
+Mob Spawner settings failed!=Настройки спаунера моба провалились
+
+Syntax: “name min_light[0-14] max_light[0-14] max_mobs_in_area[0 to disable] distance[1-20] y_offset[-10 to 10]”=
