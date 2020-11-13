@@ -115,7 +115,7 @@ minetest.register_on_joinplayer(function(player)
 		allow_move = function(inv, from_list, from_index, to_list, to_index, count, player)
 			return 0
 		end,
-	})
+	}, player:get_player_name())
 	player_inv:set_size("bags", BAGS_COUNT)
 	bags_inv:set_size("bags", BAGS_COUNT)
 	bags_inv:set_list("bags", player_inv:get_list("bags"))
