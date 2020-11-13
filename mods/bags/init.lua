@@ -90,20 +90,23 @@ minetest.register_on_joinplayer(function(player)
 	local bags_inv = minetest.create_detached_inventory(player:get_player_name().."_bags",{
 		on_put = function(inv, listname, index, stack, player)
 			player:get_inventory():set_stack(listname, index, stack)
-			player:get_inventory():set_size(listname.."contents", stack:get_definition().groups.bagslots)
+
+			local bagname = "bag"..index
+			player:get_inventory():set_size(bagname.."contents", stack:get_definition().groups.bagslots)
 		end,
 		on_take = function(inv, listname, index, stack, player)
 			player:get_inventory():set_stack(listname, index, nil)
 		end,
 		allow_put = function(inv, listname, index, stack, player)
-			if stack:get_definition().groups.bagslots then
+			if stack:get_definition().groups.bagslots and inv:get_stack(listname, index):is_empty() then
 				return 1
 			else
 				return 0
 			end
 		end,
 		allow_take = function(inv, listname, index, stack, player)
-			if player:get_inventory():is_empty(listname.."contents")==true then
+			local bagname = "bag"..index
+			if bagname and player:get_inventory():is_empty(bagname.."contents")==true then
 				return stack:get_count()
 			else
 				return 0
@@ -115,9 +118,7 @@ minetest.register_on_joinplayer(function(player)
 	})
 	player_inv:set_size("bags", BAGS_COUNT)
 	bags_inv:set_size("bags", BAGS_COUNT)
-	for i=1,BAGS_COUNT do
-		bags_inv:set_stack("bags", i, player_inv:get_stack("bags", i))
-	end
+	bags_inv:set_list("bags", player_inv:get_list("bags"))
 end)
 
 minetest.register_on_leaveplayer(function(player)
