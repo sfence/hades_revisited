@@ -2712,9 +2712,6 @@ local mob_step = function(self, dtime)
 				end
 			end
 
---			minetest.log("action",
---				S("lifetimer expired, removed @1", self.name))
-
 			effect(pos, 15, "tnt_smoke.png", 2, 4, 2, 0)
 
 			self.object:remove()
