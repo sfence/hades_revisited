@@ -17,8 +17,9 @@ mobs:register_mob("mobs_hades:mutant", {
 	visual_size = {x=8,y=8},
 	makes_footstep_sound = true,
 	sounds = {
-		random = "mobs_mutant",
-		attack = "mobs_mutant",
+		random = {name="mobs_hades_mutant_growl", gain=0.1},
+		damage = {name="mobs_hades_mutant_hurt", gain=0.1},
+		death = {name="mobs_hades_mutant_death", gain=0.2},
 	},
 	view_range = 10,
 	walk_velocity = 1.5,
