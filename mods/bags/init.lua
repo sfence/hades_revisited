@@ -149,8 +149,8 @@ minetest.register_craft({
 	output = "bags:small",
 	recipe = {
         {"", "farming:string", ""},
-        {"wool:white", "wool:white", "wool:white"},
-        {"wool:white", "wool:white", "wool:white"},
+        {"group:wool", "group:wool", "group:wool"},
+        {"group:wool", "group:wool", "group:wool"},
     },
 })
 minetest.register_craft({
