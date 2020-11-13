@@ -2,8 +2,8 @@
 -- Mobs Api
 
 mobs = {}
-mobs.mod = "redo"
-mobs.version = "20180328"
+mobs.mod = "hades"
+mobs.version = "20201113"
 
 
 -- Intllib
