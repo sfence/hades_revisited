@@ -9,6 +9,7 @@ License: GPLv3
 ]]--
 
 local S = minetest.get_translator("bags")
+local F = minetest.formspec_escape
 
 local bags_page = {}
 
@@ -19,10 +20,10 @@ local get_formspec = function(player, page)
 			..hades_gui.gui_inventory_bg_img
 			.."list[current_player;main;0,4.7;8,1;]"
 			.."list[current_player;main;0,5.85;8,3;8]"
-			.."button[0,2.2;2,0.5;bag1;Bag 1]"
-			.."button[2,2.2;2,0.5;bag2;Bag 2]"
-			.."button[4,2.2;2,0.5;bag3;Bag 3]"
-			.."button[6,2.2;2,0.5;bag4;Bag 4]"
+			.."button[0,2.2;2,0.5;bag1;"..F(S("Bag 1")).."]"
+			.."button[2,2.2;2,0.5;bag2;"..F(S("Bag 2")).."]"
+			.."button[4,2.2;2,0.5;bag3;"..F(S("Bag 3")).."]"
+			.."button[6,2.2;2,0.5;bag4;"..F(S("Bag 4")).."]"
 			.."list[detached:"..name.."_bags;bag1;0.5,1;1,1;]"
 			.."list[detached:"..name.."_bags;bag2;2.5,1;1,1;]"
 			.."list[detached:"..name.."_bags;bag3;4.5,1;1,1;]"
@@ -44,8 +45,8 @@ local get_formspec = function(player, page)
 				..hades_gui.gui_inventory_bg_img
 				.."list[current_player;main;0,4.7;8,1;]"
 				.."list[current_player;main;0,5.85;8,3;8]"
-				.."button[0,0;2,0.5;main;Main]"
-				.."label[3,0;"..string.format("Bag %d", b).."]"
+				.."button[0,0;2,0.5;main;"..F(S("Main")).."]"
+				.."label[3,0;"..F(S("Bag @1", b)).."]"
 				.."image[7,0;1,1;"..image.."]"
 				.."list[current_player;bag"..b.."contents;0,1;8,3;]"
 				.."listring[]"
@@ -54,7 +55,7 @@ local get_formspec = function(player, page)
 end
 
 sfinv.register_page("bags:bags", {
-	title = "Bags",
+	title = S("Bags"),
 	is_in_nav = function(self, player, context)
 		return true
 	end,
