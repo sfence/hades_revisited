@@ -11,6 +11,8 @@ License: GPLv3
 local S = minetest.get_translator("bags")
 local F = minetest.formspec_escape
 
+local BAGS_COUNT = 4
+
 local bags_page = {}
 
 local get_formspec = function(player, page)
@@ -24,23 +26,16 @@ local get_formspec = function(player, page)
 			.."button[2,2.2;2,0.5;bag2;"..F(S("Bag 2")).."]"
 			.."button[4,2.2;2,0.5;bag3;"..F(S("Bag 3")).."]"
 			.."button[6,2.2;2,0.5;bag4;"..F(S("Bag 4")).."]"
-			.."list[detached:"..name.."_bags;bag1;0.5,1;1,1;]"
-			.."list[detached:"..name.."_bags;bag2;2.5,1;1,1;]"
-			.."list[detached:"..name.."_bags;bag3;4.5,1;1,1;]"
-			.."list[detached:"..name.."_bags;bag4;6.5,1;1,1;]"
+			.."list[detached:"..name.."_bags;bags;0.5,1;1,1;0]"
+			.."list[detached:"..name.."_bags;bags;2.5,1;1,1;1]"
+			.."list[detached:"..name.."_bags;bags;4.5,1;1,1;2]"
+			.."list[detached:"..name.."_bags;bags;6.5,1;1,1;3]"
 			.."listring[current_player;main]"
-			.."listring[detached:"..name.."_bags;bag1]"
-			.."listring[current_player;main]"
-			.."listring[detached:"..name.."_bags;bag2]"
-			.."listring[current_player;main]"
-			.."listring[detached:"..name.."_bags;bag3]"
-			.."listring[current_player;main]"
-			.."listring[detached:"..name.."_bags;bag4]"
-			.."listring[current_player;main]"
+			.."listring[detached:"..name.."_bags;bags]"
 	end
 	for b=1,4 do
 		if page=="bag"..b then
-			local image = player:get_inventory():get_stack("bag"..b, 1):get_definition().inventory_image
+			local image = player:get_inventory():get_stack("bags", b):get_definition().inventory_image
 			return "size[8,8.5]"
 				..hades_gui.gui_inventory_bg_img
 				.."list[current_player;main;0,4.7;8,1;]"
@@ -78,8 +73,8 @@ sfinv.register_page("bags:bags", {
 		if fields.main then
 			bags_page[player_name] = "bags"
 		else
-			for b=1, 4 do
-				if fields["bag"..b] and not inv:get_stack("bag"..b, 1):is_empty() then
+			for b=1, BAGS_COUNT do
+				if fields["bag"..b] and not inv:get_stack("bags", b):is_empty() then
 					bags_page[player_name] = "bag"..b
 					break
 				end
@@ -118,11 +113,10 @@ minetest.register_on_joinplayer(function(player)
 			return 0
 		end,
 	})
-	for i=1,4 do
-		local bag = "bag"..i
-		player_inv:set_size(bag, 1)
-		bags_inv:set_size(bag, 1)
-		bags_inv:set_stack(bag,1,player_inv:get_stack(bag,1))
+	player_inv:set_size("bags", BAGS_COUNT)
+	bags_inv:set_size("bags", BAGS_COUNT)
+	for i=1,BAGS_COUNT do
+		bags_inv:set_stack("bags", i, player_inv:get_stack("bags", i))
 	end
 end)
 
