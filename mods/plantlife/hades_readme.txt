@@ -1,3 +1,4 @@
-This Code was modifikated and is NOT the orginalcode. 
-It wouldnt work on other games but hades.. plz load the orginalcode from the Forum, if u want use it for other app.
-All new chances are WTPFL Licenses.
+The plantlife code was modifikated and is NOT the orginal code. 
+It wouldn't work on other games. Please load the orginalcode from the forums,
+if you want use it for other games.
+All new changes are WTPFL-licensed.

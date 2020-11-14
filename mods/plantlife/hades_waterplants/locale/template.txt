@@ -1,0 +1,3 @@
+# textdomain:hades_seaplants
+Waterlily=
+Seaweed=

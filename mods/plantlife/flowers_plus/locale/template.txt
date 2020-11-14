@@ -1,3 +1,0 @@
-# textdomain:flowers_plus
-Waterlily=
-Seaweed=

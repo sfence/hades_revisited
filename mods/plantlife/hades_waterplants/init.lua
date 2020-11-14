@@ -1,13 +1,13 @@
-local S = minetest.get_translator("flowers_plus")
+local S = minetest.get_translator("hades_waterplants")
 
 -- This file supplies seaweed and waterlilies
 
-flowers_plus = {}
+hades_waterplants = {}
 
 
 local SPAWN_DELAY = 1000
 local SPAWN_CHANCE = 200
-local flowers_seed_diff = 329
+local waterplants_seed_diff = 329
 local lilies_max_count = 12
 local lilies_rarity = 33
 local seaweed_max_count = 20
@@ -86,7 +86,7 @@ local generate_on_place = function(basename, plant_table)
 	end
 end
 
-local on_place_waterlily = generate_on_place("flowers:waterlily", lilies_list)
+local on_place_waterlily = generate_on_place("hades_waterplants:waterlily", lilies_list)
 
 for i in ipairs(lilies_list) do
 	local deg1 = ""
@@ -101,7 +101,7 @@ for i in ipairs(lilies_list) do
 	end
 
 
-	minetest.register_node(":flowers:waterlily"..deg1, {
+	minetest.register_node("hades_waterplants:waterlily"..deg1, {
 		description = S("Waterlily"),
 		drawtype = "nodebox",
 		tiles = { 
@@ -128,7 +128,7 @@ for i in ipairs(lilies_list) do
 		buildable_to = true,
 		floodable = true,
 		liquids_pointable = true,
-		drop = "flowers:waterlily",
+		drop = "hades_waterplants:waterlily",
 
 		node_placement_prediction = "",
 		on_place = on_place_waterlily,
@@ -139,7 +139,7 @@ end
 
 local seaweed_list = { {nil}, {2}, {3}, {4} }
 
-local on_place_seaweed = generate_on_place("flowers:seaweed", seaweed_list)
+local on_place_seaweed = generate_on_place("hades_waterplants:seaweed", seaweed_list)
 
 for i in ipairs(seaweed_list) do
 	local num = ""
@@ -152,7 +152,7 @@ for i in ipairs(seaweed_list) do
 	end
 
 
-	minetest.register_node(":flowers:seaweed"..num, {
+	minetest.register_node("hades_waterplants:seaweed"..num, {
 		description = S("Seaweed"),
 		drawtype = "nodebox",
 		tiles = { 
@@ -179,7 +179,7 @@ for i in ipairs(seaweed_list) do
 		buildable_to = true,
 		floodable = true,
 		liquids_pointable = true,
-		drop = "flowers:seaweed",
+		drop = "hades_waterplants:seaweed",
 
 		node_placement_prediction = "",
 		on_place = on_place_seaweed,
@@ -191,7 +191,7 @@ end
 -- ongen registrations
 
 
-flowers_plus.grow_waterlily = function(pos)
+hades_waterplants.grow_waterlily = function(pos)
 	local right_here = {x=pos.x, y=pos.y+1, z=pos.z}
 	for i in ipairs(lilies_list) do
 		local chance = math.random(1,8)
@@ -205,7 +205,7 @@ flowers_plus.grow_waterlily = function(pos)
 
 
 		if chance == num then
-			minetest.add_node(right_here, {name="flowers:waterlily"..ext, param2=math.random(0,3)})
+			minetest.add_node(right_here, {name="hades_waterplants:waterlily"..ext, param2=math.random(0,3)})
 		end
 	end
 end
@@ -225,13 +225,13 @@ plantslib:register_generate_plant({
     temp_max = -0.22,
     temp_min = 0.22,
   },
-  "flowers_plus.grow_waterlily"
+  "hades_waterplants.grow_waterlily"
 )
 
 
-flowers_plus.grow_seaweed = function(pos)
+hades_waterplants.grow_seaweed = function(pos)
 	local right_here = {x=pos.x, y=pos.y+1, z=pos.z}
-	minetest.add_node(right_here, {name="flowers:seaweed_"..math.random(1,4), param2=math.random(1,3)})
+	minetest.add_node(right_here, {name="hades_waterplants:seaweed_"..math.random(1,4), param2=math.random(1,3)})
 end
 
 
@@ -247,26 +247,26 @@ plantslib:register_generate_plant({
 	near_nodes_count = 1,
     plantlife_limit = -1.0,
   },
-  "flowers_plus.grow_seaweed"
+  "hades_waterplants.grow_seaweed"
 )
 
 plantslib:spawn_on_surfaces({
 	spawn_delay = SPAWN_DELAY/2,
 	spawn_plants = {
-		"flowers:waterlily",
-		"flowers:waterlily_225",
-		"flowers:waterlily_45",
-		"flowers:waterlily_675",
-		"flowers:waterlily_s1",
-		"flowers:waterlily_s2",
-		"flowers:waterlily_s3",
-		"flowers:waterlily_s4"
+		"hades_waterplants:waterlily",
+		"hades_waterplants:waterlily_225",
+		"hades_waterplants:waterlily_45",
+		"hades_waterplants:waterlily_675",
+		"hades_waterplants:waterlily_s1",
+		"hades_waterplants:waterlily_s2",
+		"hades_waterplants:waterlily_s3",
+		"hades_waterplants:waterlily_s4"
 	},
 	avoid_radius = 2.5,
 	spawn_chance = SPAWN_CHANCE*4,
 	spawn_surfaces = {"hades_core:water_source"},
 	avoid_nodes = {"group:flower", "group:flora" },
-	seed_diff = flowers_seed_diff,
+	seed_diff = waterplants_seed_diff,
 	light_min = 9,
 	depth_max = 2,
 	random_facedir = {0,3}
@@ -275,11 +275,11 @@ plantslib:spawn_on_surfaces({
 
 plantslib:spawn_on_surfaces({
 	spawn_delay = SPAWN_DELAY*2,
-	spawn_plants = {"flowers:seaweed"},
+	spawn_plants = {"hades_waterplants:seaweed"},
 	spawn_chance = SPAWN_CHANCE*2,
 	spawn_surfaces = {"hades_core:water_source"},
 	avoid_nodes = {"group:flower", "group:flora"},
-	seed_diff = flowers_seed_diff,
+	seed_diff = waterplants_seed_diff,
 	light_min = 4,
 	light_max = 10,
 	neighbors = {"hades_core:dirt_with_grass"},
@@ -289,11 +289,11 @@ plantslib:spawn_on_surfaces({
 
 plantslib:spawn_on_surfaces({
 	spawn_delay = SPAWN_DELAY*2,
-	spawn_plants = {"flowers:seaweed"},
+	spawn_plants = {"hades_waterplants:seaweed"},
 	spawn_chance = SPAWN_CHANCE*2,
 	spawn_surfaces = {"hades_core:dirt_with_grass"},
 	avoid_nodes = {"group:flower", "group:flora" },
-	seed_diff = flowers_seed_diff,
+	seed_diff = waterplants_seed_diff,
 	light_min = 4,
 	light_max = 10,
 	neighbors = {"hades_core:water_source"},
@@ -305,18 +305,18 @@ plantslib:spawn_on_surfaces({
 
 
 minetest.register_craft({
-	output = 'flowers:seaweed 3',
-	recipe = {{'flowers:waterlily'},}
+	output = 'hades_waterplants:seaweed 3',
+	recipe = {{'hades_waterplants:waterlily'},}
 })
 
 minetest.register_abm({
 	label = "Turn seaweed to waterlily",
-	nodenames = {"flowers:seaweed"},
+	nodenames = {"hades_waterplants:seaweed"},
 	interval = 500,
 	chance = 75,
 	action = function(pos, node)
-		minetest.set_node(pos, {name="flowers:waterlily"})
+		minetest.set_node(pos, {name="hades_waterplants:waterlily"})
 	end,
 })
 
-minetest.log("action", "[flowers_plus] loaded.")
+minetest.log("action", "[hades_waterplants] loaded.")
