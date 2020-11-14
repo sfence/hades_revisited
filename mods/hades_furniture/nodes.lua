@@ -1,4 +1,4 @@
-local S = minetest.get_translator("3dforniture")
+local S = minetest.get_translator("hades_furniture")
 
 --[[
    Some adjustments and expansions for Hades game added 2015 by Glünggi
@@ -48,10 +48,10 @@ local S = minetest.get_translator("3dforniture")
 		local desc_c = furniture_colors[f][3]
 
 		-- Table
-		minetest.register_node("3dforniture:table"..append,
+		minetest.register_node("hades_furniture:table"..append,
 			{description = desc_t,
 			tiles = {
-				"forniture_wood"..append..".png",
+				"hades_furniture_wood"..append..".png",
 			},
 			drawtype = "nodebox",
 			sunlight_propagates = true,
@@ -76,10 +76,10 @@ local S = minetest.get_translator("3dforniture")
 		})
 		
 		-- Chair
-		minetest.register_node("3dforniture:chair"..append,
+		minetest.register_node("hades_furniture:chair"..append,
 			{ description = desc_c,
 			tiles = {
-				"forniture_wood"..append..".png",
+				"hades_furniture_wood"..append..".png",
 			},
 			drawtype = "nodebox",
 			sunlight_propagates = true,
@@ -118,15 +118,15 @@ local S = minetest.get_translator("3dforniture")
 	for a=1, #armchair_colors do
 		local append = armchair_colors[a][1]
 		local desc = armchair_colors[a][2]
-		minetest.register_node("3dforniture:armchair"..append,
+		minetest.register_node("hades_furniture:armchair"..append,
 			{ description = desc,
 			tiles = {
-				"forniture_armchair_top"..append..".png",
-				"forniture_armchair_top"..append..".png",
-				"forniture_armchair_lat1"..append..".png",
-				"forniture_armchair_lat1"..append..".png",
-				"forniture_armchair_lat2"..append..".png",
-				"forniture_armchair_lat2"..append..".png",
+				"hades_furniture_armchair_top"..append..".png",
+				"hades_furniture_armchair_top"..append..".png",
+				"hades_furniture_armchair_lat1"..append..".png",
+				"hades_furniture_armchair_lat1"..append..".png",
+				"hades_furniture_armchair_lat2"..append..".png",
+				"hades_furniture_armchair_lat2"..append..".png",
 			},
 			drawtype = "nodebox",
 			sunlight_propagates = true,
@@ -172,17 +172,17 @@ local S = minetest.get_translator("3dforniture")
 	for l=1, #lamps do
 		local drop, not_in_creative_inventory
 		if l ~= 1 then
-			drop = "3dforniture:table_lamp_off"
+			drop = "hades_furniture:table_lamp_off"
 			not_in_creative_inventory = 1
 		end
-		minetest.register_node("3dforniture:table_lamp_"..lamps[l][1], {
+		minetest.register_node("hades_furniture:table_lamp_"..lamps[l][1], {
 			description = S("Table Lamp"),
 			_tt_help = S("4 different luminance levels"),
 			drawtype = "nodebox",
 			tiles = {
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_s.png",
-				"forniture_table_lamp_l.png",
+				"hades_furniture_table_lamp_s.png",
+				"hades_furniture_table_lamp_s.png",
+				"hades_furniture_table_lamp_l.png",
 			},
 			paramtype = 'light',
 			paramtype2 = 'facedir',
@@ -214,8 +214,8 @@ local S = minetest.get_translator("3dforniture")
 			drop = drop,
 			sounds = hades_sounds.node_sound_glass_defaults(),
 			on_rightclick = function(pos, node, clicker)
-				minetest.sound_play({name="3dforniture_table_lamp_switch"}, {pos=pos, gain=0.35, max_hear_distance=6})
-				minetest.set_node(pos, {name="3dforniture:table_lamp_"..lamps[l][2]})
+				minetest.sound_play({name="hades_furniture_table_lamp_switch"}, {pos=pos, gain=0.35, max_hear_distance=6})
+				minetest.set_node(pos, {name="hades_furniture:table_lamp_"..lamps[l][2]})
 			end,
 			on_rotate = "simple",
 		})
@@ -225,12 +225,12 @@ local S = minetest.get_translator("3dforniture")
 --[[ ----- Bathroom Kit -----]]
 
 	-- Toilet
-	minetest.register_node("3dforniture:toilet",
+	minetest.register_node("hades_furniture:toilet",
 		{ description = S("Toilet"),
 		tiles = {
-			"forniture_marble.png", "forniture_marble.png",
-			"forniture_marble_sb1.png", "forniture_marble_sb1.png",
-			"forniture_marble_sb2.png", "forniture_marble_sb2.png",
+			"hades_furniture_marble.png", "hades_furniture_marble.png",
+			"hades_furniture_marble_sb1.png", "hades_furniture_marble_sb1.png",
+			"hades_furniture_marble_sb2.png", "hades_furniture_marble_sb2.png",
 		},
 		drawtype = "nodebox",
 		sunlight_propagates = false,
@@ -262,20 +262,20 @@ local S = minetest.get_translator("3dforniture")
 			},
 		},
 
-		drop ="3dforniture:toilet",
+		drop ="hades_furniture:toilet",
 		groups = {cracky=3,},
 		sounds = hades_sounds.node_sound_stone_defaults(),
 		on_rightclick = function (pos, node, clicker)
-			minetest.add_node(pos, {name="3dforniture:toilet_open", param2=node.param2})
+			minetest.add_node(pos, {name="hades_furniture:toilet_open", param2=node.param2})
 		end,
 		on_rotate = "simple",
 	})
-	minetest.register_node("3dforniture:toilet_open",
+	minetest.register_node("hades_furniture:toilet_open",
 		{
 		tiles = {
-			"forniture_marble_top_toilet.png", "forniture_marble.png",
-			"forniture_marble_sb1.png", "forniture_marble_sb1.png",
-			"forniture_marble_sb2.png", "forniture_marble_sb2.png",
+			"hades_furniture_marble_top_toilet.png", "hades_furniture_marble.png",
+			"hades_furniture_marble_sb1.png", "hades_furniture_marble_sb1.png",
+			"hades_furniture_marble_sb2.png", "hades_furniture_marble_sb2.png",
 		},
 		drawtype = "nodebox",
 		sunlight_propagates = false,
@@ -313,25 +313,25 @@ local S = minetest.get_translator("3dforniture")
 				{-0.05,0.4,0.35, 0.05,0.45,0.45}, -- flush button
 			},
 		},
-		drop = "3dforniture:toilet",
+		drop = "hades_furniture:toilet",
 		groups = {cracky = 3,not_in_creative_inventory=1},
 		sounds = hades_sounds.node_sound_stone_defaults(),
 		on_rightclick = function (pos, node, clicker)
-			minetest.add_node(pos, {name="3dforniture:toilet", param2=node.param2})
-			minetest.sound_play("3dforniture_dig_toilet", {gain=0.5, pos=pos}, false)
+			minetest.add_node(pos, {name="hades_furniture:toilet", param2=node.param2})
+			minetest.sound_play("hades_furniture_toilet", {gain=0.5, pos=pos}, false)
 		end,
 		on_rotate = "simple",
 	})
 
 	-- Sink
-	minetest.register_node("3dforniture:sink",
+	minetest.register_node("hades_furniture:sink",
 		{description = S("Sink"),
 		tiles = {
-			"forniture_marble_top_sink.png", "forniture_marble.png",
-			"forniture_marble_sb1.png", "forniture_marble_sb1.png",
-			"forniture_marble_sb2.png", "forniture_marble_sb2.png",
+			"hades_furniture_marble_top_sink.png", "hades_furniture_marble.png",
+			"hades_furniture_marble_sb1.png", "hades_furniture_marble_sb1.png",
+			"hades_furniture_marble_sb2.png", "hades_furniture_marble_sb2.png",
 		},
-		inventory_image = "3dforniture_inv_sink.png",
+		inventory_image = "hades_furniture_inv_sink.png",
 		drawtype = "nodebox",
 		sunlight_propagates = true,
 		paramtype = 'light',
@@ -360,14 +360,14 @@ local S = minetest.get_translator("3dforniture")
 	})
 
 	-- Taps
-	minetest.register_node("3dforniture:taps",
+	minetest.register_node("hades_furniture:taps",
 		{ description = S("Taps"),
 		tiles = {
-			"forniture_metal.png", "forniture_metal.png",
-			"forniture_metal_s1.png", "forniture_metal_s1.png",
-			"forniture_metal_s2.png", "forniture_metal_s2.png",
+			"hades_furniture_metal.png", "hades_furniture_metal.png",
+			"hades_furniture_metal_s1.png", "hades_furniture_metal_s1.png",
+			"hades_furniture_metal_s2.png", "hades_furniture_metal_s2.png",
 		},
-		inventory_image = "3dforniture_inv_taps.png",
+		inventory_image = "hades_furniture_inv_taps.png",
 		drawtype = "nodebox",
 		sunlight_propagates = true,
 		paramtype = 'light',
@@ -401,17 +401,17 @@ local S = minetest.get_translator("3dforniture")
 	})
 
 	-- Shower Tray
-	minetest.register_node("3dforniture:shower_tray",
+	minetest.register_node("hades_furniture:shower_tray",
 		{ description = S("Shower Tray"),
 		tiles = {
-			"forniture_marble_base_ducha_top.png",
-			"forniture_marble_base_ducha_top.png",
-			"forniture_marble_sb1.png",
-			"forniture_marble_sb1.png",
-			"forniture_marble_sb2.png",
-			"forniture_marble_sb2.png",
+			"hades_furniture_marble_base_ducha_top.png",
+			"hades_furniture_marble_base_ducha_top.png",
+			"hades_furniture_marble_sb1.png",
+			"hades_furniture_marble_sb1.png",
+			"hades_furniture_marble_sb2.png",
+			"hades_furniture_marble_sb2.png",
 		},
-		inventory_image = "3dforniture_inv_shower_tray.png",
+		inventory_image = "hades_furniture_inv_shower_tray.png",
 		drawtype = "nodebox",
 		sunlight_propagates = true,
 		paramtype = 'light',
@@ -437,17 +437,17 @@ local S = minetest.get_translator("3dforniture")
 	})
 
 	-- Shower Head
-	minetest.register_node("3dforniture:shower_head",
+	minetest.register_node("hades_furniture:shower_head",
 		{description = S("Shower Head"),
 		tiles = {
-			"forniture_metal.png",
-			"forniture_metal.png",
-			"forniture_metal_s1.png",
-			"forniture_metal_s1.png",
-			"forniture_metal_s2.png",
-			"forniture_metal_s2.png",
+			"hades_furniture_metal.png",
+			"hades_furniture_metal.png",
+			"hades_furniture_metal_s1.png",
+			"hades_furniture_metal_s1.png",
+			"hades_furniture_metal_s2.png",
+			"hades_furniture_metal_s2.png",
 		},
-		inventory_image = "3dforniture_inv_shower_head.png",
+		inventory_image = "hades_furniture_inv_shower_head.png",
 		drawtype = "nodebox",
 		sunlight_propagates = true,
 		paramtype = 'light',
@@ -473,15 +473,15 @@ local S = minetest.get_translator("3dforniture")
 --[[ ----- Medieval theme -----]]
 
 	-- Steel Bars
-	minetest.register_node("3dforniture:bars",
+	minetest.register_node("hades_furniture:bars",
 		{ description = S("Steel Bars"),
 		tiles = {
-			"forniture_black_metal.png",
-			"forniture_black_metal.png",
-			"forniture_black_metal_s1.png",
-			"forniture_black_metal_s1.png",
-			"forniture_black_metal_s2.png",
-			"forniture_black_metal_s2.png",
+			"hades_furniture_black_metal.png",
+			"hades_furniture_black_metal.png",
+			"hades_furniture_black_metal_s1.png",
+			"hades_furniture_black_metal_s1.png",
+			"hades_furniture_black_metal_s2.png",
+			"hades_furniture_black_metal_s2.png",
 		},
 		drawtype = "nodebox",
 		sunlight_propagates = true,
@@ -507,15 +507,15 @@ local S = minetest.get_translator("3dforniture")
 	})
 
 	-- L Binding Bars (corner)
-	minetest.register_node("3dforniture:L_binding_bars",
+	minetest.register_node("hades_furniture:L_binding_bars",
 		{ description =S("Binding Steel Bars"),
 		tiles = {
-			"forniture_black_metal.png",
-			"forniture_black_metal.png",
-			"forniture_black_metal_s1.png",
-			"forniture_black_metal_s1.png",
-			"forniture_black_metal_s2.png",
-			"forniture_black_metal_s2.png",
+			"hades_furniture_black_metal.png",
+			"hades_furniture_black_metal.png",
+			"hades_furniture_black_metal_s1.png",
+			"hades_furniture_black_metal_s1.png",
+			"hades_furniture_black_metal_s2.png",
+			"hades_furniture_black_metal_s2.png",
 		},
 		drawtype = "nodebox",
 		sunlight_propagates = true,
@@ -539,17 +539,17 @@ local S = minetest.get_translator("3dforniture")
 	})
 
 	-- Chains
-	minetest.register_node("3dforniture:chains",
+	minetest.register_node("hades_furniture:chains",
 		{ description = S("Chains"),
 		tiles = {
-			"forniture_black_metal.png",
-			"forniture_black_metal.png",
-			"forniture_black_metal_s1.png",
-			"forniture_black_metal_s1.png",
-			"forniture_black_metal_s2.png",
-			"forniture_black_metal_s2.png",
+			"hades_furniture_black_metal.png",
+			"hades_furniture_black_metal.png",
+			"hades_furniture_black_metal_s1.png",
+			"hades_furniture_black_metal_s1.png",
+			"hades_furniture_black_metal_s2.png",
+			"hades_furniture_black_metal_s2.png",
 		},
-		inventory_image = "3dforniture_inv_chains.png",
+		inventory_image = "hades_furniture_inv_chains.png",
 		drawtype = "nodebox",
 		sunlight_propagates = true,
 		paramtype = 'light',

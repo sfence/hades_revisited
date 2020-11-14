@@ -1,5 +1,7 @@
-3D Forniture (Hades Revisited Edition)
-   
+Hades Furniture
+ 
+Devirate from on 3D Forniture mod.
+
 Copyright 2012 Tonyka (and others)
    
 This program is free software; you can redistribute it and/or modify
@@ -33,7 +35,7 @@ Glünggi
     adjustments for the Hades game in 2015
 
 eagl3
-    Sound: 3dforniture_table_lamp_switch.ogg
+    Sound: hades_furniture_table_lamp_switch.ogg
     License: CC0
     Source: <https://freesound.org/people/eagl3/sounds/260570/>
 
