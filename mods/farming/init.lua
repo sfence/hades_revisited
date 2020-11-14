@@ -164,8 +164,8 @@ minetest.register_craftitem("farming:spice", {
 minetest.register_craft({
 	output = 'farming:flowergrass',
 	recipe = {
-		{'flowers:dandelion_white', 'flowers:dandelion_yellow', 'flowers:geranium'},
-		{'flowers:rose', 'flowers:tulip', 'flowers:viola'},
+		{'hades_flowers:dandelion_white', 'hades_flowers:dandelion_yellow', 'hades_flowers:geranium'},
+		{'hades_flowers:rose', 'hades_flowers:tulip', 'hades_flowers:viola'},
 		{'hades_core:grass_1', 'hades_core:dirt', 'hades_core:grass_1'},
 	}
 })

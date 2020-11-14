@@ -1,5 +1,7 @@
-Minetest 0.4 mod: flowers
-=========================
+Hades Revisited mod: hades_flowers
+==================================
+
+Derivate work from flowers mod from Minetest Game.
 
 License of source code:
 -----------------------

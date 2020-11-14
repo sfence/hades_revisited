@@ -80,7 +80,7 @@ local get_apply_fertilizer = function(super)
 			if not super then return itemstack end
 			-- [SUPER] Grow random flower in empty flowerpot
 			local flowers = {
-				"rose", "dandelion_white", "dandelion_yellow", "tulip", "geranium", "viola",
+				"red", "white", "yellow", "orange", "yellow", "violet",
 			}
 			local flower = flowers[math.random(1, #flowers)]
 			minetest.set_node(pos, {name="flowerpots:flower_pot_"..flower})
@@ -214,12 +214,12 @@ local get_apply_fertilizer = function(super)
 							{"hades_core:junglegrass", 0},
 							{"hades_core:junglegrass", 0},
 							{"farming:flowergrass", 0},
-							{"flowers:rose", 0},
-							{"flowers:dandelion_white", 0},
-							{"flowers:dandelion_yellow", 0},
-							{"flowers:tulip", 0},
-							{"flowers:viola", 0},
-							{"flowers:geranium", 0},
+							{"hades_flowers:red", 0},
+							{"hades_flowers:white", 0},
+							{"hades_flowers:yellow", 0},
+							{"hades_flowers:orange", 0},
+							{"hades_flowers:violet", 0},
+							{"hades_flowers:blue", 0},
 							}
 							else
 							plants = {

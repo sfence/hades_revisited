@@ -1,12 +1,12 @@
 local S = minetest.get_translator("flowerpots")
 
 local flowers = {
-	{"rose", "flowers:rose", S("Red Flower")},
-	{"tulip", "flowers:tulip", S("Orange Flower")},
-	{"geranium", "flowers:geranium", S("Blue Flower")},
-	{"viola", "flowers:viola", S("Violet Flower")},
-	{"dandelion_yellow", "flowers:dandelion_yellow", S("Yellow Flower")},
-	{"dandelion_white", "flowers:dandelion_white", S("White Flower")},
+	{"red", "hades_flowers:red", S("Red Flower")},
+	{"orange", "hades_flowers:orange", S("Orange Flower")},
+	{"blue", "hades_flowers:blue", S("Blue Flower")},
+	{"violet", "hades_flowers:violet", S("Violet Flower")},
+	{"yellow", "hades_flowers:yellow", S("Yellow Flower")},
+	{"white", "hades_flowers:white", S("White Flower")},
 
 -- TODO: Maybe add these later?
 --	{"grass", "hades_core:grass_1", S("Grass")},
@@ -172,9 +172,9 @@ end
 
 
 minetest.register_alias("flowers:flower_pot", "flowerpots:flower_pot")
-minetest.register_alias("flowers:potted_rose", "flowerpots:flower_pot_rose")
-minetest.register_alias("flowers:potted_dandelion_yellow", "flowerpots:flower_pot_dandelion_yellow")
-minetest.register_alias("flowers:potted_dandelion_white", "flowerpots:flower_pot_dandelion_white")
-minetest.register_alias("flowers:potted_viola", "flowerpots:flower_pot_viola")
-minetest.register_alias("flowers:potted_geranium", "flowerpots:flower_pot_geranium")
-minetest.register_alias("flowers:potted_tulip", "flowerpots:flower_pot_tulip")
+minetest.register_alias("flowers:potted_rose", "flowerpots:flower_pot_red")
+minetest.register_alias("flowers:potted_dandelion_yellow", "flowerpots:flower_pot_yellow")
+minetest.register_alias("flowers:potted_dandelion_white", "flowerpots:flower_pot_white")
+minetest.register_alias("flowers:potted_viola", "flowerpots:flower_pot_violet")
+minetest.register_alias("flowers:potted_geranium", "flowerpots:flower_pot_blue")
+minetest.register_alias("flowers:potted_tulip", "flowerpots:flower_pot_orange")

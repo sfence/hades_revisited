@@ -1,22 +1,21 @@
-local S = minetest.get_translator("flowers")
+local S = minetest.get_translator("hades_flowers")
 
--- Minetest 0.4 mod: default
 -- See README.txt for licensing and other information.
 
 -- Aliases for original flowers mod
-minetest.register_alias("flowers:flower_dandelion_white", "flowers:dandelion_white")
-minetest.register_alias("flowers:flower_dandelion_yellow", "flowers:dandelion_yellow")
-minetest.register_alias("flowers:flower_geranium", "flowers:geranium")
-minetest.register_alias("flowers:flower_rose", "flowers:rose")
-minetest.register_alias("flowers:flower_tulip", "flowers:tulip")
-minetest.register_alias("flowers:flower_viola", "flowers:viola")
+minetest.register_alias("flowers:dandelion_white", "hades_flowers:white")
+minetest.register_alias("flowers:dandelion_yellow", "hades_flowers:yellow")
+minetest.register_alias("flowers:geranium", "hades_flowers:blue")
+minetest.register_alias("flowers:rose", "hades_flowers:red")
+minetest.register_alias("flowers:tulip", "hades_flowers:orange")
+minetest.register_alias("flowers:viola", "hades_flowers:violet")
 
-minetest.register_node("flowers:dandelion_white", {
+minetest.register_node("hades_flowers:white", {
 	description = S("White Flower"),
 	drawtype = "plantlike",
-	tiles = { "flowers_dandelion_white.png" },
-	inventory_image = "flowers_dandelion_white.png",
-	wield_image = "flowers_dandelion_white.png",
+	tiles = { "hades_flowers_white.png" },
+	inventory_image = "hades_flowers_white.png",
+	wield_image = "hades_flowers_white.png",
 	waving = 1,
 	sunlight_propagates = true,
 	paramtype = "light",
@@ -31,12 +30,12 @@ minetest.register_node("flowers:dandelion_white", {
 	},
 })
 
-minetest.register_node("flowers:dandelion_yellow", {
+minetest.register_node("hades_flowers:yellow", {
 	description = S("Yellow Flower"),
 	drawtype = "plantlike",
-	tiles = { "flowers_dandelion_yellow.png" },
-	inventory_image = "flowers_dandelion_yellow.png",
-	wield_image = "flowers_dandelion_yellow.png",
+	tiles = { "hades_flowers_yellow.png" },
+	inventory_image = "hades_flowers_yellow.png",
+	wield_image = "hades_flowers_yellow.png",
 	waving = 1,
 	sunlight_propagates = true,
 	paramtype = "light",
@@ -51,12 +50,12 @@ minetest.register_node("flowers:dandelion_yellow", {
 	},
 })
 
-minetest.register_node("flowers:geranium", {
+minetest.register_node("hades_flowers:blue", {
 	description = S("Blue Flower"),
 	drawtype = "plantlike",
-	tiles = { "flowers_geranium.png" },
-	inventory_image = "flowers_geranium.png",
-	wield_image = "flowers_geranium.png",
+	tiles = { "hades_flowers_blue.png" },
+	inventory_image = "hades_flowers_blue.png",
+	wield_image = "hades_flowers_blue.png",
 	waving = 1,
 	sunlight_propagates = true,
 	paramtype = "light",
@@ -71,12 +70,12 @@ minetest.register_node("flowers:geranium", {
 	},
 })
 
-minetest.register_node("flowers:rose", {
+minetest.register_node("hades_flowers:red", {
 	description = S("Red Flower"),
 	drawtype = "plantlike",
-	tiles = { "flowers_rose.png" },
-	inventory_image = "flowers_rose.png",
-	wield_image = "flowers_rose.png",
+	tiles = { "hades_flowers_red.png" },
+	inventory_image = "hades_flowers_red.png",
+	wield_image = "hades_flowers_red.png",
 	waving = 1,
 	sunlight_propagates = true,
 	paramtype = "light",
@@ -91,12 +90,12 @@ minetest.register_node("flowers:rose", {
 	},
 })
 
-minetest.register_node("flowers:tulip", {
+minetest.register_node("hades_flowers:orange", {
 	description = S("Orange Flower"),
 	drawtype = "plantlike",
-	tiles = { "flowers_tulip.png" },
-	inventory_image = "flowers_tulip.png",
-	wield_image = "flowers_tulip.png",
+	tiles = { "hades_flowers_orange.png" },
+	inventory_image = "hades_flowers_orange.png",
+	wield_image = "hades_flowers_orange.png",
 	waving = 1,
 	sunlight_propagates = true,
 	paramtype = "light",
@@ -111,12 +110,12 @@ minetest.register_node("flowers:tulip", {
 	},
 })
 
-minetest.register_node("flowers:viola", {
+minetest.register_node("hades_flowers:violet", {
 	description = S("Violet Flower"),
 	drawtype = "plantlike",
-	tiles = { "flowers_viola.png" },
-	inventory_image = "flowers_viola.png",
-	wield_image = "flowers_viola.png",
+	tiles = { "hades_flowers_violet.png" },
+	inventory_image = "hades_flowers_violet.png",
+	wield_image = "hades_flowers_violet.png",
 	waving = 1,
 	sunlight_propagates = true,
 	paramtype = "light",
@@ -158,8 +157,8 @@ minetest.register_abm({
 		local pos0 = {x=pos.x-4,y=pos.y-4,z=pos.z-4}
 		local pos1 = {x=pos.x+4,y=pos.y+4,z=pos.z+4}
 
-		local flowers = minetest.find_nodes_in_area(pos0, pos1, "group:flora")
-		if #flowers > 3 then
+		local hades_flowers = minetest.find_nodes_in_area(pos0, pos1, "group:flora")
+		if #hades_flowers > 3 then
 			return
 		end
 
@@ -180,7 +179,7 @@ minetest.register_abm({
 })
 
 minetest.register_craft({
-	output = 'flowers:dandelion_white',
+	output = 'hades_flowers:white',
 	recipe = {
 		{'farming:seed_cotton', 'farming:seed_cotton', 'farming:seed_cotton'},
         {'hades_core:grass_1', 'hades_core:grass_1', 'hades_core:grass_1'},
@@ -188,42 +187,42 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = 'flowers:dandelion_yellow',
+	output = 'hades_flowers:yellow',
 	recipe = {
-		{'flowers:dandelion_white', 'flowers:dandelion_white', 'flowers:dandelion_white'},
+		{'hades_flowers:white', 'hades_flowers:white', 'hades_flowers:white'},
         {'hades_core:grass_1', 'hades_core:gold_lump', 'hades_core:grass_1'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 minetest.register_craft({
-	output = 'flowers:rose',
+	output = 'hades_flowers:red',
 	recipe = {
-		{'flowers:dandelion_white', 'flowers:dandelion_white', 'flowers:dandelion_white'},
+		{'hades_flowers:white', 'hades_flowers:white', 'hades_flowers:white'},
         {'hades_core:grass_1', 'hades_core:ruby', 'hades_core:grass_1'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 minetest.register_craft({
-	output = 'flowers:viola',
+	output = 'hades_flowers:violet',
 	recipe = {
-		{'flowers:rose', 'flowers:rose', 'flowers:rose'},
-        {'flowers:geranium', 'flowers:geranium', 'flowers:geranium'},
+		{'hades_flowers:red', 'hades_flowers:red', 'hades_flowers:red'},
+        {'hades_flowers:blue', 'hades_flowers:blue', 'hades_flowers:blue'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 minetest.register_craft({
-	output = 'flowers:geranium',
+	output = 'hades_flowers:blue',
 	recipe = {
-	    {'flowers:dandelion_white', 'flowers:dandelion_white', 'flowers:dandelion_white'},
+	    {'hades_flowers:white', 'hades_flowers:white', 'hades_flowers:white'},
         {'hades_core:grass_1', 'hades_core:sapphire', 'hades_core:grass_1'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
 minetest.register_craft({
-	output = 'flowers:tulip',
+	output = 'hades_flowers:orange',
 	recipe = {
-		{'flowers:dandelion_yellow', 'flowers:dandelion_yellow', 'flowers:dandelion_yellow'},
-        {'flowers:rose', 'flowers:rose', 'flowers:rose'},
+		{'hades_flowers:yellow', 'hades_flowers:yellow', 'hades_flowers:yellow'},
+        {'hades_flowers:red', 'hades_flowers:red', 'hades_flowers:red'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })

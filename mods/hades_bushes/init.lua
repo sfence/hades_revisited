@@ -53,7 +53,7 @@ minetest.register_node("hades_bushes:white", {
 minetest.register_craft({
 	output = 'hades_bushes:white',
 	recipe = {
-		{'flowers:dandelion_white', '', ''},
+		{'hades_flowers:white', '', ''},
 		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
@@ -81,7 +81,7 @@ minetest.register_node("hades_bushes:yellow", {
 minetest.register_craft({
 	output = 'hades_bushes:yellow',
 	recipe = {
-		{'flowers:dandelion_yellow', '', ''},
+		{'hades_flowers:yellow', '', ''},
 		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
@@ -109,7 +109,7 @@ minetest.register_node("hades_bushes:blue", {
 minetest.register_craft({
 	output = 'hades_bushes:blue',
 	recipe = {
-		{'flowers:geranium', '', ''},
+		{'hades_flowers:blue', '', ''},
 		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
@@ -137,7 +137,7 @@ minetest.register_node("hades_bushes:red", {
 minetest.register_craft({
 	output = 'hades_bushes:red',
 	recipe = {
-		{'flowers:rose', '', ''},
+		{'hades_flowers:red', '', ''},
 		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
@@ -165,7 +165,7 @@ minetest.register_node("hades_bushes:orange", {
 minetest.register_craft({
 	output = 'hades_bushes:orange',
 	recipe = {
-		{'flowers:tulip', '', ''},
+		{'hades_flowers:orange', '', ''},
 		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
@@ -194,7 +194,7 @@ minetest.register_node("hades_bushes:violet", {
 minetest.register_craft({
 	output = 'hades_bushes:violet',
 	recipe = {
-		{'flowers:viola', '', ''},
+		{'hades_flowers:violet', '', ''},
 		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}

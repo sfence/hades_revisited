@@ -135,32 +135,32 @@ end
 minetest.register_craft({
 	type = "shapeless",
 	output = "dye:blue 4",
-	recipe = {"flowers:geranium"},
+	recipe = {"hades_flowers:blue"},
 })
 minetest.register_craft({
 	type = "shapeless",
 	output = "dye:white 4",
-	recipe = {"flowers:dandelion_white"},
+	recipe = {"hades_flowers:white"},
 })
 minetest.register_craft({
 	type = "shapeless",
 	output = "dye:red 4",
-	recipe = {"flowers:rose"},
+	recipe = {"hades_flowers:red"},
 })
 minetest.register_craft({
 	type = "shapeless",
 	output = "dye:violet 4",
-	recipe = {"flowers:viola"},
+	recipe = {"hades_flowers:violet"},
 })
 minetest.register_craft({
 	type = "shapeless",
 	output = "dye:orange 4",
-	recipe = {"flowers:tulip"},
+	recipe = {"hades_flowers:orange"},
 })
 minetest.register_craft({
 	type = "shapeless",
 	output = "dye:yellow 4",
-	recipe = {"flowers:dandelion_yellow"},
+	recipe = {"hades_flowers:yellow"},
 })
 
 minetest.register_craft({
