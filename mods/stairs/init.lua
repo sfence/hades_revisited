@@ -936,7 +936,7 @@ stairs.register_stair_and_slab("obsidianbrick", "hades_core:obsidianbrick",
 		
 stairs.register_stair_and_slab("straw", "hades_farming:straw",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-		{"farming_straw.png"},
+		{"hades_farming_straw.png"},
 		S("Straw Stair"),
 		S("Outer Straw Stair"),
 		S("Inner Straw Stair"),
