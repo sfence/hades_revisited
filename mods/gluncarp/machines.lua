@@ -183,7 +183,7 @@ minetest.register_craft({
 	output = 'gluncarp:machine',
 	recipe = {
 		{'group:wood', 'group:stick', 'group:wood'},
-		{'farming:string', 'farming:string', 'farming:string'},
+		{'hades_farming:string', 'hades_farming:string', 'hades_farming:string'},
 		{'group:wood', "group:stick", 'group:wood'},
 	},
 })

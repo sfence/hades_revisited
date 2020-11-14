@@ -1,7 +1,7 @@
-farming.register_hoe(name, hoe definition)
+hades_farming.register_hoe(name, hoe definition)
  -> Register a new hoe, see [hoe definition]
  
-farming.register_plant(name, Plant definition)
+hades_farming.register_plant(name, Plant definition)
  -> Register a new growing plant, see [Plant definition]
 
 Hoe Definition

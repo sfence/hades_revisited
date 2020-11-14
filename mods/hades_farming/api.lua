@@ -1,8 +1,8 @@
-local S = minetest.get_translator("farming")
+local S = minetest.get_translator("hades_farming")
 
 -- Wear out hoes, place soil
 -- TODO Ignore group:flower
-farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
+hades_farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	local pt = pointed_thing
 	-- check if pointing at a node
 	if not pt then
@@ -54,7 +54,7 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 end
 
 -- Register new hoes
-farming.register_hoe = function(name, def)
+hades_farming.register_hoe = function(name, def)
 	-- Check for : prefix (register new hoes in your mod's namespace)
 	if name:sub(1,1) ~= ":" then
 		name = ":" .. name
@@ -82,7 +82,7 @@ farming.register_hoe = function(name, def)
 		_tt_help = def._tt_help .. "\n" .. S("Uses: @1", def.max_uses),
 		inventory_image = def.inventory_image,
 		on_use = function(itemstack, user, pointed_thing)
-			return farming.hoe_on_use(itemstack, user, pointed_thing, def.max_uses)
+			return hades_farming.hoe_on_use(itemstack, user, pointed_thing, def.max_uses)
 		end
 	})
 	-- Register its recipe
@@ -110,7 +110,7 @@ farming.register_hoe = function(name, def)
 end
 
 -- Seed placement
-farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
+hades_farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	local pt = pointed_thing
 	-- check if pointing at a node
 	if not pt then
@@ -157,7 +157,7 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 end
 
 -- Register plants
-farming.register_plant = function(name, def)
+hades_farming.register_plant = function(name, def)
 	local mname = name:split(":")[1]
 	local pname = name:split(":")[2]
 
@@ -208,7 +208,7 @@ farming.register_plant = function(name, def)
 		},
 		fertility = def.fertility,
 		on_place = function(itemstack, placer, pointed_thing)
-			return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
+			return hades_farming.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
 		end
 	})
 

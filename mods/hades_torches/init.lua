@@ -135,7 +135,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_torches:torch',
 	recipe = {
-		{'farming:string'},
+		{'hades_farming:string'},
 		{'hades_torches:torch_low'},
 	}
 })

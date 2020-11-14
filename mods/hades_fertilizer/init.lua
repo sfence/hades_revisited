@@ -9,9 +9,9 @@ do
 
 	for f=1, #farms do
 		local t = { 0, false }
-		table.insert(t, "farming:seed_"..farms[f])
+		table.insert(t, "hades_farming:seed_"..farms[f])
 		for i=1,3 do
-			table.insert(t, "farming:"..farms[f].."_"..i)
+			table.insert(t, "hades_farming:"..farms[f].."_"..i)
 		end
 		table.insert(plants_rotate, t)
 	end
@@ -174,7 +174,7 @@ local get_apply_fertilizer = function(super)
 			end
 			end
 			end
-		elseif nname == "hades_core:grass" or nname == "hades_core:dirt_with_grass" or nname == "hades_core:fertile_sand" or nname == "hades_core:ash" or nname == "hades_core:gravel" or nname == "hades_core:gravel_volcanic" or nname == "farming:soil" or nname == "farming:soil_wet" then
+		elseif nname == "hades_core:grass" or nname == "hades_core:dirt_with_grass" or nname == "hades_core:fertile_sand" or nname == "hades_core:ash" or nname == "hades_core:gravel" or nname == "hades_core:gravel_volcanic" or nname == "hades_farming:soil" or nname == "hades_farming:soil_wet" then
 			-- Grow grass, flowers and other random plants
 			for x = pos.x - 2, pos.x + 2 do
 			for y = pos.y, pos.y do
@@ -213,7 +213,7 @@ local get_apply_fertilizer = function(super)
 							{"hades_core:junglegrass", 0},
 							{"hades_core:junglegrass", 0},
 							{"hades_core:junglegrass", 0},
-							{"farming:flowergrass", 0},
+							{"hades_farming:flowergrass", 0},
 							{"hades_flowers:red", 0},
 							{"hades_flowers:white", 0},
 							{"hades_flowers:yellow", 0},
@@ -240,15 +240,15 @@ local get_apply_fertilizer = function(super)
 							plants = {
 							{ "hades_core:dry_shrub", 0 },
 							}
-						elseif (node.name == "farming:soil" or node.name == "farming:soil_wet") then
+						elseif (node.name == "hades_farming:soil" or node.name == "hades_farming:soil_wet") then
 							if not super then return itemstack end
 							plants = {
-							{"farming:seed_wheat", 0},
-							{"farming:seed_cotton", 0},
-							{"farming:seed_tomato", 0},
-							{"farming:seed_strawberry", 0},
-							{"farming:seed_spice", 0},
-							{"farming:seed_potato", 0},
+							{"hades_farming:seed_wheat", 0},
+							{"hades_farming:seed_cotton", 0},
+							{"hades_farming:seed_tomato", 0},
+							{"hades_farming:seed_strawberry", 0},
+							{"hades_farming:seed_spice", 0},
+							{"hades_farming:seed_potato", 0},
 							}
 						end
 						if plants then

@@ -1,11 +1,11 @@
-local S = minetest.get_translator("farming")
+local S = minetest.get_translator("hades_farming")
 
 minetest.override_item("hades_core:dirt", {
 	groups = {crumbly=3,soil=1},
 	soil = {
 		base = "hades_core:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_farming:soil",
+		wet = "hades_farming:soil_wet"
 	}
 })
 
@@ -13,43 +13,43 @@ minetest.override_item("hades_core:dirt_with_grass", {
 	groups = {crumbly=3,soil=1},
 	soil = {
 		base = "hades_core:dirt_with_grass",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_farming:soil",
+		wet = "hades_farming:soil_wet"
 	}
 })
 
-minetest.register_node("farming:soil", {
+minetest.register_node("hades_farming:soil", {
 	description = S("Soil"),
-	tiles = {"default_dirt.png^farming_soil.png", "default_dirt.png"},
+	tiles = {"default_dirt.png^hades_farming_soil.png", "default_dirt.png"},
 	drop = "hades_core:dirt",
 	is_ground_content = true,
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=2, grassland = 1, field = 1},
 	sounds = hades_sounds.node_sound_dirt_defaults(),
 	soil = {
 		base = "hades_core:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_farming:soil",
+		wet = "hades_farming:soil_wet"
 	}
 })
 
-minetest.register_node("farming:soil_wet", {
+minetest.register_node("hades_farming:soil_wet", {
 	description = S("Wet Soil"),
-	tiles = {"default_dirt.png^farming_soil_wet.png", "default_dirt.png^farming_soil_wet_side.png"},
+	tiles = {"default_dirt.png^hades_farming_soil_wet.png", "default_dirt.png^hades_farming_soil_wet_side.png"},
 	drop = "hades_core:dirt",
 	is_ground_content = true,
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=3, wet = 1, grassland = 1, field = 1},
 	sounds = hades_sounds.node_sound_dirt_defaults(),
 	soil = {
 		base = "hades_core:dirt",
-		dry = "farming:soil",
-		wet = "farming:soil_wet"
+		dry = "hades_farming:soil",
+		wet = "hades_farming:soil_wet"
 	}
 })
 
 
-minetest.register_node("farming:straw", {
+minetest.register_node("hades_farming:straw", {
 	description = S("Straw"),
-	tiles = {"farming_straw.png"},
+	tiles = {"hades_farming_straw.png"},
 	is_ground_content = false,
 	groups = {snappy=3, flammable=4},
 	sounds = hades_sounds.node_sound_leaves_defaults(),
@@ -115,9 +115,9 @@ for i = 1, 5 do
 		drop = {
 		max_items = 1,
 		items = {
-			{items = {'farming:seed_wheat'},rarity = 10},
-			{items = {'farming:seed_spice'},rarity = 10},
-			{items = {'farming:seed_strawberry'},rarity = 10},
+			{items = {'hades_farming:seed_wheat'},rarity = 10},
+			{items = {'hades_farming:seed_spice'},rarity = 10},
+			{items = {'hades_farming:seed_strawberry'},rarity = 10},
 			{items = {'hades_core:grass_1'}},
 		}
 	},
@@ -129,19 +129,19 @@ minetest.override_item("hades_core:junglegrass", {
 	drop = {
 	max_items = 1,
 	items = {
-		{items = {'farming:seed_cotton'},rarity = 10},
-		{items = {'farming:seed_tomato'},rarity = 10},
-		{items = {'farming:seed_potato'},rarity = 10},
+		{items = {'hades_farming:seed_cotton'},rarity = 10},
+		{items = {'hades_farming:seed_tomato'},rarity = 10},
+		{items = {'hades_farming:seed_potato'},rarity = 10},
 		{items = {'hades_core:junglegrass'}},
 	}
 }})
 
-minetest.register_node("farming:flowergrass", {
+minetest.register_node("hades_farming:flowergrass", {
 		description = S("Flower Grass"),
 		drawtype = "plantlike",
-		tiles = {"farming_flowergrass.png"},
-		inventory_image = "farming_flowergrass.png",
-		wield_image = "farming_flowergrass.png",
+		tiles = {"hades_farming_flowergrass.png"},
+		inventory_image = "hades_farming_flowergrass.png",
+		wield_image = "hades_farming_flowergrass.png",
 		paramtype = "light",
 		waving = 1,
 		walkable = false,

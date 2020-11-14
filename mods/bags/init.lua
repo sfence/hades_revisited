@@ -149,7 +149,7 @@ minetest.register_tool("bags:large", {
 minetest.register_craft({
 	output = "bags:small",
 	recipe = {
-        {"", "farming:string", ""},
+        {"", "hades_farming:string", ""},
         {"group:wool", "group:wool", "group:wool"},
         {"group:wool", "group:wool", "group:wool"},
     },
@@ -158,16 +158,16 @@ minetest.register_craft({
 	output = "bags:medium",
 	recipe = {
         {"", "group:stick", ""},
-        {"bags:small", "farming:string", "bags:small"},
-        {"bags:small", "farming:string", "bags:small"},
+        {"bags:small", "hades_farming:string", "bags:small"},
+        {"bags:small", "hades_farming:string", "bags:small"},
     },
 })
 minetest.register_craft({
 	output = "bags:large",
 	recipe = {
         {"", "group:stick", ""},
-        {"bags:medium", "farming:string", "bags:medium"},
-        {"bags:medium", "farming:string", "bags:medium"},
+        {"bags:medium", "hades_farming:string", "bags:medium"},
+        {"bags:medium", "hades_farming:string", "bags:medium"},
     },
 })
 

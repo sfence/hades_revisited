@@ -90,8 +90,8 @@ minetest.register_craft({
 	output = 'hades_food:pie_strawberry_raw',
 	recipe = {
 		{'', 'hades_core:sugar', ''},
-		{'farming:strawberry', 'farming:strawberry', 'farming:strawberry'},
-		{'hades_core:sugar', 'farming:flour', 'hades_core:sugar'},
+		{'hades_farming:strawberry', 'hades_farming:strawberry', 'hades_farming:strawberry'},
+		{'hades_core:sugar', 'hades_farming:flour', 'hades_core:sugar'},
 	}
 })
 
@@ -107,7 +107,7 @@ minetest.register_craft({
 	recipe = {
 		{'', 'hades_core:sugar', ''},
 		{'hades_trees:apple', 'hades_trees:apple', 'hades_trees:apple'},
-		{'hades_core:sugar', 'farming:flour', 'hades_core:sugar'},
+		{'hades_core:sugar', 'hades_farming:flour', 'hades_core:sugar'},
 	}
 })
 
@@ -129,9 +129,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_food:tomatosalad 2',
 	recipe = {
-		{'farming:spice', 'hades_food:bottle_olive_oil', 'farming:spice'},
-		{'farming:tomato', 'farming:tomato', 'farming:tomato'},
-		{'hades_food:plate', 'farming:bread', 'hades_food:plate'},
+		{'hades_farming:spice', 'hades_food:bottle_olive_oil', 'hades_farming:spice'},
+		{'hades_farming:tomato', 'hades_farming:tomato', 'hades_farming:tomato'},
+		{'hades_food:plate', 'hades_farming:bread', 'hades_food:plate'},
 	}
 })
 
@@ -144,7 +144,7 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "shapeless",
 	output = 'hades_food:spiced_potato',
-	recipe = {'farming:spice', 'farming:potato'},
+	recipe = {'hades_farming:spice', 'hades_farming:potato'},
 })
 
 minetest.register_craft({

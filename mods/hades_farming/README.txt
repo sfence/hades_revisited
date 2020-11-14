@@ -1,5 +1,9 @@
--- Modified for Hades in 2015 by Glünggi
--- add some more plants and chance some source
+-- Hades Farming.
+-- Based on farming mod from Minetest Game, modified for
+-- Minetest Hades in 2015 by Glünggi.
+-- All files not mentioned below are licensed under WTFPL.
+
+ORIGINAL README FOLLOWS:
 
 Minetest 0.4 mod: farming
 =========================

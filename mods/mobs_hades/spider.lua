@@ -25,11 +25,11 @@ local spider = {
 	replace_what = {"air"},
 	replace_with = "mobs_hades:cobweb",
 	drops = {
-		{name = "farming:string",
+		{name = "hades_farming:string",
 		chance = 1,
 		min = 1,
 		max = 5,},
-		{name = "farming:string",
+		{name = "hades_farming:string",
 		chance = 15,
 		min = 2,
 		max = 6,},
@@ -102,16 +102,16 @@ minetest.register_node("mobs_hades:cobweb", {
 	liquid_range = 0,
 	walkable = false,
 	groups = {snappy=2,disable_jump=1,fake_liquid=1},
-	drop = "farming:cotton",
+	drop = "hades_farming:cotton",
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 })
 
 minetest.register_craft({
 	output = "mobs_hades:cobweb",
 	recipe = {
-		{"farming:string", "farming:string", "farming:string"},
-		{"farming:string", "farming:string", "farming:string"},
-		{"farming:string", "farming:string", "farming:string"},
+		{"hades_farming:string", "hades_farming:string", "hades_farming:string"},
+		{"hades_farming:string", "hades_farming:string", "hades_farming:string"},
+		{"hades_farming:string", "hades_farming:string", "hades_farming:string"},
 	}
 })
 

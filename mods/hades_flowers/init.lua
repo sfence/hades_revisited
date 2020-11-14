@@ -181,7 +181,7 @@ minetest.register_abm({
 minetest.register_craft({
 	output = 'hades_flowers:white',
 	recipe = {
-		{'farming:seed_cotton', 'farming:seed_cotton', 'farming:seed_cotton'},
+		{'hades_farming:seed_cotton', 'hades_farming:seed_cotton', 'hades_farming:seed_cotton'},
         {'hades_core:grass_1', 'hades_core:grass_1', 'hades_core:grass_1'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}

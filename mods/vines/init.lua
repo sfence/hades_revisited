@@ -443,9 +443,9 @@ minetest.register_node("vines:vines_block",{
 minetest.register_craft({
 	output = 'vines:vines_block',
 	recipe = {
-		{'farming:string', '', 'farming:string'},
+		{'hades_farming:string', '', 'hades_farming:string'},
 		{'', 'group:vines', ''},
-		{'farming:string', '', 'farming:string'},
+		{'hades_farming:string', '', 'hades_farming:string'},
 	}
 })
 

@@ -934,7 +934,7 @@ stairs.register_stair_and_slab("obsidianbrick", "hades_core:obsidianbrick",
 		S("Obsidian Brick Slab"),
 		hades_sounds.node_sound_stone_defaults())
 		
-stairs.register_stair_and_slab("straw", "farming:straw",
+stairs.register_stair_and_slab("straw", "hades_farming:straw",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"farming_straw.png"},
 		S("Straw Stair"),
