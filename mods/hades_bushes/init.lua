@@ -1,15 +1,15 @@
-local S = minetest.get_translator("simple_bushes")
+local S = minetest.get_translator("hades_bushes")
 
 -- See README.txt for licensing and other information.
 
 -- nodes and crafting
-minetest.register_node("simple_bushes:green", {
+minetest.register_node("hades_bushes:green", {
 	description = S("Green Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
-	tiles = { "simple_bushes_green.png" },
-	inventory_image = "simple_bushes_green.png",
-	wield_image = "simple_bushes_green.png",
+	tiles = { "hades_bushes_green.png" },
+	inventory_image = "hades_bushes_green.png",
+	wield_image = "hades_bushes_green.png",
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -23,7 +23,7 @@ minetest.register_node("simple_bushes:green", {
 })
 
 minetest.register_craft({
-	output = 'simple_bushes:green',
+	output = 'hades_bushes:green',
 	recipe = {
 		{'group:leaves', '', ''},
 		{'group:stick', '', ''},
@@ -31,13 +31,13 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("simple_bushes:white", {
+minetest.register_node("hades_bushes:white", {
 	description = S("White Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
-	tiles = { "simple_bushes_white.png" },
-	inventory_image = "simple_bushes_white.png",
-	wield_image = "simple_bushes_white.png",
+	tiles = { "hades_bushes_white.png" },
+	inventory_image = "hades_bushes_white.png",
+	wield_image = "hades_bushes_white.png",
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -51,21 +51,21 @@ minetest.register_node("simple_bushes:white", {
 })
 
 minetest.register_craft({
-	output = 'simple_bushes:white',
+	output = 'hades_bushes:white',
 	recipe = {
 		{'flowers:dandelion_white', '', ''},
-		{'simple_bushes:green', '', ''},
+		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
 })
 
-minetest.register_node("simple_bushes:yellow", {
+minetest.register_node("hades_bushes:yellow", {
 	description = S("Yellow Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
-	tiles = { "simple_bushes_yellow.png" },
-	inventory_image = "simple_bushes_yellow.png",
-	wield_image = "simple_bushes_yellow.png",
+	tiles = { "hades_bushes_yellow.png" },
+	inventory_image = "hades_bushes_yellow.png",
+	wield_image = "hades_bushes_yellow.png",
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -79,21 +79,21 @@ minetest.register_node("simple_bushes:yellow", {
 })
 
 minetest.register_craft({
-	output = 'simple_bushes:yellow',
+	output = 'hades_bushes:yellow',
 	recipe = {
 		{'flowers:dandelion_yellow', '', ''},
-		{'simple_bushes:green', '', ''},
+		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
 })
 
-minetest.register_node("simple_bushes:blue", {
+minetest.register_node("hades_bushes:blue", {
 	description = S("Blue Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
-	tiles = { "simple_bushes_blue.png" },
-	inventory_image = "simple_bushes_blue.png",
-	wield_image = "simple_bushes_blue.png",
+	tiles = { "hades_bushes_blue.png" },
+	inventory_image = "hades_bushes_blue.png",
+	wield_image = "hades_bushes_blue.png",
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -107,21 +107,21 @@ minetest.register_node("simple_bushes:blue", {
 })
 
 minetest.register_craft({
-	output = 'simple_bushes:blue',
+	output = 'hades_bushes:blue',
 	recipe = {
 		{'flowers:geranium', '', ''},
-		{'simple_bushes:green', '', ''},
+		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
 })
 
-minetest.register_node("simple_bushes:red", {
+minetest.register_node("hades_bushes:red", {
 	description = S("Red Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
-	tiles = { "simple_bushes_red.png" },
-	inventory_image = "simple_bushes_red.png",
-	wield_image = "simple_bushes_red.png",
+	tiles = { "hades_bushes_red.png" },
+	inventory_image = "hades_bushes_red.png",
+	wield_image = "hades_bushes_red.png",
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -135,21 +135,21 @@ minetest.register_node("simple_bushes:red", {
 })
 
 minetest.register_craft({
-	output = 'simple_bushes:red',
+	output = 'hades_bushes:red',
 	recipe = {
 		{'flowers:rose', '', ''},
-		{'simple_bushes:green', '', ''},
+		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
 })
 
-minetest.register_node("simple_bushes:orange", {
+minetest.register_node("hades_bushes:orange", {
 	description = S("Orange Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
-	tiles = { "simple_bushes_orange.png" },
-	inventory_image = "simple_bushes_orange.png",
-	wield_image = "simple_bushes_orange.png",
+	tiles = { "hades_bushes_orange.png" },
+	inventory_image = "hades_bushes_orange.png",
+	wield_image = "hades_bushes_orange.png",
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -163,22 +163,22 @@ minetest.register_node("simple_bushes:orange", {
 })
 
 minetest.register_craft({
-	output = 'simple_bushes:orange',
+	output = 'hades_bushes:orange',
 	recipe = {
 		{'flowers:tulip', '', ''},
-		{'simple_bushes:green', '', ''},
+		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
 })
 
 
-minetest.register_node("simple_bushes:violet", {
+minetest.register_node("hades_bushes:violet", {
 	description = S("Violet Bush"),
 	drawtype = "plantlike",
 	visual_scale = 1.6,
-	tiles = { "simple_bushes_violet.png" },
-	inventory_image = "simple_bushes_violet.png",
-	wield_image = "simple_bushes_violet.png",
+	tiles = { "hades_bushes_violet.png" },
+	inventory_image = "hades_bushes_violet.png",
+	wield_image = "hades_bushes_violet.png",
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = false,
@@ -192,18 +192,18 @@ minetest.register_node("simple_bushes:violet", {
 })
 
 minetest.register_craft({
-	output = 'simple_bushes:violet',
+	output = 'hades_bushes:violet',
 	recipe = {
 		{'flowers:viola', '', ''},
-		{'simple_bushes:green', '', ''},
+		{'hades_bushes:green', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
 })
 
-minetest.register_node("simple_bushes:plant_pot",
+minetest.register_node("hades_bushes:plant_pot",
 		{description = S("Plant Pot"),
 		paramtype = "light",
-		tiles = {"simple_bushes_plant_pot_top.png", "simple_bushes_plant_pot_bottom.png", "simple_bushes_plant_pot_sides.png"},
+		tiles = {"hades_bushes_plant_pot_top.png", "hades_bushes_plant_pot_bottom.png", "hades_bushes_plant_pot_sides.png"},
 		is_ground_content = false,
 		drawtype = "nodebox",
 		node_box = {
@@ -222,7 +222,7 @@ minetest.register_node("simple_bushes:plant_pot",
 		}),
 	})
 
-minetest.register_craft({ output = "simple_bushes:plant_pot", recipe = {
+minetest.register_craft({ output = "hades_bushes:plant_pot", recipe = {
 	{"hades_core:clay_brick", "", "hades_core:clay_brick"},
 	{"hades_core:clay_brick", "hades_core:dirt", "hades_core:clay_brick"},
 	{"hades_core:clay_brick", "hades_core:clay_brick", "hades_core:clay_brick"} } })

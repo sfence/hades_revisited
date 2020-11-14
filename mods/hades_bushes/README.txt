@@ -1,4 +1,4 @@
-Simple_bushes is a fork from the flowers mod.
+hades_bushes is a fork from the flowers mod.
 2015 by Glünggi WTFPL
 ((Plant_Pot-Texture from xdecor mod Creative Commons Attribution-ShareAlike 
 4.0 International License))
