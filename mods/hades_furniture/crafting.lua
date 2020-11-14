@@ -313,3 +313,13 @@
 		},
 	})
 
+-- Misc.
+
+	minetest.register_craft({
+		output = "hades_furniture:plant_pot",
+		recipe = {
+			{"hades_core:clay_brick", "", "hades_core:clay_brick"},
+			{"hades_core:clay_brick", "hades_core:dirt", "hades_core:clay_brick"},
+			{"hades_core:clay_brick", "hades_core:clay_brick", "hades_core:clay_brick"}
+		}
+	})

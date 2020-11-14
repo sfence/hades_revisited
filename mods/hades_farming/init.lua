@@ -162,15 +162,6 @@ minetest.register_craftitem("hades_farming:spice", {
 
 
 minetest.register_craft({
-	output = 'hades_farming:flowergrass',
-	recipe = {
-		{'hades_flowers:dandelion_white', 'hades_flowers:dandelion_yellow', 'hades_flowers:geranium'},
-		{'hades_flowers:rose', 'hades_flowers:tulip', 'hades_flowers:viola'},
-		{'hades_core:grass_1', 'hades_core:dirt', 'hades_core:grass_1'},
-	}
-})
-
-minetest.register_craft({
 	output = 'hades_farming:seed_tomato',
 	recipe = {{'hades_farming:tomato'},}
 })

@@ -178,6 +178,35 @@ minetest.register_abm({
 	end,
 })
 
+minetest.register_node("hades_flowers:flowergrass", {
+	description = S("Flower Grass"),
+	drawtype = "plantlike",
+	tiles = {"hades_flowers_flowergrass.png"},
+	inventory_image = "hades_flowers_flowergrass.png",
+	wield_image = "hades_flowers_flowergrass.png",
+	paramtype = "light",
+	waving = 1,
+	walkable = false,
+	buildable_to = true,
+	floodable = true,
+	is_ground_content = true,
+	groups = {snappy=3,flammable=3,flora=1,attached_node=1},
+	sounds = hades_sounds.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
+})
+
+minetest.register_craft({
+	output = 'hades_flowers:flowergrass',
+	recipe = {
+		{'hades_flowers:dandelion_white', 'hades_flowers:dandelion_yellow', 'hades_flowers:geranium'},
+		{'hades_flowers:rose', 'hades_flowers:tulip', 'hades_flowers:viola'},
+		{'hades_core:grass_1', 'hades_core:dirt', 'hades_core:grass_1'},
+	}
+})
+
 minetest.register_craft({
 	output = 'hades_flowers:white',
 	recipe = {

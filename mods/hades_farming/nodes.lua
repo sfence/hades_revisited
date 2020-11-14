@@ -136,22 +136,4 @@ minetest.override_item("hades_core:junglegrass", {
 	}
 }})
 
-minetest.register_node("hades_farming:flowergrass", {
-		description = S("Flower Grass"),
-		drawtype = "plantlike",
-		tiles = {"hades_farming_flowergrass.png"},
-		inventory_image = "hades_farming_flowergrass.png",
-		wield_image = "hades_farming_flowergrass.png",
-		paramtype = "light",
-		waving = 1,
-		walkable = false,
-		buildable_to = true,
-		floodable = true,
-		is_ground_content = true,
-		groups = {snappy=3,flammable=3,flora=1,attached_node=1},
-		sounds = hades_sounds.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-		},
-	})
+

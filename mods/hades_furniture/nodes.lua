@@ -645,3 +645,27 @@ local S = minetest.get_translator("hades_furniture")
 		sounds = hades_sounds.node_sound_metal_defaults(),
 		on_rotate = "simple",
 	})
+
+	minetest.register_node("hades_furniture:plant_pot", {
+		description = S("Plant Pot"),
+		paramtype = "light",
+		tiles = {"hades_furniture_plant_pot_top.png", "hades_furniture_plant_pot_bottom.png", "hades_furniture_plant_pot_sides.png"},
+		is_ground_content = false,
+		drawtype = "nodebox",
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5,-0.5,-3/16, 0.5,0.5,3/16},
+				{-7/16,-0.5,-5/16, 7/16,0.5,5/16},
+				{-6/16,-0.5,-6/16, 6/16,0.5,6/16},
+				{-5/16,-0.5,-7/16, 5/16,0.5,7/16},
+				{-3/16,-0.5,-0.5, 3/16,0.5,0.5},
+			},
+		},
+		groups = {cracky=3},
+		sounds = hades_sounds.node_sound_stone_defaults({
+			footstep = hades_sounds.node_sound_dirt_defaults().footstep,
+		}),
+	})
+
+
