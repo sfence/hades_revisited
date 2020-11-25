@@ -111,6 +111,7 @@ hades_trees.register_fruit = function(id, def)
 		drawtype = def.drawtype,
 		tiles = {def.image},
 		inventory_image = def.image,
+		wield_image = def.image,
 		paramtype = "light",
 		sunlight_propagates = true,
 		walkable = false,
