@@ -655,8 +655,8 @@ minetest.register_node("hades_core:bookshelf", {
 
 minetest.register_node("hades_core:glass", {
 	description = S("Glass"),
-	drawtype = "glasslike",
-	tiles = {"default_glass.png"},
+	drawtype = "glasslike_framed_optional",
+	tiles = {"default_glass.png", "default_glass_detail.png"},
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = false,
@@ -943,8 +943,8 @@ minetest.register_node("hades_core:diamondblock", {
 
 minetest.register_node("hades_core:obsidian_glass", {
 	description = S("Obsidian Glass"),
-	drawtype = "glasslike",
-	tiles = {"default_obsidian_glass.png"},
+	drawtype = "glasslike_framed_optional",
+	tiles = {"default_obsidian_glass.png", "default_obsidian_glass_detail.png"},
 	paramtype = "light",
 	is_ground_content = false,
 	sunlight_propagates = true,
