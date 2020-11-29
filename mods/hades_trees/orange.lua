@@ -4,7 +4,7 @@ hades_trees.register_leaves("orange_leaves", {
 	description = S("Orange Leaves"),
 	image = "hades_trees_orange_leaves.png",
 	ash_fertilizer = 3,
-	drop_item = "hades_trees:sapling",
+	drop_item = "hades_trees:orange_sapling",
 	drop_rarity = 20,
 })
 hades_trees.register_sapling("orange_sapling", {
