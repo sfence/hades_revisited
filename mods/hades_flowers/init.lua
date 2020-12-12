@@ -201,8 +201,8 @@ minetest.register_node("hades_flowers:flowergrass", {
 minetest.register_craft({
 	output = 'hades_flowers:flowergrass',
 	recipe = {
-		{'hades_flowers:dandelion_white', 'hades_flowers:dandelion_yellow', 'hades_flowers:geranium'},
-		{'hades_flowers:rose', 'hades_flowers:tulip', 'hades_flowers:viola'},
+		{'hades_flowers:white', 'hades_flowers:yellow', 'hades_flowers:blue'},
+		{'hades_flowers:red', 'hades_flowers:orange', 'hades_flowers:violet'},
 		{'hades_core:grass_1', 'hades_core:dirt', 'hades_core:grass_1'},
 	}
 })
