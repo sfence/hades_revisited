@@ -228,6 +228,8 @@ plantslib:register_generate_plant({
   "flowers_plus.grow_waterlily"
 )
 
+-- hot fix, flowers:seaweed_1 is not exists
+minetest.register_alias("flowers:seaweed_1", "flowers:seaweed");
 
 flowers_plus.grow_seaweed = function(pos)
 	local right_here = {x=pos.x, y=pos.y+1, z=pos.z}
