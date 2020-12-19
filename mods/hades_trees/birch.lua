@@ -12,7 +12,7 @@ hades_trees.register_leaves("birch_leaves", {
 	description = S("Birch Leaves"),
 	image = "default_leaves_birch.png",
 	ash_fertilizer = 3,
-	drop_item = "hades_trees:sapling",
+	drop_item = "hades_trees:birch_sapling",
 	drop_rarity = 30,
 })
 hades_trees.register_sapling("birch_sapling", {
