@@ -228,6 +228,7 @@ plantslib:register_generate_plant({
   "hades_waterplants.grow_waterlily"
 )
 
+minetest.register_alias("hades_waterplants:seaweed_1", "hades_waterplants:seaweed");
 
 hades_waterplants.grow_seaweed = function(pos)
 	local right_here = {x=pos.x, y=pos.y+1, z=pos.z}
