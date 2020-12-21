@@ -1,6 +1,0 @@
-hades_sounds
-hades_core
-hades_furnaces
-hades_chests
-mesecons?
-mesecons_mvps?

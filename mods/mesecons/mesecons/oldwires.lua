@@ -4,13 +4,13 @@ minetest.register_node("mesecons:mesecon_off", {
 	inventory_image = "jeija_mesecon_off.png",
 	wield_image = "jeija_mesecon_off.png",
 	paramtype = "light",
-	is_ground_content = true,
+	is_ground_content = false,
 	walkable = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -0.45, 0.5},
 	},
-	groups = {dig_immediate=3, mesecon=1, mesecon_conductor_craftable=1,connect_to_raillike=minetest.raillike_group("mesecon")},
+	groups = {dig_immediate=3, mesecon=1, mesecon_conductor_craftable=1},
     	description="Mesecons",
 	mesecons = {conductor={
 		state = mesecon.state.off,
@@ -22,13 +22,13 @@ minetest.register_node("mesecons:mesecon_on", {
 	drawtype = "raillike",
 	tiles = {"jeija_mesecon_on.png", "jeija_mesecon_curved_on.png", "jeija_mesecon_t_junction_on.png", "jeija_mesecon_crossing_on.png"},
 	paramtype = "light",
-	is_ground_content = true,
+	is_ground_content = false,
 	walkable = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -0.45, 0.5},
 	},
-	groups = {dig_immediate=3, not_in_creaive_inventory=1, mesecon=1,connect_to_raillike=minetest.raillike_group("mesecon")},
+	groups = {dig_immediate=3, not_in_creaive_inventory=1, mesecon=1},
 	drop = "mesecons:mesecon_off 1",
 	light_source = minetest.LIGHT_MAX-11,
 	mesecons = {conductor={

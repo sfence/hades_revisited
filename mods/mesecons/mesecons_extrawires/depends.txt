@@ -1,2 +1,0 @@
-hades_core
-mesecons
