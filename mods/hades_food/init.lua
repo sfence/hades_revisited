@@ -132,7 +132,8 @@ minetest.register_craft({
 		{'hades_farming:spice', 'hades_food:bottle_olive_oil', 'hades_farming:spice'},
 		{'hades_farming:tomato', 'hades_farming:tomato', 'hades_farming:tomato'},
 		{'hades_food:plate', 'hades_farming:bread', 'hades_food:plate'},
-	}
+	},
+  replacements = {{"hades_food:bottle_olive_oil","vessels:glass_bottle"}}
 })
 
 minetest.register_craft({
