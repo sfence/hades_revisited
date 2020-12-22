@@ -183,8 +183,8 @@ end
 
 -- Activation:
 mesecon.queue:add_function("activate", function (pos, rulename)
-	node = minetest.get_node(pos)
-	effector = mesecon:get_effector(node.name)
+	local node = minetest.get_node(pos)
+	local effector = mesecon:get_effector(node.name)
 
 	if effector and effector.action_on then
 		effector.action_on(pos, node, rulename)
