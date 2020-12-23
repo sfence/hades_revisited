@@ -25,7 +25,7 @@ travelnet.doors_enabled            = true;
 
 travelnet.travelnet_recipe = {
          {"hades_core:glass", "hades_core:steel_ingot", "hades_core:glass", },
-         {"hades_core:tin_ingot", "travelnet:teleporter_device", "hades_core:tin_ingot", },
+         {"hades_core:tin_ingot", "hades_materials:teleporter_device", "hades_core:tin_ingot", },
          {"hades_core:glass", "hades_core:steel_ingot", "hades_core:glass", }
 }
 travelnet.elevator_recipe = {
