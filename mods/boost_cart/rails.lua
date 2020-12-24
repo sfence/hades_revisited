@@ -26,9 +26,9 @@ boost_cart:register_rail(":carts:copperrail", {
 minetest.register_craft({
   output = "carts:copperrail 12",
   recipe = {
-    {"hades_core:copper_ingot", "", "hades_core:copper_ingot"},
-    {"hades_core:copper_ingot", "group:stick", "hades_core:copper_ingot"},
-    {"hades_core:copper_ingot", "", "hades_core:copper_ingot"},
+    {"hades_core:bronze_ingot", "", "hades_core:bronze_ingot"},
+    {"hades_core:bronze_ingot", "group:stick", "hades_core:bronze_ingot"},
+    {"hades_core:bronze_ingot", "", "hades_core:bronze_ingot"},
   }
 })
 
