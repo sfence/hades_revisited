@@ -212,7 +212,20 @@ minetest.do_item_eat = function(hp_change, replace_with_item, itemstack, user, p
 	)
 	local name = user and user:get_player_name() or ""
 	if not minetest.is_creative_enabled(name) then
-		itemstack:take_item()
+		local take = itemstack:take_item()
+		if not take then
+			return itemstack
+		end
+		if itemstack:get_count() == 0 then
+			itemstack:add_item(replace_with_item)
+		else
+			local inv = user:get_inventory()
+			if inv:room_for_item("main", replace_with_item) then
+				inv:add_item("main", replace_with_item)
+			else
+				minetest.add_item(user:get_pos(), replace_with_item)
+			end
+		end
 	end
 	return itemstack
 
