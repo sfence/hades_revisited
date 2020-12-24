@@ -514,7 +514,7 @@ function doors.register_trapdoor(name, def)
 			meta:set_string("owner", pn)
 			meta:set_string("infotext", S("Owned by @1", pn))
 
-			return (minetest.creative_is_enabled(pn))
+			return (minetest.is_creative_enabled(pn))
 		end
 
 		def.on_blast = function() end
