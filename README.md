@@ -1,5 +1,5 @@
 # Hades Revisited
-Version 0.8.2
+Version 0.8.3
 
 A game for Minetest, focused on terraforming.
 Based on *Minetest Hades* by Glünngi.
