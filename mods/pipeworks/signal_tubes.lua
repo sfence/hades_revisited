@@ -151,12 +151,15 @@ if pipeworks.enable_conductor_tube then
 							  offstate = "pipeworks:conductor_tube_off_#id"}}
 			},
 	})
-
-	minetest.register_craft({
-		type = "shapeless",
-		output = "pipeworks:conductor_tube_off_1",
-		recipe = {"pipeworks:tube_1", "mesecons:mesecon"}
-	})
+  
+  minetest.register_craft( {
+   output = "pipeworks:conductor_tube_off_1 6",
+   recipe = {
+           { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" },
+           { "mesecons:mesecon", "mesecons:mesecon", "mesecons:mesecon" },
+           { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" }
+   },
+  })
 end
 
 if digiline_enabled and pipeworks.enable_digiline_conductor_tube then
