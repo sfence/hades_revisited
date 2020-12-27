@@ -448,7 +448,7 @@ minetest.register_entity("pipeworks:tubed_item", {
 			if go_next (self.start_pos, velocity, stack) == 0 then
 				drop_pos = minetest.find_node_near(vector.add(self.start_pos, velocity), 1, "air")
 				if drop_pos then 
-					minetest.item_drop(stack, "", drop_pos)
+					minetest.item_drop(stack, nil, drop_pos)
 					self.object:remove()
 				end
 			end
