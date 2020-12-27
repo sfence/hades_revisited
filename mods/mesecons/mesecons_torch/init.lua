@@ -2,15 +2,15 @@
 
 local rotate_torch_rules = function (rules, param2)
 	if param2 == 5 then
-		return mesecon:rotate_rules_right(rules)
+		return mesecon.rotate_rules_right(rules)
 	elseif param2 == 2 then
-		return mesecon:rotate_rules_right(mesecon:rotate_rules_right(rules)) --180 degrees
+		return mesecon.rotate_rules_right(mesecon.rotate_rules_right(rules)) --180 degrees
 	elseif param2 == 4 then
-		return mesecon:rotate_rules_left(rules)
+		return mesecon.rotate_rules_left(rules)
 	elseif param2 == 1 then
-		return mesecon:rotate_rules_down(rules)
+		return mesecon.rotate_rules_down(rules)
 	elseif param2 == 0 then
-		return mesecon:rotate_rules_up(rules)
+		return mesecon.rotate_rules_up(rules)
 	else
 		return rules
 	end
@@ -54,15 +54,18 @@ minetest.register_node("mesecons_torch:mesecon_torch_off", {
 	tiles = {"jeija_torches_off.png", "jeija_torches_off_ceiling.png", "jeija_torches_off_side.png"},
 	inventory_image = "jeija_torches_off.png",
 	paramtype = "light",
+	is_ground_content = false,
 	walkable = false,
 	paramtype2 = "wallmounted",
 	selection_box = torch_selectionbox,
 	groups = {dig_immediate = 3, not_in_creative_inventory = 1},
 	drop = "mesecons_torch:mesecon_torch_on",
+	sounds = hades_sounds.node_sound_defaults(),
 	mesecons = {receptor = {
 		state = mesecon.state.off,
 		rules = torch_get_output_rules
-	}}
+	}},
+	on_blast = mesecon.on_blastnode,
 })
 
 minetest.register_node("mesecons_torch:mesecon_torch_on", {
@@ -71,6 +74,7 @@ minetest.register_node("mesecons_torch:mesecon_torch_on", {
 	inventory_image = "jeija_torches_on.png",
 	wield_image = "jeija_torches_on.png",
 	paramtype = "light",
+	is_ground_content = false,
 	sunlight_propagates = true,
 	walkable = false,
 	paramtype2 = "wallmounted",
@@ -78,22 +82,23 @@ minetest.register_node("mesecons_torch:mesecon_torch_on", {
 	groups = {dig_immediate=3},
 	light_source = minetest.LIGHT_MAX-5,
 	description="Mesecon Torch",
+	sounds = hades_sounds.node_sound_defaults(),
 	mesecons = {receptor = {
 		state = mesecon.state.on,
 		rules = torch_get_output_rules
 	}},
+	on_blast = mesecon.on_blastnode,
 })
 
 minetest.register_abm({
-	label = "Handle mesecon torch",
 	nodenames = {"mesecons_torch:mesecon_torch_off","mesecons_torch:mesecon_torch_on"},
 	interval = 1,
 	chance = 1,
 	action = function(pos, node)
 		local is_powered = false
 		for _, rule in ipairs(torch_get_input_rules(node)) do
-			local src = mesecon:addPosRule(pos, rule)
-			if mesecon:is_power_on(src) then
+			local src = vector.add(pos, rule)
+			if mesecon.is_power_on(src) then
 				is_powered = true
 			end
 		end
@@ -101,11 +106,11 @@ minetest.register_abm({
 		if is_powered then
 			if node.name == "mesecons_torch:mesecon_torch_on" then
 				minetest.swap_node(pos, {name = "mesecons_torch:mesecon_torch_off", param2 = node.param2})
-				mesecon:receptor_off(pos, torch_get_output_rules(node))
+				mesecon.receptor_off(pos, torch_get_output_rules(node))
 			end
 		elseif node.name == "mesecons_torch:mesecon_torch_off" then
 			minetest.swap_node(pos, {name = "mesecons_torch:mesecon_torch_on", param2 = node.param2})
-			mesecon:receptor_on(pos, torch_get_output_rules(node))
+			mesecon.receptor_on(pos, torch_get_output_rules(node))
 		end
 	end
 })

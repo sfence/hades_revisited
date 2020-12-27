@@ -1,162 +1,271 @@
-
+local S = minetest.get_translator("pipeworks")
 local filename=minetest.get_worldpath() .. "/teleport_tubes"
 
-local function read_file()
-	local f = io.open(filename, "r")
-	if f==nil then return {} end
-    	local t = f:read("*all")
-    	f:close()
-	if t=="" or t==nil then return {} end
-	return minetest.deserialize(t)
+local tp_tube_db = nil -- nil forces a read
+local tp_tube_db_version = 2.0
+
+local function hash(pos)
+	return string.format("%.30g", minetest.hash_node_position(pos))
 end
 
-local function write_file(tbl)
-	local f = io.open(filename, "w")
-    	f:write(minetest.serialize(tbl))
-    	f:close()
+local function save_tube_db()
+	local file, err = io.open(filename, "w")
+	if file then
+		tp_tube_db.version = tp_tube_db_version
+		file:write(minetest.serialize(tp_tube_db))
+		tp_tube_db.version = nil
+		io.close(file)
+	else
+		error(err)
+	end
 end
 
-local function update_pos_in_file(pos)
-	local tbl=read_file()
-	for _,val in ipairs(tbl) do
-		if val.x==pos.x and val.y==pos.y and val.z==pos.z then
-			local meta = minetest.get_meta(val)
-			val.channel = meta:get_string("channel")
-			val.cr = meta:get_int("can_receive")
+local function migrate_tube_db()
+		local tmp_db = {}
+		tp_tube_db.version = nil
+		for key, val in pairs(tp_tube_db) do
+			if(val.channel ~= "") then -- skip unconfigured tubes
+				tmp_db[hash(val)] = val
+			end
+		end
+		tp_tube_db = tmp_db
+		save_tube_db()
+end
+
+local function read_tube_db()
+	local file = io.open(filename, "r")
+	if file ~= nil then
+		local file_content = file:read("*all")
+		io.close(file)
+
+		if file_content and file_content ~= "" then
+			tp_tube_db = minetest.deserialize(file_content)
+			if(not tp_tube_db.version or tonumber(tp_tube_db.version) < tp_tube_db_version) then
+				migrate_tube_db()
+			end
+			tp_tube_db.version = nil -- we add it back when saving
+			return tp_tube_db -- we read sucessfully
 		end
 	end
-	write_file(tbl)
+	tp_tube_db = {}
+	return tp_tube_db
 end
 
-local function add_tube_in_file(pos,channel, cr)
-	local tbl=read_file()
-	for _,val in ipairs(tbl) do
-		if val.x==pos.x and val.y==pos.y and val.z==pos.z then
-			return
+-- debug formatter for coordinates used below
+local fmt = function(pos)
+	return pos.x..", "..pos.y..", "..pos.z
+end
+
+-- updates or adds a tube
+local function set_tube(pos, channel, can_receive)
+	local tubes = tp_tube_db or read_tube_db()
+	local hash = hash(pos)
+	local tube = tubes[hash]
+	if tube then
+		tube.channel = channel
+		tube.cr = can_receive
+		save_tube_db()
+		return
+	end
+
+	-- we haven't found any tp tube to update, so lets add it
+	-- but sanity check that the hash has not already been inserted.
+	-- if so, complain very loudly and refuse the update so the player knows something is amiss.
+	-- to catch regressions of https://github.com/minetest-mods/pipeworks/issues/166
+	local existing = tp_tube_db[hash]
+	if  existing ~= nil then
+		local e = "error"
+		minetest.log(e, "pipeworks teleport tube update refused due to position hash collision")
+		minetest.log(e, "collided hash: "..hash)
+		minetest.log(e, "tried-to-place tube: "..fmt(pos))
+		minetest.log(e, "existing tube: "..fmt(existing))
+		return
+	end
+
+	tp_tube_db[hash] = {x=pos.x,y=pos.y,z=pos.z,channel=channel,cr=can_receive}
+	save_tube_db()
+end
+
+local function remove_tube(pos)
+	local tubes = tp_tube_db or read_tube_db()
+	tubes[hash(pos)] = nil
+	save_tube_db()
+end
+
+local function read_node_with_vm(pos)
+	local vm = VoxelManip()
+	local MinEdge, MaxEdge = vm:read_from_map(pos, pos)
+	local data = vm:get_data()
+	local area = VoxelArea:new({MinEdge = MinEdge, MaxEdge = MaxEdge})
+	return minetest.get_name_from_content_id(data[area:index(pos.x, pos.y, pos.z)])
+end
+
+local function get_receivers(pos, channel)
+	local tubes = tp_tube_db or read_tube_db()
+	local receivers = {}
+	local dirty = false
+	for key, val in pairs(tubes) do
+		-- skip all non-receivers and the tube that it came from as early as possible, as this is called often
+		if (val.cr == 1 and val.channel == channel and (val.x ~= pos.x or val.y ~= pos.y or val.z ~= pos.z)) then
+			local is_loaded = (minetest.get_node_or_nil(val) ~= nil)
+			local node_name = is_loaded and minetest.get_node(pos).name or read_node_with_vm(val)
+
+			if minetest.registered_nodes[node_name] and minetest.registered_nodes[node_name].is_teleport_tube then
+				table.insert(receivers, val)
+			else
+				tp_tube_db[key] = nil
+				dirty = true
+			end
 		end
 	end
-	table.insert(tbl,{x=pos.x,y=pos.y,z=pos.z,channel=channel,cr=cr})
-	write_file(tbl)
-end
-
-local function remove_tube_in_file(pos)
-	local tbl=read_file()
-	local newtbl={}
-	for _,val in ipairs(tbl) do
-		if val.x~=pos.x or val.y~=pos.y or val.z~=pos.z then
-			table.insert(newtbl,val)
-		end
+	if dirty then
+		save_tube_db()
 	end
-	write_file(newtbl)
+	return receivers
 end
 
-local function get_tubes_in_file(pos,channel)
-	local tbl=read_file()
-	local newtbl={}
-	local changed=false
-	for _,val in ipairs(tbl) do
-		local node = minetest.get_node(val)
-		local meta = minetest.get_meta(val)
-		-- That shouldn't be needed anymore since the mvps callback, but we leave it nevertheless
-		if node.name~="ignore"  and (val.channel~=meta:get_string("channel") or val.cr~=meta:get_int("can_receive")) then
-			val.channel=meta:get_string("channel")
-			val.cr=meta:get_int("can_receive")
-			changed=true
-		end
-		if val.cr==1 and val.channel==channel and (val.x~=pos.x or val.y~=pos.y or val.z~=pos.z) then
-			table.insert(newtbl,val)
-		end
-	end
-	if changed then write_file(tbl) end
-	return newtbl
+local function update_meta(meta, can_receive)
+	meta:set_int("can_receive", can_receive and 1 or 0)
+	local cr_state = can_receive and "on" or "off"
+	meta:set_string("formspec","size[8.6,2.2]"..
+			"field[0.6,0.6;7,1;channel;"..S("Channel")..";${channel}]"..
+			"label[7.3,0;"..S("Receive").."]"..
+			"image_button[7.3,0.3;1,0.6;pipeworks_button_" .. cr_state .. ".png;cr" .. (can_receive and 0 or 1) .. ";;;false;pipeworks_button_interm.png]"..
+			"image[0.3,1.3;1,1;pipeworks_teleport_tube_inv.png]"..
+			"label[1.6,1.2;"..S("channels are public by default").."]" ..
+			"label[1.6,1.5;"..S("use <player>:<channel> for fully private channels").."]" ..
+			"label[1.6,1.8;"..S("use <player>\\;<channel> for private receivers").."]" ..
+			default.gui_bg..
+			default.gui_bg_img)
 end
 
-local teleport_noctr_textures={"pipeworks_teleport_tube_noctr.png","pipeworks_teleport_tube_noctr.png","pipeworks_teleport_tube_noctr.png",
-		"pipeworks_teleport_tube_noctr.png","pipeworks_teleport_tube_noctr.png","pipeworks_teleport_tube_noctr.png"}
-local teleport_plain_textures={"pipeworks_teleport_tube_plain.png","pipeworks_teleport_tube_plain.png","pipeworks_teleport_tube_plain.png",
-		"pipeworks_teleport_tube_plain.png","pipeworks_teleport_tube_plain.png","pipeworks_teleport_tube_plain.png"}
-local teleport_end_textures={"pipeworks_teleport_tube_end.png","pipeworks_teleport_tube_end.png","pipeworks_teleport_tube_end.png",
-		"pipeworks_teleport_tube_end.png","pipeworks_teleport_tube_end.png","pipeworks_teleport_tube_end.png"}
-local teleport_short_texture="pipeworks_teleport_tube_short.png"
-local teleport_inv_texture="pipeworks_teleport_tube_inv.png"
+pipeworks.register_tube("pipeworks:teleport_tube", {
+	description = S("Teleporting Pneumatic Tube Segment"),
+	inventory_image = "pipeworks_teleport_tube_inv.png",
+	noctr = { "pipeworks_teleport_tube_noctr.png" },
+	plain = { "pipeworks_teleport_tube_plain.png" },
+	ends = { "pipeworks_teleport_tube_end.png" },
+	short = "pipeworks_teleport_tube_short.png",
+	node_def = {
+		is_teleport_tube = true,
+		tube = {
+			can_go = function(pos,node,velocity,stack)
+				velocity.x = 0
+				velocity.y = 0
+				velocity.z = 0
 
-pipeworks.register_tube("pipeworks:teleport_tube","Teleporter Pneumatic Tube Segment",teleport_plain_textures,
-	teleport_noctr_textures,teleport_end_textures,teleport_short_texture,teleport_inv_texture, {
-	tube = {
-		can_go = function(pos,node,velocity,stack)
-			velocity.x = 0
-			velocity.y = 0
-			velocity.z = 0
+				local channel = minetest.get_meta(pos):get_string("channel")
+				if channel == "" then return {} end
+
+				local target = get_receivers(pos, channel)
+				if target[1] == nil then return {} end
+
+				local d = math.random(1,#target)
+				pos.x = target[d].x
+				pos.y = target[d].y
+				pos.z = target[d].z
+				return pipeworks.meseadjlist
+			end
+		},
+		on_construct = function(pos)
 			local meta = minetest.get_meta(pos)
-			local channel = meta:get_string("channel")
-			local target = get_tubes_in_file(pos,channel)
-			if target[1] == nil then return {} end
-			local d = math.random(1,#target)
-			pos.x = target[d].x
-			pos.y = target[d].y
-			pos.z = target[d].z
-			return pipeworks.meseadjlist
-		end
-	},
-	on_construct = function(pos)
-		local meta = minetest.get_meta(pos)
-		meta:set_string("channel","")
-		meta:set_int("can_receive",1)
-		meta:set_string("formspec","size[9,1;]"..
-				"field[0,0.5;7,1;channel;Channel:;${channel}]"..
-				"button[8,0;1,1;bt;On]")
-		add_tube_in_file(pos,"")
-	end,
-	on_receive_fields = function(pos,formname,fields,sender)
-		local meta = minetest.get_meta(pos)
-		
-		--check for private channels
-		if fields.channel ~= nil then
-			local name, mode = fields.channel:match("^([^:;]+)([:;])")
-			if name and mode and name ~= sender:get_player_name() then
+			update_meta(meta, true)
+			meta:set_string("infotext", S("unconfigured Teleportation Tube"))
+		end,
+		on_receive_fields = function(pos,formname,fields,sender)
+			if not fields.channel -- ignore escaping or clientside manipulation of the form
+			or not pipeworks.may_configure(pos, sender) then
+				return
+			end
+			local new_channel = tostring(fields.channel):trim()
+
+			local meta = minetest.get_meta(pos)
+			local can_receive = meta:get_int("can_receive")
+
+			-- check for private channels each time before actually changing anything
+			-- to not even allow switching between can_receive states of private channels
+			if new_channel ~= "" then
+				local sender_name = sender:get_player_name()
+				local name, mode = new_channel:match("^([^:;]+)([:;])")
+				if name and mode and name ~= sender_name then
+					--channels starting with '[name]:' can only be used by the named player
+					if mode == ":" then
+						minetest.chat_send_player(sender_name, S("Sorry, channel '@1' is reserved for exclusive use by @2",
+							new_channel, name))
+						return
 				
-				--channels starting with '[name]:' can only be used by the named player
-				if mode == ":" then
-					minetest.chat_send_player(sender:get_player_name(), "Sorry, channel '"..fields.channel.."' is reserved for exclusive use by "..name)
-					return
-				
-				--channels starting with '[name];' can be used by other players, but cannot be received from
-				elseif mode == ";" and (meta:get_int("can_receive") ~= 0) == (fields["bt"] == nil) then
-					minetest.chat_send_player(sender:get_player_name(), "Sorry, receiving from channel '"..fields.channel.."' is reserved for "..name)
-					return
+					--channels starting with '[name];' can be used by other players, but cannot be received from
+					elseif mode == ";" and (fields.cr1 or (can_receive ~= 0 and not fields.cr0)) then
+						minetest.chat_send_player(sender_name, S("Sorry, receiving from channel '@1' is reserved for @2",
+							new_channel, name))
+						return
+					end
 				end
 			end
-		end
-		
-		if fields.channel==nil then fields.channel=meta:get_string("channel") end
-		meta:set_string("channel",fields.channel)
-		remove_tube_in_file(pos)
-		local cr = meta:get_int("can_receive")
-		if fields["bt"] then
-			cr=1-cr
-			meta:set_int("can_receive",cr)
-			if cr==1 then
-				meta:set_string("formspec","size[9,1;]"..
-					"field[0,0.5;7,1;channel;Channel:;${channel}]"..
-					"button[8,0;1,1;bt;On]")
-			else
-				meta:set_string("formspec","size[9,1;]"..
-					"field[0,0.5;7,1;channel;Channel:;${channel}]"..
-					"button[8,0;1,1;bt;Off]")
+
+			local dirty = false
+
+			-- was the channel changed?
+			local channel = meta:get_string("channel")
+			if new_channel ~= channel then
+				channel = new_channel
+				meta:set_string("channel", channel)
+				dirty = true
 			end
+
+			-- test if a can_receive button was pressed
+			if fields.cr0 and can_receive ~= 0 then
+				can_receive = 0
+				update_meta(meta, false)
+				dirty = true
+			elseif fields.cr1 and can_receive ~= 1 then
+				can_receive = 1
+				update_meta(meta, true)
+				dirty = true
+			end
+
+			-- save if we changed something, handle the empty channel while we're at it
+			if dirty then
+				if channel ~= "" then
+					set_tube(pos, channel, can_receive)
+					local cr_description = (can_receive == 1) and "sending and receiving" or "sending"
+					meta:set_string("infotext", S("Teleportation Tube @1 on '@2'", cr_description, channel))
+				else
+					-- remove empty channel tubes, to not have to search through them
+					remove_tube(pos)
+					meta:set_string("infotext", S("unconfigured Teleportation Tube"))
+				end
+			end
+		end,
+		on_destruct = function(pos)
+			remove_tube(pos)
 		end
-		add_tube_in_file(pos,fields.channel, cr)
-	end,
-	on_destruct = function(pos)
-		remove_tube_in_file(pos)
-	end})
+	},
+})
+minetest.register_craft( {
+	output = "pipeworks:teleport_tube_1 2",
+	recipe = {
+	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" },
+	        { "hades_core:stone_baked", "hades_core:mese", "hades_core:stone_baked" },
+	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" }
+	},
+})
 
 if minetest.get_modpath("mesecons_mvps") ~= nil then
-	mesecon:register_on_mvps_move(function(moved_nodes)
+	mesecon.register_on_mvps_move(function(moved_nodes)
 		for _, n in ipairs(moved_nodes) do
 			if string.find(n.node.name, "pipeworks:teleport_tube") ~= nil then
-				update_pos_in_file(n.pos)
+				local meta = minetest.get_meta(n.pos)
+				set_tube(n.pos, meta:get_string("channel"), meta:get_int("can_receive"))
 			end
 		end
 	end)
 end
+
+-- Expose teleport tube database API for other mods
+pipeworks.tptube = {
+	hash = hash,
+	save_tube_db = save_tube_db,
+	get_db = function() return tp_tube_db or read_tube_db() end,
+	tp_tube_db_version = tp_tube_db_version
+}

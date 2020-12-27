@@ -1,32 +1,14 @@
-minetest.swap_node = minetest.swap_node or function(pos, node)
-	local data = minetest.get_meta(pos):to_table()
-	minetest.add_node(pos, node)
-	minetest.get_meta(pos):from_table(data)
+-- Un-forceload any forceloaded mapblocks from older versions of Mesecons which
+-- used forceloading instead of VoxelManipulators.
+local BLOCKSIZE = 16
+
+-- convert block hash --> node position
+local function unhash_blockpos(hash)
+	return vector.multiply(minetest.get_position_from_hash(hash), BLOCKSIZE)
 end
 
-local rules = {}
-rules.a = {x = -1, y = 0, z =  0, name="A"}
-rules.b = {x =  0, y = 0, z =  1, name="B"}
-rules.c = {x =  1, y = 0, z =  0, name="C"}
-rules.d = {x =  0, y = 0, z = -1, name="D"}
-
-function legacy_update_ports(pos)
-	local meta = minetest.get_meta(pos)
-	L = {
-		a = mesecon:is_power_on(mesecon:addPosRule(pos, rules.a),
-			mesecon:invertRule(rules.a)) and
-			mesecon:rules_link(mesecon:addPosRule(pos, rules.a), pos),
-		b = mesecon:is_power_on(mesecon:addPosRule(pos, rules.b),
-			mesecon:invertRule(rules.b)) and
-			mesecon:rules_link(mesecon:addPosRule(pos, rules.b), pos),
-		c = mesecon:is_power_on(mesecon:addPosRule(pos, rules.c),
-			mesecon:invertRule(rules.c)) and
-			mesecon:rules_link(mesecon:addPosRule(pos, rules.c), pos),
-		d = mesecon:is_power_on(mesecon:addPosRule(pos, rules.d),
-			mesecon:invertRule(rules.d)) and
-			mesecon:rules_link(mesecon:addPosRule(pos, rules.d), pos),
-	}
-	local n = (L.a and 1 or 0) + (L.b and 2 or 0) + (L.c and 4 or 0) + (L.d and 8 or 0) + 1
-	meta:set_int("real_portstates", n)
-	return L
+local old_forceloaded_blocks = mesecon.file2table("mesecon_forceloaded")
+for hash, _ in pairs(old_forceloaded_blocks) do
+	minetest.forceload_free_block(unhash_blockpos(hash))
 end
+os.remove(minetest.get_worldpath()..DIR_DELIM.."mesecon_forceloaded")
