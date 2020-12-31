@@ -43,8 +43,8 @@ if pipeworks.enable_mese_sand_tube then
 					meta:set_string("formspec", "size[2.1,0.8]"..
 							"image[0,0;1,1;pipeworks_mese_sand_tube_inv.png]"..
 							"field[1.3,0.4;1,1;dist;radius;${dist}]"..
-							default.gui_bg..
-							default.gui_bg_img)
+							pipeworks.gui_bg..
+							pipeworks.gui_bg_img)
 					meta:set_string("infotext", S("Adjustable Vacuuming Pneumatic Tube Segment"))
 				end,
 				on_receive_fields = function(pos,formname,fields,sender)
