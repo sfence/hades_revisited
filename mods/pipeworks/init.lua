@@ -12,6 +12,8 @@ pipeworks.worldpath = minetest.get_worldpath()
 pipeworks.modpath = minetest.get_modpath("pipeworks")
 local S = minetest.get_translator("pipeworks")
 
+dofile(pipeworks.modpath.."/functions.lua")
+
 dofile(pipeworks.modpath.."/default_settings.lua")
 -- Read the external config file if it exists.
 local worldsettingspath = pipeworks.worldpath.."/pipeworks_settings.txt"

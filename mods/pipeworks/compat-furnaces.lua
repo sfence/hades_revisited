@@ -358,9 +358,9 @@ minetest.register_node(":hades_furnaces:furnace", {
 	end,
 	on_blast = function(pos)
 		local drops = {}
-		default.get_inventory_drops(pos, "src", drops)
-		default.get_inventory_drops(pos, "fuel", drops)
-		default.get_inventory_drops(pos, "dst", drops)
+		pipeworks.get_inventory_drops(pos, "src", drops)
+		pipeworks.get_inventory_drops(pos, "fuel", drops)
+		pipeworks.get_inventory_drops(pos, "dst", drops)
 		drops[#drops+1] = "hades_furnaces:furnace"
 		minetest.remove_node(pos)
 		return drops
