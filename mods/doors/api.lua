@@ -111,7 +111,7 @@ minetest.register_node("doors:hidden", {
 	groups = {not_in_creative_inventory = 1},
 	on_blast = function() end,
 	tiles = {"blank.png"},
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	-- 1px transparent block inside door hinge near node top.
 	node_box = {
 		type = "fixed",
@@ -455,7 +455,7 @@ function doors.register_door(name, def)
 				"did not provide the \"tiles\" parameter. A fallback tiledef " ..
 				"will be used instead.")
 	end
-	def.use_texture_alpha = true
+	def.use_texture_alpha = "clip"
 
 	doors.register(name, def)
 end
@@ -577,6 +577,7 @@ function doors.register_trapdoor(name, def)
 			def.tile_front .. '^[transformFY',
 			def.tile_side, def.tile_side,
 			def.tile_side, def.tile_side}
+	def_closed.use_texture_alpha = "clip"
 
 	def_opened.node_box = {
 		type = "fixed",
@@ -591,6 +592,7 @@ function doors.register_trapdoor(name, def)
 			def.tile_side .. '^[transform1',
 			def.tile_front .. '^[transform46',
 			def.tile_front .. '^[transform6'}
+	def_opened.use_texture_alpha = "clip"
 
 	def_opened.drop = name_closed
 	def_opened.groups.not_in_creative_inventory = 1
@@ -610,6 +612,7 @@ function doors.register_fencegate(name, def)
 		description = def.description,
 		drawtype = "mesh",
 		tiles = {def.texture},
+		use_texture_alpha = "clip",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,

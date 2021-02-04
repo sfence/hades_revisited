@@ -184,6 +184,7 @@ local S = minetest.get_translator("hades_furniture")
 				"hades_furniture_table_lamp_s.png",
 				"hades_furniture_table_lamp_l.png",
 			},
+			use_texture_alpha = "clip",
 			paramtype = 'light',
 			paramtype2 = 'facedir',
 			node_box = {
