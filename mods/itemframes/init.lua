@@ -77,7 +77,9 @@ end
 local update_item = function(pos, node)
 	remove_item(pos, node)
 	local meta = minetest.get_meta(pos)
-	if meta:get_string("item") ~= "" then
+	local inv = meta:get_inventory()
+	local stack = inv:get_stack("main", 1)
+	if not stack:is_empty() then
 		if node.name == "itemframes:frame" then
 			local posad = facedir[node.param2]
 			if not posad then return end
@@ -88,7 +90,7 @@ local update_item = function(pos, node)
 			pos.y = pos.y + 12 / 16 + 0.33
 		end
 		tmp.nodename = node.name
-		tmp.texture = ItemStack(meta:get_string("item")):get_name()
+		tmp.texture = stack:get_name()
 		local e = minetest.add_entity(pos,"itemframes:item")
 		if node.name == "itemframes:frame" then
 			local yaw = math.pi * 2 - node.param2 * math.pi / 2
@@ -99,7 +101,8 @@ end
 
 local drop_item = function(pos, node, creative)
 	local meta = minetest.get_meta(pos)
-	local item = meta:get_string("item")
+	local inv = meta:get_inventory()
+	local item = inv:get_stack("main", 1)
 	if item ~= "" then
 		if creative then
 			-- Don't drop item
@@ -108,7 +111,7 @@ local drop_item = function(pos, node, creative)
 		elseif node.name == "itemframes:pedestal" then
 			minetest.add_item({x=pos.x, y=pos.y+1, z=pos.z}, item)
 		end
-		meta:set_string("item","")
+		inv:set_stack("main", 1, "")
 	end
 	remove_item(pos, node)
 end
@@ -141,18 +144,21 @@ minetest.register_node("itemframes:frame",{
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("infotext", S("Item Frame"))
+		local inv = meta:get_inventory()
+		inv:set_size("main", 1)
 	end,
 
 	on_rightclick = function(pos, node, clicker, itemstack)
 		if not itemstack then return end
 		if minetest.is_protected(pos, clicker:get_player_name()) then return end
 		local meta = minetest.get_meta(pos)
+		local inv = meta:get_inventory()
 		local creative = minetest.is_creative_enabled(clicker:get_player_name())
-		if meta:get_string("item") ~= "" then
+		if not inv:get_stack("main", 1):is_empty() then
 			drop_item(pos, node, creative)
 		else
-			meta:set_string("item", itemstack:to_string())
-			update_item(pos,node)
+			inv:set_stack("main", 1, itemstack)
+			update_item(pos, node)
 			if not creative then
 				itemstack:take_item()
 			end
@@ -196,18 +202,21 @@ minetest.register_node("itemframes:pedestal",{
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("infotext", S("Pedestal"))
+		local inv = meta:get_inventory()
+		inv:set_size("main", 1)
 	end,
 
 	on_rightclick = function(pos, node, clicker, itemstack)
 		if not itemstack then return end
 		if minetest.is_protected(pos, clicker:get_player_name()) then return end
 		local meta = minetest.get_meta(pos)
+		local inv = meta:get_inventory()
 		local creative = minetest.is_creative_enabled(clicker:get_player_name())
-		if meta:get_string("item") ~= "" then
+		if not inv:get_stack("main", 1):is_empty() then
 			drop_item(pos, node, creative)
 		else
-			meta:set_string("item", itemstack:to_string())
-			update_item(pos,node)
+			inv:set_stack("main", 1, itemstack)
+			update_item(pos, node)
 			if not creative then
 				itemstack:take_item()
 			end
@@ -251,6 +260,25 @@ minetest.register_lbm({
 		update_item(pos, node)
 	end
 })
+
+-- update itemframe/pedestal items to new item storing format
+
+minetest.register_lbm({
+	name = "itemframes:update_items_0_9_0",
+	label = "Update items of item frames and pedestals",
+	nodenames = {"itemframes:frame", "itemframes:pedestal"},
+	action = function(pos, node)
+		local meta = minetest.get_meta(pos)
+		local itemstring_old = meta:get_string("item")
+		if itemstring_old ~= "" then
+			local inv = meta:get_inventory()
+			inv:set_size("main", 1)
+			inv:set_stack("main", 1, ItemStack(itemstring_old))
+			meta:set_string("item", "")
+		end
+	end
+})
+
 
 -- crafts
 
