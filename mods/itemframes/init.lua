@@ -151,11 +151,11 @@ minetest.register_node("itemframes:frame",{
 		if meta:get_string("item") ~= "" then
 			drop_item(pos, node, creative)
 		else
+			meta:set_string("item", itemstack:to_string())
+			update_item(pos,node)
 			if not creative then
 				itemstack:take_item()
 			end
-			meta:set_string("item", itemstack:to_string())
-			update_item(pos,node)
 			return itemstack
 		end
 	end,
@@ -206,11 +206,11 @@ minetest.register_node("itemframes:pedestal",{
 		if meta:get_string("item") ~= "" then
 			drop_item(pos, node, creative)
 		else
+			meta:set_string("item", itemstack:to_string())
+			update_item(pos,node)
 			if not creative then
 				itemstack:take_item()
 			end
-			meta:set_string("item", itemstack:to_string())
-			update_item(pos,node)
 			return itemstack
 		end
 	end,
