@@ -7,7 +7,7 @@ local DS = minetest.get_translator("hades_core")
 
 local fs_helpers = pipeworks.fs_helpers
 
-tube_entry = "^pipeworks_tube_connection_stony.png"
+local tube_entry = "^pipeworks_tube_connection_stony.png"
 
 -- for Hades Revisited
 local formspec_info = {

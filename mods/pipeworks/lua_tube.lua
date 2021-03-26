@@ -813,82 +813,56 @@ local tiles_base = {
 	"pipeworks_mese_tube_plain_2.png", "pipeworks_mese_tube_plain_1.png",
 	"pipeworks_mese_tube_plain_6.png", "pipeworks_mese_tube_plain_5.png"}
 
+local tiles_on_off = {
+	R__0   = "^pipeworks_lua_tube_port_%s.png",
+	R_90  = "^(pipeworks_lua_tube_port_%s.png^[transformR90)",
+	R180 = "^(pipeworks_lua_tube_port_%s.png^[transformR180)",
+	R270 = "^(pipeworks_lua_tube_port_%s.png^[transformR270)"
+}
+
+local texture_alpha_mode = minetest.features.use_texture_alpha_string_modes
+	and "clip" or true
+
 for red    = 0, 1 do -- 0 = off  1 = on
 for blue   = 0, 1 do
 for yellow = 0, 1 do
 for green  = 0, 1 do
 for black  = 0, 1 do
 for white  = 0, 1 do
-	local cid = tostring(white)..tostring(black)..tostring(green)..
-			tostring(yellow)..tostring(blue)..tostring(red)
+	local cid = white..black..green..yellow..blue..red
 	local node_name = BASENAME..cid
+
 	local tiles = table.copy(tiles_base)
-	if red == 1 then
-		tiles[1] = tiles[1].."^(pipeworks_lua_tube_port_on.png^[transformR90)"
-		tiles[2] = tiles[2].."^(pipeworks_lua_tube_port_on.png^[transformR90)"
-		tiles[5] = tiles[5].."^(pipeworks_lua_tube_port_on.png^[transformR270)"
-		tiles[6] = tiles[6].."^(pipeworks_lua_tube_port_on.png^[transformR90)"
-	else
-		tiles[1] = tiles[1].."^(pipeworks_lua_tube_port_off.png^[transformR90)"
-		tiles[2] = tiles[2].."^(pipeworks_lua_tube_port_off.png^[transformR90)"
-		tiles[5] = tiles[5].."^(pipeworks_lua_tube_port_off.png^[transformR270)"
-		tiles[6] = tiles[6].."^(pipeworks_lua_tube_port_off.png^[transformR90)"
-	end
-	if blue == 1 then
-		tiles[1] = tiles[1].."^(pipeworks_lua_tube_port_on.png^[transformR270)"
-		tiles[2] = tiles[2].."^(pipeworks_lua_tube_port_on.png^[transformR270)"
-		tiles[5] = tiles[5].."^(pipeworks_lua_tube_port_on.png^[transformR90)"
-		tiles[6] = tiles[6].."^(pipeworks_lua_tube_port_on.png^[transformR270)"
-	else
-		tiles[1] = tiles[1].."^(pipeworks_lua_tube_port_off.png^[transformR270)"
-		tiles[2] = tiles[2].."^(pipeworks_lua_tube_port_off.png^[transformR270)"
-		tiles[5] = tiles[5].."^(pipeworks_lua_tube_port_off.png^[transformR90)"
-		tiles[6] = tiles[6].."^(pipeworks_lua_tube_port_off.png^[transformR270)"
-	end
-	if yellow == 1 then
-		tiles[3] = tiles[3].."^(pipeworks_lua_tube_port_on.png^[transformR180)"
-		tiles[4] = tiles[4].."^(pipeworks_lua_tube_port_on.png^[transformR180)"
-		tiles[5] = tiles[5].."^(pipeworks_lua_tube_port_on.png^[transformR180)"
-		tiles[6] = tiles[6].."^(pipeworks_lua_tube_port_on.png^[transformR180)"
-	else
-		tiles[3] = tiles[3].."^(pipeworks_lua_tube_port_off.png^[transformR180)"
-		tiles[4] = tiles[4].."^(pipeworks_lua_tube_port_off.png^[transformR180)"
-		tiles[5] = tiles[5].."^(pipeworks_lua_tube_port_off.png^[transformR180)"
-		tiles[6] = tiles[6].."^(pipeworks_lua_tube_port_off.png^[transformR180)"
-	end
-	if green == 1 then
-		tiles[3] = tiles[3].."^pipeworks_lua_tube_port_on.png"
-		tiles[4] = tiles[4].."^pipeworks_lua_tube_port_on.png"
-		tiles[5] = tiles[5].."^pipeworks_lua_tube_port_on.png"
-		tiles[6] = tiles[6].."^pipeworks_lua_tube_port_on.png"
-	else
-		tiles[3] = tiles[3].."^pipeworks_lua_tube_port_off.png"
-		tiles[4] = tiles[4].."^pipeworks_lua_tube_port_off.png"
-		tiles[5] = tiles[5].."^pipeworks_lua_tube_port_off.png"
-		tiles[6] = tiles[6].."^pipeworks_lua_tube_port_off.png"
-	end
-	if black == 1 then
-		tiles[1] = tiles[1].."^(pipeworks_lua_tube_port_on.png^[transformR180)"
-		tiles[2] = tiles[2].."^pipeworks_lua_tube_port_on.png"
-		tiles[3] = tiles[3].."^(pipeworks_lua_tube_port_on.png^[transformR90)"
-		tiles[4] = tiles[4].."^(pipeworks_lua_tube_port_on.png^[transformR270)"
-	else
-		tiles[1] = tiles[1].."^(pipeworks_lua_tube_port_off.png^[transformR180)"
-		tiles[2] = tiles[2].."^pipeworks_lua_tube_port_off.png"
-		tiles[3] = tiles[3].."^(pipeworks_lua_tube_port_off.png^[transformR90)"
-		tiles[4] = tiles[4].."^(pipeworks_lua_tube_port_off.png^[transformR270)"
-	end
-	if white == 1 then
-		tiles[1] = tiles[1].."^pipeworks_lua_tube_port_on.png"
-		tiles[2] = tiles[2].."^(pipeworks_lua_tube_port_on.png^[transformR180)"
-		tiles[3] = tiles[3].."^(pipeworks_lua_tube_port_on.png^[transformR270)"
-		tiles[4] = tiles[4].."^(pipeworks_lua_tube_port_on.png^[transformR90)"
-	else
-		tiles[1] = tiles[1].."^pipeworks_lua_tube_port_off.png"
-		tiles[2] = tiles[2].."^(pipeworks_lua_tube_port_off.png^[transformR180)"
-		tiles[3] = tiles[3].."^(pipeworks_lua_tube_port_off.png^[transformR270)"
-		tiles[4] = tiles[4].."^(pipeworks_lua_tube_port_off.png^[transformR90)"
-	end
+	-- Red
+	tiles[1] = tiles[1]..tiles_on_off.R_90:format(red == 1 and "on" or "off");
+	tiles[2] = tiles[2]..tiles_on_off.R_90:format(red == 1 and "on" or "off");
+	tiles[5] = tiles[5]..tiles_on_off.R270:format(red == 1 and "on" or "off");
+	tiles[6] = tiles[6]..tiles_on_off.R_90:format(red == 1 and "on" or "off");
+	-- Blue
+	tiles[1] = tiles[1]..tiles_on_off.R270:format(blue == 1 and "on" or "off");
+	tiles[2] = tiles[2]..tiles_on_off.R270:format(blue == 1 and "on" or "off");
+	tiles[5] = tiles[5]..tiles_on_off.R_90:format(blue == 1 and "on" or "off");
+	tiles[6] = tiles[6]..tiles_on_off.R270:format(blue == 1 and "on" or "off");
+	-- Yellow
+	tiles[1] = tiles[1]..tiles_on_off.R180:format(yellow == 1 and "on" or "off");
+	tiles[2] = tiles[2]..tiles_on_off.R180:format(yellow == 1 and "on" or "off");
+	tiles[5] = tiles[5]..tiles_on_off.R180:format(yellow == 1 and "on" or "off");
+	tiles[6] = tiles[6]..tiles_on_off.R180:format(yellow == 1 and "on" or "off");
+	-- Green
+	tiles[3] = tiles[3]..tiles_on_off.R__0:format(green == 1 and "on" or "off");
+	tiles[4] = tiles[4]..tiles_on_off.R__0:format(green == 1 and "on" or "off");
+	tiles[5] = tiles[5]..tiles_on_off.R__0:format(green == 1 and "on" or "off");
+	tiles[6] = tiles[6]..tiles_on_off.R__0:format(green == 1 and "on" or "off");
+	-- Black
+	tiles[1] = tiles[1]..tiles_on_off.R180:format(black == 1 and "on" or "off");
+	tiles[2] = tiles[2]..tiles_on_off.R__0:format(black == 1 and "on" or "off");
+	tiles[3] = tiles[3]..tiles_on_off.R_90:format(black == 1 and "on" or "off");
+	tiles[4] = tiles[4]..tiles_on_off.R270:format(black == 1 and "on" or "off");
+	-- White
+	tiles[1] = tiles[1]..tiles_on_off.R__0:format(white == 1 and "on" or "off");
+	tiles[2] = tiles[2]..tiles_on_off.R180:format(white == 1 and "on" or "off");
+	tiles[3] = tiles[3]..tiles_on_off.R270:format(white == 1 and "on" or "off");
+	tiles[4] = tiles[4]..tiles_on_off.R_90:format(white == 1 and "on" or "off");
 
 	local groups = {snappy = 3, tube = 1, tubedevice = 1, overheat = 1}
 	if red + blue + yellow + green + black + white ~= 0 then
@@ -933,6 +907,7 @@ for white  = 0, 1 do
 		description = "Lua controlled Tube",
 		drawtype = "nodebox",
 		tiles = tiles,
+		use_texture_alpha = texture_alpha_mode,
 		paramtype = "light",
 		is_ground_content = false,
 		groups = groups,
@@ -969,7 +944,7 @@ for white  = 0, 1 do
 			can_go = function(pos, node, velocity, stack)
 				local src = {name = nil}
 				-- add color of the incoming tube explicitly; referring to rules, in case they change later
-				for color, rule in pairs(rules) do
+				for _, rule in pairs(rules) do
 					if (-velocity.x == rule.x and -velocity.y == rule.y and -velocity.z == rule.z) then
 						src.name = rule.name
 						break
@@ -993,7 +968,7 @@ for white  = 0, 1 do
 		on_blast = function(pos, intensity)
 			if not intensity or intensity > 1 + 3^0.5 then
 				minetest.remove_node(pos)
-				return {string.format("%s_%s", name, dropname)}
+				return
 			end
 			minetest.swap_node(pos, {name = "pipeworks:broken_tube_1"})
 			pipeworks.scan_for_tube_objects(pos)
@@ -1039,6 +1014,7 @@ tiles_burnt[4] = tiles_burnt[4].."^(pipeworks_lua_tube_port_burnt.png^[transform
 minetest.register_node(BASENAME .. "_burnt", {
 	drawtype = "nodebox",
 	tiles = tiles_burnt,
+	use_texture_alpha = texture_alpha_mode,
 	is_burnt = true,
 	paramtype = "light",
 	is_ground_content = false,
@@ -1070,7 +1046,7 @@ minetest.register_node(BASENAME .. "_burnt", {
 	on_blast = function(pos, intensity)
 		if not intensity or intensity > 1 + 3^0.5 then
 			minetest.remove_node(pos)
-			return {string.format("%s_%s", name, dropname)}
+			return
 		end
 		minetest.swap_node(pos, {name = "pipeworks:broken_tube_1"})
 		pipeworks.scan_for_tube_objects(pos)

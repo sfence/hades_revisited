@@ -50,7 +50,7 @@ minetest.register_node("travelnet:travelnet", {
              "travelnet_travelnet_back.png", -- front view
              "travelnet_travelnet_front.png",  -- backward view
              },
-    use_texture_alpha = true,
+    use_texture_alpha = "blend",
     inventory_image = "travelnet_inv.png",
 
     groups = {cracky=1,choppy=1,snappy=1},

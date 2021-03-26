@@ -104,7 +104,11 @@ minetest.register_on_joinplayer(function(player)
 	player:hud_set_hotbar_itemcount(10)
 	player:hud_set_hotbar_image("hades_gui_hotbar.png")
 	player:hud_set_hotbar_selected_image("hades_gui_hotbar_selected.png")
-	player:set_formspec_prepend("listcolors[#000000;#C68D3C;#ffffff;#C68D3C;#000000]")
+	player:set_formspec_prepend(
+[=[listcolors[#000000;#C68D3C;#ffffff;#C68D3C;#000000]
+style_type[*;sound=hades_player_gui_button]]
+style_type[tabheader;sound=hades_player_gui_tab]]
+style_type[dropdown;sound=hades_player_gui_tab]]=])
 end)
 
 minetest.register_on_leaveplayer(function(player)

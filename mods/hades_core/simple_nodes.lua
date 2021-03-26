@@ -2,7 +2,6 @@ local S = minetest.get_translator("hade_core")
 
 -- mods/default/nodes.lua
 
-local WATER_ALPHA = 160
 local WATER_VISC = 1
 local LAVA_VISC = 7
 local LIGHT_MAX = minetest.LIGHT_MAX - 1
@@ -682,7 +681,7 @@ minetest.register_node("hades_core:water_flowing", {
 			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
 		},
 	},
-	alpha = WATER_ALPHA,
+	use_texture_alpha = "blend",
 	paramtype = "light",
 	paramtype2 = "flowingliquid",
 	walkable = false,
@@ -717,7 +716,7 @@ minetest.register_node("hades_core:water_source", {
 			animation = {type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
 		},
 	},
-	alpha = WATER_ALPHA,
+	use_texture_alpha = "blend",
 	paramtype = "light",
 	walkable = false,
 	pointable = false,
