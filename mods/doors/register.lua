@@ -80,7 +80,7 @@ minetest.register_craft({
 doors.register_door("doors:door_steel", {
 	description = S("Plain Steel Door"),
 	inventory_image = "doors_steel.png",
-	groups = {snappy=1,cracky=1,level=2,door=1},
+	groups = {snappy=1,cracky=1,level=2,door=1,steel_door=1},
 	tiles = {{name="doors_door_steel.png", backface_culling=true}},
 	only_placer_can_open = true,
 	sounds = hades_sounds.node_sound_metal_defaults(),

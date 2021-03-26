@@ -13,7 +13,7 @@ windows.register_window = function(id, def)
 		paramtype2 = "facedir",
 		tiles = { def.texture_seam, def.texture_seam, def.texture_seam, def.texture_seam, def.texture_front },
 		sunlight_propagates = true,
-		use_texture_alpha = true,
+		use_texture_alpha = "blend",
 		walkable = true,
 		is_ground_content = false,
 		groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},

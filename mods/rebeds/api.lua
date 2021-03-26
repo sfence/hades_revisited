@@ -8,6 +8,7 @@ function rebeds.register_bed(name, def)
 		wield_image = def.wield_image,
 		drawtype = "nodebox",
 		tiles = def.tiles.bottom,
+		use_texture_alpha = "clip",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		stack_max = 1,
@@ -58,6 +59,7 @@ function rebeds.register_bed(name, def)
 	minetest.register_node(name .. "_top", {
 		drawtype = "nodebox",
 		tiles = def.tiles.top,
+		use_texture_alpha = "clip",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 2},

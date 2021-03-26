@@ -726,6 +726,7 @@ minetest.register_node("signs_lib:sign_hanging", {
 		"signs_hanging_back.png",
 		"signs_hanging_front.png"
 	},
+    use_texture_alpha = "clip",
     groups = sign_groups,
     drop = "signs_lib:sign_wall",
 
