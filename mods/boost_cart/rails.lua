@@ -12,6 +12,15 @@ boost_cart:register_rail(":carts:rail", {
 	groups = boost_cart:get_rail_groups()
 })
 
+minetest.register_craft({
+  output = "carts:rail 18",
+  recipe = {
+    {"hades_core:steel_ingot", "", "hades_core:steel_ingot"},
+    {"hades_core:steel_ingot", "group:stick", "hades_core:steel_ingot"},
+    {"hades_core:steel_ingot", "", "hades_core:steel_ingot"},
+  }
+})
+
 -- Bronze rail
 boost_cart:register_rail(":carts:copperrail", {
   description = S("Bronze rail"),
