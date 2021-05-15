@@ -1,5 +1,8 @@
 local S = minetest.get_translator("hades_farming")
 
+local DEFAULT_MINLIGHT = 8
+local DEFAULT_MAXLIGHT = minetest.LIGHT_MAX
+
 -- Wear out hoes, place soil
 -- TODO Ignore group:flower
 hades_farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
@@ -172,10 +175,10 @@ hades_farming.register_plant = function(name, def)
 		return nil
 	end
 	if not def.minlight then
-		def.minlight = 1
+		def.minlight = DEFAULT_MINLIGHT
 	end
 	if not def.maxlight then
-		def.maxlight = 14
+		def.maxlight = DEFAULT_MAXLIGHT
 	end
 	if not def.fertility then
 		def.fertility = {}
