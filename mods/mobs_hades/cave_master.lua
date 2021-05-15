@@ -115,7 +115,7 @@ mobs:register_arrow("mobs_hades:fireball", {
 		player:punch(self.object, 1.0,  {
 			full_punch_interval=1.0,
 			damage_groups = {fleshy=8},
-		}, 0) -- {x=s.x-p.x, y=s.y-p.y, z=s.z-p.z})
+		})
 	end,
 
 	-- node hit, bursts into flame (cannot blast through obsidian)
