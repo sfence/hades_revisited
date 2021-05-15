@@ -42,7 +42,7 @@ Now explore the area and search for some water.
 Dig some stone and ash to craft fertile sand and place it in neighbor to water to become dirt.
 Take a dirt and a apple to craft a sapling. Plant the sapling on dirt to become wood and leaves from the tree.
 If you ran out of apples or lost your pickaxe, kill some mutants. They sometimes drop apples, pickaxes and other things.
-Make more dirt and place it above the water.
+Make more dirt and place it near water.
 
 Take 2 mossy stone (near water) and a dirt to craft grass.
 
