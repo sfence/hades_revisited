@@ -14,8 +14,6 @@ hades_farming.register_plant("hades_farming:wheat", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_wheat_seed.png",
 	steps = 3,
-	minlight = 13,
-	maxlight = minetest.LIGHT_MAX,
 	fertility = {"grassland"}
 })
 minetest.register_craftitem("hades_farming:wheat", {
@@ -60,8 +58,6 @@ hades_farming.register_plant("hades_farming:cotton", {
 	description_harvest = S("String"),
 	inventory_image = "hades_farming_cotton_seed.png",
 	steps = 3,
-	minlight = 13,
-	maxlight = minetest.LIGHT_MAX,
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("hades_farming:cotton", {
@@ -103,8 +99,6 @@ hades_farming.register_plant("hades_farming:tomato", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_tomato_seed.png",
 	steps = 3,
-	minlight = 8,
-	maxlight = 20,
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("hades_farming:tomato", {
@@ -119,8 +113,6 @@ hades_farming.register_plant("hades_farming:potato", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_potato_seed.png",
 	steps = 3,
-	minlight = 8,
-	maxlight = 20,
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("hades_farming:potato", {
@@ -135,8 +127,6 @@ hades_farming.register_plant("hades_farming:strawberry", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_strawberry_seed.png",
 	steps = 3,
-	minlight = 8,
-	maxlight = 20,
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("hades_farming:strawberry", {
@@ -151,8 +141,6 @@ hades_farming.register_plant("hades_farming:spice", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_spice_seed.png",
 	steps = 3,
-	minlight = 8,
-	maxlight = 20,
 	fertility = {"grassland", "desert"}
 })
 minetest.register_craftitem("hades_farming:spice", {
