@@ -29,7 +29,8 @@ function refruit.add_refruit(id, def)
 			else 
 				return
 			end
-		end
+		end,
+		node_dig_prediction = "refruit:bud_"..id,
 	})
 
 	local bud_itemstring = "refruit:bud_"..id
