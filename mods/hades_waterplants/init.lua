@@ -1,5 +1,7 @@
 local S = minetest.get_translator("hades_waterplants")
 
+local has_screwdriver = minetest.get_modpath("screwdriver") ~= nil
+
 -- This file supplies seaweed and waterlilies
 
 hades_waterplants = {}
@@ -19,14 +21,14 @@ local lilypads_rarity = {}
 
 
 local lilies_list = {
-	{ nil  , nil 	   , 1	},
-	{ "225", "22.5"    , 2	},
-	{ "45" , "45"      , 3	},
-	{ "675", "67.5"    , 4	},
-	{ "s1" , "small_1" , 5	},
-	{ "s2" , "small_2" , 6	},
-	{ "s3" , "small_3" , 7	},
-	{ "s4" , "small_4" , 8	},
+	{ nil  , nil 	   , 1, true },
+	{ "225", "22.5"    , 2, true },
+	{ "45" , "45"      , 3, true },
+	{ "675", "67.5"    , 4, true },
+	{ "s1" , "small_1" , 5, false },
+	{ "s2" , "small_2" , 6, false },
+	{ "s3" , "small_3" , 7, false },
+	{ "s4" , "small_4" , 8, false },
 }
 
 local generate_on_place = function(basename, plant_table)
@@ -91,15 +93,41 @@ local on_place_waterlily = generate_on_place("hades_waterplants:waterlily", lili
 for i in ipairs(lilies_list) do
 	local deg1 = ""
 	local deg2 = ""
+	local is_classic = false
 	local lily_groups = {snappy = 3,flammable=2,waterlily=1,falling_node=1,float=1}
 
-
-	if lilies_list[i][1] ~= nil then
+	local ll1 = lilies_list[i][1]
+	local is_classic = lilies_list[i][3]
+	if ll1 ~= nil then
 		deg1 = "_"..lilies_list[i][1]
 		deg2 = "_"..lilies_list[i][2]
 		lily_groups = { snappy = 3,flammable=2,waterlily=1, not_in_creative_inventory=1,falling_node=1,float=1 }
 	end
 
+	local on_rotate = "simple"
+	if is_classic and has_screwdriver then
+		on_rotate = function(pos, node, user, mode, new_param2)
+			if mode == screwdriver.ROTATE_FACE then
+				local suffix = ""
+				if ll1 == nil then
+					suffix = "_225"
+				elseif ll1 == "225" then
+					suffix = "_45"
+				elseif ll1 == "45" then
+					suffix = "_675"
+				elseif ll1 == "675" then
+					suffix = ""
+					node.param2 = (node.param2 + 1) % 4
+				else
+					return
+				end
+				node.name = "hades_waterplants:waterlily" .. suffix
+				minetest.set_node(pos, node)
+				return true
+			end
+			return false
+		end
+	end
 
 	minetest.register_node("hades_waterplants:waterlily"..deg1, {
 		description = S("Waterlily"),
@@ -133,7 +161,7 @@ for i in ipairs(lilies_list) do
 
 		node_placement_prediction = "",
 		on_place = on_place_waterlily,
-		on_rotate = "simple",
+		on_rotate = on_rotate,
 	})
 end
 
