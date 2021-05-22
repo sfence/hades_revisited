@@ -213,7 +213,7 @@ local get_apply_fertilizer = function(super)
 							{"hades_core:junglegrass", 0},
 							{"hades_core:junglegrass", 0},
 							{"hades_core:junglegrass", 0},
-							{"hades_farming:flowergrass", 0},
+							{"hades_flowers:flowergrass", 0},
 							{"hades_flowers:red", 0},
 							{"hades_flowers:white", 0},
 							{"hades_flowers:yellow", 0},
