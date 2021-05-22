@@ -807,7 +807,7 @@ minetest.register_node("signs_lib:sign_wall_locked", {
 -- metal, colored signs
 
 local sign_colors = { "green", "yellow", "red", "white_red", "white_black" }
-local sign_descs = { S("Green Steel Sign"), S("Yellow Steel Sign"), S("Red Steel Sign"), S("White Steel Sign with Red Border"), S("White Steel Sign with Black Border") }
+local sign_descs = { S("Dark Green Steel Sign"), S("Yellow Steel Sign"), S("Red Steel Sign"), S("White Steel Sign with Red Border"), S("White Steel Sign with Black Border") }
 
 for i, color in ipairs(sign_colors) do
 	minetest.register_node("signs_lib:sign_wall_"..color, {
