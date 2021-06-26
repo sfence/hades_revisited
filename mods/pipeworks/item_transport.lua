@@ -85,7 +85,6 @@ minetest.register_node("pipeworks:filter", {
 		"pipeworks_filter_input.png", "pipeworks_filter_side.png", "pipeworks_filter_top.png"},
 	paramtype2 = "facedir",
 	groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2,tubedevice=1,mesecon=2},
-	legacy_facedir_simple = true,
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -158,7 +157,6 @@ minetest.register_node("pipeworks:mese_filter", {
 		"pipeworks_mese_filter_input.png", "pipeworks_mese_filter_side.png", "pipeworks_mese_filter_top.png"},
 	paramtype2 = "facedir",
 	groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2,tubedevice=1,mesecon=2},
-	legacy_facedir_simple = true,
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)

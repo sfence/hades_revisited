@@ -417,7 +417,6 @@ local S = minetest.get_translator("hades_furniture")
 		sunlight_propagates = true,
 		paramtype = 'light',
 		paramtype2 = 'facedir',
-		legacy_facedir_simple = true,
 		node_box = {
 			type = "fixed",
 			fixed = {

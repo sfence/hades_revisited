@@ -14,7 +14,6 @@ minetest.register_node("mesecons_lamp:lamp_on", {
 	tiles = {"jeija_meselamp_on.png"},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
-	legacy_wallmounted = true,
 	sunlight_propagates = true,
 	walkable = false,
 	light_source = minetest.LIGHT_MAX,

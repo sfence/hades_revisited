@@ -290,7 +290,6 @@ for id, finfo in pairs(furnace_types) do
 		},
 		paramtype2 = "facedir",
 		groups = {cracky=2, furnace=1},
-		legacy_facedir_simple = true,
 		is_ground_content = false,
 
 		sounds = hades_sounds.node_sound_stone_defaults(),
@@ -343,7 +342,6 @@ for id, finfo in pairs(furnace_types) do
 		light_source = 8,
 		drop = id,
 		groups = {cracky=2, furnace=1, not_in_creative_inventory=1},
-		legacy_facedir_simple = true,
 		is_ground_content = false,
 		sounds = hades_sounds.node_sound_stone_defaults(),
 

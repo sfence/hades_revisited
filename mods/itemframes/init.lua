@@ -137,7 +137,6 @@ minetest.register_node("itemframes:frame",{
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
 	groups = {choppy = 2, dig_immediate = 2},
-	legacy_wallmounted = true,
 	sounds = hades_sounds.node_sound_defaults(),
 	on_rotate = false,
 

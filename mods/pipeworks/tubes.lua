@@ -604,7 +604,6 @@ if pipeworks.enable_one_way_tube then
 		node_box = {type = "fixed",
 			fixed = {{-1/2, -9/64, -9/64, 1/2, 9/64, 9/64}}},
 		groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, tubedevice = 1, tubedevice_receiver = 1},
-		legacy_facedir_simple = true,
 		sounds = hades_sounds.node_sound_glass_defaults(),
 		on_construct = function(pos)
 			minetest.get_meta(pos):set_int("tubelike", 1)

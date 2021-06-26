@@ -24,7 +24,6 @@ minetest.register_node("mesecons_button:button_off", {
 	},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	legacy_wallmounted = true,
 	walkable = false,
 	sunlight_propagates = true,
 	selection_box = {
@@ -65,7 +64,6 @@ minetest.register_node("mesecons_button:button_on", {
 		},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	legacy_wallmounted = true,
 	walkable = false,
 	light_source = minetest.LIGHT_MAX-7,
 	sunlight_propagates = true,

@@ -74,7 +74,6 @@ minetest.register_node(itemstring_unlocked, {
 	tiles = tiles_unlocked,
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2, chest=1, unlocked_chest=1},
-	legacy_facedir_simple = true,
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -108,7 +107,6 @@ minetest.register_node(itemstring_locked, {
 	tiles = tiles_locked,
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2, chest=2, locked_chest=1},
-	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = hades_sounds.node_sound_wood_defaults(),
 
