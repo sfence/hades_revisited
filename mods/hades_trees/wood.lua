@@ -9,8 +9,6 @@ local planks = {
 	{ "jungle_wood", S("Jungle Wood Planks"), "default_junglewood.png" },
 	{ "charred_wood", S("Charred Wood Planks"), "hades_trees_charred_wood.png" },
 
-	{ "birch_wood", S("Birch Wood Planks"), "default_birchwood.png" },
-
 -- Canvas wood: Colored wooden planks
 	{ "colwood_uncolored", S("Uncolored Canvas Wood Planks"), "hades_trees_colwood_uncolored.png", true },
 	{ "colwood_black", S("Black Canvas Wood Planks"), "hades_trees_colwood_black.png", true },

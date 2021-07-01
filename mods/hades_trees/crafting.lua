@@ -12,7 +12,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = 'hades_trees:birch_wood 4',
+	output = 'hades_trees:cream_wood 4',
 	recipe = {
 		{'hades_trees:birch_tree'},
 	}

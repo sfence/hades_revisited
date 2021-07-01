@@ -391,15 +391,6 @@ stairs.register_stair_and_slab("jungle_wood", "hades_trees:jungle_wood",
 		S("Jungle Wood Slab"),
 		hades_sounds.node_sound_wood_defaults())
 
-stairs.register_stair_and_slab("birch_wood", "hades_trees:birch_wood",
-		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
-		{"default_birchwood.png"},
-		S("Birch Wood Stair"),
-		S("Outer Birch Wood Stair"),
-		S("Inner Birch Wood Stair"),
-		S("Birch Wood Slab"),
-		hades_sounds.node_sound_wood_defaults())
-
 stairs.register_stair_and_slab("lush_wood", "hades_trees:lush_wood",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		{"hades_trees_lush_wood.png"},

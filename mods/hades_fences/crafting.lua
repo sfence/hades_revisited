@@ -21,13 +21,6 @@ minetest.register_craft({
 		{'hades_trees:pale_wood', 'group:stick', 'hades_trees:pale_wood'},
 	}
 })
-minetest.register_craft({
-	output = 'hades_fences:fence_birch_wood 4',
-	recipe = {
-		{'hades_trees:birch_wood', 'group:stick', 'hades_trees:birch_wood'},
-		{'hades_trees:birch_wood', 'group:stick', 'hades_trees:birch_wood'},
-	}
-})
 
 minetest.register_craft({
 	output = 'hades_fences:fence_cream_wood 4',
