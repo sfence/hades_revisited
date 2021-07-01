@@ -5,7 +5,7 @@ hades_trees.register_trunk("canvas_tree", {
 	tiles = {"hades_trees_canvas_tree_top.png", "hades_trees_canvas_tree_top.png", "hades_trees_canvas_tree.png"},
 })
 hades_trees.register_leaves("canvas_leaves", {
-	description = S("Canvas Tree Leaves"),
+	description = S("Canvas Leaves"),
 	image = "hades_trees_canvas_leaves.png",
 	ash_fertilizer = 1,
 	drop_item = "hades_trees:canvas_sapling",
