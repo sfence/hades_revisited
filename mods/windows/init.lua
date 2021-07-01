@@ -7,6 +7,14 @@ local S = minetest.get_translator("windows")
 windows = {}
 
 windows.register_window = function(id, def)
+	local window_wood
+	if def.is_wood then
+		window_wood=1
+	end
+	if def.is_colwood then
+		window_colwood=1
+	end
+
 	local odef = {
 		drawtype = "nodebox",
 		paramtype = "light",
@@ -16,7 +24,7 @@ windows.register_window = function(id, def)
 		use_texture_alpha = "blend",
 		walkable = true,
 		is_ground_content = false,
-		groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
+		groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window=1, window_wood=window_wood, window_colwood=window_colwood},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -44,22 +52,46 @@ windows.register_window("windows:windows_wood", {
 	description = S("Common Wood Window"),
 	texture_seam = "windows_windows_wood_seam.png",
 	texture_front = "windows_windows_wood_front.png",
+	is_wood = true,
 })
 windows.register_window("windows:windows_jungle_wood", {
 	description = S("Jungle Wood Window"),
 	texture_seam = "windows_windows_jwood_seam.png",
 	texture_front = "windows_windows_jwood_front.png",
+	is_wood = true,
 })
 windows.register_window("windows:windows_pale_wood", {
 	description = S("Pale Wood Window"),
 	texture_seam = "windows_windows_palewood_seam.png",
 	texture_front = "windows_windows_palewood_front.png",
+	is_wood = true,
 })
 windows.register_window("windows:windows_birch_wood", {
 	description = S("Birch Wood Window"),
 	texture_seam = "windows_windows_birchwood_seam.png",
 	texture_front = "windows_windows_birchwood_front.png",
+	is_wood = true,
 })
+windows.register_window("windows:windows_cream_wood", {
+	description = S("Cream Wood Window"),
+	texture_seam = "windows_windows_creamwood_seam.png",
+	texture_front = "windows_windows_creamwood_front.png",
+	is_wood = true,
+})
+windows.register_window("windows:windows_lush_wood", {
+	description = S("Lush Wood Window"),
+	texture_seam = "windows_windows_lushwood_seam.png",
+	texture_front = "windows_windows_lushwood_front.png",
+	is_wood = true,
+})
+windows.register_window("windows:windows_wood_uncolored", {
+	description = S("Uncolored Canvas Wood Window"),
+	texture_seam = "windows_windows_uncoloredwood_seam.png",
+	texture_front = "windows_windows_uncoloredwood_front.png",
+	is_wood = true,
+	is_colwood = true,
+})
+
 
 minetest.register_craft({
 	output = 'windows:windows_wood 4',
@@ -93,6 +125,30 @@ minetest.register_craft({
 		{'hades_trees:birch_wood', 'hades_core:glass', 'hades_trees:birch_wood'},
 	}
 })
+minetest.register_craft({
+	output = 'windows:windows_cream_wood 4',
+	recipe = {
+		{'hades_trees:cream_wood', 'hades_core:glass', 'hades_trees:cream_wood'},
+		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
+		{'hades_trees:cream_wood', 'hades_core:glass', 'hades_trees:cream_wood'},
+	}
+})
+minetest.register_craft({
+	output = 'windows:windows_lush_wood 4',
+	recipe = {
+		{'hades_trees:lush_wood', 'hades_core:glass', 'hades_trees:lush_wood'},
+		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
+		{'hades_trees:lush_wood', 'hades_core:glass', 'hades_trees:lush_wood'},
+	}
+})
+minetest.register_craft({
+	output = 'windows:windows_wood_uncolored 4',
+	recipe = {
+		{'hades_trees:colwood_uncolored', 'hades_core:glass', 'hades_trees:colwood_uncolored'},
+		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
+		{'hades_trees:colwood_uncolored', 'hades_core:glass', 'hades_trees:colwood_uncolored'},
+	}
+})
 
 local windows_simple = {
 	{ "wood_white", S("White Canvas Wood Window"), "dye:white"},
@@ -116,12 +172,14 @@ for w=1, #windows_simple do
 		description = windows_simple[w][2],
 		texture_seam = "windows_windows_"..windows_simple[w][1].."_seam.png",
 		texture_front = "windows_windows_"..windows_simple[w][1].."_front.png",
+		is_wood = true,
+		is_colwood = true,
 	})
 
 	minetest.register_craft({
 		type = "shapeless",
 		output = 'windows:windows_'..windows_simple[w][1],
-		recipe = { 'group:window_wood', windows_simple[w][3] },
+		recipe = { 'group:window_colwood', windows_simple[w][3] },
 	})
 end
 
