@@ -134,6 +134,11 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
+	type = "shapeless",
+	output = 'windows:windows_wood_uncolored',
+	recipe = { 'group:window_colwood', 'hades_trees:canvas_leaves' },
+})
+minetest.register_craft({
 	output = 'windows:windows_wood_uncolored 4',
 	recipe = {
 		{'hades_trees:colwood_uncolored', 'hades_core:glass', 'hades_trees:colwood_uncolored'},

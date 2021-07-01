@@ -30,6 +30,11 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
+	type = "shapeless",
+	output = 'hades_trees:colwood_uncolored',
+	recipe = {'group:colwood', 'hades_trees:canvas_leaves'},
+})
+minetest.register_craft({
 	output = 'hades_trees:colwood_uncolored 4',
 	recipe = {
 		{'hades_trees:canvas_tree'},

@@ -49,6 +49,12 @@ minetest.register_craft({
 -- Canvas wood fences
 
 minetest.register_craft({
+	type = "shapeless",
+	output = 'hades_fences:fence_wood_uncolored',
+	recipe = { 'group:fence_colwood', 'hades_trees:canvas_leaves' },
+})
+
+minetest.register_craft({
 	output = 'hades_fences:fence_wood_uncolored',
 	recipe = {
 		{'hades_trees:colwood_uncolored', 'group:stick', 'hades_trees:colwood_uncolored'},
@@ -63,7 +69,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	type = "shapeless",
 	output = 'hades_fences:fence_wood_blue',
 	recipe = {'group:fence_colwood', 'dye:blue'},

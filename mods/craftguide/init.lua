@@ -39,6 +39,7 @@ local group_stereotypes = {
 	leaves       = "hades_trees:leaves",
 	sapling      = "hades_trees:sapling",
 	wood         = "hades_trees:wood",
+	colwood      = "hades_trees:colwood_white",
 	stick        = "hades_core:stick",
 	mesecon_conductor_craftable = "mesecons:wire_00000000_off",
 }
@@ -67,6 +68,7 @@ local group_names = {
 	leaves       = S("Any leaves"),
 	sapling      = S("Any sapling"),
 	wood         = S("Any wooden planks"),
+	colwood      = S("Any canvas wood planks"),
 	stick        = S("Any stick"),
 	mesecon_conductor_craftable = S("Any mesecon conductor"),
 }
