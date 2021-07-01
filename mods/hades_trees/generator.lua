@@ -22,6 +22,8 @@ function hades_trees.grow_sapling(pos, check_light)
 		hades_trees.generate_cocoatree(pos, check_light)
 	elseif node.name == "hades_trees:coconut_sapling" then
 		hades_trees.generate_coconutpalm(pos, check_light)
+	elseif node.name == "hades_trees:canvas_sapling" then
+		hades_trees.generate_tree(pos, check_light, "hades_trees:canvas_tree")
 	end
 end
 
@@ -164,7 +166,7 @@ end
 -- Orange Tree
 function hades_trees.generate_orangetree(pos, check_light, trunk, leaves, underground, replacements)
 	if not trunk then
-		trunk = "hades_trees:tree"
+		trunk = "hades_trees:lush_tree"
 	end
 	if not leaves then
 		leaves = "hades_trees:orange_leaves"
@@ -199,7 +201,7 @@ end
 -- Coconut Palm
 function hades_trees.generate_coconutpalm(pos, check_light, trunk, leaves, underground, replacements)
 	if not trunk then
-		trunk = "hades_trees:jungle_tree"
+		trunk = "hades_trees:tree"
 	end
 	if not leaves then
 		leaves = "hades_trees:jungle_leaves"

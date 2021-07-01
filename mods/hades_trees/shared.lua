@@ -15,3 +15,12 @@ hades_trees.register_leaves("leaves", {
 	drop_item = "hades_trees:sapling",
 	drop_rarity = 20,
 })
+
+hades_trees.register_trunk("lush_tree", {
+	description = S("Lush Tree Trunk"),
+	tiles = {"hades_trees_lush_tree_top.png", "hades_trees_lush_tree_top.png", "hades_trees_lush_tree.png"},
+})
+hades_trees.register_bark("lush_bark", {
+	description = S("Lush Bark"),
+	image = "hades_trees_lush_tree.png",
+})

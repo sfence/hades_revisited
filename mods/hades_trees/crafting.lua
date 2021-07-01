@@ -23,6 +23,18 @@ minetest.register_craft({
 		{'hades_trees:jungle_tree'},
 	}
 })
+minetest.register_craft({
+	output = 'hades_trees:lush_wood 4',
+	recipe = {
+		{'hades_trees:lush_tree'},
+	}
+})
+minetest.register_craft({
+	output = 'hades_trees:colwood_uncolored 4',
+	recipe = {
+		{'hades_trees:canvas_tree'},
+	}
+})
 
 minetest.register_craft({
 	output = 'hades_trees:colwood_black',
