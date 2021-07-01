@@ -7,7 +7,7 @@ hades_trees.register_trunk("canvas_tree", {
 hades_trees.register_leaves("canvas_leaves", {
 	description = S("Canvas Leaves"),
 	image = "hades_trees_canvas_leaves.png",
-	ash_fertilizer = 1,
+	ash_fertilizer = 0,
 	drop_item = "hades_trees:canvas_sapling",
 	drop_rarity = 20,
 })
