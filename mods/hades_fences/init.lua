@@ -70,6 +70,10 @@ local fences = {
 	{ "pale_wood", S("Pale Wood Fence"), "hades_trees_pale_wood.png" },
 	{ "birch_wood", S("Birch Wood Fence"), "default_birchwood.png" },
 	{ "jungle_wood", S("Jungle Wood Fence"), "default_junglewood.png" },
+	{ "cream_wood", S("Cream Wood Fence"), "hades_trees_cream_wood.png" },
+	{ "lush_wood", S("Lush Wood Fence"), "hades_trees_lush_wood.png" },
+
+	{ "wood_uncolored", S("Uncolored Canvas Wood Fence"), "hades_trees_colwood_uncolored.png" },
 	{ "wood_black", S("Black Canvas Wood Fence"), "hades_trees_colwood_black.png" },
 	{ "wood_blue", S("Blue Canvas Wood Fence"), "hades_trees_colwood_blue.png" },
 	{ "wood_cyan", S("Cyan Canvas Wood Fence"), "hades_trees_colwood_cyan.png" },
