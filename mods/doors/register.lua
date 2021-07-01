@@ -75,6 +75,44 @@ minetest.register_craft({
 	}
 })
 
+doors.register_door("doors:door_wood_cream", {
+	description = S("Cream Wood Door"),
+	inventory_image = "doors_wood_cream.png",
+	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	tiles = {{name="doors_door_wood_cream.png", backface_culling=true}},
+	sounds = hades_sounds.node_sound_wood_defaults(),
+	sunlight = false,
+})
+
+minetest.register_craft({
+	output = "doors:door_wood_cream",
+	recipe = {
+		{"hades_trees:cream_wood", "hades_trees:cream_wood"},
+		{"hades_trees:cream_wood", "hades_trees:cream_wood"},
+		{"hades_trees:cream_wood", "hades_trees:cream_wood"}
+	}
+})
+
+doors.register_door("doors:door_wood_lush", {
+	description = S("Lush Wood Door"),
+	inventory_image = "doors_wood_lush.png",
+	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	tiles = {{name="doors_door_wood_lush.png", backface_culling=true}},
+	sounds = hades_sounds.node_sound_wood_defaults(),
+	sunlight = false,
+})
+
+minetest.register_craft({
+	output = "doors:door_wood_lush",
+	recipe = {
+		{"hades_trees:lush_wood", "hades_trees:lush_wood"},
+		{"hades_trees:lush_wood", "hades_trees:lush_wood"},
+		{"hades_trees:lush_wood", "hades_trees:lush_wood"}
+	}
+})
+
+
+
 
 
 doors.register_door("doors:door_steel", {
@@ -285,6 +323,47 @@ minetest.register_craft({
 	}
 })
 
+doors.register_trapdoor("doors:trapdoor_cream", {
+	description = S("Cream Wood Trapdoor"),
+	inventory_image = "doors_trapdoor_cream.png",
+	wield_image = "doors_trapdoor_cream.png",
+	tile_front = "doors_trapdoor_cream.png",
+	tile_side = "doors_trapdoor_cream_side.png",
+	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	sounds = hades_sounds.node_sound_wood_defaults(),
+	sound_open = "doors_door_open",
+	sound_close = "doors_door_close"
+})
+
+minetest.register_craft({
+	output = 'doors:trapdoor_cream 2',
+	recipe = {
+		{'hades_trees:cream_wood', 'hades_trees:cream_wood', 'hades_trees:cream_wood'},
+		{'hades_trees:cream_wood', 'hades_trees:cream_wood', 'hades_trees:cream_wood'},
+	}
+})
+
+doors.register_trapdoor("doors:trapdoor_lush", {
+	description = S("Lush Wood Trapdoor"),
+	inventory_image = "doors_trapdoor_lush.png",
+	wield_image = "doors_trapdoor_lush.png",
+	tile_front = "doors_trapdoor_lush.png",
+	tile_side = "doors_trapdoor_lush_side.png",
+	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	sounds = hades_sounds.node_sound_wood_defaults(),
+	sound_open = "doors_door_open",
+	sound_close = "doors_door_close"
+})
+
+minetest.register_craft({
+	output = 'doors:trapdoor_lush 2',
+	recipe = {
+		{'hades_trees:lush_wood', 'hades_trees:lush_wood', 'hades_trees:lush_wood'},
+		{'hades_trees:lush_wood', 'hades_trees:lush_wood', 'hades_trees:lush_wood'},
+	}
+})
+
+
 doors.register_trapdoor("doors:trapdoor_steel", {
 	description = S("Steel Trapdoor"),
 	inventory_image = "doors_trapdoor_steel.png",
@@ -334,6 +413,23 @@ doors.register_fencegate("doors:gate_birch_wood", {
 	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}
 })
 
+doors.register_fencegate("doors:gate_cream_wood", {
+	description = S("Cream Wood Fence Gate"),
+	texture = "hades_trees_cream_wood.png",
+	material = "hades_trees:cream_wood",
+	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}
+})
+
+doors.register_fencegate("doors:gate_lush_wood", {
+	description = S("Lush Wood Fence Gate"),
+	texture = "hades_trees_lush_wood.png",
+	material = "hades_trees:lush_wood",
+	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}
+})
+
+
+
+
 minetest.register_craft({
 	type = "fuel",
 	recipe = "doors:trapdoor",
@@ -352,6 +448,16 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "doors:trapdoor_birch",
+	burntime = 7,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "doors:trapdoor_cream",
+	burntime = 7,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "doors:trapdoor_lush",
 	burntime = 7,
 })
 minetest.register_craft({
@@ -376,6 +482,17 @@ minetest.register_craft({
 })
 minetest.register_craft({
 	type = "fuel",
+	recipe = "doors:door_wood_cream",
+	burntime = 14,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "doors:door_wood_lush",
+	burntime = 14,
+})
+
+minetest.register_craft({
+	type = "fuel",
 	recipe = "doors:gate_wood_closed",
 	burntime = 7,
 })
@@ -392,6 +509,16 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "fuel",
 	recipe = "doors:gate_birch_wood_closed",
+	burntime = 7,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "doors:gate_cream_wood_closed",
+	burntime = 7,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "doors:gate_lush_wood_closed",
 	burntime = 7,
 })
 
