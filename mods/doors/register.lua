@@ -94,7 +94,11 @@ minetest.register_craft({
 
 
 
-
+minetest.register_craft({
+	type = "shapeless",
+	output = "doors:door_steel",
+	recipe = { "group:steel_door", "hades_trees:canvas_leaves" },
+})
 
 doors.register_door("doors:door_steel", {
 	description = S("Plain Steel Door"),

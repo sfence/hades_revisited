@@ -497,6 +497,11 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_core:brick",
+	recipe = { "group:claybricks", "hades_trees:canvas_leaves" },
+})
 
 minetest.register_craft({
 	output = 'hades_core:brick',

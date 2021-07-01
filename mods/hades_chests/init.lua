@@ -207,6 +207,17 @@ end
 end
 
 minetest.register_craft({
+	type = "shapeless",
+	output = "hades_chests:chest",
+	recipe = { "group:unlocked_chest", "hades_trees:canvas_leaves" },
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "hades_chests:chest_locked",
+	recipe = { "group:locked_chest", "hades_trees:canvas_leaves" },
+})
+
+minetest.register_craft({
 	output = 'hades_chests:chest',
 	recipe = {
 		{'group:wood', 'group:wood', 'group:wood'},
