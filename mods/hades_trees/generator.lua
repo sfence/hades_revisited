@@ -23,7 +23,7 @@ function hades_trees.grow_sapling(pos, check_light)
 	elseif node.name == "hades_trees:coconut_sapling" then
 		hades_trees.generate_coconutpalm(pos, check_light)
 	elseif node.name == "hades_trees:canvas_sapling" then
-		hades_trees.generate_tree(pos, check_light, "hades_trees:canvas_tree", "hades_trees:canvas_leaves")
+		hades_trees.generate_birchtree(pos, check_light, "hades_trees:canvas_tree", "hades_trees:canvas_leaves")
 	end
 end
 
