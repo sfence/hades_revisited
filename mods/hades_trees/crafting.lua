@@ -306,6 +306,17 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = 'hades_trees:canvas_sapling',
+	recipe = {
+		{'hades_flowers:white'},
+		{'hades_trees:pale_sapling'},
+		{'hades_core:dirt'},
+	}
+})
+
+
+
 -- TODO: Cocoa sapling
 
 -- Fuel

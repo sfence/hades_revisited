@@ -23,6 +23,7 @@ local flowers = {
 	{"banana_sapling", "hades_trees:banana_sapling", S("Banana Tree Sapling")},
 	{"cocoa_sapling", "hades_trees:cocoa_sapling", S("Cocoa Tree Sapling")},
 	{"coconut_sapling", "hades_trees:coconut_sapling", S("Coconut Tree Sapling")},
+	{"canvas_sapling", "hades_trees:canvas_sapling", S("Canvas Tree Sapling")},
 }
 
 local cubes = {
@@ -36,6 +37,7 @@ local cubes = {
 	{"pale_leaves", "hades_trees:pale_leaves", S("Pale Leaves")},
 	{"orange_leaves", "hades_trees:orange_leaves", S("Orange Leaves")},
 	{"banana_leaves", "hades_trees:banana_leaves", S("Banana Leaves")},
+	{"canvas_leaves", "hades_trees:canvas_leaves", S("Canvas Leaves")},
 }
 
 minetest.register_node("flowerpots:flower_pot", {
