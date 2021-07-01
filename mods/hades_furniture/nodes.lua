@@ -38,7 +38,7 @@ local S = minetest.get_translator("hades_furniture")
 
 	-- Table and chair
 	local furniture_colors = {
-		{"", S("Table"), S("Chair")},
+		{"_uncolored", S("Uncolored Table"), S("Uncolored Chair")},
 		{"_black", S("Black Table"), S("Black Chair")},
 		{"_white", S("White Table"), S("White Chair")},
 	}

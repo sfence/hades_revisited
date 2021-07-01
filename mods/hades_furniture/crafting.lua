@@ -51,9 +51,15 @@
 	})
 
 	minetest.register_craft( {
-		output = 'hades_furniture:table',
+		type = "shapeless",
+		output = 'hades_furniture:table_uncolored',
+		recipe = { 'group:table', 'hades_trees:canvas_leaves' },
+	})
+
+	minetest.register_craft( {
+		output = 'hades_furniture:table_uncolored',
 		recipe = {
-			{ 'hades_trees:wood','hades_trees:wood', 'hades_trees:wood' },
+			{ 'hades_trees:colwood_uncolored','hades_trees:colwood_uncolored', 'hades_trees:colwood_uncolored' },
 			{ 'group:stick', '', 'group:stick' },
 		},
 	})
@@ -82,10 +88,16 @@
 
 	--Chair
 	minetest.register_craft( {
-		output = 'hades_furniture:chair 2',
+		type = "shapeless",
+		output = 'hades_furniture:chair_uncolored',
+		recipe = { 'group:chair', 'hades_trees:canvas_leaves' },
+	})
+
+	minetest.register_craft( {
+		output = 'hades_furniture:chair_uncolored 2',
 		recipe = {
 			{ 'group:stick',''},
-			{ 'hades_trees:wood','hades_trees:wood' },
+			{ 'hades_trees:colwood_uncolored','hades_trees:colwood_uncolored' },
 			{ 'group:stick','group:stick' },
 		},
 	})
