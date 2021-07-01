@@ -95,21 +95,21 @@ minetest.register_craft({
 })
 
 local windows_simple = {
-	{ "wood_white", S("White Wooden Window"), "dye:white"},
-	{ "wood_darkgrey", S("Dark Grey Wooden Window"), "dye:dark_grey"},
-	{ "wood_grey", S("Grey Wooden Window"), "dye:grey"},
-	{ "wood_black", S("Black Wooden Window"), "dye:black"},
-	{ "wood_red", S("Red Wooden Window"), "dye:red"},
-	{ "wood_magenta", S("Magenta Wooden Window"), "dye:magenta"},
-	{ "wood_violet", S("Violet Wooden Window"), "dye:violet"},
-	{ "wood_blue", S("Blue Wooden Window"), "dye:blue"},
-	{ "wood_cyan", S("Cyan Wooden Window"), "dye:cyan"},
-	{ "wood_green", S("Green Wooden Window"), "dye:green"},
-	{ "wood_darkgreen", S("Dark Green Wooden Window"), "dye:dark_green"},
-	{ "wood_pink", S("Pink Wooden Window"), "dye:pink"},
-	{ "wood_yellow", S("Yellow Wooden Window"), "dye:yellow"},
-	{ "wood_orange", S("Orange Wooden Window"), "dye:orange"},
-	{ "wood_brown", S("Brown Wooden Window"), "dye:brown"},
+	{ "wood_white", S("White Canvas Wood Window"), "dye:white"},
+	{ "wood_darkgrey", S("Dark Grey Canvas Wood Window"), "dye:dark_grey"},
+	{ "wood_grey", S("Grey Canvas Wood Window"), "dye:grey"},
+	{ "wood_black", S("Black Canvas Wood Window"), "dye:black"},
+	{ "wood_red", S("Red Canvas Wood Window"), "dye:red"},
+	{ "wood_magenta", S("Magenta Canvas Wood Window"), "dye:magenta"},
+	{ "wood_violet", S("Violet Canvas Wood Window"), "dye:violet"},
+	{ "wood_blue", S("Blue Canvas Wood Window"), "dye:blue"},
+	{ "wood_cyan", S("Cyan Canvas Wood Window"), "dye:cyan"},
+	{ "wood_green", S("Green Canvas Wood Window"), "dye:green"},
+	{ "wood_darkgreen", S("Dark Green Canvas Wood Window"), "dye:dark_green"},
+	{ "wood_pink", S("Pink Canvas Wood Window"), "dye:pink"},
+	{ "wood_yellow", S("Yellow Canvas Wood Window"), "dye:yellow"},
+	{ "wood_orange", S("Orange Canvas Wood Window"), "dye:orange"},
+	{ "wood_brown", S("Brown Canvas Wood Window"), "dye:brown"},
 }
 for w=1, #windows_simple do
 	windows.register_window("windows:windows_"..windows_simple[w][1], {

@@ -2,27 +2,32 @@ local S = minetest.get_translator("hades_trees")
 
 -- Wooden planks
 local planks = {
-	{ "wood", S("Common Wood Planks"), "default_wood.png" },
-	{ "birch_wood", S("Birch Wood Planks"), "default_birchwood.png" },
 	{ "pale_wood", S("Pale Wood Planks"), "hades_trees_pale_wood.png" },
+	{ "cream_wood", S("Cream Wood Planks"), "hades_trees_cream_wood.png" },
+	{ "wood", S("Common Wood Planks"), "default_wood.png" },
+	{ "lush_wood", S("Lush Wood Planks"), "hades_trees_lush_wood.png" },
 	{ "jungle_wood", S("Jungle Wood Planks"), "default_junglewood.png" },
+	{ "charred_wood", S("Charred Wood Planks"), "hades_trees_charred_wood.png" },
 
--- Colored wooden planks
-	{ "colwood_black", S("Black Wood Planks"), "hades_trees_colwood_black.png", true },
-	{ "colwood_blue", S("Blue Wood Planks"), "hades_trees_colwood_blue.png", true },
-	{ "colwood_brown", S("Brown Wood Planks"), "hades_trees_colwood_brown.png", true },
-	{ "colwood_cyan", S("Cyan Wood Planks"), "hades_trees_colwood_cyan.png", true },
-	{ "colwood_dark_grey", S("Dark Grey Wood Planks"), "hades_trees_colwood_dark_grey.png", true },
-	{ "colwood_dark_green", S("Dark Green Wood Planks"), "hades_trees_colwood_dark_green.png", true },
-	{ "colwood_green", S("Green Wood Planks"), "hades_trees_colwood_green.png", true },
-	{ "colwood_grey", S("Grey Wood Planks"), "hades_trees_colwood_grey.png", true },
-	{ "colwood_magenta", S("Magenta Wood Planks"), "hades_trees_colwood_magenta.png", true },
-	{ "colwood_orange", S("Orange Wood Planks"), "hades_trees_colwood_orange.png", true },
-	{ "colwood_pink", S("Pink Wood Planks"), "hades_trees_colwood_pink.png", true },
-	{ "colwood_red", S("Red Wood Planks"), "hades_trees_colwood_red.png", true },
-	{ "colwood_violet", S("Violet Wood Planks"), "hades_trees_colwood_violet.png", true },
-	{ "colwood_white", S("White Wood Planks"), "hades_trees_colwood_white.png", true },
-	{ "colwood_yellow", S("Yellow Wood Planks"), "hades_trees_colwood_yellow.png", true },
+	{ "birch_wood", S("Birch Wood Planks"), "default_birchwood.png" },
+
+-- Canvas wood: Colored wooden planks
+	{ "colwood_uncolored", S("Uncolored Canvas Wood Planks"), "hades_trees_colwood_uncolored.png", true },
+	{ "colwood_black", S("Black Canvas Wood Planks"), "hades_trees_colwood_black.png", true },
+	{ "colwood_blue", S("Blue Canvas Wood Planks"), "hades_trees_colwood_blue.png", true },
+	{ "colwood_brown", S("Brown Canvas Wood Planks"), "hades_trees_colwood_brown.png", true },
+	{ "colwood_cyan", S("Cyan Canvas Wood Planks"), "hades_trees_colwood_cyan.png", true },
+	{ "colwood_dark_grey", S("Dark Grey Canvas Wood Planks"), "hades_trees_colwood_dark_grey.png", true },
+	{ "colwood_dark_green", S("Dark Green Canvas Wood Planks"), "hades_trees_colwood_dark_green.png", true },
+	{ "colwood_green", S("Green Canvas Wood Planks"), "hades_trees_colwood_green.png", true },
+	{ "colwood_grey", S("Grey Canvas Wood Planks"), "hades_trees_colwood_grey.png", true },
+	{ "colwood_magenta", S("Magenta Canvas Wood Planks"), "hades_trees_colwood_magenta.png", true },
+	{ "colwood_orange", S("Orange Canvas Wood Planks"), "hades_trees_colwood_orange.png", true },
+	{ "colwood_pink", S("Pink Canvas Wood Planks"), "hades_trees_colwood_pink.png", true },
+	{ "colwood_red", S("Red Wood Canvas Planks"), "hades_trees_colwood_red.png", true },
+	{ "colwood_violet", S("Violet Canvas Wood Planks"), "hades_trees_colwood_violet.png", true },
+	{ "colwood_white", S("White Canvas Wood Planks"), "hades_trees_colwood_white.png", true },
+	{ "colwood_yellow", S("Yellow Canvas Wood Planks"), "hades_trees_colwood_yellow.png", true },
 }
 
 for p=1, #planks do
