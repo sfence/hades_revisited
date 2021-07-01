@@ -4,6 +4,14 @@ hades_trees.register_trunk("canvas_tree", {
 	description = S("Canvas Tree Trunk"),
 	tiles = {"hades_trees_canvas_tree_top.png", "hades_trees_canvas_tree_top.png", "hades_trees_canvas_tree.png"},
 })
+hades_trees.register_leaves("canvas_leaves", {
+	description = S("Canvas Tree Leaves"),
+	image = "hades_trees_canvas_leaves.png",
+	ash_fertilizer = 1,
+	drop_item = "hades_trees:canvas_sapling",
+	drop_rarity = 20,
+})
+
 hades_trees.register_bark("canvas_bark", {
 	description = S("Canvas Bark"),
 	image = "hades_trees_canvas_tree.png",
