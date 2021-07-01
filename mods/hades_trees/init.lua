@@ -3,7 +3,9 @@ hades_trees = {}
 
 dofile(minetest.get_modpath("hades_trees").."/api.lua")
 
-dofile(minetest.get_modpath("hades_trees").."/common.lua")
+dofile(minetest.get_modpath("hades_trees").."/temperate.lua")
+
+dofile(minetest.get_modpath("hades_trees").."/apple.lua")
 dofile(minetest.get_modpath("hades_trees").."/olive.lua")
 dofile(minetest.get_modpath("hades_trees").."/paletree.lua")
 dofile(minetest.get_modpath("hades_trees").."/birch.lua")

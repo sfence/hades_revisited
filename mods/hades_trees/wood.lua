@@ -4,9 +4,9 @@ local S = minetest.get_translator("hades_trees")
 local planks = {
 	{ "pale_wood", S("Pale Wood Planks"), "hades_trees_pale_wood.png" },
 	{ "cream_wood", S("Cream Wood Planks"), "hades_trees_cream_wood.png" },
-	{ "wood", S("Common Wood Planks"), "default_wood.png" },
+	{ "wood", S("Temperate Wood Planks"), "default_wood.png" },
 	{ "lush_wood", S("Lush Wood Planks"), "hades_trees_lush_wood.png" },
-	{ "jungle_wood", S("Jungle Wood Planks"), "default_junglewood.png" },
+	{ "jungle_wood", S("Tropical Wood Planks"), "default_junglewood.png" },
 	{ "charred_wood", S("Charred Wood Planks"), "hades_trees_charred_wood.png" },
 
 -- Canvas wood: Colored wooden planks
@@ -46,7 +46,7 @@ end
 
 -- Tiles
 minetest.register_node("hades_trees:floor_wood_jungle", {
-	description = S("Common Wood/Jungle Wood Tile"),
+	description = S("Temperate Wood/Tropical Wood Tile"),
 	tiles = {
 		"hades_trees_floor_wood_jungle.png",
 		"hades_trees_floor_wood_jungle.png",
@@ -59,7 +59,7 @@ minetest.register_node("hades_trees:floor_wood_jungle", {
 })
 
 minetest.register_node("hades_trees:floor_wood_pale", {
-	description = S("Common Wood/Pale Wood Tile"),
+	description = S("Temperate Wood/Pale Wood Tile"),
 	tiles = {
 		"hades_trees_floor_wood_pale.png",
 		"hades_trees_floor_wood_pale.png",
@@ -72,7 +72,7 @@ minetest.register_node("hades_trees:floor_wood_pale", {
 })
 
 minetest.register_node("hades_trees:floor_pale_jungle", {
-	description = S("Jungle Wood/Pale Wood Tile"),
+	description = S("Tropical Wood/Pale Wood Tile"),
 	tiles = {
 		"hades_trees_floor_pale_jungle.png",
 		"hades_trees_floor_pale_jungle.png",

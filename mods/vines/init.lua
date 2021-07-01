@@ -226,8 +226,8 @@ end
 
 register_vine("side", {
 	vines_type = "side",
-	description_normal = S("Jungle Vine"),
-	description_rotten = S("Rotten Jungle Vine"),
+	description_normal = S("Tropical Vine"),
+	description_rotten = S("Rotten Tropical Vine"),
 	groups = vines_group_side,
 })
 

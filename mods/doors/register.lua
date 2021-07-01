@@ -1,7 +1,7 @@
 local S = minetest.get_translator("doors")
 
 doors.register_door("doors:door_wood", {
-	description = S("Common Wood Door"),
+	description = S("Temperate Wood Door"),
 	inventory_image = "doors_wood.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood.png", backface_culling=true}},
@@ -39,7 +39,7 @@ minetest.register_craft({
 
 
 doors.register_door("doors:door_wood_jungle", {
-	description = S("Jungle Wood Door"),
+	description = S("Tropical Wood Door"),
 	inventory_image = "doors_wood_jungle.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_jungle.png", backface_culling=true}},
@@ -225,7 +225,7 @@ minetest.register_craft({
 
 
 doors.register_trapdoor("doors:trapdoor", {
-	description = S("Common Wood Trapdoor"),
+	description = S("Temperate Wood Trapdoor"),
 	inventory_image = "doors_trapdoor.png",
 	wield_image = "doors_trapdoor.png",
 	tile_front = "doors_trapdoor.png",
@@ -245,7 +245,7 @@ minetest.register_craft({
 })
 
 doors.register_trapdoor("doors:trapdoor_jungle", {
-	description = S("Jungle Wood Trapdoor"),
+	description = S("Tropical Wood Trapdoor"),
 	inventory_image = "doors_trapdoor_jungle.png",
 	wield_image = "doors_trapdoor_jungle.png",
 	tile_front = "doors_trapdoor_jungle.png",
@@ -347,14 +347,14 @@ minetest.register_craft({
 })
 
 doors.register_fencegate("doors:gate_wood", {
-	description = S("Common Wood Fence Gate"),
+	description = S("Temperate Wood Fence Gate"),
 	texture = "default_wood.png",
 	material = "hades_trees:wood",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
 doors.register_fencegate("doors:gate_jungle_wood", {
-	description = S("Jungle Wood Fence Gate"),
+	description = S("Tropical Wood Fence Gate"),
 	texture = "default_junglewood.png",
 	material = "hades_trees:jungle_wood",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}

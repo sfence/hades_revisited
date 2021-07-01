@@ -36,7 +36,7 @@ local function check_node_light(pos, minlight, check)
 	return true
 end
 
--- Common Tree
+-- Apple Tree
 function hades_trees.generate_tree(pos, check_light, trunk, leaves, underground, replacements)
 	if not trunk then
 		trunk = "hades_trees:tree"
@@ -396,7 +396,7 @@ function hades_trees.generate_birchtree(pos, check_light, trunk, leaves, undergr
 end
 
 
--- Cultivated Jungle Tree
+-- Cultivated Tropical Tree
 function hades_trees.generate_cjtree(pos, check_light, trunk, leaves, underground)
 	if not trunk then
 		trunk = "hades_trees:jungle_tree"

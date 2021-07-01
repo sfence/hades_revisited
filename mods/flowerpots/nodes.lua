@@ -10,12 +10,12 @@ local flowers = {
 
 -- TODO: Maybe add these later?
 --	{"grass", "hades_core:grass_1", S("Grass")},
---	{"junglegrass", "hades_core:junglegrass", S("Jungle Grass")},
+--	{"junglegrass", "hades_core:junglegrass", S("Tropical Grass")},
 --	{"dry_shrub", "hades_core:dry_shrub", S("Dry Shrub")},
 
-	{"sapling", "hades_trees:sapling", S("Common Tree Sapling")},
-	{"jungle_sapling", "hades_trees:jungle_sapling", S("Common Jungle Tree Sapling")},
-	{"cultivated_jungle_sapling", "hades_trees:cultivated_jungle_sapling", S("Cultivated Jungle Tree Sapling")},
+	{"sapling", "hades_trees:sapling", S("Temperate Tree Sapling")},
+	{"jungle_sapling", "hades_trees:jungle_sapling", S("Common Tropical Tree Sapling")},
+	{"cultivated_jungle_sapling", "hades_trees:cultivated_jungle_sapling", S("Cultivated Tropical Tree Sapling")},
 	{"olive_sapling", "hades_trees:olive_sapling", S("Olive Tree Sapling")},
 	{"pale_sapling", "hades_trees:pale_sapling", S("Pale Tree Sapling")},
 	{"birch_sapling", "hades_trees:birch_sapling", S("Birch Tree Sapling")},
@@ -28,9 +28,9 @@ local flowers = {
 local cubes = {
 	{"cactus", "hades_core:cactus", S("Cactus")},
 
-	{"leaves", "hades_trees:leaves", S("Common Leaves")},
-	{"jungle_leaves", "hades_trees:jungle_leaves", S("Common Jungle Leaves")},
-	{"cultivated_jungle_leaves", "hades_trees:cultivated_jungle_leaves", S("Cultivated Jungle Leaves")},
+	{"leaves", "hades_trees:leaves", S("Temperate Leaves")},
+	{"jungle_leaves", "hades_trees:jungle_leaves", S("Common Tropical Leaves")},
+	{"cultivated_jungle_leaves", "hades_trees:cultivated_jungle_leaves", S("Cultivated Tropical Leaves")},
 	{"olive_leaves", "hades_trees:olive_leaves", S("Olive Leaves")},
 	{"birch_leaves", "hades_trees:birch_leaves", S("Birch Leaves")},
 	{"pale_leaves", "hades_trees:pale_leaves", S("Pale Leaves")},

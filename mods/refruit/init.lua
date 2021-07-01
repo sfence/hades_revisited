@@ -185,9 +185,9 @@ refruit.add_refruit("banana", {
 refruit.add_refruit("cocoa", {
 	fruit_itemstring = "hades_trees:cocoa_pod",
 	bud_description = S("Cocoa Bud"),
-	bud_tt = S("Grows to a Cocoa Flower").."\n"..surv.."\n"..S("Needs Common Jungle Leaves to grow"),
+	bud_tt = S("Grows to a Cocoa Flower").."\n"..surv.."\n"..S("Needs Common Tropical Leaves to grow"),
 	flower_description = S("Cocoa Flower"),
-	flower_tt = S("Grows to Cocoa").."\n"..surv.."\n"..S("Needs Common Jungle Leaves to grow"),
+	flower_tt = S("Grows to Cocoa").."\n"..surv.."\n"..S("Needs Common Tropical Leaves to grow"),
 	bud_interval = 35,
 	bud_chance = 10,
 	flower_interval = 34,
@@ -200,9 +200,9 @@ refruit.add_refruit("cocoa", {
 refruit.add_refruit("coconut", {
 	fruit_itemstring = "hades_trees:coconut",
 	bud_description = S("Coconut Bud"),
-	bud_tt = S("Grows to a Coconut Flower").."\n"..surv.."\n"..S("Needs Common Jungle Leaves to grow"),
+	bud_tt = S("Grows to a Coconut Flower").."\n"..surv.."\n"..S("Needs Common Tropical Leaves to grow"),
 	flower_description = S("Coconut Flower"),
-	flower_tt = S("Grows to a Coconut").."\n"..surv.."\n"..S("Needs Common Jungle Leaves to grow"),
+	flower_tt = S("Grows to a Coconut").."\n"..surv.."\n"..S("Needs Common Tropical Leaves to grow"),
 	bud_interval = 35,
 	bud_chance = 10,
 	flower_interval = 34,

@@ -55,13 +55,13 @@ windows.register_window = function(id, def)
 end
 
 windows.register_window("windows:windows_wood", {
-	description = S("Common Wood Window"),
+	description = S("Temperate Wood Window"),
 	texture_seam = "windows_windows_wood_seam.png",
 	texture_front = "windows_windows_wood_front.png",
 	is_wood = true,
 })
 windows.register_window("windows:windows_jungle_wood", {
-	description = S("Jungle Wood Window"),
+	description = S("Tropical Wood Window"),
 	texture_seam = "windows_windows_jwood_seam.png",
 	texture_front = "windows_windows_jwood_front.png",
 	is_wood = true,

@@ -73,7 +73,7 @@ for i=2,5 do
 end
 
 minetest.register_node("hades_core:junglegrass", {
-	description = S("Jungle Grass"),
+	description = S("Tropical Grass"),
 	drawtype = "plantlike",
 	visual_scale = 1.3,
 	tiles = {"default_junglegrass.png"},
