@@ -447,6 +447,24 @@ stairs.register_stair_and_slab("birch_bark", "hades_trees:birch_bark",
 		S("Birch Bark Slab"),
 		hades_sounds.node_sound_wood_defaults())
 
+stairs.register_stair_and_slab("lush_bark", "hades_trees:lush_bark",
+		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
+		{"hades_trees_lush_tree.png"},
+		S("Lush Bark Stair"),
+		S("Outer Lush Bark Stair"),
+		S("Inner Lush Bark Stair"),
+		S("Lush Bark Slab"),
+		hades_sounds.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("canvas_bark", "hades_trees:canvas_bark",
+		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
+		{"hades_trees_canvas_tree.png"},
+		S("Canvas Bark Stair"),
+		S("Outer Canvas Bark Stair"),
+		S("Inner Canvas Bark Stair"),
+		S("Canvas Bark Slab"),
+		hades_sounds.node_sound_wood_defaults())
+
 -- Canvas Wood
 
 stairs.register_stair_and_slab("colwood_uncolored", "hades_trees:colwood_uncolored",
