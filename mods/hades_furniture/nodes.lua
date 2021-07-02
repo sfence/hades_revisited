@@ -170,14 +170,18 @@ local S = minetest.get_translator("hades_furniture")
 		{ "max", "hi", minetest.LIGHT_MAX },
 	}
 	for l=1, #lamps do
-		local drop, not_in_creative_inventory
+		local drop, not_in_creative_inventory, tt, desc
 		if l ~= 1 then
 			drop = "hades_furniture:table_lamp_off"
 			not_in_creative_inventory = 1
+			desc = S("Table Lamp (level @1)", l)
+		else
+			tt = S("4 different luminance levels")
+			desc = S("Table Lamp")
 		end
 		minetest.register_node("hades_furniture:table_lamp_"..lamps[l][1], {
-			description = S("Table Lamp"),
-			_tt_help = S("4 different luminance levels"),
+			description = desc,
+			_tt_help = tt,
 			drawtype = "nodebox",
 			tiles = {
 				"hades_furniture_table_lamp_s.png",

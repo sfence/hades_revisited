@@ -322,7 +322,7 @@ for id, finfo in pairs(furnace_types) do
 	})
 
 	minetest.register_node(id.."_active", {
-		description = desc,
+		description = S("@1 (active)", desc),
 		tiles = {
 			tex.."_top.png", tex.."_bottom.png",
 			tex.."_side.png", tex.."_side.png",

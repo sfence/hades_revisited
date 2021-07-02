@@ -165,8 +165,8 @@ hades_farming.register_plant = function(name, def)
 	local pname = name:split(":")[2]
 
 	-- Check def table
-	if not def.description then
-		def.description = "Seed"
+	if not def.description_seed then
+		def.description_seed = "Seed"
 	end
 	if not def.inventory_image then
 		def.inventory_image = "unknown_item.png"
@@ -190,7 +190,7 @@ hades_farming.register_plant = function(name, def)
 		g[v] = 1
 	end
 	minetest.register_node(":" .. mname .. ":seed_" .. pname, {
-		description = def.description,
+		description = def.description_seed,
 		_tt_help = def._tt_help,
 		tiles = {def.inventory_image, def.inventory_image, "blank.png"},
 		use_texture_alpha = "clip",
@@ -237,10 +237,18 @@ hades_farming.register_plant = function(name, def)
 			}
 		}
 		local nodegroups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1}
+		local texture = mname .. "_" .. pname .. "_" .. i .. ".png"
 		nodegroups[pname] = i
+		local description_plant
+		if def.description_plant then
+			description_plant = S(def.description_plant, S("Stage @1", i))
+		end
 		minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",
-			tiles = {mname .. "_" .. pname .. "_" .. i .. ".png"},
+			description = description_plant,
+			inventory_image = texture,
+			wield_image = texture,
+			tiles = {texture},
 			use_texture_alpha = "clip",
 			paramtype = "light",
 			walkable = false,

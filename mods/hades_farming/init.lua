@@ -2,6 +2,7 @@
 hades_farming = {}
 hades_farming.path = minetest.get_modpath("hades_farming")
 local S = minetest.get_translator("hades_farming")
+local N = function(s) return s end
 
 -- Load files
 dofile(hades_farming.path .. "/api.lua")
@@ -10,7 +11,8 @@ dofile(hades_farming.path .. "/hoes.lua")
 
 -- WHEAT
 hades_farming.register_plant("hades_farming:wheat", {
-	description = S("Wheat Seed"),
+	description_seed = S("Wheat Seed"),
+	description_plant = N("Wheat Plant (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_wheat_seed.png",
 	steps = 3,
@@ -53,7 +55,8 @@ minetest.register_craft({
 
 -- Cotton
 hades_farming.register_plant("hades_farming:cotton", {
-	description = S("Cotton Seed"),
+	description_seed = S("Cotton Seed"),
+	description_plant = N("Cotton Plant (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	description_harvest = S("String"),
 	inventory_image = "hades_farming_cotton_seed.png",
@@ -95,7 +98,8 @@ minetest.register_craft({
 
 
 hades_farming.register_plant("hades_farming:tomato", {
-	description = S("Tomato Seed"),
+	description_seed = S("Tomato Seed"),
+	description_plant = N("Tomato Plant (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_tomato_seed.png",
 	steps = 3,
@@ -109,7 +113,8 @@ minetest.register_craftitem("hades_farming:tomato", {
 })
 
 hades_farming.register_plant("hades_farming:potato", {
-	description = S("Potato Seed"),
+	description_seed = S("Potato Seed"),
+	description_plant = N("Potato Plant (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_potato_seed.png",
 	steps = 3,
@@ -123,7 +128,8 @@ minetest.register_craftitem("hades_farming:potato", {
 })
 
 hades_farming.register_plant("hades_farming:strawberry", {
-	description = S("Strawberry Seed"),
+	description_seed = S("Strawberry Seed"),
+	description_plant = N("Strawberry Bush (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_strawberry_seed.png",
 	steps = 3,
@@ -137,7 +143,8 @@ minetest.register_craftitem("hades_farming:strawberry", {
 })
 
 hades_farming.register_plant("hades_farming:spice", {
-	description = S("Spice Seed"),
+	description_seed = S("Spice Seed"),
+	description_plant = N("Spice Shrub (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_spice_seed.png",
 	steps = 3,

@@ -138,8 +138,8 @@ for i in ipairs(lilies_list) do
 			"blank.png",
 		},
 		use_texture_alpha = "clip",
-		inventory_image = "flowers_waterlily.png",
-		wield_image  = "flowers_waterlily.png",
+		inventory_image = "flowers_waterlily"..deg2..".png",
+		wield_image  = "flowers_waterlily"..deg2..".png",
 		sunlight_propagates = true,
 		paramtype = "light",
 		paramtype2 = "facedir",
@@ -180,7 +180,6 @@ for i in ipairs(seaweed_list) do
 		seaweed_groups = { snappy = 3,flammable=2,seaweed=1, not_in_creative_inventory=1,falling_node=1,float=1 }
 	end
 
-
 	minetest.register_node("hades_waterplants:seaweed"..num, {
 		description = S("Seaweed"),
 		drawtype = "nodebox",
@@ -190,8 +189,8 @@ for i in ipairs(seaweed_list) do
 			"blank.png",
 		},
 		use_texture_alpha = "clip",
-		inventory_image = "flowers_seaweed_2.png",
-		wield_image  = "flowers_seaweed_2.png",
+		inventory_image = "flowers_seaweed"..num..".png",
+		wield_image  = "flowers_seaweed"..num..".png",
 		sunlight_propagates = true,
 		paramtype = "light",
 		paramtype2 = "facedir",

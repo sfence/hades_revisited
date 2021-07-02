@@ -95,6 +95,8 @@ end
 -- nodes from being placed in the top half of the door.
 minetest.register_node("doors:hidden", {
 	description = S("Hidden Door Segment"),
+	inventory_image = "doors_hidden_inv.png",
+	wield_image = "doors_hidden_inv.png",
 	-- can't use airlike otherwise falling nodes will turn to entities
 	-- and will be forever stuck until door is removed.
 	drawtype = "nodebox",
@@ -241,9 +243,10 @@ function doors.register(name, def)
 	if def.protected then
 		tt = S("Owned by placer")
 	end
+	local description = def.description
 
 	minetest.register_craftitem(":" .. name, {
-		description = def.description,
+		description = description,
 		_tt_help = tt,
 		inventory_image = def.inventory_image,
 		groups = table.copy(def.groups),
@@ -426,9 +429,11 @@ function doors.register(name, def)
 	def.collision_box = {type = "fixed", fixed = {-1/2,-1/2,-1/2,1/2,3/2,-6/16}}
 
 	def.mesh = "door_a.obj"
+	def.description = S("@1 (left hinge)", description)
 	minetest.register_node(":" .. name .. "_a", table.copy(def))
 
 	def.mesh = "door_b.obj"
+	def.description = S("@1 (right hinge)", description)
 	minetest.register_node(":" .. name .. "_b", table.copy(def))
 
 	_doors.registered_doors[name .. "_a"] = true
@@ -579,6 +584,9 @@ function doors.register_trapdoor(name, def)
 			def.tile_side, def.tile_side}
 	def_closed.use_texture_alpha = "clip"
 
+	def_opened.description = S("@1 (open)", def.description)
+	def_opened.inventory_image = nil
+	def_opened.wield_image = nil
 	def_opened.node_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, 6/16, 0.5, 0.5, 0.5}
@@ -651,6 +659,7 @@ function doors.register_fencegate(name, def)
 	}
 
 	local fence_open = table.copy(fence)
+	fence_open.description = S("@1 (open)", def.description)
 	fence_open.mesh = "doors_fencegate_open.obj"
 	fence_open.gate = name .. "_closed"
 	fence_open.sound = "doors_fencegate_close"
