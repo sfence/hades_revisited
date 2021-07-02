@@ -238,47 +238,6 @@ hades_farming.register_plant = function(name, def)
 		}
 		local nodegroups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1}
 		nodegroups[pname] = i
-		if pname == "corn" then 
-		   minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
-			drawtype = "plantlike",
-			visual_scale = 1.8,
-			waving = 1,
-			tiles = {mname .. "_" .. pname .. "_" .. i .. ".png"},
-			use_texture_alpha = "clip",
-			paramtype = "light",
-			walkable = false,
-			buildable_to = true,
-			floodable = true,
-			is_ground_content = true,
-			drop = drop,
-			selection_box = {
-				type = "fixed",
-				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-			},
-			groups = nodegroups,
-			sounds = hades_sounds.node_sound_leaves_defaults(),
-		})
-		elseif pname == "beens" then 
-		   minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
-			drawtype = "plantlike",
-			visual_scale = 1.4,
-			waving = 1,
-			tiles = {mname .. "_" .. pname .. "_" .. i .. ".png"},
-			use_texture_alpha = "clip",
-			paramtype = "light",
-			walkable = false,
-			buildable_to = true,
-			floodable = true,
-			is_ground_content = true,
-			drop = drop,
-			selection_box = {
-				type = "fixed",
-				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-			},
-			groups = nodegroups,
-			sounds = hades_sounds.node_sound_leaves_defaults(),
-		})
-		else
 		minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",
 			tiles = {mname .. "_" .. pname .. "_" .. i .. ".png"},
@@ -296,7 +255,6 @@ hades_farming.register_plant = function(name, def)
 			groups = nodegroups,
 			sounds = hades_sounds.node_sound_leaves_defaults(),
 		})
-		end
 	end
 
 	-- Growing ABM
