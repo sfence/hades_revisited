@@ -44,6 +44,7 @@ for p=1, #planks do
 	})
 end
 
+-- Tiles
 
 local tile_woods = {
 	{ "pale", S("Pale Wood"), "hades_trees:pale_wood" },
@@ -57,12 +58,18 @@ for t=1, #tile_woods do
 	local id1 = tile_woods[t][1]
 	local woodname1 = tile_woods[t][2]
 	for u=t, #tile_woods do
-	if t ~= u then
 		local id2 = tile_woods[u][1]
 		local woodname2 = tile_woods[u][2]
-		local tile = "hades_trees_floor_"..id1..".png^(hades_trees_floor_"..id2..".png^[mask:hades_trees_floor_mask.png)"
+		local tile, desc
+		if t~=u then
+			tile = "hades_trees_floor_"..id1..".png^(hades_trees_floor_"..id2..".png^[mask:hades_trees_floor_mask.png)"
+			desc = S("@1/@2 Tile", woodname1, woodname2)
+		else
+			tile = "hades_trees_floor_"..id1..".png"
+			desc = S("@1 Tile", woodname1)
+		end
 		minetest.register_node("hades_trees:floor_"..id1.."_"..id2, {
-			description = S("@1/@2 Tile", woodname1, woodname2),
+			description = desc,
 			tiles = {
 				tile, tile, tile, tile,
 				"("..tile..")^[transformR90",
@@ -78,14 +85,14 @@ for t=1, #tile_woods do
 				{tile_woods[u][3], tile_woods[t][3]},
 			}
 		})
-		minetest.register_craft({
-			output = 'hades_trees:floor_'..id1..'_'..id2..' 4',
-			recipe = {
-				{tile_woods[u][3], tile_woods[t][3]},
-				{tile_woods[t][3], tile_woods[u][3]},
-			}
-		})
-
-	end
+		if t~=u then
+			minetest.register_craft({
+				output = 'hades_trees:floor_'..id1..'_'..id2..' 4',
+				recipe = {
+					{tile_woods[u][3], tile_woods[t][3]},
+					{tile_woods[t][3], tile_woods[u][3]},
+				}
+			})
+		end
 	end
 end
