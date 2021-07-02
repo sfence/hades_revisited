@@ -1244,86 +1244,11 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'hades_core:floor_chondrite_stone2 4',
-	recipe = {
-		{'hades_core:chondrite', 'hades_core:stone'},
-		{'hades_core:stone', 'hades_core:chondrite'},
-	}
-})
-minetest.register_craft({
-	output = 'hades_core:floor_chondrite_stone2 4',
-	recipe = {
-		{'hades_core:stone', 'hades_core:chondrite'},
-		{'hades_core:chondrite', 'hades_core:stone'},
-	}
-})
-
-minetest.register_craft({
-	output = 'hades_core:floor_bstone_stone 4',
-	recipe = {
-		{'hades_core:stone_baked', 'hades_core:stone'},
-		{'hades_core:stone', 'hades_core:stone_baked'},
-	}
-})
-minetest.register_craft({
-	output = 'hades_core:floor_bstone_stone 4',
-	recipe = {
-		{'hades_core:stone', 'hades_core:stone_baked'},
-		{'hades_core:stone_baked', 'hades_core:stone'},
-	}
-})
-
-minetest.register_craft({
-	output = 'hades_core:floor_btuff_tuff 4',
-	recipe = {
-		{'hades_core:tuff_baked', 'hades_core:tuff'},
-		{'hades_core:tuff', 'hades_core:tuff_baked'},
-	}
-})
-minetest.register_craft({
-	output = 'hades_core:floor_btuff_tuff 4',
-	recipe = {
-		{'hades_core:tuff', 'hades_core:tuff_baked'},
-		{'hades_core:tuff_baked', 'hades_core:tuff'},
-	}
-})
-
-minetest.register_craft({
 	output = 'hades_core:floor_bstone_sandstone 9',
 	recipe = {
 		{'hades_core:sandstone', 'hades_core:stone_baked', 'hades_core:sandstone'},
 		{'hades_core:stone_baked', 'hades_core:sandstone', 'hades_core:stone_baked'},
 		{'hades_core:sandstone', 'hades_core:stone_baked', 'hades_core:sandstone'},
-	}
-})
-
-minetest.register_craft({
-	output = 'hades_core:floor_bstone_sandstone2 4',
-	recipe = {
-		{'hades_core:stone_baked', 'hades_core:sandstone'},
-		{'hades_core:sandstone', 'hades_core:stone_baked'},
-	}
-})
-minetest.register_craft({
-	output = 'hades_core:floor_bstone_sandstone2 4',
-	recipe = {
-		{'hades_core:sandstone', 'hades_core:stone_baked'},
-		{'hades_core:stone_baked', 'hades_core:sandstone'},
-	}
-})
-
-minetest.register_craft({
-	output = 'hades_core:floor_marble_essexite 4',
-	recipe = {
-		{'hades_core:marble', 'hades_core:essexite'},
-		{'hades_core:essexite', 'hades_core:marble'},
-	}
-})
-minetest.register_craft({
-	output = 'hades_core:floor_marble_essexite 4',
-	recipe = {
-		{'hades_core:essexite', 'hades_core:marble'},
-		{'hades_core:marble', 'hades_core:essexite'},
 	}
 })
 

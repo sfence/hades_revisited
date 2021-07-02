@@ -178,55 +178,12 @@ minetest.register_node("hades_core:obsidianbrick", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	groups = {cracky=1,level=2},
 })
--- floors
 
 minetest.register_node("hades_core:floor_chondrite_stone", {
 	description = S("Chondrite/Stone Block"),
 	tiles = {"default_floor_chondrite_stone.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=1},
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
-minetest.register_node("hades_core:floor_chondrite_stone2", {
-	description = S("Chondrite/Stone Tile"),
-	tiles = {
-		"default_floor_chondrite_stone2.png",
-		"default_floor_chondrite_stone2.png",
-		"default_floor_chondrite_stone2.png",
-		"default_floor_chondrite_stone2.png",
-		"default_floor_chondrite_stone2.png^[transformFX",
-	},
-	is_ground_content = false,
-	groups = {cracky=3, stone=1},
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
-minetest.register_node("hades_core:floor_bstone_stone", {
-	description = S("Burned Stone/Stone Tile"),
-	tiles = {
-		"default_floor_bstone_stone.png",
-		"default_floor_bstone_stone.png",
-		"default_floor_bstone_stone.png",
-		"default_floor_bstone_stone.png",
-		"default_floor_bstone_stone.png^[transformFX",
-	},
-	is_ground_content = false,
-	groups = {cracky=3, stone=1},
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
-minetest.register_node("hades_core:floor_btuff_tuff", {
-	description = S("Burned Tuff/Tuff Tile"),
-	tiles = {
-		"default_floor_btuff_tuff.png",
-		"default_floor_btuff_tuff.png",
-		"default_floor_btuff_tuff.png",
-		"default_floor_btuff_tuff.png",
-		"default_floor_btuff_tuff.png^[transformFX",
-	},
-	is_ground_content = false,
-	groups = {cracky=3},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
@@ -241,34 +198,6 @@ minetest.register_node("hades_core:floor_bstone_sandstone", {
 	},
 	is_ground_content = false,
 	groups = {cracky=3},
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
-minetest.register_node("hades_core:floor_bstone_sandstone2", {
-	description = S("Burned Stone/Sandstone Tile"),
-	tiles = {
-		"default_floor_bstone_sandstone2.png",
-		"default_floor_bstone_sandstone2.png",
-		"default_floor_bstone_sandstone2.png",
-		"default_floor_bstone_sandstone2.png",
-		"default_floor_bstone_sandstone2.png^[transformR90",
-	},
-	is_ground_content = false,
-	groups = {cracky=3},
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
-minetest.register_node("hades_core:floor_marble_essexite", {
-	description = S("Marble/Essexite Tile"),
-	tiles = {
-		"default_floor_marble_essexite.png",
-		"default_floor_marble_essexite.png",
-		"default_floor_marble_essexite.png",
-		"default_floor_marble_essexite.png",
-		"default_floor_marble_essexite.png^[transformR90",
-	},
-	is_ground_content = false,
-	groups = {cracky=2, stone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
