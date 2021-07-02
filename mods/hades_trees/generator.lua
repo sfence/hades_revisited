@@ -699,13 +699,17 @@ function hades_trees.generate_bananatree(pos, check_light, trunk, leaves, underg
 
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
-	local ret = true
+	local ret = false
 	for _,name in ipairs(underground) do
 		if nodename == name then
-			ret = false
+			ret = true
 			break
 		end
 	end
+	if not ret then
+		return
+	end
+
 	pos.y = pos.y+1
 	if not check_node_light(pos, 8, check_light) then
 		return
