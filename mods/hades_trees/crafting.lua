@@ -184,11 +184,6 @@ minetest.register_craft({
 	}
 })
 
--- Tiles
-
----- (see wood.lua)
-
-
 -- Sapling crafting
 minetest.register_craft({
 	output = 'hades_trees:sapling',
