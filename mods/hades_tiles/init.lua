@@ -21,7 +21,7 @@ local tile_groups = {
 	{ "stone", S("Stone"), "hades_core:stone", g_stone3, s_stone },
 	{ "tuff", S("Tuff"), "hades_core:tuff" },
 	{ "stonebaked", S("Burned Stone"), "hades_core:stone_baked" },
-	{ "tuffbaked", S("Burned Stone"), "hades_core:stone_baked" },
+	{ "tuffbaked", S("Burned Tuff"), "hades_core:tuff_baked" },
 	{ "sandstone", S("Sandstone"), "hades_core:sandstone" },
 	{ "chondrite", S("Chondrite"), "hades_core:chondrite" },
 },
@@ -30,7 +30,7 @@ local tile_groups = {
 	{ "essexite", S("Essexite"), "hades_core:essexite" },
 },
 {
-	{ "essexitegold", S("Golden Essexite"), nil, g_stone2, s_stone },
+	{ "essexitegold", S("Golden Essexite"), "hades_core:floor_essexite_gold", g_stone2, s_stone },
 }
 }
 
@@ -100,11 +100,3 @@ for t=1, #tile_nodes do
 	end
 end
 end
-
-minetest.register_craft({
-	output = 'hades_tiles:floor_essexitegold_essexitegold 3',
-	recipe = {
-		{'hades_core:gold_ingot', 'hades_core:essexite'},
-		{'hades_core:essexite', 'hades_core:essexite'},
-	}
-})
