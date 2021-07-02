@@ -1269,14 +1269,6 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = 'hades_core:floor_essexite_gold2 3',
-	recipe = {
-		{'hades_core:gold_ingot', 'hades_core:essexite'},
-		{'hades_core:essexite', 'hades_core:essexite'},
-	}
-})
-
 -- Color Bricks
 
 minetest.register_craft({

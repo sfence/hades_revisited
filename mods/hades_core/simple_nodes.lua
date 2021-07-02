@@ -223,14 +223,6 @@ minetest.register_node("hades_core:floor_essexite_gold", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
-minetest.register_node("hades_core:floor_essexite_gold2", {
-	description = S("Golden Essexite Tile"),
-	tiles = {"default_floor_essexite_gold2.png"},
-	is_ground_content = false,
-	groups = {cracky=2},
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
 --minerals
 
 minetest.register_node("hades_core:stone_with_coal", {
