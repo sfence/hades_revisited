@@ -68,10 +68,8 @@ local function screwdriver_handler(itemstack, user, pointed_thing, mode)
 			should_rotate = false
 		end
 	else
-		if not ndef or not ndef.paramtype2 == "facedir" or
-				(ndef.drawtype == "nodebox" and
-				not ndef.node_box.type == "fixed") or
-				node.param2 == nil then
+		if (not ndef) or ((ndef.paramtype2 ~= "facedir") and
+				(ndef.paramtype2 ~= "colorfacedir")) then
 			return
 		end
 
