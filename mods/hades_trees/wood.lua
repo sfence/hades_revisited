@@ -44,42 +44,48 @@ for p=1, #planks do
 	})
 end
 
--- Tiles
-minetest.register_node("hades_trees:floor_wood_jungle", {
-	description = S("Temperate Wood/Tropical Wood Tile"),
-	tiles = {
-		"hades_trees_floor_wood_jungle.png",
-		"hades_trees_floor_wood_jungle.png",
-		"hades_trees_floor_wood_jungle.png",
-		"hades_trees_floor_wood_jungle.png",
-		"hades_trees_floor_wood_jungle.png^[transformR90",
-	},
-	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1},
-	sounds = hades_sounds.node_sound_wood_defaults(),
-})
 
-minetest.register_node("hades_trees:floor_wood_pale", {
-	description = S("Temperate Wood/Pale Wood Tile"),
-	tiles = {
-		"hades_trees_floor_wood_pale.png",
-		"hades_trees_floor_wood_pale.png",
-		"hades_trees_floor_wood_pale.png",
-		"hades_trees_floor_wood_pale.png",
-		"hades_trees_floor_wood_pale.png^[transformR90",
-	},
-	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1},
-	sounds = hades_sounds.node_sound_wood_defaults(),
-})
+local tile_woods = {
+	{ "pale", S("Pale Wood"), "hades_trees:pale_wood" },
+	{ "cream", S("Cream Wood"), "hades_trees:cream_wood" },
+	{ "wood", S("Temperate Wood"), "hades_trees:wood" },
+	{ "lush", S("Lush Wood"), "hades_trees:lush_wood" },
+	{ "jungle", S("Tropical Wood"), "hades_trees:jungle_wood" },
+}
 
-minetest.register_node("hades_trees:floor_pale_jungle", {
-	description = S("Tropical Wood/Pale Wood Tile"),
-	tiles = {
-		"hades_trees_floor_pale_jungle.png",
-		"hades_trees_floor_pale_jungle.png",
-		"hades_trees_floor_pale_jungle.png",
-		"hades_trees_floor_pale_jungle.png",
-		"hades_trees_floor_pale_jungle.png^[transformR90",
-	},
-	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1},
-	sounds = hades_sounds.node_sound_wood_defaults(),
-})
+for t=1, #tile_woods do
+	local id1 = tile_woods[t][1]
+	local woodname1 = tile_woods[t][2]
+	for u=t, #tile_woods do
+	if t ~= u then
+		local id2 = tile_woods[u][1]
+		local woodname2 = tile_woods[u][2]
+		local tile = "hades_trees_floor_"..id1..".png^(hades_trees_floor_"..id2..".png^[mask:hades_trees_floor_mask.png)"
+		minetest.register_node("hades_trees:floor_"..id1.."_"..id2, {
+			description = S("@1/@2 Tile", woodname1, woodname2),
+			tiles = {
+				tile, tile, tile, tile,
+				"("..tile..")^[transformR90",
+			},
+			groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1,woodtile=1},
+			sounds = hades_sounds.node_sound_wood_defaults(),
+		})
+
+		minetest.register_craft({
+			output = 'hades_trees:floor_'..id1..'_'..id2..' 4',
+			recipe = {
+				{tile_woods[t][3], tile_woods[u][3]},
+				{tile_woods[u][3], tile_woods[t][3]},
+			}
+		})
+		minetest.register_craft({
+			output = 'hades_trees:floor_'..id1..'_'..id2..' 4',
+			recipe = {
+				{tile_woods[u][3], tile_woods[t][3]},
+				{tile_woods[t][3], tile_woods[u][3]},
+			}
+		})
+
+	end
+	end
+end
