@@ -51,7 +51,7 @@ for t=1, #tile_nodes do
 			tile = "hades_tiles_floor_"..id1..".png^(hades_tiles_floor_"..id2..".png^[mask:hades_tiles_floor_mask.png)"
 			desc = S("@1/@2 Tile", tilename1, tilename2)
 			on_rotate = function(pos, node, user, mode, new_param2)
-				if mode == 1 then
+				if mode == screwdriver.ROTATE_FACE then
 					minetest.swap_node(pos, {name="hades_tiles:floor_"..id2.."_"..id1})
 				end
 				return false
