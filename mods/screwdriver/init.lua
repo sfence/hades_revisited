@@ -29,14 +29,19 @@ local function screwdriver_handler(itemstack, user, pointed_thing, mode)
 	end
 
 	local pos = pointed_thing.under
+	local node = minetest.get_node(pos)
+	local ndef = minetest.registered_nodes[node.name]
+	if mode == screwdriver.ROTATE_AXIS and ndef and ndef.on_rightclick and
+		((not user) or (user and not user:get_player_control().sneak)) then
+		return ndef.on_rightclick(pos, node, user, itemstack,
+			pointed_thing) or itemstack
+	end
 
 	if minetest.is_protected(pos, user:get_player_name()) then
 		minetest.record_protection_violation(pos, user:get_player_name())
 		return
 	end
 
-	local node = minetest.get_node(pos)
-	local ndef = minetest.registered_nodes[node.name]
 	-- Compute param2
 	local rotationPart = node.param2 % 32 -- get first 4 bits
 	local preservePart = node.param2 - rotationPart

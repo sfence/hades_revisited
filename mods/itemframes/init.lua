@@ -138,6 +138,7 @@ minetest.register_node("itemframes:frame",{
 	sunlight_propagates = true,
 	groups = {choppy = 2, dig_immediate = 2},
 	sounds = hades_sounds.node_sound_defaults(),
+	-- TODO: Implement rotation
 	on_rotate = false,
 
 	on_construct = function(pos)

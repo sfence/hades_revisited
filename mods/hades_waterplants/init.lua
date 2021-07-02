@@ -42,6 +42,12 @@ local generate_on_place = function(basename, plant_table)
 		local adef = minetest.registered_nodes[above_node.name]
 		local tdef = minetest.registered_nodes[top_node.name]
 
+		if udef and udef.on_rightclick and
+			((not placer) or (placer and not placer:get_player_control().sneak)) then
+			return udef.on_rightclick(pt.under, under_node, placer, itemstack,
+				pt) or itemstack
+		end
+
 		if udef and udef.buildable_to then
 			if under_node.name ~= "hades_core:water_source" then
 				place_pos = pt.under
