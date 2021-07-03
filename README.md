@@ -127,31 +127,28 @@ Ores generate at and below the following Y levels:
 **Important**: A lot of the mods used in this game have been heavily changed
 from their original.
 
-`3dforniture`
+`hades_furniture` (based on `3dforniture`)
 <https://forum.minetest.net/viewtopic.php?id=2207>
 
 `bags`
 <https://forum.minetest.net/viewtopic.php?id=3081>
 
-`bedrock`
+`hades_bedrock` (based on `bedrock`)
 <http://www.moontest.org/viewtopic.php?f=11&t=9231>
 
 `boost_cart`
 <https://forum.minetest.net/viewtopic.php?f=11&t=10172>
 
-`farming_plus`
+`hades_farming` (based on `farming_plus`)
 <https://forum.minetest.net/viewtopic.php?id=2787>
 
 `glowcrystals`
 <https://forum.minetest.net/viewtopic.php?id=9047>
 
-`highlandpools`
+`hades_lakes` (based on `highlandpools`)
 <https://forum.minetest.net/viewtopic.php?id=8400>
 
-`item_tweaks`
-<https://github.com/minetest-technic/item_tweaks>
-
-`item_frames`
+`hades_itemshow` (based on `item_frames`)
 <https://forum.minetest.net/viewtopic.php?id=5600>
 
 `hades_chests` (based on `kerova`)
@@ -173,7 +170,7 @@ from their original.
 `signs_lib`
 <https://forum.minetest.net/viewtopic.php?id=2041>
 
-`trash_can`
+`hades_trash` (bassed on `trash_can`)
 <https://forum.minetest.net/viewtopic.php?id=6315>
 
 `travelnet`
@@ -191,13 +188,13 @@ This game is free software. It has been licensed under these licenses:
 
 Some mods have separate licenses:
 
-* `3dfornitore`: GPLv2
+* `hades_furniture`: GPLv2
 * `travelnet`: GPLv3
 * `bags`: New BSD License
-* `bedrock`: zlib license
+* `hades_bedrock`: zlib license
 * `signs_lib`: LGPLv3
 * `mesecons` (entire modpack): LGPLv3 for code, CC BY-SA 3.0 for media
-* `simple_bushes`: WTFPL for code, CC BY-SA 4.0 for media
+* `hades_bushes`: WTFPL for code, CC BY-SA 4.0 for media
 
 For detailed credits and author information, check out the readme files of the
 individual mods (in the `mods` directory).
