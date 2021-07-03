@@ -61,7 +61,7 @@ rebeds.register_bed("rebeds:bed", {
 		"default_wood.png",
 		"beds_bed_side_bottom_r.png",
 		"beds_bed_side_bottom_r.png^[transformfx",
-		"beds_transparent.png",
+		"blank.png",
 		"beds_bed_side_bottom.png"
 	    },
 	    top = {
@@ -70,7 +70,7 @@ rebeds.register_bed("rebeds:bed", {
 		"beds_bed_side_top_r.png",
 		"beds_bed_side_top_r.png^[transformfx",
 		"beds_bed_side_top.png",
-		"beds_transparent.png",
+		"blank.png",
 	    }
 	},
 	nodebox = {
