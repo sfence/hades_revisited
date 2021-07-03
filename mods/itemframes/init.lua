@@ -33,17 +33,23 @@ minetest.register_entity("itemframes:item",{
 				end
 			end
 		end
+		local props = {}
+		local set_props = false
 		if self.item ~= nil then
-			self.object:set_properties({wield_item = self.item})
+			props.wield_item = self.item
+			set_props = true
 		end
 		if self.nodename == "itemframes:pedestal" then
-			self.object:set_properties({automatic_rotate = 1})
+			props.automatic_rotate = 1
+			set_props = true
 		end
 		local def = minetest.registered_nodes[self.item]
 		if def and def.visual_scale then
-			self.object:set_properties({
-				visual_size = { x = BASE_ITEM_SIZE * def.visual_scale, y = BASE_ITEM_SIZE * def.visual_scale },
-			})
+			props.visual_size = { x = BASE_ITEM_SIZE * def.visual_scale, y = BASE_ITEM_SIZE * def.visual_scale }
+			set_props = true
+		end
+		if set_props then
+			self.object:set_properties(props)
 		end
 	end,
 	get_staticdata = function(self)
