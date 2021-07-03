@@ -97,9 +97,7 @@ minetest.register_node("doors:hidden", {
 	description = S("Hidden Door Segment"),
 	inventory_image = "doors_hidden_inv.png",
 	wield_image = "doors_hidden_inv.png",
-	-- can't use airlike otherwise falling nodes will turn to entities
-	-- and will be forever stuck until door is removed.
-	drawtype = "nodebox",
+	drawtype = "airlike",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -112,14 +110,7 @@ minetest.register_node("doors:hidden", {
 	drop = "",
 	groups = {not_in_creative_inventory = 1},
 	on_blast = function() end,
-	tiles = {"blank.png"},
 	use_texture_alpha = "clip",
-	-- 1px transparent block inside door hinge near node top.
-	node_box = {
-		type = "fixed",
-		fixed = {-15/32, 13/32, -15/32, -13/32, 1/2, -13/32},
-	},
-	-- collision_box needed otherise selection box would be full node size
 	collision_box = {
 		type = "fixed",
 		fixed = {-15/32, 13/32, -15/32, -13/32, 1/2, -13/32},
@@ -281,7 +272,9 @@ function doors.register(name, def)
 			local top_node = minetest.get_node_or_nil(above)
 			local topdef = top_node and minetest.registered_nodes[top_node.name]
 
-			if not topdef or not topdef.buildable_to then
+			-- Don't build if the upper node is blocked, unless it's the hidden
+			-- door segment.
+			if not topdef or (not topdef.buildable_to and top_node.name ~= "doors:hidden")then
 				return itemstack
 			end
 

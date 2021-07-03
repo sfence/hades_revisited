@@ -298,7 +298,8 @@ minetest.register_node("itemframes:pedestal",{
 		local top_node = minetest.get_node_or_nil(above)
 		local topdef = top_node and minetest.registered_nodes[top_node.name]
 
-		if not topdef or not topdef.buildable_to then
+		-- Don't build if upper node is blocked, unless it's the pedestal top
+		if not topdef or (not topdef.buildable_to and top_node.name ~= "itemframes:pedestal_top") then
 			return itemstack
 		end
 
