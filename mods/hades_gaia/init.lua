@@ -1,7 +1,7 @@
-local S = minetest.get_translator("staffgaia")
+local S = minetest.get_translator("hades_gaia")
 
 -- WTPFL Licenses
-staffgaia = {}
+hades_gaia = {}
 
 local conv = function(pos)
 	local nodename = minetest.get_node(pos).name
@@ -31,7 +31,7 @@ local cotrig = function(pos)
    end
 end
 
-function staffgaia.staff_on_use(itemstack, user, pointed_thing, uses)
+function hades_gaia.staffgaia_on_use(itemstack, user, pointed_thing, uses)
 	local pt = pointed_thing
 	-- check if pointing at a node
 	if not pt then
@@ -69,29 +69,29 @@ function staffgaia.staff_on_use(itemstack, user, pointed_thing, uses)
 	return itemstack
 end
 
-minetest.register_tool("staffgaia:staff", {
+minetest.register_tool("hades_gaia:staffgaia", {
 	description = S("Staff of Gaia"),
 	_tt_help = S("Turns ash, sand, stone and tuff to dirt"),
-	inventory_image = "staff_of_gaia.png",
+	inventory_image = "hades_gaia_staffgaia.png",
 
 
 	on_use = function(itemstack, user, pointed_thing)
-		return staffgaia.staff_on_use(itemstack, user, pointed_thing, 99)
+		return hades_gaia.staffgaia_on_use(itemstack, user, pointed_thing, 99)
 	end,
 })
 
-minetest.register_craftitem("staffgaia:head", {
+minetest.register_craftitem("hades_gaia:staffgaia_head", {
 	description = S("Head of the Staff of Gaia"),
-	inventory_image = "staffgaia_head.png",
+	inventory_image = "hades_gaia_staffgaia_head.png",
 })
 
-minetest.register_craftitem("staffgaia:shaft", {
+minetest.register_craftitem("hades_gaia:staffgaia_shaft", {
 	description = S("Shaft of the Staff of Gaia"),
-	inventory_image = "staffgaia_shaft.png",
+	inventory_image = "hades_gaia_staffgaia_shaft.png",
 })
 
 minetest.register_craft({
-	output = "staffgaia:head",
+	output = "hades_gaia:staffgaia_head",
 	recipe = {
 		{"hades_core:sapphire", "hades_core:mese_crystal", "hades_core:sapphire"},
 		{"hades_core:mese_crystal", "hades_core:diamond", "hades_core:mese_crystal"},
@@ -100,7 +100,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "staffgaia:shaft",
+	output = "hades_gaia:staffgaia_shaft",
 	recipe = {
 		{"", "hades_core:ruby", ""},
 		{"", "hades_core:ruby", ""},
@@ -108,10 +108,10 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = "staffgaia:staff",
+	output = "hades_gaia:staff",
 	recipe = {
-		{"", "staffgaia:head", ""},
-		{"", "staffgaia:shaft", ""},
+		{"", "hades_gaia:staffgaia_head", ""},
+		{"", "hades_gaia:shaft", ""},
 	}
 })
 
