@@ -2,13 +2,15 @@ local S = minetest.get_translator("itemframes")
 
 local tmp = {}
 
+local BASE_ITEM_SIZE = 1/3
+
 -- item entity
 
 minetest.register_entity("itemframes:item",{
 	hp_max = 1,
-	visual="wielditem",
-	visual_size={x = 0.33, y = 0.33},
-	collisionbox = {0, 0, 0, 0, 0, 0},
+	visual = "wielditem",
+	visual_size = {x = BASE_ITEM_SIZE, y = BASE_ITEM_SIZE },
+	pointable = false,
 	physical = false,
 	textures = {"blank.png"},
 	on_activate = function(self, staticdata)
@@ -37,6 +39,12 @@ minetest.register_entity("itemframes:item",{
 		end
 		if self.nodename == "itemframes:pedestal" then
 			self.object:set_properties({automatic_rotate = 1})
+		end
+		local def = minetest.registered_nodes[self.texture]
+		if def and def.visual_scale then
+			self.object:set_properties({
+				visual_size = { x = BASE_ITEM_SIZE * def.visual_scale, y = BASE_ITEM_SIZE * def.visual_scale },
+			})
 		end
 	end,
 	get_staticdata = function(self)
