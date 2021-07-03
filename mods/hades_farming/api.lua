@@ -125,6 +125,13 @@ hades_farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	
 	local under = minetest.get_node(pt.under)
 	local above = minetest.get_node(pt.above)
+
+	local udef = minetest.registered_nodes[under.name]
+	if udef and udef.on_rightclick and
+		((not placer) or (placer and not placer:get_player_control().sneak)) then
+		return udef.on_rightclick(pt.under, under, placer, itemstack,
+			pt) or itemstack
+	end
 	
 	-- return if any of the nodes is not registered
 	if not minetest.registered_nodes[under.name] then
