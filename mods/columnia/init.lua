@@ -44,6 +44,7 @@ minetest.register_node("columnia:lamp_ceiling", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	inventory_image = "columnia_lamp_inv.png",
+	wield_image = "columnia_lamp_inv.png",
 	tiles = {
 	         "columnia_rusty.png", "columnia_lamp.png", "columnia_lamp.png",
 		     "columnia_lamp.png", "columnia_lamp.png", "columnia_lamp.png"
