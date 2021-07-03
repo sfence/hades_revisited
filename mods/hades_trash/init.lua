@@ -1,11 +1,10 @@
-local S = minetest.get_translator("trash_can")
+local S = minetest.get_translator("hades_trash")
 local F = minetest.formspec_escape
 
---Node Registration
-local player_name = {}
-minetest.register_node("trash_can:trash_can_wooden",{
+--Node registration
+minetest.register_node("hades_trash:trash_can_plastic",{
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2},
-	tiles = {"trash_can_wooden_top.png", "trash_can_wooden_top.png", "trash_can_wooden.png"},
+	tiles = {"hades_trash_trash_can_plastic_top.png", "hades_trash_trash_can_plastic_top.png", "hades_trash_trash_can_plastic.png"},
 	description = S("Trash Can"),
 	_tt_help = S("Lets you get rid of trash"),
 	drawtype="nodebox",
@@ -29,7 +28,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
                                 "list[current_name;main;3,1;2,3;]"..
                                 "list[current_player;main;0,5;8,4;]"..
 				"listring[]"..
-				"background9[18,17;8,9;trash_can_inventory.png;true;18,17,-22,-17]")
+				"background9[18,17;8,9;hades_trash_trash_can_inventory.png;true;18,17,-22,-17]")
                 meta:set_string("infotext", S("Trash Can"))
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*4)
@@ -55,7 +54,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 				inv:set_stack("main", i, nil)
 			end
 			local player_name = sender:get_player_name()
-			minetest.sound_play("trash", {to_player=player_name, gain = 1.0}, false)
+			minetest.sound_play("hades_trash_empty", {to_player=player_name, gain = 1.0}, true)
 		end
         end,
 	sounds = hades_sounds.node_sound_defaults(),
@@ -64,7 +63,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 --Crafting
 
 minetest.register_craft({
-	output = 'trash_can:trash_can_wooden',
+	output = 'hades_trash:trash_can_plastic',
 	recipe = {
 		{'hades_materials:plastic_base', '', 'hades_materials:plastic_base'},
 		{'hades_materials:plastic_base', '', 'hades_materials:plastic_base'},

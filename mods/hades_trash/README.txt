@@ -8,11 +8,9 @@
                                              
 
 
-This mod adds a wooden trash can.  Right click it, put in your trash, and click the empty trash button.   
+This mod adds a plastic trash can.  Right click it, put in your trash, and click the empty trash button.   
 You can also throw things in the trash can by pressing "q" or throwing them out of your inventory.
 
-
-Dependencies:  Default
 
 License:  CC BY-SA 3.0
 
