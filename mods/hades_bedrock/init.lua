@@ -1,10 +1,10 @@
 local BEDROCK_LAYER = -30912 -- determined as appropriate by experiment
 
-local S = minetest.get_translator("bedrock")
+local S = minetest.get_translator("hades_bedrock")
 
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "bedrock:bedrock",
+	ore            = "hades_bedrock:bedrock",
 	wherein        = "hades_core:stone",
 	clust_scarcity = 1 * 1 * 1,
 	clust_num_ores = 5,
@@ -13,18 +13,7 @@ minetest.register_ore({
 	y_max     = -30656, -- This ensures the bottom of the world is not even loaded.
 })
 
-minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "bedrock:deepstone",
-	wherein        = "hades_core:stone",
-	clust_scarcity = 1 * 1 * 1,
-	clust_num_ores = 5,
-	clust_size     = 2,
-	y_min     = -30656,
-	y_max     = -30000,
-})
-
-minetest.register_node("bedrock:bedrock", {
+minetest.register_node("hades_bedrock:bedrock", {
 	description = S("Bedrock"),
 	tiles = {"bedrock_bedrock.png"},
 	groups = {unbreakable = 1, not_in_creative_inventory = 1}, -- For Map Tools' admin pickaxe.
@@ -37,21 +26,13 @@ minetest.register_node("bedrock:bedrock", {
 	drop = "",
 })
 
-minetest.register_node("bedrock:deepstone", {
-	description = S("Deepstone"),
-	tiles = {"bedrock_deepstone.png"},
-	drop = "hades_core:stone", -- Intended.
-	groups = {cracky = 1, level = 3},
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
 -- Generate a perfect bedrock layer at the world bottom
 minetest.register_on_generated(function(minp, maxp)
 	if maxp.y >= BEDROCK_LAYER and minp.y <= BEDROCK_LAYER then
 		local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
 		local data = vm:get_data()
 		local area = VoxelArea:new({MinEdge=emin, MaxEdge=emax})
-		local c_bedrock = minetest.get_content_id("bedrock:bedrock")
+		local c_bedrock = minetest.get_content_id("hades_bedrock:bedrock")
 
 		for x = minp.x, maxp.x do
 			for z = minp.z, maxp.z do
@@ -68,9 +49,9 @@ minetest.register_on_generated(function(minp, maxp)
 end)
 
 if minetest.get_modpath("mesecons_mvps") then
-	mesecon:register_mvps_stopper("bedrock:bedrock")
+	mesecon:register_mvps_stopper("hades_bedrock:bedrock")
 end
 
 if minetest.settings:get_bool("log_mods") then
-	minetest.log("action", "[bedrock] loaded.")
+	minetest.log("action", "[hades_bedrock] loaded.")
 end
