@@ -1,4 +1,4 @@
-local S = minetest.get_translator("flowerpots")
+local S = minetest.get_translator("hades_flowerpots")
 
 local flowers = {
 	{"red", "hades_flowers:red", S("Red Flower")},
@@ -26,7 +26,7 @@ local flowers = {
 	{"canvas_sapling", "hades_trees:canvas_sapling", S("Canvas Tree Sapling")},
 }
 
-local cubes = {
+local cuboids = {
 	{"cactus", "hades_core:cactus", S("Cactus")},
 
 	{"leaves", "hades_trees:leaves", S("Temperate Leaves")},
@@ -40,13 +40,13 @@ local cubes = {
 	{"canvas_leaves", "hades_trees:canvas_leaves", S("Canvas Leaves")},
 }
 
-minetest.register_node("flowerpots:flower_pot", {
+minetest.register_node("hades_flowerpots:flower_pot", {
 	description = S("Flower Pot"),
 	_tt_help = S("Can hold a flower or other small plant"),
 	drawtype = "mesh",
-	mesh = "flowerpot.obj",
+	mesh = "hades_flowerpots_flowerpot.obj",
 	tiles = {
-		"flowerpot.png",
+		"hades_flowerpots_flowerpot.png",
 	},
 	use_texture_alpha = "clip",
 	visual_scale = 0.5,
@@ -70,17 +70,17 @@ minetest.register_node("flowerpots:flower_pot", {
 			local flower = row[1]
 			local flower_node = row[2]
 			if item == flower_node then
-				minetest.set_node(pos, {name="flowerpots:flower_pot_"..flower})
+				minetest.set_node(pos, {name="hades_flowerpots:flower_pot_"..flower})
 				if not minetest.is_creative_enabled(name) then
 					itemstack:take_item()
 				end
 			end
 		end
-		for _, row in ipairs(cubes) do
+		for _, row in ipairs(cuboids) do
 			local flower = row[1]
 			local flower_node = row[2]
 			if item == flower_node then
-				minetest.set_node(pos, {name="flowerpots:flower_pot_"..flower})
+				minetest.set_node(pos, {name="hades_flowerpots:flower_pot_"..flower})
 				if not minetest.is_creative_enabled(name) then
 					itemstack:take_item()
 				end
@@ -90,7 +90,7 @@ minetest.register_node("flowerpots:flower_pot", {
 })
 
 minetest.register_craft({
-	output = 'flowerpots:flower_pot',
+	output = 'hades_flowerpots:flower_pot',
 	recipe = {
 		{'hades_core:clay_brick', '', 'hades_core:clay_brick'},
 		{'', 'hades_core:clay_brick', ''},
@@ -102,12 +102,12 @@ local flower = row[1]
 local flower_node = row[2]
 local desc = row[3]
 local texture = minetest.registered_nodes[flower_node]["tiles"]
-minetest.register_node("flowerpots:flower_pot_"..flower, {
+minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
 	description = S("Flower Pot with @1", desc),
 	drawtype = "mesh",
-	mesh = "flowerpot.obj",
+	mesh = "hades_flowerpots_flowerpot.obj",
 	tiles = {
-		"[combine:32x32:0,0=flowerpot.png:0,0="..texture[1],
+		"[combine:32x32:0,0=hades_flowerpots_flowerpot.png:0,0="..texture[1],
 	},
 	use_texture_alpha = "clip",
 	visual_scale = 0.5,
@@ -127,24 +127,24 @@ minetest.register_node("flowerpots:flower_pot_"..flower, {
 		if not minetest.is_creative_enabled(clicker:get_player_name()) then
 			minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
 		end
-		minetest.set_node(pos, {name="flowerpots:flower_pot"})
+		minetest.set_node(pos, {name="hades_flowerpots:flower_pot"})
 	end,
 	drop = {
-	max_items = 2,items = {{items = {"flowerpots:flower_pot", flower_node},rarity = 1,},},
+	max_items = 2,items = {{items = {"hades_flowerpots:flower_pot", flower_node},rarity = 1,},},
 	},
 })
 end
 
-for _, row in ipairs(cubes) do
+for _, row in ipairs(cuboids) do
 local flower = row[1]
 local flower_node = row[2]
 local desc = row[3]
-minetest.register_node("flowerpots:flower_pot_"..flower, {
+minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
 	description = S("Flower Pot with @1", desc),
 	drawtype = "mesh",
-	mesh = "flowerpot_with_long_cube.obj",
+	mesh = "hades_flowerpots_flowerpot_with_cuboid.obj",
 	tiles = {
-		"flowerpot_cube_base.png^flowerpot_"..flower..".png",
+		"hades_flowerpots_cuboid_base.png^hades_flowerpots_"..flower..".png",
 	},
 	use_texture_alpha = "clip",
 	visual_scale = 0.5,
@@ -164,19 +164,11 @@ minetest.register_node("flowerpots:flower_pot_"..flower, {
 		if not minetest.is_creative_enabled(clicker:get_player_name()) then
 			minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
 		end
-		minetest.set_node(pos, {name="flowerpots:flower_pot"})
+		minetest.set_node(pos, {name="hades_flowerpots:flower_pot"})
 	end,
 	drop = {
-	max_items = 2,items = {{items = {"flowerpots:flower_pot", flower_node},rarity = 1,},},
+	max_items = 2,items = {{items = {"hades_flowerpots:flower_pot", flower_node},rarity = 1,},},
 	},
 })
 end
 
-
-minetest.register_alias("flowers:flower_pot", "flowerpots:flower_pot")
-minetest.register_alias("flowers:potted_rose", "flowerpots:flower_pot_red")
-minetest.register_alias("flowers:potted_dandelion_yellow", "flowerpots:flower_pot_yellow")
-minetest.register_alias("flowers:potted_dandelion_white", "flowerpots:flower_pot_white")
-minetest.register_alias("flowers:potted_viola", "flowerpots:flower_pot_violet")
-minetest.register_alias("flowers:potted_geranium", "flowerpots:flower_pot_blue")
-minetest.register_alias("flowers:potted_tulip", "flowerpots:flower_pot_orange")

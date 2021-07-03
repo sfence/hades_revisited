@@ -76,14 +76,14 @@ local get_apply_fertilizer = function(super)
 			if not super and math.random(1,5) ~= 1 then return itemstack end
 			-- Grow sapling to tree
 			hades_trees.grow_sapling(pos, false)
-		elseif nname == "flowerpots:flower_pot" then
+		elseif nname == "hades_flowerpots:flower_pot" then
 			if not super then return itemstack end
 			-- [SUPER] Grow random flower in empty flowerpot
 			local flowers = {
 				"red", "white", "yellow", "orange", "yellow", "violet",
 			}
 			local flower = flowers[math.random(1, #flowers)]
-			minetest.set_node(pos, {name="flowerpots:flower_pot_"..flower})
+			minetest.set_node(pos, {name="hades_flowerpots:flower_pot_"..flower})
 		elseif minetest.get_item_group(nname, "leaves") == 1 then
 			if not super then return itemstack end
 			-- [SUPER] Grow leaves
