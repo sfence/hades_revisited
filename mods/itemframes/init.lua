@@ -12,7 +12,6 @@ minetest.register_entity("itemframes:item",{
 	visual_size = {x = BASE_ITEM_SIZE, y = BASE_ITEM_SIZE },
 	pointable = false,
 	physical = false,
-	textures = {"blank.png"},
 	on_activate = function(self, staticdata)
 
 		if minetest.global_exists("mobs") and mobs.entity and mobs.entity == false then
@@ -20,27 +19,27 @@ minetest.register_entity("itemframes:item",{
 			return
 		end
 
-		if tmp.nodename ~= nil and tmp.texture ~= nil then
+		if tmp.nodename ~= nil and tmp.item ~= nil then
 			self.nodename = tmp.nodename
 			tmp.nodename = nil
-			self.texture = tmp.texture
-			tmp.texture = nil
+			self.item = tmp.item
+			tmp.item = nil
 		else
 			if staticdata ~= nil and staticdata ~= "" then
 				local data = staticdata:split(';')
 				if data and data[1] and data[2] then
 					self.nodename = data[1]
-					self.texture = data[2]
+					self.item = data[2]
 				end
 			end
 		end
-		if self.texture ~= nil then
-			self.object:set_properties({textures = {self.texture}})
+		if self.item ~= nil then
+			self.object:set_properties({wield_item = self.item})
 		end
 		if self.nodename == "itemframes:pedestal" then
 			self.object:set_properties({automatic_rotate = 1})
 		end
-		local def = minetest.registered_nodes[self.texture]
+		local def = minetest.registered_nodes[self.item]
 		if def and def.visual_scale then
 			self.object:set_properties({
 				visual_size = { x = BASE_ITEM_SIZE * def.visual_scale, y = BASE_ITEM_SIZE * def.visual_scale },
@@ -48,8 +47,8 @@ minetest.register_entity("itemframes:item",{
 		end
 	end,
 	get_staticdata = function(self)
-		if self.nodename ~= nil and self.texture ~= nil then
-			return self.nodename .. ';' .. self.texture
+		if self.nodename ~= nil and self.item ~= nil then
+			return self.nodename .. ';' .. self.item
 		end
 		return ""
 	end,
@@ -102,7 +101,7 @@ local update_item = function(pos, node)
 			pos.y = pos.y + 12 / 16 + 0.33
 		end
 		tmp.nodename = node.name
-		tmp.texture = stack:get_name()
+		tmp.item = stack:get_name()
 		local e = minetest.add_entity(pos,"itemframes:item")
 		if node.name == "itemframes:frame" then
 			local yaw = math.pi * 2 - node.param2 * math.pi / 2
