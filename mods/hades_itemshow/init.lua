@@ -1,12 +1,12 @@
-local S = minetest.get_translator("itemframes")
+local S = minetest.get_translator("hades_itemshow")
 
 local tmp = {}
 
 local BASE_ITEM_SIZE = 1/3
 
--- item entity
+-- entity for displayed item
 
-minetest.register_entity("itemframes:item",{
+minetest.register_entity("hades_itemshow:item",{
 	hp_max = 1,
 	visual = "wielditem",
 	visual_size = {x = BASE_ITEM_SIZE, y = BASE_ITEM_SIZE },
@@ -70,7 +70,7 @@ facedir[3] = {x = -1, y = 0, z = 0}
 
 local remove_item = function(pos, node)
 	local objs = nil
-	if node.name == "itemframes:frame" then
+	if node.name == "hades_itemshow:frame" then
 		objs = minetest.get_objects_inside_radius(pos, 0.5)
 	elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 		pos.y = pos.y + 1
@@ -83,7 +83,7 @@ local remove_item = function(pos, node)
 				local ent = obj:get_luaentity()
 				local name = ent.name
 				local nodename = ent.nodename
-				if name == "itemframes:item" and nodename == node.name then
+				if name == "hades_itemshow:item" and nodename == node.name then
 					obj:remove()
 				end
 			end
@@ -97,7 +97,7 @@ local update_item = function(pos, node)
 	local inv = meta:get_inventory()
 	local stack = inv:get_stack("main", 1)
 	if not stack:is_empty() then
-		if node.name == "itemframes:frame" then
+		if node.name == "hades_itemshow:frame" then
 			local posad = facedir[node.param2]
 			if not posad then return end
 			pos.x = pos.x + posad.x * 6.5 / 16
@@ -108,8 +108,8 @@ local update_item = function(pos, node)
 		end
 		tmp.nodename = node.name
 		tmp.item = stack:get_name()
-		local e = minetest.add_entity(pos,"itemframes:item")
-		if node.name == "itemframes:frame" then
+		local e = minetest.add_entity(pos,"hades_itemshow:item")
+		if node.name == "hades_itemshow:frame" then
 			local yaw = math.pi * 2 - node.param2 * math.pi / 2
 			e:set_yaw(yaw)
 		end
@@ -123,7 +123,7 @@ local drop_item = function(pos, node, creative)
 	if item ~= "" then
 		if creative then
 			-- Don't drop item
-		elseif node.name == "itemframes:frame" then
+		elseif node.name == "hades_itemshow:frame" then
 			minetest.add_item(pos, item)
 		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 			minetest.add_item({x=pos.x, y=pos.y+1, z=pos.z}, item)
@@ -135,7 +135,7 @@ end
 
 -- nodes
 
-minetest.register_node("itemframes:frame",{
+minetest.register_node("hades_itemshow:frame",{
 	description = S("Item Frame"),
 	_tt_help = S("You can show off an item here"),
 	drawtype = "nodebox",
@@ -147,9 +147,9 @@ minetest.register_node("itemframes:frame",{
 		type = "fixed",
 		fixed = {-0.5, -0.5, 7/16, 0.5, 0.5, 0.5}
 	},
-	tiles = {"itemframes_frame.png"},
-	inventory_image = "itemframes_frame.png",
-	wield_image = "itemframes_frame.png",
+	tiles = {"hades_itemshow_frame.png"},
+	inventory_image = "hades_itemshow_frame.png",
+	wield_image = "hades_itemshow_frame.png",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -199,7 +199,7 @@ minetest.register_node("itemframes:frame",{
 
 -- This is the upper portion of the pedestal.
 -- It's invisible, the rendering is done in the main pedestal node.
-minetest.register_node("itemframes:pedestal_top", {
+minetest.register_node("hades_itemshow:pedestal_top", {
 	description = S("Pedestal Top"),
 	drawtype = "airlike",
 	paramtype = "light",
@@ -213,8 +213,8 @@ minetest.register_node("itemframes:pedestal_top", {
 	},
 
 	groups = { not_in_creative_inventory = 1 },
-	inventory_image = "itemframes_pedestal_top_inv.png",
-	wield_image = "itemframes_pedestal_top_inv.png",
+	inventory_image = "hades_itemshow_pedestal_top_inv.png",
+	wield_image = "hades_itemshow_pedestal_top_inv.png",
 
 	sounds = hades_sounds.node_sound_stone_defaults(),
 
@@ -260,7 +260,7 @@ end
 local function register_pedestal(name, def)
 local groups = table.copy(def.groups)
 groups.pedestal = 1
-minetest.register_node("itemframes:"..name,{
+minetest.register_node("hades_itemshow:"..name,{
 	description = def.description,
 	_tt_help = S("You can show off an item here"),
 	drawtype = "nodebox",
@@ -325,7 +325,7 @@ minetest.register_node("itemframes:"..name,{
 		local topdef = top_node and minetest.registered_nodes[top_node.name]
 
 		-- Don't build if upper node is blocked, unless it's the pedestal top
-		if not topdef or (not topdef.buildable_to and top_node.name ~= "itemframes:pedestal_top") then
+		if not topdef or (not topdef.buildable_to and top_node.name ~= "hades_itemshow:pedestal_top") then
 			return itemstack
 		end
 
@@ -334,8 +334,8 @@ minetest.register_node("itemframes:"..name,{
 			return itemstack
 		end
 
-		minetest.set_node(pos, {name = "itemframes:"..name})
-		minetest.set_node(above, {name = "itemframes:pedestal_top"})
+		minetest.set_node(pos, {name = "hades_itemshow:"..name})
+		minetest.set_node(above, {name = "hades_itemshow:pedestal_top"})
 
 		if not (minetest.is_creative_enabled(pn)) then
 			itemstack:take_item()
@@ -344,7 +344,7 @@ minetest.register_node("itemframes:"..name,{
 		on_place_node_callbacks(pos, minetest.get_node(pos),
 			placer, node, itemstack, pointed_thing)
 
-		local def = minetest.registered_nodes["itemframes:"..name]
+		local def = minetest.registered_nodes["hades_itemshow:"..name]
 		minetest.sound_play(def.sounds.place, {pos = pos}, true)
 
 		return itemstack
@@ -380,7 +380,7 @@ minetest.register_node("itemframes:"..name,{
 
 		local above = {x=pos.x, y=pos.y+1, z=pos.z}
 		local node_above = minetest.get_node(above)
-		if node_above.name == "itemframes:pedestal_top" then
+		if node_above.name == "hades_itemshow:pedestal_top" then
 			minetest.remove_node(above)
 		end
 	end,
@@ -396,7 +396,7 @@ minetest.register_node("itemframes:"..name,{
 
 if def.craftitem then
 minetest.register_craft({
-	output = 'itemframes:'..name,
+	output = 'hades_itemshow:'..name,
 	recipe = {
 		{def.craftitem, def.craftitem, def.craftitem},
 		{'', def.craftitem, ''},
@@ -406,14 +406,14 @@ minetest.register_craft({
 end
 end
 
-register_pedestal("pedestal", {
+register_pedestal("pedestal_stone", {
 	description=S("Stone Pedestal"),
-	tiles={"itemframes_pedestal_top.png","itemframes_pedestal.png"},
+	tiles={"hades_itemshow_pedestal_stone_top.png","hades_itemshow_pedestal_stone.png"},
 	groups={cracky=3},
 	craftitem="hades_core:stone"})
 register_pedestal("pedestal_stone_baked", {
 	description=S("Burned Stone Pedestal"),
-	tiles={"itemframes_pedestal_stone_baked_top.png","itemframes_pedestal_stone_baked.png"},
+	tiles={"hades_itemshow_pedestal_stone_baked_top.png","hades_itemshow_pedestal_stone_baked.png"},
 	groups={cracky=3},
 	craftitem="hades_core:stone_baked"})
 register_pedestal("pedestal_marble", {
@@ -428,17 +428,17 @@ register_pedestal("pedestal_sandstone", {
 	craftitem="hades_core:sandstone"})
 register_pedestal("pedestal_obsidian", {
 	description=S("Obsidian Pedestal"),
-	tiles={"itemframes_pedestal_obsidian_top.png","itemframes_pedestal_obsidian.png"},
+	tiles={"hades_itemshow_pedestal_obsidian_top.png","hades_itemshow_pedestal_obsidian.png"},
 	groups={cracky=1},
 	craftitem="hades_core:obsidian"})
 register_pedestal("pedestal_essexite", {
 	description=S("Essexite Pedestal"),
-	tiles={"itemframes_pedestal_essexite_top.png","itemframes_pedestal_essexite.png"},
+	tiles={"hades_itemshow_pedestal_essexite_top.png","hades_itemshow_pedestal_essexite.png"},
 	groups={cracky=2},
 	craftitem="hades_core:essexite"})
 register_pedestal("pedestal_chondrite", {
 	description=S("Chondrite Pedestal"),
-	tiles={"itemframes_pedestal_chondrite_top.png","itemframes_pedestal_chondrite.png"},
+	tiles={"hades_itemshow_pedestal_chondrite_top.png","hades_itemshow_pedestal_chondrite.png"},
 	groups={cracky=2},
 	craftitem="hades_core:chondrite"})
 
@@ -446,13 +446,13 @@ register_pedestal("pedestal_chondrite", {
 -- due to /clearobjects or similar
 
 minetest.register_lbm({
-	name = "itemframes:respawn_entities",
+	name = "hades_itemshow:respawn_entities",
 	label = "Respawn entities of item frames and pedestals",
-	nodenames = {"itemframes:frame", "group:pedestal"},
+	nodenames = {"hades_itemshow:frame", "group:pedestal"},
 	run_at_every_load = true,
 	action = function(pos, node)
 		local num
-		if node.name == "itemframes:frame" then
+		if node.name == "hades_itemshow:frame" then
 			num = #minetest.get_objects_inside_radius(pos, 0.5)
 		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 			pos.y = pos.y + 1
@@ -469,9 +469,9 @@ minetest.register_lbm({
 -- update itemframe/pedestal items to new item storing format
 
 minetest.register_lbm({
-	name = "itemframes:update_items_0_9_0",
+	name = "hades_itemshow:update_items_0_9_0",
 	label = "Update items of item frames and pedestals",
-	nodenames = {"itemframes:frame", "group:pedestal"},
+	nodenames = {"hades_itemshow:frame", "group:pedestal"},
 	action = function(pos, node)
 		local meta = minetest.get_meta(pos)
 		local itemstring_old = meta:get_string("item")
@@ -488,7 +488,7 @@ minetest.register_lbm({
 -- crafts
 
 minetest.register_craft({
-	output = 'itemframes:frame',
+	output = 'hades_itemshow:frame',
 	recipe = {
 		{'group:stick', 'group:stick', 'group:stick'},
 		{'group:stick', 'hades_core:paper', 'group:stick'},
