@@ -16,22 +16,22 @@ do
 		table.insert(plants_rotate, t)
 	end
 
-	local t = { 0, true, "refruit:bud_apple", "refruit:flower_apple", "hades_trees:apple" }
+	local t = { 0, true, "hades_refruit:bud_apple", "hades_refruit:flower_apple", "hades_trees:apple" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "refruit:bud_olive", "refruit:flower_olive", "hades_trees:olive" }
+	local t = { 0, true, "hades_refruit:bud_olive", "hades_refruit:flower_olive", "hades_trees:olive" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "refruit:bud_orange", "refruit:flower_orange", "hades_trees:orange" }
+	local t = { 0, true, "hades_refruit:bud_orange", "hades_refruit:flower_orange", "hades_trees:orange" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "refruit:bud_banana", "refruit:flower_banana", "hades_trees:banana" }
+	local t = { 0, true, "hades_refruit:bud_banana", "hades_refruit:flower_banana", "hades_trees:banana" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "refruit:bud_cocoa", "refruit:flower_cocoa", "hades_trees:cocoa_pod" }
+	local t = { 0, true, "hades_refruit:bud_cocoa", "hades_refruit:flower_cocoa", "hades_trees:cocoa_pod" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "refruit:bud_coconut", "refruit:flower_coconut", "hades_trees:coconut" }
+	local t = { 0, true, "hades_refruit:bud_coconut", "hades_refruit:flower_coconut", "hades_trees:coconut" }
 	table.insert(plants_rotate, t)
 
 	t = { 0, false }

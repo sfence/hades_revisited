@@ -1,11 +1,10 @@
-local S = minetest.get_translator("refruit")
+local S = minetest.get_translator("hades_refruit")
 
--- refruit for minetest
--- makes fruits regrowing on the trees.
--- images and code are WTFPL license (2015 by Glünggi)
-refruit = {}
+-- hades_refruit for Minetest.
+-- Makes fruit regrow on the trees.
+hades_refruit = {}
 
-function refruit.add_refruit(id, def)
+function hades_refruit.add_hades_refruit(id, def)
 	local ndef = minetest.registered_nodes[def.fruit_itemstring]
 	local groups = ndef.groups
 	if not groups then
@@ -25,24 +24,24 @@ function refruit.add_refruit(id, def)
 				if oldnode.param2 ~= 0 then
 					return
 				end
-				minetest.set_node(pos, {name = "refruit:bud_"..id})
+				minetest.set_node(pos, {name = "hades_refruit:bud_"..id})
 			else 
 				return
 			end
 		end,
-		node_dig_prediction = "refruit:bud_"..id,
+		node_dig_prediction = "hades_refruit:bud_"..id,
 	})
 
-	local bud_itemstring = "refruit:bud_"..id
-	local flower_itemstring = "refruit:flower_"..id
+	local bud_itemstring = "hades_refruit:bud_"..id
+	local flower_itemstring = "hades_refruit:flower_"..id
 
 	minetest.register_node(bud_itemstring, {
 		description = def.bud_description,
 		_tt_help = def.bud_tt,
 		drawtype = ndef.drawtype,
-		tiles = {"refruit_bud_"..id..".png"},
-		inventory_image = "refruit_bud_"..id..".png",
-		wield_image = "refruit_bud_"..id..".png",
+		tiles = {"hades_refruit_bud_"..id..".png"},
+		inventory_image = "hades_refruit_bud_"..id..".png",
+		wield_image = "hades_refruit_bud_"..id..".png",
 		paramtype = "light",
 		sunlight_propagates = true,
 		walkable = false,
@@ -59,9 +58,9 @@ function refruit.add_refruit(id, def)
 		description = def.flower_description,
 		_tt_help = def.flower_tt,
 		drawtype = ndef.drawtype,
-		tiles = {"refruit_flower_"..id..".png"},
-		inventory_image = "refruit_flower_"..id..".png",
-		wield_image = "refruit_flower_"..id..".png",
+		tiles = {"hades_refruit_flower_"..id..".png"},
+		inventory_image = "hades_refruit_flower_"..id..".png",
+		wield_image = "hades_refruit_flower_"..id..".png",
 		paramtype = "light",
 		sunlight_propagates = true,
 		walkable = false,
@@ -77,18 +76,18 @@ function refruit.add_refruit(id, def)
 
 	minetest.register_abm({
 		label = "Grow "..bud_itemstring.." to "..flower_itemstring,
-		nodenames = {"refruit:bud_"..id},
+		nodenames = {"hades_refruit:bud_"..id},
 		neighbors = def.neighbors,
 		interval = def.bud_interval,
 		chance = def.bud_chance,
 		action = function(pos, node)
-			minetest.set_node(pos, {name="refruit:flower_"..id})
+			minetest.set_node(pos, {name="hades_refruit:flower_"..id})
 		end,
 	})
 
 	minetest.register_abm({
 		label = "Grow "..flower_itemstring.." to "..def.fruit_itemstring,
-		nodenames = {"refruit:flower_"..id},
+		nodenames = {"hades_refruit:flower_"..id},
 		neighbors = def.neighbors,
 		interval = def.flower_interval,
 		chance = def.flower_chance,
@@ -118,7 +117,7 @@ end
 
 local surv = S("Needs a tree trunk to survive")
 
-refruit.add_refruit("apple", {
+hades_refruit.add_hades_refruit("apple", {
 	fruit_itemstring = "hades_trees:apple",
 	bud_description = S("Apple Bud"),
 	bud_tt = S("Grows to an Apple Flower").."\n"..surv.."\n"..S("Needs Common Leaves to grow"),
@@ -135,7 +134,7 @@ refruit.add_refruit("apple", {
 	flower_selbox = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875},
 })
 
-refruit.add_refruit("olive", {
+hades_refruit.add_hades_refruit("olive", {
 	fruit_itemstring = "hades_trees:olive",
 	bud_description = S("Olive Bud"),
 	bud_tt = S("Grows to an Olive Flower").."\n"..surv.."\n"..S("Needs Olive Leaves to grow"),
@@ -152,7 +151,7 @@ refruit.add_refruit("olive", {
 	flower_selbox = {-4/16, -1/16, -4/16, 4/16, 0.5, 4/16},
 })
 
-refruit.add_refruit("orange", {
+hades_refruit.add_hades_refruit("orange", {
 	fruit_itemstring = "hades_trees:orange",
 	bud_description = S("Orange Bud"),
 	bud_tt = S("Grows to an Orange Flower").."\n"..surv.."\n"..S("Needs Orange Leaves to grow"),
@@ -167,7 +166,7 @@ refruit.add_refruit("orange", {
 	flower_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
 })
 
-refruit.add_refruit("banana", {
+hades_refruit.add_hades_refruit("banana", {
 	fruit_itemstring = "hades_trees:banana",
 	bud_description = S("Banana Bud"),
 	bud_tt = S("Grows to a Banana Flower").."\n"..surv.."\n"..S("Needs Banana Leaves to grow"),
@@ -182,7 +181,7 @@ refruit.add_refruit("banana", {
 	flower_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
 })
 
-refruit.add_refruit("cocoa", {
+hades_refruit.add_hades_refruit("cocoa", {
 	fruit_itemstring = "hades_trees:cocoa_pod",
 	bud_description = S("Cocoa Bud"),
 	bud_tt = S("Grows to a Cocoa Flower").."\n"..surv.."\n"..S("Needs Common Tropical Leaves to grow"),
@@ -197,7 +196,7 @@ refruit.add_refruit("cocoa", {
 	flower_selbox = {-0.1875, -0.1875, -0.1875, 0.1875, 0.5, 0.1875},
 })
 
-refruit.add_refruit("coconut", {
+hades_refruit.add_hades_refruit("coconut", {
 	fruit_itemstring = "hades_trees:coconut",
 	bud_description = S("Coconut Bud"),
 	bud_tt = S("Grows to a Coconut Flower").."\n"..surv.."\n"..S("Needs Common Tropical Leaves to grow"),
