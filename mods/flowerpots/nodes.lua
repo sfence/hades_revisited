@@ -61,7 +61,7 @@ minetest.register_node("flowerpots:flower_pot", {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, -0.1, 0.2}
 	},
-	groups = {cracky = 1, oddly_breakable_by_hand = 1, attached_node=1},
+	groups = {cracky = 3, oddly_breakable_by_hand = 1, attached_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	on_rightclick = function(pos, node, clicker, itemstack)
 		local item = clicker:get_wielded_item():get_name()
@@ -121,7 +121,7 @@ minetest.register_node("flowerpots:flower_pot_"..flower, {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, -0.1, 0.2},
 	},
-	groups = {cracky = 1, oddly_breakable_by_hand = 1, not_in_creative_inventory=1, attached_node=1},
+	groups = {cracky = 3, oddly_breakable_by_hand = 1, not_in_creative_inventory=1, attached_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	on_rightclick = function(pos, item, clicker)
 		if not minetest.is_creative_enabled(clicker:get_player_name()) then
@@ -158,7 +158,7 @@ minetest.register_node("flowerpots:flower_pot_"..flower, {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, -0.1, 0.2}
 	},
-	groups = {cracky = 1, oddly_breakable_by_hand = 1, not_in_creative_inventory=1, attached_node=1},
+	groups = {cracky = 3, oddly_breakable_by_hand = 1, not_in_creative_inventory=1, attached_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	on_rightclick = function(pos, item, clicker)
 		if not minetest.is_creative_enabled(clicker:get_player_name()) then
