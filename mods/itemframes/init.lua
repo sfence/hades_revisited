@@ -39,7 +39,7 @@ minetest.register_entity("itemframes:item",{
 			props.wield_item = self.item
 			set_props = true
 		end
-		if self.nodename == "itemframes:pedestal" then
+		if minetest.get_item_group(self.nodename, "pedestal") == 1 then
 			props.automatic_rotate = 1
 			set_props = true
 		end
@@ -72,7 +72,7 @@ local remove_item = function(pos, node)
 	local objs = nil
 	if node.name == "itemframes:frame" then
 		objs = minetest.get_objects_inside_radius(pos, 0.5)
-	elseif node.name == "itemframes:pedestal" then
+	elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 		pos.y = pos.y + 1
 		objs = minetest.get_objects_inside_radius(pos, 0.5)
 		pos.y = pos.y - 1
@@ -103,7 +103,7 @@ local update_item = function(pos, node)
 			pos.x = pos.x + posad.x * 6.5 / 16
 			pos.y = pos.y + posad.y * 6.5 / 16
 			pos.z = pos.z + posad.z * 6.5 / 16
-		elseif node.name == "itemframes:pedestal" then
+		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 			pos.y = pos.y + 12 / 16 + 0.33
 		end
 		tmp.nodename = node.name
@@ -125,7 +125,7 @@ local drop_item = function(pos, node, creative)
 			-- Don't drop item
 		elseif node.name == "itemframes:frame" then
 			minetest.add_item(pos, item)
-		elseif node.name == "itemframes:pedestal" then
+		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 			minetest.add_item({x=pos.x, y=pos.y+1, z=pos.z}, item)
 		end
 		inv:set_stack("main", 1, "")
@@ -216,8 +216,9 @@ minetest.register_node("itemframes:pedestal_top", {
 	inventory_image = "itemframes_pedestal_top_inv.png",
 	wield_image = "itemframes_pedestal_top_inv.png",
 
+	sounds = hades_sounds.node_sound_stone_defaults(),
+
 	on_blast = function() end,
-	groups = {not_in_creative_inventory=1},
 	drop = "",
 	diggable = false,
 	walkable = true,
@@ -247,8 +248,20 @@ local function on_place_node_callbacks(place_to, newnode, placer, oldnode, items
 	end
 end
 
-minetest.register_node("itemframes:pedestal",{
-	description = S("Pedestal"),
+-- Register a pedestal.
+-- * name: itemstring (without mod prefix)
+-- * def: table:
+--    * description: same as node field
+--    * tiles: same as node field
+--    * groups: groups to add to node
+--    * craftitem: item used for craft recipe (nil = no recipe added)
+-- NOTE: This is currently designed for stone/rocky materials only (due to stone sound)
+
+local function register_pedestal(name, def)
+local groups = table.copy(def.groups)
+groups.pedestal = 1
+minetest.register_node("itemframes:"..name,{
+	description = def.description,
 	_tt_help = S("You can show off an item here"),
 	drawtype = "nodebox",
 	node_box = {
@@ -272,10 +285,10 @@ minetest.register_node("itemframes:pedestal",{
 		type = "fixed",
 		fixed = {-7/16, -0.5, -7/16, 7/16, 12/16, 7/16}
 	},
-	tiles = {"itemframes_pedestal.png"},
+	tiles = def.tiles,
 	paramtype = "light",
-	groups = {cracky = 3},
-	sounds = hades_sounds.node_sound_defaults(),
+	groups = groups,
+	sounds = hades_sounds.node_sound_stone_defaults(),
 	on_rotate = false,
 	is_ground_content = false,
 
@@ -321,7 +334,7 @@ minetest.register_node("itemframes:pedestal",{
 			return itemstack
 		end
 
-		minetest.set_node(pos, {name = "itemframes:pedestal"})
+		minetest.set_node(pos, {name = "itemframes:"..name})
 		minetest.set_node(above, {name = "itemframes:pedestal_top"})
 
 		if not (minetest.is_creative_enabled(pn)) then
@@ -331,7 +344,7 @@ minetest.register_node("itemframes:pedestal",{
 		on_place_node_callbacks(pos, minetest.get_node(pos),
 			placer, node, itemstack, pointed_thing)
 
-		local def = minetest.registered_nodes["itemframes:pedestal"]
+		local def = minetest.registered_nodes["itemframes:"..name]
 		minetest.sound_play(def.sounds.place, {pos = pos}, true)
 
 		return itemstack
@@ -381,19 +394,67 @@ minetest.register_node("itemframes:pedestal",{
 	end,
 })
 
+if def.craftitem then
+minetest.register_craft({
+	output = 'itemframes:'..name,
+	recipe = {
+		{def.craftitem, def.craftitem, def.craftitem},
+		{'', def.craftitem, ''},
+		{def.craftitem, def.craftitem, def.craftitem},
+	}
+})
+end
+end
+
+register_pedestal("pedestal", {
+	description=S("Stone Pedestal"),
+	tiles={"itemframes_pedestal_top.png","itemframes_pedestal.png"},
+	groups={cracky=3},
+	craftitem="hades_core:stone"})
+register_pedestal("pedestal_stone_baked", {
+	description=S("Burned Stone Pedestal"),
+	tiles={"itemframes_pedestal_stone_baked_top.png","itemframes_pedestal_stone_baked.png"},
+	groups={cracky=3},
+	craftitem="hades_core:stone_baked"})
+register_pedestal("pedestal_marble", {
+	description=S("Marble Pedestal"),
+	tiles={"default_marble.png"},
+	groups={cracky=3},
+	craftitem="hades_core:marble"})
+register_pedestal("pedestal_sandstone", {
+	description=S("Sandstone Pedestal"),
+	tiles={"default_sandstone.png"},
+	groups={cracky=3},
+	craftitem="hades_core:sandstone"})
+register_pedestal("pedestal_obsidian", {
+	description=S("Obsidian Pedestal"),
+	tiles={"itemframes_pedestal_obsidian_top.png","itemframes_pedestal_obsidian.png"},
+	groups={cracky=1},
+	craftitem="hades_core:obsidian"})
+register_pedestal("pedestal_essexite", {
+	description=S("Essexite Pedestal"),
+	tiles={"itemframes_pedestal_essexite_top.png","itemframes_pedestal_essexite.png"},
+	groups={cracky=2},
+	craftitem="hades_core:essexite"})
+register_pedestal("pedestal_chondrite", {
+	description=S("Chondrite Pedestal"),
+	tiles={"itemframes_pedestal_chondrite_top.png","itemframes_pedestal_chondrite.png"},
+	groups={cracky=2},
+	craftitem="hades_core:chondrite"})
+
 -- automatically restore entities lost from frames/pedestals
 -- due to /clearobjects or similar
 
 minetest.register_lbm({
 	name = "itemframes:respawn_entities",
 	label = "Respawn entities of item frames and pedestals",
-	nodenames = {"itemframes:frame", "itemframes:pedestal"},
+	nodenames = {"itemframes:frame", "group:pedestal"},
 	run_at_every_load = true,
 	action = function(pos, node)
 		local num
 		if node.name == "itemframes:frame" then
 			num = #minetest.get_objects_inside_radius(pos, 0.5)
-		elseif node.name == "itemframes:pedestal" then
+		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 			pos.y = pos.y + 1
 			num = #minetest.get_objects_inside_radius(pos, 0.5)
 			pos.y = pos.y - 1
@@ -410,7 +471,7 @@ minetest.register_lbm({
 minetest.register_lbm({
 	name = "itemframes:update_items_0_9_0",
 	label = "Update items of item frames and pedestals",
-	nodenames = {"itemframes:frame", "itemframes:pedestal"},
+	nodenames = {"itemframes:frame", "group:pedestal"},
 	action = function(pos, node)
 		local meta = minetest.get_meta(pos)
 		local itemstring_old = meta:get_string("item")
@@ -435,11 +496,3 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = 'itemframes:pedestal',
-	recipe = {
-		{'hades_core:stone', 'hades_core:stone', 'hades_core:stone'},
-		{'', 'hades_core:stone', ''},
-		{'hades_core:stone', 'hades_core:stone', 'hades_core:stone'},
-	}
-})
