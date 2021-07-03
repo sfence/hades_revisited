@@ -142,6 +142,7 @@ minetest.register_node("itemframes:frame",{
 	sunlight_propagates = true,
 	groups = {choppy = 2, dig_immediate = 2},
 	sounds = hades_sounds.node_sound_defaults(),
+	is_ground_content = false,
 	-- TODO: Implement rotation
 	on_rotate = false,
 
@@ -183,16 +184,77 @@ minetest.register_node("itemframes:frame",{
 	end,
 })
 
+-- This is the upper portion of the pedestal.
+-- It's invisible, the rendering is done in the main pedestal node.
+minetest.register_node("itemframes:pedestal_top", {
+	description = S("Pedestal Top"),
+	drawtype = "airlike",
+	paramtype = "light",
+	sunlight_propagates = true,
+	collision_box = {
+		type = "fixed",
+		fixed = {
+			{-7/16, -5/16, -7/16, 7/16, -4/16, 7/16}, -- top plate
+			{-0.25, -8/16, -0.25, 0.25, -5/16, 0.25}, -- pillar (top section)
+		},
+	},
+
+	groups = { not_in_creative_inventory = 1 },
+	inventory_image = "itemframes_pedestal_top_inv.png",
+	wield_image = "itemframes_pedestal_top_inv.png",
+
+	on_blast = function() end,
+	groups = {not_in_creative_inventory=1},
+	drop = "",
+	diggable = false,
+	walkable = true,
+	is_ground_content = false,
+	pointable = false,
+	buildable_to = false,
+	floodable = false,
+})
+
+local function on_place_node_callbacks(place_to, newnode, placer, oldnode, itemstack, pointed_thing)
+	-- Run script hook
+	for _, callback in ipairs(minetest.registered_on_placenodes) do
+		-- Deepcopy pos, node and pointed_thing because callback can modify them
+		local place_to_copy = {x = place_to.x, y = place_to.y, z = place_to.z}
+		local newnode_copy =
+			{name = newnode.name, param1 = newnode.param1, param2 = newnode.param2}
+		local oldnode_copy =
+			{name = oldnode.name, param1 = oldnode.param1, param2 = oldnode.param2}
+		local pointed_thing_copy = {
+			type  = pointed_thing.type,
+			above = vector.new(pointed_thing.above),
+			under = vector.new(pointed_thing.under),
+			ref   = pointed_thing.ref,
+		}
+		callback(place_to_copy, newnode_copy, placer,
+			oldnode_copy, itemstack, pointed_thing_copy)
+	end
+end
+
 minetest.register_node("itemframes:pedestal",{
 	description = S("Pedestal"),
 	_tt_help = S("You can show off an item here"),
 	drawtype = "nodebox",
-	node_box = { type = "fixed", fixed = {
-		{-7/16, -8/16, -7/16, 7/16, -7/16, 7/16}, -- bottom plate
-		{-6/16, -7/16, -6/16, 6/16, -6/16, 6/16}, -- bottom plate (upper)
-		{-0.25, -6/16, -0.25, 0.25, 11/16, 0.25}, -- pillar
-		{-7/16, 11/16, -7/16, 7/16, 12/16, 7/16}, -- top plate
-	} },
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-7/16, -8/16, -7/16, 7/16, -7/16, 7/16}, -- bottom plate
+			{-6/16, -7/16, -6/16, 6/16, -6/16, 6/16}, -- bottom plate (upper)
+			{-0.25, -6/16, -0.25, 0.25, 11/16, 0.25}, -- pillar
+			{-7/16, 11/16, -7/16, 7/16, 12/16, 7/16}, -- top plate
+		},
+	},
+	collision_box = {
+		type = "fixed",
+		fixed = {
+			{-7/16, -8/16, -7/16, 7/16, -7/16, 7/16}, -- bottom plate
+			{-6/16, -7/16, -6/16, 6/16, -6/16, 6/16}, -- bottom plate (upper)
+			{-0.25, -6/16, -0.25, 0.25, 8/16, 0.25}, -- pillar (lower part)
+		},
+	},
 	selection_box = {
 		type = "fixed",
 		fixed = {-7/16, -0.5, -7/16, 7/16, 12/16, 7/16}
@@ -202,6 +264,64 @@ minetest.register_node("itemframes:pedestal",{
 	groups = {cracky = 3},
 	sounds = hades_sounds.node_sound_defaults(),
 	on_rotate = false,
+	is_ground_content = false,
+
+	node_placement_prediction = "",
+
+	on_place = function(itemstack, placer, pointed_thing)
+		local pos
+
+		if not pointed_thing.type == "node" then
+			return itemstack
+		end
+
+		local node = minetest.get_node(pointed_thing.under)
+		local pdef = minetest.registered_nodes[node.name]
+		if pdef and pdef.on_rightclick and
+				not placer:get_player_control().sneak then
+			return pdef.on_rightclick(pointed_thing.under,
+					node, placer, itemstack, pointed_thing)
+		end
+
+		if pdef and pdef.buildable_to then
+			pos = pointed_thing.under
+		else
+			pos = pointed_thing.above
+			node = minetest.get_node(pos)
+			pdef = minetest.registered_nodes[node.name]
+			if not pdef or not pdef.buildable_to then
+				return itemstack
+			end
+		end
+
+		local above = {x = pos.x, y = pos.y + 1, z = pos.z}
+		local top_node = minetest.get_node_or_nil(above)
+		local topdef = top_node and minetest.registered_nodes[top_node.name]
+
+		if not topdef or not topdef.buildable_to then
+			return itemstack
+		end
+
+		local pn = placer:get_player_name()
+		if minetest.is_protected(pos, pn) or minetest.is_protected(above, pn) then
+			return itemstack
+		end
+
+		minetest.set_node(pos, {name = "itemframes:pedestal"})
+		minetest.set_node(above, {name = "itemframes:pedestal_top"})
+
+		if not (minetest.is_creative_enabled(pn)) then
+			itemstack:take_item()
+		end
+
+		on_place_node_callbacks(pos, minetest.get_node(pos),
+			placer, node, itemstack, pointed_thing)
+
+		local def = minetest.registered_nodes["itemframes:pedestal"]
+		minetest.sound_play(def.sounds.place, {pos = pos}, true)
+
+		return itemstack
+	end,
 
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -230,6 +350,12 @@ minetest.register_node("itemframes:pedestal",{
 
 	on_destruct = function(pos)
 		drop_item(pos, minetest.get_node(pos), minetest.is_creative_enabled(""))
+
+		local above = {x=pos.x, y=pos.y+1, z=pos.z}
+		local node_above = minetest.get_node(above)
+		if node_above.name == "itemframes:pedestal_top" then
+			minetest.remove_node(above)
+		end
 	end,
 
 	on_punch = function(pos, node, puncher)
