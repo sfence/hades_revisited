@@ -1,4 +1,4 @@
-Minetest mod: "rebeds" (Beds for respawning)
+Minetest mod: "hades_beds" (Beds for respawning)
 ===================
 Forked from the beds mod by BlockMen (c) 2014-2015.
 

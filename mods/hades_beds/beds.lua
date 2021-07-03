@@ -1,7 +1,7 @@
-local S = minetest.get_translator("rebeds")
+local S = minetest.get_translator("hades_beds")
 
 -- fancy shaped bed
-rebeds.register_bed("rebeds:fancy_bed", {
+hades_beds.register_bed("hades_beds:fancy_bed", {
 	description = S("Fancy Bed"),
 	inventory_image = "beds_bed_fancy.png",
 	wield_image = "beds_bed_fancy.png",
@@ -51,7 +51,7 @@ rebeds.register_bed("rebeds:fancy_bed", {
 })
 
 -- simple shaped bed
-rebeds.register_bed("rebeds:bed", {
+hades_beds.register_bed("hades_beds:bed", {
 	description = S("Simple Bed"),
 	inventory_image = "beds_bed.png",
 	wield_image = "beds_bed.png",
@@ -90,8 +90,8 @@ rebeds.register_bed("rebeds:bed", {
 minetest.register_alias("beds:bed_bottom_red", "beds:bed_bottom")
 minetest.register_alias("beds:bed_top_red", "beds:bed_top")
 
-minetest.register_alias("beds:bed_bottom", "rebeds:bed_bottom")
-minetest.register_alias("beds:bed_top", "rebeds:bed_top")
-minetest.register_alias("beds:fancy_bed_bottom", "rebeds:fancy_bed_bottom")
-minetest.register_alias("beds:fancy_bed_top", "rebeds:fancy_bed_top")
+minetest.register_alias("beds:bed_bottom", "hades_beds:bed_bottom")
+minetest.register_alias("beds:bed_top", "hades_beds:bed_top")
+minetest.register_alias("beds:fancy_bed_bottom", "hades_beds:fancy_bed_bottom")
+minetest.register_alias("beds:fancy_bed_top", "hades_beds:fancy_bed_top")
 

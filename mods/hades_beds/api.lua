@@ -1,6 +1,6 @@
-local S = minetest.get_translator("rebeds")
+local S = minetest.get_translator("hades_beds")
 
-function rebeds.register_bed(name, def)
+function hades_beds.register_bed(name, def)
 	minetest.register_node(name .. "_bottom", {
 		description = def.description,
 		_tt_help = S("Lets you set your respawn position"),
@@ -51,7 +51,7 @@ function rebeds.register_bed(name, def)
 			end
 		end,
 		on_rightclick = function(pos, node, clicker)
-			rebeds.on_rightclick(pos, clicker)
+			hades_beds.on_rightclick(pos, clicker)
 		end,
 		on_rotate = false,
 	})
