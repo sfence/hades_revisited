@@ -147,7 +147,14 @@ minetest.register_node("hades_itemshow:frame",{
 		type = "fixed",
 		fixed = {-0.5, -0.5, 7/16, 0.5, 0.5, 0.5}
 	},
-	tiles = {"hades_itemshow_frame.png"},
+	tiles = {
+		"hades_itemshow_frame.png",
+		"hades_itemshow_frame.png",
+		"hades_itemshow_frame.png",
+		"hades_itemshow_frame.png",
+		"hades_itemshow_frame_back.png",
+		"hades_itemshow_frame.png",
+	},
 	inventory_image = "hades_itemshow_frame.png",
 	wield_image = "hades_itemshow_frame.png",
 	paramtype = "light",
