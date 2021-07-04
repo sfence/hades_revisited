@@ -74,7 +74,7 @@ hades_core.register_ladder = function(id, def)
 			return itemstack
 		end,
 
-		on_rotate = function() return false end,
+		on_rotate = "simple",
 	}
 
 	for k, v in pairs(def) do

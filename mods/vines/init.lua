@@ -163,6 +163,7 @@ local function register_vine(id, def)
 		paramtype2 = "wallmounted"
 		drawtype = "signlike"
 		buildable_to = true
+		on_rotate = false
 	end
 	local selection_box = def.selection_box or {
 		type = "wallmounted",
@@ -192,6 +193,7 @@ local function register_vine(id, def)
 
 		on_place = get_on_place(is_centered),
 		on_dig = on_dig,
+		on_rotate = on_rotate,
 		after_dig_node = after_dig_node,
 		})
 
