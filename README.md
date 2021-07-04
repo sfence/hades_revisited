@@ -145,7 +145,7 @@ from their original.
 `glowcrystals`
 <https://forum.minetest.net/viewtopic.php?id=9047>
 
-`hades_lakes` (based on `highlandpools`)
+`hades_mapgen_lakes` (based on `highlandpools`)
 <https://forum.minetest.net/viewtopic.php?id=8400>
 
 `hades_itemshow` (based on `item_frames`)
