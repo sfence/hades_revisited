@@ -163,9 +163,16 @@ minetest.register_node("hades_itemshow:frame",{
 	groups = {choppy = 2, dig_immediate = 2},
 	sounds = hades_sounds.node_sound_defaults(),
 	is_ground_content = false,
-	-- TODO: Implement rotation
-	on_rotate = false,
-
+	on_rotate = function(pos, node, user, mode, new_param2)
+		if mode == screwdriver.ROTATE_AXIS then
+			return false
+		elseif mode == screwdriver.ROTATE_FACE then
+			local newnode = table.copy(node)
+			newnode.param2 = new_param2
+			update_item(pos, newnode)
+			return
+		end
+	end,
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("infotext", S("Item Frame"))
