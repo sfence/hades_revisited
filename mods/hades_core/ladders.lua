@@ -95,9 +95,33 @@ end
 
 
 hades_core.register_ladder("hades_core:ladder", {
-	description = S("Wooden Ladder"),
+	description = S("Temperate Wood Ladder"),
 	texture = "default_ladder.png",
-	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2},
+	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
+	sounds = hades_sounds.node_sound_wood_defaults(),
+})
+hades_core.register_ladder("hades_core:ladder_lush_wood", {
+	description = S("Lush Wood Ladder"),
+	texture = "hades_core_ladder_lush_wood.png",
+	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
+	sounds = hades_sounds.node_sound_wood_defaults(),
+})
+hades_core.register_ladder("hades_core:ladder_pale_wood", {
+	description = S("Pale Wood Ladder"),
+	texture = "hades_core_ladder_pale_wood.png",
+	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
+	sounds = hades_sounds.node_sound_wood_defaults(),
+})
+hades_core.register_ladder("hades_core:ladder_cream_wood", {
+	description = S("Cream Wood Ladder"),
+	texture = "hades_core_ladder_cream_wood.png",
+	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
+	sounds = hades_sounds.node_sound_wood_defaults(),
+})
+hades_core.register_ladder("hades_core:ladder_jungle_wood", {
+	description = S("Jungle Wood Ladder"),
+	texture = "hades_core_ladder_jungle_wood.png",
+	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
 

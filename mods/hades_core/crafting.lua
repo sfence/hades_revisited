@@ -549,10 +549,42 @@ minetest.register_craft({
 
 
 minetest.register_craft({
-	output = 'hades_core:ladder 2',
+	output = 'hades_core:ladder 3',
 	recipe = {
 		{'group:stick', 'hades_core:nails', 'group:stick'},
-		{'group:stick', 'group:stick', 'group:stick'},
+		{'group:stick', 'hades_trees:wood', 'group:stick'},
+		{'group:stick', 'hades_core:nails', 'group:stick'},
+	}
+})
+minetest.register_craft({
+	output = 'hades_core:ladder_cream_wood 3',
+	recipe = {
+		{'group:stick', 'hades_core:nails', 'group:stick'},
+		{'group:stick', 'hades_trees:cream_wood', 'group:stick'},
+		{'group:stick', 'hades_core:nails', 'group:stick'},
+	}
+})
+minetest.register_craft({
+	output = 'hades_core:ladder_lush_wood 3',
+	recipe = {
+		{'group:stick', 'hades_core:nails', 'group:stick'},
+		{'group:stick', 'hades_trees:lush_wood', 'group:stick'},
+		{'group:stick', 'hades_core:nails', 'group:stick'},
+	}
+})
+minetest.register_craft({
+	output = 'hades_core:ladder_jungle_wood 3',
+	recipe = {
+		{'group:stick', 'hades_core:nails', 'group:stick'},
+		{'group:stick', 'hades_trees:jungle_wood', 'group:stick'},
+		{'group:stick', 'hades_core:nails', 'group:stick'},
+	}
+})
+minetest.register_craft({
+	output = 'hades_core:ladder_pale_wood 3',
+	recipe = {
+		{'group:stick', 'hades_core:nails', 'group:stick'},
+		{'group:stick', 'hades_trees:pale_wood', 'group:stick'},
 		{'group:stick', 'hades_core:nails', 'group:stick'},
 	}
 })
