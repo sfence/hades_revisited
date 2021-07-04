@@ -63,7 +63,7 @@ screwdriver.rotate.colorfacedir = screwdriver.rotate.facedir
 
 local wallmounted_tbl = {
 	[screwdriver.ROTATE_FACE] = {[2] = 5, [3] = 4, [4] = 2, [5] = 3, [1] = 0, [0] = 1},
-	[screwdriver.ROTATE_AXIS] = {[2] = 5, [3] = 4, [4] = 2, [5] = 1, [1] = 0, [0] = 3}
+	[screwdriver.ROTATE_AXIS] = {[2] = 1, [3] = 0, [4] = 1, [5] = 0, [1] = 3, [0] = 2}
 }
 
 screwdriver.rotate.wallmounted = function(pos, node, mode)
