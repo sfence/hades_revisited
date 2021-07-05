@@ -15,6 +15,14 @@ minetest.register_node("hades_core:stone", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
+minetest.register_node("hades_core:stone_block", {
+	description = S("Stone Block"),
+	tiles = {"default_stone_block.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
 minetest.register_node("hades_core:mossystone", {
 	description = S("Mossy Stone"),
 	tiles = {"default_mossystone.png"},

@@ -668,6 +668,22 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'hades_core:stone_block',
+	recipe = {
+		{'hades_core:stone', 'hades_core:stone', 'hades_core:stone'},
+		{'hades_core:stone', 'hades_core:stone', 'hades_core:stone'},
+		{'hades_core:stone', 'hades_core:stone', 'hades_core:stone'},
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_core:stone 9',
+	recipe = {
+		{ 'hades_core:stone_block' }
+	},
+})
+
+minetest.register_craft({
 	output = 'hades_core:stone_block_baked',
 	recipe = {
 		{'hades_core:stone_baked', 'hades_core:stone_baked', 'hades_core:stone_baked'},
