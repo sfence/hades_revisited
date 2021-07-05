@@ -1124,3 +1124,132 @@ stairs.register_stair_and_slab("glowcrystal_block", "glowcrystals:glowcrystal_bl
 		S("Inner Glowing Crystal Stair"),
 		S("Glowing Crystal Slab"),
 		hades_sounds.node_sound_stone_defaults())
+
+
+-- Tiles
+
+stairs.register_stair_and_slab("floor_wood_wood", "hades_tiles:floor_wood_wood",
+		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
+		{"hades_tiles_floor_wood.png"},
+		S("Temperate Wood Tile Stair"),
+		S("Outer Temperate Wood Tile Stair"),
+		S("Inner Temperate Wood Tile Stair"),
+		S("Temperate Wood Tile Slab"),
+		hades_sounds.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("floor_lush_lush", "hades_tiles:floor_lush_lush",
+		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
+		{"hades_tiles_floor_lush.png"},
+		S("Lush Wood Tile Stair"),
+		S("Outer Lush Wood Tile Stair"),
+		S("Inner Lush Wood Tile Stair"),
+		S("Lush Wood Tile Slab"),
+		hades_sounds.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("floor_pale_pale", "hades_tiles:floor_pale_pale",
+		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
+		{"hades_tiles_floor_pale.png"},
+		S("Pale Wood Tile Stair"),
+		S("Outer Pale Wood Tile Stair"),
+		S("Inner Pale Wood Tile Stair"),
+		S("Pale Wood Tile Slab"),
+		hades_sounds.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("floor_cream_cream", "hades_tiles:floor_cream_cream",
+		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
+		{"hades_tiles_floor_cream.png"},
+		S("Cream Wood Tile Stair"),
+		S("Outer Cream Wood Tile Stair"),
+		S("Inner Cream Wood Tile Stair"),
+		S("Temperate Cream Tile Slab"),
+		hades_sounds.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("floor_jungle_jungle", "hades_tiles:floor_jungle_jungle",
+		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
+		{"hades_tiles_floor_jungle.png"},
+		S("Tropical Tile Stair"),
+		S("Outer Tropical Wood Tile Stair"),
+		S("Inner Tropical Wood Tile Stair"),
+		S("Tropical Wood Tile Slab"),
+		hades_sounds.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("floor_stone_stone", "hades_tiles:floor_stone_stone",
+		{cracky=3},
+		{"hades_tiles_floor_stone.png"},
+		S("Stone Tile Stair"),
+		S("Outer Stone Tile Stair"),
+		S("Inner Stone Tile Stair"),
+		S("Stone Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("floor_stonebaked_stonebaked", "hades_tiles:floor_stonebaked_stonebaked",
+		{cracky=3},
+		{"hades_tiles_floor_stonebaked.png"},
+		S("Burned Stone Tile Stair"),
+		S("Outer Burned Stone Tile Stair"),
+		S("Inner Burned Stone Tile Stair"),
+		S("Burned Stone Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("floor_tuff_tuff", "hades_tiles:floor_tuff_tuff",
+		{cracky=3},
+		{"hades_tiles_floor_tuff.png"},
+		S("Tuff Tile Stair"),
+		S("Outer Tuff Tile Stair"),
+		S("Inner Tuff Tile Stair"),
+		S("Tuff Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("floor_tuffbaked_tuffbaked", "hades_tiles:floor_tuffbaked_tuffbaked",
+		{cracky=3},
+		{"hades_tiles_floor_tuffbaked.png"},
+		S("Burned Tuff Tile Stair"),
+		S("Outer Burned Tuff Tile Stair"),
+		S("Inner Burned Tuff Tile Stair"),
+		S("Burned Tuff Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("floor_sandstone_sandstone", "hades_tiles:floor_sandstone_sandstone",
+		{cracky=3},
+		{"hades_tiles_floor_sandstone.png"},
+		S("Sandstone Tile Stair"),
+		S("Outer Sandstone Tile Stair"),
+		S("Inner Sandstone Tile Stair"),
+		S("Sandstone Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("floor_chondrite_chondrite", "hades_tiles:floor_chondrite_chondrite",
+		{cracky=3},
+		{"hades_tiles_floor_chondrite.png"},
+		S("Chondrite Tile Stair"),
+		S("Outer Chondrite Tile Stair"),
+		S("Inner Chondrite Tile Stair"),
+		S("Chondrite Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("floor_essexite_essexite", "hades_tiles:floor_essexite_essexite",
+		{cracky=2},
+		{"hades_tiles_floor_essexite.png"},
+		S("Essexite Tile Stair"),
+		S("Outer Essexite Tile Stair"),
+		S("Inner Essexite Tile Stair"),
+		S("Essexite Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("floor_essexitegold_essexitegold", "hades_tiles:floor_essexitegold_essexitegold",
+		{cracky=2},
+		{"hades_tiles_floor_essexitegold.png"},
+		S("Golden Essexite Tile Stair"),
+		S("Outer Golden Essexite Tile Stair"),
+		S("Inner Golden Essexite Tile Stair"),
+		S("Golden Essexite Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("floor_marble_marble", "hades_tiles:floor_marble_marble",
+		{cracky=2},
+		{"hades_tiles_floor_marble.png"},
+		S("Marble Tile Stair"),
+		S("Outer Marble Tile Stair"),
+		S("Inner Marble Tile Stair"),
+		S("Marble Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
