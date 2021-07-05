@@ -391,8 +391,8 @@ function stairs.register_slab_with_double(subname, recipeitem, groups, images, d
 	stairs.register_slab_double(subname, "stairs:slab_"..subname, groups, images, desc_slab_double, sounds)
 end
 
--- Nodes will be called stairs:{stair,slab}_<subname>
-function stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds)
+-- Nodes will be called stairs:{stair,slab}_<subname> and optionally stairs:slab_double_<subname>
+function stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds, desc_slab_double)
 	local i_stair, i_stair_out, i_stair_in, i_slab
 	if images and images[1] == "!CUSTOM" then
 		i_stair = images[2]
@@ -405,10 +405,14 @@ function stairs.register_stair_and_slab(subname, recipeitem, groups, images, des
 		i_stair_out = images
 		i_slab = images
 	end
+	local has_double = desc_slab_double ~= nil
 	stairs.register_stair(subname, recipeitem, groups, i_stair, desc_stair, sounds)
 	stairs.register_stair_out(subname, recipeitem, groups, i_stair_out, desc_stair_out, sounds)
 	stairs.register_stair_in(subname, recipeitem, groups, i_stair_in, desc_stair_in, sounds)
-	stairs.register_slab(subname, recipeitem, groups, i_slab, desc_slab, sounds)
+	stairs.register_slab(subname, recipeitem, groups, i_slab, desc_slab, sounds, has_double)
+	if has_double then
+		stairs.register_slab_double(subname, "stairs:slab_"..subname, groups, i_slab, desc_slab_double, sounds)
+	end
 end
 
 local custom_textures = function(block, stair_l, stair_r, outstair, slab)
@@ -670,11 +674,11 @@ stairs.register_stair_and_slab("colwood_yellow", "hades_trees:colwood_yellow",
 		--
 
 local metals = {
-	{"steel", S("Steel Stair"), S("Outer Steel Stair"), S("Inner Steel Stair"), S("Steel Slab")},
-	{"copper", S("Copper Stair"), S("Outer Copper Stair"), S("Inner Copper Stair"), S("Copper Slab")},
-	{"bronze", S("Bronze Stair"), S("Outer Bronze Stair"), S("Inner Bronze Stair"), S("Bronze Slab")},
-	{"tin", S("Tin Stair"), S("Outer Tin Stair"), S("Inner Tin Stair"), S("Tin Slab")},
-	{"gold", S("Gold Stair"), S("Outer Gold Stair"), S("Inner Gold Stair"), S("Gold Slab")},
+	{"steel", S("Steel Stair"), S("Outer Steel Stair"), S("Inner Steel Stair"), S("Steel Slab"), S("Double Steel Slab")},
+	{"copper", S("Copper Stair"), S("Outer Copper Stair"), S("Inner Copper Stair"), S("Copper Slab"), S("Double Copper Slab")},
+	{"bronze", S("Bronze Stair"), S("Outer Bronze Stair"), S("Inner Bronze Stair"), S("Bronze Slab"), S("Double Bronze Slab")},
+	{"tin", S("Tin Stair"), S("Outer Tin Stair"), S("Inner Tin Stair"), S("Tin Slab"), S("Double Tin Slab")},
+	{"gold", S("Gold Stair"), S("Outer Gold Stair"), S("Inner Gold Stair"), S("Gold Slab"), S("Double Gold Slab")},
 }
 for m=1, #metals do
 	local name = metals[m][1].."block"
@@ -686,7 +690,8 @@ for m=1, #metals do
 		metals[m][3],
 		metals[m][4],
 		metals[m][5],
-		hades_sounds.node_sound_metal_defaults()
+		hades_sounds.node_sound_metal_defaults(),
+		metals[m][6]
 	)
 end
 
