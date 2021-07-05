@@ -223,7 +223,7 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 end
 
 -- Node will be called stairs:slab_<subname>
-function stairs.register_slab(subname, recipeitem, groups, images, description, sounds)
+function stairs.register_slab(subname, recipeitem, groups, images, description, sounds, has_double)
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
@@ -275,7 +275,13 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 				-- Remove the slab at slabpos
 				minetest.remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
-				local fakestack = ItemStack(recipeitem)
+				local fakeitem
+				if has_double then
+					fakeitem = "stairs:slab_double_" .. subname
+				else
+					fakeitem = recipeitem
+				end
+				local fakestack = ItemStack(fakeitem)
 				fakestack:set_count(itemstack:get_count())
 
 				pointed_thing.above = slabpos
@@ -298,7 +304,13 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 					-- Remove the slab at the position of the slab
 					minetest.remove_node(p0)
 					-- Make a fake stack of a single item and try to place it
-					local fakestack = ItemStack(recipeitem)
+					local fakeitem
+					if has_double then
+						fakeitem = "stairs:slab_double_" .. subname
+					else
+						fakeitem = recipeitem
+					end
+					local fakestack = ItemStack(fakeitem)
 					fakestack:set_count(itemstack:get_count())
 
 					pointed_thing.above = p0
@@ -333,6 +345,50 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 			{recipeitem, recipeitem, recipeitem},
 		},
 	})
+end
+
+-- Nodes will be called stairs:slab_double_<subname>
+function stairs.register_slab_double(subname, recipeitem, groups, images, description, sounds)
+	local light_source
+	if recipeitem and minetest.registered_nodes[recipeitem] then
+		local rdef = minetest.registered_nodes[recipeitem]
+		light_source = rdef.light_source
+		if not images then
+			images = rdef.tiles
+		end
+	end
+	minetest.register_node(":stairs:slab_double_" .. subname, {
+		description = description,
+		drawtype = "normal",
+		tiles = images,
+		paramtype2 = "facedir",
+		light_source = light_source,
+		is_ground_content = false,
+		groups = groups,
+		sounds = sounds,
+	})
+
+	minetest.register_craft({
+		output = 'stairs:slab_double_' .. subname,
+		recipe = {
+			{recipeitem},
+			{recipeitem},
+		},
+	})
+	-- Reverse craft
+	minetest.register_craft({
+		output = recipeitem .. ' 2',
+		recipe = {
+			{'stairs:slab_double_' .. subname},
+		},
+	})
+
+end
+
+-- Nodes will be called stairs:slab_<subname>, stairs:slab_double_<subname>
+function stairs.register_slab_with_double(subname, recipeitem, groups, images, desc_slab, desc_slab_double, sounds)
+	stairs.register_slab(subname, recipeitem, groups, images, desc_slab, sounds, true)
+	stairs.register_slab_double(subname, "stairs:slab_"..subname, groups, images, desc_slab_double, sounds)
 end
 
 -- Nodes will be called stairs:{stair,slab}_<subname>
@@ -1252,4 +1308,29 @@ stairs.register_stair_and_slab("floor_marble_marble", "hades_tiles:floor_marble_
 		S("Outer Marble Tile Stair"),
 		S("Inner Marble Tile Stair"),
 		S("Marble Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_slab_with_double("floorblock_essexite_gold_block", "hades_core:floor_essexite_gold",
+		{cracky=2},
+		{"default_floor_essexite_gold.png", "default_floor_essexite_gold.png", "stairs_floorblock_essexite_gold_slab.png"},
+		S("Golden Essexite Slab"),
+		S("Double Golden Essexite Slab"),
+		hades_sounds.node_sound_stone_defaults())
+stairs.register_slab_with_double("floorblock_marble_essexite2", "hades_core:floor_marble_essexite2",
+		{cracky=2},
+		{"default_floor_marble_essexite2.png", "default_floor_marble_essexite2.png", "stairs_floorblock_marble_essexite2_slab.png"},
+		S("Marble/Essexite Slab"),
+		S("Double Marble/Essexite Slab"),
+		hades_sounds.node_sound_stone_defaults())
+stairs.register_slab_with_double("floorblock_bstone_sandstone", "hades_core:floor_bstone_sandstone",
+		{cracky=3},
+		{"default_floor_bstone_sandstone.png", "default_floor_bstone_sandstone.png", "stairs_floorblock_bstone_sandstone_slab.png"},
+		S("Baked Stone/Sandstone Slab"),
+		S("Double Baked Stone/Sandstone Slab"),
+		hades_sounds.node_sound_stone_defaults())
+stairs.register_slab_with_double("floorblock_chondrite_stone", "hades_core:floor_chondrite_stone",
+		{cracky=2},
+		{"default_floor_chondrite_stone.png", "default_floor_chondrite_stone.png", "stairs_floorblock_chondrite_stone_slab.png"},
+		S("Chondrite/Stone Slab"),
+		S("Double Chondrite/Stone Slab"),
 		hades_sounds.node_sound_stone_defaults())
