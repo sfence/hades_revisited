@@ -2,7 +2,12 @@ local S = minetest.get_translator("walls")
 
 walls = {}
 
-walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sounds)
+walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sounds, connects_to)
+	if connects_to then
+		table.insert(connects_to, "group:wall")
+	else
+		connects_to = {"group:wall"}
+	end
 	-- inventory node, and pole-type wall start item
 	minetest.register_node(wall_name, {
 		description = wall_desc,
@@ -16,7 +21,7 @@ walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sou
 			connect_back = {{-3/16, -1/2,  1/4,  3/16, 3/8,  1/2}},
 			connect_right = {{ 1/4, -1/2, -3/16,  1/2, 3/8,  3/16}},
 		},
-		connects_to = { "group:wall", "group:stone" },
+		connects_to = connects_to,
 		paramtype = "light",
 		is_ground_content = false,
 		tiles = { wall_texture, },
@@ -38,16 +43,21 @@ walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sou
 end
 
 walls.register("walls:cobble", S("Cobblestone Wall"), "default_cobble.png",
-		"hades_core:cobble", hades_sounds.node_sound_stone_defaults())
+		"hades_core:cobble", hades_sounds.node_sound_stone_defaults(),
+		{"group:stone", "group:sandstone"})
 
 walls.register("walls:mossycobble", S("Mossy Cobblestone Wall"), "default_mossycobble.png",
-		"hades_core:mossycobble", hades_sounds.node_sound_stone_defaults())
+		"hades_core:mossycobble", hades_sounds.node_sound_stone_defaults(),
+		{"group:stone", "group:sandstone"})
 
 walls.register("walls:cobble_baked", S("Burned Cobblestone Wall"), "default_cobble_baked.png",
-		"hades_core:cobble_baked", hades_sounds.node_sound_stone_defaults())
+		"hades_core:cobble_baked", hades_sounds.node_sound_stone_defaults(),
+		{"group:stone", "group:sandstone"})
 
 walls.register("walls:sandstone", S("Sandstone Wall"), "default_sandstone.png",
-		"hades_core:sandstone", hades_sounds.node_sound_stone_defaults())
+		"hades_core:sandstone", hades_sounds.node_sound_stone_defaults(),
+		{"group:stone", "group:sandstone"})
 
 walls.register("walls:sandstone_volcanic", S("Volcanic Sandstone Wall"), "default_sandstone_volcanic.png",
-		"hades_core:sandstone_volcanic", hades_sounds.node_sound_stone_defaults())
+		"hades_core:sandstone_volcanic", hades_sounds.node_sound_stone_defaults(),
+		{"group:stone", "group:sandstone"})

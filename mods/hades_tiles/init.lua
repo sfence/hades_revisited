@@ -2,7 +2,7 @@ local S = minetest.get_translator("hades_tiles")
 
 -- Tiles
 
-local g_wood = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1}
+local g_wood = {choppy=3,oddly_breakable_by_hand=2,flammable=3}
 local g_stone3 = {cracky=3}
 local g_stone2 = {cracky=2}
 local s_wood = hades_sounds.node_sound_wood_defaults()
@@ -11,29 +11,29 @@ local s_stone = hades_sounds.node_sound_stone_defaults()
 local tile_groups = {
 {
 	-- id,    name,           craft source
-	{ "pale", S("Pale Wood"), "hades_trees:pale_wood", g_wood, s_wood },
-	{ "cream", S("Cream Wood"), "hades_trees:cream_wood" },
-	{ "wood", S("Temperate Wood"), "hades_trees:wood" },
-	{ "lush", S("Lush Wood"), "hades_trees:lush_wood" },
-	{ "jungle", S("Tropical Wood"), "hades_trees:jungle_wood" },
+	{ "pale", S("Pale Wood"), "hades_trees:pale_wood", {wood=1}, g_wood, {}, s_wood },
+	{ "cream", S("Cream Wood"), "hades_trees:cream_wood", {wood=1} },
+	{ "wood", S("Temperate Wood"), "hades_trees:wood", {wood=1} },
+	{ "lush", S("Lush Wood"), "hades_trees:lush_wood", {wood=1} },
+	{ "jungle", S("Tropical Wood"), "hades_trees:jungle_wood", {wood=1} },
 },
 {
-	{ "stone", S("Stone"), "hades_core:stone", g_stone3, s_stone },
-	{ "tuff", S("Tuff"), "hades_core:tuff" },
-	{ "stonebaked", S("Burned Stone"), "hades_core:stone_baked" },
-	{ "tuffbaked", S("Burned Tuff"), "hades_core:tuff_baked" },
-	{ "sandstone", S("Sandstone"), "hades_core:sandstone" },
-	{ "chondrite", S("Chondrite"), "hades_core:chondrite" },
+	{ "stone", S("Stone"), "hades_core:stone", {stone=1}, g_stone3, s_stone },
+	{ "tuff", S("Tuff"), "hades_core:tuff", {stone=1} },
+	{ "stonebaked", S("Burned Stone"), "hades_core:stone_baked", {stone=1} },
+	{ "tuffbaked", S("Burned Tuff"), "hades_core:tuff_baked", {stone=1} },
+	{ "chondrite", S("Chondrite"), "hades_core:chondrite", {stone=1} },
+	{ "sandstone", S("Sandstone"), "hades_core:sandstone", {sandstone=1} },
 },
 {
-	{ "sandstonevolcanic", S("Volcanic Sandstone"), "hades_core:sandstone_volcanic", g_stone3, s_stone },
+	{ "sandstonevolcanic", S("Volcanic Sandstone"), "hades_core:sandstone_volcanic", {sandstone=1}, g_stone3, s_stone },
 },
 {
-	{ "marble", S("Marble"), "hades_core:marble", g_stone2, s_stone },
-	{ "essexite", S("Essexite"), "hades_core:essexite" },
+	{ "marble", S("Marble"), "hades_core:marble", {}, g_stone2, s_stone },
+	{ "essexite", S("Essexite"), "hades_core:essexite", {} },
 },
 {
-	{ "essexitegold", S("Golden Essexite"), "hades_core:floor_essexite_gold", g_stone2, s_stone },
+	{ "essexitegold", S("Golden Essexite"), "hades_core:floor_essexite_gold", {}, g_stone2, s_stone },
 }
 }
 
@@ -44,12 +44,27 @@ local tile_nodes = tile_groups[g]
 for t=1, #tile_nodes do
 	local id1 = tile_nodes[t][1]
 	local tilename1 = tile_nodes[t][2]
+	local own_groups1 = table.copy(tile_nodes[t][4])
 	for u=1, #tile_nodes do
-		local groups = table.copy(tile_nodes[1][4])
-		local snd = tile_nodes[1][5]
+		local groups = table.copy(tile_nodes[1][5])
+		local snd = tile_nodes[1][6]
 		local id2 = tile_nodes[u][1]
 		local tilename2 = tile_nodes[u][2]
+		local own_groups2 = table.copy(tile_nodes[u][4])
 		local tile, desc, on_rotate
+
+		-- Add groups shared by both tile sources
+		for g, r in pairs(own_groups1) do
+			if own_groups2[g] and own_groups2[g] == r then
+				groups[g] = r
+			end
+		end
+		for g, r in pairs(own_groups2) do
+			if own_groups1[g] and own_groups1[g] == r then
+				groups[g] = r
+			end
+		end
+
 		if t~=u then
 			tile = "hades_tiles_floor_"..id1..".png^(hades_tiles_floor_"..id2..".png^[mask:hades_tiles_floor_mask.png)"
 			desc = S("@1/@2 Tile", tilename1, tilename2)
