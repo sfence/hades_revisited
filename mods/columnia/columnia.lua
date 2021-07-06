@@ -93,6 +93,25 @@ minetest.register_node("columnia:column_mid_"..mat, {
 	sounds = sounds,
 })
 
+local mod_screwdriver = minetest.get_modpath("screwdriver")
+local on_rotate_column_top, on_rotate_colum_bottom
+if mod_screwdriver then
+	on_rotate_column_top = function(pos, node, user, mode, new_param2)
+		if mode == screwdriver.ROTATE_AXIS then
+			node.name = "columnia:column_bottom_"..mat
+			minetest.swap_node(pos, node)
+			return false
+		end
+	end
+	on_rotate_column_bottom = function(pos, node, user, mode, new_param2)
+		if mode == screwdriver.ROTATE_AXIS then
+			node.name = "columnia:column_top_"..mat
+			minetest.swap_node(pos, node)
+			return false
+		end
+	end
+end
+
 minetest.register_node("columnia:column_top_"..mat, {
 	description = S("@1 Column Top", desc),
 	drawtype = "nodebox",
@@ -111,7 +130,7 @@ minetest.register_node("columnia:column_top_"..mat, {
 		},
 	},
 	on_place = on_place,
-	on_rotate = "simple",
+	on_rotate = on_rotate_column_top,
 	sounds = sounds,
 })
 
@@ -133,7 +152,7 @@ minetest.register_node("columnia:column_bottom_"..mat, {
 		},
 	},
 	on_place = on_place,
-	on_rotate = "simple",
+	on_rotate = on_rotate_column_bottom,
 	sounds = sounds,
 })
 
