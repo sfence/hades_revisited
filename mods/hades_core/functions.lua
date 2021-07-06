@@ -266,7 +266,7 @@ minetest.register_abm({
 	label = "Create volcanic and fertile sand",
 	nodenames = {"group:ash_fertilizer"}, -- used by most leaves
 	interval = 60,
-	chance = 260,
+	chance = 130,
 	action = function(pos, node)
 		local d = minetest.get_item_group(node.name, "ash_fertilizer")
 		local pos1 = vector.add(pos, {x=d ,y=-1, z=d})
