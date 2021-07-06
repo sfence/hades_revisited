@@ -181,8 +181,8 @@ for w=1, #windows_simple do
 end
 
 windows.register_window("windows:paperwall", {
-	description = S("Paper Wall"),
-	texture_seam = "windows_windows_jwood_seam.png",
+	description = S("Paper Frame"),
+	texture_seam = "windows_windows_lushwood_seam.png",
 	texture_front = "windows_paperwall_front.png",
 	groups = { snappy=2, choppy=2, cracky=3, oddly_breakable_by_hand=3 },
 	sounds = hades_sounds.node_sound_wood_defaults(),
