@@ -69,7 +69,7 @@ local function register_tile(tile_node1, tile_node2, tile_groups, tile_snd, is_m
 
 	if not is_same then
 		tile = "hades_tiles_floor_"..id1..".png^(hades_tiles_floor_"..id2..".png^[mask:hades_tiles_floor_mask.png)"
-		tile_side = "hades_tiles_floor_"..id1..".png^(hades_tiles_floor_"..id2..".png^[mask:hades_tiles_floor_mask.png^[transformR90)"
+		tile_side = "hades_tiles_floor_"..id1..".png^(hades_tiles_floor_"..id2..".png^[mask:(hades_tiles_floor_mask.png^[transformR90))"
 		desc = S("@1/@2 Tile", tilename1, tilename2)
 		on_rotate = function(pos, node, user, mode, new_param2)
 			if mode == screwdriver.ROTATE_FACE then
