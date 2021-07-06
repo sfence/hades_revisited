@@ -263,7 +263,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
-	label = "Create fertile sand",
+	label = "Create volcanic and fertile sand",
 	nodenames = {"group:ash_fertilizer"}, -- used by most leaves
 	interval = 60,
 	chance = 260,
@@ -272,7 +272,7 @@ minetest.register_abm({
 		local pos1 = vector.add(pos, {x=d ,y=-1, z=d})
 		local pos2 = vector.add(pos, {x=-d, y=-d*2, z=-d})
 		-- Turn ash to fertile sand
-		local ashes = minetest.find_nodes_in_area(pos1, pos2, {"hades_core:ash"})
+		local ashes = minetest.find_nodes_in_area(pos1, pos2, {"hades_core:ash", "hades_core:volcanic_sand"})
 		if #ashes == 0 then
 			return
 		end
@@ -282,7 +282,12 @@ minetest.register_abm({
 		if def and def.walkable then
 			return
 		end
-		minetest.set_node(ash, {name="hades_core:fertile_sand"})
+		aname = minetest.get_node(ash).name
+		if aname == "hades_core:ash" then
+			minetest.set_node(ash, {name="hades_core:volcanic_sand"})
+		else
+			minetest.set_node(ash, {name="hades_core:fertile_sand"})
+		end
 	end,
 })
 
@@ -298,7 +303,7 @@ minetest.register_abm({
 	interval = 25,
 	chance = 5,
 	action = function(pos, node)
-		   minetest.set_node(pos, {name="hades_core:dirt"})
+		minetest.set_node(pos, {name="hades_core:dirt"})
 	end,
 })
 
@@ -319,7 +324,7 @@ minetest.register_abm({
 
 minetest.register_abm({
 	label = "Create clay",
-	nodenames = {"hades_core:ash"},
+	nodenames = {"hades_core:ash","hades_core:volcanic_sand"},
 	neighbors = {"group:water"},
 	interval = 700,
 	chance = 75,

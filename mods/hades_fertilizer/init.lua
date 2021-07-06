@@ -174,7 +174,7 @@ local get_apply_fertilizer = function(super)
 			end
 			end
 			end
-		elseif nname == "hades_core:grass" or nname == "hades_core:dirt_with_grass" or nname == "hades_core:fertile_sand" or nname == "hades_core:ash" or nname == "hades_core:gravel" or nname == "hades_core:gravel_volcanic" or nname == "hades_farming:soil" or nname == "hades_farming:soil_wet" then
+		elseif nname == "hades_core:grass" or nname == "hades_core:dirt_with_grass" or nname == "hades_core:fertile_sand" or nname == "hades_core:ash" or nname == "hades_core:volcanic_sand" or nname == "hades_core:gravel" or nname == "hades_core:gravel_volcanic" or nname == "hades_farming:soil" or nname == "hades_farming:soil_wet" then
 			-- Grow grass, flowers and other random plants
 			for x = pos.x - 2, pos.x + 2 do
 			for y = pos.y, pos.y do
@@ -230,7 +230,7 @@ local get_apply_fertilizer = function(super)
 							{"hades_core:grass_5",0},
 							}
 							end
-						elseif (node.name == "hades_core:ash" or node.name == "hades_core:gravel" or node.name == "hades_core:gravel_volcanic") then
+						elseif (node.name == "hades_core:ash" or node.name == "hades_core:volcanic_sand" or node.name == "hades_core:gravel" or node.name == "hades_core:gravel_volcanic") then
 							if not super then return itemstack end
 							plants = {
 							{ "hades_core:dry_shrub", 0 },

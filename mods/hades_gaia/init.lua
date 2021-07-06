@@ -5,7 +5,7 @@ hades_gaia = {}
 
 local conv = function(pos)
 	local nodename = minetest.get_node(pos).name
-	if nodename == "hades_core:ash" or nodename == "hades_core:fertile_sand" or nodename == "hades_core:stone_baked" or nodename == "hades_core:stone" or nodename == "hades_core:mossystone" or nodename == "hades_core:tuff" or nodename == "hades_core:tuff_baked" or nodename == "hades_core:mossytuff" then
+	if nodename == "hades_core:ash" or nodename == "hades_core:volcanic_sand" or nodename == "hades_core:fertile_sand" or nodename == "hades_core:stone_baked" or nodename == "hades_core:stone" or nodename == "hades_core:mossystone" or nodename == "hades_core:tuff" or nodename == "hades_core:tuff_baked" or nodename == "hades_core:mossytuff" then
 		-- minetest.remove_node(pos)
         minetest.set_node(pos, {name="hades_core:dirt"})
 		minetest.check_for_falling(pos)

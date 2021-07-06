@@ -224,7 +224,7 @@ function hades_trees.generate_paletree(pos, check_light, trunk, leaves, undergro
 		leaves = "hades_trees:pale_leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass", "hades_core:ash", "hades_core:fertile_sand"}
+		underground = {"hades_core:dirt", "hades_core:dirt_with_grass", "hades_core:ash", "hades_core:volcanic_sand", "hades_core:fertile_sand"}
 	end
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name

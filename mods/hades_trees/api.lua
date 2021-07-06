@@ -36,7 +36,7 @@ end
 hades_trees.register_sapling = function(id, def)
 	local tth
 	if def.growtype == "ash" then
-		tth = S("Needs Dirt, Fertile Sand or Volcanic Ash to grow, and light")
+		tth = S("Needs Dirt, Fertile Sand, Volcanic Sand or Volcanic Ash to grow, and light")
 	else
 		tth = S("Needs Dirt and light to grow")
 	end
