@@ -51,7 +51,7 @@ for t=1, #tile_nodes do
 		local id2 = tile_nodes[u][1]
 		local tilename2 = tile_nodes[u][2]
 		local own_groups2 = table.copy(tile_nodes[u][4])
-		local tile, desc, on_rotate
+		local tile, tile_side, desc, on_rotate
 
 		-- Add groups shared by both tile sources
 		for g, r in pairs(own_groups1) do
@@ -67,6 +67,7 @@ for t=1, #tile_nodes do
 
 		if t~=u then
 			tile = "hades_tiles_floor_"..id1..".png^(hades_tiles_floor_"..id2..".png^[mask:hades_tiles_floor_mask.png)"
+			tile_side = "hades_tiles_floor_"..id1..".png^(hades_tiles_floor_"..id2..".png^[mask:hades_tiles_floor_mask.png^[transformR90)"
 			desc = S("@1/@2 Tile", tilename1, tilename2)
 			on_rotate = function(pos, node, user, mode, new_param2)
 				if mode == screwdriver.ROTATE_FACE then
@@ -76,6 +77,7 @@ for t=1, #tile_nodes do
 			end
 		else
 			tile = "hades_tiles_floor_"..id1..".png"
+			tile_side = tile
 			desc = S("@1 Tile", tilename1)
 		end
 		local drop
@@ -88,7 +90,7 @@ for t=1, #tile_nodes do
 			description = desc,
 			tiles = {
 				tile, tile, tile, tile,
-				"("..tile..")^[transformR90",
+				tile_side,
 			},
 			on_rotate = on_rotate,
 			drop = drop,
