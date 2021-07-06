@@ -84,17 +84,17 @@ minetest.register_node("columnia:machine", {
 			"item_image_button[4,0.5;1,1;columnia:column_crosslink_"..STEREOTYPE..";column_crosslink;]"..
 
 			"label[1,1.5;"..F(S("Links")).."]"..
-			"item_image_button[1,2;1,1;columnia:column_link_"..STEREOTYPE..";column_link;]"..
-			"item_image_button[2,2;1,1;columnia:column_linkcross_"..STEREOTYPE..";column_linkcross;]"..
-			"item_image_button[3,2;1,1;columnia:column_linkangle_"..STEREOTYPE..";column_linkangle;]"..
-			"item_image_button[4,2;1,1;columnia:column_linktee_"..STEREOTYPE..";column_linktee;]"..
+			"item_image_button[1,2;1,1;columnia:column_link_"..STEREOTYPE.." 2;column_link;]"..
+			"item_image_button[2,2;1,1;columnia:column_linkcross_"..STEREOTYPE.." 2;column_linkcross;]"..
+			"item_image_button[3,2;1,1;columnia:column_linkangle_"..STEREOTYPE.." 2;column_linkangle;]"..
+			"item_image_button[4,2;1,1;columnia:column_linktee_"..STEREOTYPE.." 2;column_linktee;]"..
 
 			"label[1,3;"..F(S("Links with Downs")).."]"..
-			"item_image_button[1,3.5;1,1;columnia:column_linkdown_"..STEREOTYPE..";column_linkdown;]"..
-			"item_image_button[2,3.5;1,1;columnia:column_linkcrossdown_"..STEREOTYPE..";column_linkcrossdown;]"..
-			"item_image_button[3,3.5;1,1;columnia:column_linkangle_down_"..STEREOTYPE..";column_linkangle_down;]"..
-			"item_image_button[4,3.5;1,1;columnia:column_linktee_down_"..STEREOTYPE..";column_linktee_down;]"..
-			"item_image_button[5,3.5;1,1;columnia:column_linkvertical_"..STEREOTYPE..";column_linkvertical;]"..
+			"item_image_button[1,3.5;1,1;columnia:column_linkdown_"..STEREOTYPE.." 2;column_linkdown;]"..
+			"item_image_button[2,3.5;1,1;columnia:column_linkcrossdown_"..STEREOTYPE.." 2;column_linkcrossdown;]"..
+			"item_image_button[3,3.5;1,1;columnia:column_linkangle_down_"..STEREOTYPE.." 2;column_linkangle_down;]"..
+			"item_image_button[4,3.5;1,1;columnia:column_linktee_down_"..STEREOTYPE.." 2;column_linktee_down;]"..
+			"item_image_button[5,3.5;1,1;columnia:column_linkvertical_"..STEREOTYPE.." 4;column_linkvertical;]"..
 
 			"label[1,4.5;"..F(S("Stair Substructures")).."]"..
 			"item_image_button[1,5;1,1;columnia:column_stairsub_"..STEREOTYPE..";column_stairsub;]"..
