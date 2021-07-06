@@ -49,3 +49,5 @@ walls.register("walls:cobble_baked", S("Burned Cobblestone Wall"), "default_cobb
 walls.register("walls:sandstone", S("Sandstone Wall"), "default_sandstone.png",
 		"hades_core:sandstone", hades_sounds.node_sound_stone_defaults())
 
+walls.register("walls:sandstone_volcanic", S("Volcanic Sandstone Wall"), "default_sandstone_volcanic.png",
+		"hades_core:sandstone_volcanic", hades_sounds.node_sound_stone_defaults())

@@ -356,6 +356,14 @@ minetest.register_node("hades_core:ash_block", {
 	sounds = hades_sounds.node_sound_sand_defaults(),
 })
 
+minetest.register_node("hades_core:volcanic_sand", {
+	description = S("Volcanic Sand"),
+	tiles = {"default_volcanic_sand.png"},
+	is_ground_content = true,
+	groups = {crumbly=3, falling_node=1, sand=1, porous=1},
+	sounds = hades_sounds.node_sound_sand_defaults(),
+})
+
 minetest.register_node("hades_core:fertile_sand", {
 	description = S("Fertile Sand"),
 	_tt_help = S("Becomes Dirt when close to water"),
@@ -409,6 +417,24 @@ minetest.register_node("hades_core:gravel_volcanic_block", {
 		footstep = {name="default_gravel_footstep", gain=0.5},
 		dug = {name="default_gravel_footstep", gain=1.0},
 	}),
+})
+
+
+minetest.register_node("hades_core:sandstone_volcanic", {
+	description = S("Volcanic Sandstone"),
+	tiles = {"default_sandstone_volcanic.png"},
+	is_ground_content = true,
+	groups = {crumbly=2,cracky=3,sandstone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+
+minetest.register_node("hades_core:sandstone_volcanic_brick", {
+	description = S("Volcanic Sandstone Brick"),
+	tiles = {"default_sandstone_volcanic_brick.png"},
+	is_ground_content = false,
+	groups = {cracky=2},
+	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 

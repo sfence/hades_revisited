@@ -26,6 +26,9 @@ local tile_groups = {
 	{ "chondrite", S("Chondrite"), "hades_core:chondrite" },
 },
 {
+	{ "sandstonevolcanic", S("Volcanic Sandstone"), "hades_core:sandstone_volcanic", g_stone3, s_stone },
+},
+{
 	{ "marble", S("Marble"), "hades_core:marble", g_stone2, s_stone },
 	{ "essexite", S("Essexite"), "hades_core:essexite" },
 },
