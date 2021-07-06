@@ -26,7 +26,7 @@ hades_trees.register_bark = function(id, def)
 	minetest.register_node("hades_trees:"..id, {
 		description = def.description,
 		paramtype2 = "facedir",
-		tiles = { def.image },
+		tiles = {{ name = def.image, align_style = "node" }},
 		is_ground_content = false,
 		groups = { bark=1, choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
 		sounds = hades_sounds.node_sound_wood_defaults(),

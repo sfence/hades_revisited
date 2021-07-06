@@ -61,10 +61,22 @@ end
 
 columnia.registered_materials[craft] = mat
 
+-- Make it a world-aligned tile if align_style is not set
+local tile
+if type(image) == "table" then
+	tile = table.copy(image)
+	if tile.align_style == nil then
+		tile.align_style = "world"
+	end
+else
+	tile = { name = image, align_style = "world" }
+end
+local tiles = {tile}
+
 minetest.register_node("columnia:column_mid_"..mat, {
 	description = S("@1 Column", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -84,7 +96,7 @@ minetest.register_node("columnia:column_mid_"..mat, {
 minetest.register_node("columnia:column_top_"..mat, {
 	description = S("@1 Column Top", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -106,7 +118,7 @@ minetest.register_node("columnia:column_top_"..mat, {
 minetest.register_node("columnia:column_bottom_"..mat, {
 	description = S("@1 Column Bottom", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -128,7 +140,7 @@ minetest.register_node("columnia:column_bottom_"..mat, {
 minetest.register_node("columnia:column_crosslink_"..mat, {
 	description = S("@1 Column Crosslink", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -151,7 +163,7 @@ minetest.register_node("columnia:column_crosslink_"..mat, {
 minetest.register_node("columnia:column_link_"..mat, {
 	description = S("@1 Column Link", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -171,7 +183,7 @@ minetest.register_node("columnia:column_link_"..mat, {
 minetest.register_node("columnia:column_linkdown_"..mat, {
 	description = S("@1 Column Link Down", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -194,7 +206,7 @@ minetest.register_node("columnia:column_linkdown_"..mat, {
 minetest.register_node("columnia:column_linkcross_"..mat, {
 	description = S("@1 Column Link Cross", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -215,7 +227,7 @@ minetest.register_node("columnia:column_linkcross_"..mat, {
 minetest.register_node("columnia:column_linkcrossdown_"..mat, {
 	description = S("@1 Column Link Cross Down", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -239,7 +251,7 @@ minetest.register_node("columnia:column_linkcrossdown_"..mat, {
 minetest.register_node("columnia:column_linkvertical_"..mat, {
 	description = S("@1 Column Link Vertical", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -263,7 +275,7 @@ minetest.register_node("columnia:column_linkvertical_"..mat, {
 minetest.register_node("columnia:column_linkangle_"..mat, {
 	description = S("@1 Column Link Corner", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -284,7 +296,7 @@ minetest.register_node("columnia:column_linkangle_"..mat, {
 minetest.register_node("columnia:column_linkangle_down_"..mat, {
 	description = S("@1 Column Link Corner Down", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -308,7 +320,7 @@ minetest.register_node("columnia:column_linkangle_down_"..mat, {
 minetest.register_node("columnia:column_linktee_"..mat, {
 	description = S("@1 Column Link T-Form", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -329,7 +341,7 @@ minetest.register_node("columnia:column_linktee_"..mat, {
 minetest.register_node("columnia:column_linktee_down_"..mat, {
 	description = S("@1 Column Link T-Form Down", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -351,9 +363,9 @@ minetest.register_node("columnia:column_linktee_down_"..mat, {
 })
 
 minetest.register_node("columnia:column_stairsub_"..mat, {
-	description = desc.." Stair Substructure",
+	description = S("@1 Stair Substructure", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	--sunlight_propagates = true,
@@ -386,9 +398,9 @@ minetest.register_node("columnia:column_stairsub_"..mat, {
 })
 
 minetest.register_node("columnia:column_stairsubpillar_"..mat, {
-	description = desc.." Stair Substructure Pillar",
+	description = S("@1 Stair Substructure Pillar", desc),
 	drawtype = "nodebox",
-	tiles = {image},
+	tiles = tiles,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	--sunlight_propagates = true,
