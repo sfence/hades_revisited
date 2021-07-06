@@ -61,15 +61,46 @@ end
 function hades_sounds.node_sound_sand_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="default_sand_footstep", gain=0.5, max_hear_distance = mhd}
+			{name="hades_sounds_ash_footstep", gain=0.17, max_hear_distance = mhd, pitch=0.9}
+	table.dig = table.dug or
+			{name="hades_sounds_ash_dig", gain=0.2, max_hear_distance = mhd, pitch=1}
 	table.dug = table.dug or
-			{name="default_sand_footstep", gain=1.0, max_hear_distance = mhd}
+			{name="hades_sounds_ash_footstep", gain=0.7, max_hear_distance = mhd, pitch=0.9}
 	table.place = table.place or
 			{name="default_place_node", gain=1.0, max_hear_distance = mhd}
 	hades_sounds.node_sound_defaults(table)
 	return table
 end
 
+function hades_sounds.node_sound_ash_defaults(table)
+	table = table or {}
+	local pitch = table.pitch or 1
+	table.footstep = table.footstep or
+			{name="hades_sounds_ash_footstep", gain=0.17, max_hear_distance = mhd, pitch = 1}
+	table.dig = table.dug or
+			{name="hades_sounds_ash_dig", gain=0.2, max_hear_distance = mhd, pitch = 1}
+	table.dug = table.dug or
+			{name="hades_sounds_ash_footstep", gain=0.7, max_hear_distance = mhd, pitch = 1}
+	table.place = table.place or
+			{name="default_place_node", gain=1.0, max_hear_distance = mhd}
+	hades_sounds.node_sound_defaults(table)
+	return table
+end
+
+function hades_sounds.node_sound_gravel_defaults(table, pitch)
+	pitch = pitch or 1.0
+	table = table or {}
+	table.footstep = table.footstep or
+			{name="hades_sounds_gravel_footstep", gain=0.5, max_hear_distance = mhd, pitch=pitch}
+	table.dig = table.dig or
+			{name = "default_dig_crumbly", gain = 0.5, max_hear_distance = mhd}
+	table.dug = table.dug or
+			{name="hades_sounds_gravel_dug", gain=1.0, max_hear_distance = mhd, pitch=pitch}
+	table.place = table.place or
+			{name="hades_sounds_gravel_dug", gain=1.0, max_hear_distance = mhd, pitch = 1.5*pitch}
+	hades_sounds.node_sound_defaults(table)
+	return table
+end
 
 function hades_sounds.node_sound_wood_defaults(table)
 	table = table or {}

@@ -345,7 +345,7 @@ minetest.register_node("hades_core:ash", {
 	tiles = {"hades_core_ash.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, ash=1, porous=1},
-	sounds = hades_sounds.node_sound_sand_defaults(),
+	sounds = hades_sounds.node_sound_ash_defaults(),
 })
 
 minetest.register_node("hades_core:ash_block", {
@@ -353,7 +353,7 @@ minetest.register_node("hades_core:ash_block", {
 	tiles = {"hades_core_ash_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=3},
-	sounds = hades_sounds.node_sound_sand_defaults(),
+	sounds = hades_sounds.node_sound_ash_defaults(),
 })
 
 minetest.register_node("hades_core:volcanic_sand", {
@@ -379,10 +379,7 @@ minetest.register_node("hades_core:gravel", {
 	tiles = {"default_gravel.png"},
 	is_ground_content = true,
 	groups = {crumbly=2, falling_node=1, porous=1},
-	sounds = hades_sounds.node_sound_dirt_defaults({
-		footstep = {name="default_gravel_footstep", gain=0.5},
-		dug = {name="default_gravel_footstep", gain=1.0},
-	}),
+	sounds = hades_sounds.node_sound_gravel_defaults(),
 })
 
 minetest.register_node("hades_core:gravel_block", {
@@ -390,10 +387,7 @@ minetest.register_node("hades_core:gravel_block", {
 	tiles = {"hades_core_gravel_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=2},
-	sounds = hades_sounds.node_sound_dirt_defaults({
-		footstep = {name="default_gravel_footstep", gain=0.5},
-		dug = {name="default_gravel_footstep", gain=1.0},
-	}),
+	sounds = hades_sounds.node_sound_gravel_defaults(),
 })
 
 minetest.register_node("hades_core:gravel_volcanic", {
@@ -402,10 +396,7 @@ minetest.register_node("hades_core:gravel_volcanic", {
 	tiles = {"hades_core_gravel_volcanic.png"},
 	is_ground_content = true,
 	groups = {crumbly=1, porous=1},
-	sounds = hades_sounds.node_sound_dirt_defaults({
-		footstep = {name="default_gravel_footstep", gain=0.5},
-		dug = {name="default_gravel_footstep", gain=1.0},
-	}),
+	sounds = hades_sounds.node_sound_gravel_defaults(nil, 0.85),
 })
 
 minetest.register_node("hades_core:gravel_volcanic_block", {
@@ -413,10 +404,7 @@ minetest.register_node("hades_core:gravel_volcanic_block", {
 	tiles = {"hades_core_gravel_volcanic_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=2},
-	sounds = hades_sounds.node_sound_dirt_defaults({
-		footstep = {name="default_gravel_footstep", gain=0.5},
-		dug = {name="default_gravel_footstep", gain=1.0},
-	}),
+	sounds = hades_sounds.node_sound_gravel_defaults(nil, 0.85),
 })
 
 
