@@ -103,7 +103,7 @@ minetest.register_tool("hades_core:pick_mese", {
 minetest.register_tool("hades_core:pick_prism", {
 	description = S("Prism Pickaxe"),
 	_tt_help = tt_pick,
-	inventory_image = "default_tool_prismpick.png",
+	inventory_image = "hades_core_tool_prismpick.png",
 	groups = { pickaxe = 1, },
 	tool_capabilities = {
 		full_punch_interval = 0.9,
@@ -199,9 +199,9 @@ minetest.register_tool("hades_core:shovel_mese", {
 minetest.register_tool("hades_core:shovel_prism", {
 	description = S("Prism Shovel"),
 	_tt_help = tt_shovel,
-	inventory_image = "default_tool_prismshovel.png",
+	inventory_image = "hades_core_tool_prismshovel.png",
 	groups = { shovel = 1, },
-	wield_image = "default_tool_prismshovel.png^[transformR90",
+	wield_image = "hades_core_tool_prismshovel.png^[transformR90",
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
@@ -291,7 +291,7 @@ minetest.register_tool("hades_core:axe_mese", {
 minetest.register_tool("hades_core:axe_prism", {
 	description = S("Prism Axe"),
 	_tt_help = tt_axe,
-	inventory_image = "default_tool_prismaxe.png",
+	inventory_image = "hades_core_tool_prismaxe.png",
 	groups = { axe = 1, },
 	tool_capabilities = {
 		full_punch_interval = 0.9,
@@ -382,7 +382,7 @@ minetest.register_tool("hades_core:sword_mese", {
 minetest.register_tool("hades_core:sword_prism", {
 	description = S("Prism Sword"),
 	_tt_help = tt_sword,
-	inventory_image = "default_tool_prismsword.png",
+	inventory_image = "hades_core_tool_prismsword.png",
 	groups = { sword = 1, },
 	tool_capabilities = {
 		full_punch_interval = 0.7,

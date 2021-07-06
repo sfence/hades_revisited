@@ -14,7 +14,7 @@ Details: Adds several items for lighting, made out of glowing crystals - a bette
 
 minetest.register_node( "glowcrystals:glowcrystal_ore", {
 	description = S("Glowing Crystal Ore"),
-	tiles = { "default_essexite.png^glowcrystals_ore_glowcrystal.png" },
+	tiles = { "hades_core_essexite.png^glowcrystals_ore_glowcrystal.png" },
 	is_ground_content = true,
 	paramtype = "light",
 	sunlight_propagates = true,

@@ -25,7 +25,7 @@ minetest.register_node("hades_core:stone_block", {
 
 minetest.register_node("hades_core:mossystone", {
 	description = S("Mossy Stone"),
-	tiles = {"default_mossystone.png"},
+	tiles = {"hades_core_mossystone.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = 'hades_core:mossycobble',
@@ -35,7 +35,7 @@ minetest.register_node("hades_core:mossystone", {
 minetest.register_node("hades_core:chondrite", {
 	description = S("Chondrite"),
 	_tt_help = S("Becomes Marble when close to water and at Y=-500 or below"),
-	tiles = {"default_chondrite.png"},
+	tiles = {"hades_core_chondrite.png"},
 	is_ground_content = true,
 	groups = {cracky=2, stone=1, porous=1},
 	drop = 'hades_core:chondrite',
@@ -44,7 +44,7 @@ minetest.register_node("hades_core:chondrite", {
 
 minetest.register_node("hades_core:chondrite_block", {
 	description = S("Chondrite Block"),
-	tiles = {"default_chondrite_block.png"},
+	tiles = {"hades_core_chondrite_block.png"},
 	is_ground_content = false,
 	groups = {cracky=2},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -52,7 +52,7 @@ minetest.register_node("hades_core:chondrite_block", {
 
 minetest.register_node("hades_core:chondrite_brick", {
 	description = S("Chondrite Brick"),
-	tiles = {"default_chondrite_brick.png"},
+	tiles = {"hades_core_chondrite_brick.png"},
 	groups = {cracky=2, stone=1},
 	is_ground_content = false,
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -60,7 +60,7 @@ minetest.register_node("hades_core:chondrite_brick", {
 
 minetest.register_node("hades_core:tuff", {
 	description = S("Tuff"),
-	tiles = {"default_tuff.png"},
+	tiles = {"hades_core_tuff.png"},
 	is_ground_content = true,
 	groups = {cracky=3, porous=1},
 	drop = 'hades_core:tuff',
@@ -69,7 +69,7 @@ minetest.register_node("hades_core:tuff", {
 
 minetest.register_node("hades_core:tuff_block", {
 	description = S("Tuff Block"),
-	tiles = {"default_tuff_block.png"},
+	tiles = {"hades_core_tuff_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -77,14 +77,14 @@ minetest.register_node("hades_core:tuff_block", {
 
 minetest.register_node("hades_core:tuff_brick", {
 	description = S("Tuff Brick"),
-	tiles = {"default_tuff_brick.png"},
+	tiles = {"hades_core_tuff_brick.png"},
 	groups = {cracky=3},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("hades_core:tuff_baked", {
 	description = S("Burned Tuff"),
-	tiles = {"default_tuff_baked.png"},
+	tiles = {"hades_core_tuff_baked.png"},
 	is_ground_content = true,
 	groups = {cracky=3, porous=1, burned_node=1},
 	drop = 'hades_core:tuff_baked',
@@ -93,7 +93,7 @@ minetest.register_node("hades_core:tuff_baked", {
 
 minetest.register_node("hades_core:tuff_baked_block", {
 	description = S("Burned Tuff Block"),
-	tiles = {"default_tuff_baked_block.png"},
+	tiles = {"hades_core_tuff_baked_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -101,14 +101,14 @@ minetest.register_node("hades_core:tuff_baked_block", {
 
 minetest.register_node("hades_core:tuff_baked_brick", {
 	description = S("Burned Tuff Brick"),
-	tiles = {"default_tuff_baked_brick.png"},
+	tiles = {"hades_core_tuff_baked_brick.png"},
 	groups = {cracky=3, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("hades_core:mossytuff", {
 	description = S("Mossy Tuff"),
-	tiles = {"default_mossytuff.png"},
+	tiles = {"hades_core_mossytuff.png"},
 	is_ground_content = true,
 	groups = {cracky=3, porous=1, mossy=1},
 	drop = 'hades_core:mossytuff',
@@ -117,7 +117,7 @@ minetest.register_node("hades_core:mossytuff", {
 
 minetest.register_node("hades_core:marble", {
 	description = S("Marble"),
-	tiles = {"default_marble.png"},
+	tiles = {"hades_core_marble.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = 'hades_core:marble',
@@ -126,7 +126,7 @@ minetest.register_node("hades_core:marble", {
 
 minetest.register_node("hades_core:marble_block", {
 	description = S("Marble Block"),
-	tiles = {"default_marble_block.png"},
+	tiles = {"hades_core_marble_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -134,14 +134,14 @@ minetest.register_node("hades_core:marble_block", {
 
 minetest.register_node("hades_core:marble_brick", {
 	description = S("Marble Brick"),
-	tiles = {"default_marble_brick.png"},
+	tiles = {"hades_core_marble_brick.png"},
 	groups = {cracky=3, stone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("hades_core:essexite", {
 	description = S("Essexite"),
-	tiles = {"default_essexite.png"},
+	tiles = {"hades_core_essexite.png"},
 	is_ground_content = true,
 	groups = {cracky=1, stone=1, porous=1},
 	drop = 'hades_core:essexite',
@@ -150,7 +150,7 @@ minetest.register_node("hades_core:essexite", {
 
 minetest.register_node("hades_core:essexite_block", {
 	description = S("Essexite Block"),
-	tiles = {"default_essexite_block.png"},
+	tiles = {"hades_core_essexite_block.png"},
 	is_ground_content = false,
 	groups = {cracky=2,},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -158,14 +158,14 @@ minetest.register_node("hades_core:essexite_block", {
 
 minetest.register_node("hades_core:essexite_brick", {
 	description = S("Essexite Brick"),
-	tiles = {"default_essexite_brick.png"},
+	tiles = {"hades_core_essexite_brick.png"},
 	groups = {cracky=1, stone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
 minetest.register_node("hades_core:stone_baked", {
 	description = S("Burned Stone"),
-	tiles = {"default_stone_baked.png"},
+	tiles = {"hades_core_stone_baked.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1, burned_node=1},
 	drop = "hades_core:cobble_baked",
@@ -174,7 +174,7 @@ minetest.register_node("hades_core:stone_baked", {
 
 minetest.register_node("hades_core:stone_block_baked", {
 	description = S("Burned Stone Block"),
-	tiles = {"default_stone_block_baked.png"},
+	tiles = {"hades_core_stone_block_baked.png"},
 	is_ground_content = false,
 	groups = {cracky=3, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -189,7 +189,7 @@ minetest.register_node("hades_core:obsidianbrick", {
 
 minetest.register_node("hades_core:floor_chondrite_stone", {
 	description = S("Chondrite/Stone Block"),
-	tiles = {"default_floor_chondrite_stone.png"},
+	tiles = {"hades_core_floor_chondrite_stone.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -198,11 +198,11 @@ minetest.register_node("hades_core:floor_chondrite_stone", {
 minetest.register_node("hades_core:floor_bstone_sandstone", {
 	description = S("Burned Stone/Fine Sandstone Block"),
 	tiles = {
-		"default_floor_bstone_sandstone.png",
-		"default_floor_bstone_sandstone.png",
-		"default_floor_bstone_sandstone.png",
-		"default_floor_bstone_sandstone.png",
-		"default_floor_bstone_sandstone.png^[transformR90",
+		"hades_core_floor_bstone_sandstone.png",
+		"hades_core_floor_bstone_sandstone.png",
+		"hades_core_floor_bstone_sandstone.png",
+		"hades_core_floor_bstone_sandstone.png",
+		"hades_core_floor_bstone_sandstone.png^[transformR90",
 	},
 	is_ground_content = false,
 	groups = {cracky=3},
@@ -212,11 +212,11 @@ minetest.register_node("hades_core:floor_bstone_sandstone", {
 minetest.register_node("hades_core:floor_marble_essexite2", {
 	description = S("Marble/Essexite Block"),
 	tiles = {
-		"default_floor_marble_essexite2.png",
-		"default_floor_marble_essexite2.png",
-		"default_floor_marble_essexite2.png",
-		"default_floor_marble_essexite2.png",
-		"default_floor_marble_essexite2.png^[transformR90",
+		"hades_core_floor_marble_essexite2.png",
+		"hades_core_floor_marble_essexite2.png",
+		"hades_core_floor_marble_essexite2.png",
+		"hades_core_floor_marble_essexite2.png",
+		"hades_core_floor_marble_essexite2.png^[transformR90",
 	},
 	is_ground_content = false,
 	groups = {cracky=2, stone=1},
@@ -225,7 +225,7 @@ minetest.register_node("hades_core:floor_marble_essexite2", {
 
 minetest.register_node("hades_core:floor_essexite_gold", {
 	description = S("Golden Essexite Block"),
-	tiles = {"default_floor_essexite_gold.png"},
+	tiles = {"hades_core_floor_essexite_gold.png"},
 	is_ground_content = false,
 	groups = {cracky=2},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -311,7 +311,7 @@ minetest.register_node("hades_core:stonebrick", {
 
 minetest.register_node("hades_core:stonebrick_baked", {
 	description = S("Burned Stone Brick"),
-	tiles = {"default_stone_brick_baked.png"},
+	tiles = {"hades_core_stone_brick_baked.png"},
 	groups = {cracky=2, stone=1, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
@@ -342,7 +342,7 @@ minetest.register_node("hades_core:dirt", {
 minetest.register_node("hades_core:ash", {
 	description = S("Volcanic Ash"),
 	_tt_help = S("Becomes Clay when close to water"),
-	tiles = {"default_ash.png"},
+	tiles = {"hades_core_ash.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, ash=1, porous=1},
 	sounds = hades_sounds.node_sound_sand_defaults(),
@@ -350,7 +350,7 @@ minetest.register_node("hades_core:ash", {
 
 minetest.register_node("hades_core:ash_block", {
 	description = S("Volcanic Ash Block"),
-	tiles = {"default_ash_block.png"},
+	tiles = {"hades_core_ash_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=3},
 	sounds = hades_sounds.node_sound_sand_defaults(),
@@ -358,7 +358,7 @@ minetest.register_node("hades_core:ash_block", {
 
 minetest.register_node("hades_core:volcanic_sand", {
 	description = S("Volcanic Sand"),
-	tiles = {"default_volcanic_sand.png"},
+	tiles = {"hades_core_volcanic_sand.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, sand=1, porous=1},
 	sounds = hades_sounds.node_sound_sand_defaults(),
@@ -367,7 +367,7 @@ minetest.register_node("hades_core:volcanic_sand", {
 minetest.register_node("hades_core:fertile_sand", {
 	description = S("Fertile Sand"),
 	_tt_help = S("Becomes Dirt when close to water"),
-	tiles = {"default_fertile_sand.png"},
+	tiles = {"hades_core_fertile_sand.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, falling_node=1, sand=1, porous=1},
 	sounds = hades_sounds.node_sound_sand_defaults(),
@@ -387,7 +387,7 @@ minetest.register_node("hades_core:gravel", {
 
 minetest.register_node("hades_core:gravel_block", {
 	description = S("Gravel Block"),
-	tiles = {"default_gravel_block.png"},
+	tiles = {"hades_core_gravel_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=2},
 	sounds = hades_sounds.node_sound_dirt_defaults({
@@ -399,7 +399,7 @@ minetest.register_node("hades_core:gravel_block", {
 minetest.register_node("hades_core:gravel_volcanic", {
 	description = S("Volcanic Gravel"),
 	_tt_help = S("Becomes Obsidian when close to water and lava at Y=-1000 or below"),
-	tiles = {"default_gravel_volcanic.png"},
+	tiles = {"hades_core_gravel_volcanic.png"},
 	is_ground_content = true,
 	groups = {crumbly=1, porous=1},
 	sounds = hades_sounds.node_sound_dirt_defaults({
@@ -410,7 +410,7 @@ minetest.register_node("hades_core:gravel_volcanic", {
 
 minetest.register_node("hades_core:gravel_volcanic_block", {
 	description = S("Volcanic Gravel Block"),
-	tiles = {"default_gravel_volcanic_block.png"},
+	tiles = {"hades_core_gravel_volcanic_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=2},
 	sounds = hades_sounds.node_sound_dirt_defaults({
@@ -422,7 +422,7 @@ minetest.register_node("hades_core:gravel_volcanic_block", {
 
 minetest.register_node("hades_core:sandstone_volcanic", {
 	description = S("Volcanic Sandstone"),
-	tiles = {"default_sandstone_volcanic.png"},
+	tiles = {"hades_core_sandstone_volcanic.png"},
 	is_ground_content = true,
 	groups = {crumbly=2,cracky=3,sandstone=1, porous=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -431,7 +431,7 @@ minetest.register_node("hades_core:sandstone_volcanic", {
 
 minetest.register_node("hades_core:sandstone_volcanic_brick", {
 	description = S("Volcanic Sandstone Brick"),
-	tiles = {"default_sandstone_volcanic_brick.png"},
+	tiles = {"hades_core_sandstone_volcanic_brick.png"},
 	is_ground_content = false,
 	groups = {cracky=2,sandstone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -478,7 +478,7 @@ minetest.register_node("hades_core:brick", {
 
 minetest.register_node("hades_core:brick_black", {
 	description = S("Black Brick Block"),
-	tiles = {"default_brick_black.png"},
+	tiles = {"hades_core_brick_black.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -486,7 +486,7 @@ minetest.register_node("hades_core:brick_black", {
 
 minetest.register_node("hades_core:brick_blue", {
 	description = S("Blue Brick Block"),
-	tiles = {"default_brick_blue.png"},
+	tiles = {"hades_core_brick_blue.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -494,7 +494,7 @@ minetest.register_node("hades_core:brick_blue", {
 
 minetest.register_node("hades_core:brick_brown", {
 	description = S("Brown Brick Block"),
-	tiles = {"default_brick_brown.png"},
+	tiles = {"hades_core_brick_brown.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -502,7 +502,7 @@ minetest.register_node("hades_core:brick_brown", {
 
 minetest.register_node("hades_core:brick_cyan", {
 	description = S("Cyan Brick Block"),
-	tiles = {"default_brick_cyan.png"},
+	tiles = {"hades_core_brick_cyan.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -510,7 +510,7 @@ minetest.register_node("hades_core:brick_cyan", {
 
 minetest.register_node("hades_core:brick_dark_green", {
 	description = S("Dark Green Brick Block"),
-	tiles = {"default_brick_dark_green.png"},
+	tiles = {"hades_core_brick_dark_green.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -518,7 +518,7 @@ minetest.register_node("hades_core:brick_dark_green", {
 
 minetest.register_node("hades_core:brick_dark_grey", {
 	description = S("Dark Grey Brick Block"),
-	tiles = {"default_brick_dark_grey.png"},
+	tiles = {"hades_core_brick_dark_grey.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -526,7 +526,7 @@ minetest.register_node("hades_core:brick_dark_grey", {
 
 minetest.register_node("hades_core:brick_green", {
 	description = S("Green Brick Block"),
-	tiles = {"default_brick_green.png"},
+	tiles = {"hades_core_brick_green.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -534,7 +534,7 @@ minetest.register_node("hades_core:brick_green", {
 
 minetest.register_node("hades_core:brick_grey", {
 	description = S("Grey Brick Block"),
-	tiles = {"default_brick_grey.png"},
+	tiles = {"hades_core_brick_grey.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -542,7 +542,7 @@ minetest.register_node("hades_core:brick_grey", {
 
 minetest.register_node("hades_core:brick_magenta", {
 	description = S("Magenta Brick Block"),
-	tiles = {"default_brick_magenta.png"},
+	tiles = {"hades_core_brick_magenta.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -550,7 +550,7 @@ minetest.register_node("hades_core:brick_magenta", {
 
 minetest.register_node("hades_core:brick_orange", {
 	description = S("Orange Brick Block"),
-	tiles = {"default_brick_orange.png"},
+	tiles = {"hades_core_brick_orange.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -558,7 +558,7 @@ minetest.register_node("hades_core:brick_orange", {
 
 minetest.register_node("hades_core:brick_pink", {
 	description = S("Pink Brick Block"),
-	tiles = {"default_brick_pink.png"},
+	tiles = {"hades_core_brick_pink.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -566,7 +566,7 @@ minetest.register_node("hades_core:brick_pink", {
 
 minetest.register_node("hades_core:brick_red", {
 	description = S("Red Brick Block"),
-	tiles = {"default_brick_red.png"},
+	tiles = {"hades_core_brick_red.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -574,7 +574,7 @@ minetest.register_node("hades_core:brick_red", {
 
 minetest.register_node("hades_core:brick_violet", {
 	description = S("Violet Brick Block"),
-	tiles = {"default_brick_violet.png"},
+	tiles = {"hades_core_brick_violet.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -582,7 +582,7 @@ minetest.register_node("hades_core:brick_violet", {
 
 minetest.register_node("hades_core:brick_white", {
 	description = S("White Brick Block"),
-	tiles = {"default_brick_white.png"},
+	tiles = {"hades_core_brick_white.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -590,7 +590,7 @@ minetest.register_node("hades_core:brick_white", {
 
 minetest.register_node("hades_core:brick_yellow", {
 	description = S("Yellow Brick Block"),
-	tiles = {"default_brick_yellow.png"},
+	tiles = {"hades_core_brick_yellow.png"},
 	is_ground_content = false,
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -773,7 +773,7 @@ minetest.register_node("hades_core:cobble", {
 
 minetest.register_node("hades_core:cobble_block", {
 	description = S("Cobblestone Block"),
-	tiles = {"default_cobble_block.png"},
+	tiles = {"hades_core_cobble_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=2},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -781,7 +781,7 @@ minetest.register_node("hades_core:cobble_block", {
 
 minetest.register_node("hades_core:cobble_baked", {
 	description = S("Burned Cobblestone"),
-	tiles = {"default_cobble_baked.png"},
+	tiles = {"hades_core_cobble_baked.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=2, porous=1, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -789,7 +789,7 @@ minetest.register_node("hades_core:cobble_baked", {
 
 minetest.register_node("hades_core:cobble_block_baked", {
 	description = S("Burned Cobblestone Block"),
-	tiles = {"default_cobble_baked_block.png"},
+	tiles = {"hades_core_cobble_baked_block.png"},
 	is_ground_content = false,
 	groups = {cracky=3, stone=2, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -864,7 +864,7 @@ minetest.register_node("hades_core:goldblock", {
 
 minetest.register_node("hades_core:emerald_block", {
 	description = S("Emerald Block"),
-	tiles = {"default_emerald_block.png"},
+	tiles = {"hades_core_emerald_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -872,7 +872,7 @@ minetest.register_node("hades_core:emerald_block", {
 
 minetest.register_node("hades_core:sapphire_block", {
 	description = S("Sapphire Block"),
-	tiles = {"default_sapphire_block.png"},
+	tiles = {"hades_core_sapphire_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -880,7 +880,7 @@ minetest.register_node("hades_core:sapphire_block", {
 
 minetest.register_node("hades_core:ruby_block", {
 	description = S("Ruby Block"),
-	tiles = {"default_ruby_block.png"},
+	tiles = {"hades_core_ruby_block.png"},
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -927,7 +927,7 @@ minetest.register_node("hades_core:obsidian_block", {
 
 minetest.register_node("hades_core:stone_with_emerald", {
 	description = S("Emerald Ore"),
-	tiles = {"default_stone.png^default_mineral_emerald.png"},
+	tiles = {"default_stone.png^hades_core_mineral_emerald.png"},
 	is_ground_content = true,
 	groups = {cracky=2, porous=1, ore=1},
 	drop = "hades_core:emerald",
@@ -936,7 +936,7 @@ minetest.register_node("hades_core:stone_with_emerald", {
 
 minetest.register_node("hades_core:stone_with_sapphire", {
 	description = S("Sapphire Ore"),
-	tiles = {"default_stone.png^default_mineral_sapphire.png"},
+	tiles = {"default_stone.png^hades_core_mineral_sapphire.png"},
 	is_ground_content = true,
 	groups = {cracky=2, porous=1, ore=1},
 	drop = "hades_core:sapphire",
@@ -945,7 +945,7 @@ minetest.register_node("hades_core:stone_with_sapphire", {
 
 minetest.register_node("hades_core:stone_with_ruby", {
 	description = S("Ruby Ore"),
-	tiles = {"default_stone.png^default_mineral_ruby.png"},
+	tiles = {"default_stone.png^hades_core_mineral_ruby.png"},
 	is_ground_content = true,
 	groups = {cracky=1, porous=1, ore=1},
 	drop = "hades_core:ruby",

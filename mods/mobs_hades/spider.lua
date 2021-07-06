@@ -116,6 +116,6 @@ minetest.register_craft({
 })
 
 mobs:register_egg("mobs_hades:spider_gold", S("Gold Spider Spawn Egg"), "default_gold_block.png", 1, false)
-mobs:register_egg("mobs_hades:spider_sapphire", S("Sapphire Spider Spawn Egg"), "default_sapphire_block.png", 1, false)
-mobs:register_egg("mobs_hades:spider_ruby", S("Ruby Spider Spawn Egg"), "default_ruby_block.png", 1, false)
+mobs:register_egg("mobs_hades:spider_sapphire", S("Sapphire Spider Spawn Egg"), "hades_core_sapphire_block.png", 1, false)
+mobs:register_egg("mobs_hades:spider_ruby", S("Ruby Spider Spawn Egg"), "hades_core_ruby_block.png", 1, false)
 mobs:register_egg("mobs_hades:spider_mese", S("Mese Spider Spawn Egg"), "default_mese_block.png^[brighten", 1, false)

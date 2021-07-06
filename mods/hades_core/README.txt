@@ -67,10 +67,10 @@ VanessaE (WTFPL):
   default_nc_rb.png
   default_nc_side.png
   default_grass_*.png
-  default_fertile_sand.png
-  default_stone_baked.png
-  default_stone_brick_baked.png
-  default_ash.png
+  hades_core_fertile_sand.png
+  hades_core_stone_baked.png
+  hades_core_stone_brick_baked.png
+  hades_core_ash.png
   default_sandstone_brick.png
 
 Calinou (CC BY-SA):

@@ -154,7 +154,7 @@ minetest.register_node("hades_core:cactus", {
 
 minetest.register_node("hades_core:cactus_block", {
 	description = S("Cactus Block"),
-	tiles = {"default_cactus_block.png"},
+	tiles = {"hades_core_cactus_block.png"},
 	is_ground_content = false,
 	groups = {choppy=3,flammable=2},
 	sounds = hades_sounds.node_sound_wood_defaults(),
@@ -162,7 +162,7 @@ minetest.register_node("hades_core:cactus_block", {
 
 minetest.register_node("hades_core:cactus_brick", {
 	description = S("Cactus Brick"),
-	tiles = {"default_cactus_brick.png"},
+	tiles = {"hades_core_cactus_brick.png"},
 	is_ground_content = false,
 	groups = {choppy=3,flammable=2},
 	sounds = hades_sounds.node_sound_wood_defaults(),
@@ -170,7 +170,7 @@ minetest.register_node("hades_core:cactus_brick", {
 
 minetest.register_node("hades_core:glowing_cactus_block", {
 	description = S("Glowing Cactus Block"),
-	tiles = {"default_cactus_block.png"},
+	tiles = {"hades_core_cactus_block.png"},
 	is_ground_content = false,
 	light_source = 5,
 	groups = {choppy=3,flammable=2},
@@ -194,12 +194,12 @@ minetest.register_node("hades_core:papyrus", {
 	_tt_help = S("Grows on Dirt with Grass near water"),
 	drawtype = "nodebox",
 	tiles = {
-		"default_papyrus_3d.png",
-		"default_papyrus_3d.png",
-		"default_papyrus_3d_s1.png",
-		"default_papyrus_3d_s1.png",
-		"default_papyrus_3d_s2.png",
-		"default_papyrus_3d_s2.png",
+		"hades_core_papyrus_3d.png",
+		"hades_core_papyrus_3d.png",
+		"hades_core_papyrus_3d_s1.png",
+		"hades_core_papyrus_3d_s1.png",
+		"hades_core_papyrus_3d_s2.png",
+		"hades_core_papyrus_3d_s2.png",
 	},
 	inventory_image = "default_papyrus.png",
 	wield_image = "default_papyrus.png",
@@ -246,9 +246,9 @@ minetest.register_node("hades_core:sugarcane", {
 	description = S("Sugarcane"),
 	_tt_help = S("Grows on Dirt with Grass near water"),
 	drawtype = "plantlike",
-	tiles = {"default_sugarcane.png"},
-	inventory_image = "default_sugarcane.png",
-	wield_image = "default_sugarcane.png",
+	tiles = {"hades_core_sugarcane.png"},
+	inventory_image = "hades_core_sugarcane.png",
+	wield_image = "hades_core_sugarcane.png",
 	paramtype = "light",
 	walkable = false,
 	is_ground_content = true,

@@ -127,7 +127,7 @@ hades_core.register_ladder("hades_core:ladder_jungle_wood", {
 
 hades_core.register_ladder("hades_core:ladder_bronze", {
 	description = S("Bronze Ladder"),
-	texture = "default_ladder_bronze.png",
+	texture = "hades_core_ladder_bronze.png",
 	groups = {cracky=3},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 })

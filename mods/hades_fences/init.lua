@@ -67,7 +67,7 @@ end
 local groups_colwood = {choppy=2, oddly_breakable_by_hand=2, flammable=2, fence_wood=1, fence_colwood=1}
 
 local fences = {
-	{ "rusty", S("Rusty Fence"), "default_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal", "columnia:rusty_block"}, hades_sounds.node_sound_metal_defaults() },
+	{ "rusty", S("Rusty Fence"), "hades_core_rusty.png", {cracky=3, fence_metal=1}, {"group:fence_metal", "columnia:rusty_block"}, hades_sounds.node_sound_metal_defaults() },
 	{ "wood", S("Temperate Wood Fence"), "default_wood.png" },
 	{ "pale_wood", S("Pale Wood Fence"), "hades_trees_pale_wood.png" },
 	{ "jungle_wood", S("Tropical Wood Fence"), "default_junglewood.png" },

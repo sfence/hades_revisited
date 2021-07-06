@@ -432,7 +432,7 @@ register_pedestal("pedestal_stone_baked", {
 	craftitem="hades_core:stone_baked"})
 register_pedestal("pedestal_marble", {
 	description=S("Marble Pedestal"),
-	tiles={"default_marble.png"},
+	tiles={"hades_core_marble.png"},
 	groups={cracky=3},
 	craftitem="hades_core:marble"})
 register_pedestal("pedestal_sandstone", {
@@ -442,7 +442,7 @@ register_pedestal("pedestal_sandstone", {
 	craftitem="hades_core:sandstone"})
 register_pedestal("pedestal_sandstone_volcanic", {
 	description=S("Volcanic Sandstone Pedestal"),
-	tiles={"default_sandstone_volcanic.png"},
+	tiles={"hades_core_sandstone_volcanic.png"},
 	groups={cracky=3},
 	craftitem="hades_core:sandstone_volcanic"})
 register_pedestal("pedestal_obsidian", {

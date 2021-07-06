@@ -50,7 +50,7 @@ walls.register("walls:mossycobble", S("Mossy Cobblestone Wall"), "default_mossyc
 		"hades_core:mossycobble", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
-walls.register("walls:cobble_baked", S("Burned Cobblestone Wall"), "default_cobble_baked.png",
+walls.register("walls:cobble_baked", S("Burned Cobblestone Wall"), "hades_core_cobble_baked.png",
 		"hades_core:cobble_baked", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
@@ -58,6 +58,6 @@ walls.register("walls:sandstone", S("Fine Sandstone Wall"), "default_sandstone.p
 		"hades_core:sandstone", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
-walls.register("walls:sandstone_volcanic", S("Volcanic Sandstone Wall"), "default_sandstone_volcanic.png",
+walls.register("walls:sandstone_volcanic", S("Volcanic Sandstone Wall"), "hades_core_sandstone_volcanic.png",
 		"hades_core:sandstone_volcanic", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})

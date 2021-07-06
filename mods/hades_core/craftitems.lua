@@ -112,32 +112,32 @@ minetest.register_craftitem("hades_core:obsidian_shard", {
 
 minetest.register_craftitem("hades_core:emerald", {
 	description = S("Emerald"),
-	inventory_image = "default_emerald.png",
+	inventory_image = "hades_core_emerald.png",
 })
 
 minetest.register_craftitem("hades_core:sapphire", {
 	description = S("Sapphire"),
-	inventory_image = "default_sapphire.png",
+	inventory_image = "hades_core_sapphire.png",
 })
 
 minetest.register_craftitem("hades_core:ruby", {
 	description = S("Ruby"),
-	inventory_image = "default_ruby.png",
+	inventory_image = "hades_core_ruby.png",
 })
 
 minetest.register_craftitem("hades_core:nails", {
 	description = S("Nails"),
-	inventory_image = "default_nails.png",
+	inventory_image = "hades_core_nails.png",
 })
 
 minetest.register_craftitem("hades_core:sugar", {
 	description = S("Sugar"),
-	inventory_image = "default_sugar.png",
+	inventory_image = "hades_core_sugar.png",
 })
 
 minetest.register_craftitem("hades_core:prismatic_gem", {
 	description = S("Prismatic Gem"),
-	inventory_image = "default_prismatic_gem.png",
+	inventory_image = "hades_core_prismatic_gem.png",
                     
 })
 
