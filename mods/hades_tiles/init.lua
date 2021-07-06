@@ -8,6 +8,7 @@ local g_stone2 = {cracky=2}
 local s_wood = hades_sounds.node_sound_wood_defaults()
 local s_stone = hades_sounds.node_sound_stone_defaults()
 
+local tile_stone = { "stone", S("Stone"), "hades_core:stone", {stone=1}, g_stone3, s_stone }
 local tile_sandstone = { "sandstone", S("Fine Sandstone"), "hades_core:sandstone", {sandstone=1} }
 local tile_sandstone_volcanic = { "sandstonevolcanic", S("Volcanic Sandstone"), "hades_core:sandstone_volcanic", {sandstone=1}, g_stone3, s_stone }
 local tile_marble = { "marble", S("Marble"), "hades_core:marble", {}, g_stone2, s_stone }
@@ -24,7 +25,7 @@ local tile_groups = {
 	{ "jungle", S("Tropical Wood"), "hades_trees:jungle_wood", {wood=1} },
 },
 {
-	{ "stone", S("Stone"), "hades_core:stone", {stone=1}, g_stone3, s_stone },
+	tile_stone,
 	{ "tuff", S("Tuff"), "hades_core:tuff", {stone=1} },
 	{ "stonebaked", S("Burned Stone"), "hades_core:stone_baked", {stone=1} },
 	{ "tuffbaked", S("Burned Tuff"), "hades_core:tuff_baked", {stone=1} },
@@ -141,4 +142,5 @@ for g=1, #tile_groups do
 end
 
 register_tile_and_mirror(tile_sandstone, tile_sandstone_volcanic, g_stone3, s_stone)
+register_tile_and_mirror(tile_sandstone_volcanic, tile_stone, g_stone3, s_stone)
 register_tile_and_mirror(tile_essexitegold, tile_essexite, g_stone2, s_stone)
