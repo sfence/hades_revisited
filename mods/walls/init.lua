@@ -54,7 +54,7 @@ walls.register("walls:cobble_baked", S("Burned Cobblestone Wall"), "default_cobb
 		"hades_core:cobble_baked", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
-walls.register("walls:sandstone", S("Sandstone Wall"), "default_sandstone.png",
+walls.register("walls:sandstone", S("Fine Sandstone Wall"), "default_sandstone.png",
 		"hades_core:sandstone", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 

@@ -196,7 +196,7 @@ minetest.register_node("hades_core:floor_chondrite_stone", {
 })
 
 minetest.register_node("hades_core:floor_bstone_sandstone", {
-	description = S("Burned Stone/Sandstone Block"),
+	description = S("Burned Stone/Fine Sandstone Block"),
 	tiles = {
 		"default_floor_bstone_sandstone.png",
 		"default_floor_bstone_sandstone.png",
@@ -439,7 +439,7 @@ minetest.register_node("hades_core:sandstone_volcanic_brick", {
 
 
 minetest.register_node("hades_core:sandstone", {
-	description = S("Sandstone"),
+	description = S("Fine Sandstone"),
 	tiles = {"default_sandstone.png"},
 	is_ground_content = true,
 	groups = {crumbly=2,cracky=3,sandstone=1, porous=1},
@@ -448,7 +448,7 @@ minetest.register_node("hades_core:sandstone", {
 
 
 minetest.register_node("hades_core:sandstonebrick", {
-	description = S("Sandstone Brick"),
+	description = S("Fine Sandstone Brick"),
 	tiles = {"default_sandstone_brick.png"},
 	is_ground_content = false,
 	groups = {cracky=2,sandstone=1},

@@ -436,7 +436,7 @@ register_pedestal("pedestal_marble", {
 	groups={cracky=3},
 	craftitem="hades_core:marble"})
 register_pedestal("pedestal_sandstone", {
-	description=S("Sandstone Pedestal"),
+	description=S("Fine Sandstone Pedestal"),
 	tiles={"default_sandstone.png"},
 	groups={cracky=3},
 	craftitem="hades_core:sandstone"})
