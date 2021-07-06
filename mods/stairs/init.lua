@@ -888,7 +888,7 @@ stairs.register_stair_and_slab("brick_yellow", "hades_core:brick_yellow",
 
 
 stairs.register_stair_and_slab("sandstone", "hades_core:sandstone",
-		{crumbly=2,cracky=2},
+		{crumbly=2,cracky=3},
 		{"default_sandstone.png"},
 		S("Sandstone Stair"),
 		S("Outer Sandstone Stair"),
@@ -897,12 +897,30 @@ stairs.register_stair_and_slab("sandstone", "hades_core:sandstone",
 		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("sandstonebrick", "hades_core:sandstonebrick",
-		{crumbly=2,cracky=2},
+		{cracky=2},
 		{"default_sandstone_brick.png"},
 		S("Sandstone Brick Stair"),
 		S("Outer Sandstone Brick Stair"),
 		S("Inner Sandstone Brick Stair"),
 		S("Sandstone Brick Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("sandstone_volcanic", "hades_core:sandstone_volcanic",
+		{crumbly=2,cracky=3},
+		{"default_sandstone_volcanic.png"},
+		S("Volcanic Sandstone Stair"),
+		S("Outer Volcanic Sandstone Stair"),
+		S("Inner Volcanic Sandstone Stair"),
+		S("Volcanic Sandstone Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("sandstone_volcanic_brick", "hades_core:sandstone_volcanic_brick",
+		{cracky=2},
+		{"default_sandstone_volcanic_brick.png"},
+		S("Volcanic Sandstone Brick Stair"),
+		S("Outer Volcanic Sandstone Brick Stair"),
+		S("Inner Volcanic Sandstone Brick Stair"),
+		S("Volcanic Sandstone Brick Slab"),
 		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("stonebrick", "hades_core:stonebrick",
@@ -1277,6 +1295,15 @@ stairs.register_stair_and_slab("floor_sandstone_sandstone", "hades_tiles:floor_s
 		S("Outer Sandstone Tile Stair"),
 		S("Inner Sandstone Tile Stair"),
 		S("Sandstone Tile Slab"),
+		hades_sounds.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("floor_sandstonevolcanic_sandstonevolcanic", "hades_tiles:floor_sandstonevolcanic_sandstonevolcanic",
+		{cracky=3},
+		{"hades_tiles_floor_sandstonevolcanic.png"},
+		S("Volcanic Sandstone Tile Stair"),
+		S("Outer Volcanic Sandstone Tile Stair"),
+		S("Inner Volcanic Sandstone Tile Stair"),
+		S("Volcanic Sandstone Tile Slab"),
 		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("floor_chondrite_chondrite", "hades_tiles:floor_chondrite_chondrite",

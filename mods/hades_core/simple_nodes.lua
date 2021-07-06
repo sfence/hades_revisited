@@ -433,7 +433,7 @@ minetest.register_node("hades_core:sandstone_volcanic_brick", {
 	description = S("Volcanic Sandstone Brick"),
 	tiles = {"default_sandstone_volcanic_brick.png"},
 	is_ground_content = false,
-	groups = {cracky=2},
+	groups = {cracky=2,sandstone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
@@ -451,7 +451,7 @@ minetest.register_node("hades_core:sandstonebrick", {
 	description = S("Sandstone Brick"),
 	tiles = {"default_sandstone_brick.png"},
 	is_ground_content = false,
-	groups = {cracky=2},
+	groups = {cracky=2,sandstone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
