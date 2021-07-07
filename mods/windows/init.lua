@@ -3,7 +3,7 @@ local S = minetest.get_translator("windows")
 windows = {}
 
 windows.register_window = function(id, def)
-	local window_wood
+	local window_wood, window_colwood
 	if def.is_wood then
 		window_wood=1
 	end

@@ -94,7 +94,7 @@ minetest.register_node("columnia:column_mid_"..mat, {
 })
 
 local mod_screwdriver = minetest.get_modpath("screwdriver")
-local on_rotate_column_top, on_rotate_colum_bottom
+local on_rotate_column_top, on_rotate_column_bottom
 if mod_screwdriver then
 	on_rotate_column_top = function(pos, node, user, mode, new_param2)
 		if mode == screwdriver.ROTATE_AXIS then

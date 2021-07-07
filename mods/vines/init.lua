@@ -155,7 +155,7 @@ local on_dig = function(pos, node, digger)
 end
 
 local function register_vine(id, def)
-	local paramtype2, drawtype, buildable_to
+	local paramtype2, drawtype, buildable_to, on_rotate
 	if def.vines_type == "center" then
 		drawtype = "plantlike"
 		buildable_to = false
