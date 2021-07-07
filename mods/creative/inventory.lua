@@ -1,6 +1,8 @@
 local S = minetest.get_translator("creative")
 local F = minetest.formspec_escape
 
+local INVSIZE = 3*10
+
 local player_inventory = {}
 local inventory_cache = {}
 
@@ -104,30 +106,30 @@ function creative.register_tab(name, title, items)
 			creative.update_creative_inventory(player_name, items)
 			local inv = player_inventory[player_name]
 			local start_i = inv.start_i or 0
-			local pagenum = math.floor(start_i / (3*8) + 1)
-			local pagemax = math.ceil(inv.size / (3*8))
+			local pagenum = math.floor(start_i / (INVSIZE) + 1)
+			local pagemax = math.ceil(inv.size / (INVSIZE))
 			return sfinv.make_formspec(player, context,
-				"label[6.2,3.35;" .. minetest.colorize("#FFFF00", tostring(pagenum)) .. " / " .. tostring(pagemax) .. "]" ..
+				"label[8.2,3.35;"..S("@1 / @2", minetest.colorize("#FFFF00", tostring(pagenum)), tostring(pagemax) .. "]") ..
 				[[
-					image[4.06,3.4;0.8,0.8;creative_trash_icon.png]
-					list[current_player;main;0,4.7;8,1;]
-					list[current_player;main;0,5.85;8,3;8]
-					list[detached:creative!trash;main;4,3.3;1,1;]
+					image[6.06,3.4;0.8,0.8;creative_trash_icon.png]
+					list[current_player;main;0,4.7;10,1;]
+					list[current_player;main;0,5.85;10,3;10]
+					list[detached:creative!trash;main;6,3.3;1,1;]
 					listring[]
-					button[5.4,3.2;0.8,0.9;creative_prev;<]
-					button[7.25,3.2;0.8,0.9;creative_next;>]
-					button[2.1,3.4;0.8,0.5;creative_search;?]
-					button[2.75,3.4;0.8,0.5;creative_clear;X]
+					button[7.4,3.2;0.8,0.9;creative_prev;<]
+					button[9.25,3.2;0.8,0.9;creative_next;>]
+					button[4.1,3.4;0.8,0.5;creative_search;?]
+					button[4.75,3.4;0.8,0.5;creative_clear;X]
 					tooltip[creative_search;]]..F(S("Search"))..[[]
 					tooltip[creative_clear;]]..F(S("Reset"))..[[]
 					listring[current_player;main]
 					field_close_on_enter[creative_filter;false]
 				]] ..
-				"field[0.3,3.5;2.2,1;creative_filter;;" .. minetest.formspec_escape(inv.filter) .. "]" ..
+				"field[0.3,3.5;4.2,1;creative_filter;;" .. minetest.formspec_escape(inv.filter) .. "]" ..
 				"listring[detached:creative_" .. player_name .. ";main]" ..
-				"list[detached:creative_" .. player_name .. ";main;0,0;8,3;" .. tostring(start_i) .. "]" ..
+				"list[detached:creative_" .. player_name .. ";main;0,0;10,3;" .. tostring(start_i) .. "]" ..
 				hades_gui.gui_inventory_bg_img
-				.. creative.formspec_add, false)
+				.. creative.formspec_add, false, "size[10,8.6]")
 		end,
 		on_enter = function(self, player, context)
 			local player_name = player:get_player_name()
@@ -156,15 +158,15 @@ function creative.register_tab(name, title, items)
 				local start_i = inv.start_i or 0
 
 				if fields.creative_prev then
-					start_i = start_i - 3*8
+					start_i = start_i - INVSIZE
 					if start_i < 0 then
-						start_i = inv.size - (inv.size % (3*8))
+						start_i = inv.size - (inv.size % (INVSIZE))
 						if inv.size == start_i then
-							start_i = math.max(0, inv.size - (3*8))
+							start_i = math.max(0, inv.size - (INVSIZE))
 						end
 					end
 				elseif fields.creative_next then
-					start_i = start_i + 3*8
+					start_i = start_i + INVSIZE
 					if start_i >= inv.size then
 						start_i = 0
 					end

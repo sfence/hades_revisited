@@ -39,13 +39,13 @@ local theme_main = "bgcolor[#080808BB;true]" ..
 		hades_gui.gui_inventory_bg_img
 
 local theme_inv = [[
-		list[current_player;main;0,4.7;8,1;]
-		list[current_player;main;0,5.85;8,3;8]
+		list[current_player;main;0,4.7;10,1;]
+		list[current_player;main;0,5.85;10,3;10]
 	]]
 
 function sfinv.make_formspec(player, context, content, show_inv, size)
 	local tmp = {
-		size or "size[8,8.6]",
+		size or "size[10,8.6]",
 		theme_main,
 		sfinv.get_nav_fs(player, context, context.nav_titles, context.nav_idx),
 		content

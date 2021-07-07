@@ -18,32 +18,32 @@ local bags_page = {}
 local get_formspec = function(player, page)
 	if page=="bags" then
 		local name = player:get_player_name()
-		return "size[8,7.5]"
+		return "size[10,7.5]"
 			..hades_gui.gui_inventory_bg_img
-			.."list[current_player;main;0,4.7;8,1;]"
-			.."list[current_player;main;0,5.85;8,3;8]"
-			.."button[0,2.2;2,0.5;bag1;"..F(S("Bag 1")).."]"
-			.."button[2,2.2;2,0.5;bag2;"..F(S("Bag 2")).."]"
-			.."button[4,2.2;2,0.5;bag3;"..F(S("Bag 3")).."]"
-			.."button[6,2.2;2,0.5;bag4;"..F(S("Bag 4")).."]"
-			.."list[detached:"..name.."_bags;bags;0.5,1;1,1;0]"
-			.."list[detached:"..name.."_bags;bags;2.5,1;1,1;1]"
-			.."list[detached:"..name.."_bags;bags;4.5,1;1,1;2]"
-			.."list[detached:"..name.."_bags;bags;6.5,1;1,1;3]"
+			.."list[current_player;main;0,4.7;10,1;]"
+			.."list[current_player;main;0,5.85;10,3;10]"
+			.."button[1,2.2;2,0.5;bag1;"..F(S("Bag 1")).."]"
+			.."button[3,2.2;2,0.5;bag2;"..F(S("Bag 2")).."]"
+			.."button[5,2.2;2,0.5;bag3;"..F(S("Bag 3")).."]"
+			.."button[7,2.2;2,0.5;bag4;"..F(S("Bag 4")).."]"
+			.."list[detached:"..name.."_bags;bags;1.5,1;1,1;0]"
+			.."list[detached:"..name.."_bags;bags;3.5,1;1,1;1]"
+			.."list[detached:"..name.."_bags;bags;5.5,1;1,1;2]"
+			.."list[detached:"..name.."_bags;bags;7.5,1;1,1;3]"
 			.."listring[current_player;main]"
 			.."listring[detached:"..name.."_bags;bags]"
 	end
 	for b=1,4 do
 		if page=="bag"..b then
 			local image = player:get_inventory():get_stack("bags", b):get_definition().inventory_image
-			return "size[8,8.5]"
+			return "size[10,8.5]"
 				..hades_gui.gui_inventory_bg_img
-				.."list[current_player;main;0,4.7;8,1;]"
-				.."list[current_player;main;0,5.85;8,3;8]"
+				.."list[current_player;main;0,4.7;10,1;]"
+				.."list[current_player;main;0,5.85;10,3;10]"
 				.."button[0,0;2,0.5;main;"..F(S("Main")).."]"
 				.."label[3,0;"..F(S("Bag @1", b)).."]"
 				.."image[7,0;1,1;"..image.."]"
-				.."list[current_player;bag"..b.."contents;0,1;8,3;]"
+				.."list[current_player;bag"..b.."contents;0,1;10,3;]"
 				.."listring[]"
 		end
 	end
@@ -128,21 +128,21 @@ end)
 -- register bag tools
 minetest.register_tool("bags:small", {
 	description = S("Small Bag"),
-	_tt_help = S("+8 inventory slots"),
+	_tt_help = S("+10 inventory slots"),
 	inventory_image = "bags_small.png",
-	groups = {bagslots=8, disable_repair=1},
+	groups = {bagslots=10, disable_repair=1},
 })
 minetest.register_tool("bags:medium", {
 	description = S("Medium Bag"),
-	_tt_help = S("+16 inventory slots"),
+	_tt_help = S("+20 inventory slots"),
 	inventory_image = "bags_medium.png",
-	groups = {bagslots=16, disable_repair=1},
+	groups = {bagslots=20, disable_repair=1},
 })
 minetest.register_tool("bags:large", {
 	description = S("Large Bag"),
-	_tt_help = S("+24 inventory slots"),
+	_tt_help = S("+30 inventory slots"),
 	inventory_image = "bags_large.png",
-	groups = {bagslots=24, disable_repair=1},
+	groups = {bagslots=30, disable_repair=1},
 })
 
 -- register bag crafts

@@ -102,6 +102,7 @@ minetest.register_on_joinplayer(function(player)
 		player:set_inventory_formspec(hades_gui.gui_survival_form)
 	end
 	player:hud_set_hotbar_itemcount(10)
+	player:get_inventory():set_size("main", 4*10)
 	player:hud_set_hotbar_image("hades_gui_hotbar.png")
 	player:hud_set_hotbar_selected_image("hades_gui_hotbar_selected.png")
 	player:set_formspec_prepend(

@@ -6,7 +6,7 @@ minetest.register_node("hades_trash:trash_can_plastic",{
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2},
 	tiles = {"hades_trash_trash_can_plastic_top.png", "hades_trash_trash_can_plastic_top.png", "hades_trash_trash_can_plastic.png"},
 	description = S("Trash Can"),
-	_tt_help = S("Lets you get rid of trash"),
+	_tt_help = S("Lets you get rid of unwanted items"),
 	drawtype="nodebox",
 	paramtype = "light",
 	is_ground_content = false,
@@ -23,10 +23,10 @@ minetest.register_node("hades_trash:trash_can_plastic",{
         on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 			meta:set_string("formspec",
-				"size[8,9]"..
-				"button[3,0;2,1;empty;"..F(S("Empty Trash")).."]"..
-                                "list[current_name;main;3,1;2,3;]"..
-                                "list[current_player;main;0,5;8,4;]"..
+				"size[10,9]"..
+				"button[4,0;2,1;empty;"..F(S("Empty Trash")).."]"..
+                                "list[current_name;main;4,1;2,3;]"..
+                                "list[current_player;main;0,5;10,4;]"..
 				"listring[]"..
 				"background9[18,17;8,9;hades_trash_trash_can_inventory.png;true;18,17,-22,-17]")
                 meta:set_string("infotext", S("Trash Can"))

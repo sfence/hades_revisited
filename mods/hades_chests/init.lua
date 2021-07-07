@@ -1,20 +1,22 @@
 local S = minetest.get_translator("hades_chests")
 
+local CHESTSIZE = 10*4
+
 local chest_formspec =
-	"size[8,9]"..
-	"list[current_name;main;0,0;8,4;]"..
-	"list[current_player;main;0,5;8,4;]"..
+	"size[10,9]"..
+	"list[current_name;main;0,0;10,4;]"..
+	"list[current_player;main;0,5;10,4;]"..
 	"listring[]"..
-	"background9[8,8;8,9;hades_chests_chestui.png;true;8]"
+	"background9[8,8;10,9;hades_chests_chestui.png;true;8]"
 
 local function get_locked_chest_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
 	local formspec =
-		"size[8,9]"..
-		"list[nodemeta:".. spos .. ";main;0,0;8,4;]"..
-		"list[current_player;main;0,5;8,4;]"..
+		"size[10,9]"..
+		"list[nodemeta:".. spos .. ";main;0,0;10,4;]"..
+		"list[current_player;main;0,5;10,4;]"..
 		"listring[]"..
-		"background9[8,8;8,9;hades_chests_chestui.png;true;8]"
+		"background9[8,8;10,9;hades_chests_chestui.png;true;8]"
 	return formspec
 end
 
@@ -70,7 +72,7 @@ end
 
 minetest.register_node(itemstring_unlocked, {
 	description = desc_unlocked,
-	_tt_help = S("32 inventory slots"),
+	_tt_help = S("40 inventory slots"),
 	tiles = tiles_unlocked,
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2, chest=1, unlocked_chest=1},
@@ -80,7 +82,7 @@ minetest.register_node(itemstring_unlocked, {
 		meta:set_string("formspec", chest_formspec)
 		meta:set_string("infotext", desc_unlocked)
 		local inv = meta:get_inventory()
-		inv:set_size("main", 8*4)
+		inv:set_size("main", CHESTSIZE)
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
@@ -103,7 +105,7 @@ minetest.register_node(itemstring_unlocked, {
 })
 minetest.register_node(itemstring_locked, {
 	description = desc_locked,
-	_tt_help = S("32 inventory slots, owned by placer"),
+	_tt_help = S("40 inventory slots, owned by placer"),
 	tiles = tiles_locked,
 	paramtype2 = "facedir",
 	groups = {choppy=2,oddly_breakable_by_hand=2, chest=2, locked_chest=1},
@@ -121,7 +123,7 @@ minetest.register_node(itemstring_locked, {
 		meta:set_string("infotext", desc_locked)
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
-		inv:set_size("main", 8*4)
+		inv:set_size("main", CHESTSIZE)
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);

@@ -7,27 +7,27 @@ local S = minetest.get_translator("hades_furnaces")
 local formspec_info = {
 	["hades_furnaces:furnace"] = {
 		bg = "gui_furnace_bg.png", bg9middle = "36,36,-34,-34", flame_bg = "default_furnace_fire_bg.png", flame_fg = "default_furnace_fire_fg.png",
-		output_slots = "4.75,1.5;1,1"
+		output_slots = "5.75,1.5;1,1"
 	},
 	["hades_furnaces:prism_furnace"] = {
 		bg = "gui_prism_furnace_bg.png", bg9middle = "39,36,-36,-37", flame_bg = "hades_furnaces_prism_furnace_fire_bg.png", flame_fg = "hades_furnaces_prism_furnace_fire_fg.png",
-		output_slots = "4.75,0.96;2,2"
+		output_slots = "5.75,0.96;2,2"
 	},
 }
 
 local function active_formspec(ftype, fuel_percent, item_percent)
 	return
-	"size[8,8.5]"..
-	"background9[30,30;8,8.5;"..formspec_info[ftype].bg..";true;"..formspec_info[ftype].bg9middle.."]"..
-	"list[current_name;src;2.75,0.5;1,1;]"..
-	"list[current_name;fuel;2.75,2.5;1,1;]"..
-	"image[2.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."^[lowpart:"..
+	"size[10,8.5]"..
+	"background9[30,30;10,8.5;"..formspec_info[ftype].bg..";true;"..formspec_info[ftype].bg9middle.."]"..
+	"list[current_name;src;3.75,0.5;1,1;]"..
+	"list[current_name;fuel;3.75,2.5;1,1;]"..
+	"image[3.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."^[lowpart:"..
 	(100-fuel_percent)..":"..formspec_info[ftype].flame_fg.."]"..
-	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
+	"image[4.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
 	(item_percent)..":gui_furnace_arrow_fg.png^[transformR270]"..
 	"list[current_name;dst;"..formspec_info[ftype].output_slots..";]"..
-	"list[current_player;main;0,4.25;8,1;]"..
-	"list[current_player;main;0,5.5;8,3;8]"..
+	"list[current_player;main;0,4.25;10,1;]"..
+	"list[current_player;main;0,5.5;8,3;10]"..
 	"listring[current_name;dst]"..
 	"listring[current_player;main]"..
 	"listring[current_name;src]"..
@@ -38,15 +38,15 @@ end
 
 local function inactive_formspec(ftype)
 	return
-	"size[8,8.5]"..
-	"background9[30,30;8,8.5;"..formspec_info[ftype].bg..";true;"..formspec_info[ftype].bg9middle.."]"..
-	"list[current_name;src;2.75,0.5;1,1;]"..
-	"list[current_name;fuel;2.75,2.5;1,1;]"..
-	"image[2.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."]"..
-	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
+	"size[10,8.5]"..
+	"background9[30,30;10,8.5;"..formspec_info[ftype].bg..";true;"..formspec_info[ftype].bg9middle.."]"..
+	"list[current_name;src;3.75,0.5;1,1;]"..
+	"list[current_name;fuel;3.75,2.5;1,1;]"..
+	"image[3.75,1.5;1,1;"..formspec_info[ftype].flame_bg.."]"..
+	"image[4.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
 	"list[current_name;dst;"..formspec_info[ftype].output_slots..";]"..
-	"list[current_player;main;0,4.25;8,1;]"..
-	"list[current_player;main;0,5.5;8,3;8]"..
+	"list[current_player;main;0,4.25;10,1;]"..
+	"list[current_player;main;0,5.5;10,3;10]"..
 	"listring[current_name;dst]"..
 	"listring[current_player;main]"..
 	"listring[current_name;src]"..
