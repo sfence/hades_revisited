@@ -51,7 +51,6 @@ minetest.register_node("mesecons_receiver:receiver_on", {
 
 minetest.register_node("mesecons_receiver:receiver_off", {
 	drawtype = "nodebox",
-	description = "You hacker you",
 	tiles = {
 		"receiver_top_off.png",
 		"receiver_bottom_off.png",

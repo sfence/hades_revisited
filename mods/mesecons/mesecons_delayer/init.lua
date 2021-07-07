@@ -118,7 +118,6 @@ minetest.register_node("mesecons_delayer:delayer_off_"..tostring(i), {
 
 
 minetest.register_node("mesecons_delayer:delayer_on_"..tostring(i), {
-	description = "You hacker you",
 	drawtype = "nodebox",
 	tiles = {
 		"mesecons_delayer_on_"..tostring(i)..".png",

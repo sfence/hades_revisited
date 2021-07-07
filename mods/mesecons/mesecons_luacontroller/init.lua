@@ -271,7 +271,7 @@ end
 local create_sandbox = function (code, env)
 	-- Create Sandbox
 	if code:byte(1) == 27 then
-		return _, "You Hacker You! Don't use binary code!"
+		return _, "Don't use binary code!"
 	end
 	f, msg = loadstring(code)
 	if not f then return _, msg end
