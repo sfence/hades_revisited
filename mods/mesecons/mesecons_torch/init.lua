@@ -52,6 +52,7 @@ local torch_selectionbox =
 minetest.register_node("mesecons_torch:mesecon_torch_off", {
 	drawtype = "torchlike",
 	tiles = {"jeija_torches_off.png", "jeija_torches_off_ceiling.png", "jeija_torches_off_side.png"},
+	use_texture_alpha = "clip",
 	inventory_image = "jeija_torches_off.png",
 	paramtype = "light",
 	walkable = false,
@@ -68,6 +69,7 @@ minetest.register_node("mesecons_torch:mesecon_torch_off", {
 minetest.register_node("mesecons_torch:mesecon_torch_on", {
 	drawtype = "torchlike",
 	tiles = {"jeija_torches_on.png", "jeija_torches_on_ceiling.png", "jeija_torches_on_side.png"},
+	use_texture_alpha = "clip",
 	inventory_image = "jeija_torches_on.png",
 	wield_image = "jeija_torches_on.png",
 	paramtype = "light",

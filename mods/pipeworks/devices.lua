@@ -68,6 +68,7 @@ for s in ipairs(states) do
 			"pipeworks_pump_sides.png",
 			"pipeworks_pump_"..states[s]..".png"
 		},
+		use_texture_alpha = "clip",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		selection_box = {
@@ -261,6 +262,7 @@ minetest.register_node("pipeworks:spigot", {
 		"pipeworks_pipe_end_empty.png",
 		"pipeworks_spigot_sides.png"
 	},
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -323,6 +325,7 @@ minetest.register_node("pipeworks:spigot_pouring", {
 			}
 		},
 	},
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	paramtype = "light",
 	paramtype2 = "facedir",

@@ -1,6 +1,7 @@
 minetest.register_node("mesecons:mesecon_off", {
 	drawtype = "raillike",
 	tiles = {"jeija_mesecon_off.png", "jeija_mesecon_curved_off.png", "jeija_mesecon_t_junction_off.png", "jeija_mesecon_crossing_off.png"},
+	use_texture_alpha = "clip",
 	inventory_image = "jeija_mesecon_off.png",
 	wield_image = "jeija_mesecon_off.png",
 	paramtype = "light",
@@ -21,6 +22,7 @@ minetest.register_node("mesecons:mesecon_off", {
 minetest.register_node("mesecons:mesecon_on", {
 	drawtype = "raillike",
 	tiles = {"jeija_mesecon_on.png", "jeija_mesecon_curved_on.png", "jeija_mesecon_t_junction_on.png", "jeija_mesecon_crossing_on.png"},
+	use_texture_alpha = "clip",
 	paramtype = "light",
 	is_ground_content = true,
 	walkable = false,

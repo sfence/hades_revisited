@@ -5,6 +5,7 @@ minetest.register_node("mesecons_powerplant:power_plant", {
 	drawtype = "plantlike",
 	visual_scale = 1,
 	tiles = {"jeija_power_plant.png"},
+	use_texture_alpha = "clip",
 	inventory_image = "jeija_power_plant.png",
 	paramtype = "light",
 	walkable = false,
