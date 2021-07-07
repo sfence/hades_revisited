@@ -26,6 +26,6 @@ dofile(minetest.get_modpath("hades_trees").."/generator.lua")
 tt.register_snippet(function(itemstring)
 	local l = minetest.get_item_group(itemstring, "ash_fertilizer")
 	if l ~= 0 then
-		return S("Turns nearby Volcanic Ash to Fertile Sand")
+		return S("Fertilizes Volcanic Ash/Sand")
 	end
 end)
