@@ -273,7 +273,14 @@ minetest.register_craft({
 	}
 })
 
-
+minetest.register_craft({
+	output = 'hades_core:paper',
+	recipe = {
+		{'hades_trees:canvas_leaves', 'hades_trees:canvas_leaves', 'hades_trees:canvas_leaves'},
+		{'hades_trees:canvas_leaves', 'hades_trees:canvas_leaves', 'hades_trees:canvas_leaves'},
+		{'hades_trees:canvas_leaves', 'hades_trees:canvas_leaves', 'hades_trees:canvas_leaves'},
+	}
+})
 
 -- TODO: Cocoa sapling
 

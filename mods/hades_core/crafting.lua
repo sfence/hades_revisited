@@ -1153,7 +1153,7 @@ minetest.register_craft({
 	recipe = {
 		{'group:leaves', 'group:leaves', 'group:leaves'},
 		{'group:leaves', 'group:leaves', 'group:leaves'},
-		{'group:leaves', 'group:leaves', 'group:leaves'},
+		{'hades_core:fertile_sand','hades_core:fertile_sand','hades_core:fertile_sand'},
 	}
 })
 minetest.register_craft({
