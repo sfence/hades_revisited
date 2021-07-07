@@ -5,7 +5,7 @@ License of source code:
 -----------------------
 Copyright (C) 2012 PilzAdam
 
-WTFPL
+MIT License
 
 License of media (textures and sounds)
 --------------------------------------

@@ -1,7 +1,3 @@
--- this code is inspired by Nathan's "mylandscaping" mod
--- it makes carpets who melting with the underground, so you can build on it (works only on regristrated nodes)
--- image and code are WTFPL license
-
 local S = minetest.get_translator("gluncarp")
 
 gluncarp = {}

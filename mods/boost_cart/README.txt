@@ -7,7 +7,7 @@ Target: Run smoothly and do not use too much CPU
 
 License of source code:
 -----------------------
-WTFPL
+MIT License
 
 License of media (textures, sounds and models):
 -----------------------------------------------

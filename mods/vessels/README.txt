@@ -36,7 +36,7 @@ http://www.gnu.org/licenses/lgpl-2.1.html
 
 License of media (textures and sounds)
 --------------------------------------
-WTFPL
+MIT License
 
 Authors of media files
 -----------------------

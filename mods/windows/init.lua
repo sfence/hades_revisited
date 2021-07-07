@@ -1,9 +1,5 @@
 local S = minetest.get_translator("windows")
 
--- Windows
--- Add some simple window nodes to Minetest.
--- License: WTFPL - 2014 by Glunggi
-
 windows = {}
 
 windows.register_window = function(id, def)

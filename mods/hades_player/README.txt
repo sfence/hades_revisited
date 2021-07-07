@@ -1,6 +1,6 @@
 License and credits:
 
-MirceaKitsune (WTFPL):
+MirceaKitsune (CC 0 1.0):
   character.b3d, character.blend
 
 Geopbyte (CC BY-SA 3.0):

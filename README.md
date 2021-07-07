@@ -195,7 +195,7 @@ Some mods have separate licenses:
 * `hades_bedrock`: zlib license
 * `signs_lib`: LGPLv3
 * `mesecons` (entire modpack): LGPLv3 for code, CC BY-SA 3.0 for media
-* `hades_bushes`: WTFPL for code, CC BY-SA 4.0 for media
+* `hades_bushes`: MIT License for code, CC BY-SA 4.0 for media
 
 For detailed credits and author information, check out the readme files of the
 individual mods (in the `mods` directory).

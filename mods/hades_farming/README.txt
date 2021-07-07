@@ -1,7 +1,7 @@
 -- Hades Farming.
 -- Based on farming mod from Minetest Game, modified for
 -- Minetest Hades in 2015 by Glünggi.
--- All files not mentioned below are licensed under WTFPL.
+-- All files not mentioned below are licensed under MIT License.
 
 ORIGINAL README FOLLOWS:
 
@@ -12,23 +12,11 @@ License of source code:
 -----------------------
 Copyright (C) 2014 webdesigner97
 
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-                    Version 2, December 2004
-
- Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
-
- Everyone is permitted to copy and distribute verbatim or modified
- copies of this license document, and changing it is allowed as long
- as the name is changed.
-
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
-  0. You just DO WHAT THE FUCK YOU WANT TO. 
+MIT License
 
 License of media (textures):
 ----------------------------
-Created by PilzAdam (License: WTFPL):
+Created by PilzAdam (License: MIT License):
   farming_bread.png
   farming_soil.png
   farming_soil_wet.png
@@ -42,10 +30,10 @@ Created by BlockMen (License: CC BY 3.0):
   farming_tool_stonehoe.png
   farming_tool_woodhoe.png
 
-Created by MasterGollum (License: WTFPL):
+Created by MasterGollum (License: MIT License):
   farming_straw.png
 
-Created by Gambit (License: WTFPL):
+Created by Gambit (License: MIT License):
   farming_wheat.png
   farming_wheat_*.png
   farming_cotton_*.png

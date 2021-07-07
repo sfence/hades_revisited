@@ -130,5 +130,5 @@ Symbols:
     4D8
 
 ## License
-Everything is licensed under WTFPL.
+Everything is licensed under MIT License.
 

@@ -1,6 +1,6 @@
 License:
-Sourcecode: WTFPL (see below)
-Graphics: WTFPL with one exception (see below)
+Sourcecode: MIT License
+Graphics: CC0 1.0 with one exception (see below)
 
 The file `hades_trees_coconut.png` by VanessaE
 is licensed under
@@ -8,17 +8,3 @@ CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0/>.
 
 See also:
 http://minetest.net/
-
-         DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-                    Version 2, December 2004
-
- Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
-
- Everyone is permitted to copy and distribute verbatim or modified
- copies of this license document, and changing it is allowed as long
- as the name is changed.
-
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
-  0. You just DO WHAT THE FUCK YOU WANT TO. 

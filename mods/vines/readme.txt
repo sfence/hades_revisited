@@ -9,7 +9,7 @@
 BY:             bas080
 DESCRIPTION:    Vines and ropebox
 VERSION:        2.2.1
-LICENCE:        WTFPL
+LICENCE:        MIT License
 FORUM:          http://forum.minetest.net/viewtopic.php?id=2344
 
 Changelog

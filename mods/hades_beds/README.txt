@@ -6,12 +6,6 @@ About
 ~~~~~
 This mod adds a bed which allows to set the respawn position. Just rightclick the bed.
 
-License of source code, textures: WTFPL
----------------------------------------
+License of source code, textures and everything else: MIT License
 (c) Copyright BlockMen (2014-2015)
 
-This program is free software. It comes without any warranty, to
-the extent permitted by applicable law. You can redistribute it
-and/or modify it under the terms of the Do What The Fuck You Want
-To Public License, Version 2, as published by Sam Hocevar. See
-http://sam.zoy.org/wtfpl/COPYING for more details.

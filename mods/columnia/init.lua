@@ -1,5 +1,3 @@
--- its a fork (2015 by Glünggi) of the mymillwork mod by DonBatman wtfpl license
-
 columnia = {}
 
 local S = minetest.get_translator("columnia")

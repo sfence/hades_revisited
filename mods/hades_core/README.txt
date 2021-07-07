@@ -26,7 +26,7 @@ Authors of media files
 Everything not listed in here:
 Copyright (C) 2010-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 
-Cisoun's WTFPL texture pack:
+Cisoun's texture pack (MIT License):
   default_chest_front.png
   default_chest_lock.png
   default_chest_side.png
@@ -57,11 +57,11 @@ Originating from G4JC's Almost MC Texture Pack:
   default_wood.png
   default_cobble.png
 
-RealBadAngel's animated water (WTFPL):
+RealBadAngel's animated water (MIT License):
   default_water_source_animated.png
   default_water_flowing_animated.png
 
-VanessaE (WTFPL):
+VanessaE (MIT License):
   default_nc_back.png
   default_nc_front.png
   default_nc_rb.png
@@ -83,7 +83,7 @@ Calinou (CC BY-SA):
   default_copper_lump.png
   default_mineral_copper.png
 
-PilzAdam (WTFPL):
+PilzAdam (MIT License):
   default_jungleleaves.png
   default_junglesapling.png
   default_junglewood.png
@@ -101,7 +101,7 @@ PilzAdam (WTFPL):
   default_tool_bronzeshovel.png
   default_tool_bronzesword.png
 
-jojoa1997 (WTFPL):
+jojoa1997 (MIT License):
   default_obsidian.png
 
 Zeg9 (CC BY-SA 3.0):
@@ -111,7 +111,7 @@ Zeg9 (CC BY-SA 3.0):
   default_bronze_block.png
   default_gold_block.png
 
-kaeza (WTFPL):
+kaeza (MIT License):
   bubble.png
 
 Glass breaking sounds (CC BY 3.0):

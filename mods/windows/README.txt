@@ -1,3 +1,5 @@
-Windows 2014 by Glunggi
--- Add some simple windownodes to minetest.
--- WTFPL Lizences 
+Windows mod
+This adds some simple window nodes.
+License: MIT License
+
+It was originally created 2014 by Glunggi for Minetest Hades.
