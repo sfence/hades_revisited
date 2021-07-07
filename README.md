@@ -1,8 +1,12 @@
 # Hades Revisited
 Version 0.9.2
 
-A game for Minetest, focused on terraforming.
+A game for Minetest, focused on terraforming and landscaping.
 Based on *Minetest Hades* by Glünngi.
+
+THIS IS A PREVIEW VERSION OF THE GAME. This game is perfectly playable
+now, but incomplete. And Future versions might change a lot
+and will likely be incompatible and break your world.
 
 Requires Minetest 5.4.0.
 
@@ -18,18 +22,14 @@ Minetest can be found online at <https://github.com/minetest/minetest/>.
 ## Important notices and short game guide
 
 * Be sure the `minetest.conf` file in the main Minetest directory doesn't have any parameters who are in conflict with the `minetest.conf` file from the `hades_revisited` directory. Especially mapgen parameters or stuff like `give_initial_stuff = false`
-* Hades Revisited only works in mapgen v6.
-* There only 1 biome, with the focus on terraforming.
+* There only 1 biome, with the focus on terraforming and landscaping
 * Not everyone will like this game. But maybe there are some freaks out there ;-)
-* Take another map seed if you spawn on lava.
-* External mods can make some trouble, there are many changes in default
+* If you spawn on lava and die, generate a new world (this problem should be fixed in a later version)
 
-## Background story
-
-An attempt to colonize planet Hades went horribly wrong: Your colony ship crashed and you survived with very limited supplies.
+An attempt to colonize planet Hades went horribly wrong: Your exploration ship disintegrated and you survived with very limited supplies.
 Hades is a very young planet and characterized by highly volcanic activities and a lot of fertile ash. Asteroids have brought some water on Hades.
 So there are the basics for life, you just need to help it to get the nature going, make the planet habitable and survive.
-Not every colonist has duly arrived. Most of them have been mutated and strayed around the planet. But for some unknown reason they don't suffer water.
+Not every colonist has duly arrived. Most of them have been mutated and strayed around the planet.
 There are creatures and most of them live in the underground and darkness.
 
 ## How to start:
@@ -46,9 +46,9 @@ Make more dirt and place it near water.
 
 Take 2 mossy stone (near water) and a dirt to craft grass.
 
-Grass + dirt = jungle grass.
+Grass + dirt = tropical grass.
 
-Dig the grass and the junglegrass to get some seeds.
+Dig the grass and the tropical grass to get some seeds.
 
 Plant the seeds on the soil that you have placed over the water source.
 
@@ -59,7 +59,8 @@ And now survive with the crafting guide.
 
 ### Block transformations
 * Fertile sand (which must be crafted) turns into dirt in the near of 10 nodes to water and direct contact of a dirt.
-* Volcanic ash turns into fertile sand if leaves are nearly.
+* Volcanic ash turns into volcanic sand if leaves are nearly.
+* Volcanic sand turns into fertile sand if leaves are nearly.
 * Volcanic ash slowly turns into clay when next to water.
 * Flowing water turns lava source into water source and flowing lava into volcanic gravel.
 * Stone, tuff and cobblestone become burned when next to lava.
@@ -67,11 +68,11 @@ And now survive with the crafting guide.
 * Mossy cobblestone turns into gravel when next to flowing water.
 * Chondrite turns into marble if it is below -500 and it must be in near 4 nodes to lava and it also must have direct contact to water.
 * Volcanic gravel turns into obsidian below Y=-1000. It must have direct contact to lava and water must be nearly.
-* Sugarcane spawns near of papyrus. It dosnt need water to grow, just dirt
+* Sugarcane appears near of papyrus. It dosnt need water to grow, just dirt
 
 ### Other gameplay stuff
 * There is no fire
-* Beds do *not* allow you to skip the night, they only set the spawn point
+* Beds let you set the spawn point, you can't skip the night
 * Volcanic gravel can only be dug by a shovel.
 * Mobs spawn on stone, ash and tuff
 * Tuff is too breakable for tools so it can't be used to craft stone tools
@@ -79,8 +80,8 @@ And now survive with the crafting guide.
 * Weak torches can be upgraded with a string to bright torches
 * Plants grow with light level of 8 or higher. Underground farming is thus possible
 * 2 emeralds = 1 sapphire. 2 sapphires = 1 ruby. 2 rubies = 1 diamond.
-* With the Staff of Gaia you can turn following blocks into dirt: ash, fertile sand, burned stone, stone, cobble, mossy stone, tuff, burned tuff, mossytuff, mossy cobble
-* Pale tree saplings can be plant on ash
+* With the Staff of Gaia you can turn following blocks into dirt: ash, volcanic sand, fertile sand, burned stone, stone, cobble, mossy stone, tuff, burned tuff, mossy tuff, mossy cobble
+* Pale tree saplings can be planted on ash
 * Cacti grow on ash
 * Prismatic furnance is faster than the original furnance and has more slots
 
