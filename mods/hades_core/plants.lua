@@ -93,44 +93,6 @@ minetest.register_node("hades_core:junglegrass", {
 	},
 })
 
-minetest.register_node("hades_core:snag", {
-	description = S("Snag"),
-	tiles = {"default_tree.png", "default_tree.png", "default_tree.png"},
-                      paramtype = "light",
-	-- paramtype2 = "facedir",
-	is_ground_content = true,
-                     drawtype = "nodebox",
-                      node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.03125, -0.5, -0.03125, 0.03125, -0.0625, 0.03125},
-			{0.03125, -0.15625, -0.03125, 0.09375, -0.09375, 0.03125},
-			{0.0625, -0.1875, -0.03125, 0.125, 0.0625, 0.03125},
-			{-0.09375, -0.21875, -0.03125, -0.03125, -0.15625, 0.03125},
-			{-0.15625, -0.25, -0.03125, -0.09375, -0.125, 0.03125},
-			{-0.03125, -0.34375, 0.03125, 0.03125, -0.28125, 0.09375},
-			{-0.03125, -0.46875, -0.09375, 0.03125, -0.40625, -0.03125},
-			{-0.03125, -0.375, 0.09375, 0.03125, -0.25, 0.15625},
-		}
-	},
-	groups = {choppy=2,oddly_breakable_by_hand=1,flammable=2},
-                     drop = {
-		max_items = 1,
-		items = {
-			{
-				items = {'hades_core:snag'},
-				rarity = 5,
-			},
-			{
-				items = {'hades_trees:wood'},
-			}
-		}
-	},
-	floodable = true,
-	sounds = hades_sounds.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node
-})
-
 minetest.register_node("hades_core:cactus", {
 	description = S("Cactus"),
 	_tt_help = S("Grows on ash and sand"),
