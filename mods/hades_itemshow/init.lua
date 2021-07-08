@@ -80,7 +80,7 @@ local drop_item = function(pos, node, creative)
 	if item ~= "" then
 		if creative then
 			-- Don't drop item
-		elseif node.name == "hades_itemshow:frame" then
+		elseif node.name == "hades_itemshow:frame" or minetest.get_item_group(node.name, "item_showcase") == 1 then
 			minetest.add_item(pos, item)
 		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 			minetest.add_item({x=pos.x, y=pos.y+1, z=pos.z}, item)
