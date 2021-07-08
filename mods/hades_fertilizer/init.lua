@@ -298,6 +298,7 @@ minetest.register_craftitem("hades_fertilizer:fertilizer", {
 	_tt_help = S("Makes plants grow"),
 	inventory_image = "hades_fertilizer_fertilizer.png",
 	on_place = get_apply_fertilizer(false),
+	groups = { tool = 1 },
 })
 
 -- Super Fertilizer makes almost everything grow; only for Creative Mode
@@ -306,4 +307,5 @@ minetest.register_craftitem("hades_fertilizer:super_fertilizer", {
 	_tt_help = S("Makes a lot of plants grow"),
 	inventory_image = "hades_fertilizer_super_fertilizer.png",
 	on_place = get_apply_fertilizer(true),
+	groups = { tool = 1 },
 })

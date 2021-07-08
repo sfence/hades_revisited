@@ -236,11 +236,14 @@ function doors.register(name, def)
 	end
 	local description = def.description
 
+	local item_groups = table.copy(def.groups)
+	item_groups.node = 1
+
 	minetest.register_craftitem(":" .. name, {
 		description = description,
 		_tt_help = tt,
 		inventory_image = def.inventory_image,
-		groups = table.copy(def.groups),
+		groups = item_groups,
 
 		on_place = function(itemstack, placer, pointed_thing)
 			local pos
