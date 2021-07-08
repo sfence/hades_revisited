@@ -1,7 +1,5 @@
 local S = minetest.get_translator("hades_itemshow")
 
-local tmp = {}
-
 local BASE_ITEM_SIZE = 1/3
 local ROTATE_SPEED = 1
 local FACEDIR = {}
@@ -28,7 +26,7 @@ local remove_item = function(pos, node, dry_run)
 			if obj and obj:get_luaentity() then
 				local ent = obj:get_luaentity()
 				local name = ent.name
-				local nodename = ent.nodename
+				local nodename = ent._nodename
 				if name == "hades_itemshow:item" and nodename == node.name then
 					objects_found = true
 					if dry_run then
@@ -63,10 +61,14 @@ local update_item = function(pos, node, check_item)
 		elseif minetest.get_item_group(node.name, "item_showcase") == 1 then
 			-- no pos change, put in center of node
 		end
-		tmp.nodename = node.name
-		tmp.item = stack:get_name()
 		local e = minetest.add_entity(pos,"hades_itemshow:item")
-		if node.name == "hades_itemshow:frame" then
+		if e then
+			local lua = e:get_luaentity()
+			if lua then
+				lua:_configure(stack:get_name(), node.name)
+			end
+		end
+		if e and node.name == "hades_itemshow:frame" then
 			local yaw = math.pi * 2 - node.param2 * math.pi / 2
 			e:set_yaw(yaw)
 		end
@@ -122,10 +124,10 @@ local on_rotate_for_entity = function(pos, node, user, mode, new_param2)
 				if obj and obj:get_luaentity() then
 					local ent = obj:get_luaentity()
 					local name = ent.name
-					local nodename = ent.nodename
+					local nodename = ent._nodename
 					if name == "hades_itemshow:item" and nodename == node.name then
-						ent.rotate_dir = -ent.rotate_dir
-						local rot = ROTATE_SPEED * ent.rotate_dir
+						ent._rotate_dir = -ent._rotate_dir
+						local rot = ROTATE_SPEED * ent._rotate_dir
 						obj:set_properties({automatic_rotate = rot})
 					end
 				end
@@ -140,13 +142,48 @@ end
 minetest.register_entity("hades_itemshow:item",{
 	hp_max = 1,
 	visual = "wielditem",
+	visible = false,
 	visual_size = {x = BASE_ITEM_SIZE, y = BASE_ITEM_SIZE },
 	pointable = false,
 	physical = false,
 	-- Extra fields used:
-	-- * nodename: Name of node this displayed item belongs to
-	-- * item: Itemstring of displayed item
-	-- * rotate_dir: Direction of entity rotation (for pedestal/showcase)
+	-- * _nodename: Name of node this displayed item belongs to
+	-- * _item: Itemstring of displayed item
+	-- * _rotate_dir: Direction of entity rotation (for pedestal/showcase)
+
+	_configure = function(self, item, nodename, rotate_dir)
+		local props = { is_visible = true }
+		if item then
+			self._item = item
+			props.wield_item = self._item
+		end
+		if nodename then
+			self._nodename = nodename
+		end
+		if rotate_dir then
+			self._rotate_dir = rotate_dir
+		end
+		if self._nodename and self._nodename ~= "" then
+			if minetest.get_item_group(self._nodename, "pedestal") == 1 or
+					minetest.get_item_group(self._nodename, "item_showcase") == 1 then
+				-- Rotate counter-clockwise by default
+				if not self._rotate_dir then
+					self._rotate_dir = 1
+				end
+				props.automatic_rotate = ROTATE_SPEED * self._rotate_dir
+			end
+		end
+
+		if self._item then
+			local def = minetest.registered_nodes[self._item]
+			if def and def.visual_scale then
+				props.visual_size = { x = BASE_ITEM_SIZE * def.visual_scale, y = BASE_ITEM_SIZE * def.visual_scale }
+			end
+		end
+
+		self.object:set_properties(props)
+	end,
+
 	on_activate = function(self, staticdata)
 
 		if minetest.global_exists("mobs") and mobs.entity and mobs.entity == false then
@@ -154,52 +191,27 @@ minetest.register_entity("hades_itemshow:item",{
 			return
 		end
 
-		if tmp.nodename ~= nil and tmp.item ~= nil then
-			self.nodename = tmp.nodename
-			tmp.nodename = nil
-			self.item = tmp.item
-			tmp.item = nil
-		else
-			if staticdata ~= nil and staticdata ~= "" then
-				local data = staticdata:split(';')
-				if data and data[1] and data[2] then
-					self.nodename = data[1]
-					self.item = data[2]
-				end
-				if data and data[3] then
-					self.rotate_dir = tonumber(data[3]) or 1
-				end
+		local nodename, item, rotate_dir
+		if staticdata ~= nil and staticdata ~= "" then
+			local data = staticdata:split(';')
+			if data and data[1] and data[2] then
+				nodename = data[1]
+				item = data[2]
+			end
+			if data and data[3] then
+				rotate_dir = tonumber(data[3]) or 1
 			end
 		end
-		local props = {}
-		local set_props = false
-		if self.item ~= nil then
-			props.wield_item = self.item
-			set_props = true
-		end
-		if minetest.get_item_group(self.nodename, "pedestal") == 1 or
-				minetest.get_item_group(self.nodename, "item_showcase") == 1 then
-			-- Rotate counter-clockwise by default
-			if not self.rotate_dir then
-				self.rotate_dir = 1
-			end
-			props.automatic_rotate = ROTATE_SPEED * self.rotate_dir
-			set_props = true
-		end
-		local def = minetest.registered_nodes[self.item]
-		if def and def.visual_scale then
-			props.visual_size = { x = BASE_ITEM_SIZE * def.visual_scale, y = BASE_ITEM_SIZE * def.visual_scale }
-			set_props = true
-		end
-		if set_props then
-			self.object:set_properties(props)
+		if item and item ~= "" then
+			self:_configure(item, nodename, rotate_dir)
 		end
 	end,
+
 	get_staticdata = function(self)
-		if self.nodename ~= nil and self.item ~= nil then
-			local data = self.nodename .. ';' .. self.item
-			if self.rotate_dir ~= nil then
-				data = data .. ";" .. self.rotate_dir
+		if self._nodename ~= nil and self._item ~= nil then
+			local data = self._nodename .. ';' .. self._item
+			if self._rotate_dir ~= nil then
+				data = data .. ";" .. self._rotate_dir
 			end
 			return data
 		end
