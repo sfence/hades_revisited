@@ -149,8 +149,8 @@ function creative.register_tab(name, title, items)
 			local player_name = player:get_player_name()
 			creative.update_creative_inventory(player_name, items)
 			local inv = player_inventory[player_name]
-			local pagenum = math.floor(inv.start_i / (4*8) + 1)
-			local pagemax = math.ceil(inv.size / (4*8))
+			local pagenum = math.floor(inv.start_i / (4*10) + 1)
+			local pagemax = math.ceil(inv.size / (4*10))
 			local esc = minetest.formspec_escape
 			return sfinv.make_formspec(player, context,
 				"label[7.8,4.15;" .. S("@1 / @2", minetest.colorize("#FFFF00", tostring(pagenum)), tostring(pagemax) .. "]") ..
@@ -199,15 +199,15 @@ function creative.register_tab(name, title, items)
 				local start_i = inv.start_i or 0
 
 				if fields.creative_prev then
-					start_i = start_i - 4*8
+					start_i = start_i - 4*10
 					if start_i < 0 then
-						start_i = inv.size - (inv.size % (4*8))
+						start_i = inv.size - (inv.size % (4*10))
 						if inv.size == start_i then
-							start_i = math.max(0, inv.size - (4*8))
+							start_i = math.max(0, inv.size - (4*10))
 						end
 					end
 				elseif fields.creative_next then
-					start_i = start_i + 4*8
+					start_i = start_i + 4*10
 					if start_i >= inv.size then
 						start_i = 0
 					end
