@@ -877,12 +877,12 @@ build_char_db()
 
 -- restore signs' text after /clearobjects and the like
 
-minetest.register_abm({
+minetest.register_lbm({
+	name = "signs_lib:respawn_entities",
 	label = "Respawn sign text",
 	nodenames = signs_lib.sign_node_list,
-	interval = 15,
-	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
+	run_at_every_load = true,
+	action = function(pos)
 		signs_lib.update_sign(pos)
 	end
 })
