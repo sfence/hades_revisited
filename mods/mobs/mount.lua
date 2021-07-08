@@ -3,6 +3,7 @@
 
 local enable_crash = false
 local crash_threshold = 6.5 -- ignored if enable_crash=false
+local GRAVITY = -(tonumber(minetest.settings:get("movement_gravity")) or 10)
 
 ------------------------------------------------------------------------------
 
@@ -300,7 +301,7 @@ function mobs.drive(entity, moving_anim, stand_anim, can_fly, dtime)
 	-- Set position, velocity and acceleration
 	local p = entity.object:get_pos()
 	local new_velo
-	local new_acce = {x = 0, y = -9.8, z = 0}
+	local new_acce = {x = 0, y = GRAVITY, z = 0}
 
 	p.y = p.y - 0.5
 

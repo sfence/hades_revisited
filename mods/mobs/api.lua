@@ -60,6 +60,7 @@ local mob_nospawn_range = tonumber(settings:get("mob_nospawn_range") or 12)
 local active_limit = tonumber(settings:get("mob_active_limit") or 0)
 local mob_chance_multiplier = tonumber(settings:get("mob_chance_multiplier") or 1)
 local active_mobs = 0
+local GRAVITY = -(tonumber(minetest.settings:get("movement_gravity")) or 10)
 
 
 -- Peaceful mode message so players will know there are no monsters
@@ -669,7 +670,7 @@ local effect = function(pos, amount, texture, min_size, max_size,
 	radius = radius or 2
 	min_size = min_size or 0.5
 	max_size = max_size or 1
-	gravity = gravity or -10
+	gravity = gravity or GRAVITY
 	glow = glow or 0
 
 	if fall == true then
@@ -2620,7 +2621,7 @@ function mob_class:falling(pos)
 	-- sanity check
 	if not v then return end
 
-	local fall_speed = -10 -- gravity
+	local fall_speed = GRAVITY
 
 	-- don't exceed mob fall speed
 	if v.y < self.fall_speed then

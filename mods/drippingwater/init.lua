@@ -5,6 +5,8 @@
 
 --Drop entities
 
+local GRAVITY = -(tonumber(minetest.settings:get("movement_gravity")) or 10)
+
 minetest.register_entity("drippingwater:drop_water", {
 	hp_max = 2,
 	physical = true,
@@ -28,11 +30,11 @@ minetest.register_entity("drippingwater:drop_water", {
 		local ownpos = self.object:get_pos()
 
 		if k==1 then
-			self.object:set_acceleration({x=0, y=-5, z=0})
+			self.object:set_acceleration({x=0, y=GRAVITY, z=0})
 		end
 
 		if minetest.get_node({x=ownpos.x, y=ownpos.y+0.5, z=ownpos.z}).name == "air" then
-			self.object:set_acceleration({x=0, y=-5, z=0})
+			self.object:set_acceleration({x=0, y=GRAVITY, z=0})
 		end
 	
 		if minetest.get_node({x=ownpos.x, y=ownpos.y -0.5, z=ownpos.z}).name ~= "air" then
