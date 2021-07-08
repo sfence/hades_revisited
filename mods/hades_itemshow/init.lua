@@ -3,8 +3,9 @@ local S = minetest.get_translator("hades_itemshow")
 local tmp = {}
 
 local BASE_ITEM_SIZE = 1/3
+local ROTATE_SPEED = 1
 
--- entity for displayed item
+-- Entity for displayed item
 
 minetest.register_entity("hades_itemshow:item",{
 	hp_max = 1,
@@ -12,6 +13,10 @@ minetest.register_entity("hades_itemshow:item",{
 	visual_size = {x = BASE_ITEM_SIZE, y = BASE_ITEM_SIZE },
 	pointable = false,
 	physical = false,
+	-- Extra fields used:
+	-- * nodename: Name of node this displayed item belongs to
+	-- * item: Itemstring of displayed item
+	-- * rotate_dir: Direction of entity rotation (for pedestal)
 	on_activate = function(self, staticdata)
 
 		if minetest.global_exists("mobs") and mobs.entity and mobs.entity == false then
@@ -31,6 +36,9 @@ minetest.register_entity("hades_itemshow:item",{
 					self.nodename = data[1]
 					self.item = data[2]
 				end
+				if data and data[3] then
+					self.rotate_dir = tonumber(data[3]) or 1
+				end
 			end
 		end
 		local props = {}
@@ -40,7 +48,11 @@ minetest.register_entity("hades_itemshow:item",{
 			set_props = true
 		end
 		if minetest.get_item_group(self.nodename, "pedestal") == 1 then
-			props.automatic_rotate = 1
+			-- Rotate counter-clockwise by default
+			if not self.rotate_dir then
+				self.rotate_dir = 1
+			end
+			props.automatic_rotate = ROTATE_SPEED * self.rotate_dir
 			set_props = true
 		end
 		local def = minetest.registered_nodes[self.item]
@@ -54,7 +66,11 @@ minetest.register_entity("hades_itemshow:item",{
 	end,
 	get_staticdata = function(self)
 		if self.nodename ~= nil and self.item ~= nil then
-			return self.nodename .. ';' .. self.item
+			local data = self.nodename .. ';' .. self.item
+			if self.rotate_dir ~= nil then
+				data = data .. ";" .. self.rotate_dir
+			end
+			return data
 		end
 		return ""
 	end,
@@ -309,7 +325,29 @@ minetest.register_node("hades_itemshow:"..name,{
 	paramtype = "light",
 	groups = groups,
 	sounds = hades_sounds.node_sound_stone_defaults(),
-	on_rotate = false,
+	-- The on_rotate event makes the entity rotate in the other direction
+	on_rotate = function(pos, node, user, mode, new_param2)
+		if mode == screwdriver.ROTATE_FACE then
+			local ppos = {x=pos.x, y=pos.y+1, z=pos.z}
+			local objs = minetest.get_objects_inside_radius(ppos, 0.5)
+			if objs then
+				for _, obj in ipairs(objs) do
+					if obj and obj:get_luaentity() then
+						local ent = obj:get_luaentity()
+						local name = ent.name
+						local nodename = ent.nodename
+						if name == "hades_itemshow:item" and nodename == node.name then
+							ent.rotate_dir = -ent.rotate_dir
+							local rot = ROTATE_SPEED * ent.rotate_dir
+							obj:set_properties({automatic_rotate = rot})
+						end
+					end
+				end
+			end
+		end
+		return false
+	end,
+
 	is_ground_content = false,
 
 	node_placement_prediction = "",
