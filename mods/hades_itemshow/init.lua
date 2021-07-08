@@ -68,8 +68,9 @@ facedir[3] = {x = -1, y = 0, z = 0}
 
 -- functions
 
-local remove_item = function(pos, node)
+local remove_item = function(pos, node, dry_run)
 	local objs = nil
+	local objects_found = false
 	if node.name == "hades_itemshow:frame" then
 		objs = minetest.get_objects_inside_radius(pos, 0.5)
 	elseif minetest.get_item_group(node.name, "pedestal") == 1 then
@@ -84,15 +85,24 @@ local remove_item = function(pos, node)
 				local name = ent.name
 				local nodename = ent.nodename
 				if name == "hades_itemshow:item" and nodename == node.name then
-					obj:remove()
+					objects_found = true
+					if dry_run then
+						return objects_found
+					else
+						obj:remove()
+					end
 				end
 			end
 		end
 	end
+	return objects_found
 end
 
-local update_item = function(pos, node)
-	remove_item(pos, node)
+local update_item = function(pos, node, check_item)
+	local objects_found = remove_item(pos, node, check_item)
+	if check_item and objects_found then
+		return
+	end
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 	local stack = inv:get_stack("main", 1)
@@ -203,11 +213,7 @@ minetest.register_node("hades_itemshow:frame",{
 	end,
 
 	on_punch = function(pos, node, puncher)
-		local num = #minetest.get_objects_inside_radius(pos, 0.5)
-		if num > 0 then
-			return
-		end
-		update_item(pos, node)
+		update_item(pos, node, true)
 	end,
 })
 
@@ -400,11 +406,7 @@ minetest.register_node("hades_itemshow:"..name,{
 	end,
 
 	on_punch = function(pos, node, puncher)
-		local num = #minetest.get_objects_inside_radius({x=pos.x,y=pos.y+1,z=pos.z}, 0.5)
-		if num > 0 then
-			return
-		end
-		update_item(pos, node)
+		update_item(pos, node, true)
 	end,
 })
 
