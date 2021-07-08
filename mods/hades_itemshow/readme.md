@@ -1,5 +1,7 @@
-Item Frames mod for minetest
+Hades Itemshow mod
 
-This mod differs from the original and the one included in homedecor modpack in that no one person owns the itemframe or pedestals, they are protected with minetest.is_protected() so can have multiple owners or none at all...
+Use the 'place' key to add or remove an item from a item frame, item showcase or pedestal.
+Use a screwdriver on a pedestal or an item showcase to reverse the rotation direction.
+Punch the block to force update if items do not appear.
 
-Right-click to add or remove an item from a frame or pedestal, please note that if an item already has on_rightclick registered then it cannot be added to either.  Punch frame or pedestal to force update if items do not appear.
+This mod differs from the original itemframes mod and the one included in homedecor modpack in that no one person owns the itemframe or pedestals, they are protected with `minetest.is_protected()` so can have multiple owners or none at all ...
