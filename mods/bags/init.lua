@@ -18,11 +18,7 @@ local bags_page = {}
 local get_formspec = function(player, page)
 	if page=="bags" then
 		local name = player:get_player_name()
-		return "size[10,7.5]"
-			..hades_gui.gui_inventory_bg_img
-			.."list[current_player;main;0,4.7;10,1;]"
-			.."list[current_player;main;0,5.85;10,3;10]"
-			.."button[1,2.2;2,0.5;bag1;"..F(S("Bag 1")).."]"
+		return "button[1,2.2;2,0.5;bag1;"..F(S("Bag 1")).."]"
 			.."button[3,2.2;2,0.5;bag2;"..F(S("Bag 2")).."]"
 			.."button[5,2.2;2,0.5;bag3;"..F(S("Bag 3")).."]"
 			.."button[7,2.2;2,0.5;bag4;"..F(S("Bag 4")).."]"
@@ -36,11 +32,7 @@ local get_formspec = function(player, page)
 	for b=1,4 do
 		if page=="bag"..b then
 			local image = player:get_inventory():get_stack("bags", b):get_definition().inventory_image
-			return "size[10,8.5]"
-				..hades_gui.gui_inventory_bg_img
-				.."list[current_player;main;0,4.7;10,1;]"
-				.."list[current_player;main;0,5.85;10,3;10]"
-				.."button[0,0;2,0.5;main;"..F(S("Main")).."]"
+			return "button[0,0;2,0.5;main;"..F(S("Main")).."]"
 				.."label[3,0;"..F(S("Bag @1", b)).."]"
 				.."image[7,0;1,1;"..image.."]"
 				.."list[current_player;bag"..b.."contents;0,1;10,3;]"
@@ -63,7 +55,7 @@ sfinv.register_page("bags:bags", {
 		else
 			page = bags_page[player_name]
 		end
-		return sfinv.make_formspec(player, context, get_formspec(player, page))
+		return sfinv.make_formspec(player, context, get_formspec(player, page), true)
 	end,
 	on_player_receive_fields = function(self, player, context, fields)
 		local player_name = player:get_player_name()

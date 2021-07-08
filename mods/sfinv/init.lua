@@ -1,7 +1,10 @@
-local S = minetest.get_translator("sfinv")
-local F = minetest.formspec_escape
+-- sfinv/init.lua
 
 dofile(minetest.get_modpath("sfinv") .. "/api.lua")
+
+local S = minetest.get_translator("sfinv")
+
+local F = minetest.formspec_escape
 
 sfinv.register_page("sfinv:crafting", {
 	title = S("Crafting"),
@@ -15,5 +18,5 @@ sfinv.register_page("sfinv:crafting", {
 				image_button[6.75,1.5;1,1;craftguide_book.png;__craftguide;]
 				tooltip[__craftguide;]]..F(S("Crafting guide"))..[[]
 			]], true)
-	end,
+	end
 })
