@@ -4,90 +4,19 @@ local tmp = {}
 
 local BASE_ITEM_SIZE = 1/3
 local ROTATE_SPEED = 1
-
--- Entity for displayed item
-
-minetest.register_entity("hades_itemshow:item",{
-	hp_max = 1,
-	visual = "wielditem",
-	visual_size = {x = BASE_ITEM_SIZE, y = BASE_ITEM_SIZE },
-	pointable = false,
-	physical = false,
-	-- Extra fields used:
-	-- * nodename: Name of node this displayed item belongs to
-	-- * item: Itemstring of displayed item
-	-- * rotate_dir: Direction of entity rotation (for pedestal)
-	on_activate = function(self, staticdata)
-
-		if minetest.global_exists("mobs") and mobs.entity and mobs.entity == false then
-			self.object:remove()
-			return
-		end
-
-		if tmp.nodename ~= nil and tmp.item ~= nil then
-			self.nodename = tmp.nodename
-			tmp.nodename = nil
-			self.item = tmp.item
-			tmp.item = nil
-		else
-			if staticdata ~= nil and staticdata ~= "" then
-				local data = staticdata:split(';')
-				if data and data[1] and data[2] then
-					self.nodename = data[1]
-					self.item = data[2]
-				end
-				if data and data[3] then
-					self.rotate_dir = tonumber(data[3]) or 1
-				end
-			end
-		end
-		local props = {}
-		local set_props = false
-		if self.item ~= nil then
-			props.wield_item = self.item
-			set_props = true
-		end
-		if minetest.get_item_group(self.nodename, "pedestal") == 1 then
-			-- Rotate counter-clockwise by default
-			if not self.rotate_dir then
-				self.rotate_dir = 1
-			end
-			props.automatic_rotate = ROTATE_SPEED * self.rotate_dir
-			set_props = true
-		end
-		local def = minetest.registered_nodes[self.item]
-		if def and def.visual_scale then
-			props.visual_size = { x = BASE_ITEM_SIZE * def.visual_scale, y = BASE_ITEM_SIZE * def.visual_scale }
-			set_props = true
-		end
-		if set_props then
-			self.object:set_properties(props)
-		end
-	end,
-	get_staticdata = function(self)
-		if self.nodename ~= nil and self.item ~= nil then
-			local data = self.nodename .. ';' .. self.item
-			if self.rotate_dir ~= nil then
-				data = data .. ";" .. self.rotate_dir
-			end
-			return data
-		end
-		return ""
-	end,
-})
-
-local facedir = {}
-facedir[0] = {x = 0, y = 0, z = 1}
-facedir[1] = {x = 1, y = 0, z = 0}
-facedir[2] = {x = 0, y = 0, z = -1}
-facedir[3] = {x = -1, y = 0, z = 0}
+local FACEDIR = {}
+FACEDIR[0] = {x = 0, y = 0, z = 1}
+FACEDIR[1] = {x = 1, y = 0, z = 0}
+FACEDIR[2] = {x = 0, y = 0, z = -1}
+FACEDIR[3] = {x = -1, y = 0, z = 0}
 
 -- functions
 
 local remove_item = function(pos, node, dry_run)
 	local objs = nil
 	local objects_found = false
-	if node.name == "hades_itemshow:frame" then
+	if node.name == "hades_itemshow:frame" or
+			minetest.get_item_group(node.name, "item_showcase") == 1 then
 		objs = minetest.get_objects_inside_radius(pos, 0.5)
 	elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 		pos.y = pos.y + 1
@@ -124,13 +53,15 @@ local update_item = function(pos, node, check_item)
 	local stack = inv:get_stack("main", 1)
 	if not stack:is_empty() then
 		if node.name == "hades_itemshow:frame" then
-			local posad = facedir[node.param2]
+			local posad = FACEDIR[node.param2]
 			if not posad then return end
 			pos.x = pos.x + posad.x * 6.5 / 16
 			pos.y = pos.y + posad.y * 6.5 / 16
 			pos.z = pos.z + posad.z * 6.5 / 16
 		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 			pos.y = pos.y + 12 / 16 + 0.33
+		elseif minetest.get_item_group(node.name, "item_showcase") == 1 then
+			-- no pos change, put in center of node
 		end
 		tmp.nodename = node.name
 		tmp.item = stack:get_name()
@@ -158,6 +89,123 @@ local drop_item = function(pos, node, creative)
 	end
 	remove_item(pos, node)
 end
+
+
+local on_rightclick = function(pos, node, clicker, itemstack)
+	if not itemstack then return end
+	if minetest.is_protected(pos, clicker:get_player_name()) then return end
+	local meta = minetest.get_meta(pos)
+	local inv = meta:get_inventory()
+	local creative = minetest.is_creative_enabled(clicker:get_player_name())
+	if not inv:get_stack("main", 1):is_empty() then
+		drop_item(pos, node, creative)
+	else
+		inv:set_stack("main", 1, itemstack)
+		update_item(pos, node)
+		if not creative then
+			itemstack:take_item()
+		end
+		return itemstack
+	end
+end
+
+-- This on_rotate event makes the 'displayed item' entity rotate in the other direction
+local on_rotate_for_entity = function(pos, node, user, mode, new_param2)
+	if mode == screwdriver.ROTATE_FACE then
+		local ppos = table.copy(pos)
+		if minetest.get_item_group(node.name, "pedestal") == 1 then
+			ppos = {x=ppos.x, y=ppos.y+1, z=ppos.z}
+		end
+		local objs = minetest.get_objects_inside_radius(ppos, 0.5)
+		if objs then
+			for _, obj in ipairs(objs) do
+				if obj and obj:get_luaentity() then
+					local ent = obj:get_luaentity()
+					local name = ent.name
+					local nodename = ent.nodename
+					if name == "hades_itemshow:item" and nodename == node.name then
+						ent.rotate_dir = -ent.rotate_dir
+						local rot = ROTATE_SPEED * ent.rotate_dir
+						obj:set_properties({automatic_rotate = rot})
+					end
+				end
+			end
+		end
+	end
+	return false
+end
+
+-- Entity for displayed item
+
+minetest.register_entity("hades_itemshow:item",{
+	hp_max = 1,
+	visual = "wielditem",
+	visual_size = {x = BASE_ITEM_SIZE, y = BASE_ITEM_SIZE },
+	pointable = false,
+	physical = false,
+	-- Extra fields used:
+	-- * nodename: Name of node this displayed item belongs to
+	-- * item: Itemstring of displayed item
+	-- * rotate_dir: Direction of entity rotation (for pedestal/showcase)
+	on_activate = function(self, staticdata)
+
+		if minetest.global_exists("mobs") and mobs.entity and mobs.entity == false then
+			self.object:remove()
+			return
+		end
+
+		if tmp.nodename ~= nil and tmp.item ~= nil then
+			self.nodename = tmp.nodename
+			tmp.nodename = nil
+			self.item = tmp.item
+			tmp.item = nil
+		else
+			if staticdata ~= nil and staticdata ~= "" then
+				local data = staticdata:split(';')
+				if data and data[1] and data[2] then
+					self.nodename = data[1]
+					self.item = data[2]
+				end
+				if data and data[3] then
+					self.rotate_dir = tonumber(data[3]) or 1
+				end
+			end
+		end
+		local props = {}
+		local set_props = false
+		if self.item ~= nil then
+			props.wield_item = self.item
+			set_props = true
+		end
+		if minetest.get_item_group(self.nodename, "pedestal") == 1 or
+				minetest.get_item_group(self.nodename, "item_showcase") == 1 then
+			-- Rotate counter-clockwise by default
+			if not self.rotate_dir then
+				self.rotate_dir = 1
+			end
+			props.automatic_rotate = ROTATE_SPEED * self.rotate_dir
+			set_props = true
+		end
+		local def = minetest.registered_nodes[self.item]
+		if def and def.visual_scale then
+			props.visual_size = { x = BASE_ITEM_SIZE * def.visual_scale, y = BASE_ITEM_SIZE * def.visual_scale }
+			set_props = true
+		end
+		if set_props then
+			self.object:set_properties(props)
+		end
+	end,
+	get_staticdata = function(self)
+		if self.nodename ~= nil and self.item ~= nil then
+			local data = self.nodename .. ';' .. self.item
+			if self.rotate_dir ~= nil then
+				data = data .. ";" .. self.rotate_dir
+			end
+			return data
+		end
+		return ""
+	end,
+})
 
 -- nodes
 
@@ -206,23 +254,7 @@ minetest.register_node("hades_itemshow:frame",{
 		inv:set_size("main", 1)
 	end,
 
-	on_rightclick = function(pos, node, clicker, itemstack)
-		if not itemstack then return end
-		if minetest.is_protected(pos, clicker:get_player_name()) then return end
-		local meta = minetest.get_meta(pos)
-		local inv = meta:get_inventory()
-		local creative = minetest.is_creative_enabled(clicker:get_player_name())
-		if not inv:get_stack("main", 1):is_empty() then
-			drop_item(pos, node, creative)
-		else
-			inv:set_stack("main", 1, itemstack)
-			update_item(pos, node)
-			if not creative then
-				itemstack:take_item()
-			end
-			return itemstack
-		end
-	end,
+	on_rightclick = on_rightclick,
 
 	on_destruct = function(pos)
 		drop_item(pos, minetest.get_node(pos), minetest.is_creative_enabled(""))
@@ -325,28 +357,7 @@ minetest.register_node("hades_itemshow:"..name,{
 	paramtype = "light",
 	groups = groups,
 	sounds = hades_sounds.node_sound_stone_defaults(),
-	-- The on_rotate event makes the entity rotate in the other direction
-	on_rotate = function(pos, node, user, mode, new_param2)
-		if mode == screwdriver.ROTATE_FACE then
-			local ppos = {x=pos.x, y=pos.y+1, z=pos.z}
-			local objs = minetest.get_objects_inside_radius(ppos, 0.5)
-			if objs then
-				for _, obj in ipairs(objs) do
-					if obj and obj:get_luaentity() then
-						local ent = obj:get_luaentity()
-						local name = ent.name
-						local nodename = ent.nodename
-						if name == "hades_itemshow:item" and nodename == node.name then
-							ent.rotate_dir = -ent.rotate_dir
-							local rot = ROTATE_SPEED * ent.rotate_dir
-							obj:set_properties({automatic_rotate = rot})
-						end
-					end
-				end
-			end
-		end
-		return false
-	end,
+	on_rotate = on_rotate_for_entity,
 
 	is_ground_content = false,
 
@@ -415,24 +426,6 @@ minetest.register_node("hades_itemshow:"..name,{
 		inv:set_size("main", 1)
 	end,
 
-	on_rightclick = function(pos, node, clicker, itemstack)
-		if not itemstack then return end
-		if minetest.is_protected(pos, clicker:get_player_name()) then return end
-		local meta = minetest.get_meta(pos)
-		local inv = meta:get_inventory()
-		local creative = minetest.is_creative_enabled(clicker:get_player_name())
-		if not inv:get_stack("main", 1):is_empty() then
-			drop_item(pos, node, creative)
-		else
-			inv:set_stack("main", 1, itemstack)
-			update_item(pos, node)
-			if not creative then
-				itemstack:take_item()
-			end
-			return itemstack
-		end
-	end,
-
 	on_destruct = function(pos)
 		drop_item(pos, minetest.get_node(pos), minetest.is_creative_enabled(""))
 
@@ -442,6 +435,8 @@ minetest.register_node("hades_itemshow:"..name,{
 			minetest.remove_node(above)
 		end
 	end,
+
+	on_rightclick = on_rightclick,
 
 	on_punch = function(pos, node, puncher)
 		update_item(pos, node, true)
@@ -501,19 +496,54 @@ register_pedestal("pedestal_chondrite", {
 	groups={cracky=2},
 	craftitem="hades_core:chondrite"})
 
--- automatically restore entities lost from frames/pedestals
+
+-- Item Showcase
+
+minetest.register_node("hades_itemshow:showcase", {
+	description = S("Item Showcase"),
+	_tt_help = S("You can show off an item here"),
+	drawtype = "glasslike",
+	tiles = {"hades_itemshow_showcase.png"},
+	use_texture_alpha = "clip",
+	paramtype = "light",
+	groups = { item_showcase = 1, cracky = 3, oddly_breakable_by_hand = 3 },
+	sounds = hades_sounds.node_sound_glass_defaults(),
+	is_ground_content = false,
+
+	on_construct = function(pos)
+		local meta = minetest.get_meta(pos)
+		meta:set_string("infotext", S("Item Showcase"))
+		local inv = meta:get_inventory()
+		inv:set_size("main", 1)
+	end,
+
+	on_destruct = function(pos)
+		drop_item(pos, minetest.get_node(pos), minetest.is_creative_enabled(""))
+	end,
+
+	on_rotate = on_rotate_for_entity,
+
+	on_rightclick = on_rightclick,
+
+	on_punch = function(pos, node, puncher)
+		update_item(pos, node, true)
+	end,
+})
+
+-- automatically restore entities lost from frames/pedestals/showcases
 -- due to /clearobjects or similar
 
 minetest.register_lbm({
 	name = "hades_itemshow:respawn_entities",
-	label = "Respawn entities of item frames and pedestals",
+	label = "Respawn entities of item frames, pedestals and item showcases",
 	nodenames = {"hades_itemshow:frame", "group:pedestal"},
 	run_at_every_load = true,
 	action = function(pos, node)
 		local num
 		if node.name == "hades_itemshow:frame" then
 			num = #minetest.get_objects_inside_radius(pos, 0.5)
-		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
+		elseif minetest.get_item_group(node.name, "pedestal") == 1 or
+				minetest.get_item_group(node.name, "item_showcase") == 1 then
 			pos.y = pos.y + 1
 			num = #minetest.get_objects_inside_radius(pos, 0.5)
 			pos.y = pos.y - 1
@@ -552,6 +582,15 @@ minetest.register_craft({
 		{'group:stick', 'group:stick', 'group:stick'},
 		{'group:stick', 'hades_core:paper', 'group:stick'},
 		{'group:stick', 'group:stick', 'group:stick'},
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_itemshow:showcase',
+	recipe = {
+		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
+		{'hades_core:glass', 'hades_core:steel_ingot', 'hades_core:glass'},
+		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
 	}
 })
 
