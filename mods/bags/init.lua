@@ -117,21 +117,24 @@ minetest.register_on_leaveplayer(function(player)
 	bags_page[player:get_player_name()] = nil
 end)
 
--- register bag tools
-minetest.register_tool("bags:small", {
+-- register bags
+minetest.register_craftitem("bags:small", {
 	description = S("Small Bag"),
+	stack_max = 1,
 	_tt_help = S("+10 inventory slots"),
 	inventory_image = "bags_small.png",
 	groups = {bagslots=10, disable_repair=1},
 })
-minetest.register_tool("bags:medium", {
+minetest.register_craftitem("bags:medium", {
 	description = S("Medium Bag"),
+	stack_max = 1,
 	_tt_help = S("+20 inventory slots"),
 	inventory_image = "bags_medium.png",
 	groups = {bagslots=20, disable_repair=1},
 })
-minetest.register_tool("bags:large", {
+minetest.register_craftitem("bags:large", {
 	description = S("Large Bag"),
+	stack_max = 1,
 	_tt_help = S("+30 inventory slots"),
 	inventory_image = "bags_large.png",
 	groups = {bagslots=30, disable_repair=1},
