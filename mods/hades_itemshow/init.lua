@@ -506,7 +506,7 @@ minetest.register_node("hades_itemshow:showcase", {
 	tiles = {"hades_itemshow_showcase.png"},
 	use_texture_alpha = "clip",
 	paramtype = "light",
-	groups = { item_showcase = 1, cracky = 3, oddly_breakable_by_hand = 3 },
+	groups = { item_showcase = 1, cracky = 3, oddly_breakable_by_hand = 2 },
 	sounds = hades_sounds.node_sound_glass_defaults(),
 	is_ground_content = false,
 
@@ -588,9 +588,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_itemshow:showcase',
 	recipe = {
-		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
-		{'hades_core:glass', 'hades_core:steel_ingot', 'hades_core:glass'},
-		{'hades_core:glass', 'hades_core:glass', 'hades_core:glass'},
+		{'hades_core:glass', 'group:wood', 'hades_core:glass'},
+		{'group:wood', 'hades_core:steel_ingot', 'group:wood'},
+		{'hades_core:glass', 'group:wood', 'hades_core:glass'},
 	}
 })
 
