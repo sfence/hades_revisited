@@ -54,7 +54,7 @@ minetest.register_node("bones:bones", {
 	on_metadata_inventory_take = function(pos, listname, index, stack, player)
 		local meta = minetest.get_meta(pos)
 		if meta:get_string("owner") ~= "" and meta:get_inventory():is_empty("main") then
-			meta:set_string("infotext", meta:get_string("owner").."'s old bones")
+			meta:set_string("infotext", S("@1's old bones", meta:get_string("owner")))
 			meta:set_string("formspec", "")
 			meta:set_string("owner", "")
 		end
@@ -71,7 +71,7 @@ minetest.register_node("bones:bones", {
 			return
 		end
 		if time >= publish then
-			meta:set_string("infotext", meta:get_string("owner").."'s old bones")
+			meta:set_string("infotext", S("@1's old bones", meta:get_string("owner")))
 			meta:set_string("owner", "")
 		else
 			return true
@@ -110,7 +110,7 @@ minetest.register_on_dieplayer(function(player)
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 	local player_inv = player:get_inventory()
-	inv:set_size("main", 8*4)
+	inv:set_size("main", 10*4)
 	
 	local empty_list = inv:get_list("main")
 	inv:set_list("main", player_inv:get_list("main"))
@@ -121,12 +121,12 @@ minetest.register_on_dieplayer(function(player)
 		player_inv:set_stack("craft", i, nil)
 	end
 	
-	meta:set_string("formspec", "size[8,9]"..
-	"list[current_name;main;0,0;8,4;]"..
-	"list[current_player;main;0,5;8,4;]"..
+	meta:set_string("formspec", "size[10,9]"..
+	"list[current_name;main;0,0;10,4;]"..
+	"list[current_player;main;0,5;10,4;]"..
 	"listring[]"..
-	"background9[25,22;8,9;bones_inventory.png;true;25,22,-20,-23]")
-	meta:set_string("infotext", player:get_player_name().."'s fresh bones")
+	"background9[25,22;10,9;bones_inventory.png;true;25,22,-20,-23]")
+	meta:set_string("infotext", S("@1's fresh bones", player:get_player_name()))
 	meta:set_string("owner", player:get_player_name())
 	meta:set_int("time", 0)
 	
