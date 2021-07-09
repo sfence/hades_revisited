@@ -748,7 +748,10 @@ minetest.register_node("signs_lib:sign_hanging", {
 
 -- Locked wall sign
 
-minetest.register_privilege("sign_editor", "Can edit all locked signs")
+minetest.register_privilege("sign_editor", {
+	description = S("Can edit all locked signs"),
+	give_to_singleplayer = false,
+	give_to_admin = false})
 
 minetest.register_node("signs_lib:sign_wall_locked", {
 	description = S("Locked Wooden Sign"),
