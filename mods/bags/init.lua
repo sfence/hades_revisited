@@ -35,7 +35,7 @@ local get_formspec = function(player, page)
 			return "button[0,0;2,0.5;main;"..F(S("Main")).."]"
 				.."label[3,0;"..F(S("Bag @1", b)).."]"
 				.."image[7,0;1,1;"..image.."]"
-				.."list[current_player;bag"..b.."contents;0,1;10,3;]"
+				.."list[current_player;bag"..b.."contents;1,1;8,3;]"
 				.."listring[]"
 		end
 	end
@@ -121,23 +121,23 @@ end)
 minetest.register_craftitem("bags:small", {
 	description = S("Small Bag"),
 	stack_max = 1,
-	_tt_help = S("+10 inventory slots"),
+	_tt_help = S("+8 inventory slots"),
 	inventory_image = "bags_small.png",
-	groups = {bagslots=10, disable_repair=1},
+	groups = {bagslots=8, disable_repair=1},
 })
 minetest.register_craftitem("bags:medium", {
 	description = S("Medium Bag"),
 	stack_max = 1,
-	_tt_help = S("+20 inventory slots"),
+	_tt_help = S("+16 inventory slots"),
 	inventory_image = "bags_medium.png",
-	groups = {bagslots=20, disable_repair=1},
+	groups = {bagslots=16, disable_repair=1},
 })
 minetest.register_craftitem("bags:large", {
 	description = S("Large Bag"),
 	stack_max = 1,
-	_tt_help = S("+30 inventory slots"),
+	_tt_help = S("+24 inventory slots"),
 	inventory_image = "bags_large.png",
-	groups = {bagslots=30, disable_repair=1},
+	groups = {bagslots=24, disable_repair=1},
 })
 
 -- register bag crafts
