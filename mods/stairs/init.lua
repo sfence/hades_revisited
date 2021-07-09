@@ -908,7 +908,7 @@ stairs.register_stair_and_slab("brick_yellow", "hades_core:brick_yellow",
 
 
 stairs.register_stair_and_slab("sandstone", "hades_core:sandstone",
-		{crumbly=2,cracky=3},
+		{cracky=3},
 		nil,
 		S("Fine Sandstone Stair"),
 		S("Outer Fine Sandstone Stair"),
@@ -926,7 +926,7 @@ stairs.register_stair_and_slab("sandstonebrick", "hades_core:sandstonebrick",
 		hades_sounds.node_sound_stone_defaults())
 
 stairs.register_stair_and_slab("sandstone_volcanic", "hades_core:sandstone_volcanic",
-		{crumbly=2,cracky=3},
+		{cracky=3},
 		nil,
 		S("Volcanic Sandstone Stair"),
 		S("Outer Volcanic Sandstone Stair"),
