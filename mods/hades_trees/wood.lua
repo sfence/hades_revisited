@@ -40,6 +40,7 @@ for p=1, #planks do
 		description = desc,
 		tiles = {tile},
 		groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1,colwood=colwood},
+		is_ground_content = false,
 		sounds = hades_sounds.node_sound_wood_defaults(),
 	})
 end

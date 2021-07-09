@@ -34,6 +34,7 @@ minetest.register_node("gluncarp:machine", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
+	is_ground_content = false,
 	groups = {oddly_breakable_by_hand=2, choppy=3},
 	node_box = {
 		type = "fixed",

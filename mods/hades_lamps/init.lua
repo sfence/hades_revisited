@@ -5,6 +5,7 @@ minetest.register_node("hades_lamps:lamp_wall", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "wallmounted",
+	is_ground_content = false,
 	tiles = {"hades_lamps_lamp.png"},
 	wield_image = "hades_lamps_lamp_inv.png",
 	inventory_image = "hades_lamps_lamp_inv.png",
@@ -26,6 +27,7 @@ minetest.register_node("hades_lamps:lantern", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
+	is_ground_content = false,
 	tiles = {
 		"hades_lamps_lantern_top.png",
 		"hades_lamps_lantern_top.png", -- bottom
@@ -56,6 +58,7 @@ minetest.register_node("hades_lamps:lantern_rusty", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
+	is_ground_content = false,
 	tiles = {
 		"hades_lamps_lantern_rusty_top.png",
 		"hades_lamps_lantern_rusty_top.png", -- bottom

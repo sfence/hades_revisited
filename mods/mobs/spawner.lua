@@ -13,6 +13,7 @@ minetest.register_node("mobs:spawner", {
 	description = S("Mob Spawner"),
 	_tt_help = S("Periodically spawns mobs around it"),
 	groups = {cracky = 1},
+	is_ground_content = false,
 	sounds = hades_sounds.node_sound_metal_defaults(),
 
 	on_construct = function(pos)

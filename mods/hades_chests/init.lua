@@ -75,6 +75,7 @@ minetest.register_node(itemstring_unlocked, {
 	_tt_help = S("40 inventory slots"),
 	tiles = tiles_unlocked,
 	paramtype2 = "facedir",
+	is_ground_content = false,
 	groups = {choppy=2,oddly_breakable_by_hand=2, chest=1, unlocked_chest=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	on_construct = function(pos)
@@ -108,6 +109,7 @@ minetest.register_node(itemstring_locked, {
 	_tt_help = S("40 inventory slots, owned by placer"),
 	tiles = tiles_locked,
 	paramtype2 = "facedir",
+	is_ground_content = false,
 	groups = {choppy=2,oddly_breakable_by_hand=2, chest=2, locked_chest=1},
 	is_ground_content = false,
 	sounds = hades_sounds.node_sound_wood_defaults(),

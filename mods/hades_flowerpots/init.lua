@@ -52,6 +52,7 @@ minetest.register_node("hades_flowerpots:flower_pot", {
 	visual_scale = 0.5,
 	wield_scale = {x=1.0, y=1.0, z=1.0},
 	paramtype = "light",
+	is_ground_content = false,
 	floodable = true,
 	selection_box = {
 		type = "fixed",
@@ -113,6 +114,7 @@ minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
 	visual_scale = 0.5,
 	wield_scale = {x=1.0, y=1.0, z=1.0},
 	paramtype = "light",
+	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, -0.1, 0.2},
@@ -150,6 +152,7 @@ minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
 	visual_scale = 0.5,
 	wield_scale = {x=1.0, y=1.0, z=1.0},
 	paramtype = "light",
+	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, -0.1, 0.2}

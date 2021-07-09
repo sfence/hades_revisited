@@ -10,6 +10,7 @@ minetest.register_node("columnia:bracket",	{
 			sunlight_propagates = true,
 			paramtype = 'light',
 			paramtype2 = "facedir",
+			is_ground_content = false,
 			node_box = {
 				type = "fixed",
 				fixed = {
@@ -41,6 +42,7 @@ minetest.register_node("columnia:lamp_ceiling", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
+	is_ground_content = false,
 	inventory_image = "columnia_lamp_inv.png",
 	wield_image = "columnia_lamp_inv.png",
 	tiles = {
@@ -83,7 +85,7 @@ minetest.register_craft({
 minetest.register_node("columnia:rusty_block", {
 	description = S("Rusty Block"),
 	tiles = {"columnia_rusty_block.png"},
-	is_ground_content = true,
+	is_ground_content = false,
 	groups = {cracky=1},
 	sounds = hades_sounds.node_sound_heavy_metal_defaults(),
 })

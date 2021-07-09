@@ -11,7 +11,7 @@ minetest.register_node(":carts:rail", {
 	wield_image = "default_rail.png",
 	paramtype = "light",
 	sunlight_propagates = true,
-	is_ground_content = true,
+	is_ground_content = false,
 	walkable = false,
 	floodable = true,
 	selection_box = {
@@ -40,7 +40,7 @@ minetest.register_node(":carts:copperrail", {
 	inventory_image = "carts_rail_cp.png",
 	wield_image = "carts_rail_cp.png",
 	paramtype = "light",
-	is_ground_content = true,
+	is_ground_content = false,
 	walkable = false,
 	floodable = true,
 	selection_box = {
@@ -71,7 +71,7 @@ minetest.register_node(":carts:powerrail", {
 	inventory_image = "carts_rail_pwr.png",
 	wield_image = "carts_rail_pwr.png",
 	paramtype = "light",
-	is_ground_content = true,
+	is_ground_content = false,
 	walkable = false,
 	floodable = true,
 	selection_box = {
@@ -118,7 +118,7 @@ minetest.register_node(":carts:brakerail", {
 	inventory_image = "carts_rail_brk.png",
 	wield_image = "carts_rail_brk.png",
 	paramtype = "light",
-	is_ground_content = true,
+	is_ground_content = false,
 	walkable = false,
 	floodable = true,
 	selection_box = {

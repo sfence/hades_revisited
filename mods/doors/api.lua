@@ -106,6 +106,7 @@ minetest.register_node("doors:hidden", {
 	pointable = false,
 	diggable = false,
 	buildable_to = false,
+	is_ground_content = false,
 	floodable = false,
 	drop = "",
 	groups = {not_in_creative_inventory = 1},
