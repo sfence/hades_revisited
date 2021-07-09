@@ -1,9 +1,16 @@
 local S = minetest.get_translator("hades_beds")
 
-function hades_beds.set_spawn(player, pos)
+function hades_beds.set_spawn(player, pos, silent)
 	local name = player:get_player_name()
 	player:get_meta():set_string("hades_beds:spawn_pos", minetest.pos_to_string(pos))
-	minetest.chat_send_player(name, S("Spawn position set!"))
+	if not silent then
+		minetest.chat_send_player(name, minetest.colorize("#00FFFF"), S("Spawn position set!"))
+	end
+end
+
+function hades_beds.unset_spawn(player)
+	local name = player:get_player_name()
+	player:get_meta():set_string("hades_beds:spawn_pos", "")
 end
 
 -- Returns the spawn pos of player, or nil if none is set.
