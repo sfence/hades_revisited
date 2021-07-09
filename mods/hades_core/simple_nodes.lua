@@ -1,10 +1,8 @@
-local S = minetest.get_translator("hade_core")
+local S = minetest.get_translator("hades_core")
 
--- mods/default/nodes.lua
+-- Simple nodes (full solid cubes)
 
-local WATER_VISC = 1
-local LAVA_VISC = 7
-local LIGHT_MAX = minetest.LIGHT_MAX - 1
+-- Basic rocks (and crafted variants)
 
 minetest.register_node("hades_core:stone", {
 	description = S("Stone"),
@@ -29,6 +27,37 @@ minetest.register_node("hades_core:mossystone", {
 	is_ground_content = true,
 	groups = {cracky=3, stone=1, porous=1},
 	drop = 'hades_core:mossycobble',
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:stonebrick", {
+	description = S("Stone Brick"),
+	tiles = {"default_stone_brick.png"},
+	groups = {cracky=2, stone=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:stone_baked", {
+	description = S("Burned Stone"),
+	tiles = {"hades_core_stone_baked.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=1, porous=1, burned_node=1},
+	drop = "hades_core:cobble_baked",
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:stone_block_baked", {
+	description = S("Burned Stone Block"),
+	tiles = {"hades_core_stone_block_baked.png"},
+	is_ground_content = false,
+	groups = {cracky=3, burned_node=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:stonebrick_baked", {
+	description = S("Burned Stone Brick"),
+	tiles = {"hades_core_stone_brick_baked.png"},
+	groups = {cracky=2, stone=1, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
@@ -163,21 +192,20 @@ minetest.register_node("hades_core:essexite_brick", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
-minetest.register_node("hades_core:stone_baked", {
-	description = S("Burned Stone"),
-	tiles = {"hades_core_stone_baked.png"},
+minetest.register_node("hades_core:obsidian", {
+	description = S("Obsidian"),
+	tiles = {"default_obsidian.png"},
 	is_ground_content = true,
-	groups = {cracky=3, stone=1, porous=1, burned_node=1},
-	drop = "hades_core:cobble_baked",
 	sounds = hades_sounds.node_sound_stone_defaults(),
+	groups = {cracky=1,level=2},
 })
 
-minetest.register_node("hades_core:stone_block_baked", {
-	description = S("Burned Stone Block"),
-	tiles = {"hades_core_stone_block_baked.png"},
+minetest.register_node("hades_core:obsidian_block", {
+	description = S("Obsidian Block"),
+	tiles = {"default_obsidian_block.png"},
 	is_ground_content = false,
-	groups = {cracky=3, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
+	groups = {cracky=2},
 })
 
 minetest.register_node("hades_core:obsidianbrick", {
@@ -186,6 +214,9 @@ minetest.register_node("hades_core:obsidianbrick", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	groups = {cracky=1,level=2},
 })
+
+
+-- Decorative combination blocks
 
 minetest.register_node("hades_core:floor_chondrite_stone", {
 	description = S("Chondrite/Stone Block"),
@@ -231,7 +262,7 @@ minetest.register_node("hades_core:floor_essexite_gold", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
---minerals
+-- Ores
 
 minetest.register_node("hades_core:stone_with_coal", {
 	description = S("Coal Ore"),
@@ -270,7 +301,6 @@ minetest.register_node("hades_core:stone_with_copper", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
-
 minetest.register_node("hades_core:stone_with_mese", {
 	description = S("Mese Ore"),
 	tiles = {"default_stone.png^default_mineral_mese.png"},
@@ -279,7 +309,6 @@ minetest.register_node("hades_core:stone_with_mese", {
 	drop = "hades_core:mese_crystal",
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
-
 
 minetest.register_node("hades_core:stone_with_gold", {
 	description = S("Gold Ore"),
@@ -290,7 +319,6 @@ minetest.register_node("hades_core:stone_with_gold", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
-
 minetest.register_node("hades_core:stone_with_diamond", {
 	description = S("Diamond Ore"),
 	tiles = {"default_stone.png^default_mineral_diamond.png"},
@@ -300,22 +328,34 @@ minetest.register_node("hades_core:stone_with_diamond", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
-
-minetest.register_node("hades_core:stonebrick", {
-	description = S("Stone Brick"),
-	tiles = {"default_stone_brick.png"},
-	groups = {cracky=2, stone=1},
+minetest.register_node("hades_core:stone_with_emerald", {
+	description = S("Emerald Ore"),
+	tiles = {"default_stone.png^hades_core_mineral_emerald.png"},
+	is_ground_content = true,
+	groups = {cracky=2, porous=1, ore=1},
+	drop = "hades_core:emerald",
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
-
-minetest.register_node("hades_core:stonebrick_baked", {
-	description = S("Burned Stone Brick"),
-	tiles = {"hades_core_stone_brick_baked.png"},
-	groups = {cracky=2, stone=1, burned_node=1},
+minetest.register_node("hades_core:stone_with_sapphire", {
+	description = S("Sapphire Ore"),
+	tiles = {"default_stone.png^hades_core_mineral_sapphire.png"},
+	is_ground_content = true,
+	groups = {cracky=2, porous=1, ore=1},
+	drop = "hades_core:sapphire",
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
+minetest.register_node("hades_core:stone_with_ruby", {
+	description = S("Ruby Ore"),
+	tiles = {"default_stone.png^hades_core_mineral_ruby.png"},
+	is_ground_content = true,
+	groups = {cracky=1, porous=1, ore=1},
+	drop = "hades_core:ruby",
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+-- Soft blocks: dirt, ash, sand, gravel
 
 minetest.register_node("hades_core:dirt_with_grass", {
 	description = S("Dirt with Grass"),
@@ -327,7 +367,6 @@ minetest.register_node("hades_core:dirt_with_grass", {
 		footstep = {name="default_grass_footstep", gain=0.25},
 	}),
 })
-
 
 minetest.register_node("hades_core:dirt", {
 	description = S("Dirt"),
@@ -453,6 +492,7 @@ minetest.register_node("hades_core:clay", {
 	sounds = hades_sounds.node_sound_dirt_defaults(),
 })
 
+-- Brick Blocks
 
 minetest.register_node("hades_core:brick", {
 	description = S("Uncolored Brick Block"),
@@ -461,8 +501,6 @@ minetest.register_node("hades_core:brick", {
 	groups = {cracky=3, claybricks=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
-
--- Colors are beautiful
 
 minetest.register_node("hades_core:brick_black", {
 	description = S("Black Brick Block"),
@@ -584,16 +622,7 @@ minetest.register_node("hades_core:brick_yellow", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
-
-
-minetest.register_node("hades_core:bookshelf", {
-	description = S("Bookshelf"),
-	tiles = {"default_wood.png", "default_wood.png", "default_bookshelf.png"},
-	is_ground_content = false,
-	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3},
-	sounds = hades_sounds.node_sound_wood_defaults(),
-})
-
+-- Glass
 
 minetest.register_node("hades_core:glass", {
 	description = S("Glass"),
@@ -606,150 +635,18 @@ minetest.register_node("hades_core:glass", {
 	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
---- Liquids
-
-minetest.register_node("hades_core:water_flowing", {
-	description = S("Flowing Water"),
-	drawtype = "flowingliquid",
-	tiles = {"default_water.png"},
-	special_tiles = {
-		{
-			image="default_water_flowing_animated.png",
-			backface_culling=false,
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
-		},
-		{
-			image="default_water_flowing_animated.png",
-			backface_culling=true,
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=0.8}
-		},
-	},
-	use_texture_alpha = "blend",
+minetest.register_node("hades_core:obsidian_glass", {
+	description = S("Obsidian Glass"),
+	drawtype = "glasslike_framed_optional",
+	tiles = {"default_obsidian_glass.png", "default_obsidian_glass_detail.png"},
 	paramtype = "light",
-	paramtype2 = "flowingliquid",
-	walkable = false,
-	pointable = false,
-	diggable = false,
-	buildable_to = true,
 	is_ground_content = false,
-	drop = "",
-	drowning = 1,
-	liquidtype = "flowing",
-	liquid_alternative_flowing = "hades_core:water_flowing",
-	liquid_alternative_source = "hades_core:water_source",
-	liquid_viscosity = WATER_VISC,
-	post_effect_color = {a=64, r=100, g=100, b=200},
-	groups = {water=3, liquid=3, puts_out_fire=1, not_in_creative_inventory=1},
-	sounds = hades_sounds.node_sound_water_defaults(),
+	sunlight_propagates = true,
+	sounds = hades_sounds.node_sound_glass_defaults(),
+	groups = {cracky=3,oddly_breakable_by_hand=3},
 })
 
-
-minetest.register_node("hades_core:water_source", {
-	description = S("Water Source"),
-	drawtype = "liquid",
-	tiles = {
-		{
-			name = "default_water_source_animated.png",
-			backface_culling = false,
-			animation = {type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
-		},
-		{
-			name = "default_water_source_animated.png",
-			backface_culling = true,
-			animation = {type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0},
-		},
-	},
-	use_texture_alpha = "blend",
-	paramtype = "light",
-	walkable = false,
-	pointable = false,
-	diggable = false,
-	buildable_to = true,
-	is_ground_content = false,
-	drop = "",
-	drowning = 1,
-	liquidtype = "source",
-	liquid_alternative_flowing = "hades_core:water_flowing",
-	liquid_alternative_source = "hades_core:water_source",
-	liquid_viscosity = WATER_VISC,
-	post_effect_color = {a=64, r=100, g=100, b=200},
-	groups = {water=3, liquid=3, puts_out_fire=1},
-	sounds = hades_sounds.node_sound_water_defaults(),
-})
-
-
-minetest.register_node("hades_core:lava_flowing", {
-	description = S("Flowing Lava"),
-	drawtype = "flowingliquid",
-	tiles = {"default_lava.png"},
-	special_tiles = {
-		{
-			image="default_lava_flowing_animated.png",
-			backface_culling=false,
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.3}
-		},
-		{
-			image="default_lava_flowing_animated.png",
-			backface_culling=true,
-			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.3}
-		},
-	},
-	paramtype = "light",
-	paramtype2 = "flowingliquid",
-	light_source = minetest.LIGHT_MAX - 1,
-	walkable = false,
-	pointable = false,
-	diggable = false,
-	buildable_to = true,
-	is_ground_content = false,
-	drop = "",
-	drowning = 1,
-	liquidtype = "flowing",
-	liquid_alternative_flowing = "hades_core:lava_flowing",
-	liquid_alternative_source = "hades_core:lava_source",
-	liquid_viscosity = LAVA_VISC,
-	liquid_renewable = true,
-	damage_per_second = 2*2,
-	post_effect_color = {a=192, r=255, g=64, b=0},
-	groups = {lava=3, liquid=2, igniter=1, not_in_creative_inventory=1},
-	sounds = hades_sounds.node_sound_lava_defaults(),
-})
-
-
-minetest.register_node("hades_core:lava_source", {
-	description = S("Lava Source"),
-	drawtype = "liquid",
-	tiles = {
-		{
-			name = "default_lava_source_animated.png",
-			backface_culling = false,
-			animation = {type="vertical_frames", aspect_w=16, aspect_h=16, length=4.0},
-		},
-		{
-			name = "default_lava_source_animated.png",
-			backface_culling = true,
-			animation = {type="vertical_frames", aspect_w=16, aspect_h=16, length=4.0},
-		}
-	},
-	paramtype = "light",
-	light_source = minetest.LIGHT_MAX - 1,
-	walkable = false,
-	pointable = false,
-	diggable = false,
-	buildable_to = true,
-	is_ground_content = false,
-	drop = "",
-	drowning = 1,
-	liquidtype = "source",
-	liquid_alternative_flowing = "hades_core:lava_flowing",
-	liquid_alternative_source = "hades_core:lava_source",
-	liquid_viscosity = LAVA_VISC,
-	liquid_renewable = true,
-	damage_per_second = 2*2,
-	post_effect_color = {a=192, r=255, g=64, b=0},
-	groups = {lava=3, liquid=2, igniter=1},
-	sounds = hades_sounds.node_sound_lava_defaults(),
-})
+-- Cobblestone
 
 minetest.register_node("hades_core:cobble", {
 	description = S("Cobblestone"),
@@ -791,6 +688,8 @@ minetest.register_node("hades_core:mossycobble", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
+-- Mineral blocks
+
 minetest.register_node("hades_core:coalblock", {
 	description = S("Coal Block"),
 	tiles = {"default_coal_block.png"},
@@ -823,7 +722,6 @@ minetest.register_node("hades_core:copperblock", {
 	sounds = hades_sounds.node_sound_heavy_metal_defaults(),
 })
 
-
 minetest.register_node("hades_core:bronzeblock", {
 	description = S("Bronze Block"),
 	tiles = {"default_bronze_block.png"},
@@ -832,7 +730,6 @@ minetest.register_node("hades_core:bronzeblock", {
 	sounds = hades_sounds.node_sound_heavy_metal_defaults(),
 })
 
-
 minetest.register_node("hades_core:mese", {
 	description = S("Mese Block"),
 	tiles = {"default_mese_block.png"},
@@ -840,7 +737,6 @@ minetest.register_node("hades_core:mese", {
 	groups = {cracky=1,level=2},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
-
 
 minetest.register_node("hades_core:goldblock", {
 	description = S("Gold Block"),
@@ -882,62 +778,13 @@ minetest.register_node("hades_core:diamondblock", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
+-- Bookshelf
 
-minetest.register_node("hades_core:obsidian_glass", {
-	description = S("Obsidian Glass"),
-	drawtype = "glasslike_framed_optional",
-	tiles = {"default_obsidian_glass.png", "default_obsidian_glass_detail.png"},
-	paramtype = "light",
+minetest.register_node("hades_core:bookshelf", {
+	description = S("Bookshelf"),
+	tiles = {"default_wood.png", "default_wood.png", "default_bookshelf.png"},
 	is_ground_content = false,
-	sunlight_propagates = true,
-	sounds = hades_sounds.node_sound_glass_defaults(),
-	groups = {cracky=3,oddly_breakable_by_hand=3},
+	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3},
+	sounds = hades_sounds.node_sound_wood_defaults(),
 })
-
-
-minetest.register_node("hades_core:obsidian", {
-	description = S("Obsidian"),
-	tiles = {"default_obsidian.png"},
-	is_ground_content = true,
-	sounds = hades_sounds.node_sound_stone_defaults(),
-	groups = {cracky=1,level=2},
-})
-
-minetest.register_node("hades_core:obsidian_block", {
-	description = S("Obsidian Block"),
-	tiles = {"default_obsidian_block.png"},
-	is_ground_content = false,
-	sounds = hades_sounds.node_sound_stone_defaults(),
-	groups = {cracky=2},
-})
-
-
-
-minetest.register_node("hades_core:stone_with_emerald", {
-	description = S("Emerald Ore"),
-	tiles = {"default_stone.png^hades_core_mineral_emerald.png"},
-	is_ground_content = true,
-	groups = {cracky=2, porous=1, ore=1},
-	drop = "hades_core:emerald",
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
-minetest.register_node("hades_core:stone_with_sapphire", {
-	description = S("Sapphire Ore"),
-	tiles = {"default_stone.png^hades_core_mineral_sapphire.png"},
-	is_ground_content = true,
-	groups = {cracky=2, porous=1, ore=1},
-	drop = "hades_core:sapphire",
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
-minetest.register_node("hades_core:stone_with_ruby", {
-	description = S("Ruby Ore"),
-	tiles = {"default_stone.png^hades_core_mineral_ruby.png"},
-	is_ground_content = true,
-	groups = {cracky=1, porous=1, ore=1},
-	drop = "hades_core:ruby",
-	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
 

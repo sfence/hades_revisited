@@ -1,4 +1,4 @@
-local S = minetest.get_translator("hade_core")
+local S = minetest.get_translator("hades_core")
 
 -- mods/default/tools.lua
 
