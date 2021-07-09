@@ -12,6 +12,9 @@ local msg = function(pname, message)
 end
 
 minetest.register_on_newplayer(function(player)
+	if not minetest.settings:get_bool("hades_greeting", true) then
+		return
+	end
 	local cb = function(player)
 		if (not player) or (not player:is_player()) then
 			return
