@@ -132,7 +132,7 @@ minetest.register_node("hades_core:cactus_brick", {
 
 minetest.register_node("hades_core:glowing_cactus_block", {
 	description = S("Glowing Cactus Block"),
-	tiles = {"hades_core_cactus_block.png"},
+	tiles = {"hades_core_glowing_cactus_block.png"},
 	is_ground_content = false,
 	light_source = 5,
 	groups = {choppy=3,flammable=2},
