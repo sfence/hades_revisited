@@ -142,7 +142,7 @@ end
 minetest.register_entity("hades_itemshow:item",{
 	hp_max = 1,
 	visual = "wielditem",
-	visible = false,
+	is_visible = false,
 	visual_size = {x = BASE_ITEM_SIZE, y = BASE_ITEM_SIZE },
 	pointable = false,
 	physical = false,
@@ -186,10 +186,7 @@ minetest.register_entity("hades_itemshow:item",{
 
 	on_activate = function(self, staticdata)
 
-		if minetest.global_exists("mobs") and mobs.entity and mobs.entity == false then
-			self.object:remove()
-			return
-		end
+		self.object:set_armor_groups({immortal=1})
 
 		local nodename, item, rotate_dir
 		if staticdata ~= nil and staticdata ~= "" then
@@ -202,6 +199,7 @@ minetest.register_entity("hades_itemshow:item",{
 				rotate_dir = tonumber(data[3]) or 1
 			end
 		end
+
 		if item and item ~= "" then
 			self:_configure(item, nodename, rotate_dir)
 		end
