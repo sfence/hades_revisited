@@ -33,6 +33,7 @@ minetest.register_node("hades_core:mossystone", {
 minetest.register_node("hades_core:stonebrick", {
 	description = S("Stone Brick"),
 	tiles = {"default_stone_brick.png"},
+	is_ground_content = false,
 	groups = {cracky=2, stone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
@@ -57,6 +58,7 @@ minetest.register_node("hades_core:stone_block_baked", {
 minetest.register_node("hades_core:stonebrick_baked", {
 	description = S("Burned Stone Brick"),
 	tiles = {"hades_core_stone_brick_baked.png"},
+	is_ground_content = false,
 	groups = {cracky=2, stone=1, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
@@ -107,6 +109,7 @@ minetest.register_node("hades_core:tuff_block", {
 minetest.register_node("hades_core:tuff_brick", {
 	description = S("Tuff Brick"),
 	tiles = {"hades_core_tuff_brick.png"},
+	is_ground_content = false,
 	groups = {cracky=3},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
@@ -131,6 +134,7 @@ minetest.register_node("hades_core:tuff_baked_block", {
 minetest.register_node("hades_core:tuff_baked_brick", {
 	description = S("Burned Tuff Brick"),
 	tiles = {"hades_core_tuff_baked_brick.png"},
+	is_ground_content = false,
 	groups = {cracky=3, burned_node=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
@@ -163,6 +167,7 @@ minetest.register_node("hades_core:marble_block", {
 
 minetest.register_node("hades_core:marble_brick", {
 	description = S("Marble Brick"),
+	is_ground_content = false,
 	tiles = {"hades_core_marble_brick.png"},
 	groups = {cracky=3, stone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -188,6 +193,7 @@ minetest.register_node("hades_core:essexite_block", {
 minetest.register_node("hades_core:essexite_brick", {
 	description = S("Essexite Brick"),
 	tiles = {"hades_core_essexite_brick.png"},
+	is_ground_content = false,
 	groups = {cracky=1, stone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
@@ -211,6 +217,7 @@ minetest.register_node("hades_core:obsidian_block", {
 minetest.register_node("hades_core:obsidianbrick", {
 	description = S("Obsidian Brick"),
 	tiles = {"default_obsidian_brick.png"},
+	is_ground_content = false,
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	groups = {cracky=1,level=2},
 })
