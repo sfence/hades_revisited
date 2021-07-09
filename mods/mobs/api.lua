@@ -48,7 +48,7 @@ end
 local damage_enabled = settings:get_bool("enable_damage")
 local mobs_spawn = settings:get_bool("mobs_spawn") ~= false
 local peaceful_only = settings:get_bool("only_peaceful_mobs")
-local disable_blood = settings:get_bool("mobs_disable_blood")
+local disable_blood = false
 local mobs_drop_items = settings:get_bool("mobs_drop_items") ~= false
 local mobs_griefing = settings:get_bool("mobs_griefing") ~= false
 local spawn_protected = settings:get_bool("mobs_spawn_protected") ~= false
@@ -67,7 +67,7 @@ local GRAVITY = -(tonumber(minetest.settings:get("movement_gravity")) or 10)
 if peaceful_only then
 	minetest.register_on_joinplayer(function(player)
 		minetest.chat_send_player(player:get_player_name(),
-			S("** Peaceful Mode Active - No Monsters Will Spawn"))
+			S("Peaceful mode active: Hostile mobs won't spawn"))
 	end)
 end
 
@@ -1397,9 +1397,8 @@ function mob_class:breed()
 				-- have we reached active mob limit
 				if active_limit > 0 and active_mobs >= active_limit then
 					minetest.chat_send_player(self.owner,
-							S("Active Mob Limit Reached!")
-							.. "  (" .. active_mobs
-							.. " / " .. active_limit .. ")")
+							S("Active mob limit reached (@1/@2)! No more mobs are allowed to spawn.",
+							active_mobs, active_limit))
 					return
 				end
 
@@ -4263,9 +4262,8 @@ function mobs:register_egg(mob, desc, background, addegg, no_creative)
 				-- have we reached active mob limit
 				if active_limit > 0 and active_mobs >= active_limit then
 					minetest.chat_send_player(placer:get_player_name(),
-							S("Active Mob Limit Reached!")
-							.. "  (" .. active_mobs
-							.. " / " .. active_limit .. ")")
+							S("Active mob limit reached (@1/@2)! No more mobs are allowed to spawn.",
+							active_mobs, active_limit))
 					return
 				end
 
