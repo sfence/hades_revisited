@@ -35,7 +35,7 @@ mobs:register_mob("mobs_hades:mutant", {
 		min=1,
 		max=2,},
 		{name = "hades_core:pick_wood",
-		chance=8,
+		chance=3,
 		min=1,
 		max=1,},
 		{name = "hades_core:shovel_wood",
