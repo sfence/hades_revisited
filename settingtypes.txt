@@ -1,0 +1,62 @@
+[General]
+# Show a greeting message that briefly explains the game to players who join
+# the world the first time.
+hades_greeting (Show greeting message) bool true
+
+# If enabled, new players will receive a pack of starter items.
+# HINT: If you have nothing, hunt some mutants. They'll appear on volcanic
+# ash and drop apples and pickaxes when they die.
+give_initial_stuff (Give starter items) bool true
+
+# If enabled, the item identifier of the wielded item will be shown in HUD.
+show_wielded_item_itemname (Show itemstring in HUD) bool false
+
+# Time in seconds after which bones of a deceased player become 'old',
+# meaning they can be looted and dug by anyone.
+# Setting this to 0 means this will never happen.
+share_bones_time (Bones share time) int 1200 0
+
+[Mobs]
+# If false, then mobs no longer spawn in world without a spawner or spawn egg.
+# CAREFUL! Without mobs, you can get stuck if you lost everything.
+# The only way to get pickaxes and apples naturally is by killing mutants.
+# This setting is only read at startup.
+mobs_spawn (Spawn mobs) bool true
+
+# If enabled, then hostile mobs won't spawn in world.
+# This setting is only read at startup.
+only_peaceful_mobs (Only spawn peaceful mobs) bool false
+
+# If disabled, then mobs won't destroy or place blocks in the world.
+# This setting is only read at startup.
+mobs_griefing (Griefing mobs) bool true
+
+# If false, then mobs no longer spawn inside player protected areas.
+# This setting is only read at startup.
+mobs_spawn_protected (Spawn mobs in protected areas) bool true
+
+# If true, mobs will be removed once a map chunk is out of view.
+# This setting is only read at startup.
+remove_far_mobs (Remove far-away mobs) bool true
+
+# Sets mob difficulty level by multiplying punch damage.
+# This setting is only read at startup.
+mob_difficulty (Mob difficulty) float 1.0 0.0
+
+# Used to multiply the mob spawn probability.
+# The lower this value, the higher the chance that a mob will spawn.
+# 0 = maximum chance.
+# This setting is only read at startup.
+mob_chance_multiplier (Mob spawn chance multiplier) float 1.0 0.0
+
+# If enabled, mobs drop items when they die.
+# This setting is only read at startup.
+mobs_drop_items (Mobs drop items) bool true
+
+# Distance around player within mobs cannot spawn.
+# This setting is only read at startup.
+mob_nospawn_range (Mob no-spawn range) float 12.0 0.0
+
+# Maximum number of active mobs in the world (0 for unlimited).
+# This setting is only read at startup.
+mob_active_limit (Active mobs limit) int 0 0
