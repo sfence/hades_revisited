@@ -21,6 +21,7 @@ Minetest can be found online at <https://github.com/minetest/minetest/>.
 
 ## Important notices and short game guide
 
+* Press Aux1 key to change your jump strength
 * Be sure the `minetest.conf` file in the main Minetest directory doesn't have any parameters who are in conflict with the `minetest.conf` file from the `hades_revisited` directory. Especially mapgen parameters or stuff like `give_initial_stuff = false`
 * There only 1 biome, with the focus on terraforming and landscaping
 * Not everyone will like this game. But maybe there are some freaks out there ;-)
