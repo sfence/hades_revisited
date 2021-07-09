@@ -854,6 +854,7 @@ end
 local signs_text_on_activate
 
 signs_text_on_activate = function(self)
+	self.object:set_armor_groups({immortal=1})
 	local meta = minetest.get_meta(self.object:get_pos())
 	local text = meta:get_string("text")
 	local new = (meta:get_int("__signslib_new_format") ~= 0)
