@@ -122,6 +122,13 @@ local on_rotate_for_entity = function(pos, node, user, mode, new_param2)
 		if minetest.get_item_group(node.name, "pedestal") == 1 then
 			ppos = {x=ppos.x, y=ppos.y+1, z=ppos.z}
 		end
+
+		-- Update rotation status in node's param2
+		-- param2=0: rotate_dir=1 (counter-clockwise)
+		-- param2=1: rotate_dir=-1 (clockwise)
+		node.param2 = 1 - node.param2
+		minetest.swap_node(pos, node)
+
 		local objs = minetest.get_objects_inside_radius(ppos, 0.5)
 		if objs then
 			for _, obj in ipairs(objs) do
@@ -136,13 +143,14 @@ local on_rotate_for_entity = function(pos, node, user, mode, new_param2)
 						local rot = ROTATE_SPEED * ent._rotate_dir
 						obj:set_properties({automatic_rotate = rot})
 
-						-- Also store rotation status in node's param2
-						node.param2 = 1 - node.param2
-						minetest.swap_node(pos, node)
+						return false
 					end
 				end
 			end
 		end
+		-- If no showitem object found, update (respawn) it
+		update_item(pos, node, false)
+		return false
 	end
 	return false
 end
