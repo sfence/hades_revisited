@@ -889,7 +889,7 @@ minetest.register_craft({
 	type = "cooking",
 	cooktime = 15,
 	output = "hades_core:glass",
-	recipe = "group:sand",
+	recipe = "hades_core:volcanic_sand",
 })
 
 
@@ -1156,6 +1156,32 @@ minetest.register_craft({
 		{'hades_core:fertile_sand','hades_core:fertile_sand','hades_core:fertile_sand'},
 	}
 })
+
+minetest.register_craft({
+    type = "shapeless",
+	output = 'hades_core:fertile_sand 2',
+	recipe = {'hades_core:mossytuff', 'hades_core:ash'},
+})
+minetest.register_craft({
+    type = "shapeless",
+	output = 'hades_core:fertile_sand 2',
+	recipe = {'hades_core:mossytuff', 'hades_core:volcanic_sand'},
+})
+minetest.register_craft({
+    type = "shapeless",
+	output = 'hades_core:fertile_sand 2',
+	recipe = {'hades_core:mossycobble', 'hades_core:ash'},
+})
+minetest.register_craft({
+    type = "shapeless",
+	output = 'hades_core:fertile_sand 2',
+	recipe = {'hades_core:mossycobble', 'hades_core:volcanic_sand'},
+})
+minetest.register_craft({
+    type = "shapeless",
+	output = 'hades_core:fertile_sand 2',
+	recipe = {'hades_core:tuff', 'hades_core:volcanic_sand'},
+})
 minetest.register_craft({
     type = "shapeless",
 	output = 'hades_core:fertile_sand 2',
@@ -1163,33 +1189,14 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-    type = "shapeless",
-	output = 'hades_core:fertile_sand 2',
-	recipe = {'hades_core:mossycobble', 'hades_core:volcanic_sand'},
+	type = "shapeless",
+	output = 'hades_core:volcanic_sand 2',
+	recipe = {'hades_core:tuff', 'hades_core:ash'},
 })
-
-minetest.register_craft({
-    type = "shapeless",
-	output = 'hades_core:fertile_sand 2',
-	recipe = {'hades_core:tuff', 'hades_core:volcanic_sand'},
-})
-
-minetest.register_craft({
-    type = "shapeless",
-	output = 'hades_core:fertile_sand 2',
-	recipe = {'hades_core:mossytuff', 'hades_core:volcanic_sand'},
-})
-
 minetest.register_craft({
 	type = "shapeless",
 	output = 'hades_core:volcanic_sand 2',
 	recipe = {'hades_core:cobble', 'hades_core:ash'},
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	output = 'hades_core:volcanic_sand 2',
-	recipe = {'hades_core:tuff', 'hades_core:ash'},
 })
 
 minetest.register_craft({

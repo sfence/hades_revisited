@@ -160,7 +160,7 @@ minetest.register_craft( {
 	output = "pipeworks:sand_tube_1 2",
 	recipe = {
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" },
-	        { "group:sand", "group:sand", "group:sand" },
+	        { "hades_core:volcanic_sand", "hades_core:volcanic_sand", "hades_core:volcanic_sand" },
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" }
 	},
 })
@@ -168,7 +168,7 @@ minetest.register_craft( {
 minetest.register_craft( {
 	output = "pipeworks:sand_tube_1",
 	recipe = {
-	        { "group:sand", "pipeworks:tube_1", "group:sand" },
+	        { "hades_core:volcanic_sand", "pipeworks:tube_1", "hades_core:volcanic_sand" },
 	},
 })
 
@@ -176,7 +176,7 @@ minetest.register_craft( {
 	output = "pipeworks:mese_sand_tube_1 2",
 	recipe = {
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" },
-	        { "group:sand", "hades_core:mese_crystal", "group:sand" },
+	        { "hades_core:volcanic_sand", "hades_core:mese_crystal", "hades_core:volcanic_sand" },
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" }
 	},
 })
