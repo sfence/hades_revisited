@@ -1,7 +1,13 @@
 local S = minetest.get_translator("hades_itemshow")
 
 local BASE_ITEM_SIZE = 1/3
-local ROTATE_SPEED = 1
+
+local ROTATE_SPEED = 1 -- speed at which the entity rotates
+local DEFAULT_ROTATE_DIR = -1 -- clockwise
+-- Clockwise because dropped item rotate counter-clockwise,
+-- so the 'itemshow' entities rotate the other way by
+-- default
+
 local FACEDIR = {}
 FACEDIR[0] = {x = 0, y = 0, z = 1}
 FACEDIR[1] = {x = 1, y = 0, z = 0}
@@ -65,9 +71,9 @@ local update_item = function(pos, node, check_item)
 		if e then
 			local lua = e:get_luaentity()
 			if lua then
-				local dir = 1
+				local dir = DEFAULT_ROTATE_DIR
 				if node.param2 == 1 then
-					dir = -1
+					dir = -dir
 				end
 				lua:_configure(stack:get_name(), node.name, dir)
 			end
@@ -124,8 +130,8 @@ local on_rotate_for_entity = function(pos, node, user, mode, new_param2)
 		end
 
 		-- Update rotation status in node's param2
-		-- param2=0: rotate_dir=1 (counter-clockwise)
-		-- param2=1: rotate_dir=-1 (clockwise)
+		-- param2=0: rotate_dir=-1 (clockwise)
+		-- param2=1: rotate_dir= 1 (counter-clockwise)
 		node.param2 = 1 - node.param2
 		minetest.swap_node(pos, node)
 
@@ -185,9 +191,8 @@ minetest.register_entity("hades_itemshow:item",{
 		if self._nodename and self._nodename ~= "" then
 			if minetest.get_item_group(self._nodename, "pedestal") == 1 or
 					minetest.get_item_group(self._nodename, "item_showcase") == 1 then
-				-- Rotate counter-clockwise by default
 				if not self._rotate_dir then
-					self._rotate_dir = 1
+					self._rotate_dir = DEFAULT_ROTATE_DIR
 				end
 				props.automatic_rotate = ROTATE_SPEED * self._rotate_dir
 			end
@@ -215,7 +220,7 @@ minetest.register_entity("hades_itemshow:item",{
 				item = data[2]
 			end
 			if data and data[3] then
-				rotate_dir = tonumber(data[3]) or 1
+				rotate_dir = tonumber(data[3]) or DEFAULT_ROTATE_DIR
 			end
 
 		end
