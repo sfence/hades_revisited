@@ -89,13 +89,15 @@ local drop_item = function(pos, node, creative)
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 	local item = inv:get_stack("main", 1)
-	if item ~= "" then
+	if not item:is_empty() then
 		if creative then
 			-- Don't drop item
-		elseif node.name == "hades_itemshow:frame" or minetest.get_item_group(node.name, "item_showcase") == 1 then
+		elseif node.name == "hades_itemshow:frame" then
 			minetest.add_item(pos, item)
 		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 			minetest.add_item({x=pos.x, y=pos.y+1, z=pos.z}, item)
+		elseif minetest.get_item_group(node.name, "item_showcase") == 1 then
+			minetest.add_item({x=pos.x, y=pos.y+0.75, z=pos.z}, item)
 		end
 		inv:set_stack("main", 1, "")
 	end
