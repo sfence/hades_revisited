@@ -39,11 +39,11 @@ local season_sky = function(player)
 		sky = "#F0E3B0"
 		clouds = { color="#FFFF72B8" }
 	elseif season == hades_seasons.SEASON_SUMMER then
-		sky = "#efd7af"
-		clouds = { color="#ffdc72B8" }
+		sky = "#EFD7AF"
+		clouds = { color="#FFDC72B8" }
 	elseif season == hades_seasons.SEASON_FALL then
-		sky = "#efccaf"
-		clouds = { color="#ffb972B8" }
+		sky = "#EFCCAF"
+		clouds = { color="#FFB972B8" }
 	else
 		minetest.log("error", "[hades_sky] hades_seasons.get_season() returned invalid season!")
 		return
