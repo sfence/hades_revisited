@@ -92,6 +92,7 @@ callbacks.season_sky_repeater = function(player)
 	if not player or not player:is_player() then
 		return
 	end
+	season_sky(player)
 	minetest.after(SEASON_SKY_UPDATE_TIME, callbacks.season_sky_repeater, player)
 end
 
