@@ -65,7 +65,11 @@ local update_item = function(pos, node, check_item)
 		if e then
 			local lua = e:get_luaentity()
 			if lua then
-				lua:_configure(stack:get_name(), node.name)
+				local dir = 1
+				if node.param2 == 1 then
+					dir = -1
+				end
+				lua:_configure(stack:get_name(), node.name, dir)
 			end
 		end
 		if e and node.name == "hades_itemshow:frame" then
@@ -126,9 +130,15 @@ local on_rotate_for_entity = function(pos, node, user, mode, new_param2)
 					local name = ent.name
 					local nodename = ent._nodename
 					if name == "hades_itemshow:item" and nodename == node.name then
+						-- Update entity rotation and store into _rotate_dir
+						-- for persistence
 						ent._rotate_dir = -ent._rotate_dir
 						local rot = ROTATE_SPEED * ent._rotate_dir
 						obj:set_properties({automatic_rotate = rot})
+
+						-- Also store rotation status in node's param2
+						node.param2 = 1 - node.param2
+						minetest.swap_node(pos, node)
 					end
 				end
 			end
@@ -163,6 +173,7 @@ minetest.register_entity("hades_itemshow:item",{
 		if rotate_dir then
 			self._rotate_dir = rotate_dir
 		end
+
 		if self._nodename and self._nodename ~= "" then
 			if minetest.get_item_group(self._nodename, "pedestal") == 1 or
 					minetest.get_item_group(self._nodename, "item_showcase") == 1 then
@@ -198,6 +209,7 @@ minetest.register_entity("hades_itemshow:item",{
 			if data and data[3] then
 				rotate_dir = tonumber(data[3]) or 1
 			end
+
 		end
 
 		if item and item ~= "" then
