@@ -558,7 +558,7 @@ minetest.register_node("hades_itemshow:showcase", {
 minetest.register_lbm({
 	name = "hades_itemshow:respawn_entities",
 	label = "Respawn entities of item frames, pedestals and item showcases",
-	nodenames = {"hades_itemshow:frame", "group:pedestal"},
+	nodenames = {"hades_itemshow:frame", "group:pedestal", "group:item_showcase"},
 	run_at_every_load = true,
 	action = function(pos, node)
 		local num
