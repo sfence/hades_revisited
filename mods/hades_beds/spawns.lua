@@ -4,7 +4,7 @@ function hades_beds.set_spawn(player, pos, silent)
 	local name = player:get_player_name()
 	player:get_meta():set_string("hades_beds:spawn_pos", minetest.pos_to_string(pos))
 	if not silent then
-		minetest.chat_send_player(name, minetest.colorize("#00FFFF"), S("Spawn position set!"))
+		minetest.chat_send_player(name, minetest.colorize("#00FFFF", S("Spawn position set!")))
 	end
 end
 
