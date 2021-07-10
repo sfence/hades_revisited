@@ -626,6 +626,7 @@ function doors.register_fencegate(name, def)
 		connect_sides = {"left", "right"},
 		groups = def.groups,
 		sounds = def.sounds,
+		on_rotate = "simple",
 		on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
 			local node_def = minetest.registered_nodes[node.name]
 			minetest.swap_node(pos, {name = node_def.gate, param2 = node.param2})
