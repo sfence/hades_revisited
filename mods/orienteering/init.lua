@@ -358,11 +358,11 @@ function orienteering.update_hud_displays(player)
 		local v
 		local attach = player:get_attach()
 		if attach == nil then
-			v = player:get_player_velocity()
+			v = player:get_velocity()
 		else
 			v = attach:get_velocity()
 			if not v then
-				v = player:get_player_velocity()
+				v = player:get_velocity()
 			end
 		end
 		speed_ver = v.y
