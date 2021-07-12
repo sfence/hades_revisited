@@ -423,7 +423,7 @@ minetest.register_node("hades_core:gravel", {
 	description = S("Gravel"),
 	tiles = {"default_gravel.png"},
 	is_ground_content = true,
-	groups = {crumbly=2, falling_node=1, porous=1},
+	groups = {crumbly=2, gravel=1, falling_node=1, porous=1},
 	sounds = hades_sounds.node_sound_gravel_defaults(),
 })
 
@@ -440,7 +440,7 @@ minetest.register_node("hades_core:gravel_volcanic", {
 	_tt_help = S("Becomes Obsidian when close to water and lava at Y=-1000 or below"),
 	tiles = {"hades_core_gravel_volcanic.png"},
 	is_ground_content = true,
-	groups = {crumbly=1, porous=1},
+	groups = {crumbly=1, gravel=1, porous=1},
 	sounds = hades_sounds.node_sound_gravel_defaults(nil, 0.85),
 })
 
