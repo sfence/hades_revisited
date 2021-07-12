@@ -4,24 +4,50 @@ Version 0.9.2
 A game for Minetest, focused on terraforming and landscaping.
 Based on *Minetest Hades* by Glünngi.
 
-THIS IS A PREVIEW VERSION OF THE GAME. This game is perfectly playable
-now, but incomplete. And Future versions might change a lot
-and will likely be incompatible and break your world.
+THIS IS A PREVIEW VERSION OF THE GAME. This game is playable,
+but incomplete. And future versions might change a lot
+and will often be incompatible and break your old worlds.
 
 Requires Minetest 5.4.0.
 
+## Introduction
+Due to a gross miscalculation of the gravitational pull of the volcanic
+planet Hades, the latest terraforming attempt of your space crew went
+horribly wrong! You managed to survive, but it seems you are stranded
+on this hellhole of a planet full of lava, stone and ash for good!
+
+You still have a pickaxe and a few apples. Also, water is hidden inside
+the tall and chaotic stone spires. So your only chance of survival is to
+search for water, use your crafting skills to form some soil and plant
+apple trees. More plants might follow. The underground holds great riches,
+but also great dangers, lava is death. With your new acquired resources,
+maybe, just maybe, you will turn Planet Hades into a nice, habitable place.
+
+But beware: Many were not so lucky: Mutants will haunt on the surface and
+who knows what dangers might hide in the deep underground?
+
 ## Installation
-To play this game in Minetest, insert this directory into
+You need Minetest 5.4.0 to play Hades Revisited. Minetest can be found
+online at <https://github.com/minetest/minetest/>.
+
+### Automatic installation with ContentDB
+This is the easiest method.
+
+This game is available in Minetest's official ContentDB! If you have an
+internet connection, just go into Minetest and browse the Content
+section to install the latest and greatest version of the game.
+
+### Manual installation
+If for some reason you must install this game manually, just insert
+the Hades Revisited directory into
 
     /games/hades_revisited
 
 in the Minetest data folder.
 
-Minetest can be found online at <https://github.com/minetest/minetest/>.
-
 ## Important notices and short game guide
 
-* Press Aux1 key to change your jump strength
+* Press the Aux1/Special key to change your jump strength
 * Be sure the `minetest.conf` file in the main Minetest directory doesn't have any parameters who are in conflict with the `minetest.conf` file from the `hades_revisited` directory. Especially mapgen parameters or stuff like `give_initial_stuff = false`
 * There only 1 biome, with the focus on terraforming and landscaping
 * Not everyone will like this game. But maybe there are some freaks out there ;-)
