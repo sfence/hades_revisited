@@ -7,8 +7,11 @@ local S = minetest.get_translator("hades_greeting")
 
 local COLOR = "#00FF00"
 
-local msg = function(pname, message)
-	minetest.chat_send_player(pname, minetest.colorize(COLOR, message))
+local msg = function(pname, message, color)
+	if not color then
+		color = COLOR
+	end
+	minetest.chat_send_player(pname, minetest.colorize(color, message))
 end
 
 minetest.register_on_newplayer(function(player)
@@ -33,4 +36,15 @@ minetest.register_on_newplayer(function(player)
 		end
 	end
 	minetest.after(3.0, cb, player)
+end)
+
+-- Also add a warning about alpha version status
+minetest.register_on_joinplayer(function(player)
+	if not minetest.settings:get_bool("hades_greeting", true) then
+		return
+	end
+	local color = "#FF8000"
+	local pname = player:get_player_name()
+	msg(pname, S("Hades Revisited is a very incomplete game, so expect bugs, chaos, ugliness, broken gameplay, and worse."), color)
+	msg(pname, S("That having said, have fun playtesting, and please report bugs to Wuzzy."), color)
 end)
