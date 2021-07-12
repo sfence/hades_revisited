@@ -424,6 +424,10 @@ function doors.register(name, def)
 	def.buildable_to = false
 	def.selection_box = {type = "fixed", fixed = {-1/2,-1/2,-1/2,1/2,3/2,-6/16}}
 	def.collision_box = {type = "fixed", fixed = {-1/2,-1/2,-1/2,1/2,3/2,-6/16}}
+	if def.groups then
+		def.groups.door = nil
+		def.groups.steel_door = nil
+	end
 
 	def.mesh = "door_a.obj"
 	def.description = S("@1 (left hinge)", description)
