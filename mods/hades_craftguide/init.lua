@@ -316,6 +316,7 @@ local function get_formspec(player)
 	data.pagemax = math.max(1, math.ceil(#data.items / NUM_ITEMS))
 
 	local fs = {}
+
 	table.insert(fs,
 		"style_type[item_image_button;padding=2]"..
 		hades_gui.gui_inventory_bg_img..
@@ -331,6 +332,16 @@ local function get_formspec(player)
 		"tooltip[prev;"..esc(S("Previous page")).."]"..
 		"tooltip[next;"..esc(S("Next page")).."]"..
 		"field_close_on_enter[filter;false]")
+
+	if data.prev_item then
+		local modestr
+		if data.show_usages then
+			modestr = S("Show recipes")
+		else
+			modestr = S("Show usages")
+		end
+		table.insert(fs, "button[6,8.5;4,1;toggle_mode;"..esc(modestr).."]")
+	end
 
 	if #data.items == 0 then
 		table.insert(fs, "label[3,2;"..esc(S("No items to show.")).."]")
@@ -351,8 +362,8 @@ local function get_formspec(player)
 		recipe_fs(fs, data)
 	elseif data.prev_item then
 		table.insert(fs, ("label[2,1;%s]"):format(esc(data.show_usages
-			and S("No usages.").."\n"..S("Click again to show recipes.")
-			or S("No recipes.").."\n"..S("Click again to show usages."))))
+			and S("No usages.")
+			or S("No recipes."))))
 	end
 	table.insert(fs, "container_end[]")
 
@@ -424,6 +435,19 @@ local function on_receive_fields(player, fields)
 		end
 		return true
 
+	elseif fields.toggle_mode then
+		local item = data.prev_item
+		if not item then
+			return
+		end
+		data.show_usages = not data.show_usages
+		if data.show_usages then
+			data.recipes = usages_cache[item]
+		else
+			data.recipes = recipes_cache[item]
+		end
+		data.rnum = 1
+		return true
 	else
 		local item
 		for field in pairs(fields) do
@@ -438,8 +462,6 @@ local function on_receive_fields(player, fields)
 
 		if item == data.prev_item then
 			data.show_usages = not data.show_usages
-		else
-			data.show_usages = nil
 		end
 		if data.show_usages then
 			data.recipes = usages_cache[item]
