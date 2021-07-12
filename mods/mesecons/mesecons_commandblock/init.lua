@@ -25,31 +25,6 @@ minetest.register_chatcommand("tell", {
 	end
 })
 
-minetest.register_chatcommand("hp", {
-	params = "<name> <value>",
-	description = "Set health of <name> to <value> hitpoints",
-	privs = {ban=true},
-	func = function(name, param)
-		local found, _, target, value = param:find("^([^%s]+)%s+(%d+)$")
-		if found == nil then
-			minetest.chat_send_player(name, "Invalid usage: " .. param)
-			return
-		end
-		local player = minetest.get_player_by_name(target)
-		if player then
-			if name == target then
-				hades_death_messages.player_damage(player, S("A death wish"))
-			else
-				-- You took damage from "a higher power" ;-)
-				hades_death_messages.player_damage(player, S("A higher power"))
-			end
-			player:set_hp(value)
-		else
-			minetest.chat_send_player(name, "Invalid target: " .. target)
-		end
-	end
-})
-
 local function initialize_data(meta)
 	local commands = meta:get_string("commands")
 	meta:set_string("formspec",
