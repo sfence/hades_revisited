@@ -51,7 +51,6 @@ in the Minetest data folder.
 * Be sure the `minetest.conf` file in the main Minetest directory doesn't have any parameters who are in conflict with the `minetest.conf` file from the `hades_revisited` directory. Especially mapgen parameters or stuff like `give_initial_stuff = false`
 * There only 1 biome, with the focus on terraforming and landscaping
 * Not everyone will like this game. But maybe there are some freaks out there ;-)
-* If you spawn on lava and die, generate a new world (this problem should be fixed in a later version)
 
 An attempt to colonize planet Hades went horribly wrong: Your exploration ship disintegrated and you survived with very limited supplies.
 Hades is a very young planet and characterized by highly volcanic activities and a lot of fertile ash. Asteroids have brought some water on Hades.
