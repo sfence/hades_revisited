@@ -56,14 +56,22 @@ end
 -- 'super' parameter is true for Super Fertilizer and false for normal fertilizer
 local get_apply_fertilizer = function(super)
 	return function(itemstack, placer, pointed_thing)
-		if not pointed_thing or not pointed_thing.under or not placer then
+		if not pointed_thing or pointed_thing.type ~= "node" or not placer then
 			return itemstack
 		end
 		local name = placer:get_player_name()
 		local pos = pointed_thing.under
 		local nnode = minetest.get_node(pos)
 		local nname = nnode.name
+
+		-- Boilerplate to check pointed node's on rightlick function
 		local def = minetest.registered_nodes[nname]
+		if def and def.on_rightclick and
+			((not placer) or (placer and not placer:get_player_control().sneak)) then
+			return def.on_rightclick(pos, nnode, placer, itemstack,
+				pointed_thing) or itemstack
+		end
+
 		if plant_mappings[nname] then
 			if (not super) then
 				-- Restrict usable plants if not super fertilizer
