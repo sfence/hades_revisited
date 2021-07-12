@@ -233,11 +233,13 @@ local function item_button_fs(fs, x, y, item, element_name, groups)
 			end
 			groupstr = table.concat(groupstr, ", ")
 			tooltip = S("Any item belonging to the group(s): @1", groupstr)
+		else
+			tooltip = minetest.colorize("yellow", tooltip)
 		end
 	elseif is_fuel(item) then
 		local itemdef = minetest.registered_items[item:match("%S*")]
 		local desc = itemdef and itemdef.description or S("Unknown Item")
-		tooltip = desc.."\n"..minetest.colorize("orange", S("Fuel"))
+		tooltip = desc.."\n"..minetest.colorize("yellow", S("Fuel"))
 	end
 	if tooltip then
 		table.insert(fs, ("tooltip[%s;%s]"):format(element_name, esc(tooltip)))
@@ -316,6 +318,7 @@ local function get_formspec(player)
 	local fs = {}
 	table.insert(fs,
 		"style_type[item_image_button;padding=2]"..
+		hades_gui.gui_inventory_bg_img..
 		"field[0.3,4.2;4.8,1.2;filter;;"..esc(data.filter).."]"..
 		"label[7.8,4.15;"..S("@1 / @2", minetest.colorize("yellow", data.pagenum),
 			data.pagemax).."]"..
