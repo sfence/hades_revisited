@@ -8,13 +8,6 @@ hades_trees.register_bark("bark", {
 	description = S("Temperate Bark"),
 	image = "default_tree.png",
 })
-hades_trees.register_leaves("leaves", {
-	description = S("Temperate Leaves"),
-	image = "default_leaves.png",
-	ash_fertilizer = 3,
-	drop_item = "hades_trees:sapling",
-	drop_rarity = 20,
-})
 
 hades_trees.register_trunk("lush_tree", {
 	description = S("Lush Tree Trunk"),
