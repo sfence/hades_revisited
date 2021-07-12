@@ -1,7 +1,13 @@
 local S = minetest.get_translator("hades_farming")
 
+local dirt_groups = table.copy(minetest.registered_nodes["hades_core:dirt"].groups)
+local dwg_groups = table.copy(minetest.registered_nodes["hades_core:dirt_with_grass"].groups)
+
+dirt_groups.soil = 1
+dwg_groups.soil = 1
+
 minetest.override_item("hades_core:dirt", {
-	groups = {crumbly=3,soil=1},
+	groups = dirt_groups,
 	soil = {
 		base = "hades_core:dirt",
 		dry = "hades_farming:soil",
@@ -10,7 +16,7 @@ minetest.override_item("hades_core:dirt", {
 })
 
 minetest.override_item("hades_core:dirt_with_grass", {
-	groups = {crumbly=3,soil=1},
+	dwg_groups,
 	soil = {
 		base = "hades_core:dirt_with_grass",
 		dry = "hades_farming:soil",

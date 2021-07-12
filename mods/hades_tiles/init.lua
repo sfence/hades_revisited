@@ -26,9 +26,9 @@ local tile_groups = {
 },
 {
 	tile_stone,
-	{ "tuff", S("Tuff"), "hades_core:tuff", {stone=1} },
+	{ "tuff", S("Tuff"), "hades_core:tuff", {} },
 	{ "stonebaked", S("Burned Stone"), "hades_core:stone_baked", {stone=1} },
-	{ "tuffbaked", S("Burned Tuff"), "hades_core:tuff_baked", {stone=1} },
+	{ "tuffbaked", S("Burned Tuff"), "hades_core:tuff_baked", {} },
 	{ "chondrite", S("Chondrite"), "hades_core:chondrite", {stone=1} },
 	tile_sandstone,
 },

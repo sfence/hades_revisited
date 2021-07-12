@@ -52,7 +52,7 @@ minetest.register_node("columnia:lamp_ceiling", {
 	sunlight_propagates = true,
 	light_source = 13,
 	walkable = false,
-	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
+	groups = {cracky=3,oddly_breakable_by_hand=3},
 	node_box = {
 		type = "fixed",
 		fixed = {

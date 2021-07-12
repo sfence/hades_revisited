@@ -39,7 +39,7 @@ for i in ipairs(carpet_tab) do
 			type = "fixed",
 			fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 		},
-		groups = {dig_immediate=2, carpet=1, attached_node=1},
+		groups = {snappy=3, dig_immediate=2, carpet=1, attached_node=1},
 		sounds = hades_sounds.node_sound_defaults(),
 	})
 end

@@ -72,7 +72,7 @@ local S = minetest.get_translator("hades_furniture")
 					{-0.3,-0.2,0.3, 0.3,-0.1,0.4},
 				},
 			},
-			groups = {table=1, snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			groups = {table=1, choppy=3,oddly_breakable_by_hand=2},
 			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 		
@@ -102,7 +102,7 @@ local S = minetest.get_translator("hades_furniture")
 				type = "fixed",
 				fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
 			},
-			groups = {chair=1, snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			groups = {chair=1, choppy=3,oddly_breakable_by_hand=2},
 			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 	end
@@ -159,7 +159,7 @@ local S = minetest.get_translator("hades_furniture")
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
-			groups = {armchair=1, snappy=2,choppy=2,oddly_breakable_by_hand=2},
+			groups = {armchair=1, choppy=3,oddly_breakable_by_hand=2},
 			sounds = hades_sounds.node_sound_wood_defaults(),
 		})
 	end

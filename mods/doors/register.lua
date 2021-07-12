@@ -3,7 +3,7 @@ local S = minetest.get_translator("doors")
 doors.register_door("doors:door_wood", {
 	description = S("Temperate Wood Door"),
 	inventory_image = "doors_wood.png",
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood.png", backface_culling=true}},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
@@ -22,7 +22,7 @@ minetest.register_craft({
 doors.register_door("doors:door_wood_pale", {
 	description = S("Pale Wood Door"),
 	inventory_image = "doors_wood_pale.png",
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_pale.png", backface_culling=true}},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
@@ -41,7 +41,7 @@ minetest.register_craft({
 doors.register_door("doors:door_wood_jungle", {
 	description = S("Tropical Wood Door"),
 	inventory_image = "doors_wood_jungle.png",
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_jungle.png", backface_culling=true}},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
@@ -59,7 +59,7 @@ minetest.register_craft({
 doors.register_door("doors:door_wood_cream", {
 	description = S("Cream Wood Door"),
 	inventory_image = "doors_wood_cream.png",
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_cream.png", backface_culling=true}},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
@@ -77,7 +77,7 @@ minetest.register_craft({
 doors.register_door("doors:door_wood_lush", {
 	description = S("Lush Wood Door"),
 	inventory_image = "doors_wood_lush.png",
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=2,door=1},
 	tiles = {{name="doors_door_wood_lush.png", backface_culling=true}},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sunlight = false,
@@ -103,7 +103,7 @@ minetest.register_craft({
 doors.register_door("doors:door_steel", {
 	description = S("Plain Steel Door"),
 	inventory_image = "doors_steel.png",
-	groups = {snappy=1,cracky=1,level=2,door=1,steel_door=1},
+	groups = {cracky=2,door=1,steel_door=1},
 	tiles = {{name="doors_door_steel.png", backface_culling=true}},
 	only_placer_can_open = true,
 	sounds = hades_sounds.node_sound_metal_defaults(),
@@ -147,7 +147,7 @@ for c=1, #colors do
 	doors.register_door("doors:door_steel_"..id, {
 		description = desc,
 		inventory_image = "doors_steel_"..id..".png",
-		groups = {snappy=1,cracky=1,level=2,door=1,steel_door=1},
+		groups = {cracky=2,door=1,steel_door=1},
 		tiles = {{name="doors_door_steel_"..id..".png", backface_culling=true}},
 		only_placer_can_open = true,
 		sounds = hades_sounds.node_sound_metal_defaults(),
@@ -165,10 +165,9 @@ end
 
 -- stone
 doors.register_door("doors:door_stone", {
-	-- TODO: Make this door more hidden
 	description = S("Stone Door"),
 	inventory_image = "doors_stone.png",
-	groups = {snappy=1,cracky=1,level=2,door=1},
+	groups = {cracky=3,door=1},
 	tiles = {{name="doors_door_stone.png", backface_culling=true}},
 	only_placer_can_open = true,
 	sounds = hades_sounds.node_sound_stone_defaults(),
@@ -189,7 +188,7 @@ minetest.register_craft({
 doors.register_door("doors:door_glass", {
 	description = S("Glass Door"),
 	inventory_image = "doors_glass.png",
-	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
+	groups = {cracky=3,oddly_breakable_by_hand=3,door=1},
 	tiles = {"doors_door_glass.png"},
 	sounds = hades_sounds.node_sound_glass_defaults(),
 	sound_open = "doors_glass_door_open",
@@ -209,7 +208,7 @@ minetest.register_craft({
 doors.register_door("doors:door_obsidian_glass", {
 	description = S("Obsidian Glass Door"),
 	inventory_image = "doors_obsidian_glass.png",
-	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=3,door=1},
+	groups = {cracky=3,door=1},
 	tiles = {"doors_door_obsidian_glass.png"},
 	sound_open = "doors_open_glass",
 	sounds = hades_sounds.node_sound_glass_defaults(),
@@ -234,7 +233,7 @@ doors.register_trapdoor("doors:trapdoor", {
 	wield_image = "doors_trapdoor.png",
 	tile_front = "doors_trapdoor.png",
 	tile_side = "doors_trapdoor_side.png",
-	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	groups = {choppy=3, oddly_breakable_by_hand=2, flammable=2, door=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
@@ -254,7 +253,7 @@ doors.register_trapdoor("doors:trapdoor_jungle", {
 	wield_image = "doors_trapdoor_jungle.png",
 	tile_front = "doors_trapdoor_jungle.png",
 	tile_side = "doors_trapdoor_jungle_side.png",
-	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	groups = {choppy=3, oddly_breakable_by_hand=2, flammable=2, door=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
@@ -274,7 +273,7 @@ doors.register_trapdoor("doors:trapdoor_pale", {
 	wield_image = "doors_trapdoor_pale.png",
 	tile_front = "doors_trapdoor_pale.png",
 	tile_side = "doors_trapdoor_pale_side.png",
-	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	groups = {choppy=3, oddly_breakable_by_hand=2, flammable=2, door=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
@@ -294,7 +293,7 @@ doors.register_trapdoor("doors:trapdoor_cream", {
 	wield_image = "doors_trapdoor_cream.png",
 	tile_front = "doors_trapdoor_cream.png",
 	tile_side = "doors_trapdoor_cream_side.png",
-	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	groups = {choppy=3, oddly_breakable_by_hand=2, flammable=2, door=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
@@ -314,7 +313,7 @@ doors.register_trapdoor("doors:trapdoor_lush", {
 	wield_image = "doors_trapdoor_lush.png",
 	tile_front = "doors_trapdoor_lush.png",
 	tile_side = "doors_trapdoor_lush_side.png",
-	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	groups = {choppy=3, oddly_breakable_by_hand=2, flammable=2, door=1},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
