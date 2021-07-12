@@ -424,8 +424,9 @@ function doors.register(name, def)
 	def.buildable_to = false
 	def.selection_box = {type = "fixed", fixed = {-1/2,-1/2,-1/2,1/2,3/2,-6/16}}
 	def.collision_box = {type = "fixed", fixed = {-1/2,-1/2,-1/2,1/2,3/2,-6/16}}
+	-- Prevent steel door crafting recipe from applying to hinge nodes
+	-- TODO: Generalize this code
 	if def.groups then
-		def.groups.door = nil
 		def.groups.steel_door = nil
 	end
 
