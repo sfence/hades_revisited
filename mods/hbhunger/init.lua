@@ -124,7 +124,10 @@ minetest.register_globalstep(function(dtime)
 				player:set_hp(hp+1)
 				-- or damage player by 1 hp if satiation is < 2
 				elseif h <= 1 then
-					if hp-1 >= 0 then player:set_hp(hp-1) end
+					if hp-1 >= 0 then
+						hades_death_messages.player_damage(player, S("Starvation"))
+						player:set_hp(hp-1)
+					end
 				end
 			end
 			-- lower satiation by 1 point after xx seconds

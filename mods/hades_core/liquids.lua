@@ -1,4 +1,5 @@
 local S = minetest.get_translator("hades_core")
+local N = function(s) return s end
 
 local WATER_VISC = 1
 local LAVA_VISC = 7
@@ -111,6 +112,7 @@ minetest.register_node("hades_core:lava_flowing", {
 	post_effect_color = {a=192, r=255, g=64, b=0},
 	groups = {lava=3, liquid=2, igniter=1, not_in_creative_inventory=1},
 	sounds = hades_sounds.node_sound_lava_defaults(),
+	_hades_node_death_message = { N("Overheating in lava") },
 })
 
 
@@ -147,5 +149,6 @@ minetest.register_node("hades_core:lava_source", {
 	post_effect_color = {a=192, r=255, g=64, b=0},
 	groups = {lava=3, liquid=2, igniter=1},
 	sounds = hades_sounds.node_sound_lava_defaults(),
+	_hades_node_death_message = { N("Overheating in lava") },
 })
 

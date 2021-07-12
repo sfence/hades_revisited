@@ -8,6 +8,9 @@ hades_greeting (Show greeting message) bool true
 # ash and drop apples and pickaxes when they die.
 give_initial_stuff (Give starter items) bool true
 
+# If enabled, dead players will get a message that says how they died.
+hades_show_death_messages (Show cause of death) bool true
+
 # If enabled, the item identifier of the wielded item will be shown in HUD.
 show_wielded_item_itemname (Show itemstring in HUD) bool false
 

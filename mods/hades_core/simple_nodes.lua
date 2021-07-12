@@ -384,6 +384,42 @@ minetest.register_node("hades_core:dirt", {
 	sounds = hades_sounds.node_sound_dirt_defaults(),
 })
 
+minetest.register_node("hades_core:coarse_dirt", {
+	description = S("Coarse Dirt"),
+	tiles = {"mtg_plus_graveldirt.png"},
+	is_ground_content = true,
+	groups = {crumbly=3, porous=1},
+	sounds = hades_sounds.node_sound_dirt_defaults(),
+})
+
+minetest.register_node("hades_core:gravel_cobble", {
+	description = S("Cobbled Gravel"),
+	tiles = {"mtg_plus_gravel_cobble.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:sandstone_cobble", {
+	description = S("Cobbled Sandstone"),
+	tiles = {"hades_core_sandstone_cobble.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:sandstone_volcanic_cobble", {
+	description = S("Cobbled Volcanic Sandstone"),
+	tiles = {"hades_core_sandstone_volcanic_cobble.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+
+
+
+
 
 minetest.register_node("hades_core:ash", {
 	description = S("Volcanic Ash"),
