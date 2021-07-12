@@ -28,7 +28,7 @@ minetest.register_abm({
 	interval = 15,
 	chance = 40,
 	action = function(pos, node)
-		hades_trees.generate_birchtree(pos, check_light, "hades_trees:canvas_tree", "hades_trees:canvas_leaves")
+		hades_trees.generate_birchtree(pos, nil, "hades_trees:canvas_tree", "hades_trees:canvas_leaves")
 	end
 })
 
