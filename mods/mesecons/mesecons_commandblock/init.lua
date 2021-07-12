@@ -1,3 +1,5 @@
+local S = minetest.get_translator("mesecons_commandblock")
+
 minetest.register_chatcommand("say", {
 	params = "<text>",
 	description = "Say <text> as the server",
@@ -35,6 +37,12 @@ minetest.register_chatcommand("hp", {
 		end
 		local player = minetest.get_player_by_name(target)
 		if player then
+			if name == target then
+				hades_death_messages.player_damage(player, S("A death wish"))
+			else
+				-- You took damage from "a higher power" ;-)
+				hades_death_messages.player_damage(player, S("A higher power"))
+			end
 			player:set_hp(value)
 		else
 			minetest.chat_send_player(name, "Invalid target: " .. target)

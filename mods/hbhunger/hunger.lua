@@ -1,3 +1,5 @@
+local S = minetest.get_translator("hbhunger")
+
 -- Keep these for backwards compatibility
 function hbhunger.save_hunger(player)
 	hbhunger.set_hunger_raw(player)
@@ -72,6 +74,7 @@ local function poisenp(tick, time, time_left, player)
 		end
 	end
 	if player:get_hp()-1 > 0 then
+		hades_death_messages.player_damage(player, S("Food poisoning"))
 		player:set_hp(player:get_hp()-1)
 	end
 	
