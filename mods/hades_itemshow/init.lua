@@ -202,8 +202,15 @@ minetest.register_entity("hades_itemshow:item",{
 
 		if self._item then
 			local def = minetest.registered_nodes[self._item]
-			if def and def.visual_scale then
-				props.visual_size = { x = BASE_ITEM_SIZE * def.visual_scale, y = BASE_ITEM_SIZE * def.visual_scale }
+			if def then
+				local v = def._hades_itemshow_scale
+				if not v then
+					v = def.visual_scale
+				end
+				if v then
+					v = v * BASE_ITEM_SIZE
+					props.visual_size = { x = v, y = v }
+				end
 			end
 		end
 

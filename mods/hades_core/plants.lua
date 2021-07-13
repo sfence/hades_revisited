@@ -76,6 +76,7 @@ minetest.register_node("hades_core:junglegrass", {
 	description = S("Tropical Grass"),
 	drawtype = "plantlike",
 	visual_scale = 1.3,
+	_hades_itemshow_scale = 1.0,
 	tiles = {"default_junglegrass.png"},
 	inventory_image = "default_junglegrass.png",
 	wield_image = "default_junglegrass.png",
