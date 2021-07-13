@@ -33,34 +33,42 @@ hades_seasons.get_day_in_year = function(day)
 end
 
 --[[
-In the world of Hades Revisited, the distance from the sun is what
-makes the seasons.
+In the world of Hades Revisited, the distance from Apollo,
+the star around planet Hades revolves, is what makes the
+seasons ... somehow. Don't ask me why, it's just a game! :D
 
-Hades' orbit around its star is an ellipsis centered on (0,0)
+Hades has an elliptic orbit around Apollo. The
+ellipsis is centered on (0,0) in an imaginary coordinate system
 with the star being on the "left" (negative X) focal point
-of the ellipsis.
-On (0, -ORBIT_HORIZONTAL_DISTANCE_OF_FOCAL_POINT), to be precise.
-Why is the star on the focal point, you ask? Because it
-makes the math easier! :D
+of the ellipsis. On (0, -ORBIT_STAR_TO_CENTER), to be precise.
+The star lies on the focal point for simplicity.
+Many other things, like axial tilt are ignored for simplicity.
 
-Hades revolves counter-clockwise around the star.
+Hades revolves counter-clockwise around Apollo.
 
 Here's a diagram (not to scale!):
 
                  Summer begins
                  v
                .............
-              .             .
-Summer       .               .
-solstice >>> .   S           H <<< Spring begins / New Year
+              .      |      .
+Summer       .       |       .
+solstice >>> .   A~~~0-------H <<< Spring begins / New Year
              .               .
               .             .
                .............
                  ^
                  Fall begins
 
-H = Hades (on day 0)
-S = Sun
+(X coordinates go right, Y coordinates go up)
+
+  H = Hades (on day 0)
+  A = Apollo (Hades' star), lies on a focal point
+  . = Orbit
+  0 = Center of the orbit (at coordinates 0,0)
+  | = Semi-minor axis
+  - = Semi-major axis
+  ~ = ORBIT_STAR_TO_CENTER
 
 Spring begins at 0°.
 Summer begins at 120°.
@@ -68,7 +76,8 @@ Fall begins at 240°.
 
 New Year's is at 0°, Hades is the furthest away at that point.
 Summer Solstice is at 180°, Hades is the closest at that point.
-There is no "Winter Soltice" because there is no winter. :P
+The "other" solstice is at 0°, at New Year's.
+(There is no "Winter Soltice" because there is no winter :P)
 ]]
 
 --[[ The following values are required for the ellipsis calculation.
@@ -77,28 +86,28 @@ following effect: The distance to the star will greatly change during
 spring and fall and is the farthest on New Year's but during
 summer the distance is the closest and also won't change as much.
 
-Note the values themselves are arbitrary, its the ratio between those
-values that matters. For the final "star size", some
-scaling and offsetting is still required.
+Note the values themselves are arbitrary and unit-less, its the
+ratio between those values that matters. For the final "size"
+of Apollo in the sky, some scaling and offsetting is still required.
 ]]
 
-local ORBIT_HORIZONTAL_LENGTH_FROM_CENTER = 1
-local ORBIT_VERTICAL_LENGTH_FROM_CENTER = 0.5
-local ORBIT_HORIZONTAL_DISTANCE_OF_FOCAL_POINT = 0.75
+local ORBIT_SEMI_MAJOR_AXIS = 1 -- lies on the X (horizontal) axis
+local ORBIT_SEMI_MINOR_AXIS = 0.5 -- lies on the Y (vertical) axis
+local ORBIT_STAR_TO_CENTER = 0.75 -- see diagram
 
--- Get Hades' Cartesian distance from its star, given a day of the year.
+-- Get Hades' Cartesian distance from Apollo, given a day of the year.
 -- This function gives a "raw" value with abitrary upper
 -- and lower bounds. Some scaling needs to be done
--- for it to be useful.
+-- for this value to be useful.
 -- * day_in_year (optional): The day in the year to calculate with.
 --                           Defaults to current day.
 local get_distance_from_star_raw = function(day_in_year)
 	if not day_in_year then
 		day_in_year = hades_seasons.get_day_in_year()
 	end
-	local a = ORBIT_HORIZONTAL_LENGTH_FROM_CENTER
-	local b = ORBIT_VERTICAL_LENGTH_FROM_CENTER
-	local e = ORBIT_HORIZONTAL_DISTANCE_OF_FOCAL_POINT
+	local a = ORBIT_SEMI_MAJOR_AXIS
+	local b = ORBIT_SEMI_MINOR_AXIS
+	local e = ORBIT_STAR_TO_CENTER
 
 	-- convert day-of-year to angle (0..2pi)
 	local alpha = (day_in_year / hades_seasons.YEAR_LENGTH) * (math.pi*2)
@@ -111,7 +120,7 @@ local get_distance_from_star_raw = function(day_in_year)
 end
 
 local MAX_DISTANCE_FROM_STAR = get_distance_from_star_raw(0) -- New Year's
-local MIN_DISTANCE_FROM_STAR = get_distance_from_star_raw(hades_seasons.YEAR_LENGTH/2) -- Summer soltice
+local MIN_DISTANCE_FROM_STAR = get_distance_from_star_raw(hades_seasons.YEAR_LENGTH/2) -- Summer solstice
 local DISTANCE_DIFFERENCE = MAX_DISTANCE_FROM_STAR - MIN_DISTANCE_FROM_STAR
 
 -- Get Hades' relative distance from its star, given a day of the year.
