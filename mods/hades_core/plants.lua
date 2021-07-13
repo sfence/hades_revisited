@@ -75,8 +75,6 @@ end
 minetest.register_node("hades_core:junglegrass", {
 	description = S("Tropical Grass"),
 	drawtype = "plantlike",
-	visual_scale = 1.3,
-	_hades_itemshow_scale = 1.0,
 	tiles = {"default_junglegrass.png"},
 	inventory_image = "default_junglegrass.png",
 	wield_image = "default_junglegrass.png",
@@ -90,7 +88,7 @@ minetest.register_node("hades_core:junglegrass", {
 	sounds = hades_sounds.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-7/16, -0.5, -7/16, 7/16, 0.9, 7/16},
+		fixed = {-6/16, -0.5, -6/16, 6/16, 0.5, 6/16},
 	},
 })
 
