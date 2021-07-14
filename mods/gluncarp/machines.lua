@@ -22,7 +22,7 @@ local colors = {
 
 minetest.register_node("gluncarp:machine", {
 	description = S("Carpet Workstation"),
-	_tt_help = S("Turns wool to carpets"),
+	_tt_help = S("Turns cloth to carpets"),
 	tiles = {
 		"gluncarp_machine_top.png",
 		"gluncarp_machine_bottom.png",
@@ -92,7 +92,7 @@ minetest.register_node("gluncarp:machine", {
 			"background9[6,6;10,6;gluncarp_background.png;true;6]"..
 			"list[current_name;wool;3,0.5;1,1;]"..
 			"list[current_name;res;6,0.5;1,1;]"..
-			"label[3,0;"..F(S("Wool:")).."]"..
+			"label[3,0;"..F(S("Cloth:")).."]"..
 			"label[6,0;"..F(S("Output:")).."]"..
 
 			"label[4.5,0;"..F(S("Craft:")).."]"..

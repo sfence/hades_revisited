@@ -4,7 +4,7 @@ gluncarp = {}
 
 ---more wool
 minetest.register_node("gluncarp:wool_blackgold", {
-	description = S("Black Wool with Gold"),
+	description = S("Black Cloth with Gold"),
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	tiles = {"gluncarp_wool_blackgold.png"},

@@ -11,21 +11,21 @@ local wool = {}
 -- colors, and then some recipes using more specific colors for a few non-base
 -- colors available. When crafting, the last recipes will be checked first.
 wool.dyes = {
-	{"white",      S("White Wool"),      nil},
-	{"grey",       S("Grey Wool"),       "basecolor_grey"},
-	{"black",      S("Black Wool"),      "basecolor_black"},
-	{"red",        S("Red Wool"),        "basecolor_red"},
-	{"yellow",     S("Yellow Wool"),     "basecolor_yellow"},
-	{"green",      S("Green Wool"),      "basecolor_green"},
-	{"cyan",       S("Cyan Wool"),       "basecolor_cyan"},
-	{"blue",       S("Blue Wool"),       "basecolor_blue"},
-	{"magenta",    S("Magenta Wool"),    "basecolor_magenta"},
-	{"orange",     S("Orange Wool"),     "excolor_orange"},
-	{"violet",     S("Violet Wool"),     "excolor_violet"},
-	{"brown",      S("Brown Wool"),      "unicolor_dark_orange"},
-	{"pink",       S("Pink Wool"),       "unicolor_light_red"},
-	{"dark_grey",  S("Dark Grey Wool"),  "unicolor_darkgrey"},
-	{"dark_green", S("Dark Green Wool"), "unicolor_dark_green"},
+	{"white",      S("White Cloth"),      nil},
+	{"grey",       S("Grey Cloth"),       "basecolor_grey"},
+	{"black",      S("Black Cloth"),      "basecolor_black"},
+	{"red",        S("Red Cloth"),        "basecolor_red"},
+	{"yellow",     S("Yellow Cloth"),     "basecolor_yellow"},
+	{"green",      S("Green Cloth"),      "basecolor_green"},
+	{"cyan",       S("Cyan Cloth"),       "basecolor_cyan"},
+	{"blue",       S("Blue Cloth"),       "basecolor_blue"},
+	{"magenta",    S("Magenta Cloth"),    "basecolor_magenta"},
+	{"orange",     S("Orange Cloth"),     "excolor_orange"},
+	{"violet",     S("Violet Cloth"),     "excolor_violet"},
+	{"brown",      S("Brown Cloth"),      "unicolor_dark_orange"},
+	{"pink",       S("Pink Cloth"),       "unicolor_light_red"},
+	{"dark_grey",  S("Dark Grey Cloth"),  "unicolor_darkgrey"},
+	{"dark_green", S("Dark Green Cloth"), "unicolor_dark_green"},
 }
 
 for _, row in ipairs(wool.dyes) do
