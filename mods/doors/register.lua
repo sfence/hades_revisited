@@ -384,6 +384,18 @@ doors.register_fencegate("doors:gate_lush_wood", {
 	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3}
 })
 
+minetest.register_craft({
+	type = "cooking",
+	output = "hades_core:steel_ingot 6",
+	recipe = "group:steel_door",
+	cooktime = 18,
+})
+minetest.register_craft({
+	type = "cooking",
+	output = "hades_core:steel_ingot 4",
+	recipe = "doors:trapdoor_steel",
+	cooktime = 12,
+})
 
 
 

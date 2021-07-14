@@ -289,9 +289,15 @@ minetest.register_craftitem(":carts:cart", {
 })
 
 minetest.register_craft({ 
- 	output = "carts:cart", 
+	output = "carts:cart",
  	recipe = { 
  		{"hades_core:steel_ingot", "", "hades_core:steel_ingot"}, 
  		{"hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot"}, 
  	}, 
 }) 
+minetest.register_craft({
+	type = "cooking",
+	output = "hades_core:steel_ingot 5",
+	recipe = "carts:cart",
+	cooktime = 15,
+})

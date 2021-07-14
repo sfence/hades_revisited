@@ -295,7 +295,7 @@
 			},
 		})
 
--- Medieval Forniture
+-- Medieval Furniture
 
 	--Bars
 	minetest.register_craft( {
@@ -308,11 +308,26 @@
 
 	-- L Binding Bars
 	minetest.register_craft( {
-		output = 'hades_furniture:L_binding_bars 4',
+		output = 'hades_furniture:L_binding_bars 5',
 		recipe = {
-			{ 'hades_furniture:bars','' },
-			{ 'hades_furniture:bars','hades_furniture:bars' },
+			{ '', 'hades_furniture:bars', '' },
+			{ 'hades_furniture:bars', 'hades_furniture:bars', 'hades_furniture:bars' },
+			{ '', 'hades_furniture:bars', '', },
 		},
+	})
+
+	-- Recipes to smelt bars back into ingots
+	minetest.register_craft( {
+		type = "cooking",
+		output = 'hades_core:steel_ingot',
+		recipe = 'hades_furniture:L_binding_bars',
+		cookingtime = 3,
+	})
+	minetest.register_craft( {
+		type = "cooking",
+		output = 'hades_core:steel_ingot',
+		recipe = 'hades_furniture:bars',
+		cookingtime = 3,
 	})
 
 	--Chains
@@ -324,6 +339,13 @@
 			{ '', 'hades_core:steel_ingot', '' },
 		},
 	})
+	minetest.register_craft( {
+		type = "cooking",
+		output = 'hades_core:steel_ingot',
+		recipe = 'hades_furniture:chains',
+		cookingtime = 3,
+	})
+
 
 -- Misc.
 

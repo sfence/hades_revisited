@@ -970,6 +970,33 @@ minetest.register_craft( {
 			{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" }
         },
 })
+
+minetest.register_craft( {
+	type = "cooking",
+	output = "hades_core:steel_ingot 3",
+	recipe = "signs_lib:sign_wall_green",
+})
+minetest.register_craft( {
+	type = "cooking",
+	output = "hades_core:steel_ingot 3",
+	recipe = "signs_lib:sign_wall_yellow",
+})
+minetest.register_craft( {
+	type = "cooking",
+	output = "hades_core:steel_ingot 3",
+	recipe = "signs_lib:sign_wall_red",
+})
+minetest.register_craft( {
+	type = "cooking",
+	output = "hades_core:steel_ingot 3",
+	recipe = "signs_lib:sign_wall_white_red",
+})
+minetest.register_craft( {
+	type = "cooking",
+	output = "hades_core:steel_ingot 3",
+	recipe = "signs_lib:sign_wall_white_black",
+})
+
 if minetest.settings:get("log_mods") then
 	minetest.log("action", "signs loaded")
 end
