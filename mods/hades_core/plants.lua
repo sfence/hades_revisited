@@ -14,7 +14,7 @@ minetest.register_node("hades_core:dry_shrub", {
 	buildable_to = true,
 	floodable = true,
 	groups = {snappy=3,flammable=3,attached_node=1},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_grass_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-6/16, -0.5, -6/16, 6/16, 4/16, 6/16},
@@ -36,7 +36,7 @@ minetest.register_node("hades_core:grass_1", {
 	buildable_to = true,
 	floodable = true,
 	groups = {snappy=3,flammable=3,flora=1,grass=1,attached_node=1},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_grass_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-6/16, -0.5, -6/16, 6/16, -5/16, 6/16},
@@ -64,7 +64,7 @@ for i=2,5 do
 		is_ground_content = true,
 		drop = "hades_core:grass_1",
 		groups = {snappy=3,flammable=3,flora=1,grass=1,attached_node=1,not_in_creative_inventory=1},
-		sounds = hades_sounds.node_sound_leaves_defaults(),
+		sounds = hades_sounds.node_sound_grass_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-6/16, -0.5, -6/16, 6/16, -3/16, 6/16},
@@ -85,7 +85,7 @@ minetest.register_node("hades_core:junglegrass", {
 	floodable = true,
 	is_ground_content = true,
 	groups = {snappy=3,flammable=2,flora=1,grass=1,attached_node=1},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_grass_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-6/16, -0.5, -6/16, 6/16, 0.5, 6/16},
@@ -196,7 +196,7 @@ minetest.register_node("hades_core:papyrus", {
 		},
 	},
 	groups = {snappy = 3,flammable = 2},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_grass_defaults(),
 	
 	after_dig_node = function(pos, node, metadata, digger)
 		dig_up(pos, node, digger)
@@ -219,7 +219,7 @@ minetest.register_node("hades_core:sugarcane", {
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
 	},
 	groups = {snappy=3,flammable=2},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_grass_defaults(),
 	
 	after_dig_node = function(pos, node, metadata, digger)
 		dig_up(pos, node, digger)

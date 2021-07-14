@@ -151,7 +151,7 @@ for i in ipairs(lilies_list) do
 		paramtype2 = "facedir",
 		walkable = false,
 		groups = lily_groups,
-		sounds = hades_sounds.node_sound_leaves_defaults(),
+		sounds = hades_sounds.node_sound_grass_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = { -0.5, -0.5, -0.5, 0.5, -7/16, 0.5 },
@@ -202,7 +202,7 @@ for i in ipairs(seaweed_list) do
 		paramtype2 = "facedir",
 		walkable = false,
 		groups = seaweed_groups,
-		sounds = hades_sounds.node_sound_leaves_defaults(),
+		sounds = hades_sounds.node_sound_grass_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = { -0.5, -0.5, -0.5, 0.5, -7/16, 0.5 },

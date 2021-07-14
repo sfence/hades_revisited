@@ -16,7 +16,7 @@ minetest.register_node("mesecons_powerplant:power_plant", {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, -0.5+0.7, 0.3},
 	},
-	sounds = hades_sounds.node_sound_leaves_defaults(),
+	sounds = hades_sounds.node_sound_grass_defaults(),
 	mesecons = {receptor = {
 		state = mesecon.state.on
 	}}
