@@ -161,7 +161,9 @@ local S = minetest.get_translator("hades_furniture")
 				fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
 			},
 			groups = {armchair=1, choppy=3,oddly_breakable_by_hand=2},
-			sounds = hades_sounds.node_sound_wood_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults({
+				footstep = hades_sounds.node_sound_cloth_defaults().footstep,
+			}),
 		})
 	end
 
