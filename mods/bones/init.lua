@@ -24,8 +24,10 @@ minetest.register_node("bones:bones", {
 	paramtype2 = "facedir",
 	groups = {dig_immediate=2},
 	sounds = hades_sounds.node_sound_dirt_defaults({
-		footstep = {name="default_gravel_footstep", gain=0.5},
-		dug = {name="default_gravel_footstep", gain=1.0},
+		footstep = {name="default_gravel_footstep", gain=0.5, pitch=0.6},
+		dug = {name="hades_sounds_gravel_dug", gain=1.0, pitch=0.6},
+		place = {name="hades_sounds_gravel_dug", gain=1.0, pitch=1.25},
+		dig = {name="hades_sounds_ash_dig", gain=0.2, pitch=1.75},
 	}),
 	
 	can_dig = function(pos, player)
