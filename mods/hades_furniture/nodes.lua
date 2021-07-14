@@ -224,7 +224,7 @@ local S = minetest.get_translator("hades_furniture")
 			},
 			groups = {cracky=2,oddly_breakable_by_hand=1,not_in_creative_inventory=not_in_creative_inventory},
 			drop = drop,
-			sounds = hades_sounds.node_sound_glass_defaults(),
+			sounds = hades_sounds.node_sound_wood_defaults(),
 			on_rightclick = function(pos, node, clicker)
 				minetest.sound_play({name="hades_furniture_table_lamp_switch"}, {pos=pos, gain=0.35, max_hear_distance=6})
 				minetest.set_node(pos, {name="hades_furniture:table_lamp_"..lamps[l][2]})
