@@ -441,7 +441,7 @@ minetest.register_node("hades_core:gravel_volcanic", {
 	tiles = {"hades_core_gravel_volcanic.png"},
 	is_ground_content = true,
 	groups = {crumbly=1, gravel=1, porous=1},
-	sounds = hades_sounds.node_sound_gravel_defaults(nil, 0.85),
+	sounds = hades_sounds.node_sound_gravel_defaults({pitch=0.85}),
 })
 
 minetest.register_node("hades_core:gravel_volcanic_block", {
@@ -449,7 +449,7 @@ minetest.register_node("hades_core:gravel_volcanic_block", {
 	tiles = {"hades_core_gravel_volcanic_block.png"},
 	is_ground_content = false,
 	groups = {crumbly=2},
-	sounds = hades_sounds.node_sound_gravel_defaults(nil, 0.85),
+	sounds = hades_sounds.node_sound_gravel_defaults({pitch=0.85}),
 })
 
 
