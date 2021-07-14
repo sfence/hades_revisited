@@ -37,7 +37,7 @@ for _, row in ipairs(wool.dyes) do
 		description = desc,
 		tiles = {"wool_"..name..".png"},
 		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
-		sounds = hades_sounds.node_sound_defaults(),
+		sounds = hades_sounds.node_sound_cloth_defaults(),
 		is_ground_content = false,
 	})
 	-- Crafting from dye and white wool

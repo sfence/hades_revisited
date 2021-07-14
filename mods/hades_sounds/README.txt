@@ -24,7 +24,7 @@ sequence of characters.
 Wuzzy (CC0):
   hades_sounds_ash_footstep.*.ogg
   hades_sounds_ash_dig.*.ogg
-  hades_sounds_gravel_footstep.*.ogg
+  default_gravel_footstep.*.ogg
   default_dirt_footstep.*.ogg
   default_grass_footstep.*.ogg
   hades_sounds_grass_dig.*.ogg
@@ -49,10 +49,6 @@ Mito551 (sounds) (CC BY-SA):
   default_dig_oddly_breakable_by_hand.ogg
   default_dug_node.1.ogg
   default_dug_node.2.ogg
-  default_gravel_footstep.1.ogg
-  default_gravel_footstep.2.ogg
-  default_gravel_footstep.3.ogg
-  default_gravel_footstep.4.ogg
   default_place_node.1.ogg
   default_place_node.2.ogg
   default_place_node.3.ogg
@@ -78,6 +74,15 @@ Metal sounds:
   - https://www.freesound.org/people/Ottomaani138/sounds/232692/
   default_place_node_metal.*.ogg - Ogrebane - CC0
   - http://opengameart.org/content/wood-and-metal-sound-effects-volume-2
+
+Brandon Morris 'Augmentality' (<Brandonmorris12@gmail.com> <http://youtube.com/brandon75689>)
+  hades_sounds_cloth_footstep.1.ogg
+  hades_sounds_cloth_footstep.2.ogg
+  hades_sounds_cloth_footstep.3.ogg
+  hades_sounds_cloth_footstep.4.ogg
+
+  License: OGA-BY 3.0, Public Domain (CC0)
+  Origin: https://opengameart.org/content/footsteps-leather-cloth-armor
 
 AGFX (CC BY 3.0)
 https://www.freesound.org/people/AGFX/packs/1253/

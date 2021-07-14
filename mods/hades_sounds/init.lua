@@ -91,7 +91,7 @@ function hades_sounds.node_sound_gravel_defaults(table, pitch)
 	pitch = pitch or 1.0
 	table = table or {}
 	table.footstep = table.footstep or
-			{name="hades_sounds_gravel_footstep", gain=0.5, max_hear_distance = mhd, pitch=pitch}
+			{name="default_gravel_footstep", gain=0.5, max_hear_distance = mhd, pitch=pitch}
 	table.dig = table.dig or
 			{name = "default_dig_crumbly", gain = 0.5, max_hear_distance = mhd}
 	table.dug = table.dug or
@@ -163,6 +163,16 @@ function hades_sounds.node_sound_glass_defaults(table)
 			{name="default_glass_footstep", gain=0.5, max_hear_distance = mhd}
 	table.dug = table.dug or
 			{name="default_break_glass", gain=1.0, max_hear_distance = mhd}
+	hades_sounds.node_sound_defaults(table)
+	return table
+end
+
+function hades_sounds.node_sound_cloth_defaults(table)
+	table = table or {}
+	table.footstep = table.footstep or
+			{name="hades_sounds_cloth_footstep", gain=0.1, max_hear_distance = mhd}
+	table.dig = table.dig or
+			{name="hades_sounds_cloth_footstep", gain=0.4, max_hear_distance = mhd, pitch=0.8}
 	hades_sounds.node_sound_defaults(table)
 	return table
 end

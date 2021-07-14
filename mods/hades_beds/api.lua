@@ -1,5 +1,9 @@
 local S = minetest.get_translator("hades_beds")
 
+local bed_sounds = hades_sounds.node_sound_wood_defaults({
+	footstep = hades_sounds.node_sound_cloth_defaults().footstep,
+})
+
 function hades_beds.register_bed(name, def)
 	minetest.register_node(name .. "_bottom", {
 		description = def.description,
@@ -14,7 +18,7 @@ function hades_beds.register_bed(name, def)
 		is_ground_content = false,
 		stack_max = 1,
 		groups = {snappy = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 1},
-		sounds = hades_sounds.node_sound_wood_defaults(),
+		sounds = bed_sounds,
 		node_box = {
 			type = "fixed",
 			fixed = def.nodebox.bottom,
@@ -65,7 +69,7 @@ function hades_beds.register_bed(name, def)
 		paramtype2 = "facedir",
 		is_ground_content = false,
 		groups = {snappy = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 2},
-		sounds = hades_sounds.node_sound_wood_defaults(),
+		sounds = bed_sounds,
 		node_box = {
 			type = "fixed",
 			fixed = def.nodebox.top,

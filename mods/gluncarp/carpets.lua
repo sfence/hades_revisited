@@ -40,6 +40,6 @@ for i in ipairs(carpet_tab) do
 			fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 		},
 		groups = {snappy=3, dig_immediate=2, carpet=1, attached_node=1},
-		sounds = hades_sounds.node_sound_defaults(),
+		sounds = hades_sounds.node_sound_cloth_defaults(),
 	})
 end
