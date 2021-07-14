@@ -117,9 +117,10 @@ kaeza (MIT License):
 sonictechtonic <https://www.freesound.org/people/sonictechtonic/sounds/241872/> (CC BY 3.0):
   player_damage.ogg
 
-Adam_N (CC0 1.0):
-  player_falling_damage.ogg
-  Source: <https://www.freesound.org/people/Adam_N/sounds/346692/>
+MentalSanityOff (CC0 1.0)
+   player_falling_damage.ogg
+   Source: http://www.freesound.org/people/MentalSanityOff/sounds/148796/
+           https://opengameart.org/content/jump-landing-sound
 
 Dynamicell <http://www.freesound.org/people/Dynamicell/sounds/17548/> (CC BY 3.0):
   fire_extinguish_flame.*.ogg
