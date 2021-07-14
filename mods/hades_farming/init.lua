@@ -113,7 +113,7 @@ minetest.register_craftitem("hades_farming:tomato", {
 })
 
 hades_farming.register_plant("hades_farming:potato", {
-	description_seed = S("Potato Seed"),
+	description_seed = S("Sprouting Potato"),
 	description_plant = N("Potato Plant (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_potato_seed.png",
