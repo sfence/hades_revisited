@@ -108,10 +108,10 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = "hades_gaia:staff",
+	output = "hades_gaia:staffgaia",
 	recipe = {
 		{"", "hades_gaia:staffgaia_head", ""},
-		{"", "hades_gaia:shaft", ""},
+		{"", "hades_gaia:staffgaia_shaft", ""},
 	}
 })
 
