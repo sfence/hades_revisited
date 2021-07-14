@@ -16,7 +16,7 @@ minetest.register_node("hades_bushes:green", {
 	walkable = false,
 	floodable = true,
 	groups = {snappy=3,choppy=3,flammable=2,simple_bush=1,attached_node=1,color_green=1},
-	sounds = hades_sounds.node_sound_grass_defaults(),
+	sounds = hades_sounds.node_sound_bush_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
@@ -45,7 +45,7 @@ minetest.register_node("hades_bushes:white", {
 	walkable = false,
 	floodable = true,
 	groups = {snappy=3,choppy=3,flammable=2,simple_bush=1,attached_node=1,color_white=1},
-	sounds = hades_sounds.node_sound_grass_defaults(),
+	sounds = hades_sounds.node_sound_bush_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
@@ -74,7 +74,7 @@ minetest.register_node("hades_bushes:yellow", {
 	walkable = false,
 	floodable = true,
 	groups = {snappy=3,choppy=3,flammable=2,simple_bush=1,attached_node=1,color_yellow=1},
-	sounds = hades_sounds.node_sound_grass_defaults(),
+	sounds = hades_sounds.node_sound_bush_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
@@ -103,7 +103,7 @@ minetest.register_node("hades_bushes:blue", {
 	walkable = false,
 	floodable = true,
 	groups = {snappy=3,choppy=3,flammable=2,simple_bush=1,attached_node=1,color_blue=1},
-	sounds = hades_sounds.node_sound_grass_defaults(),
+	sounds = hades_sounds.node_sound_bush_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
@@ -132,7 +132,7 @@ minetest.register_node("hades_bushes:red", {
 	walkable = false,
 	floodable = true,
 	groups = {snappy=3,choppy=3,flammable=2,simple_bush=1,attached_node=1,color_red=1},
-	sounds = hades_sounds.node_sound_grass_defaults(),
+	sounds = hades_sounds.node_sound_bush_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
@@ -161,7 +161,7 @@ minetest.register_node("hades_bushes:orange", {
 	walkable = false,
 	floodable = true,
 	groups = {snappy=3,choppy=3,flammable=2,simple_bush=1,attached_node=1,color_orange=1},
-	sounds = hades_sounds.node_sound_grass_defaults(),
+	sounds = hades_sounds.node_sound_bush_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},
@@ -191,7 +191,7 @@ minetest.register_node("hades_bushes:violet", {
 	walkable = false,
 	floodable = true,
 	groups = {snappy=3,choppy=3,flammable=2,simple_bush=1,attached_node=1,color_violet=1},
-	sounds = hades_sounds.node_sound_grass_defaults(),
+	sounds = hades_sounds.node_sound_bush_defaults(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.325, -0.5, -0.325, 0.325, 0.5, 0.325},

@@ -29,6 +29,8 @@ Wuzzy (CC0):
   default_grass_footstep.*.ogg
   hades_sounds_grass_dig.*.ogg
   hades_sounds_grass_dug.*.ogg
+  hades_sounds_grass_place.*.ogg
+  hades_sounds_bush_dug.*.ogg
 
 Glass breaking sounds (CC BY 3.0):
   1: http://www.freesound.org/people/cmusounddesign/sounds/71947/

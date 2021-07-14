@@ -156,7 +156,7 @@ hades_farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 		return
 	end
 
-	minetest.sound_play({name="default_place_node", gain=1.0}, {pos=pt.under})
+	minetest.sound_play({name="hades_farming_seed_place", gain=1.0}, {pos=pt.above}, true)
 	
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(pt.above, {name = plantname, param2 = 1})
@@ -209,6 +209,7 @@ hades_farming.register_plant = function(name, def)
 		walkable = false,
 		floodable = true,
 		sunlight_propagates = true,
+		node_placement_prediction = "",
 		node_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -31/64, 0.5},
@@ -216,6 +217,11 @@ hades_farming.register_plant = function(name, def)
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		},
+		sounds = {
+			dig = { name = "hades_farming_seed_dig", gain = 0.1 },
+			dug = { name = "hades_farming_seed_dug", gain = 0.5 },
+			-- place sound is done in hades_farming.place_seed
 		},
 		fertility = def.fertility,
 		on_place = function(itemstack, placer, pointed_thing)

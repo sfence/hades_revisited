@@ -56,7 +56,7 @@ hades_trees.register_sapling = function(id, def)
 			fixed = def.selbox,
 		},
 		groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1, sapling=1},
-		sounds = hades_sounds.node_sound_leaves_defaults(),
+		sounds = hades_sounds.node_sound_bush_defaults(),
 	})
 end
 

@@ -122,7 +122,21 @@ function hades_sounds.node_sound_leaves_defaults(table)
 	table.dig = table.dig or
 			{name="hades_sounds_grass_dig", gain=0.5, max_hear_distance = mhd, pitch=0.9}
 	table.place = table.place or
-			{name="default_place_node", gain=1.0, max_hear_distance = mhd}
+			{name="hades_sounds_grass_place", gain=0.4, max_hear_distance = mhd, pitch=0.6}
+	hades_sounds.node_sound_defaults(table)
+	return table
+end
+
+function hades_sounds.node_sound_bush_defaults(table)
+	table = table or {}
+	table.footstep = table.footstep or
+			{name="default_grass_footstep", gain=0.45, max_hear_distance = mhd}
+	table.dug = table.dug or
+			{name="hades_sounds_bush_dug", gain=1.0, max_hear_distance = mhd}
+	table.dig = table.dig or
+			{name="hades_sounds_grass_dig", gain=0.5, max_hear_distance = mhd}
+	table.place = table.place or
+			{name="hades_sounds_grass_place", gain=0.4, max_hear_distance = mhd, pitch=0.7}
 	hades_sounds.node_sound_defaults(table)
 	return table
 end
@@ -136,7 +150,7 @@ function hades_sounds.node_sound_grass_defaults(table)
 	table.dig = table.dig or
 			{name="hades_sounds_grass_dig", gain=0.4, max_hear_distance = mhd}
 	table.place = table.place or
-			{name="default_place_node", gain=1.0, max_hear_distance = mhd}
+			{name="hades_sounds_grass_place", gain=0.4, max_hear_distance = mhd}
 	hades_sounds.node_sound_defaults(table)
 	return table
 end
@@ -147,8 +161,6 @@ function hades_sounds.node_sound_glass_defaults(table)
 			{name="default_glass_place", gain=0.7, max_hear_distance = mhd}
 	table.footstep = table.footstep or
 			{name="default_glass_footstep", gain=0.5, max_hear_distance = mhd}
-	--table.dig = table.dig or
-			--{name="default_glass_dig", gain=0.5, max_hear_distance = mhd}
 	table.dug = table.dug or
 			{name="default_break_glass", gain=1.0, max_hear_distance = mhd}
 	hades_sounds.node_sound_defaults(table)
