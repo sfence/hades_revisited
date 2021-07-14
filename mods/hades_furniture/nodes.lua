@@ -87,6 +87,7 @@ local S = minetest.get_translator("hades_furniture")
 			paramtype = 'light',
 			paramtype2 = "facedir",
 			is_ground_content = false,
+			_hades_itemshow_offset = { x=-0.118, y=0, z=-0.118 },
 			node_box = {
 				type = "fixed",
 				fixed = {
@@ -348,6 +349,7 @@ local S = minetest.get_translator("hades_furniture")
 		paramtype = 'light',
 		paramtype2 = 'facedir',
 		is_ground_content = false,
+		_hades_itemshow_offset = { x=-0.225, y=0, z=-0.225 },
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -385,6 +387,7 @@ local S = minetest.get_translator("hades_furniture")
 		paramtype = 'light',
 		paramtype2 = 'facedir',
 		is_ground_content = false,
+		_hades_itemshow_offset = { x=-0.225, y=0, z=-0.225 },
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -466,6 +469,7 @@ local S = minetest.get_translator("hades_furniture")
 		paramtype = 'light',
 		paramtype2 = 'facedir',
 		is_ground_content = false,
+		_hades_itemshow_offset = { x=-0.225, y=0, z=-0.225 },
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -599,6 +603,7 @@ local S = minetest.get_translator("hades_furniture")
 		paramtype = 'light',
 		paramtype2 = "facedir",
 		is_ground_content = false,
+		_hades_itemshow_offset = { x=-0.225, y=0, z=-0.225 },
 		node_box = {
 			type = "fixed",
 			fixed = {

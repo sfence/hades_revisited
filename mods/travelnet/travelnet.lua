@@ -20,6 +20,8 @@ minetest.register_node("travelnet:travelnet", {
                 type = "fixed",
                 fixed = { -0.5, -0.5, -0.5, 0.5, 1.5, 0.5 }
     },
+    _hades_itemshow_scale = 0.7,
+    _hades_itemshow_offset = { x=0, y=-2/16, z=0 },
 
     node_box = {
 	    type = "fixed",

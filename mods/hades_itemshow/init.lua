@@ -59,9 +59,11 @@ local update_item = function(pos, node, check_item)
 		if node.name == "hades_itemshow:frame" then
 			local posad = FACEDIR[node.param2]
 			if not posad then return end
-			pos.x = pos.x + posad.x * 6.5 / 16
-			pos.y = pos.y + posad.y * 6.5 / 16
-			pos.z = pos.z + posad.z * 6.5 / 16
+			local def = minetest.registered_items[stack:get_name()]
+			local offset = def._hades_itemshow_offset or vector.new(0,0,0)
+			pos.x = pos.x + posad.x * 6.5 / 16 + posad.x * offset.x
+			pos.y = pos.y + posad.y * 6.5 / 16 + offset.y
+			pos.z = pos.z + posad.z * 6.5 / 16 + posad.z * offset.z
 		elseif minetest.get_item_group(node.name, "pedestal") == 1 then
 			pos.y = pos.y + 12 / 16 + 0.33
 		elseif minetest.get_item_group(node.name, "item_showcase") == 1 then

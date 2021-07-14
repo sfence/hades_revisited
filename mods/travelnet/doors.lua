@@ -27,6 +27,8 @@ minetest.register_node("travelnet:elevator_door_steel_open", {
 			{-0.9, -0.5,  0.4,  0.9, 1.5,  0.5},
 		},
 	},
+	_hades_itemshow_scale = 0.7,
+	_hades_itemshow_offset = { x=-0.15, y=-3/16, z=-0.15 },
 	drop = "travelnet:elevator_door_steel_closed",
 	on_rightclick = function(pos, node, puncher)
 		minetest.sound_play("mcl_fences_nether_brick_fence_gate_close", {pos = pos, gain = 0.3, max_hear_distance = 10}, true)
@@ -57,6 +59,8 @@ minetest.register_node("travelnet:elevator_door_steel_closed", {
 			{-0.5, -0.5,  0.4,  0.5, 1.5,  0.5},
 		},
 	},
+	_hades_itemshow_scale = 0.7,
+	_hades_itemshow_offset = { x=-0.15, y=-3/16, z=-0.15 },
 	on_rightclick = function(pos, node, puncher)
 		minetest.sound_play("mcl_fences_nether_brick_fence_gate_open", {pos = pos, gain = 0.3, max_hear_distance = 10}, true)
 		minetest.add_node(pos, {name = "travelnet:elevator_door_steel_open", param2 = node.param2})
@@ -88,6 +92,8 @@ minetest.register_node("travelnet:elevator_door_glass_open", {
 			{-0.9, -0.5,  0.4,  0.9, 1.5,  0.5},
 		},
 	},
+	_hades_itemshow_scale = 0.7,
+	_hades_itemshow_offset = { x=-0.15, y=-3/16, z=-0.15 },
 	drop = "travelnet:elevator_door_glass_closed",
 	on_rightclick = function(pos, node, puncher)
 		minetest.sound_play("doors_glass_door_close", {pos = pos, gain = 0.3, max_hear_distance = 10}, true)
@@ -119,6 +125,8 @@ minetest.register_node("travelnet:elevator_door_glass_closed", {
 			{-0.5, -0.5,  0.4,  0.5, 1.5,  0.5},
 		},
 	},
+	_hades_itemshow_scale = 0.7,
+	_hades_itemshow_offset = { x=-0.15, y=-3/16, z=-0.15 },
 	on_rightclick = function(pos, node, puncher)
 		minetest.sound_play("doors_glass_door_open", {pos = pos, gain = 0.3, max_hear_distance = 10}, true)
 		minetest.add_node(pos, {name = "travelnet:elevator_door_glass_open", param2 = node.param2})
