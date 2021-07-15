@@ -5,8 +5,8 @@ orienteering.playerhuds = {}
 orienteering.settings = {}
 orienteering.settings.speed_unit = S("m/s")
 orienteering.settings.length_unit = S("m")
-orienteering.settings.hud_pos = { x = 1, y = 0 }
-orienteering.settings.hud_offset = { x = -15, y = 290 }
+orienteering.settings.hud_pos = { x = 1, y = 0.4 }
+orienteering.settings.hud_offset = { x = -15, y = 0 }
 orienteering.settings.hud_alignment = { x = -1, y = -1 }
 
 -- No user settings, HUD position is hardcoded
