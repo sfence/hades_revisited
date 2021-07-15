@@ -150,6 +150,22 @@ local function dig_up(pos, node, digger)
 	end
 end
 
+do
+-- Papyrus
+
+-- helper variables for nodebox
+-- Papyrus stem, thickness
+local a = 0
+local b = 1/16
+
+-- Papyrus bump, height
+local d = 0
+local f = 1/16
+
+-- Papyrus bump, width
+local c = -1/16
+local e = 2/16
+
 minetest.register_node("hades_core:papyrus", {
 	description = S("Papyrus"),
 	_tt_help = S("Grows on Dirt with Grass near water"),
@@ -174,26 +190,26 @@ minetest.register_node("hades_core:papyrus", {
 	},
 	node_box = {
 		type = "fixed",
-		fixed = {
-			--papyrus 1
-			{-0.03-0.1,-0.5,-0.03-0.1, 0.03-0.1,0.5,0.03-0.1},
-			{-0.06-0.1,-0.02-0.1,-0.06-0.1, 0.06-0.1,0.02-0.1,0.06-0.1},
-			--papyrus 2
-			{-0.03-0.4,-0.5,-0.03-0.3, 0.03-0.4,0.5,0.03-0.3},
-			{-0.06-0.4,-0.02-0.2,-0.06-0.3, 0.06-0.4,0.02-0.2,0.06-0.3},
-			--papyrus 3
-			{-0.03+0.4,-0.5,-0.03-0.3,0.03+0.4,0.5,0.03-0.3},
-			{-0.06+0.4,-0.02+0.2,-0.06-0.3, 0.06+0.4,0.02+0.2,0.06-0.3},
-			--papyrus 4
-			{-0.03-0.4,-0.5,-0.03+0.4, 0.03-0.4,0.5,0.03+0.4},
-			{-0.06-0.4,0.02+0.4,-0.06+0.4, 0.06-0.4,0.02+0.4,0.06+0.4},
-			--papyrus 5
-			{-0.03-0.2,-0.5,-0.03+0.2, 0.03-0.2,0.5,0.03+0.2},
-			{-0.06-0.2,0.02-0.4,-0.06+0.2, 0.06-0.2,0.02-0.4,0.06+0.2},
-			--papyrus 6
-			{-0.03+0.1,-0.5,-0.03+0.2, 0.03+0.1,0.5,0.03+0.2},
-			{-0.06+0.1,0.02+0.3,-0.06+0.2, 0.06+0.1,0.02+0.3,0.06+0.2},
-		},
+                 fixed = {
+                         --papyrus 1
+                         {a-2/16,-0.5,a-2/16, b-2/16,0.5,b-2/16},
+                         {c-2/16,d-2/16,c-2/16, e-2/16,f-2/16,e-2/16},
+                         --papyrus 2
+                         {a-6/16,-0.5,a-5/16, b-6/16,0.5,b-5/16},
+                         {c-6/16,d-3/16,c-5/16, e-6/16,f-3/16,e-5/16},
+                         --papyrus 3
+                         {a+6/16,-0.5,a-5/16,b+6/16,0.5,b-5/16},
+                         {c+6/16,d+3/16,c-5/16, e+6/16,f+3/16,e-5/16},
+                         --papyrus 4
+                         {a-6/16,-0.5,a+6/16, b-6/16,0.5,b+6/16},
+                         {c-6/16,d+6/16,c+6/16, e-6/16,f+6/16,e+6/16},
+                         --papyrus 5
+                         {a-3/16,-0.5,a+3/16, b-3/16,0.5,b+3/16},
+                         {c-3/16,d-6/16,c+3/16, e-3/16,f-6/16,e+3/16},
+                         --papyrus 6
+                         {a+2/16,-0.5,a+3/16, b+2/16,0.5,b+3/16},
+                         {c+2/16,d+5/16,c+3/16, e+2/16,f+5/16,e+3/16},
+                 },
 	},
 	groups = {snappy = 3,flammable = 2},
 	sounds = hades_sounds.node_sound_grass_defaults(),
@@ -202,6 +218,7 @@ minetest.register_node("hades_core:papyrus", {
 		dig_up(pos, node, digger)
 	end,
 })
+end
 
 minetest.register_node("hades_core:sugarcane", {
 	description = S("Sugarcane"),
