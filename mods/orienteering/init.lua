@@ -226,6 +226,14 @@ function orienteering.update_automapper(player)
 	end
 end
 
+function orienteering.update_compass(player)
+	if orienteering.tool_active(player, "orienteering:compass") or orienteering.tool_active(player, "orienteering:quadcorder") then
+		hades_compass.enable(player)
+	else
+		hades_compass.disable(player)
+	end
+end
+
 -- Checks whether a certain orienteering tool is “active” and ready for use
 function orienteering.tool_active(player, item)
 	-- Requirement: player carries the tool in the hotbar
@@ -241,6 +249,7 @@ end
 
 function orienteering.init_hud(player)
 	orienteering.update_automapper(player)
+	orienteering.update_compass(player)
 	local name = player:get_player_name()
 	orienteering.playerhuds[name] = {}
 	for i=1, o_lines do
@@ -259,6 +268,9 @@ end
 function orienteering.update_hud_displays(player)
 	local toDegrees=180/math.pi
 	local name = player:get_player_name()
+	if not orienteering.playerhuds[name] then
+		return
+	end
 	local gps, altimeter, triangulator, compass, sextant, watch, speedometer, quadcorder
 
 	if orienteering.tool_active(player, "orienteering:gps") then
@@ -387,6 +399,7 @@ minetest.register_globalstep(function(dtime)
 		local players = minetest.get_connected_players()
 		for i=1, #players do
 			orienteering.update_automapper(players[i])
+			orienteering.update_compass(players[i])
 			orienteering.update_hud_displays(players[i])
 		end
 		updatetimer = updatetimer - dtime
