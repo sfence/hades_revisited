@@ -44,7 +44,9 @@ minetest.register_node("hades_farming:soil_wet", {
 	drop = "hades_core:dirt",
 	is_ground_content = true,
 	groups = {crumbly=3, not_in_creative_inventory=1, soil=3, wet = 1, grassland = 1, field = 1},
-	sounds = hades_sounds.node_sound_dirt_defaults(),
+	sounds = hades_sounds.node_sound_dirt_defaults({
+		footstep = { name = "hades_farming_wet_soil_footstep", gain = 1.0 },
+	}),
 	soil = {
 		base = "hades_core:dirt",
 		dry = "hades_farming:soil",

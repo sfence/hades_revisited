@@ -48,3 +48,10 @@ Created by Wuzzy, based on sound by wyronroberth (License: MIT License):
   hades_farming_seed_dug.2.ogg
   hades_farming_seed_place.1.ogg
   hades_farming_seed_place.2.ogg
+
+Created by Wuzzy (License: MIT License):
+  hades_farming_wet_soil_footstep.1.ogg
+  hades_farming_wet_soil_footstep.2.ogg
+  hades_farming_wet_soil_footstep.3.ogg
+  hades_farming_wet_soil_footstep.4.ogg
+  hades_farming_wet_soil_footstep.5.ogg
