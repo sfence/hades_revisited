@@ -3,13 +3,13 @@ atmos.handles = {}
 atmos.current_atmos = {}
 
 local ATMOS_LIST = {
-	{ name = "hades_atmos_overworld_volcanic_day_1", gain = 0.08 },
-	{ name = "hades_atmos_overworld_volcanic_day_2", gain = 0.3 },
-	{ name = "hades_atmos_underworld", gain = 0.2 },
-	{ name = "hades_atmos_overworld_volcanic_night_1", gain = 0.3 },
-	{ name = "hades_atmos_overworld_volcanic_night_2", gain = 0.3 },
-	{ name = "hades_atmos_wind", gain = 0.1 },
-	{ name = "hades_atmos_underworld_deep", gain = 0.2 },
+	{ name = "hades_sounds_atmos_overworld_volcanic_day_1", gain = 0.08 },
+	{ name = "hades_sounds_atmos_overworld_volcanic_day_2", gain = 0.3 },
+	{ name = "hades_sounds_atmos_underworld", gain = 0.2 },
+	{ name = "hades_sounds_atmos_overworld_volcanic_night_1", gain = 0.3 },
+	{ name = "hades_sounds_atmos_overworld_volcanic_night_2", gain = 0.3 },
+	{ name = "hades_sounds_atmos_wind", gain = 0.1 },
+	{ name = "hades_sounds_atmos_underworld_deep", gain = 0.2 },
 }
 local ATMOS_NOTHING = 0
 local ATMOS_DAY_1 = 1
@@ -54,7 +54,7 @@ atmos.play_atmos = function(pname, atmos_no, fadein)
 	elseif atmos.current_atmos[pname] ~= nil then
 		atmos.stop_atmos(pname, true)
 	end
-	minetest.log("info", "[hades_atmos] Playing atmos no. "..atmos_no.." for "..pname)
+	minetest.log("info", "[hades_sounds_atmos] Playing atmos no. "..atmos_no.." for "..pname)
 	local atm = ATMOS_LIST[atmos_no]
 	if not atmos.handles[pname] then
 		local fade
