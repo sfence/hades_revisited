@@ -181,9 +181,6 @@ from their original.
 `hades_chests` (based on `kerova`)
 <https://forum.minetest.net/viewtopic.php?id=8054>
 
-`mesecons`
-<https://forum.minetest.net/viewtopic.php?t=628>
-
 `mobs` (Mobs Redo)
 <https://forum.minetest.net/viewtopic.php?t=9917>
 <https://forum.minetest.net/viewtopic.php?f=15&t=9184>
@@ -220,7 +217,6 @@ Some mods have separate licenses:
 * `bags`: New BSD License
 * `hades_bedrock`: zlib license
 * `signs_lib`: LGPLv3
-* `mesecons` (entire modpack): LGPLv3 for code, CC BY-SA 3.0 for media
 * `hades_bushes`: MIT License for code, CC BY-SA 4.0 for media
 
 For detailed credits and author information, check out the readme files of the

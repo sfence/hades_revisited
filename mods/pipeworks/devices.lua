@@ -5,7 +5,7 @@ local S = minetest.get_translator("pipeworks")
 local pipereceptor_on = nil
 local pipereceptor_off = nil
 
-if mesecon then
+if minetest.global_exists("mesecon") then
 	pipereceptor_on = {
 		receptor = {
 			state = mesecon.state.on,

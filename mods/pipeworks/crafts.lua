@@ -31,7 +31,7 @@ minetest.register_craft( {
 minetest.register_craft( {
         output = "pipeworks:pump_off",
         recipe = {
-                { "hades_core:steel_ingot", "mesecons_solarpanel:solar_panel_off", "hades_core:steel_ingot" },
+                { "hades_materials:silicon", "hades_materials:silicon", "hades_materials:silicon" },
                 { "group:stick", "hades_core:emerald", "group:stick" },
                 { "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" }
         },
@@ -67,7 +67,7 @@ minetest.register_craft( {
 minetest.register_craft( {
         output = "pipeworks:flow_sensor_empty 2",
         recipe = {
-                { "pipeworks:pipe_1_empty", "mesecons:mesecon", "pipeworks:pipe_1_empty" },
+                { "pipeworks:pipe_1_empty", "hades_core:mese_crystal_fragment", "pipeworks:pipe_1_empty" },
         },
 })
 
@@ -124,7 +124,7 @@ minetest.register_craft( {
 	output = "pipeworks:conductor_tube_off_1 6",
 	recipe = {
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" },
-	        { "mesecons:mesecon", "mesecons:mesecon", "mesecons:mesecon" },
+	        { "hades_core:mese_crystal_fragment", "hades_core:mese_crystal_fragment", "hades_core:mese_crystal_fragment" },
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" }
 	},
 })
@@ -133,7 +133,7 @@ minetest.register_craft( {
 	output = "pipeworks:detector_tube_off_1 2",
 	recipe = {
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" },
-	        { "mesecons:mesecon", "mesecons_materials:silicon", "mesecons:mesecon" },
+	        { "hades_core:mese_crystal_fragment", "hades_materials:silicon", "hades_core:mese_crystal_fragment" },
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" }
 	},
 })

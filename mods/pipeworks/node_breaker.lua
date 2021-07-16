@@ -9,8 +9,8 @@ minetest.register_craft({
 	output = 'pipeworks:nodebreaker_off 1',
 	recipe = {
 		{'group:wood', 'hades_core:pick_mese','group:wood'},
-		{'hades_core:stone', 'mesecons:piston','hades_core:stone'},
-		{'hades_core:stone', 'mesecons:mesecon','hades_core:stone'},
+		{'hades_core:stone', 'hades_core:cobble','hades_core:stone'},
+		{'hades_core:stone', 'hades_core:mese_crystal_fragment','hades_core:stone'},
 	}
 })
 

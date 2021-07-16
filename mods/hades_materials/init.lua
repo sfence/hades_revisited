@@ -33,7 +33,7 @@ minetest.register_craft({
 	recipe = {
 		{'hades_core:tin_ingot', 'hades_core:gold_ingot', 'hades_core:tin_ingot'},
 		{'hades_core:gold_ingot', 'hades_core:prismatic_gem', 'hades_core:gold_ingot'},
-		{'hades_core:tin_ingot', 'mesecons_powerplant:power_plant', 'hades_core:tin_ingot'},
+		{'hades_core:tin_ingot', 'hades_core:mese_crystal', 'hades_core:tin_ingot'},
 	}
 })
 
@@ -57,3 +57,17 @@ minetest.register_craft({
 
 minetest.register_alias("homedecor:plastic_base", "hades_materials:plastic_base")
 minetest.register_alias("homedecor:plastic_sheeting", "hades_materials:plastic_sheeting")
+
+-- Silicon
+minetest.register_craftitem("hades_materials:silicon", {
+	description= S("Silicon"),
+	inventory_image = "jeija_silicon.png",
+	wield_image = "jeija_silicon.png",
+})
+minetest.register_craft({
+	output = "hades_materials:silicon 4",
+	recipe = {
+		{"hades_core:volcanic_sand", "hades_core:volcanic_sand"},
+		{"hades_core:volcanic_sand", "hades_core:steel_ingot"},
+	}
+})
