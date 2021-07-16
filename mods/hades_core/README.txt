@@ -114,6 +114,19 @@ Zeg9 (CC BY-SA 3.0):
 kaeza (MIT License):
   bubble.png
 
+Eelke <https://freesound.org/people/Eelke/sounds/462598/> (CC BY 3.0):
+  hades_core_footstep_ladder_metal.1.ogg
+  hades_core_footstep_ladder_metal.2.ogg
+  hades_core_footstep_ladder_metal.3.ogg
+  hades_core_footstep_ladder_metal.4.ogg
+  hades_core_footstep_ladder_metal.5.ogg
+
+Fission9 <https://freesound.org/people/Fission9/sounds/521589/> (CC0 1.0)
+  hades_core_footstep_ladder_wood.1.ogg
+  hades_core_footstep_ladder_wood.2.ogg
+  hades_core_footstep_ladder_wood.3.ogg
+  hades_core_footstep_ladder_wood.4.ogg
+
 sonictechtonic <https://www.freesound.org/people/sonictechtonic/sounds/241872/> (CC BY 3.0):
   player_damage.ogg
 

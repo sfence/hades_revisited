@@ -92,44 +92,48 @@ hades_core.register_ladder = function(id, def)
 end
 
 
-
+local snd_wood = hades_sounds.node_sound_wood_defaults({
+	footstep = { name = "hades_core_footstep_ladder_wood", gain = 0.7 },
+})
 
 hades_core.register_ladder("hades_core:ladder", {
 	description = S("Temperate Wood Ladder"),
 	texture = "default_ladder.png",
 	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
-	sounds = hades_sounds.node_sound_wood_defaults(),
+	sounds = snd_wood,
 })
 hades_core.register_ladder("hades_core:ladder_lush_wood", {
 	description = S("Lush Wood Ladder"),
 	texture = "hades_core_ladder_lush_wood.png",
 	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
-	sounds = hades_sounds.node_sound_wood_defaults(),
+	sounds = snd_wood,
 })
 hades_core.register_ladder("hades_core:ladder_pale_wood", {
 	description = S("Pale Wood Ladder"),
 	texture = "hades_core_ladder_pale_wood.png",
 	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
-	sounds = hades_sounds.node_sound_wood_defaults(),
+	sounds = snd_wood,
 })
 hades_core.register_ladder("hades_core:ladder_cream_wood", {
 	description = S("Cream Wood Ladder"),
 	texture = "hades_core_ladder_cream_wood.png",
 	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
-	sounds = hades_sounds.node_sound_wood_defaults(),
+	sounds = snd_wood,
 })
 hades_core.register_ladder("hades_core:ladder_jungle_wood", {
 	description = S("Jungle Wood Ladder"),
 	texture = "hades_core_ladder_jungle_wood.png",
 	groups = {choppy=3,oddly_breakable_by_hand=3,flammable=2},
-	sounds = hades_sounds.node_sound_wood_defaults(),
+	sounds = snd_wood,
 })
 
 hades_core.register_ladder("hades_core:ladder_bronze", {
 	description = S("Bronze Ladder"),
 	texture = "hades_core_ladder_bronze.png",
 	groups = {cracky=3},
-	sounds = hades_sounds.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults({
+		footstep = { name = "hades_core_footstep_ladder_metal", gain = 0.5 },
+	}),
 })
 
 
