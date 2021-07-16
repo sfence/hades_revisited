@@ -1,6 +1,6 @@
 local S = minetest.get_translator("vines")
 
-local mod_name = "vines"
+local mod_name = "hades_vines"
 local average_height = 12
 local spawn_interval = 90
 
@@ -171,7 +171,7 @@ local function register_vine(id, def)
 
 	local is_centered = def.groups.vines == 2
 
-	minetest.register_node("vines:"..id, {
+	minetest.register_node("hades_vines:"..id, {
 		description = def.description_normal,
 		_tt_help = tt_surv,
 		walkable = false,
@@ -182,10 +182,10 @@ local function register_vine(id, def)
 		sunlight_propagates = true,
 		paramtype = "light",
 		paramtype2 = paramtype2,
-		tiles = { "vines_"..id..".png", "vines_"..id..".png", "blank.png" },
+		tiles = { "hades_vines_"..id..".png", "hades_vines_"..id..".png", "blank.png" },
 		drawtype = drawtype,
-		inventory_image = "vines_"..id..".png",
-		wield_image = "vines_"..id..".png",
+		inventory_image = "hades_vines_"..id..".png",
+		wield_image = "hades_vines_"..id..".png",
 		groups = def.groups,
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 		selection_box = selection_box,
@@ -201,7 +201,7 @@ local function register_vine(id, def)
 		local groups_rotten = table.copy(def.groups)
 		groups_rotten.vines_rotten = 1
 
-		minetest.register_node("vines:"..id.."_rotten", {
+		minetest.register_node("hades_vines:"..id.."_rotten", {
 			description = def.description_rotten,
 			walkable = false,
 			climbable = true,
@@ -211,10 +211,10 @@ local function register_vine(id, def)
 			sunlight_propagates = true,
 			paramtype = "light",
 			paramtype2 = paramtype2,
-			tiles = { "vines_"..id.."_rotten.png", "vines_"..id.."_rotten.png", "blank.png" },
+			tiles = { "hades_vines_"..id.."_rotten.png", "hades_vines_"..id.."_rotten.png", "blank.png" },
 			drawtype = drawtype,
-			inventory_image = "vines_"..id.."_rotten.png",
-			wield_image = "vines_"..id.."_rotten.png",
+			inventory_image = "hades_vines_"..id.."_rotten.png",
+			wield_image = "hades_vines_"..id.."_rotten.png",
 			groups = groups_rotten,
 			sounds = hades_sounds.node_sound_leaves_defaults(),
 			selection_box = selection_box,
@@ -226,7 +226,7 @@ local function register_vine(id, def)
 	end
 end
 
-register_vine("side", {
+register_vine("jungle", {
 	vines_type = "side",
 	description_normal = S("Tropical Vine"),
 	description_rotten = S("Rotten Tropical Vine"),
@@ -240,7 +240,7 @@ register_vine("willow", {
 	groups = vines_group_side,
 })
 
-register_vine("vine", {
+register_vine("cave", {
 	vines_type = "center",
 	description_normal = S("Cave Vine"),
 	description_rotten = S("Rotten Cave Vine"),
@@ -265,7 +265,7 @@ register_vine("root", {
 
 minetest.register_abm({
 	label = "Vine rot",
-	nodenames = {"vines:vine", "vines:side", "vines:willow"},
+	nodenames = {"hades_vines:cave", "hades_vines:jungle", "hades_vines:willow"},
 	interval = 300,
 	chance = 8,
 	action = function(pos, node, active_object_count, active_object_count_wider)
@@ -278,7 +278,7 @@ minetest.register_abm({
 
 minetest.register_abm({
 	label = "Grow vines",
-	nodenames = {"vines:vine", "vines:side", "vines:willow"},
+	nodenames = {"hades_vines:cave", "hades_vines:jungle", "hades_vines:willow"},
 	interval = 300,
 	chance = 2,
 	action = function(pos, node, active_object_count, active_object_count_wider)
@@ -357,10 +357,10 @@ minetest.register_abm({
 
 --spawning
 plantslib:spawn_on_surfaces({
-	avoid_nodes = {"vines:vine"},
+	avoid_nodes = {"hades_vines:cave"},
 	avoid_radius = 5,
 	spawn_delay = spawn_interval,
-	spawn_plants = {"vines:vine"},
+	spawn_plants = {"hades_vines:cave"},
 	spawn_chance = 50,
 	spawn_surfaces = {"hades_core:dirt_with_grass","hades_core:dirt"},
 	spawn_on_bottom = true,
@@ -368,10 +368,10 @@ plantslib:spawn_on_surfaces({
 })
 
 plantslib:spawn_on_surfaces({
-	avoid_nodes = {"vines:vine", "vines:side"},
+	avoid_nodes = {"hades_vines:cave", "hades_vines:jungle"},
 	avoid_radius = 3,
 	spawn_delay = spawn_interval,
-	spawn_plants = {"vines:side"},
+	spawn_plants = {"hades_vines:jungle"},
 	spawn_chance = 50,
 	spawn_surfaces = {"group:leaves"},
 	spawn_on_side = true,
@@ -383,7 +383,7 @@ plantslib:spawn_on_surfaces({
 })
 
 plantslib:spawn_on_surfaces({
-	spawn_plants = {"vines:willow"},
+	spawn_plants = {"hades_vines:willow"},
 	avoid_radius = 3,
 	spawn_delay = spawn_interval,
 	spawn_chance = 50,
@@ -398,11 +398,11 @@ plantslib:spawn_on_surfaces({
 
 -- Shears: jojoa1997's shears
 
-minetest.register_tool("vines:shears", {
+minetest.register_tool("hades_vines:shears", {
 	description = S("Shears"),
 	_tt_help = S("Cuts leaves, vines and plants"),
-	inventory_image = "vines_shears.png",
-	wield_image = "vines_shears.png",
+	inventory_image = "hades_vines_shears.png",
+	wield_image = "hades_vines_shears.png",
 	stack_max = 1,
 	max_drop_level=3,
 	groups = { shears = 1 },
@@ -416,7 +416,7 @@ minetest.register_tool("vines:shears", {
 })
 
 minetest.register_craft({
-	output = 'vines:shears',
+	output = 'hades_vines:shears',
 	recipe = {
 		{'', 'hades_core:steel_ingot', ''},
 		{'group:stick', 'group:wood', 'hades_core:steel_ingot'},
@@ -424,10 +424,10 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("vines:vines_block",{
+minetest.register_node("hades_vines:vines_block",{
 	description = S("Vines Block"),
 	sunlight_propagates = true,
-	tiles = {"vines_block.png"},
+	tiles = {"hades_vines_block.png"},
 	drawtype = "allfaces_optional",
 	paramtype = "light",
 	groups = {snappy=2,flammable=2 },
@@ -435,7 +435,7 @@ minetest.register_node("vines:vines_block",{
 })
 
 minetest.register_craft({
-	output = 'vines:vines_block',
+	output = 'hades_vines:vines_block',
 	recipe = {
 		{'hades_farming:string', '', 'hades_farming:string'},
 		{'', 'group:vines', ''},
@@ -443,7 +443,4 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_alias("vines:rope", "vines:root")
-minetest.register_alias("vines:rope_end", "vines:root")
-
-minetest.log("action", "[vines] Loaded!")
+minetest.log("action", "[hades_vines] loaded!")

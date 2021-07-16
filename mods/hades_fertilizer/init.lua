@@ -123,7 +123,7 @@ local get_apply_fertilizer = function(super)
 					break
 				end
 			end
-		elseif minetest.get_item_group(nname, "vines") ~= 0 or nname == "vines:root" then
+		elseif minetest.get_item_group(nname, "vines") ~= 0 or nname == "hades_vines:root" then
 			if not super then return itemstack end
 			-- [SUPER] Grow vines
 			local param2 = nnode.param2
