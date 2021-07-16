@@ -355,14 +355,6 @@ minetest.register_abm({
 })
 
 
---Craft
-
-minetest.register_craftitem("vines:vines", {
-	description = S("Detached Vine"),
-	inventory_image = "vines_item.png",
-})
-
-
 --spawning
 plantslib:spawn_on_surfaces({
 	avoid_nodes = {"vines:vine"},
