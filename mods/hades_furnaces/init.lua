@@ -121,7 +121,6 @@ local furnace_types = {
 local function furnace_get_infotext(description, is_active, has_src, has_fuel, src_is_cookable, item_percent, fuel_percent)
 	local formspec
 	local item_state
-	local item_percent = 0
 	if src_is_cookable then
 		if item_percent > 100 then
 			item_state = S("100% (output full)")
@@ -156,6 +155,23 @@ local function furnace_get_infotext(description, is_active, has_src, has_fuel, s
 		fuel_state)
 
 	return infotext
+end
+
+local function update_infotext_on_metadata_inventory(pos, listname, index, stack, player)
+	if listname == "fuel" then
+		if minetest.get_craft_result({method="fuel", width=1, items={stack}}).time ~= 0 then
+			local meta = minetest.get_meta(pos)
+			local inv = meta:get_inventory()
+			if inv:is_empty("src") then
+				local node = minetest.get_node(pos)
+				local def = minetest.registered_nodes[node.name]
+				local id_normal = def._furnace_normal
+				local desc = ItemStack(minetest.registered_nodes[id_normal]):get_short_description()
+				local infotext = furnace_get_infotext(desc, false, false, false, false, 0, 0)
+				meta:set_string("infotext", infotext)
+			end
+		end
+	end
 end
 
 local function furnace_node_timer(pos, elapsed)
@@ -328,9 +344,11 @@ for id, finfo in pairs(furnace_types) do
 		on_metadata_inventory_move = function(pos)
 			minetest.get_node_timer(pos):start(1.0)
 		end,
-		on_metadata_inventory_put = function(pos)
+		on_metadata_inventory_put = function(pos, listname, index, stack, player)
 			minetest.get_node_timer(pos):start(1.0)
+			update_infotext_on_metadata_inventory(pos, listname, index, stack, player)
 		end,
+		on_metadata_inventory_take = update_infotext_on_metadata_inventory,
 
 		allow_metadata_inventory_put = allow_metadata_inventory_put,
 		allow_metadata_inventory_move = allow_metadata_inventory_move,
@@ -371,6 +389,8 @@ for id, finfo in pairs(furnace_types) do
 		allow_metadata_inventory_put = allow_metadata_inventory_put,
 		allow_metadata_inventory_move = allow_metadata_inventory_move,
 		allow_metadata_inventory_take = allow_metadata_inventory_take,
+		on_metadata_inventory_put = update_infotext_on_metadata_inventory,
+		on_metadata_inventory_take = update_infotext_on_metadata_inventory,
 		on_rotate = "simple",
 
 		_furnace_normal = id,
