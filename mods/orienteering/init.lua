@@ -11,7 +11,7 @@ orienteering.settings.hud_alignment = { x = -1, y = -1 }
 
 -- No user settings, HUD position is hardcoded
 
-local o_lines = 4 -- Number of lines in HUD
+local o_lines = 3 -- Number of lines in HUD
 
 -- Helper function to switch between 12h and 24 mode for the time
 function orienteering.toggle_time_mode(itemstack, user, pointed_thing)
@@ -56,31 +56,19 @@ minetest.register_tool("orienteering:triangulator", {
 -- TODO: calculate yaw difference between 2 points
 minetest.register_tool("orienteering:compass", {
 	description = S("Compass"),
-	_tt_help = S("Shows your yaw"),
-	_doc_items_longdesc = S("It shows you your yaw (horizontal viewing angle) in degrees."),
+	_tt_help = S("Shows the cardinal direction you're looking at"),
+	_doc_items_longdesc = S("It shows where you're looking: North, East, South or West."),
 	_doc_items_usagehelp = use,
 	wield_image = "orienteering_compass_wield.png",
 	inventory_image = "orienteering_compass_inv.png",
 	groups = { disable_repair = 1 },
 })
 
--- Displays player pitch
--- TODO: calculate pitch difference between 2 points
-minetest.register_tool("orienteering:sextant", {
-	description = S("Sextant"),
-	_tt_help = S("Shows your pitch"),
-	_doc_items_longdesc = S("It shows you your pitch (vertical viewing angle) in degrees."),
-	_doc_items_usagehelp = use,
-	wield_image = "orienteering_sextant_wield.png",
-	inventory_image = "orienteering_sextant_inv.png",
-	groups = { disable_repair = 1 },
-})
-
 -- Ultimate orienteering tool: Displays X,Y,Z, yaw, pitch, time, speed and enables the minimap
 minetest.register_tool("orienteering:quadcorder", {
 	description = S("Quadcorder"),
-	_tt_help = S("Shows your coordinates, yaw, pitch, time, speed and enables minimap"),
-	_doc_items_longdesc = S("This is the ultimate orientieering tool. It shows you your coordinates (X, Y and Z), shows your yaw and pitch (horizontal and vertical viewing angles), the current time, your current speed and it enables you to access the minimap."),
+	_tt_help = S("Shows your coordinates, cardinal direction, pitch, time, speed and enables minimap"),
+	_doc_items_longdesc = S("This is the ultimate orientieering tool. It shows you your coordinates (X, Y and Z), shows the cardinal direction, the current time, your current speed and it enables you to access the minimap."),
 	wield_image = "orienteering_quadcorder.png",
 	_doc_items_usagehelp = use_time,
 	wield_scale = { x=1, y=1, z=3.5 },
@@ -127,8 +115,8 @@ minetest.register_tool("orienteering:automapper", {
 -- Displays X,Y,Z coordinates, yaw and game time
 minetest.register_tool("orienteering:gps", {
 	description = S("GPS device"),
-	_tt_help = S("Shows your coordinates, yaw and the time"),
-	_doc_items_longdesc = S("The GPS device shows you your coordinates (X, Y and Z), your yaw (horizontal viewing angle) and the time."),
+	_tt_help = S("Shows your coordinates, cardinal direction and the time"),
+	_doc_items_longdesc = S("The GPS device shows you your coordinates (X, Y and Z), your cardinal direction and the time."),
 	_doc_items_usagehelp = use_time,
 	wield_image = "orienteering_gps_wield.png",
 	wield_scale = { x=1, y=1, z=2 },
@@ -152,13 +140,6 @@ if minetest.get_modpath("hades_core") ~= nil then
 		recipe = {
 			{"", "hades_core:bronze_ingot", ""},
 			{"hades_core:bronze_ingot", "", "hades_core:bronze_ingot"},
-		}
-	})
-	minetest.register_craft({
-		output = "orienteering:sextant",
-		recipe = {
-			{"", "hades_core:gold_ingot", ""},
-			{"hades_core:gold_ingot", "hades_core:gold_ingot", "hades_core:gold_ingot"},
 		}
 	})
 	minetest.register_craft({
@@ -197,8 +178,8 @@ if minetest.get_modpath("hades_core") ~= nil then
 		output = "orienteering:quadcorder",
 		recipe = {
 			{ "hades_core:gold_ingot", "hades_core:gold_ingot", "hades_core:gold_ingot" },
-			{ "orienteering:speedometer", "hades_core:prismatic_gem", "orienteering:automapper", },
-                        { "orienteering:sextant", "hades_core:diamond", "orienteering:gps" }
+			{ "hades_core:bronze_ingot", "hades_core:prismatic_gem", "orienteering:automapper", },
+                        { "orienteering:speedometer", "hades_core:diamond", "orienteering:gps" }
 		}
 	})
 	minetest.register_craft({
@@ -271,7 +252,7 @@ function orienteering.update_hud_displays(player)
 	if not orienteering.playerhuds[name] then
 		return
 	end
-	local gps, altimeter, triangulator, compass, sextant, watch, speedometer, quadcorder
+	local gps, altimeter, triangulator, compass, watch, speedometer, quadcorder
 
 	if orienteering.tool_active(player, "orienteering:gps") then
 		gps = true
@@ -285,9 +266,6 @@ function orienteering.update_hud_displays(player)
 	if orienteering.tool_active(player, "orienteering:compass") then
 		compass = true
 	end
-	if orienteering.tool_active(player, "orienteering:sextant") then
-		sextant = true
-	end
 	if orienteering.tool_active(player, "orienteering:watch") then
 		watch = true
 	end
@@ -298,7 +276,7 @@ function orienteering.update_hud_displays(player)
 		quadcorder = true
 	end
 
-	local str_pos, str_angles, str_time, str_speed
+	local str_pos, str_time, str_speed
 	local pos = vector.round(player:get_pos())
 	if (altimeter and triangulator) or gps or quadcorder then
 		str_pos = S("Coordinates: X=@1, Y=@2, Z=@3", pos.x, pos.y, pos.z)
@@ -308,18 +286,6 @@ function orienteering.update_hud_displays(player)
 		str_pos = S("Coordinates: X=@1, Z=@2", pos.x, pos.z)
 	else
 		str_pos = ""
-	end
-
-	local yaw = player:get_look_horizontal()*toDegrees
-	local pitch = player:get_look_vertical()*toDegrees
-	if ((compass or gps) and sextant) or quadcorder then
-		str_angles = S("Yaw: @1°, pitch: @2°", string.format("%.1f", yaw), string.format("%.1f", pitch))
-	elseif compass or gps then
-		str_angles = S("Yaw: @1°", string.format("%.1f", yaw))
-	elseif sextant then
-		str_angles = S("Pitch: @1°", string.format("%.1f", pitch))
-	else
-		str_angles = ""
 	end
 
 	local time = minetest.get_timeofday()
@@ -372,7 +338,7 @@ function orienteering.update_hud_displays(player)
 		str_speed = ""
 	end
 
-	local strs = { str_pos, str_angles, str_time, str_speed }
+	local strs = { str_pos, str_time, str_speed }
 	local line = 1
 	for i=1, o_lines do
 		if strs[i] ~= "" then
