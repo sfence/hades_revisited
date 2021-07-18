@@ -27,7 +27,7 @@ local function active_formspec(ftype, fuel_percent, item_percent)
 	(item_percent)..":gui_furnace_arrow_fg.png^[transformR270]"..
 	"list[current_name;dst;"..formspec_info[ftype].output_slots..";]"..
 	"list[current_player;main;0,4.25;10,1;]"..
-	"list[current_player;main;0,5.5;8,3;10]"..
+	"list[current_player;main;0,5.5;10,3;10]"..
 	"listring[current_name;dst]"..
 	"listring[current_player;main]"..
 	"listring[current_name;src]"..
