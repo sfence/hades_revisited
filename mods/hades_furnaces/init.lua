@@ -73,9 +73,6 @@ local function allow_metadata_inventory_put(pos, listname, index, stack, player)
 	local inv = meta:get_inventory()
 	if listname == "fuel" then
 		if minetest.get_craft_result({method="fuel", width=1, items={stack}}).time ~= 0 then
-			if inv:is_empty("src") then
-				meta:set_string("infotext", "Furnace is empty")
-			end
 			return stack:get_count()
 		else
 			return 0
@@ -120,6 +117,46 @@ local furnace_types = {
 	["hades_furnaces:furnace"] = { S("Furnace"), S("Smelts and cooks items by using fuel"), "default_furnace", 1.0, 0.75, 1 },
 	["hades_furnaces:prism_furnace"] = { S("Prism Furnace"), S("Smelts and cooks items by using fuel").."\n"..S("More efficient than the normal furnace"),  "hades_furnaces_prism_furnace", 1.0, 4.25, 4 },
 }
+
+local function furnace_get_infotext(description, is_active, has_src, has_fuel, src_is_cookable, item_percent, fuel_percent)
+	local formspec
+	local item_state
+	local item_percent = 0
+	if src_is_cookable then
+		if item_percent > 100 then
+			item_state = S("100% (output full)")
+		else
+			item_state = S("@1%", item_percent)
+		end
+	else
+		if not has_src then
+			item_state = S("Empty")
+		else
+			item_state = S("Not cookable")
+		end
+	end
+
+	local fuel_state = S("Empty")
+	local active = S("inactive")
+	local result = false
+	if is_active then
+		active = S("active")
+		fuel_state = S("@1%", fuel_percent)
+	else
+		if has_fuel then
+			fuel_state = S("@1%", 0)
+		end
+	end
+
+	local infotext = S("@1 @2",
+		description,
+		active) .. "\n" ..
+		S("(Item: @1; Fuel: @2)",
+		item_state,
+		fuel_state)
+
+	return infotext
+end
 
 local function furnace_node_timer(pos, elapsed)
 	local node = minetest.get_node(pos)
@@ -213,30 +250,13 @@ local function furnace_node_timer(pos, elapsed)
 	-- Update formspec, infotext and node
 	--
 	local formspec
-	local item_state
-	local item_percent = 0
-	if cookable then
-		item_percent = math.floor(src_time / cooked.time * 100)
-		if item_percent > 100 then
-			item_state = S("100% (output full)")
-		else
-			item_state = S("@1%", item_percent)
-		end
-	else
-		if srclist[1]:is_empty() then
-			item_state = S("Empty")
-		else
-			item_state = S("Not cookable")
-		end
-	end
-
-	local fuel_state = S("Empty")
-	local active = S("inactive")
 	local result = false
+	local fuel_percent = 0
+	local item_percent = 0
+	local active
 	if fuel_totaltime ~= 0 then
-		active = S("active")
-		local fuel_percent = math.floor(fuel_time / fuel_totaltime * 100)
-		fuel_state = S("@1%", fuel_percent)
+		fuel_percent = math.floor(fuel_time / fuel_totaltime * 100)
+		item_percent = math.floor(src_time / cooked.time * 100)
 		formspec = active_formspec(id_normal, fuel_percent, item_percent)
 		swap_node(pos, id_active)
 		-- Furnace burn sound
@@ -244,24 +264,21 @@ local function furnace_node_timer(pos, elapsed)
 			minetest.sound_play("hades_furnaces_burning",{pos=pos},true)
 			meta:set_string("sound_played",os.time())
 		end
+		active = true
 		-- make sure timer restarts automatically
 		result = true
 	else
-		if not fuellist[1]:is_empty() then
-			fuel_state = S("@1%", 0)
-		end
 		formspec = inactive_formspec(id_normal)
 		swap_node(pos, id_normal)
+		active = false
 		-- stop timer on the inactive furnace
 		minetest.get_node_timer(pos):stop()
 	end
 
-	local infotext = S("@1 @2",
-		minetest.registered_nodes[node.name].description,
-		active) .. "\n" ..
-		S("(Item: @1; Fuel: @2)",
-		item_state,
-		fuel_state)
+	local has_fuel = not fuellist[1]:is_empty()
+	local has_src = not srclist[1]:is_empty()
+	local desc = ItemStack(minetest.registered_nodes[id_normal]):get_short_description()
+	local infotext = furnace_get_infotext(desc, active, has_src, has_fuel, cookable, item_percent, fuel_percent)
 
 	--
 	-- Set meta values
@@ -302,6 +319,9 @@ for id, finfo in pairs(furnace_types) do
 			inv:set_size('src', 1)
 			inv:set_size('fuel', 1)
 			inv:set_size('dst', finfo[6])
+
+			local infotext = furnace_get_infotext(desc, false, false, false, false, 0, 0)
+			meta:set_string("infotext", infotext)
 		end,
 		can_dig = can_dig,
 
