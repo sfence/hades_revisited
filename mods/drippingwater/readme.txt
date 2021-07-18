@@ -1,28 +1,33 @@
-Dripping Water Mod
-by kddekadenz
+# Dripping Water Mod
 
+Originally by kddekadenz,
+adopted for Hades Revisited by Wuzzy.
 
-Installing instructions:
+## Description
 
-	1. Copy the drippingwater mod folder into games/gamemode/mods
+* Droplets appear under porous blocks below water (dirt, dirt with grass, sandstone, etc.)
+* They will stay some time at the block and than they fall down
+* When they collide with the ground or liquid, a sound is played and they are destroyed
 
-	2. Start game and enjoy :)
+## License
 
+Code: CC0
+Sounds effects: CC BY 3.0
 
-Manual:
+## Sounds
 
--> drops are generated rarely under crumbly nodes (dirt,grass,sandstone)
--> waterdrops are generated under cloudstone massively
--> they will stay some time at the generated block and than they fall down
--> when they collide with the ground, a sound is played and they are destroyed
+drippingwater_drip.1.ogg
+drippingwater_drip.2.ogg
+drippingwater_drip.3.ogg
+  License: CC0
 
+drippingwater_drip_on_water.1.ogg
+drippingwater_drip_on_water.2.ogg
+drippingwater_drip_on_water.3.ogg
+  by Legnalegna55 (CC0)
+  https://freesound.org/people/Legnalegna55/sounds/543649/
 
-License:
-
-code & sounds: CC0
-
-
-Changelog:
-
-16.04.2012 - first release
-28.04.2012 - drops are now 3D; added lava drops; fixed generating of drops (not at edges now)
+drippingwater_drip_on_lava.1.ogg
+drippingwater_drip_on_lava.2.ogg
+  by brianbaltar (CC BY 3.0)
+https://freesound.org/people/brianbaltar/sounds/524495/
