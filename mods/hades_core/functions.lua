@@ -238,8 +238,40 @@ minetest.register_abm({
 	end,
 })
 
+-- Returns the param2 the grass node should currently (for seaons)
+-- use, this determins the grass color.
+-- * old_param2: Optional parameter for current param2 of grass
+--               node, used for intermedite colors
+function hades_core.get_seasonal_grass_color_param2(old_param2)
+	-- There are 6 grass colors:
+	-- 3 for the 3 seasons
+	-- and 3 for brief transition periods on season change
+	local new_param2 = param2
+	local season = hades_seasons.get_season()
+	if season == hades_seasons.SEASON_SPRING then
+		if old_param2 == 4 then
+			new_param2 = 5
+		else
+			new_param2 = 0
+		end
+	elseif season == hades_seasons.SEASON_SUMMER then
+		if old_param2 == 0 then
+			new_param2 = 1
+		else
+			new_param2 = 2
+		end
+	elseif season == hades_seasons.SEASON_FALL then
+		if old_param2 == 2 then
+			new_param2 = 3
+		else
+			new_param2 = 4
+		end
+	end
+	return new_param2
+end
+
 minetest.register_abm({
-	label = "Turn covered 'dirt with grass' back to dirt",
+	label = "Turn covered 'dirt with grass' back to dirt, update seasonal grass color",
 	nodenames = {"group:dirt_with_grass"},
 	interval = 2,
 	chance = 20,
@@ -251,6 +283,12 @@ minetest.register_abm({
 				and not ((nodedef.sunlight_propagates or nodedef.paramtype == "light")
 				and nodedef.liquidtype == "none") then
 			minetest.set_node(pos, {name = "hades_core:dirt", param2 = node.param2})
+		else
+			local old_param2 = node.param2
+			local new_param2 = hades_core.get_seasonal_grass_color_param2(old_param2)
+			if new_param2 ~= old_param2 then
+				minetest.set_node(pos, {name = node.name, param2 = new_param2})
+			end
 		end
 	end
 })
