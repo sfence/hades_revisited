@@ -1,5 +1,7 @@
 local pr_a, pr_j -- PseudoRandom vars
 
+local default_underground = {"hades_core:dirt", "hades_core:dirt_with_grass_l1", "hades_core:dirt_with_grass_l2", "hades_core:dirt_with_grass_l3", "hades_core:dirt_with_grass"}
+
 function hades_trees.grow_sapling(pos, check_light)
 	local node = minetest.get_node(pos, check_light)
 	if node.name == "hades_trees:sapling" then
@@ -47,7 +49,7 @@ function hades_trees.generate_tree(pos, check_light, trunk, leaves, underground,
 		leaves = "hades_trees:leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+		underground = default_underground
 	end
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
@@ -155,7 +157,7 @@ function hades_trees.generate_olivetree(pos, check_light, trunk, leaves, undergr
 		leaves = "hades_trees:olive_leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+		underground = default_underground
 	end
 	if not replacements then
 		replacements = {["hades_trees:olive"]=10}
@@ -172,7 +174,7 @@ function hades_trees.generate_orangetree(pos, check_light, trunk, leaves, underg
 		leaves = "hades_trees:orange_leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+		underground = default_underground
 	end
 	if not replacements then
 		replacements = {["hades_trees:orange"]=20}
@@ -190,7 +192,7 @@ function hades_trees.generate_cocoatree(pos, check_light, trunk, leaves, undergr
 		leaves = "hades_trees:jungle_leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+		underground = default_underground
 	end
 	if not replacements then
 		replacements = {["hades_trees:cocoa_pod"]=12}
@@ -207,7 +209,7 @@ function hades_trees.generate_coconutpalm(pos, check_light, trunk, leaves, under
 		leaves = "hades_trees:jungle_leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+		underground = default_underground
 	end
 	if not replacements then
 		replacements = {["hades_trees:coconut"]=20}
@@ -224,7 +226,10 @@ function hades_trees.generate_paletree(pos, check_light, trunk, leaves, undergro
 		leaves = "hades_trees:pale_leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass", "hades_core:ash", "hades_core:volcanic_sand", "hades_core:fertile_sand"}
+		underground = table.copy(default_underground)
+		table.insert(underground, "hades_core:ash")
+		table.insert(underground, "hades_core:volcanic_sand")
+		table.insert(underground, "hades_core:fertile_sand")
 	end
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
@@ -314,7 +319,7 @@ function hades_trees.generate_birchtree(pos, check_light, trunk, leaves, undergr
 		leaves = "hades_trees:birch_leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+		underground = default_underground
 	end
 	pos.y = pos.y-1
 	local nodename = minetest.get_node(pos).name
@@ -407,7 +412,7 @@ function hades_trees.generate_cjtree(pos, check_light, trunk, leaves, undergroun
 		leaves = "hades_trees:cultivated_jungle_leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+		underground = default_underground
 	end
 
 	pos.y = pos.y-1
@@ -502,7 +507,7 @@ function hades_trees.generate_jungletree(pos, check_light)
 	local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 
 	local ret = false
-	for _,name in ipairs({"hades_core:dirt", "hades_core:dirt_with_grass"}) do
+	for _,name in ipairs(default_underground{}) do
 		if nu == name then
 			ret = true
 			break
@@ -591,7 +596,7 @@ function hades_trees.generate_appletree(pos, check_light, is_apple_tree)
 	local nu = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 
 	local ret = false
-	for _,name in ipairs({"hades_core:dirt", "hades_core:dirt_with_grass"}) do
+	for _,name in ipairs(default_underground) do
 		if nu == name then
 			ret = true
 			break
@@ -691,7 +696,7 @@ function hades_trees.generate_bananatree(pos, check_light, trunk, leaves, underg
 		leaves = "hades_trees:banana_leaves"
 	end
 	if not underground then
-		underground = {"hades_core:dirt", "hades_core:dirt_with_grass"}
+		underground = default_underground
 	end
 	if not replacements then
 		replacements = {["hades_trees:banana"]=9}

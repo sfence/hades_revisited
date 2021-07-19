@@ -141,15 +141,17 @@ local get_apply_fertilizer = function(super)
 					end
 				end
 			end
-		elseif nname == "hades_core:dirt" or nname == "hades_core:stone" or nname == "hades_core:tuff" or nname == "hades_core:cobble" or nname == "walls:cobble" then
-			-- Grow grass on dirt
+		elseif nname == "hades_core:dirt" or minetest.get_item_group(nname, "dirt_with_grass") > 1 or nname == "hades_core:stone" or nname == "hades_core:tuff" or nname == "hades_core:cobble" or nname == "walls:cobble" then
+			-- Grow grass cover on dirt
 			-- [SUPER] also grow moss
 			local posses = {}
 			local minmax
+			local dwg2 = minetest.get_item_group(nname, "dirt_with_grass")
+			local d2 = minetest.get_item_group(nname, "dirt")
 			if super then
 				minmax=2
 			else
-				if nname ~= "hades_core:dirt" then
+				if d2 == 0 and dwg2 == 0 then
 					return itemstack
 				end
 				minmax=1
@@ -161,11 +163,17 @@ local get_apply_fertilizer = function(super)
 				if vector.distance(pos, ppos) <= 2.3 then
 					local node = minetest.get_node(ppos)
 					local above_node = minetest.get_node({x = x, y = y + 1, z = z})
-					if node.name == nname and
+					-- Apply change to same or "compatible" node type as the pointed
+					-- node only, e.g. dirt is "compatible" with dirt-with-grass
+					local d1 = minetest.get_item_group(node.name, "dirt")
+					local dwg1 = minetest.get_item_group(node.name, "dirt_with_grass")
+					if ((node.name == nname) or ((dwg1 > 1 or d1 > 0) and (dwg2 > 1 or d2 > 0))) and
 							(nname ~= "hades_core:dirt" or
 							(minetest.registered_nodes[above_node.name] and
 							minetest.registered_nodes[above_node.name].walkable == false)) then
 						if nname == "hades_core:dirt" then
+							node.name = "hades_core:dirt_with_grass"
+						elseif dwg2 > 0 then
 							node.name = "hades_core:dirt_with_grass"
 						elseif nname == "hades_core:stone" then
 							node.name = "hades_core:mossystone"

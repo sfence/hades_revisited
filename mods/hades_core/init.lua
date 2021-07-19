@@ -3,6 +3,7 @@ hades_core = {}
 -- Load files
 dofile(minetest.get_modpath("hades_core").."/functions.lua")
 dofile(minetest.get_modpath("hades_core").."/simple_nodes.lua")
+dofile(minetest.get_modpath("hades_core").."/dirt.lua")
 dofile(minetest.get_modpath("hades_core").."/liquids.lua")
 dofile(minetest.get_modpath("hades_core").."/tools.lua")
 dofile(minetest.get_modpath("hades_core").."/plants.lua")

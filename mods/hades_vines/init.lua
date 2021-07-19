@@ -362,7 +362,7 @@ plantslib:spawn_on_surfaces({
 	spawn_delay = spawn_interval,
 	spawn_plants = {"hades_vines:cave"},
 	spawn_chance = 50,
-	spawn_surfaces = {"hades_core:dirt_with_grass","hades_core:dirt"},
+	spawn_surfaces = {"hades_core:dirt_with_grass","hades_core:dirt_with_grass_l1","hades_core:dirt_with_grass_l2","hades_core:dirt_with_grass_l3","hades_core:dirt"},
 	spawn_on_bottom = true,
 	plantlife_limit = -0.9,
 })

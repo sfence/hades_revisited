@@ -183,10 +183,27 @@ minetest.register_abm({
 	end,
 })
 
+-- Takes a node name and if it's capable of being covered by grass,
+-- returns the node name of the next level of "grassiness",
+-- otherwise it returns nil
+local function get_next_grass_cover_level(nodename)
+	if nodename == "hades_core:dirt" then
+		return "hades_core:dirt_with_grass_l1"
+	elseif nodename == "hades_core:dirt_with_grass_l1" then
+		return "hades_core:dirt_with_grass_l2"
+	elseif nodename == "hades_core:dirt_with_grass_l2" then
+		return "hades_core:dirt_with_grass_l3"
+	elseif nodename == "hades_core:dirt_with_grass_l3" then
+		return "hades_core:dirt_with_grass"
+	else
+		return nodename
+	end
+end
+
 -- Dirt ABMs
 minetest.register_abm({
-	label = "Grow grass on dirt",
-	nodenames = {"hades_core:dirt"},
+	label = "Grow grass on dirt under bright light",
+	nodenames = {"group:dirt"},
 	interval = 2,
 	chance = 200,
 	action = function(pos, node)
@@ -196,14 +213,34 @@ minetest.register_abm({
 		if nodedef and (nodedef.sunlight_propagates or nodedef.paramtype == "light")
 				and nodedef.liquidtype == "none"
 				and (minetest.get_node_light(above) or 0) >= 13 then
-			minetest.set_node(pos, {name = "hades_core:dirt_with_grass"})
+			local nextnode = get_next_grass_cover_level(node.name)
+			if nextnode then
+				minetest.set_node(pos, {name = nextnode, param2 = node.param2})
+			end
 		end
 	end
 })
 
 minetest.register_abm({
+	label = "Grow grass on dirt under air in faint light",
+	nodenames = {"group:dirt"},
+	interval = 50,
+	chance = 20,
+	action = function(pos, node)
+		local name = minetest.get_node(pos).name
+		local node = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
+		if node.name == "air" and (minetest.get_node_light(pos) or 0) >= 8 then
+			local nextnode = get_next_grass_cover_level(node.name)
+			if nextnode then
+				minetest.set_node(pos, {name = nextnode, param2 = node.param2})
+			end
+		end
+	end,
+})
+
+minetest.register_abm({
 	label = "Turn covered 'dirt with grass' back to dirt",
-	nodenames = {"hades_core:dirt_with_grass"},
+	nodenames = {"group:dirt_with_grass"},
 	interval = 2,
 	chance = 20,
 	action = function(pos, node)
@@ -213,7 +250,7 @@ minetest.register_abm({
 		if name ~= "ignore" and nodedef
 				and not ((nodedef.sunlight_propagates or nodedef.paramtype == "light")
 				and nodedef.liquidtype == "none") then
-			minetest.set_node(pos, {name = "hades_core:dirt"})
+			minetest.set_node(pos, {name = "hades_core:dirt", param2 = node.param2})
 		end
 	end
 })
@@ -310,15 +347,15 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Create dirt (extended water check)",
 	nodenames = {"hades_core:fertile_sand"},
-	neighbors = {"hades_core:dirt", "hades_core:dirt_with_grass"},
+	neighbors = {"group:dirt"},
 	interval = 50,
 	chance = 5,
 	action = function(pos, node)
-			if minetest.find_node_near(pos, 10, {"group:water"}) == nil then
-				return
-			else
-			    minetest.set_node(pos, {name="hades_core:dirt"})
-			end
+		if minetest.find_node_near(pos, 10, {"group:water"}) == nil then
+			return
+		else
+			minetest.set_node(pos, {name="hades_core:dirt"})
+		end
 	end,
 })
 
@@ -334,42 +371,19 @@ minetest.register_abm({
 })
 
 --
--- Dirt transformation
---
-
-minetest.register_abm({
-	label = "Grow grass on dirt",
-	nodenames = {"hades_core:dirt"},
-	interval = 50,
-	chance = 20,
-	action = function(pos, node)
-		local name = minetest.get_node(pos).name
-			    pos.y = pos.y+1
-				if minetest.get_node(pos).name == "air" then
-				   if minetest.get_node_light(pos) < 8 then
-				      return
-				   else
-				    pos.y = pos.y-1
-					minetest.set_node(pos, {name="hades_core:dirt_with_grass"})
-				   end
-				end
-	end,
-})
-
---
 -- Sugarcane growing
 --
 
 minetest.register_abm({
 	label = "Grow sugarcane",
 	nodenames = {"hades_core:sugarcane"},
-	neighbors = {"hades_core:dirt", "hades_core:dirt_with_grass"},
+	neighbors = {"group:dirt"},
 	interval = 55,
 	chance = 35,
 	action = function(pos, node)
 		pos.y = pos.y-1
 		local name = minetest.get_node(pos).name
-		if name == "hades_core:dirt" or name == "hades_core:dirt_with_grass" then
+		if minetest.get_item_group(name, "dirt") > 0 then
 			pos.y = pos.y+1
 			local height = 0
 			while minetest.get_node(pos).name == "hades_core:sugarcane" and height < 3 do
@@ -392,14 +406,12 @@ minetest.register_abm({
 	interval = 500,
 	chance = 25,
 	action = function(pos, node)
-              if minetest.find_node_near(pos, 10, {"hades_core:sugarcane"}) == nil then
-			     pos.y = pos.y+1
-				 if minetest.get_node(pos).name == "air" then
-			        minetest.set_node(pos, {name="hades_core:sugarcane"})
-				 end
-			else
-			    return
-			end				
+		if minetest.find_node_near(pos, 10, {"hades_core:sugarcane"}) == nil then
+			pos.y = pos.y+1
+			if minetest.get_node(pos).name == "air" then
+				minetest.set_node(pos, {name="hades_core:sugarcane"})
+			end
+		end				
 	end,
 })
 
@@ -435,13 +447,13 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Grow papyrus",
 	nodenames = {"hades_core:papyrus"},
-	neighbors = {"hades_core:dirt", "hades_core:dirt_with_grass"},
+	neighbors = {"group:dirt"},
 	interval = 50,
 	chance = 20,
 	action = function(pos, node)
 		pos.y = pos.y-1
 		local name = minetest.get_node(pos).name
-		if name == "hades_core:dirt" or name == "hades_core:dirt_with_grass" then
+		if minetest.get_item_group(name, "dirt") > 0 then
 			if minetest.find_node_near(pos, 3, {"group:water"}) == nil then
 				return
 			end

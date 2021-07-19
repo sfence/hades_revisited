@@ -362,27 +362,7 @@ minetest.register_node("hades_core:stone_with_ruby", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
--- Soft blocks: dirt, ash, sand, gravel
-
-minetest.register_node("hades_core:dirt_with_grass", {
-	description = S("Dirt with Grass"),
-	tiles = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
-	is_ground_content = true,
-	groups = {crumbly=3,soil=1,dirt=1, porous=1},
-	drop = 'hades_core:dirt',
-	sounds = hades_sounds.node_sound_dirt_defaults({
-		footstep = {name="default_grass_footstep", gain=0.25},
-	}),
-})
-
-minetest.register_node("hades_core:dirt", {
-	description = S("Dirt"),
-	_tt_help = S("Becomes grassy when exposed to light"),
-	tiles = {"default_dirt.png"},
-	is_ground_content = true,
-	groups = {crumbly=3,soil=1,dirt=1, porous=1},
-	sounds = hades_sounds.node_sound_dirt_defaults(),
-})
+-- Soft blocks: ash, sand, gravel, etc. (except dirt)
 
 minetest.register_node("hades_core:ash", {
 	description = S("Volcanic Ash"),
