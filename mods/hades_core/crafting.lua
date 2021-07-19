@@ -1008,12 +1008,6 @@ minetest.register_craft({
 
 
 
-minetest.register_craft({
-	type = "fuel",
-	recipe = "hades_core:junglegrass",
-	burntime = 2,
-})
-
 
 
 minetest.register_craft({
@@ -1070,12 +1064,6 @@ minetest.register_craft({
 	burntime = 350,
 })
 
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "hades_core:grass_1",
-	burntime = 2,
-})
 
 minetest.register_craft({
 	type = "fuel",
@@ -1200,35 +1188,9 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'hades_core:grass_1',
-	recipe = {
-		{'hades_core:mossycobble', '', ''},
-		{'hades_core:mossycobble', '', ''},
-		{'hades_core:dirt', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'hades_core:grass_1',
-	recipe = {
-		{'hades_core:mossytuff', '', ''},
-		{'hades_core:mossytuff', '', ''},
-		{'hades_core:dirt', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'hades_core:junglegrass',
-	recipe = {
-		{'hades_core:grass_1', '', ''},
-		{'hades_core:dirt', '', ''},
-	}
-})
-
-minetest.register_craft({
 	output = 'hades_core:papyrus',
 	recipe = {
-		{'hades_core:junglegrass', '', ''},
+		{'hades_grass:junglegrass', '', ''},
 		{'hades_core:dirt', '', ''},
 	}
 })

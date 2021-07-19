@@ -3,7 +3,7 @@ local S = minetest.get_translator("hades_magic_wand")
 local cycles = {
 	{ "hades_core:dirt", "hades_core:dirt_with_grass_l1", "hades_core:dirt_with_grass_l2", "hades_core:dirt_with_grass_l3", "hades_core:dirt_with_grass" },
 	{ "hades_farming:soil", "hades_farming:soil_wet" },
-	{ "hades_core:grass_1", "hades_core:grass_2", "hades_core:grass_3", "hades_core:grass_4", "hades_core:grass_5" },
+	{ "hades_grass:grass_1", "hades_grass:grass_2", "hades_grass:grass_3", "hades_grass:grass_4", "hades_grass:grass_5" },
 	{ "hades_waterplants:seaweed_4", "hades_waterplants:seaweed_2", "hades_waterplants:seaweed_3", "hades_waterplants:seaweed" },
 	{ "hades_waterplants:waterlily", "hades_waterplants:waterlily_225", "hades_waterplants:waterlily_45", "hades_waterplants:waterlily_675", "hades_waterplants:waterlily_s3", "hades_waterplants:waterlily_s1", "hades_waterplants:waterlily_s2", "hades_waterplants:waterlily_s4" },
 	{ "hades_vines:willow", "hades_vines:willow_rotten" },

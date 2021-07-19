@@ -246,7 +246,7 @@ function hades_core.get_seasonal_grass_color_param2(old_param2)
 	-- There are 6 grass colors:
 	-- 3 for the 3 seasons
 	-- and 3 for brief transition periods on season change
-	local new_param2 = param2
+	local new_param2 = old_param2
 	local season = hades_seasons.get_season()
 	if season == hades_seasons.SEASON_SPRING then
 		if old_param2 == 4 then

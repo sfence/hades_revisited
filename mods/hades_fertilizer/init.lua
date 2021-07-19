@@ -36,7 +36,7 @@ do
 
 	t = { false }
 	for i=1,5 do
-		table.insert(t, "hades_core:grass_"..i)
+		table.insert(t, "hades_grass:grass_"..i)
 	end
 	table.insert(plants_rotate, t)
 end
@@ -189,7 +189,7 @@ local get_apply_fertilizer = function(super)
 			end
 			end
 			end
-		elseif nname == "hades_core:grass" or nname == "hades_core:dirt_with_grass" or nname == "hades_core:fertile_sand" or nname == "hades_core:ash" or nname == "hades_core:volcanic_sand" or nname == "hades_core:gravel" or nname == "hades_core:gravel_volcanic" or nname == "hades_farming:soil" or nname == "hades_farming:soil_wet" then
+		elseif nname == "hades_grass:grass" or nname == "hades_core:dirt_with_grass" or nname == "hades_core:fertile_sand" or nname == "hades_core:ash" or nname == "hades_core:volcanic_sand" or nname == "hades_core:gravel" or nname == "hades_core:gravel_volcanic" or nname == "hades_farming:soil" or nname == "hades_farming:soil_wet" then
 			-- Grow grass, flowers and other random plants
 			for x = pos.x - 2, pos.x + 2 do
 			for y = pos.y, pos.y do
@@ -201,33 +201,33 @@ local get_apply_fertilizer = function(super)
 					local above_node = minetest.get_node(pos_above)
 					if above_node.name == "air" and math.random() < 0.2 and node.name == nname then
 						local plants
-						if (node.name == "hades_core:grass" or node.name == "hades_core:dirt_with_grass") then
+						if (node.name == "hades_grass:grass" or node.name == "hades_core:dirt_with_grass") then
 							if super then
 							plants = {
-							{"hades_core:grass_1"},
-							{"hades_core:grass_2"},
-							{"hades_core:grass_3"},
-							{"hades_core:grass_4"},
-							{"hades_core:grass_5"},
-							{"hades_core:grass_1"},
-							{"hades_core:grass_2"},
-							{"hades_core:grass_3"},
-							{"hades_core:grass_4"},
-							{"hades_core:grass_5"},
-							{"hades_core:grass_1"},
-							{"hades_core:grass_2"},
-							{"hades_core:grass_3"},
-							{"hades_core:grass_4"},
-							{"hades_core:grass_5"},
-							{"hades_core:grass_1"},
-							{"hades_core:grass_2"},
-							{"hades_core:grass_3"},
-							{"hades_core:grass_4"},
-							{"hades_core:grass_5"},
-							{"hades_core:junglegrass"},
-							{"hades_core:junglegrass"},
-							{"hades_core:junglegrass"},
-							{"hades_core:junglegrass"},
+							{"hades_grass:grass_1"},
+							{"hades_grass:grass_2"},
+							{"hades_grass:grass_3"},
+							{"hades_grass:grass_4"},
+							{"hades_grass:grass_5"},
+							{"hades_grass:grass_1"},
+							{"hades_grass:grass_2"},
+							{"hades_grass:grass_3"},
+							{"hades_grass:grass_4"},
+							{"hades_grass:grass_5"},
+							{"hades_grass:grass_1"},
+							{"hades_grass:grass_2"},
+							{"hades_grass:grass_3"},
+							{"hades_grass:grass_4"},
+							{"hades_grass:grass_5"},
+							{"hades_grass:grass_1"},
+							{"hades_grass:grass_2"},
+							{"hades_grass:grass_3"},
+							{"hades_grass:grass_4"},
+							{"hades_grass:grass_5"},
+							{"hades_grass:junglegrass"},
+							{"hades_grass:junglegrass"},
+							{"hades_grass:junglegrass"},
+							{"hades_grass:junglegrass"},
 							{"hades_flowers:flowergrass"},
 							{"hades_flowers:red"},
 							{"hades_flowers:white"},
@@ -238,11 +238,11 @@ local get_apply_fertilizer = function(super)
 							}
 							else
 							plants = {
-							{"hades_core:grass_1"},
-							{"hades_core:grass_2"},
-							{"hades_core:grass_3"},
-							{"hades_core:grass_4"},
-							{"hades_core:grass_5"},
+							{"hades_grass:grass_1"},
+							{"hades_grass:grass_2"},
+							{"hades_grass:grass_3"},
+							{"hades_grass:grass_4"},
+							{"hades_grass:grass_5"},
 							}
 							end
 						elseif (node.name == "hades_core:ash" or node.name == "hades_core:volcanic_sand" or node.name == "hades_core:gravel" or node.name == "hades_core:gravel_volcanic") then

@@ -116,7 +116,7 @@ minetest.register_abm({
 
 
 for i = 1, 5 do		
-	minetest.override_item("hades_core:grass_"..i, {
+	minetest.override_item("hades_grass:grass_"..i, {
 		_tt_help = S("Chance to drop random seed when dug"),
 		drop = {
 		max_items = 1,
@@ -124,13 +124,13 @@ for i = 1, 5 do
 			{items = {'hades_farming:seed_wheat'},rarity = 10},
 			{items = {'hades_farming:seed_spice'},rarity = 10},
 			{items = {'hades_farming:seed_strawberry'},rarity = 10},
-			{items = {'hades_core:grass_1'}},
+			{items = {'hades_grass:grass_1'}},
 		}
 	},
 	})
 end
 	
-minetest.override_item("hades_core:junglegrass", {
+minetest.override_item("hades_grass:junglegrass", {
 	_tt_help = S("Chance to drop random seed when dug"),
 	drop = {
 	max_items = 1,
@@ -138,7 +138,7 @@ minetest.override_item("hades_core:junglegrass", {
 		{items = {'hades_farming:seed_cotton'},rarity = 10},
 		{items = {'hades_farming:seed_tomato'},rarity = 10},
 		{items = {'hades_farming:seed_potato'},rarity = 10},
-		{items = {'hades_core:junglegrass'}},
+		{items = {'hades_grass:junglegrass'}},
 	}
 }})
 

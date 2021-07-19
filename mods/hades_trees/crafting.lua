@@ -223,7 +223,7 @@ minetest.register_craft({
 	output = 'hades_trees:jungle_sapling',
 	recipe = {
 		{'hades_trees:sapling'},
-		{'hades_core:junglegrass'},
+		{'hades_grass:junglegrass'},
 		{'hades_core:dirt'},
 	}
 })
@@ -232,7 +232,7 @@ minetest.register_craft({
 	output = 'hades_trees:olive_sapling',
 	recipe = {
 		{'hades_trees:sapling'},
-		{'hades_core:grass_1'},
+		{'hades_grass:grass_1'},
 		{'hades_core:dirt'},
 	}
 })
@@ -259,7 +259,7 @@ minetest.register_craft({
 	output = 'hades_trees:banana_sapling',
 	recipe = {
 		{'hades_trees:jungle_sapling'},
-		{'hades_core:junglegrass'},
+		{'hades_grass:junglegrass'},
 		{'hades_core:dirt'},
 	}
 })

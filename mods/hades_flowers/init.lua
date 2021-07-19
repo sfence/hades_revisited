@@ -210,7 +210,7 @@ minetest.register_craft({
 	recipe = {
 		{'hades_flowers:white', 'hades_flowers:yellow', 'hades_flowers:blue'},
 		{'hades_flowers:red', 'hades_flowers:orange', 'hades_flowers:violet'},
-		{'hades_core:grass_1', 'hades_core:dirt', 'hades_core:grass_1'},
+		{'hades_grass:grass_1', 'hades_core:dirt', 'hades_grass:grass_1'},
 	}
 })
 
@@ -218,7 +218,7 @@ minetest.register_craft({
 	output = 'hades_flowers:white',
 	recipe = {
 		{'hades_farming:seed_cotton', 'hades_farming:seed_cotton', 'hades_farming:seed_cotton'},
-        {'hades_core:grass_1', 'hades_core:grass_1', 'hades_core:grass_1'},
+        {'hades_grass:grass_1', 'hades_grass:grass_1', 'hades_grass:grass_1'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
@@ -226,7 +226,7 @@ minetest.register_craft({
 	output = 'hades_flowers:yellow',
 	recipe = {
 		{'hades_flowers:white', 'hades_flowers:white', 'hades_flowers:white'},
-        {'hades_core:grass_1', 'hades_core:gold_lump', 'hades_core:grass_1'},
+        {'hades_grass:grass_1', 'hades_core:gold_lump', 'hades_grass:grass_1'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
@@ -234,7 +234,7 @@ minetest.register_craft({
 	output = 'hades_flowers:red',
 	recipe = {
 		{'hades_flowers:white', 'hades_flowers:white', 'hades_flowers:white'},
-        {'hades_core:grass_1', 'hades_core:ruby', 'hades_core:grass_1'},
+        {'hades_grass:grass_1', 'hades_core:ruby', 'hades_grass:grass_1'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
@@ -250,7 +250,7 @@ minetest.register_craft({
 	output = 'hades_flowers:blue',
 	recipe = {
 	    {'hades_flowers:white', 'hades_flowers:white', 'hades_flowers:white'},
-        {'hades_core:grass_1', 'hades_core:sapphire', 'hades_core:grass_1'},
+        {'hades_grass:grass_1', 'hades_core:sapphire', 'hades_grass:grass_1'},
 		{'hades_core:dirt', 'hades_core:dirt', 'hades_core:dirt'},
 	}
 })
