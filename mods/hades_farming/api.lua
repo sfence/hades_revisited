@@ -159,7 +159,8 @@ hades_farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	minetest.sound_play({name="hades_farming_seed_place", gain=1.0}, {pos=pt.above}, true)
 	
 	-- add the node and remove 1 item from the itemstack
-	minetest.add_node(pt.above, {name = plantname, param2 = 1})
+	local pdef = minetest.registered_nodes[plantname]
+	minetest.add_node(pt.above, {name = plantname, param2 = pdef.place_param2})
 	if not minetest.is_creative_enabled(placer:get_player_name()) then
 		itemstack:take_item()
 	end
@@ -190,6 +191,9 @@ hades_farming.register_plant = function(name, def)
 	if not def.fertility then
 		def.fertility = {}
 	end
+	if def.meshoptions then
+		def.place_param2 = def.meshoptions
+	end
 
 	-- Register seed
 	local g = {seed = 1, snappy = 3, attached_node = 1}
@@ -206,6 +210,7 @@ hades_farming.register_plant = function(name, def)
 		drawtype = "nodebox",
 		groups = g,
 		paramtype = "light",
+		place_param2 = def.place_param2,
 		walkable = false,
 		floodable = true,
 		sunlight_propagates = true,
@@ -264,6 +269,8 @@ hades_farming.register_plant = function(name, def)
 			tiles = {texture},
 			use_texture_alpha = "clip",
 			paramtype = "light",
+			paramtype2 = "meshoptions",
+			place_param2 = def.place_param2,
 			walkable = false,
 			buildable_to = true,
 			floodable = true,
@@ -308,7 +315,7 @@ hades_farming.register_plant = function(name, def)
 					end
 				end
 				if can_grow then
-					minetest.set_node(pos, {name = node.name:gsub("seed_", "") .. "_1"})
+					minetest.set_node(pos, {name = node.name:gsub("seed_", "") .. "_1", param2 = node.param2})
 				end
 				return
 			end
@@ -329,7 +336,7 @@ hades_farming.register_plant = function(name, def)
 			end
 
 			-- grow
-			minetest.set_node(pos, {name = mname .. ":" .. pname .. "_" .. plant_height + 1})
+			minetest.set_node(pos, {name = mname .. ":" .. pname .. "_" .. plant_height + 1, param2 = node.param2})
 		end
 	})
 

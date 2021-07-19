@@ -16,7 +16,8 @@ hades_farming.register_plant("hades_farming:wheat", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_wheat_seed.png",
 	steps = 3,
-	fertility = {"grassland"}
+	fertility = {"grassland"},
+	meshoptions = 3,
 })
 minetest.register_craftitem("hades_farming:wheat", {
 	description = S("Wheat"),
@@ -61,7 +62,8 @@ hades_farming.register_plant("hades_farming:cotton", {
 	description_harvest = S("String"),
 	inventory_image = "hades_farming_cotton_seed.png",
 	steps = 3,
-	fertility = {"grassland", "desert"}
+	fertility = {"grassland", "desert"},
+	meshoptions = 0,
 })
 minetest.register_craftitem("hades_farming:cotton", {
 	description = S("String"),
@@ -103,7 +105,8 @@ hades_farming.register_plant("hades_farming:tomato", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_tomato_seed.png",
 	steps = 3,
-	fertility = {"grassland", "desert"}
+	fertility = {"grassland", "desert"},
+	meshoptions = 0,
 })
 minetest.register_craftitem("hades_farming:tomato", {
 	description = S("Tomato"),
@@ -118,7 +121,8 @@ hades_farming.register_plant("hades_farming:potato", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_potato_seed.png",
 	steps = 3,
-	fertility = {"grassland", "desert"}
+	fertility = {"grassland", "desert"},
+	meshoptions = 1,
 })
 minetest.register_craftitem("hades_farming:potato", {
 	description = S("Potato"),
@@ -133,7 +137,8 @@ hades_farming.register_plant("hades_farming:strawberry", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_strawberry_seed.png",
 	steps = 3,
-	fertility = {"grassland", "desert"}
+	fertility = {"grassland", "desert"},
+	meshoptions = 2,
 })
 minetest.register_craftitem("hades_farming:strawberry", {
 	description = S("Strawberry"),
@@ -148,7 +153,8 @@ hades_farming.register_plant("hades_farming:spice", {
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_spice_seed.png",
 	steps = 3,
-	fertility = {"grassland", "desert"}
+	fertility = {"grassland", "desert"},
+	meshoptions = 4,
 })
 minetest.register_craftitem("hades_farming:spice", {
 	description = S("Spice"),

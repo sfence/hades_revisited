@@ -8,7 +8,7 @@ do
 	-- Growth stages
 
 	for f=1, #farms do
-		local t = { 0, false }
+		local t = { false }
 		table.insert(t, "hades_farming:seed_"..farms[f])
 		for i=1,3 do
 			table.insert(t, "hades_farming:"..farms[f].."_"..i)
@@ -16,25 +16,25 @@ do
 		table.insert(plants_rotate, t)
 	end
 
-	local t = { 0, true, "hades_refruit:bud_apple", "hades_refruit:flower_apple", "hades_trees:apple" }
+	local t = { true, "hades_refruit:bud_apple", "hades_refruit:flower_apple", "hades_trees:apple" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "hades_refruit:bud_olive", "hades_refruit:flower_olive", "hades_trees:olive" }
+	local t = { true, "hades_refruit:bud_olive", "hades_refruit:flower_olive", "hades_trees:olive" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "hades_refruit:bud_orange", "hades_refruit:flower_orange", "hades_trees:orange" }
+	local t = { true, "hades_refruit:bud_orange", "hades_refruit:flower_orange", "hades_trees:orange" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "hades_refruit:bud_banana", "hades_refruit:flower_banana", "hades_trees:banana" }
+	local t = { true, "hades_refruit:bud_banana", "hades_refruit:flower_banana", "hades_trees:banana" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "hades_refruit:bud_cocoa", "hades_refruit:flower_cocoa", "hades_trees:cocoa_pod" }
+	local t = { true, "hades_refruit:bud_cocoa", "hades_refruit:flower_cocoa", "hades_trees:cocoa_pod" }
 	table.insert(plants_rotate, t)
 
-	local t = { 0, true, "hades_refruit:bud_coconut", "hades_refruit:flower_coconut", "hades_trees:coconut" }
+	local t = { true, "hades_refruit:bud_coconut", "hades_refruit:flower_coconut", "hades_trees:coconut" }
 	table.insert(plants_rotate, t)
 
-	t = { 0, false }
+	t = { false }
 	for i=1,5 do
 		table.insert(t, "hades_core:grass_"..i)
 	end
@@ -44,11 +44,10 @@ end
 local plant_mappings = {}
 for p=1, #plants_rotate do
 	local rotate = plants_rotate[p]
-	local param2 = rotate[1]
-	local super = rotate[2]
+	local super = rotate[1]
 	for r=2, #rotate-1 do
 		local nextr = r+1
-		plant_mappings[rotate[r]] = { rotate[nextr], param2, super }
+		plant_mappings[rotate[r]] = { rotate[nextr], super }
 	end
 end
 
@@ -75,11 +74,11 @@ local get_apply_fertilizer = function(super)
 		if plant_mappings[nname] then
 			if (not super) then
 				-- Restrict usable plants if not super fertilizer
-				if plant_mappings[nname][3] == true then return itemstack end
+				if plant_mappings[nname][2] == true then return itemstack end
 				if math.random(1,3) == 1 then return itemstack end
 			end
 			-- Add plant growth stage
-			minetest.set_node(pos, {name=plant_mappings[nname][1], param2=plant_mappings[nname][2]})
+			minetest.set_node(pos, {name=plant_mappings[nname][1], param2=nnode.param2})
 		elseif minetest.get_item_group(nname, "sapling") ~= 0 then
 			if not super and math.random(1,5) ~= 1 then return itemstack end
 			-- Grow sapling to tree
@@ -205,71 +204,73 @@ local get_apply_fertilizer = function(super)
 						if (node.name == "hades_core:grass" or node.name == "hades_core:dirt_with_grass") then
 							if super then
 							plants = {
-							{"hades_core:grass_1", 0},
-							{"hades_core:grass_2", 0},
-							{"hades_core:grass_3", 0},
-							{"hades_core:grass_4", 0},
-							{"hades_core:grass_5", 0},
-							{"hades_core:grass_1", 0},
-							{"hades_core:grass_2", 0},
-							{"hades_core:grass_3", 0},
-							{"hades_core:grass_4", 0},
-							{"hades_core:grass_5", 0},
-							{"hades_core:grass_1", 0},
-							{"hades_core:grass_2", 0},
-							{"hades_core:grass_3", 0},
-							{"hades_core:grass_4", 0},
-							{"hades_core:grass_5", 0},
-							{"hades_core:grass_1", 0},
-							{"hades_core:grass_2", 0},
-							{"hades_core:grass_3", 0},
-							{"hades_core:grass_4", 0},
-							{"hades_core:grass_5", 0},
-							{"hades_core:junglegrass", 0},
-							{"hades_core:junglegrass", 0},
-							{"hades_core:junglegrass", 0},
-							{"hades_core:junglegrass", 0},
-							{"hades_flowers:flowergrass", 0},
-							{"hades_flowers:red", 0},
-							{"hades_flowers:white", 0},
-							{"hades_flowers:yellow", 0},
-							{"hades_flowers:orange", 0},
-							{"hades_flowers:violet", 0},
-							{"hades_flowers:blue", 0},
+							{"hades_core:grass_1"},
+							{"hades_core:grass_2"},
+							{"hades_core:grass_3"},
+							{"hades_core:grass_4"},
+							{"hades_core:grass_5"},
+							{"hades_core:grass_1"},
+							{"hades_core:grass_2"},
+							{"hades_core:grass_3"},
+							{"hades_core:grass_4"},
+							{"hades_core:grass_5"},
+							{"hades_core:grass_1"},
+							{"hades_core:grass_2"},
+							{"hades_core:grass_3"},
+							{"hades_core:grass_4"},
+							{"hades_core:grass_5"},
+							{"hades_core:grass_1"},
+							{"hades_core:grass_2"},
+							{"hades_core:grass_3"},
+							{"hades_core:grass_4"},
+							{"hades_core:grass_5"},
+							{"hades_core:junglegrass"},
+							{"hades_core:junglegrass"},
+							{"hades_core:junglegrass"},
+							{"hades_core:junglegrass"},
+							{"hades_flowers:flowergrass"},
+							{"hades_flowers:red"},
+							{"hades_flowers:white"},
+							{"hades_flowers:yellow"},
+							{"hades_flowers:orange"},
+							{"hades_flowers:violet"},
+							{"hades_flowers:blue"},
 							}
 							else
 							plants = {
-							{"hades_core:grass_1",0},
-							{"hades_core:grass_2",0},
-							{"hades_core:grass_3",0},
-							{"hades_core:grass_4",0},
-							{"hades_core:grass_5",0},
+							{"hades_core:grass_1"},
+							{"hades_core:grass_2"},
+							{"hades_core:grass_3"},
+							{"hades_core:grass_4"},
+							{"hades_core:grass_5"},
 							}
 							end
 						elseif (node.name == "hades_core:ash" or node.name == "hades_core:volcanic_sand" or node.name == "hades_core:gravel" or node.name == "hades_core:gravel_volcanic") then
 							if not super then return itemstack end
 							plants = {
-							{ "hades_core:dry_shrub", 0 },
+							{ "hades_core:dry_shrub"},
 							}
 						elseif (node.name == "hades_core:fertile_sand") then
 							if not super then return itemstack end
 							plants = {
-							{ "hades_core:dry_shrub", 0 },
+							{ "hades_core:dry_shrub"},
 							}
 						elseif (node.name == "hades_farming:soil" or node.name == "hades_farming:soil_wet") then
 							if not super then return itemstack end
 							plants = {
-							{"hades_farming:seed_wheat", 0},
-							{"hades_farming:seed_cotton", 0},
-							{"hades_farming:seed_tomato", 0},
-							{"hades_farming:seed_strawberry", 0},
-							{"hades_farming:seed_spice", 0},
-							{"hades_farming:seed_potato", 0},
+							{"hades_farming:seed_wheat"},
+							{"hades_farming:seed_cotton"},
+							{"hades_farming:seed_tomato"},
+							{"hades_farming:seed_strawberry"},
+							{"hades_farming:seed_spice"},
+							{"hades_farming:seed_potato"},
 							}
 						end
 						if plants then
-							local p = plants[math.random(1, #plants)]
-							local nnode = {name = p[1], param2 = p[2]}
+							local plant = plants[math.random(1, #plants)][1]
+							local pdef = minetest.registered_nodes[plant]
+							local p2 = pdef.place_param2
+							local nnode = {name = plant, param2 = p2}
 							minetest.set_node(pos_above, nnode)
 						end
 					end
