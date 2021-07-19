@@ -16,7 +16,7 @@ minetest.register_node("hades_grass:grass_1", {
 	is_ground_content = true,
 	buildable_to = true,
 	floodable = true,
-	groups = {snappy=3,flammable=3,flora=1,grass=1,attached_node=1},
+	groups = {snappy=3,flammable=3,flora=1,grass_clump=1,grass=1,attached_node=1},
 	sounds = hades_sounds.node_sound_grass_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -48,7 +48,7 @@ for i=2,5 do
 		floodable = true,
 		is_ground_content = true,
 		drop = "hades_grass:grass_1 " .. drop_counts[i],
-		groups = {snappy=3,flammable=3,flora=1,grass=1,attached_node=1,not_in_creative_inventory=1},
+		groups = {snappy=3,flammable=3,flora=1,grass=1,grass_clump=1,attached_node=1,not_in_creative_inventory=1},
 		sounds = hades_sounds.node_sound_grass_defaults(),
 		selection_box = {
 			type = "fixed",
@@ -77,6 +77,19 @@ minetest.register_node("hades_grass:junglegrass", {
 	},
 })
 
+minetest.register_abm({
+	label = "Update seasonal grass clump color",
+	nodenames = {"group:grass_clump"},
+	interval = 5,
+	chance = 20,
+	action = function(pos, node)
+		local old_param2 = node.param2
+		local new_param2 = hades_core.get_seasonal_grass_color_param2(old_param2)
+		if new_param2 ~= old_param2 then
+			minetest.set_node(pos, {name = node.name, param2 = new_param2})
+		end
+	end
+})
 
 minetest.register_craft({
 	output = 'hades_grass:grass_1',
