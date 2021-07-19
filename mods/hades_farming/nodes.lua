@@ -58,7 +58,7 @@ minetest.register_node("hades_farming:straw", {
 	tiles = {"hades_farming_straw.png"},
 	is_ground_content = false,
 	groups = {snappy=3, flammable=4},
-	sounds = hades_sounds.node_sound_grass_defaults(),
+	sounds = hades_sounds.node_sound_bush_defaults(),
 })
 
 minetest.register_abm({
