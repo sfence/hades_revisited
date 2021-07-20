@@ -34,7 +34,9 @@ minetest.register_node("hades_grass:grass_1", {
 	on_place = function(itemstack, placer, pointed_thing)
 		-- place a random grass node
 		local stack = ItemStack("hades_grass:grass_"..math.random(1,5))
-		local ret = minetest.item_place(stack, placer, pointed_thing)
+		-- ... and pick the correct grass color
+		local param2 = hades_core.get_seasonal_grass_color_param2()
+		local ret = minetest.item_place(stack, placer, pointed_thing, param2)
 		return ItemStack("hades_grass:grass_1 "..itemstack:get_count()-(1-ret:get_count()))
 	end,
 })
@@ -62,6 +64,12 @@ for i=2,5 do
 			type = "fixed",
 			fixed = {-6/16, -0.5, -6/16, 6/16, -3/16, 6/16},
 		},
+		on_place = function(itemstack, placer, pointed_thing)
+			-- pick the correct grass color
+			local param2 = hades_core.get_seasonal_grass_color_param2()
+			local ret = minetest.item_place(stack, placer, pointed_thing, param2)
+			return ret
+		end,
 	})
 end
 

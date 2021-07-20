@@ -38,6 +38,12 @@ minetest.register_node("hades_core:dirt_with_grass", {
 	sounds = hades_sounds.node_sound_dirt_defaults({
 		footstep = {name="default_grass_footstep", gain=0.25},
 	}),
+	on_place = function(itemstack, placer, pointed_thing)
+		-- pick the correct grass color
+		local param2 = hades_core.get_seasonal_grass_color_param2()
+		local ret = minetest.item_place(itemstack, placer, pointed_thing, param2)
+		return ret
+	end,
 })
 
 -- Intermediate grass growth levels
@@ -70,6 +76,12 @@ for l=1, 3 do
 		groups = {crumbly=3,soil=1,dirt=1,dirt_with_grass=l+1, porous=1},
 		drop = 'hades_core:dirt',
 		sounds = sounds,
+		on_place = function(itemstack, placer, pointed_thing)
+			-- pick the correct grass color
+			local param2 = hades_core.get_seasonal_grass_color_param2()
+			local ret = minetest.item_place(itemstack, placer, pointed_thing, param2)
+			return ret
+		end,
 	})
 end
 
