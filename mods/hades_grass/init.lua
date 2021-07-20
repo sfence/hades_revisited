@@ -12,9 +12,8 @@ minetest.register_node("hades_grass:grass_1", {
 	description = S("Grass Clump"),
 	drawtype = "plantlike",
 	tiles = {"hades_grass_plant_colorable_1.png"},
-	-- use a bigger inventory image
-	inventory_image = "hades_grass_plant_colorable_3.png",
-	wield_image = "hades_grass_plant_colorable_3.png",
+	inventory_image = "hades_grass_plant_colorable_1.png",
+	wield_image = "hades_grass_plant_colorable_1.png",
 	paramtype = "light",
 	paramtype2 = "color",
 	palette = "hades_core_palette_grass.png",
@@ -32,11 +31,9 @@ minetest.register_node("hades_grass:grass_1", {
 		fixed = {-6/16, -0.5, -6/16, 6/16, -5/16, 6/16},
 	},
 	on_place = function(itemstack, placer, pointed_thing)
-		-- place a random grass node
-		local stack = ItemStack("hades_grass:grass_"..math.random(1,5))
-		-- ... and pick the correct grass color
+		-- Pick the correct grass color
 		local param2 = hades_core.get_seasonal_grass_color_param2()
-		local ret = minetest.item_place(stack, placer, pointed_thing, param2)
+		local ret = minetest.item_place(itemstack, placer, pointed_thing, param2)
 		return ItemStack("hades_grass:grass_1 "..itemstack:get_count()-(1-ret:get_count()))
 	end,
 })
@@ -58,7 +55,7 @@ for i=2,5 do
 		floodable = true,
 		is_ground_content = true,
 		drop = grass_drop,
-		groups = {snappy=3,flammable=3,flora=1,grass=1,grass_clump=1,attached_node=1,not_in_creative_inventory=1},
+		groups = {snappy=3,flammable=3,flora=1,grass=1,grass_clump=i,attached_node=1,not_in_creative_inventory=1},
 		sounds = hades_sounds.node_sound_grass_defaults(),
 		selection_box = {
 			type = "fixed",
@@ -98,7 +95,7 @@ minetest.register_abm({
 		-- Growth behavior depends on node below ...
 		if bnode.name == "hades_core:dirt_with_grass" then
 			-- grow grass clump on (full) dirt with grass
-			minetest.set_node(pos, {name = "hades_grass:grass_"..math.random(1,5), param2 = param2})
+			minetest.set_node(pos, {name = "hades_grass:grass_1", param2 = param2})
 		elseif minetest.get_item_group(bnode.name, "dirt") >= 1 or minetest.get_item_group(bnode.name, "soil") > 1 then
 			-- Turn dirt and soil into dirt-with-grass;
 			-- For an intermediate dirt-with-grass stage,
@@ -148,6 +145,48 @@ minetest.register_abm({
 		local new_param2 = hades_core.get_seasonal_grass_color_param2(old_param2)
 		if new_param2 ~= old_param2 then
 			minetest.set_node(pos, {name = node.name, param2 = new_param2})
+		end
+	end
+})
+
+minetest.register_abm({
+	label = "Update grass clump height",
+	nodenames = {"group:grass_clump"},
+	interval = 20,
+	chance = 40,
+	action = function(pos, node)
+		-- The grass clump height is determined by season, surface
+		-- and light.
+		-- Seasons determine the max height the grass clump can have.
+		-- To grow, the correct surface type and light level is required.
+		-- If the grass clump is too big for the current season or
+		-- it was placed on a bad surface, it loses height.
+		local size = minetest.get_item_group(node.name, "grass_clump")
+		local oldsize = size
+		-- Season-based max height
+		local maxsize = 5
+		local season = hades_seasons.get_season()
+		if season == hades_seasons.SEASON_SPRING then
+			maxsize = 3
+		elseif season == hades_seasons.SEASON_FALL then
+			maxsize = 2
+		end
+		-- Check light and surface node
+		local light = minetest.get_node_light(pos)
+		local pos_surface = {x=pos.x,y=pos.y-1,z=pos.z}
+		local node_surface = minetest.get_node(pos_surface)
+		local bad_surface = false
+		if minetest.get_item_group(node_surface.name, "dirt") == 0 and minetest.get_item_group(node_surface.name, "soil") == 0 then
+			bad_surface = true
+		end
+		-- Gain or lose height
+		if (size > maxsize or bad_surface) and size > 1 then
+			size = size - 1
+		elseif size < maxsize and light >= 8 and not bad_surface then
+			size = size + 1
+		end
+		if oldsize ~= size then
+			minetest.set_node(pos, {name="hades_grass:grass_"..size, param2 = node.param2})
 		end
 	end
 })
