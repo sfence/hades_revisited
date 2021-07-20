@@ -5,10 +5,11 @@ local farms = { "wheat", "cotton", "spice", "potato", "tomato", "strawberry" }
 -- Register tables for all plant variants
 local plants_rotate = {}
 do
+	local t
 	-- Growth stages
 
 	for f=1, #farms do
-		local t = { false }
+		t = { false }
 		table.insert(t, "hades_farming:seed_"..farms[f])
 		for i=1,3 do
 			table.insert(t, "hades_farming:"..farms[f].."_"..i)
@@ -16,22 +17,25 @@ do
 		table.insert(plants_rotate, t)
 	end
 
-	local t = { true, "hades_refruit:bud_apple", "hades_refruit:flower_apple", "hades_trees:apple" }
+	t = { true, "hades_grass:seed_grass", "hades_grass:grass_1", "hades_grass:grass_2", "hades_grass:grass_3", "hades_grass:grass_4", "hades_grass:grass_5" }
 	table.insert(plants_rotate, t)
 
-	local t = { true, "hades_refruit:bud_olive", "hades_refruit:flower_olive", "hades_trees:olive" }
+	t = { true, "hades_refruit:bud_apple", "hades_refruit:flower_apple", "hades_trees:apple" }
 	table.insert(plants_rotate, t)
 
-	local t = { true, "hades_refruit:bud_orange", "hades_refruit:flower_orange", "hades_trees:orange" }
+	t = { true, "hades_refruit:bud_olive", "hades_refruit:flower_olive", "hades_trees:olive" }
 	table.insert(plants_rotate, t)
 
-	local t = { true, "hades_refruit:bud_banana", "hades_refruit:flower_banana", "hades_trees:banana" }
+	t = { true, "hades_refruit:bud_orange", "hades_refruit:flower_orange", "hades_trees:orange" }
 	table.insert(plants_rotate, t)
 
-	local t = { true, "hades_refruit:bud_cocoa", "hades_refruit:flower_cocoa", "hades_trees:cocoa_pod" }
+	t = { true, "hades_refruit:bud_banana", "hades_refruit:flower_banana", "hades_trees:banana" }
 	table.insert(plants_rotate, t)
 
-	local t = { true, "hades_refruit:bud_coconut", "hades_refruit:flower_coconut", "hades_trees:coconut" }
+	t = { true, "hades_refruit:bud_cocoa", "hades_refruit:flower_cocoa", "hades_trees:cocoa_pod" }
+	table.insert(plants_rotate, t)
+
+	t = { true, "hades_refruit:bud_coconut", "hades_refruit:flower_coconut", "hades_trees:coconut" }
 	table.insert(plants_rotate, t)
 
 	t = { false }

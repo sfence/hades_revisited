@@ -17,14 +17,23 @@ local cycles = {
 	{ "hades_refruit:bud_orange", "hades_refruit:flower_orange", "hades_trees:orange" },
 }
 
-local seeds_3 = { "cotton", "wheat", "spice", "potato", "strawberry", "tomato" }
-for s=1,#seeds_3 do
-	local seed = seeds_3[s]
-	local seeds = { "hades_farming:seed_"..seed }
-	for i=1,3 do
-		table.insert(seeds, "hades_farming:"..seed.."_"..i)
+local seeds = {
+	{ 3, "hades_farming", { "cotton", "wheat", "spice", "potato", "strawberry", "tomato" } },
+	{ 5, "hades_grass", { "grass" } }
+}
+for s=1,#seeds do
+	local seedinfo = seeds[s]
+	local max = seedinfo[1]
+	local mod = seedinfo[2]
+	local seedtypes = seedinfo[3]
+	for t=1, #seedtypes do
+		local seed = seedtypes[1]
+		local seeditems = { mod..":seed_"..seed }
+		for i=1,max do
+			table.insert(seeditems, mod..":"..seed.."_"..i)
+		end
+		table.insert(cycles, seeditems)
 	end
-	table.insert(cycles, seeds)
 end
 
 local conversions = {}
