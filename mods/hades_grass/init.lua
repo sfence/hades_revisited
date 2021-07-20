@@ -98,7 +98,7 @@ minetest.register_abm({
 		-- Growth behavior depends on node below ...
 		if bnode.name == "hades_core:dirt_with_grass" then
 			-- grow grass clump on (full) dirt with grass
-			minetest.set_node(pos, {name = "hades_grass:grass_"..math.random(1,5)})
+			minetest.set_node(pos, {name = "hades_grass:grass_"..math.random(1,5), param2 = param2})
 		elseif minetest.get_item_group(bnode.name, "dirt") >= 1 or minetest.get_item_group(bnode.name, "soil") > 1 then
 			-- Turn dirt and soil into dirt-with-grass;
 			-- For an intermediate dirt-with-grass stage,
