@@ -5,12 +5,13 @@ local DEFAULT_MAXLIGHT = minetest.LIGHT_MAX
 
 hades_seeds = {}
 
--- Seed placement
--- * itemstack, placer, pointed_thing: Same as node's on_place function
--- * nodename: Name of seed node to place
--- * surface_check: Function that takes the node on which the seed is placed as argument,
---                  must return true if seed is allowed to be placed here
-hades_seeds.place_seed = function(itemstack, placer, pointed_thing, nodename, surface_check)
+--[[ Seed placement.
+* `itemstack`, `placer`, `pointed_thing`: Same as node's `on_place` function
+* `nodename`: Name of seed node to place
+* `surface_check`: Function that takes the node on which the seed is placed as argument,
+                   must return true if seed is allowed to be placed here
+]]
+local place_seed = function(itemstack, placer, pointed_thing, nodename, surface_check)
 	local pt = pointed_thing
 	-- check if pointing at a node
 	if not pt then
@@ -65,14 +66,6 @@ hades_seeds.place_seed = function(itemstack, placer, pointed_thing, nodename, su
 end
 
 -- Register seed node.
--- name: itemstring
--- def: Definition table:
---   * description: Same as for normal node def
---   * inventory_image: Same as for normal node def
---   * place_param2: Same as for normal node def
---   * surface_check: Same as for hades_seeds.place_seed
---   * _tt_help: Tooltip extension (for 'tt' mod)
---   * fertilty: internal argument required for hades_farming plants only
 hades_seeds.register_seed = function(name, def)
 	local placename = name
 	if string.sub(name, 1, 1) == ":" then
@@ -118,10 +111,10 @@ hades_seeds.register_seed = function(name, def)
 		sounds = {
 			dig = { name = "hades_seeds_seed_dig", gain = 0.1 },
 			dug = { name = "hades_seeds_seed_dug", gain = 0.5 },
-			-- place sound is done in hades_seeds.place_seed
+			-- place sound is done in place_seed
 		},
 		on_place = function(itemstack, placer, pointed_thing)
-			return hades_seeds.place_seed(itemstack, placer, pointed_thing, placename, def.surface_check)
+			return place_seed(itemstack, placer, pointed_thing, placename, def.surface_check)
 		end
 	})
 

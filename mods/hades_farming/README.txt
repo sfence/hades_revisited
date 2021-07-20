@@ -41,14 +41,6 @@ Created by Gambit (License: MIT License):
   farming_cotton_seed.png
   farming_wheat_seed.png
 
-Created by Wuzzy, based on sound by wyronroberth (License: MIT License):
-  Original sound source: https://freesound.org/people/wyronroberth/sounds/516249/
-  hades_farming_seed_dig.ogg
-  hades_farming_seed_dug.1.ogg
-  hades_farming_seed_dug.2.ogg
-  hades_farming_seed_place.1.ogg
-  hades_farming_seed_place.2.ogg
-
 Created by Wuzzy (License: MIT License):
   hades_farming_wet_soil_footstep.1.ogg
   hades_farming_wet_soil_footstep.2.ogg
