@@ -186,7 +186,7 @@ minetest.register_abm({
 -- Takes a node name and if it's capable of being covered by grass,
 -- returns the node name of the next level of "grassiness",
 -- otherwise it returns nil
-local function get_next_grass_cover_level(nodename)
+function hades_core.get_next_grass_cover_level(nodename)
 	if nodename == "hades_core:dirt" then
 		return "hades_core:dirt_with_grass_l1"
 	elseif nodename == "hades_core:dirt_with_grass_l1" then
@@ -195,15 +195,13 @@ local function get_next_grass_cover_level(nodename)
 		return "hades_core:dirt_with_grass_l3"
 	elseif nodename == "hades_core:dirt_with_grass_l3" then
 		return "hades_core:dirt_with_grass"
-	else
-		return nodename
 	end
 end
 
--- Dirt ABMs
+-- Dirt-with-Grass ABMs
 minetest.register_abm({
-	label = "Grow grass on dirt under bright light",
-	nodenames = {"group:dirt"},
+	label = "Increase Dirt-with-Grass grass level on Dirt-with-Grass under bright light",
+	nodenames = {"group:dirt_with_grass"},
 	interval = 2,
 	chance = 200,
 	action = function(pos, node)
@@ -213,7 +211,7 @@ minetest.register_abm({
 		if nodedef and (nodedef.sunlight_propagates or nodedef.paramtype == "light")
 				and nodedef.liquidtype == "none"
 				and (minetest.get_node_light(above) or 0) >= 13 then
-			local nextnode = get_next_grass_cover_level(node.name)
+			local nextnode = hades_core.get_next_grass_cover_level(node.name)
 			if nextnode then
 				minetest.set_node(pos, {name = nextnode, param2 = node.param2})
 			end
@@ -222,15 +220,15 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
-	label = "Grow grass on dirt under air in faint light",
-	nodenames = {"group:dirt"},
+	label = "Increase Dirt-with-Grass level on Dirt-with-Grass under air in faint light",
+	nodenames = {"group:dirt_with_grass"},
 	interval = 50,
 	chance = 20,
 	action = function(pos, node)
 		local name = minetest.get_node(pos).name
 		local node = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
 		if node.name == "air" and (minetest.get_node_light(pos) or 0) >= 8 then
-			local nextnode = get_next_grass_cover_level(node.name)
+			local nextnode = hades_core.get_next_grass_cover_level(node.name)
 			if nextnode then
 				minetest.set_node(pos, {name = nextnode, param2 = node.param2})
 			end

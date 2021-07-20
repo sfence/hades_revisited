@@ -72,11 +72,14 @@ hades_seeds.register_seed = function(name, def)
 		placename = string.sub(name, 2)
 	end
 	-- Check def table
-	if not def.inventory_image then
-		def.inventory_image = "unknown_item.png"
+	if not def.image then
+		def.image = "unknown_item.png"
 	end
 	if def.meshoptions then
 		def.place_param2 = def.meshoptions
+	end
+	if not def.extra_groups then
+		def.extra_groups = {}
 	end
 
 	-- Register seed
@@ -87,10 +90,10 @@ hades_seeds.register_seed = function(name, def)
 	minetest.register_node(name, {
 		description = def.description,
 		_tt_help = def._tt_help,
-		tiles = {def.inventory_image, def.inventory_image, "blank.png"},
+		tiles = {def.image, def.image, "blank.png"},
 		use_texture_alpha = "clip",
-		inventory_image = def.inventory_image,
-		wield_image = def.inventory_image,
+		inventory_image = def.image,
+		wield_image = def.image,
 		drawtype = "nodebox",
 		groups = g,
 		fertility = def.fertility,

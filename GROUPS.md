@@ -19,6 +19,7 @@ Node identities:
 * `simple_bush`: Bush
 
 * `seed`: Seed
+* `seed_farming`: Seed from the `hades_farming` mod
 * `wheat`: Wheat plant
 * `strawberry` Strawberry plant
 * `tomato` Tomato plant

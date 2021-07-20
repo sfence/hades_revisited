@@ -145,6 +145,8 @@ hades_farming.register_plant = function(name, def)
 	for k, v in pairs(def.fertility) do
 		g[v] = 1
 	end
+	-- Extra group to distinguish from other seeds
+	g["seed_farming"] = 1
 
 	local surface_check = function(node)
 		return minetest.get_item_group(node.name, "soil") >= 2
@@ -153,7 +155,7 @@ hades_farming.register_plant = function(name, def)
 	hades_seeds.register_seed(":" .. mname .. ":seed_" .. pname, {
 		description = def.description_seed,
 		_tt_help = def._tt_help,
-		inventory_image = def.inventory_image,
+		image = def.inventory_image,
 		place_param2 = def.place_param2,
 		surface_check = surface_check,
 		extra_groups = g,
@@ -214,7 +216,7 @@ hades_farming.register_plant = function(name, def)
 	-- Growing ABM
 	minetest.register_abm({
 		label = "Grow farming seeds and plants: "..pname,
-		nodenames = {"group:" .. pname, "group:seed"},
+		nodenames = {"group:" .. pname, "group:seed_farming"},
 		neighbors = {"group:soil"},
 		interval = 93,
 		chance = 12,
@@ -235,7 +237,7 @@ hades_farming.register_plant = function(name, def)
 			local node_def = minetest.registered_items[node.name] or nil
 
 			-- grow seed
-			if minetest.get_item_group(node.name, "seed") ~= 0 and node_def.fertility then
+			if minetest.get_item_group(node.name, "seed_farming") ~= 0 and node_def.fertility then
 				local can_grow = false
 				local soil_node = minetest.get_node_or_nil({x = pos.x, y = pos.y - 1, z = pos.z})
 				if not soil_node then

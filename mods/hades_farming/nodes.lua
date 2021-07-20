@@ -121,9 +121,10 @@ for i = 1, 5 do
 		drop = {
 		max_items = 1,
 		items = {
-			{items = {'hades_farming:seed_wheat'},rarity = 10},
-			{items = {'hades_farming:seed_spice'},rarity = 10},
-			{items = {'hades_farming:seed_strawberry'},rarity = 10},
+			{items = {'hades_farming:seed_wheat'},rarity = 13},
+			{items = {'hades_farming:seed_spice'},rarity = 13},
+			{items = {'hades_farming:seed_strawberry'},rarity = 13},
+			{items = {'hades_grass:seed_grass'},rarity = 13},
 			{items = {'hades_grass:grass_1'}},
 		}
 	},

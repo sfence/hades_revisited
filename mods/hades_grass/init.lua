@@ -1,5 +1,12 @@
 local S = minetest.get_translator("hades_grass")
 
+local grass_drop = {
+	items = {
+		{ items = { "hades_grass:grass_1" }, rarity = 1 },
+		{ items = { "hades_grass:grass_seed" }, rarity = 8 },
+	}
+}
+
 minetest.register_node("hades_grass:grass_1", {
 	description = S("Grass Clump"),
 	drawtype = "plantlike",
@@ -16,6 +23,7 @@ minetest.register_node("hades_grass:grass_1", {
 	is_ground_content = true,
 	buildable_to = true,
 	floodable = true,
+	drop = grass_drop,
 	groups = {snappy=3,flammable=3,flora=1,grass_clump=1,grass=1,attached_node=1},
 	sounds = hades_sounds.node_sound_grass_defaults(),
 	selection_box = {
@@ -30,7 +38,6 @@ minetest.register_node("hades_grass:grass_1", {
 	end,
 })
 
-local drop_counts = { 1, 1, 2, 2, 3 }
 for i=2,5 do
 	minetest.register_node("hades_grass:grass_"..i, {
 		description = S("Grass Clump (Stage @1)", i),
@@ -47,7 +54,7 @@ for i=2,5 do
 		buildable_to = true,
 		floodable = true,
 		is_ground_content = true,
-		drop = "hades_grass:grass_1 " .. drop_counts[i],
+		drop = grass_drop,
 		groups = {snappy=3,flammable=3,flora=1,grass=1,grass_clump=1,attached_node=1,not_in_creative_inventory=1},
 		sounds = hades_sounds.node_sound_grass_defaults(),
 		selection_box = {
@@ -56,6 +63,51 @@ for i=2,5 do
 		},
 	})
 end
+
+hades_seeds.register_seed("hades_grass:seed_grass", {
+	description = S("Grass Seed"),
+	image = "hades_grass_grass_seed.png",
+	surface_check = function(node)
+		return minetest.get_item_group(node.name, "dirt") > 0 or minetest.get_item_group(node.name, "soil") > 0
+	end,
+	_tt_help = S("Grows on Dirt, Dirt with Grass, Soil and Wet Soil in light"),
+})
+
+minetest.register_abm({
+	label = "Grow grass seeds in light",
+	nodenames = {"hades_grass:seed_grass"},
+	interval = 10,
+	chance = 25,
+	action = function(pos, node)
+		local light = minetest.get_node_light(pos)
+		if light < 8 then
+			return
+		end
+		local param2 = hades_core.get_seasonal_grass_color_param2()
+		local below = {x=pos.x, y=pos.y-1, z=pos.z}
+		local bnode = minetest.get_node(below)
+		-- Growth behavior depends on node below ...
+		if bnode.name == "hades_core:dirt_with_grass" then
+			-- grow grass clump on (full) dirt with grass
+			minetest.set_node(pos, {name = "hades_grass:grass_"..math.random(1,5)})
+		elseif minetest.get_item_group(bnode.name, "dirt") >= 1 or minetest.get_item_group(bnode.name, "soil") > 1 then
+			-- Turn dirt and soil into dirt-with-grass;
+			-- For an intermediate dirt-with-grass stage,
+			-- increase grass cover level by 1
+			local next_node = hades_core.get_next_grass_cover_level(bnode.name)
+			if not next_node then
+				next_node = "hades_core:dirt_with_grass_l1"
+			end
+			minetest.remove_node(pos)
+			minetest.set_node(below, {name = next_node, param2 = param2})
+		else
+			-- Seeds are on wrong node, let's kill them!
+			minetest.remove_node(pos)
+		end
+	end
+})
+
+
 
 minetest.register_node("hades_grass:junglegrass", {
 	description = S("Tropical Grass"),
