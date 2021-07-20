@@ -1,9 +1,10 @@
 local S = minetest.get_translator("hades_grass")
 
 local grass_drop = {
+	max_items = 1,
 	items = {
-		{ items = { "hades_grass:grass_1" }, rarity = 1 },
-		{ items = { "hades_grass:grass_seed" }, rarity = 8 },
+		{ items = { "hades_grass:seed_grass 2" }, rarity = 13 },
+		{ items = { "hades_grass:grass_1" } },
 	}
 }
 
@@ -146,24 +147,30 @@ minetest.register_abm({
 minetest.register_craft({
 	output = 'hades_grass:grass_1',
 	recipe = {
-		{'hades_grass:mossycobble', '', ''},
-		{'hades_grass:mossycobble', '', ''},
-		{'hades_grass:dirt', '', ''},
+		{'hades_core:mossycobble', '', ''},
+		{'hades_core:mossycobble', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
 minetest.register_craft({
 	output = 'hades_grass:grass_1',
 	recipe = {
-		{'hades_grass:mossytuff', '', ''},
-		{'hades_grass:mossytuff', '', ''},
-		{'hades_grass:dirt', '', ''},
+		{'hades_core:mossytuff', '', ''},
+		{'hades_core:mossytuff', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
+minetest.register_craft({
+	output = 'hades_grass:seed_grass 2',
+	recipe = {{'hades_grass:grass_1'}},
+})
+
+
 minetest.register_craft({
 	output = 'hades_grass:junglegrass',
 	recipe = {
 		{'hades_grass:grass_1', '', ''},
-		{'hades_grass:dirt', '', ''},
+		{'hades_core:dirt', '', ''},
 	}
 })
 
@@ -178,6 +185,17 @@ minetest.register_craft({
 	burntime = 2,
 })
 
+do
+	minetest.override_item("hades_core:dirt_with_grass", {
+		drop = {
+			items = {
+				{ items = { "hades_grass:seed_grass" }, rarity = 8 },
+				{ items = { "hades_grass:seed_grass" }, rarity = 8 },
+				{ items = { "hades_core:dirt" } },
+			},
+		}
+	})
+end
 
 minetest.register_alias("hades_core:grass_1", "hades_grass:grass_1")
 minetest.register_alias("hades_core:grass_2", "hades_grass:grass_2")
@@ -185,3 +203,4 @@ minetest.register_alias("hades_core:grass_3", "hades_grass:grass_3")
 minetest.register_alias("hades_core:grass_4", "hades_grass:grass_4")
 minetest.register_alias("hades_core:grass_5", "hades_grass:grass_5")
 minetest.register_alias("hades_core:junglegrass", "hades_grass:junglegrass")
+

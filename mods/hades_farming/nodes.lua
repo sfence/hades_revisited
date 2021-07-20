@@ -114,33 +114,31 @@ minetest.register_abm({
 	end,
 })
 
-
-for i = 1, 5 do		
+for i = 1, 5 do
+	local grass_drops = table.copy(minetest.registered_nodes["hades_grass:grass_"..i].drop)
+	table.insert(grass_drops.items, 1, {items={"hades_farming:seed_wheat"}, rarity=13})
+	table.insert(grass_drops.items, 1, {items={"hades_farming:seed_spice"}, rarity=13})
+	table.insert(grass_drops.items, 1, {items={"hades_farming:seed_strawberry"}, rarity=13})
+	grass_drops.max_items = 1
 	minetest.override_item("hades_grass:grass_"..i, {
 		_tt_help = S("Chance to drop random seed when dug"),
-		drop = {
-		max_items = 1,
-		items = {
-			{items = {'hades_farming:seed_wheat'},rarity = 13},
-			{items = {'hades_farming:seed_spice'},rarity = 13},
-			{items = {'hades_farming:seed_strawberry'},rarity = 13},
-			{items = {'hades_grass:seed_grass'},rarity = 13},
-			{items = {'hades_grass:grass_1'}},
-		}
-	},
+		drop = grass_drops,
 	})
 end
-	
+
+local jgrass_drops
+if minetest.registered_nodes["hades_grass:junglegrass"].drop then
+	jgrass_drops = table.copy(minetest.registered_nodes["hades_grass:junglegrass"].drop)
+else
+	jgrass_drops = {items={}}
+end
+table.insert(jgrass_drops.items, 1, {items={"hades_farming:seed_cotton"}, rarity=10})
+table.insert(jgrass_drops.items, 1, {items={"hades_farming:seed_tomato"}, rarity=10})
+table.insert(jgrass_drops.items, 1, {items={"hades_farming:seed_potato"}, rarity=10})
+jgrass_drops.max_items = 1
+
 minetest.override_item("hades_grass:junglegrass", {
 	_tt_help = S("Chance to drop random seed when dug"),
-	drop = {
-	max_items = 1,
-	items = {
-		{items = {'hades_farming:seed_cotton'},rarity = 10},
-		{items = {'hades_farming:seed_tomato'},rarity = 10},
-		{items = {'hades_farming:seed_potato'},rarity = 10},
-		{items = {'hades_grass:junglegrass'}},
-	}
-}})
-
+	drop = jgrass_drops,
+})
 
