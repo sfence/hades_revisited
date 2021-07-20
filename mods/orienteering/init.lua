@@ -368,7 +368,7 @@ minetest.register_globalstep(function(dtime)
 			orienteering.update_compass(players[i])
 			orienteering.update_hud_displays(players[i])
 		end
-		updatetimer = updatetimer - dtime
+		updatetimer = 0
 	end
 end)
 
