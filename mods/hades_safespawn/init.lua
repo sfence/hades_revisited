@@ -1,3 +1,5 @@
+local S = minetest.get_translator("hades_safespawn")
+
 local function find_safe_nearby_pos(data)
 	local player = data.player
 	if not player or not player:is_player() then
@@ -51,6 +53,7 @@ local function find_safe_nearby_pos(data)
 		-- TODO: Generalize to any "solid" node
 		local nodes = minetest.find_nodes_in_area_under_air(p1, p2, {"group:ash", "group:sand", "group:stone", "group:dirt", "group:gravel"})
 		-- TODO: Check nodes in random order
+		local pname = player:get_player_name()
 		for n=1, #nodes do
 			local tpos = nodes[n]
 			tpos.y = tpos.y + 1
@@ -58,12 +61,24 @@ local function find_safe_nearby_pos(data)
 			local n_above = minetest.get_node(tpos_above)
 			if n_above.name == "air" then
 				player:set_pos(tpos)
-				minetest.log("action", player:get_player_name().." got a spawn safety teleportion from "..minetest.pos_to_string(pos, 1).." to "..minetest.pos_to_string(tpos, 1))
+				minetest.log("action", pname.." got a spawn safety teleportion from "..minetest.pos_to_string(pos, 1).." to "..minetest.pos_to_string(tpos, 1))
+				if attempt > 0 then
+					--[[ Show player message on safety teleport, but only
+					on first attempt, because those safety teleports are supposed
+					to be invisible to the player, just like a regular spawn.
+					Only if there were multiple attempts will there be a message
+					because in this case, the player can actually briefly see
+					the danger (i.e. falling right into a lava lake) before
+					teleporting. ]]
+					minetest.chat_send_player(pname, minetest.colorize("#00FFFF", S("Danger zone detected. Safety teleportation activated.")))
+					minetest.sound_play({name="hades_player_respawn"}, {to_player=pname}, true)
+				end
 				return true
 			end
 		end
 		if #nodes == 0 then
-			minetest.log("action", player:get_player_name().." had an unsafe spawn at "..minetest.pos_to_string(pos, 1).." but no safe alternative spawn spot could be found.")
+			minetest.log("action", pname.." had an unsafe spawn at "..minetest.pos_to_string(pos, 1).." but no safe alternative spawn spot could be found.")
+			minetest.chat_send_player(pname, minetest.colorize("#FFFF00", S("Danger zone detected, and the safety teleportation failed. Good luck!")))
 			return true
 		end
 	end
