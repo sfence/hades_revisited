@@ -1,3 +1,5 @@
+local S = minetest.get_translator("hades_seasons")
+
 hades_seasons = {}
 
 -- Number of days in a season
@@ -12,11 +14,26 @@ hades_seasons.SEASON_SPRING = 0
 hades_seasons.SEASON_SUMMER = 1
 hades_seasons.SEASON_FALL = 2
 
--- Returns season ID (see above) of a given day
+-- When the season is forced, this contains the season ID of the forced season.
+-- Otherwise, it is nil.
+local forced_season = nil
+
+-- Declare function name for callbacks here, define it below
+local call_on_season_change_callbacks
+
+-- Returns season ID (see above) of a given day.
 -- * day (optional): Days since world creation (if not given, uses minetest.get_day_count())
+-- Note: This function might return nil if no day is given because
+-- minetest.get_day_count() might fail before the game is fully loaded
 hades_seasons.get_season = function(day)
+	if forced_season then
+		return forced_season
+	end
 	if not day then
 		day = minetest.get_day_count()
+		if not day then
+			return nil
+		end
 	end
 	local season = math.floor(day / hades_seasons.SEASON_LENGTH) % hades_seasons.SEASONS
 	return season
@@ -144,3 +161,110 @@ hades_seasons.get_distance_from_star_normalized = function(day_in_year)
 	return s
 end
 
+-- Force-set season to given season or nil to disable force-setting
+hades_seasons.force_set_season = function(season)
+	forced_season = season
+	call_on_season_change_callbacks()
+end
+
+minetest.register_chatcommand("season", {
+	privs = { settime=true },
+	params = S("[ spring | summer | fall | natural ]"),
+	description = S("Force-set the season or show the current season"),
+	func = function(name, param)
+		param = string.trim(param)
+		if param == "spring" then
+			hades_seasons.force_set_season(hades_seasons.SEASON_SPRING)
+			minetest.log("action", "Season was force-set to spring by "..name)
+			return true, S("Season is now forced to be spring until the game is shut down.")
+		elseif param == "summer" then
+			hades_seasons.force_set_season(hades_seasons.SEASON_SUMMER)
+			minetest.log("action", "Season was force-set to summer by "..name)
+			return true, S("Season is now forced to be summer until the game is shut down.")
+		elseif param == "fall" then
+			hades_seasons.force_set_season(hades_seasons.SEASON_FALL)
+			minetest.log("action", "Season was force-set to fall by "..name)
+			return true, S("Season is now forced to be fall until the game is shut down.")
+		elseif param == "natural" then
+			hades_seasons.force_set_season(nil)
+			minetest.log("action", "Season force-setting has been disabled by "..name)
+			return true, S("Seasons are now based on the day in year.")
+		elseif param == "" then
+			local season = hades_seasons.get_season()
+			local season_str
+			if season == hades_seasons.SEASON_SPRING then
+				season_str = S("spring")
+			elseif season == hades_seasons.SEASON_SUMMER then
+				season_str = S("summer")
+			elseif season == hades_seasons.SEASON_FALL then
+				season_str = S("fall")
+			end
+			if forced_season then
+				return true, S("Current season is @1 (forced).", season_str)
+			else
+				return true, S("Current season is @1.", season_str)
+			end
+		else
+			return false
+		end
+	end,
+})
+
+
+
+
+-- Callback functions when the season changed
+hades_seasons.registered_on_season_changes = {}
+
+-- Keep track of previous season for on_season_change
+local previous_season
+
+-- Registers func to be called on season change.
+-- * func: Function that is called with the current season as argument
+-- Note: This function is currently based on polling,
+-- so it often will not communicate season changes immediately.
+-- TODO: Make sure this callback fires immediately at midnight
+-- when a season changed
+hades_seasons.register_on_season_change = function(func)
+	table.insert(hades_seasons.registered_on_season_changes, func)
+end
+
+-- (this function is local (see above))
+call_on_season_change_callbacks = function()
+	local season = hades_seasons.get_season()
+	if not season then
+		return false
+	end
+	if not previous_season then
+		previous_season = season
+		return true
+	elseif season == previous_season then
+		return true
+	end
+	previous_season = season
+	for _,callback in pairs(hades_seasons.registered_on_season_changes) do
+		callback(season)
+	end
+	return true
+end
+
+-- Every X seconds, the season is checked if it was changed for
+-- triggering the callbacks.
+-- Sadly required since we don't have a callback for day change yet.
+-- A downside of this is that if time_speed is very high, this
+-- won't update fast enough.
+local SEASON_CHECK_UPDATE_TIME = 180
+
+-- Call the callbacks every SEASON_CHECK_UPDATE_TIME seconds
+local function callback_repeater()
+	local ret = call_on_season_change_callbacks()
+	local time
+	if ret then
+		time = SEASON_CHECK_UPDATE_TIME
+	else
+		time = 3
+	end
+	minetest.after(time, callback_repeater)
+end
+
+minetest.register_on_mods_loaded(callback_repeater)

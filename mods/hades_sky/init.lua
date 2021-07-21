@@ -2,12 +2,6 @@
 local SUN_SIZE_MIN = 0.5
 local SUN_SIZE_MAX = 1.25
 
--- Every X seconds, the sky updates for players.
--- Sadly required since we don't have a callback for day change yet.
--- A downside of this is that if time_speed is very high, the sky
--- won't update fast enough.
-local SEASON_SKY_UPDATE_TIME = 180
-
 local dawn_sky = "#807340"
 local dawn_horizon = "#807340"
 local night_sky = "#4C3B18"
@@ -88,13 +82,11 @@ callbacks.init_sky = function(player)
 	season_sky(player)
 end
 
-callbacks.season_sky_repeater = function(player)
-	if not player or not player:is_player() then
-		return
+hades_seasons.register_on_season_change(function(season)
+	local players = minetest.get_connected_players()
+	for p=1, #players do
+		season_sky(players[p])
 	end
-	season_sky(player)
-	minetest.after(SEASON_SKY_UPDATE_TIME, callbacks.season_sky_repeater, player)
-end
+end)
 
 minetest.register_on_joinplayer(callbacks.init_sky)
-minetest.register_on_joinplayer(callbacks.season_sky_repeater)
