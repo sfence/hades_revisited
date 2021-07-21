@@ -159,6 +159,7 @@ local get_apply_fertilizer = function(super)
 				end
 				minmax=1
 			end
+			local season_color = hades_core.get_seasonal_grass_color_param2()
 			for x = pos.x - minmax, pos.x + minmax do
 			for y = pos.y, pos.y do
 			for z = pos.z - minmax, pos.z + minmax do
@@ -176,8 +177,10 @@ local get_apply_fertilizer = function(super)
 							minetest.registered_nodes[above_node.name].walkable == false)) then
 						if nname == "hades_core:dirt" then
 							node.name = "hades_core:dirt_with_grass"
+							node.param2 = season_color
 						elseif dwg2 > 0 then
 							node.name = "hades_core:dirt_with_grass"
+							node.param2 = season_color
 						elseif nname == "hades_core:stone" then
 							node.name = "hades_core:mossystone"
 						elseif nname == "hades_core:tuff" then
