@@ -208,29 +208,30 @@ local get_apply_fertilizer = function(super)
 					local above_node = minetest.get_node(pos_above)
 					if above_node.name == "air" and math.random() < 0.2 and node.name == nname then
 						local plants
+						local p2season = hades_core.get_seasonal_grass_color_param2()
 						if (node.name == "hades_grass:grass" or node.name == "hades_core:dirt_with_grass") then
 							if super then
 							plants = {
-							{"hades_grass:grass_1"},
-							{"hades_grass:grass_2"},
-							{"hades_grass:grass_3"},
-							{"hades_grass:grass_4"},
-							{"hades_grass:grass_5"},
-							{"hades_grass:grass_1"},
-							{"hades_grass:grass_2"},
-							{"hades_grass:grass_3"},
-							{"hades_grass:grass_4"},
-							{"hades_grass:grass_5"},
-							{"hades_grass:grass_1"},
-							{"hades_grass:grass_2"},
-							{"hades_grass:grass_3"},
-							{"hades_grass:grass_4"},
-							{"hades_grass:grass_5"},
-							{"hades_grass:grass_1"},
-							{"hades_grass:grass_2"},
-							{"hades_grass:grass_3"},
-							{"hades_grass:grass_4"},
-							{"hades_grass:grass_5"},
+							{"hades_grass:grass_1", p2season},
+							{"hades_grass:grass_2", p2season},
+							{"hades_grass:grass_3", p2season},
+							{"hades_grass:grass_4", p2season},
+							{"hades_grass:grass_5", p2season},
+							{"hades_grass:grass_1", p2season},
+							{"hades_grass:grass_2", p2season},
+							{"hades_grass:grass_3", p2season},
+							{"hades_grass:grass_4", p2season},
+							{"hades_grass:grass_5", p2season},
+							{"hades_grass:grass_1", p2season},
+							{"hades_grass:grass_2", p2season},
+							{"hades_grass:grass_3", p2season},
+							{"hades_grass:grass_4", p2season},
+							{"hades_grass:grass_5", p2season},
+							{"hades_grass:grass_1", p2season},
+							{"hades_grass:grass_2", p2season},
+							{"hades_grass:grass_3", p2season},
+							{"hades_grass:grass_4", p2season},
+							{"hades_grass:grass_5", p2season},
 							{"hades_grass:junglegrass"},
 							{"hades_grass:junglegrass"},
 							{"hades_grass:junglegrass"},
@@ -245,11 +246,11 @@ local get_apply_fertilizer = function(super)
 							}
 							else
 							plants = {
-							{"hades_grass:grass_1"},
-							{"hades_grass:grass_2"},
-							{"hades_grass:grass_3"},
-							{"hades_grass:grass_4"},
-							{"hades_grass:grass_5"},
+							{"hades_grass:grass_1", p2season},
+							{"hades_grass:grass_2", p2season},
+							{"hades_grass:grass_3", p2season},
+							{"hades_grass:grass_4", p2season},
+							{"hades_grass:grass_5", p2season},
 							}
 							end
 						elseif (node.name == "hades_core:ash" or node.name == "hades_core:volcanic_sand" or node.name == "hades_core:gravel" or node.name == "hades_core:gravel_volcanic") then
@@ -274,9 +275,15 @@ local get_apply_fertilizer = function(super)
 							}
 						end
 						if plants then
-							local plant = plants[math.random(1, #plants)][1]
+							local rnd = math.random(1, #plants)
+							local plant = plants[rnd][1]
 							local pdef = minetest.registered_nodes[plant]
-							local p2 = pdef.place_param2
+							local p2
+							if plants[rnd][2] then
+								p2 = plants[rnd][2]
+							else
+								p2 = pdef.place_param2
+							end
 							local nnode = {name = plant, param2 = p2}
 							minetest.set_node(pos_above, nnode)
 						end
