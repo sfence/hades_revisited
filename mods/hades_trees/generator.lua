@@ -230,6 +230,10 @@ pos: Position of tree base
 check_light: whether to check light
 trunk: tree trunk node name (optional)
 leaves: leaves node name (optional)
+replacement: {
+	name = --node name of node to replace leaves,
+	chance = -- 1 divided by this is the chance to replace leaves,
+}
 underground: List of node names on which this tree can grow
 
 config:
@@ -242,7 +246,7 @@ config:
 * leaves_chance_numerator: chance of a leaves node to generate is the number above divided by this
 ]]
 
-function hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, config)
+function hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, replacement, config)
 	if not trunk then
 		trunk = "hades_trees:tree"
 	end
@@ -289,14 +293,17 @@ function hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, under
 		pos.y = pos.y-dy
 	end
 	local trunknodes = {}
-	for dy=0,config.trunk_height do
+	for dy=0,config.trunk_height-1 do
 		pos.y = pos.y+dy
 		local tnode = minetest.get_node(pos)
 		table.insert(trunknodes, table.copy(pos))
 		pos.y = pos.y-dy
 	end
 
+
+
 	local leafnodes = {}
+	local replacementnodes = {}
 	for dx=-config.leaves_outwards, config.leaves_outwards do
 		for dz=-config.leaves_outwards, config.leaves_outwards do
 			for dy=config.leaves_start_height, config.leaves_start_height + config.leaves_height - 1 do
@@ -306,7 +313,16 @@ function hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, under
 				if dx ~= 0 or dz ~= 0 or dy > config.trunk_height then
 					local tnode = minetest.get_node(pos)
 					if tnode.name == "air" and math.random(1, config.leaves_chance_denominator) <= config.leaves_chance_numerator then
-						table.insert(leafnodes, table.copy(pos))
+						local replaced = false
+						if replacement then
+							if math.random(1, replacement.chance) == 1 then
+								table.insert(replacementnodes, table.copy(pos))
+								replaced = true
+							end
+						end
+						if not replaced then
+							table.insert(leafnodes, table.copy(pos))
+						end
 					end
 				end
 				pos.x = pos.x-dx
@@ -320,6 +336,10 @@ function hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, under
 	minetest.bulk_set_node(trunknodes, node)
 	node.name = leaves
 	minetest.bulk_set_node(leafnodes, node)
+	if #replacementnodes > 0 then
+		node.name = replacement.name
+		minetest.bulk_set_node(replacementnodes, node)
+	end
 
 end
 
@@ -331,14 +351,14 @@ function hades_trees.generate_paletree(pos, check_light)
 	table.insert(underground, "hades_core:volcanic_sand")
 	table.insert(underground, "hades_core:fertile_sand")
 	local config = {
-		trunk_height = 7,
+		trunk_height = 8,
 		leaves_start_height = 2,
 		leaves_height = 7,
 		leaves_outwards = 1,
 		leaves_chance_numerator = 2,
 		leaves_chance_denominator = 5,
 	}
-	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, config)
+	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, nil, config)
 end
 
 function hades_trees.generate_birchtree(pos, check_light)
@@ -346,14 +366,14 @@ function hades_trees.generate_birchtree(pos, check_light)
 	local leaves = "hades_trees:birch_leaves"
 	local underground = DEFAULT_UNDERGROUND
 	local config = {
-		trunk_height = 6,
+		trunk_height = 7,
 		leaves_start_height = 3,
 		leaves_height = 7,
 		leaves_outwards = 2,
 		leaves_chance_numerator = 4,
 		leaves_chance_denominator = 5,
 	}
-	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, config)
+	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, nil, config)
 end
 
 function hades_trees.generate_canvastree(pos, check_light)
@@ -361,14 +381,14 @@ function hades_trees.generate_canvastree(pos, check_light)
 	local leaves = "hades_trees:canvas_leaves"
 	local underground = DEFAULT_UNDERGROUND
 	local config = {
-		trunk_height = 6,
+		trunk_height = 7,
 		leaves_start_height = 3,
 		leaves_height = 7,
 		leaves_outwards = 2,
 		leaves_chance_numerator = 4,
 		leaves_chance_denominator = 5,
 	}
-	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, config)
+	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, nil, config)
 end
 
 function hades_trees.generate_cjtree(pos, check_light)
@@ -376,14 +396,30 @@ function hades_trees.generate_cjtree(pos, check_light)
 	local leaves = "hades_trees:cultivated_jungle_leaves"
 	local underground = DEFAULT_UNDERGROUND
 	local config = {
-		trunk_height = 12,
+		trunk_height = 13,
 		leaves_start_height = 10,
 		leaves_height = 5,
 		leaves_outwards = 3,
 		leaves_chance_numerator = 4,
 		leaves_chance_denominator = 5,
 	}
-	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, config)
+	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, nil, config)
+end
+
+function hades_trees.generate_bananatree(pos, check_light)
+	local trunk = "hades_trees:tree"
+	local leaves = "hades_trees:banana_leaves"
+	local underground = DEFAULT_UNDERGROUND
+	local replacement = {name="hades_trees:banana", chance=9}
+	local config = {
+		trunk_height = 3,
+		leaves_start_height = 1,
+		leaves_height = 3,
+		leaves_outwards = 1,
+		leaves_chance_numerator = 1,
+		leaves_chance_denominator = 1,
+	}
+	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, replacement, config)
 end
 
 
@@ -581,108 +617,3 @@ function hades_trees.generate_appletree(pos, check_light, is_apple_tree)
 	vm:update_map()
 end
 
--- Banana tree
-function hades_trees.generate_bananatree(pos, check_light, trunk, leaves, underground, replacements)
-	if not trunk then
-		trunk = "hades_trees:tree"
-	end
-	if not leaves then
-		leaves = "hades_trees:banana_leaves"
-	end
-	if not underground then
-		underground = DEFAULT_UNDERGROUND
-	end
-	if not replacements then
-		replacements = {["hades_trees:banana"]=9}
-	end
-
-	pos.y = pos.y-1
-	local nodename = minetest.get_node(pos).name
-	local ret = false
-	for _,name in ipairs(underground) do
-		if nodename == name then
-			ret = true
-			break
-		end
-	end
-	if not ret then
-		return
-	end
-
-	pos.y = pos.y+1
-	if not check_node_light(pos, 8, check_light) then
-		return
-	end
-
-	local node = {name = ""}
-	for dy=1,3 do
-		pos.y = pos.y+dy
-		if minetest.get_node(pos).name ~= "air" then
-			return
-		end
-		pos.y = pos.y-dy
-	end
-	node.name = trunk
-	for dy=0,2 do
-		pos.y = pos.y+dy
-		minetest.set_node(pos, node)
-		pos.y = pos.y-dy
-	end
-
-	node.name = leaves
-	pos.y = pos.y+1
-	for dx=-1,1 do
-		for dz=-1,1 do
-			for dy=0,2 do
-				pos.x = pos.x+dx
-				pos.y = pos.y+dy
-				pos.z = pos.z+dz
-
-
-				if dx == 0 and dz == 0 and dy==3 then
-					if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 2 then
-						minetest.set_node(pos, node)
-						for name,rarity in pairs(replacements) do
-							if math.random(1, rarity) == 1 then
-								minetest.set_node(pos, {name=name})
-							end
-						end
-					end
-				elseif dx == 0 and dz == 0 and dy==4 then
-					if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 2 then
-						minetest.set_node(pos, node)
-						for name,rarity in pairs(replacements) do
-							if math.random(1, rarity) == 1 then
-								minetest.set_node(pos, {name=name})
-							end
-						end
-					end
-				elseif math.abs(dx) ~= 2 and math.abs(dz) ~= 2 then
-					if minetest.get_node(pos).name == "air" then
-						minetest.set_node(pos, node)
-						for name,rarity in pairs(replacements) do
-							if math.random(1, rarity) == 1 then
-								minetest.set_node(pos, {name=name})
-							end
-						end
-					end
-				else
-					if math.abs(dx) ~= 2 or math.abs(dz) ~= 2 then
-						if minetest.get_node(pos).name == "air" and math.random(1, 5) <= 2 then
-							minetest.set_node(pos, node)
-							for name,rarity in pairs(replacements) do
-								if math.random(1, rarity) == 1 then
-								minetest.set_node(pos, {name=name})
-								end
-							end
-						end
-					end
-				end
-
-				pos.x = pos.x-dx
-				pos.y = pos.y-dy
-				pos.z = pos.z-dz
-			end
-		end
-	end
-end
