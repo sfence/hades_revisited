@@ -191,6 +191,56 @@ minetest.register_abm({
 	end
 })
 
+minetest.register_node("hades_grass:dead_grass_1", {
+	description = S("Dead Grass Clump"),
+	drawtype = "plantlike",
+	tiles = {"hades_dead_grass_plant_colorable_1.png"},
+	inventory_image = "hades_dead_grass_plant_colorable_1.png",
+	wield_image = "hades_dead_grass_plant_colorable_1.png",
+	paramtype = "light",
+	paramtype2 = "color",
+	palette = "hades_core_palette_dead_grass.png",
+	color = "#FFE770",
+	waving = 1,
+	walkable = false,
+	is_ground_content = true,
+	buildable_to = true,
+	floodable = true,
+	groups = {snappy=3,flammable=3,dead_grass_clump=1,grass=1,attached_node=1},
+	sounds = hades_sounds.node_sound_grass_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-6/16, -0.5, -6/16, 6/16, -5/16, 6/16},
+	},
+})
+
+for i=2,5 do
+	minetest.register_node("hades_grass:dead_grass_"..i, {
+		description = S("Dead Grass Clump (Stage @1)", i),
+		drawtype = "plantlike",
+		tiles = {"hades_dead_grass_plant_colorable_"..i..".png"},
+		inventory_image = "hades_dead_grass_plant_colorable_"..i..".png",
+		wield_image = "hades_dead_grass_plant_colorable_"..i..".png",
+		paramtype = "light",
+		paramtype2 = "color",
+		palette = "hades_core_palette_dead_grass.png",
+		color = "#FFE770",
+		waving = 1,
+		walkable = false,
+		buildable_to = true,
+		floodable = true,
+		is_ground_content = true,
+		drop = "hades_grass:dead_grass_1",
+		groups = {snappy=3,flammable=3,grass=1,dead_grass_clump=i,attached_node=1,not_in_creative_inventory=1},
+		sounds = hades_sounds.node_sound_grass_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6/16, -0.5, -6/16, 6/16, -3/16, 6/16},
+		},
+	})
+end
+
+
 minetest.register_craft({
 	output = 'hades_grass:grass_1',
 	recipe = {
