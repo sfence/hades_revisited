@@ -127,6 +127,12 @@ minetest.register_node("hades_grass:junglegrass", {
 	buildable_to = true,
 	floodable = true,
 	is_ground_content = true,
+	drop = {
+		max_items = 1,
+		items = {
+			{ items = { "hades_grass:junglegrass" } },
+		}
+	},
 	groups = {snappy=3,flammable=2,flora=1,grass=1,attached_node=1},
 	sounds = hades_sounds.node_sound_grass_defaults(),
 	selection_box = {
