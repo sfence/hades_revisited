@@ -34,7 +34,7 @@ minetest.register_node("hades_grass:grass_1", {
 		-- Pick the correct grass color
 		local param2 = hades_core.get_seasonal_grass_color_param2()
 		local ret = minetest.item_place(itemstack, placer, pointed_thing, param2)
-		return ItemStack("hades_grass:grass_1 "..itemstack:get_count()-(1-ret:get_count()))
+		return ItemStack("hades_grass:grass_1 "..ret:get_count())
 	end,
 })
 
