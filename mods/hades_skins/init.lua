@@ -27,8 +27,8 @@ local styles = {
 		{ name = "long", desc = S("Long hair") },
 		{ name = "beard", desc = S("Hair with beard") },
 	},
-	accessoire_head = {
-		{ name = "blank", desc = S("No accessoire") },
+	accessory_head = {
+		{ name = "blank", desc = S("No accessory") },
 		{ name = "ribbon", desc = S("Ribbon") },
 		{ name = "headband", desc = S("Headband") },
 		{ name = "flowers", desc = S("Head flowers") },
@@ -61,7 +61,7 @@ local styles = {
 
 -- Sort styles by the rough position on the body (from top to bottom)
 local styles_sorted = {
-	"skin", "accessoire_head", "hair", "eyes", "shirt", "belt", "pants", "shoes"
+	"skin", "accessory_head", "hair", "eyes", "shirt", "belt", "pants", "shoes"
 }
 
 function hades_skins.get_random_textures_and_colors()
@@ -117,7 +117,7 @@ function hades_skins.build_texture(base, color)
 	.. tex.shirt
 	.. tex.belt
 	.. tex.hair
-	.. tex.accessoire_head
+	.. tex.accessory_head
 	return { textures = { texture }, colors = color }
 end
 

@@ -14,10 +14,10 @@ Wuzzy (CC0 1.0):
   - hades_skins_pants_hotpants.png
   - hades_skins_shirt_top.png
   - hades_skins_shirt_tanktop.png
-  - hades_skins_accessoire_head_flowers.png
+  - hades_skins_accessory_head_flowers.png
 
 Kosanaya (CC BY-SA 3.0):
-  * hades_skins_accessoire_head_ribbon.png (original skin: Bikutoria_by_Kosanaya.png)
+  * hades_skins_accessory_head_ribbon.png (original skin: Bikutoria_by_Kosanaya.png)
 
 Minetestian (CC BY-SA 3.0):
   * hades_skins_shirt_t-shirt.png (original skin: Minetestian_by_Minetestian.png)
