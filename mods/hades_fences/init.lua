@@ -55,8 +55,9 @@ function hades_fences.register_fence(name, def)
 
 	-- Always add to the fence group, even if no group provided
 	def.groups.fence = 1
-	-- Always connect to fence gates regardless of type
+	-- Always connect to fence gates and walls regardless of type
 	table.insert(def.connects_to, "group:fence_gate")
+	table.insert(def.connects_to, "group:wall")
 
 	def.texture = nil
 	def.material = nil

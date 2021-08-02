@@ -5,8 +5,10 @@ walls = {}
 walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sounds, connects_to)
 	if connects_to then
 		table.insert(connects_to, "group:wall")
+		table.insert(connects_to, "group:fence")
+		table.insert(connects_to, "group:fence_gate")
 	else
-		connects_to = {"group:wall"}
+		connects_to = {"group:wall", "group:fence", "group:fence_gate"}
 	end
 	-- inventory node, and pole-type wall start item
 	minetest.register_node(wall_name, {
