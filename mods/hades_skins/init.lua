@@ -22,16 +22,44 @@ local get_color = function(r, g, b)
 end
 
 local styles = {
-	hair = { "medium", "long", "beard" },
-	accessoire_head = { "blank", "ribbon", "headband", "flowers" },
-	shirt = { "shirt", "t-shirt", "tanktop", "top", },
-	belt = { "blank", "simple" },
-	pants = { "long", "shorts", "hotpants" },
-	shoes = { "simple" },
-	skin = { "base" },
-	eyes = { "pupils" },
+	hair = {
+		{ name = "medium", desc = S("Medium hair") },
+		{ name = "long", desc = S("Long hair") },
+		{ name = "beard", desc = S("Hair with beard") },
+	},
+	accessoire_head = {
+		{ name = "blank", desc = S("No accessoire") },
+		{ name = "ribbon", desc = S("Ribbon") },
+		{ name = "headband", desc = S("Headband") },
+		{ name = "flowers", desc = S("Head flowers") },
+	},
+	shirt = {
+		{ name = "shirt", desc = S("Shirt") },
+		{ name = "t-shirt", desc = S("T-Shirt") },
+		{ name = "tanktop", desc = S("Tanktop") },
+		{ name = "top", desc = S("Top") },
+	},
+	belt = {
+		{ name = "blank", desc = S("No belt") },
+		{ name = "simple", desc = S("Belt") },
+	},
+	pants = {
+		{ name = "long", desc = S("Long pants") },
+		{ name = "shorts", desc = S("Shorts") },
+		{ name = "hotpants", desc = S("Hotpants") },
+	},
+	shoes = {
+		{ name = "simple", desc = S("Shoes") },
+	},
+	skin = {
+		{ name = "base", desc = S("Skin") },
+	},
+	eyes = {
+		{ name = "pupils", desc = S("Eyes") },
+	},
 }
 
+-- Sort styles by the rough position on the body (from top to bottom)
 local styles_sorted = {
 	"skin", "accessoire_head", "hair", "eyes", "shirt", "belt", "pants", "shoes"
 }
@@ -48,12 +76,13 @@ function hades_skins.get_random_textures_and_colors()
 	local tex = {}
 	for s=1, #styles_sorted do
 		local k = styles_sorted[s]
-		local v = styles[k]
 		local cspec
 		color[k], cspec = get_color()
 		color_state[k] = cspec.r * 0x10000 + cspec.g * 0x100 + cspec.b
+
+		local v = styles[k]
 		base_id[k] = math.random(1, #v)
-		base[k] = v[base_id[k]]
+		base[k] = v[base_id[k]].name
 	end
 	return { colors = color, bases = base, base_ids = base_id, color_states = color_state }
 end
@@ -97,7 +126,7 @@ function hades_skins.editor_state_to_textures(player)
 	local bases = {}
 	local colors = {}
 	for k,v in pairs(editor_cloth_states[name]) do
-		bases[k] = styles[k][v]
+		bases[k] = styles[k][v].name
 	end
 	for k,v in pairs(editor_color_states[name]) do
 		colors[k] = string.format("#%.6X", v)
@@ -140,17 +169,17 @@ function hades_skins.show_skin_editor(player, texture)
 		model[0.5,0.5;4,8;playerpreview;character.b3d;]]..texture..[[;0,180;false;true;0,79]
 		button[5.15,9.75;1,0.8;random;]]..F(S("Random"))..[[]
 		button[6.15,9.75;1,0.8;reset;]]..F(S("Reset"))..[[]
-		button_exit[7.55,9.75;2,0.8;cancel;]]..F(S("Cancel"))..[[]
-		button_exit[9.55,9.75;2,0.8;submit;]]..F(S("OK"))..[[]
+		button_exit[9.55,9.75;2,0.8;submit;]]..F(S("Done"))..[[]
 	]]
 	local name = player:get_player_name()
 	local y = 0.5
 	for i=1, #styles_sorted do
 		local s = styles_sorted[i]
 		local id = editor_cloth_states[name][s]
-		local choice = styles[s][id]
+		local choice = styles[s][id].name
+		local desc = styles[s][id].desc
 		formspec = formspec .. "button[5.15,"..y..";1,0.8;"..s.."_prev;<]"
-		formspec = formspec .. "button[6.15,"..y..";3,0.8;"..s..";"..F(S("@1: @2", s, choice)).."]"
+		formspec = formspec .. "button[6.15,"..y..";3,0.8;"..s..";"..F(desc).."]"
 		formspec = formspec .. "button[9.15,"..y..";1,0.8;"..s.."_next;>]"
 		formspec = formspec .. "button[10.55,"..y..";1,0.8;"..s.."_color;"..F(S("Color")).."]"
 		y = y + 0.9
