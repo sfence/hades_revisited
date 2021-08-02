@@ -60,10 +60,6 @@ Authors of media (models)
 Door 3d models by sofar (CC-BY-SA-3.0)
  - door_a.obj
  - door_b.obj
-Fence gate models by sofar (CC-BY-SA-3.0)
- - fencegate_open.obj
- - fencegate_closed.obj
-
 
 Authors of media (sounds)
 -------------------------
