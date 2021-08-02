@@ -17,23 +17,23 @@ Wuzzy (CC0 1.0):
   - hades_skins_accessoire_head_flowers.png
 
 Kosanaya (CC BY-SA 3.0):
-  * hades_skins_accessoire_head_bikutoria.png (original skin: Bikutoria_by_Kosanaya.png)
+  * hades_skins_accessoire_head_ribbon.png (original skin: Bikutoria_by_Kosanaya.png)
 
 Minetestian (CC BY-SA 3.0):
-  * hades_skins_shirt_minetestian.png (original skin: Minetestian_by_Minetestian.png)
+  * hades_skins_shirt_t-shirt.png (original skin: Minetestian_by_Minetestian.png)
 
 nelly (CC BY-SA 3.0):
-  * hades_skins_hair_emma.png (original skin: Emma_by_nelly.png)
+  * hades_skins_hair_long.png (original skin: Emma_by_nelly.png)
 
 QoiOui (CC BY-SA 3.0):
-  * hades_skins_hair_quioui.png (original skin: QoiOui_by_QoiOui.png)
+  * hades_skins_hair_beard.png (original skin: QoiOui_by_QoiOui.png)
 
 Geopbyte (CC BY-SA 3.0):
   * character.png (original skin: Geopbyte_by_Geopbyte.png)
   * hades_skins_belt_simple.png (original skin: Geopbyte_by_Geopbyte.png)
-  * hades_skins_hair_simple.png (original skin: Geopbyte_by_Geopbyte.png)
-  * hades_skins_pants_simple.png (original skin: Geopbyte_by_Geopbyte.png)
-  * hades_skins_shirt_simple.png (original skin: Geopbyte_by_Geopbyte.png)
+  * hades_skins_hair_medium.png (original skin: Geopbyte_by_Geopbyte.png)
+  * hades_skins_pants_long.png (original skin: Geopbyte_by_Geopbyte.png)
+  * hades_skins_shirt_shirt.png (original skin: Geopbyte_by_Geopbyte.png)
   * hades_skins_shoes_simple.png (original skin: Geopbyte_by_Geopbyte.png)
   * hades_skins_skin_base.png (original skin: Geopbyte_by_Geopbyte.png)
 

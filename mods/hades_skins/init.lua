@@ -22,11 +22,11 @@ local get_color = function(r, g, b)
 end
 
 local styles = {
-	hair = { "simple", "emma", "quioui" },
-	accessoire_head = { "blank", "bikutoria", "headband", "flowers" },
-	shirt = { "simple", "tanktop", "top", "minetestian"},
+	hair = { "medium", "long", "beard" },
+	accessoire_head = { "blank", "ribbon", "headband", "flowers" },
+	shirt = { "shirt", "t-shirt", "tanktop", "top", },
 	belt = { "blank", "simple" },
-	pants = { "simple", "shorts", "hotpants" },
+	pants = { "long", "shorts", "hotpants" },
 	shoes = { "simple" },
 	skin = { "base" },
 	eyes = { "pupils" },
