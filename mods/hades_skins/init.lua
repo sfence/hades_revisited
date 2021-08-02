@@ -16,8 +16,9 @@ local get_color = function(r, g, b)
 	if not b then
 		b = math.random(0,255)
 	end
+	local cspec = {r=r, g=g, b=b, a=255}
 	local cstr = string.format("#%.2X%.2X%.2X", r, g, b)
-	return cstr
+	return cstr, cspec
 end
 
 local styles = {
@@ -36,16 +37,25 @@ local styles_sorted = {
 }
 
 function hades_skins.get_random_textures_and_colors()
-	local color = {}
-	local base = {}
+	-- for texture handling
+	local color = {} -- colorstring
+	local base = {} -- clothing name
+
+	-- for editor states table
+	local color_state = {} -- color as number
+	local base_id = {} -- clothing ID
+
 	local tex = {}
-	for k, v in pairs(styles) do
-		color[k] = get_color()
-		base[k] = v[math.random(1, #v)]
+	for s=1, #styles_sorted do
+		local k = styles_sorted[s]
+		local v = styles[k]
+		local cspec
+		color[k], cspec = get_color()
+		color_state[k] = cspec.r * 0x10000 + cspec.g * 0x100 + cspec.b
+		base_id[k] = math.random(1, #v)
+		base[k] = v[base_id[k]]
 	end
-	color.skin = get_color()
-	color.eyes = get_color()
-	return { colors = color, bases = base }
+	return { colors = color, bases = base, base_ids = base_id, color_states = color_state }
 end
 
 function hades_skins.build_texture(base, color)
@@ -103,6 +113,13 @@ end
 
 function hades_skins.player_set_random_textures(player)
 	local texcol = hades_skins.get_random_textures_and_colors()
+	local name = player:get_player_name()
+	for k,v in pairs(texcol.base_ids) do
+		editor_cloth_states[name][k] = v
+	end
+	for k,v in pairs(texcol.color_states) do
+		editor_color_states[name][k] = v
+	end
 	local out = hades_skins.build_texture(texcol.bases, texcol.colors)
 	hades_skins.player_set_textures(player, out.textures, out.colors.skin)
 end
