@@ -31,6 +31,7 @@ Wuzzy (CC0):
   hades_sounds_grass_dug.*.ogg
   hades_sounds_grass_place.*.ogg
   hades_sounds_bush_dug.*.ogg
+  hades_sounds_straw.*.ogg
 
 Glass breaking sounds (CC BY 3.0):
   1: http://www.freesound.org/people/cmusounddesign/sounds/71947/

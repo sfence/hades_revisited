@@ -1076,7 +1076,7 @@ stairs.register_stair_and_slab("straw", "hades_farming:straw",
 		S("Outer Straw Stair"),
 		S("Inner Straw Stair"),
 		S("Straw Slab"),
-		hades_sounds.node_sound_leaves_defaults())
+		hades_sounds.node_sound_straw_defaults())
 
 --wool
 

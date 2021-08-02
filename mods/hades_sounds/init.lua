@@ -175,6 +175,22 @@ function hades_sounds.node_sound_grass_defaults(table)
 	return table
 end
 
+function hades_sounds.node_sound_straw_defaults(table)
+	table = table or {}
+	local pitch = table.pitch or 1
+	table.pitch = nil
+	table.footstep = table.footstep or
+			{name="hades_sounds_straw_footstep", gain=0.25, max_hear_distance = mhd, pitch=pitch}
+	table.dug = table.dug or
+			{name="hades_sounds_straw_dug", gain=1.0, max_hear_distance = mhd, pitch=pitch}
+	table.dig = table.dig or
+			{name="hades_sounds_straw_dig", gain=1.0, max_hear_distance = mhd, pitch=pitch}
+	table.place = table.place or
+			{name="hades_sounds_straw_place", gain=1.0, max_hear_distance = mhd, pitch=pitch}
+	hades_sounds.node_sound_defaults(table)
+	return table
+end
+
 function hades_sounds.node_sound_glass_defaults(table)
 	table = table or {}
 	local pitch = table.pitch or 1
