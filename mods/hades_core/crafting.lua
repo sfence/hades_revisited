@@ -1196,6 +1196,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'hades_core:dry_shrub',
+	recipe = {
+		{'hades_core:stick'},
+		{'hades_core:stick'},
+		{'hades_core:volcanic_sand'},
+	},
+})
+
+minetest.register_craft({
 	output = 'hades_core:sugar',
 	recipe = {
 		{'hades_core:sugarcane', 'hades_core:sugarcane', 'hades_core:sugarcane'},
