@@ -138,18 +138,16 @@ minetest.register_node("hades_flowers:violet", {
 
 
 minetest.register_abm({
-	label = "Flora spread and wither",
+	label = "Flora spread",
 	nodenames = {"group:flora"},
-	neighbors = {"hades_core:dirt_with_grass", "hades_core:fertile_sand"},
+	neighbors = {"hades_core:dirt_with_grass"},
 	interval = 50,
 	chance = 30,
 	action = function(pos, node)
 		pos.y = pos.y - 1
 		local under = minetest.get_node(pos)
 		pos.y = pos.y + 1
-		if under.name == "hades_core:fertile_sand" then
-			minetest.set_node(pos, {name="hades_core:dry_shrub"})
-		elseif under.name ~= "hades_core:dirt_with_grass" then
+		if under.name ~= "hades_core:dirt_with_grass" then
 			return
 		end
 
