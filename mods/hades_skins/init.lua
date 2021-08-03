@@ -416,3 +416,17 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		end
 	end
 end)
+
+minetest.register_chatcommand("skin", {
+	description = S("Change your clothes and body"),
+	param = "",
+	privs = { creative = true },
+	func = function(name, params)
+		local player = minetest.get_player_by_name(name)
+		if not player then
+			return false, S("No player.")
+		end
+		hades_skins.show_skin_editor(player)
+		return true
+	end,
+})
