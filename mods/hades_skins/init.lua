@@ -24,6 +24,18 @@ local get_color = function(r, g, b)
 	return cstr, cspec
 end
 
+-- Returns simple random skin color (dark brown, brown, beige, light beige)
+-- TODO: More balancing
+local get_skin_color = function()
+	local x = math.random(200, 1000)
+	local r = math.floor((x/1000) * 255)
+	local g = math.floor((x/1000) * 191)
+	local b = math.floor((x/1000) * 127)
+	local cspec = {r=r, g=g, b=b}
+	local cstr = string.format("#%.2X%.2X%.2X", r, g, b)
+	return cstr, cspec
+end
+
 local styles = {
 	hair = {
 		{ name = "medium", desc = S("Medium hair") },
@@ -82,8 +94,8 @@ local load_skin = function(player)
 	local bases_meta = meta:get_string("hades_skins_bases")
 	local colors_meta = meta:get_string("hades_skins_colors")
 	if bases_meta == "" or colors_meta == "" then
-		-- If skin could not loaded, select a random one
-		hades_skins.player_set_random_textures(player)
+		-- If skin could not loaded, select a initial random one
+		hades_skins.player_set_random_textures(player, true)
 		return
 	end
 	local bases = string.split(bases_meta, ",")
@@ -128,7 +140,7 @@ local save_skin = function(player)
 	meta:set_string("hades_skins_colors", outstr)
 end
 
-function hades_skins.get_random_textures_and_colors()
+function hades_skins.get_random_textures_and_colors(initial)
 	-- for texture handling
 	local color = {} -- colorstring
 	local base = {} -- clothing name
@@ -141,7 +153,12 @@ function hades_skins.get_random_textures_and_colors()
 	for s=1, #styles_sorted do
 		local k = styles_sorted[s]
 		local cspec
-		color[k], cspec = get_color()
+		if initial and k == "skin" then
+			-- Special case for initial skin color
+			color[k], cspec = get_skin_color()
+		else
+			color[k], cspec = get_color()
+		end
 		color_state[k] = cspec.r * 0x10000 + cspec.g * 0x100 + cspec.b
 
 		local v = styles[k]
@@ -205,8 +222,12 @@ function hades_skins.player_set_textures(player, textures, skin_color)
 	hades_meshhand.set_skin_color(player, skin_color)
 end
 
-function hades_skins.player_set_random_textures(player)
-	local texcol = hades_skins.get_random_textures_and_colors()
+-- Sets random textures for player. If initial==true, then
+-- this is for an initial skin with limited skin selection
+-- to avoid some of the "crazier" skins to be chosen for new
+-- players
+function hades_skins.player_set_random_textures(player, initial)
+	local texcol = hades_skins.get_random_textures_and_colors(initial)
 	local name = player:get_player_name()
 	for k,v in pairs(texcol.base_ids) do
 		editor_cloth_states[name][k] = v
