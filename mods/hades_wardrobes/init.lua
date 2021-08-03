@@ -34,3 +34,10 @@ minetest.register_craft({
 		{"group:wood","group:wood","group:wood"},
 	},
 })
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "hades_wardrobes:wardrobe",
+	burntime = 20,
+})
+
