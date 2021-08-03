@@ -59,10 +59,71 @@ local styles = {
 	},
 }
 
+-- Also styles by ID for reverse lookup
+local style_ids = {}
+for k,v in pairs(styles) do
+	local style = styles[k]
+	style_ids[k] = {}
+	for q,r in pairs(style) do
+		style_ids[k][r.name] = q
+	end
+end
+
 -- Sort styles by the rough position on the body (from top to bottom)
 local styles_sorted = {
 	"skin", "accessory_head", "hair", "eyes", "shirt", "belt", "pants", "shoes"
 }
+
+local load_skin = function(player)
+	local meta = player:get_meta()
+	local bases_meta = meta:get_string("hades_skins_bases")
+	local colors_meta = meta:get_string("hades_skins_colors")
+	if bases_meta == "" or colors_meta == "" then
+		-- If skin could not loaded, select a random one
+		hades_skins.player_set_random_textures(player)
+		return
+	end
+	local bases = string.split(bases_meta, ",")
+	local colors = string.split(colors_meta, ",")
+	local name = player:get_player_name()
+	for b=1, #bases do
+		local kv = string.split(bases[b], "=")
+		local k = kv[1]
+		local v = kv[2]
+		if style_ids[k] and style_ids[k][v] then
+			editor_cloth_states[name][k] = style_ids[k][v]
+		else
+			-- Fallback if no corresponding ID found
+			editor_cloth_states[name][k] = 1
+		end
+	end
+	for c=1, #colors do
+		local kv = string.split(colors[c], "=")
+		local k = kv[1]
+		local v = kv[2]
+		editor_color_states[name][k] = tonumber(string.sub(v, 2), 16)
+	end
+end
+
+local save_skin = function(player)
+	local name = player:get_player_name()
+	local cells = {}
+	for k,v in pairs(styles) do
+		local cloth_state = editor_cloth_states[name][k]
+		local cloth_style = v[cloth_state].name
+		table.insert(cells, k .. "=" .. cloth_style)
+	end
+	local outstr = table.concat(cells, ",")
+	local meta = player:get_meta()
+	meta:set_string("hades_skins_bases", outstr)
+
+	cells = {}
+	for k,v in pairs(editor_color_states[name]) do
+		table.insert(cells, k .. "=" .. string.format("#%.6X", v))
+	end
+	outstr = table.concat(cells, ",")
+	meta:set_string("hades_skins_colors", outstr)
+end
 
 function hades_skins.get_random_textures_and_colors()
 	-- for texture handling
@@ -135,6 +196,7 @@ function hades_skins.editor_state_to_textures(player)
 end
 
 function hades_skins.player_set_textures(player, textures, skin_color)
+	save_skin(player)
 	hades_player.player_set_textures(player, textures)
 	-- Set meshhand
 	hades_meshhand.set_skin_color(player, skin_color)
@@ -190,15 +252,21 @@ end
 
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
+	-- Initialize skin states
 	editor_color_states[name] = {}
 	editor_cloth_states[name] = {}
 	for k,_ in pairs(styles) do
 		editor_cloth_states[name][k] = 1
 		editor_color_states[name][k] = math.random(0, 0xFFFFFF)
 	end
+	-- Load skin
+	load_skin(player)
+	local out = hades_skins.editor_state_to_textures(player)
+	hades_skins.player_set_textures(player, out.textures, out.colors.skin)
 end)
 minetest.register_on_leaveplayer(function(player)
 	local name = player:get_player_name()
+	save_skin(player)
 	editor_color_states[name] = nil
 	editor_cloth_states[name] = nil
 end)
