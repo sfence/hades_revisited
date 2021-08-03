@@ -3,8 +3,11 @@ local F = minetest.formspec_escape
 
 hades_skins = {}
 
-local editor_color_states = {}
-local editor_cloth_states = {}
+local editor_color_states = {} -- current skin/clothing colors per-player
+local editor_cloth_states = {} -- current clothing IDs per-player
+
+local editor_current_color = {} -- current value of color widgets in color editor
+local editor_current_color_cloth = {} -- clothing type ID that the player currently edits the color of
 
 local get_color = function(r, g, b)
 	if not r then
@@ -229,9 +232,8 @@ function hades_skins.show_skin_editor(player, texture)
 		box[0.4,0.4;4.2,8.2;#FFFFFF4F]
 		box[0.5,0.5;4,8;#000000FF]
 		model[0.5,0.5;4,8;playerpreview;character.b3d;]]..texture..[[;0,180;false;true;0,79]
-		button[5.15,9.75;1,0.8;random;]]..F(S("Random"))..[[]
-		button[6.15,9.75;1,0.8;reset;]]..F(S("Reset"))..[[]
-		button_exit[9.55,9.75;2,0.8;submit;]]..F(S("Done"))..[[]
+		button[0.5,9.75;3,0.8;random;]]..F(S("Random skin"))..[[]
+		button_exit[9.55,9.75;2,0.8;submit;]]..F(S("Close"))..[[]
 	]]
 	local name = player:get_player_name()
 	local y = 0.5
@@ -250,11 +252,53 @@ function hades_skins.show_skin_editor(player, texture)
 	minetest.show_formspec(player:get_player_name(), "hades_skins:skin_editor", formspec)
 end
 
+function hades_skins.show_skin_editor_color(player, texture, color)
+	local name = player:get_player_name()
+	if not texture then
+		texture = hades_player.player_get_textures(player)
+		if not texture then
+			return
+		end
+		texture = texture[1]
+	end
+	if not color then
+		local cloth = editor_current_color_cloth[name] or "shirt"
+		local k = editor_color_states[name][cloth] or 0xFFFFFF
+		local r = math.floor(k / 65536)
+		local g = math.floor(k / 256) % 256
+		local b = k % 256
+		editor_current_color[name].r = r
+		editor_current_color[name].g = g
+		editor_current_color[name].b = b
+	else
+		editor_current_color[name] = table.copy(color)
+	end
+	local form = [[
+	formspec_version[4]
+	size[12,11]
+	box[0.4,0.4;4.2,8.2;#FFFFFF4F]
+	box[0.5,0.5;4,8;#000000FF]
+	model[0.5,0.5;4,8;playerpreview;character.b3d;]]..texture..[[;0,180;false;true;0,79]
+	scrollbaroptions[min=0;max=255;smallstep=8;largestep=64]
+	scrollbar[5,1.5;5,0.5;horizontal;red;]]..editor_current_color[name].r..[[]
+	scrollbar[5,3.5;5,0.5;horizontal;green;]]..editor_current_color[name].g..[[]
+	scrollbar[5,5.5;5,0.5;horizontal;blue;]]..editor_current_color[name].b..[[]
+	label[5,1.1;]]..F(S("Red"))..[[]
+	label[5,3.1;]]..F(S("Green"))..[[]
+	label[5,5.1;]]..F(S("Blue"))..[[]
+	button[0.5,9.75;3,0.8;random;]]..F(S("Random color"))..[[]
+	button[5,7.75;3,0.8;update;]]..F(S("Update preview"))..[[]
+	button_exit[9.55,9.75;2,0.8;submit;]]..F(S("Back"))..[[]
+]]
+	minetest.show_formspec(name, "hades_skins:skin_editor_color", form)
+end
+
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	-- Initialize skin states
 	editor_color_states[name] = {}
 	editor_cloth_states[name] = {}
+	editor_current_color[name] = { r = 255, g = 255, b = 255 }
 	for k,_ in pairs(styles) do
 		editor_cloth_states[name][k] = 1
 		editor_color_states[name][k] = math.random(0, 0xFFFFFF)
@@ -269,41 +313,85 @@ minetest.register_on_leaveplayer(function(player)
 	save_skin(player)
 	editor_color_states[name] = nil
 	editor_cloth_states[name] = nil
+	editor_current_color[name] = nil
 end)
 
 minetest.register_on_player_receive_fields(function(player, formname, fields)
-	if formname ~= "hades_skins:skin_editor" then
-		return
-	end
-	local name = player:get_player_name()
-	local update_skin = function(player)
-		local out = hades_skins.editor_state_to_textures(player)
-		hades_skins.player_set_textures(player, out.textures, out.colors.skin)
-		hades_skins.show_skin_editor(player)
-	end
-	for stylename,_ in pairs(styles) do
-		if fields[stylename] or fields[stylename.."_next"] then
-			editor_cloth_states[name][stylename] = editor_cloth_states[name][stylename] + 1
-			if editor_cloth_states[name][stylename] > #styles[stylename] then
-				editor_cloth_states[name][stylename] = 1
+	if formname == "hades_skins:skin_editor" then
+		local name = player:get_player_name()
+		local update_skin = function(player)
+			local out = hades_skins.editor_state_to_textures(player)
+			hades_skins.player_set_textures(player, out.textures, out.colors.skin)
+			hades_skins.show_skin_editor(player)
+		end
+		for stylename,_ in pairs(styles) do
+			if fields[stylename] or fields[stylename.."_next"] then
+				editor_cloth_states[name][stylename] = editor_cloth_states[name][stylename] + 1
+				if editor_cloth_states[name][stylename] > #styles[stylename] then
+					editor_cloth_states[name][stylename] = 1
+				end
+				update_skin(player)
+				return
+			elseif fields[stylename.."_prev"] then
+				editor_cloth_states[name][stylename] = editor_cloth_states[name][stylename] - 1
+				if editor_cloth_states[name][stylename] < 1 then
+					editor_cloth_states[name][stylename] = #styles[stylename]
+				end
+				update_skin(player)
+				return
+			elseif fields[stylename.."_color"] then
+				editor_current_color_cloth[name] = stylename
+				hades_skins.show_skin_editor_color(player)
+				return
 			end
-			update_skin(player)
-			return
-		elseif fields[stylename.."_prev"] then
-			editor_cloth_states[name][stylename] = editor_cloth_states[name][stylename] - 1
-			if editor_cloth_states[name][stylename] < 1 then
-				editor_cloth_states[name][stylename] = #styles[stylename]
+		end
+		if fields.random then
+			hades_skins.player_set_random_textures(player)
+			hades_skins.show_skin_editor(player)
+		end
+	elseif formname == "hades_skins:skin_editor_color" then
+		local function update_skin(player)
+			local name = player:get_player_name()
+			local cloth = editor_current_color_cloth[name] or "shirt"
+			editor_color_states[name][cloth] =
+				editor_current_color[name].r * 0x10000 +
+				editor_current_color[name].g * 0x100 +
+				editor_current_color[name].b
+			local out = hades_skins.editor_state_to_textures(player)
+			hades_skins.player_set_textures(player, out.textures, out.colors.skin)
+		end
+
+		local name = player:get_player_name()
+		local f = { "red", "green", "blue" }
+		local fmap = { "r", "g", "b" }
+		for i=1, #f do
+			local fname = f[i]
+			if fields[fname] then
+				local evnt = minetest.explode_scrollbar_event(fields[fname])
+				if evnt.type == "CHG" then
+					editor_current_color[name][fmap[i]] = evnt.value
+				end
 			end
+		end
+		if fields.update then
 			update_skin(player)
-			return
-		elseif fields[stylename.."_color"] then
-			editor_color_states[name][stylename] = math.random(0, 0xFFFFFF)
-			update_skin(player)
+			hades_skins.show_skin_editor_color(player, nil, editor_current_color[name])
 			return
 		end
-	end
-	if fields.random then
-		hades_skins.player_set_random_textures(player)
-		hades_skins.show_skin_editor(player)
+		if fields.random then
+			local color = {}
+			color.r = math.random(0,255)
+			color.g = math.random(0,255)
+			color.b = math.random(0,255)
+			editor_current_color[name] = table.copy(color)
+			update_skin(player)
+			hades_skins.show_skin_editor_color(player, nil, color)
+			return
+		end
+		if fields.submit then
+			update_skin(player)
+			hades_skins.show_skin_editor(player)
+			return
+		end
 	end
 end)
