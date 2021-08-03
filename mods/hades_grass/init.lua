@@ -8,6 +8,35 @@ local grass_drop = {
 	}
 }
 
+-- Grass grows or withers depending on the block it was placed on
+local RATE_GOOD = 2 -- grass grows up to seasonal limit
+local RATE_MED = 1 -- grass size limited to 1
+local RATE_BAD = 0 -- grass withers and dies
+local grass_surfaces = {
+	["hades_core:clay"] = RATE_GOOD,
+	["hades_core:fertile_sand"] = RATE_GOOD,
+	["hades_furniture:plant_pot"] = RATE_GOOD,
+	["hades_core:volcanic_sand"] = RATE_MED,
+	["hades_core:gravel"] = RATE_MED,
+	["hades_core:tuff"] = RATE_MED,
+	["hades_core:tuff_baked"] = RATE_MED,
+	["hades_core:mossytuff"] = RATE_MED,
+}
+
+-- Returns rating of surface level for grass
+local get_grass_surface_level = function(nodename)
+	if grass_surfaces[nodename] then
+		return grass_surfaces[nodename]
+	elseif minetest.get_item_group(nodename, "dirt") ~= 0 then
+		return RATE_GOOD
+	elseif minetest.get_item_group(nodename, "soil") > 1 then
+		return RATE_GOOD
+	elseif minetest.get_item_group(nodename, "soil") == 1 then
+		return RATE_MED
+	end
+	return RATE_BAD
+end
+
 minetest.register_node("hades_grass:grass_1", {
 	description = S("Grass Clump"),
 	drawtype = "plantlike",
@@ -74,9 +103,14 @@ hades_seeds.register_seed("hades_grass:seed_grass", {
 	description = S("Grass Seed"),
 	image = "hades_grass_grass_seed.png",
 	surface_check = function(node)
-		return minetest.get_item_group(node.name, "dirt") > 0 or minetest.get_item_group(node.name, "soil") > 0
+		-- Allow planting on good surface except plant pot
+		if node.name == "hades_furniture:plant_pot" then
+			return false
+		else
+			return get_grass_surface_level(node.name) == RATE_GOOD
+		end
 	end,
-	_tt_help = S("Grows on Dirt, Dirt with Grass, Soil and Wet Soil in light"),
+	_tt_help = S("Grows on Dirt, Soil, Clay, Fertile Sand in light"),
 })
 
 minetest.register_abm({
@@ -96,7 +130,7 @@ minetest.register_abm({
 		if bnode.name == "hades_core:dirt_with_grass" then
 			-- grow grass clump on (full) dirt with grass
 			minetest.set_node(pos, {name = "hades_grass:grass_1", param2 = param2})
-		elseif minetest.get_item_group(bnode.name, "dirt") >= 1 or minetest.get_item_group(bnode.name, "soil") > 1 then
+		elseif get_grass_surface_level(node.name) == RATE_GOOD then
 			-- Turn dirt and soil into dirt-with-grass;
 			-- For an intermediate dirt-with-grass stage,
 			-- increase grass cover level by 1
@@ -166,7 +200,9 @@ minetest.register_abm({
 		-- Seasons determine the max height the grass clump can have.
 		-- To grow, the correct surface type and light level is required.
 		-- If the grass clump is too big for the current season or
-		-- it was placed on a bad surface, it loses height.
+		-- it was placed on a low-quality surface, it loses height.
+		-- If the grass was placed on a surface it can't live on at
+		-- all, it dies (dead grass).
 		local size = minetest.get_item_group(node.name, "grass_clump")
 		local oldsize = size
 		-- Season-based max height
@@ -181,18 +217,22 @@ minetest.register_abm({
 		local light = minetest.get_node_light(pos)
 		local pos_surface = {x=pos.x,y=pos.y-1,z=pos.z}
 		local node_surface = minetest.get_node(pos_surface)
-		local bad_surface = false
-		if minetest.get_item_group(node_surface.name, "dirt") == 0 and minetest.get_item_group(node_surface.name, "soil") == 0 then
-			bad_surface = true
-		end
-		-- Gain or lose height
-		if (size > maxsize or bad_surface) and size > 1 then
+		local rating = get_grass_surface_level(node_surface.name)
+		-- Update grass stage depending on surface and light
+		if (rating == RATE_BAD) then
+			-- Become dead grass
+			minetest.set_node(pos, {name="hades_grass:dead_grass_"..size, param2 = 0})
+			return
+		elseif (size > maxsize or rating == RATE_MED) and size > 1 then
+			-- Reduce size
 			size = size - 1
-		elseif size < maxsize and light >= 8 and not bad_surface then
+		elseif size < maxsize and light >= 8 and rating == RATE_GOOD then
+			-- Increase size
 			size = size + 1
 		end
 		if oldsize ~= size then
 			minetest.set_node(pos, {name="hades_grass:grass_"..size, param2 = node.param2})
+			return
 		end
 	end
 })
