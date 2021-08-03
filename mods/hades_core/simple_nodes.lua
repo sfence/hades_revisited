@@ -768,9 +768,18 @@ minetest.register_node("hades_core:diamondblock", {
 
 minetest.register_node("hades_core:bookshelf", {
 	description = S("Bookshelf"),
-	tiles = {"default_wood.png", "default_wood.png", "default_bookshelf.png"},
+	paramtype2 = "facedir",
+	tiles = {
+		{name="default_wood.png", align_style="world"},
+		{name="default_wood.png", align_style="world"},
+		{name="default_wood.png", align_style="world"},
+		{name="default_wood.png", align_style="world"},
+		"default_bookshelf.png",
+		"default_bookshelf.png",
+	},
 	is_ground_content = false,
 	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3},
 	sounds = hades_sounds.node_sound_wood_defaults(),
+	on_rotate = "simple",
 })
 
