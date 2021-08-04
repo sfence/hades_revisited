@@ -171,6 +171,11 @@ local function register_vine(id, def)
 
 	local is_centered = def.groups.vines == 2
 
+	local mnext
+	if def.description_rotten then
+		mnext = "hades_vines:"..id.."_rotten"
+	end
+
 	minetest.register_node("hades_vines:"..id, {
 		description = def.description_normal,
 		_tt_help = tt_surv,
@@ -195,7 +200,8 @@ local function register_vine(id, def)
 		on_dig = on_dig,
 		on_rotate = on_rotate,
 		after_dig_node = after_dig_node,
-		})
+		_hades_magic_next = mnext,
+	})
 
 	if def.description_rotten then
 		local groups_rotten = table.copy(def.groups)
@@ -222,6 +228,7 @@ local function register_vine(id, def)
 			on_place = get_on_place(is_centered),
 			on_dig = on_dig,
 			after_dig_node = after_dig_node,
+			_hades_magic_next = "hades_vines:"..id,
 		})
 	end
 end

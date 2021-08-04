@@ -189,6 +189,12 @@ hades_farming.register_plant = function(name, def)
 		if def.description_plant then
 			description_plant = S(def.description_plant, S("Stage @1", i))
 		end
+		local mnext
+		if i<def.steps then
+			mnext = mname .. ":" .. pname .. "_" .. (i+1)
+		else
+			mnext = mname .. ":" .. pname .. "_1"
+		end
 		minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",
 			description = description_plant,
@@ -210,6 +216,7 @@ hades_farming.register_plant = function(name, def)
 			},
 			groups = nodegroups,
 			sounds = hades_sounds.node_sound_grass_defaults(),
+			_hades_magic_next = mnext,
 		})
 	end
 

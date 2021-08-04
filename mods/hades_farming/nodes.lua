@@ -33,7 +33,8 @@ minetest.register_node("hades_farming:soil", {
 		base = "hades_core:dirt",
 		dry = "hades_farming:soil",
 		wet = "hades_farming:soil_wet"
-	}
+	},
+	_hades_magic_next = "hades_farming:soil_wet",
 })
 
 minetest.register_node("hades_farming:soil_wet", {
@@ -49,7 +50,8 @@ minetest.register_node("hades_farming:soil_wet", {
 		base = "hades_core:dirt",
 		dry = "hades_farming:soil",
 		wet = "hades_farming:soil_wet"
-	}
+	},
+	_hades_magic_next = "hades_farming:soil",
 })
 
 

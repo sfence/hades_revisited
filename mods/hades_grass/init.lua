@@ -65,6 +65,7 @@ minetest.register_node("hades_grass:grass_1", {
 		local ret = minetest.item_place(itemstack, placer, pointed_thing, param2)
 		return ItemStack("hades_grass:grass_1 "..ret:get_count())
 	end,
+	_hades_magic_next = "hades_grass:grass_2",
 })
 
 for i=2,5 do
@@ -96,6 +97,7 @@ for i=2,5 do
 			local ret = minetest.item_place(stack, placer, pointed_thing, param2)
 			return ret
 		end,
+		_hades_magic_next = "hades_grass:grass_"..(i%5+1),
 	})
 end
 
@@ -258,6 +260,7 @@ minetest.register_node("hades_grass:dead_grass_1", {
 		type = "fixed",
 		fixed = {-6/16, -0.5, -6/16, 6/16, -5/16, 6/16},
 	},
+	_hades_magic_next = "hades_grass:dead_grass_2",
 })
 
 for i=2,5 do
@@ -283,6 +286,7 @@ for i=2,5 do
 			type = "fixed",
 			fixed = {-6/16, -0.5, -6/16, 6/16, -3/16, 6/16},
 		},
+		_hades_magic_next = "hades_grass:dead_grass_"..(i%5+1),
 	})
 end
 

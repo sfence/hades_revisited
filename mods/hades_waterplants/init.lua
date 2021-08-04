@@ -98,6 +98,7 @@ local on_place_waterlily = generate_on_place("hades_waterplants:waterlily", lili
 
 for i in ipairs(lilies_list) do
 	local deg1 = ""
+	local deg1_next = ""
 	local deg2 = ""
 	local is_classic = false
 	local lily_groups = {snappy = 3,flammable=2,waterlily=1,falling_node=1,float=1}
@@ -109,6 +110,12 @@ for i in ipairs(lilies_list) do
 		deg2 = "_"..lilies_list[i][2]
 		lily_groups = { snappy = 3,flammable=2,waterlily=1, not_in_creative_inventory=1,falling_node=1,float=1 }
 	end
+	if i < #lilies_list then
+		deg1_next = "_"..lilies_list[i+1][1]
+	else
+		deg1_next = ""
+	end
+	local mnext = "hades_waterplants:waterlily"..deg1_next
 
 	local on_rotate = "simple"
 	if is_classic and has_screwdriver then
@@ -168,6 +175,7 @@ for i in ipairs(lilies_list) do
 		node_placement_prediction = "",
 		on_place = on_place_waterlily,
 		on_rotate = on_rotate,
+		_hades_magic_next = mnext,
 	})
 end
 
@@ -184,6 +192,12 @@ for i in ipairs(seaweed_list) do
 	if seaweed_list[i][1] ~= nil then
 		num = "_"..seaweed_list[i][1]
 		seaweed_groups = { snappy = 3,flammable=2,seaweed=1, not_in_creative_inventory=1,falling_node=1,float=1 }
+	end
+	local mnext
+	if i < #seaweed_list then
+		mnext = "hades_waterplants:seaweed_"..seaweed_list[i+1][1]
+	else
+		mnext = "hades_waterplants:seaweed"
 	end
 
 	minetest.register_node("hades_waterplants:seaweed"..num, {
@@ -219,6 +233,7 @@ for i in ipairs(seaweed_list) do
 		node_placement_prediction = "",
 		on_place = on_place_seaweed,
 		on_rotate = "simple",
+		_hades_magic_next = mnext,
 	})
 end
 

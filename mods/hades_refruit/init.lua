@@ -16,6 +16,10 @@ function hades_refruit.add_hades_refruit(id, def)
 	groups_fruit = table.copy(groups)
 	groups_fruit.fruit_regrow = 3
 
+
+	local bud_itemstring = "hades_refruit:bud_"..id
+	local flower_itemstring = "hades_refruit:flower_"..id
+
 	minetest.override_item(def.fruit_itemstring, {
 		groups = groups_fruit,
 		place_param2 = 1,
@@ -29,11 +33,9 @@ function hades_refruit.add_hades_refruit(id, def)
 				return
 			end
 		end,
-		node_dig_prediction = "hades_refruit:bud_"..id,
+		node_dig_prediction = bud_itemstring,
+		_hades_magic_next = bud_itemstring,
 	})
-
-	local bud_itemstring = "hades_refruit:bud_"..id
-	local flower_itemstring = "hades_refruit:flower_"..id
 
 	minetest.register_node(bud_itemstring, {
 		description = def.bud_description,
@@ -53,6 +55,7 @@ function hades_refruit.add_hades_refruit(id, def)
 		groups = {fruit_regrow=1, snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 		drop = def.bud_drop or {},
 		sounds = hades_sounds.node_sound_leaves_defaults(),
+		_hades_magic_next = flower_itemstring,
 	})
 	minetest.register_node(flower_itemstring, {
 		description = def.flower_description,
@@ -72,6 +75,7 @@ function hades_refruit.add_hades_refruit(id, def)
 		groups = {fruit_regrow=2, snappy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 		drop = def.flower_drop or {},
 		sounds = hades_sounds.node_sound_leaves_defaults(),
+		_hades_magic_next = def.fruit_itemstring,
 	})
 
 	minetest.register_abm({

@@ -14,6 +14,7 @@ minetest.register_node("hades_core:dirt", {
 	is_ground_content = true,
 	groups = {crumbly=3,soil=1,dirt=1, porous=1},
 	sounds = hades_sounds.node_sound_dirt_defaults(),
+	_hades_magic_next = "hades_core:dirt_with_grass_l1",
 })
 
 -- ... with grass cover
@@ -44,6 +45,7 @@ minetest.register_node("hades_core:dirt_with_grass", {
 		local ret = minetest.item_place(itemstack, placer, pointed_thing, param2)
 		return ret
 	end,
+	_hades_magic_next = "hades_core:dirt",
 })
 
 -- Intermediate grass growth levels
@@ -55,6 +57,12 @@ for l=1, 3 do
 		})
 	else
 		sounds = hades_sounds.node_sound_dirt_defaults()
+	end
+	local mnext
+	if l < 3 then
+		mnext = "hades_core:dirt_with_grass_l"..(l+1)
+	else
+		mnext = "hades_core:dirt_with_grass"
 	end
 	minetest.register_node("hades_core:dirt_with_grass_l"..l, {
 		description = S("Dirt with Growing Grass (Stage @1)", l),
@@ -82,6 +90,7 @@ for l=1, 3 do
 			local ret = minetest.item_place(itemstack, placer, pointed_thing, param2)
 			return ret
 		end,
+		_hades_magic_next = mnext,
 	})
 end
 
