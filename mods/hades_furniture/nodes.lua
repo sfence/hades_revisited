@@ -523,6 +523,7 @@ local S = minetest.get_translator("hades_furniture")
 		groups = {cracky=1},
 		sounds = hades_sounds.node_sound_metal_defaults(),
 		on_rotate = "simple",
+		_hades_shaper_next = "hades_furniture:L_binding_bars",
 	})
 
 	-- Binding steel bars (for corners and junctions).
@@ -586,6 +587,7 @@ local S = minetest.get_translator("hades_furniture")
 		},
 		groups = {cracky=1,},
 		sounds = hades_sounds.node_sound_metal_defaults(),
+		_hades_shaper_next = "hades_furniture:bars",
 	})
 
 	-- Chains

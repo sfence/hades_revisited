@@ -93,6 +93,7 @@ minetest.register_node("columnia:column_mid_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_top_"..mat,
 })
 
 local mod_screwdriver = minetest.get_modpath("screwdriver")
@@ -134,6 +135,7 @@ minetest.register_node("columnia:column_top_"..mat, {
 	on_place = on_place,
 	on_rotate = on_rotate_column_top,
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_bottom_"..mat,
 })
 
 minetest.register_node("columnia:column_bottom_"..mat, {
@@ -156,6 +158,7 @@ minetest.register_node("columnia:column_bottom_"..mat, {
 	on_place = on_place,
 	on_rotate = on_rotate_column_bottom,
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_mid_"..mat,
 })
 
 minetest.register_node("columnia:column_crosslink_"..mat, {
@@ -199,6 +202,7 @@ minetest.register_node("columnia:column_link_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_linktee_"..mat,
 })
 
 minetest.register_node("columnia:column_linkdown_"..mat, {
@@ -222,6 +226,7 @@ minetest.register_node("columnia:column_linkdown_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_linktee_down_"..mat,
 })
 
 minetest.register_node("columnia:column_linkcross_"..mat, {
@@ -243,6 +248,7 @@ minetest.register_node("columnia:column_linkcross_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_linkangle_"..mat,
 })
 
 minetest.register_node("columnia:column_linkcrossdown_"..mat, {
@@ -267,6 +273,7 @@ minetest.register_node("columnia:column_linkcrossdown_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_linkangle_down_"..mat,
 })
 
 minetest.register_node("columnia:column_linkvertical_"..mat, {
@@ -312,6 +319,7 @@ minetest.register_node("columnia:column_linkangle_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_link_"..mat,
 })
 
 minetest.register_node("columnia:column_linkangle_down_"..mat, {
@@ -336,6 +344,7 @@ minetest.register_node("columnia:column_linkangle_down_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_linkdown_"..mat,
 })
 
 minetest.register_node("columnia:column_linktee_"..mat, {
@@ -357,6 +366,7 @@ minetest.register_node("columnia:column_linktee_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_linkcross_"..mat,
 })
 
 minetest.register_node("columnia:column_linktee_down_"..mat, {
@@ -381,6 +391,7 @@ minetest.register_node("columnia:column_linktee_down_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_linkcrossdown_"..mat,
 })
 
 minetest.register_node("columnia:column_stairsub_"..mat, {
@@ -416,6 +427,7 @@ minetest.register_node("columnia:column_stairsub_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_stairsubpillar_"..mat,
 })
 
 minetest.register_node("columnia:column_stairsubpillar_"..mat, {
@@ -452,6 +464,7 @@ minetest.register_node("columnia:column_stairsubpillar_"..mat, {
 	on_place = on_place,
 	on_rotate = "simple",
 	sounds = sounds,
+	_hades_shaper_next = "columnia:column_stairsub_"..mat,
 })
 
 end

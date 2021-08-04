@@ -82,6 +82,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 
 			return minetest.item_place(itemstack, placer, pointed_thing, param2)
 		end,
+		_hades_shaper_next = "stairs:stair_in_"..subname,
 	})
 
 	minetest.register_craft({
@@ -161,6 +162,7 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 
 			return minetest.item_place(itemstack, placer, pointed_thing, param2)
 		end,
+		_hades_shaper_next = "stairs:stair_"..subname,
 	})
 
 	minetest.register_craft({
@@ -230,6 +232,7 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 
 			return minetest.item_place(itemstack, placer, pointed_thing, param2)
 		end,
+		_hades_shaper_next = "stairs:stair_out_"..subname,
 	})
 
 	minetest.register_craft({
