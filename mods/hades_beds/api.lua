@@ -58,7 +58,38 @@ function hades_beds.register_bed(name, def)
 		on_rightclick = function(pos, node, clicker)
 			hades_beds.on_rightclick(pos, clicker)
 		end,
-		on_rotate = false,
+		on_rotate = function(pos, node, user, _, new_param2)
+			local dir = minetest.facedir_to_dir(node.param2)
+			local p = vector.add(pos, dir)
+			local node2 = minetest.get_node_or_nil(p)
+			if not node2 or not minetest.get_item_group(node2.name, "bed") == 2 or
+					not node.param2 == node2.param2 then
+				return false
+			end
+			if minetest.is_protected(p, user:get_player_name()) then
+				minetest.record_protection_violation(p, user:get_player_name())
+				return false
+			end
+			if new_param2 % 32 > 3 then
+				return false
+			end
+			local newp = vector.add(pos, minetest.facedir_to_dir(new_param2))
+			local node3 = minetest.get_node_or_nil(newp)
+			local node_def = node3 and minetest.registered_nodes[node3.name]
+			if not node_def or not node_def.buildable_to then
+				return false
+			end
+			if minetest.is_protected(newp, user:get_player_name()) then
+				minetest.record_protection_violation(newp, user:get_player_name())
+				return false
+			end
+			node.param2 = new_param2
+			-- do not remove_node here - it will trigger destroy_bed()
+			minetest.set_node(p, {name = "air"})
+			minetest.set_node(pos, node)
+			minetest.set_node(newp, {name = name .. "_top", param2 = new_param2})
+			return true
+		end,
 	})
 
 	minetest.register_node(name .. "_top", {
