@@ -26,7 +26,7 @@ minetest.register_abm({
 	interval = 20,
 	chance = 50,
 	action = function(pos, node)
-		hades_trees.generate_appletree(pos)
+		hades_trees.grow_sapling(pos)
 	end
 })
 

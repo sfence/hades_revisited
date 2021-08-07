@@ -21,6 +21,7 @@ hades_trees.register_leaves("burned_branches", {
 	description = S("Burned Branches"),
 	image = "hades_trees_burned_branches.png",
 	sounds = hades_sounds.node_sound_straw_defaults(),
+	leafdecay = 0,
 })
 
 minetest.register_craft({

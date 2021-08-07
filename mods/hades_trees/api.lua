@@ -91,7 +91,7 @@ hades_trees.register_leaves = function(id, def)
 		waving = 1,
 		is_ground_content = false,
 		place_param2 = 1,
-		groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, ash_fertilizer=def.ash_fertilizer, porous=1},
+		groups = {snappy=3, leafdecay=def.leafdecay or 3, flammable=2, leaves=1, ash_fertilizer=def.ash_fertilizer, porous=1},
 		drop = drop,
 		sounds = def.sounds or hades_sounds.node_sound_leaves_defaults(),
 	})

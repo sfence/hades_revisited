@@ -33,6 +33,6 @@ minetest.register_abm({
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
-		hades_trees.generate_cocoatree(pos)
+		hades_trees.grow_sapling(pos)
 	end
 })

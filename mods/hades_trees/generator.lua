@@ -10,28 +10,36 @@ local DEFAULT_MIN_LIGHT
 
 function hades_trees.grow_sapling(pos, check_light)
 	local node = minetest.get_node(pos, check_light)
+	local trunk, leaves, replacement
+	-- Grow tree charred if sapling was close to lava
+	local lava = minetest.find_node_near(pos, 1, "group:lava")
+	if lava then
+		trunk = "hades_trees:charred_tree"
+		leaves = "hades_trees:burned_branches"
+		replacement = {}
+	end
 	if node.name == "hades_trees:sapling" then
-		hades_trees.generate_appletree(pos, check_light)
+		hades_trees.generate_appletree(pos, check_light, trunk, leaves, nil, replacement)
 	elseif node.name == "hades_trees:jungle_sapling" then
-		hades_trees.generate_jungletree(pos, check_light)
+		hades_trees.generate_jungletree(pos, check_light, trunk, leaves)
 	elseif node.name == "hades_trees:cultivated_jungle_sapling" then
-		hades_trees.generate_cjtree(pos, check_light)
+		hades_trees.generate_cjtree(pos, check_light, trunk, leaves)
 	elseif node.name == "hades_trees:olive_sapling" then
-		hades_trees.generate_olivetree(pos, check_light)
+		hades_trees.generate_olivetree(pos, check_light, trunk, leaves, nil, replacement)
 	elseif node.name == "hades_trees:birch_sapling" then
-		hades_trees.generate_birchtree(pos, check_light)
+		hades_trees.generate_birchtree(pos, check_light, trunk, leaves)
 	elseif node.name == "hades_trees:pale_sapling" then
-		hades_trees.generate_paletree(pos, check_light)
+		hades_trees.generate_paletree(pos, check_light, trunk, leaves, nil, replacement)
 	elseif node.name == "hades_trees:banana_sapling" then
-		hades_trees.generate_bananatree(pos, check_light)
+		hades_trees.generate_bananatree(pos, check_light, trunk, leaves, nil, replacement)
 	elseif node.name == "hades_trees:orange_sapling" then
-		hades_trees.generate_orangetree(pos, check_light)
+		hades_trees.generate_orangetree(pos, check_light, trunk, leaves, nil, replacement)
 	elseif node.name == "hades_trees:cocoa_sapling" then
-		hades_trees.generate_cocoatree(pos, check_light)
+		hades_trees.generate_cocoatree(pos, check_light, trunk, leaves, nil, replacement)
 	elseif node.name == "hades_trees:coconut_sapling" then
-		hades_trees.generate_coconutpalm(pos, check_light)
+		hades_trees.generate_coconutpalm(pos, check_light, trunk, leaves, nil, replacement)
 	elseif node.name == "hades_trees:canvas_sapling" then
-		hades_trees.generate_canvastree(pos, check_light)
+		hades_trees.generate_canvastree(pos, check_light, trunk, leaves)
 	end
 end
 
@@ -314,7 +322,7 @@ function hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, under
 					local tnode = minetest.get_node(pos)
 					if tnode.name == "air" and math.random(1, config.leaves_chance_denominator) <= config.leaves_chance_numerator then
 						local replaced = false
-						if replacement then
+						if replacement and replacement.name then
 							if math.random(1, replacement.chance) == 1 then
 								table.insert(replacementnodes, table.copy(pos))
 								replaced = true
@@ -343,10 +351,10 @@ function hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, under
 
 end
 
-function hades_trees.generate_paletree(pos, check_light)
-	local trunk = "hades_trees:pale_tree"
-	local leaves = "hades_trees:pale_leaves"
-	local underground = table.copy(DEFAULT_UNDERGROUND)
+function hades_trees.generate_paletree(pos, check_light, trunk, leaves, underground)
+	trunk = trunk or "hades_trees:pale_tree"
+	leaves = leaves or "hades_trees:pale_leaves"
+	underground = underground or table.copy(DEFAULT_UNDERGROUND)
 	table.insert(underground, "hades_core:ash")
 	table.insert(underground, "hades_core:volcanic_sand")
 	table.insert(underground, "hades_core:fertile_sand")
@@ -361,10 +369,10 @@ function hades_trees.generate_paletree(pos, check_light)
 	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, nil, config)
 end
 
-function hades_trees.generate_birchtree(pos, check_light)
-	local trunk = "hades_trees:birch_tree"
-	local leaves = "hades_trees:birch_leaves"
-	local underground = DEFAULT_UNDERGROUND
+function hades_trees.generate_birchtree(pos, check_light, trunk, leaves, underground)
+	trunk = trunk or "hades_trees:birch_tree"
+	leaves = leaves or "hades_trees:birch_leaves"
+	underground = underground or DEFAULT_UNDERGROUND
 	local config = {
 		trunk_height = 7,
 		leaves_start_height = 3,
@@ -376,10 +384,10 @@ function hades_trees.generate_birchtree(pos, check_light)
 	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, nil, config)
 end
 
-function hades_trees.generate_canvastree(pos, check_light)
-	local trunk = "hades_trees:canvas_tree"
-	local leaves = "hades_trees:canvas_leaves"
-	local underground = DEFAULT_UNDERGROUND
+function hades_trees.generate_canvastree(pos, check_light, trunk, leaves, underground)
+	trunk = trunk or "hades_trees:canvas_tree"
+	leaves = leaves or "hades_trees:canvas_leaves"
+	underground = underground or DEFAULT_UNDERGROUND
 	local config = {
 		trunk_height = 7,
 		leaves_start_height = 3,
@@ -391,10 +399,10 @@ function hades_trees.generate_canvastree(pos, check_light)
 	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, nil, config)
 end
 
-function hades_trees.generate_cjtree(pos, check_light)
-	local trunk = "hades_trees:jungle_tree"
-	local leaves = "hades_trees:cultivated_jungle_leaves"
-	local underground = DEFAULT_UNDERGROUND
+function hades_trees.generate_cjtree(pos, check_light, trunk, leaves, underground)
+	trunk = trunk or "hades_trees:jungle_tree"
+	leaves = leaves or "hades_trees:cultivated_jungle_leaves"
+	underground = underground or DEFAULT_UNDERGROUND
 	local config = {
 		trunk_height = 13,
 		leaves_start_height = 10,
@@ -406,11 +414,11 @@ function hades_trees.generate_cjtree(pos, check_light)
 	hades_trees.generate_cuboid_tree(pos, check_light, trunk, leaves, underground, nil, config)
 end
 
-function hades_trees.generate_bananatree(pos, check_light)
-	local trunk = "hades_trees:tree"
-	local leaves = "hades_trees:banana_leaves"
-	local underground = DEFAULT_UNDERGROUND
-	local replacement = {name="hades_trees:banana", chance=9}
+function hades_trees.generate_bananatree(pos, check_light, trunk, leaves, underground, replacement)
+	trunk = trunk or "hades_trees:tree"
+	leaves = leaves or "hades_trees:banana_leaves"
+	underground = underground or DEFAULT_UNDERGROUND
+	replacement = replacement or {name="hades_trees:banana", chance=9}
 	local config = {
 		trunk_height = 3,
 		leaves_start_height = 1,
@@ -427,15 +435,9 @@ end
 --------
 local c_air = minetest.CONTENT_AIR
 local c_ignore = minetest.CONTENT_IGNORE
-local c_jungletree = minetest.get_content_id("hades_trees:jungle_tree")
-local c_jungleleaves = minetest.get_content_id("hades_trees:jungle_leaves")
-local c_tree = minetest.get_content_id("hades_trees:tree")
-local c_leaves = minetest.get_content_id("hades_trees:leaves")
-local c_apple = minetest.get_content_id("hades_trees:apple")
 
-function hades_trees.generate_jungletree(pos, check_light)
+function hades_trees.generate_jungletree(pos, check_light, trunk, leaves)
 	local nu =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
-
 	local ret = false
 	for _,name in ipairs(DEFAULT_UNDERGROUND) do
 		if nu == name then
@@ -448,6 +450,11 @@ function hades_trees.generate_jungletree(pos, check_light)
 	end
 
 	minetest.log("action", "[action] A jungle sapling grows into a tree at "..minetest.pos_to_string(pos))
+	trunk = trunk or "hades_trees:jungle_tree"
+	leaves = leaves or "hades_trees:jungle_leaves"
+	local c_jungletree = minetest.get_content_id(trunk)
+	local c_jungleleaves = minetest.get_content_id(leaves)
+
 	local vm = minetest.get_voxel_manip()
 	local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y-1, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
 	local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
@@ -522,7 +529,9 @@ function hades_trees.generate_jungletree(pos, check_light)
 	vm:update_map()
 end
 
-function hades_trees.generate_appletree(pos, check_light, is_apple_tree)
+local c_apple = minetest.get_content_id("hades_trees:apple")
+
+function hades_trees.generate_appletree(pos, check_light, trunk, leaves, underground, replacement)
 	local nu = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
 
 	local ret = false
@@ -542,13 +551,22 @@ function hades_trees.generate_appletree(pos, check_light, is_apple_tree)
 	end
 
 	minetest.log("action", "[hades_trees] A sapling grows into an apple tree at "..minetest.pos_to_string(pos))
+	trunk = trunk or "hades_trees:tree"
+	leaves = leaves or "hades_trees:leaves"
+	underground = underground or DEFAULT_UNDERGROUND
+	replacement = replacement or {name="hades_trees:apple", chance=100}
+	local c_tree = minetest.get_content_id(trunk)
+	local c_leaves = minetest.get_content_id(leaves)
+	local c_replacement
+	if replacement.name then
+		minetest.get_content_id(replacement.name)
+	end
+
 	local vm = minetest.get_voxel_manip()
 	local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
 	local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
 	local data = vm:get_data()
-	if is_apple_tree == nil then
-		is_apple_tree = math.random(1, 4) == 1
-	end
+	local is_apple_tree = math.random(1, 4) == 1
 
 	if not pr_a then
 		local seed = math.random(1,100000)
@@ -600,8 +618,8 @@ function hades_trees.generate_appletree(pos, check_light, is_apple_tree)
                         local vi = a:index(x+xi, y+yi, z+zi)
                         if data[vi] == c_air or data[vi] == c_ignore then
                                 if leaves_buffer[leaves_a:index(xi, yi, zi)] then
-                                        if pr_a:next(1, 100) <=  3 then -- is_apple_tree and(zwischen if und pr:next)
-                                                data[vi] = c_apple
+                                        if c_replacement and pr_a:next(1, replacement.chance) == 1 then
+                                                data[vi] = c_replacement
                                         else
                                                 data[vi] = c_leaves
                                         end
