@@ -492,6 +492,15 @@ stairs.register_stair_and_slab("cream_wood", "hades_trees:cream_wood",
 		S("Cream Wood Slab"),
 		hades_sounds.node_sound_wood_defaults())
 
+stairs.register_stair_and_slab("charred_wood", "hades_trees:charred_wood",
+		{choppy=3,oddly_breakable_by_hand=2},
+		nil,
+		S("Charred Wood Stair"),
+		S("Outer Charred Wood Stair"),
+		S("Inner Charred Wood Stair"),
+		S("Charred Wood Slab"),
+		hades_sounds.node_sound_wood_defaults({pitch=0.8}))
+
 -- Barks
 
 stairs.register_stair_and_slab("bark", "hades_trees:bark",
@@ -547,6 +556,17 @@ stairs.register_stair_and_slab("canvas_bark", "hades_trees:canvas_bark",
 		S("Inner Canvas Bark Stair"),
 		S("Canvas Bark Slab"),
 		hades_sounds.node_sound_wood_defaults())
+
+stairs.register_stair_and_slab("charred_bark", "hades_trees:charred_bark",
+		{choppy=3,oddly_breakable_by_hand=1},
+		nil,
+		S("Charred Bark Stair"),
+		S("Outer Charred Bark Stair"),
+		S("Inner Charred Bark Stair"),
+		S("Charred Bark Slab"),
+		hades_sounds.node_sound_wood_defaults({pitch=0.8}))
+
+
 
 -- Canvas Wood
 
