@@ -8,6 +8,8 @@ minetest.register_node("hades_core:dry_shrub", {
 	inventory_image = "default_dry_shrub.png",
 	wield_image = "default_dry_shrub.png",
 	paramtype = "light",
+	paramtype2 = "meshoptions",
+	place_param2 = 4,
 	waving = 1,
 	walkable = false,
 	is_ground_content = true,
