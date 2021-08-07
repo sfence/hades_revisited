@@ -174,7 +174,7 @@ end
 -- Orange Tree
 function hades_trees.generate_orangetree(pos, check_light, trunk, leaves, underground, replacements)
 	if not trunk then
-		trunk = "hades_trees:lush_tree"
+		trunk = "hades_trees:orange_tree"
 	end
 	if not leaves then
 		leaves = "hades_trees:orange_leaves"

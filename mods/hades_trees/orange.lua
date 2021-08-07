@@ -1,5 +1,14 @@
 local S = minetest.get_translator("hades_trees")
 
+hades_trees.register_trunk("orange_tree", {
+	description = S("Orange Tree Trunk"),
+	tiles = {"hades_trees_orange_tree_top.png", "hades_trees_orange_tree_top.png", "hades_trees_orange_tree.png"},
+})
+hades_trees.register_bark("orange_bark", {
+	description = S("Orange Bark"),
+	image = "hades_trees_orange_tree.png",
+})
+
 hades_trees.register_leaves("orange_leaves", {
 	description = S("Orange Leaves"),
 	image = "hades_trees_orange_leaves.png",

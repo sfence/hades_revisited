@@ -26,7 +26,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_trees:lush_wood 4',
 	recipe = {
-		{'hades_trees:lush_tree'},
+		{'hades_trees:orange_tree'},
 	}
 })
 minetest.register_craft({

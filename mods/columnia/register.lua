@@ -52,7 +52,7 @@ columnia.register_all("hades_trees:bark")
 columnia.register_all("hades_trees:jungle_bark")
 columnia.register_all("hades_trees:pale_bark")
 columnia.register_all("hades_trees:birch_bark")
-columnia.register_all("hades_trees:lush_bark")
+columnia.register_all("hades_trees:orange_bark")
 columnia.register_all("hades_trees:canvas_bark")
 
 columnia.register_all("hades_core:brick", S("Uncolored Brick"))
