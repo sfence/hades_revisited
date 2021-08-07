@@ -1,28 +1,5 @@
 local S = minetest.get_translator("hades_core")
 
-minetest.register_node("hades_core:dry_shrub", {
-	description = S("Dry Shrub"),
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tiles = {"default_dry_shrub.png"},
-	inventory_image = "default_dry_shrub.png",
-	wield_image = "default_dry_shrub.png",
-	paramtype = "light",
-	paramtype2 = "meshoptions",
-	place_param2 = 4,
-	waving = 1,
-	walkable = false,
-	is_ground_content = true,
-	buildable_to = true,
-	floodable = true,
-	groups = {snappy=3,flammable=3,attached_node=1},
-	sounds = hades_sounds.node_sound_bush_defaults(),
-	selection_box = {
-		type = "fixed",
-		fixed = {-6/16, -0.5, -6/16, 6/16, 4/16, 6/16},
-	},
-})
-
 
 minetest.register_node("hades_core:cactus", {
 	description = S("Cactus"),

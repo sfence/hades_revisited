@@ -382,7 +382,7 @@ options = {
 				-- grass (a corner case needed by that mod),
 				-- where it indicates which node the grass
 				-- must be on in order for it to turn from
-				-- the short size to "hades_core:dry_shrub"
+				-- the short size to this node
 				-- instead of the medium size.
 	grow_nodes = {table},	-- One of these nodes must be under the plant
 				-- in order for it to grow at all.  Normally

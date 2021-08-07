@@ -2,7 +2,39 @@ local S = minetest.get_translator("hades_bushes")
 
 -- See README.txt for licensing and other information.
 
--- nodes and crafting
+minetest.register_node("hades_bushes:branch_bush", {
+	description = S("Branch Bush"),
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tiles = {"hades_bushes_branch.png"},
+	inventory_image = "hades_bushes_branch_inv.png",
+	wield_image = "hades_bushes_branch.png",
+	paramtype = "light",
+	paramtype2 = "meshoptions",
+	place_param2 = 4,
+	waving = 1,
+	walkable = false,
+	is_ground_content = true,
+	buildable_to = true,
+	floodable = true,
+	groups = {snappy=3,flammable=3,attached_node=1},
+	sounds = hades_sounds.node_sound_bush_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-6/16, -0.5, -6/16, 6/16, 4/16, 6/16},
+	},
+})
+
+minetest.register_craft({
+	output = 'hades_bushes:branch_bush',
+	recipe = {
+		{'hades_core:stick'},
+		{'hades_core:stick'},
+		{'hades_core:volcanic_sand'},
+	},
+})
+
+-- Old oringal Minetest Hades bushes
 minetest.register_node("hades_bushes:green", {
 	description = S("Green Bush"),
 	drawtype = "plantlike",

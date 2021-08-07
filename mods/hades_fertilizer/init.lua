@@ -253,15 +253,16 @@ local get_apply_fertilizer = function(super)
 							{"hades_grass:grass_5", p2season},
 							}
 							end
-						elseif (node.name == "hades_core:ash" or node.name == "hades_core:volcanic_sand" or node.name == "hades_core:gravel" or node.name == "hades_core:gravel_volcanic") then
+						elseif (node.name == "hades_core:ash" or node.name == "hades_core:volcanic_sand" or node.name == "hades_core:gravel_volcanic") then
 							if not super then return itemstack end
 							plants = {
-							{ "hades_core:dry_shrub"},
+							{ "hades_bushes:branch_bush"},
 							}
-						elseif (node.name == "hades_core:fertile_sand") then
+						elseif (node.name == "hades_core:fertile_sand" or node.name == "hade_core:gravel") then
 							if not super then return itemstack end
 							plants = {
-							{ "hades_core:dry_shrub"},
+							{ "hades_bushes:branch_bush"},
+							{ "hades_grass:grass_1", p2season},
 							}
 						elseif (node.name == "hades_farming:soil" or node.name == "hades_farming:soil_wet") then
 							if not super then return itemstack end

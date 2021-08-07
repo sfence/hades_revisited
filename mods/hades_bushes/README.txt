@@ -10,7 +10,11 @@ MIT License
 License of media (textures and sounds)
 --------------------------------------
 For the plant pot-texture from xdecor mod:
-Creative Commons Attribution-ShareAlike 4.0 International
+  Creative Commons Attribution-ShareAlike 4.0 International
+
+For hades_bushes_branch.png:
+  Creative Commons Attribution-ShareAlike 3.0 International
+  original by runs
 
 Everything else:
 MIT License

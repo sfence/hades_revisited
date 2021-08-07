@@ -8,10 +8,8 @@ local flowers = {
 	{"yellow", "hades_flowers:yellow", S("Yellow Flower")},
 	{"white", "hades_flowers:white", S("White Flower")},
 
--- TODO: Maybe add these later?
---	{"grass", "hades_grass:grass_1", S("Grass Clump")},
---	{"junglegrass", "hades_grass:junglegrass", S("Tropical Grass")},
---	{"dry_shrub", "hades_core:dry_shrub", S("Dry Shrub")},
+	-- TODO: Maybe add grass
+	{"branch_bush", "hades_bushes:branch_bush", S("Branch Bush")},
 
 	{"sapling", "hades_trees:sapling", S("Temperate Tree Sapling")},
 	{"jungle_sapling", "hades_trees:jungle_sapling", S("Common Tropical Tree Sapling")},

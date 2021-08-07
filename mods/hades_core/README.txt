@@ -127,9 +127,6 @@ Fission9 <https://freesound.org/people/Fission9/sounds/521589/> (CC0 1.0)
   hades_core_footstep_ladder_wood.3.ogg
   hades_core_footstep_ladder_wood.4.ogg
 
-runs (CC BY-SA 3.0)
-  default_dry_shrub.png
-
 sonictechtonic <https://www.freesound.org/people/sonictechtonic/sounds/241872/> (CC BY 3.0):
   player_damage.ogg
 
