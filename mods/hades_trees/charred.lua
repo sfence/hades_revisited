@@ -8,6 +8,8 @@ hades_trees.register_trunk("charred_tree", {
 		"hades_trees_charred_tree.png",
 	},
 	sounds = hades_sounds.node_sound_wood_defaults({pitch=0.8}),
+	-- set tree group to 2 to force leafdecay
+	tree_group = 2,
 })
 hades_trees.register_bark("charred_bark", {
 	description = S("Charred Bark"),

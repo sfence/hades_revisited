@@ -4,7 +4,7 @@
 
 -- To enable leaf decay for a node, add it to the "leafdecay" group.
 --
--- The rating of the group determines how far from a node in the group "tree"
+-- The rating of the group determines how far from a node in the group "tree=1"
 -- the node can be without decaying.
 --
 -- If param2 of the node is ~= 0, the node will always be preserved. Thus, if
@@ -74,7 +74,7 @@ minetest.register_abm({
 				local n = minetest.get_node(trunkp)
 				local reg = minetest.registered_nodes[n.name]
 				-- Assume ignore is a trunk, to make the thing work at the border of the active area
-				if n.name == "ignore" or (reg and reg.groups.tree and reg.groups.tree ~= 0) then
+				if n.name == "ignore" or (reg and reg.groups.tree == 1) then
 					minetest.log("verbose", "[hades_trees] leafdecay: cached trunk still exists")
 					return
 				end
@@ -91,11 +91,14 @@ minetest.register_abm({
 		-- Assume ignore is a trunk, to make the thing work at the border of the active area
 		local p1 = minetest.find_node_near(p0, d, {"ignore", "group:tree"})
 		if p1 then
-			do_preserve = true
-			if hades_trees.leafdecay_enable_cache then
-				minetest.log("verbose", "[hades_trees] leafdecay: caching trunk")
-				-- Cache the trunk
-				hades_trees.leafdecay_trunk_cache[p0_hash] = p1
+			local n1 = minetest.get_node(p1)
+			if n1.name == "ignore" or minetest.get_item_group(n1.name, "tree") == 1 then
+				do_preserve = true
+				if hades_trees.leafdecay_enable_cache then
+					minetest.log("verbose", "[hades_trees] leafdecay: caching trunk")
+					-- Cache the trunk
+					hades_trees.leafdecay_trunk_cache[p0_hash] = p1
+				end
 			end
 		end
 		if not do_preserve then

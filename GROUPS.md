@@ -5,6 +5,8 @@ Note: If no group rating is specified, use 1.
 
 Node identities:
 * `tree`: Tree Trunk
+  * `tree=1`: Prevents leaf decay
+  * `tree=2`: Does not prevent leaf decay
 * `sapling`: Sapling
 * `leaves`: Leaves
 * `bark`: Bark
