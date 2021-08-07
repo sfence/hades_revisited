@@ -16,6 +16,10 @@ hades_trees.register_trunk = function(id, def)
 				{-3/16,-0.5,-0.5, 3/16,0.5,0.5},
 			},
 		},
+		collision_box = {
+			type = "fixed",
+			fixed = {{ -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 }},
+		},
 		is_ground_content = false,
 		groups = {tree=(def.tree_group or 1),choppy=2,oddly_breakable_by_hand=1,flammable=2},
 		sounds = def.sounds or hades_sounds.node_sound_wood_defaults(),

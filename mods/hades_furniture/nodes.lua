@@ -717,6 +717,10 @@ local S = minetest.get_translator("hades_furniture")
 				{-3/16,-0.5,-0.5, 3/16,0.5,0.5},
 			},
 		},
+		collision_box = {
+			type = "fixed",
+			fixed = {{ -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 }},
+		},
 		groups = {cracky=3},
 		sounds = hades_sounds.node_sound_stone_defaults({
 			footstep = hades_sounds.node_sound_dirt_defaults().footstep,

@@ -8,16 +8,20 @@ minetest.register_node("hades_core:cactus", {
 	paramtype = "light",
 	is_ground_content = true,
 	drawtype = "nodebox",
-		node_box = {
-			type = "fixed",
-			fixed = {
-				{-0.5,-0.5,-3/16, 0.5,0.5,3/16},
-				{-7/16,-0.5,-5/16, 7/16,0.5,5/16},
-				{-6/16,-0.5,-6/16, 6/16,0.5,6/16},
-				{-5/16,-0.5,-7/16, 5/16,0.5,7/16},
-				{-3/16,-0.5,-0.5, 3/16,0.5,0.5},
-			},
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-3/16, 0.5,0.5,3/16},
+			{-7/16,-0.5,-5/16, 7/16,0.5,5/16},
+			{-6/16,-0.5,-6/16, 6/16,0.5,6/16},
+			{-5/16,-0.5,-7/16, 5/16,0.5,7/16},
+			{-3/16,-0.5,-0.5, 3/16,0.5,0.5},
 		},
+	},
+	collision_box = {
+		type = "fixed",
+		fixed = {{ -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 }},
+	},
 	groups = {snappy=1,choppy=3,flammable=2},
 	sounds = hades_sounds.node_sound_wood_defaults(),
 })
