@@ -1,42 +1,42 @@
 local S = minetest.get_translator("hades_flowerpots")
 
 local flowers = {
-	{"red", "hades_flowers:red", S("Red Flower")},
-	{"orange", "hades_flowers:orange", S("Orange Flower")},
-	{"blue", "hades_flowers:blue", S("Blue Flower")},
-	{"violet", "hades_flowers:violet", S("Violet Flower")},
-	{"yellow", "hades_flowers:yellow", S("Yellow Flower")},
-	{"white", "hades_flowers:white", S("White Flower")},
+	{"red", "hades_flowers:red", S("Flower Pot with Red Flower")},
+	{"orange", "hades_flowers:orange", S("Flower Pot with Orange Flower")},
+	{"blue", "hades_flowers:blue", S("Flower Pot with Blue Flower")},
+	{"violet", "hades_flowers:violet", S("Flower Pot with Violet Flower")},
+	{"yellow", "hades_flowers:yellow", S("Flower Pot with Yellow Flower")},
+	{"white", "hades_flowers:white", S("Flower Pot with White Flower")},
 
 	-- TODO: Maybe add grass
-	{"branch_bush", "hades_bushes:branch_bush", S("Branch Bush")},
+	{"branch_bush", "hades_bushes:branch_bush", S("Flower Pot with Branch Bush")},
 
-	{"sapling", "hades_trees:sapling", S("Temperate Tree Sapling")},
-	{"jungle_sapling", "hades_trees:jungle_sapling", S("Common Tropical Tree Sapling")},
-	{"cultivated_jungle_sapling", "hades_trees:cultivated_jungle_sapling", S("Cultivated Tropical Tree Sapling")},
-	{"olive_sapling", "hades_trees:olive_sapling", S("Olive Tree Sapling")},
-	{"pale_sapling", "hades_trees:pale_sapling", S("Pale Tree Sapling")},
-	{"birch_sapling", "hades_trees:birch_sapling", S("Birch Tree Sapling")},
-	{"orange_sapling", "hades_trees:orange_sapling", S("Orange Tree Sapling")},
-	{"banana_sapling", "hades_trees:banana_sapling", S("Banana Tree Sapling")},
-	{"cocoa_sapling", "hades_trees:cocoa_sapling", S("Cocoa Tree Sapling")},
-	{"coconut_sapling", "hades_trees:coconut_sapling", S("Coconut Tree Sapling")},
-	{"canvas_sapling", "hades_trees:canvas_sapling", S("Canvas Tree Sapling")},
+	{"sapling", "hades_trees:sapling", S("Flower Pot with Temperate Tree Sapling")},
+	{"jungle_sapling", "hades_trees:jungle_sapling", S("Flower Pot with Common Tropical Tree Sapling")},
+	{"cultivated_jungle_sapling", "hades_trees:cultivated_jungle_sapling", S("Flower Pot with Cultivated Tropical Tree Sapling")},
+	{"olive_sapling", "hades_trees:olive_sapling", S("Flower Pot with Olive Tree Sapling")},
+	{"pale_sapling", "hades_trees:pale_sapling", S("Flower Pot with Pale Tree Sapling")},
+	{"birch_sapling", "hades_trees:birch_sapling", S("Flower Pot with Birch Tree Sapling")},
+	{"orange_sapling", "hades_trees:orange_sapling", S("Flower Pot with Orange Tree Sapling")},
+	{"banana_sapling", "hades_trees:banana_sapling", S("Flower Pot with Banana Tree Sapling")},
+	{"cocoa_sapling", "hades_trees:cocoa_sapling", S("Flower Pot with Cocoa Tree Sapling")},
+	{"coconut_sapling", "hades_trees:coconut_sapling", S("Flower Pot with Coconut Tree Sapling")},
+	{"canvas_sapling", "hades_trees:canvas_sapling", S("Flower Pot with Canvas Tree Sapling")},
 }
 
 local cuboids = {
-	{"cactus", "hades_core:cactus", S("Cactus")},
+	{"cactus", "hades_core:cactus", S("Flower Pot with Cactus")},
 
-	{"leaves", "hades_trees:leaves", S("Temperate Leaves")},
-	{"jungle_leaves", "hades_trees:jungle_leaves", S("Common Tropical Leaves")},
-	{"cultivated_jungle_leaves", "hades_trees:cultivated_jungle_leaves", S("Cultivated Tropical Leaves")},
-	{"olive_leaves", "hades_trees:olive_leaves", S("Olive Leaves")},
-	{"birch_leaves", "hades_trees:birch_leaves", S("Birch Leaves")},
-	{"pale_leaves", "hades_trees:pale_leaves", S("Pale Leaves")},
-	{"orange_leaves", "hades_trees:orange_leaves", S("Orange Leaves")},
-	{"banana_leaves", "hades_trees:banana_leaves", S("Banana Leaves")},
-	{"canvas_leaves", "hades_trees:canvas_leaves", S("Canvas Leaves")},
-	{"burned_branches", "hades_trees:burned_branches", S("Burned Branches")},
+	{"leaves", "hades_trees:leaves", S("Flower Pot with Temperate Leaves")},
+	{"jungle_leaves", "hades_trees:jungle_leaves", S("Flower Pot with Common Tropical Leaves")},
+	{"cultivated_jungle_leaves", "hades_trees:cultivated_jungle_leaves", S("Flower Pot with Cultivated Tropical Leaves")},
+	{"olive_leaves", "hades_trees:olive_leaves", S("Flower Pot with Olive Leaves")},
+	{"birch_leaves", "hades_trees:birch_leaves", S("Flower Pot with Birch Leaves")},
+	{"pale_leaves", "hades_trees:pale_leaves", S("Flower Pot with Pale Leaves")},
+	{"orange_leaves", "hades_trees:orange_leaves", S("Flower Pot with Orange Leaves")},
+	{"banana_leaves", "hades_trees:banana_leaves", S("Flower Pot with Banana Leaves")},
+	{"canvas_leaves", "hades_trees:canvas_leaves", S("Flower Pot with Canvas Leaves")},
+	{"burned_branches", "hades_trees:burned_branches", S("Flower Pot with Burned Branches")},
 }
 
 minetest.register_node("hades_flowerpots:flower_pot", {
@@ -103,7 +103,7 @@ local flower_node = row[2]
 local desc = row[3]
 local texture = minetest.registered_nodes[flower_node]["tiles"]
 minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
-	description = S("Flower Pot with @1", desc),
+	description = desc,
 	drawtype = "mesh",
 	mesh = "hades_flowerpots_flowerpot.obj",
 	tiles = {
@@ -141,7 +141,7 @@ local flower = row[1]
 local flower_node = row[2]
 local desc = row[3]
 minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
-	description = S("Flower Pot with @1", desc),
+	description = desc,
 	drawtype = "mesh",
 	mesh = "hades_flowerpots_flowerpot_with_cuboid.obj",
 	tiles = {
