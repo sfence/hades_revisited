@@ -554,19 +554,18 @@ function hades_trees.generate_appletree(pos, check_light, trunk, leaves, undergr
 	trunk = trunk or "hades_trees:tree"
 	leaves = leaves or "hades_trees:leaves"
 	underground = underground or DEFAULT_UNDERGROUND
-	replacement = replacement or {name="hades_trees:apple", chance=100}
+	replacement = replacement or {name="hades_trees:apple", chance=9}
 	local c_tree = minetest.get_content_id(trunk)
 	local c_leaves = minetest.get_content_id(leaves)
 	local c_replacement
 	if replacement.name then
-		minetest.get_content_id(replacement.name)
+		c_replacement = minetest.get_content_id(replacement.name)
 	end
 
 	local vm = minetest.get_voxel_manip()
 	local minp, maxp = vm:read_from_map({x=pos.x-16, y=pos.y, z=pos.z-16}, {x=pos.x+16, y=pos.y+16, z=pos.z+16})
 	local a = VoxelArea:new{MinEdge=minp, MaxEdge=maxp}
 	local data = vm:get_data()
-	local is_apple_tree = math.random(1, 4) == 1
 
 	if not pr_a then
 		local seed = math.random(1,100000)
