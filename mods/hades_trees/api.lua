@@ -18,7 +18,7 @@ hades_trees.register_trunk = function(id, def)
 		},
 		is_ground_content = false,
 		groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
-		sounds = hades_sounds.node_sound_wood_defaults(),
+		sounds = def.sounds or hades_sounds.node_sound_wood_defaults(),
 	})
 end
 
@@ -29,7 +29,7 @@ hades_trees.register_bark = function(id, def)
 		tiles = {{ name = def.image, align_style = "node" }},
 		is_ground_content = false,
 		groups = { bark=1, choppy = 3, oddly_breakable_by_hand = 1, flammable = 2 },
-		sounds = hades_sounds.node_sound_wood_defaults(),
+		sounds = def.sounds or hades_sounds.node_sound_wood_defaults(),
 	})
 end
 
@@ -61,21 +61,24 @@ hades_trees.register_sapling = function(id, def)
 end
 
 hades_trees.register_leaves = function(id, def)
-	local drop = {
-		max_items = 1,
-		items = {
-		{
-				-- player will get sapling with chance of (1/def.drop_rarity)
-				items = {def.drop_item},
-				rarity = def.drop_rarity,
-			},
+	local drop
+	if def.drop_item then
+		drop = {
+			max_items = 1,
+			items = {
 			{
-				-- player will get leaves only if they get no def.drop_item,
-				-- this is because max_items is 1
-				items = {"hades_trees:"..id},
+					-- player will get def.drop_item with chance of (1/def.drop_rarity)
+					items = {def.drop_item},
+					rarity = def.drop_rarity,
+				},
+				{
+					-- player will get leaves only if they get no def.drop_item,
+					-- this is because max_items is 1
+					items = {"hades_trees:"..id},
+				}
 			}
 		}
-	}
+	end
 	minetest.register_node("hades_trees:"..id, {
 		description = def.description,
 		drawtype = "allfaces_optional",
@@ -86,7 +89,7 @@ hades_trees.register_leaves = function(id, def)
 		place_param2 = 1,
 		groups = {snappy=3, leafdecay=3, flammable=2, leaves=1, ash_fertilizer=def.ash_fertilizer, porous=1},
 		drop = drop,
-		sounds = hades_sounds.node_sound_leaves_defaults(),
+		sounds = def.sounds or hades_sounds.node_sound_leaves_defaults(),
 	})
 end
 

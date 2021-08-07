@@ -36,6 +36,7 @@ local cuboids = {
 	{"orange_leaves", "hades_trees:orange_leaves", S("Orange Leaves")},
 	{"banana_leaves", "hades_trees:banana_leaves", S("Banana Leaves")},
 	{"canvas_leaves", "hades_trees:canvas_leaves", S("Canvas Leaves")},
+	{"burned_branches", "hades_trees:burned_branches", S("Burned Branches")},
 }
 
 minetest.register_node("hades_flowerpots:flower_pot", {

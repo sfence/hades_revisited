@@ -36,11 +36,15 @@ for p=1, #planks do
 	if planks[p][4] then
 		colwood = 1
 	end
+	local s_table
+	if id == "charred_wood" then
+		s_table = {pitch=0.8}
+	end
 	minetest.register_node("hades_trees:"..id, {
 		description = desc,
 		tiles = {tile},
 		groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3,wood=1,colwood=colwood},
 		is_ground_content = false,
-		sounds = hades_sounds.node_sound_wood_defaults(),
+		sounds = hades_sounds.node_sound_wood_defaults(s_table),
 	})
 end
