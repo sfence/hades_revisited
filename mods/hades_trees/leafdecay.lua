@@ -56,7 +56,8 @@ minetest.register_abm({
 	action = function(p0, node, _, _)
 		minetest.log("verbose", "[hades_trees] leafdecay ABM at "..p0.x..", "..p0.y..", "..p0.z..")")
 		local do_preserve = false
-		local d = minetest.registered_nodes[node.name].groups.leafdecay
+		local def = minetest.registered_nodes[node.name]
+		local d = def.groups.leafdecay
 		if not d or d == 0 then
 			minetest.log("verbose", "[hades_trees] not groups.leafdecay")
 			return
@@ -66,6 +67,8 @@ minetest.register_abm({
 			-- Prevent decay
 			return
 		end
+		local trunk_to_check = def._hades_trees_trunk
+		local any = def.groups.leafdecay_any == 1
 		local p0_hash = nil
 		if hades_trees.leafdecay_enable_cache then
 			p0_hash = minetest.hash_node_position(p0)
@@ -74,7 +77,7 @@ minetest.register_abm({
 				local n = minetest.get_node(trunkp)
 				local reg = minetest.registered_nodes[n.name]
 				-- Assume ignore is a trunk, to make the thing work at the border of the active area
-				if n.name == "ignore" or (reg and reg.groups.tree == 1) then
+				if (n.name == "ignore") or (any and reg and reg.groups.tree ~= 0) or (n.name == trunk_to_check) then
 					minetest.log("verbose", "[hades_trees] leafdecay: cached trunk still exists")
 					return
 				end
@@ -92,7 +95,7 @@ minetest.register_abm({
 		local p1 = minetest.find_node_near(p0, d, {"ignore", "group:tree"})
 		if p1 then
 			local n1 = minetest.get_node(p1)
-			if n1.name == "ignore" or minetest.get_item_group(n1.name, "tree") == 1 then
+			if (n1.name == "ignore") or (any and minetest.get_item_group(n1.name, "tree") ~= 0) or (n1.name == trunk_to_check) then
 				do_preserve = true
 				if hades_trees.leafdecay_enable_cache then
 					minetest.log("verbose", "[hades_trees] leafdecay: caching trunk")

@@ -6,6 +6,7 @@ hades_trees.register_leaves("banana_leaves", {
 	ash_fertilizer = 3,
 	drop_item = "hades_trees:banana_sapling",
 	drop_rarity = 10,
+	trunk = "hades_trees:tree",
 })
 hades_trees.register_sapling("banana_sapling", {
 	description = S("Banana Sapling"),

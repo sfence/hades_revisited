@@ -35,6 +35,7 @@ function hades_refruit.add_hades_refruit(id, def)
 		end,
 		node_dig_prediction = bud_itemstring,
 		_hades_magic_next = bud_itemstring,
+		_hades_trees_trunk = def.trunk,
 	})
 
 	minetest.register_node(bud_itemstring, {
@@ -56,6 +57,7 @@ function hades_refruit.add_hades_refruit(id, def)
 		drop = def.bud_drop or {},
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 		_hades_magic_next = flower_itemstring,
+		_hades_trees_trunk = def.trunk,
 	})
 	minetest.register_node(flower_itemstring, {
 		description = def.flower_description,
@@ -76,6 +78,7 @@ function hades_refruit.add_hades_refruit(id, def)
 		drop = def.flower_drop or {},
 		sounds = hades_sounds.node_sound_leaves_defaults(),
 		_hades_magic_next = def.fruit_itemstring,
+		_hades_trees_trunk = def.trunk,
 	})
 
 	minetest.register_abm({
@@ -119,7 +122,7 @@ local stick_drop = function(rarity)
 	}
 end
 
-local surv = S("Needs a tree trunk to survive")
+local surv = S("Needs a matching tree trunk to survive")
 
 hades_refruit.add_hades_refruit("apple", {
 	fruit_itemstring = "hades_trees:apple",
@@ -134,6 +137,7 @@ hades_refruit.add_hades_refruit("apple", {
 	flower_interval = 33,
 	flower_chance = 60,
 	neighbors = {"hades_trees:leaves"},
+	trunk = "hades_trees:tree",
 	bud_selbox = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875},
 	flower_selbox = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875},
 })
@@ -151,6 +155,7 @@ hades_refruit.add_hades_refruit("olive", {
 	flower_interval = 34,
 	flower_chance = 60,
 	neighbors = {"hades_trees:olive_leaves"},
+	trunk = "hades_trees:tree",
 	bud_selbox = {-2/16, 1/16, -2/16, 2/16, 0.5, 2/16},
 	flower_selbox = {-4/16, -1/16, -4/16, 4/16, 0.5, 4/16},
 })
@@ -166,6 +171,7 @@ hades_refruit.add_hades_refruit("orange", {
 	flower_interval = 33,
 	flower_chance = 60,
 	neighbors = {"hades_trees:orange_leaves"},
+	trunk = "hades_trees:orange_tree",
 	bud_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
 	flower_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
 })
@@ -181,6 +187,7 @@ hades_refruit.add_hades_refruit("banana", {
 	flower_interval = 34,
 	flower_chance = 60,
 	neighbors = {"hades_trees:banana_leaves"},
+	trunk = "hades_trees:tree",
 	bud_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
 	flower_selbox = {-0.1875, -0.4375, -0.1875, 0.1875, 0.25, 0.1875},
 })
@@ -196,6 +203,7 @@ hades_refruit.add_hades_refruit("cocoa", {
 	flower_interval = 34,
 	flower_chance = 60,
 	neighbors = {"hades_trees:jungle_leaves"},
+	trunk = "hades_trees:jungle_tree",
 	bud_selbox = {-0.1875, -0.25, -0.1875, 0.1875, 0.375, 0.1875},
 	flower_selbox = {-0.1875, -0.1875, -0.1875, 0.1875, 0.5, 0.1875},
 })
@@ -211,6 +219,7 @@ hades_refruit.add_hades_refruit("coconut", {
 	flower_interval = 34,
 	flower_chance = 60,
 	neighbors = {"hades_trees:jungle_leaves"},
+	trunk = "hades_trees:jungle_tree",
 	bud_selbox = {-2/16, -6/16, -2/16, 2/16, 3/16, 2/16},
 	flower_selbox = {-5/16, -7/16, -5/16, 5/16, 7/16, 5/16},
 })

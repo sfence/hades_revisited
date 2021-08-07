@@ -21,7 +21,7 @@ hades_trees.register_trunk = function(id, def)
 			fixed = {{ -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 }},
 		},
 		is_ground_content = false,
-		groups = {tree=(def.tree_group or 1),choppy=2,oddly_breakable_by_hand=1,flammable=2},
+		groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 		sounds = def.sounds or hades_sounds.node_sound_wood_defaults(),
 	})
 end
@@ -91,9 +91,11 @@ hades_trees.register_leaves = function(id, def)
 		waving = 1,
 		is_ground_content = false,
 		place_param2 = 1,
-		groups = {snappy=3, leafdecay=def.leafdecay or 3, flammable=2, leaves=1, ash_fertilizer=def.ash_fertilizer, porous=1},
+		groups = {snappy=3, leafdecay=def.leafdecay or 3, leafdecay_any=def.leafdecay_any, flammable=2, leaves=1, ash_fertilizer=def.ash_fertilizer, porous=1},
 		drop = drop,
 		sounds = def.sounds or hades_sounds.node_sound_leaves_defaults(),
+		-- Store node name of corresponding trunk node
+		_hades_trees_trunk = def.trunk,
 	})
 end
 
@@ -104,7 +106,7 @@ hades_trees.register_fruit = function(id, def)
 		food = 2
 		on_use = minetest.item_eat(sat)
 	end
-	local groups = {dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1,food=food,eatable=sat}
+	local groups = {dig_immediate=3,flammable=2,leafdecay=def.leafdecay or 3,leafdecay_drop=1,food=food,eatable=sat}
 	if def.groups then
 		for k,v in pairs(def.groups) do
 			if v == 0 then

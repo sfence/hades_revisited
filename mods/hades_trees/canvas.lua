@@ -10,6 +10,7 @@ hades_trees.register_leaves("canvas_leaves", {
 	ash_fertilizer = 0,
 	drop_item = "hades_trees:canvas_sapling",
 	drop_rarity = 20,
+	trunk = "hades_trees:canvas_tree",
 })
 
 hades_trees.register_bark("canvas_bark", {

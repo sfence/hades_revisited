@@ -13,6 +13,7 @@ hades_trees.register_leaves("pale_leaves", {
 	image = "hades_trees_pale_leaves.png",
 	drop_item = "hades_trees:pale_sapling",
 	drop_rarity = 10,
+	trunk = "hades_trees:pale_tree",
 })
 hades_trees.register_sapling("pale_sapling", {
 	description = S("Pale Tree Sapling"),

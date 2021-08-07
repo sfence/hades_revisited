@@ -5,8 +5,6 @@ Note: If no group rating is specified, use 1.
 
 Node identities:
 * `tree`: Tree Trunk
-  * `tree=1`: Prevents leaf decay
-  * `tree=2`: Does not prevent leaf decay
 * `sapling`: Sapling
 * `leaves`: Leaves
 * `bark`: Bark
@@ -91,7 +89,8 @@ Action groups:
 *   `food=2`: Food (eating)
 *   `food=3`: Food (drinking)
 * `eatable=X`: Item can be eaten or consumed (restoring X food points)
-* `leafdecay`: Leaves that decay when not near a `group:tree` node
+* `leafdecay=X`: Leaves that decay when not near a node specified in `_hades_trees_trunk` field (X=distance from node)
+* `leafdecay_any`: In combination with `leafdecay`, will expect a `group:tree` node instead to prevent decay
 * `leafdecay_drop`: Node will drop itself when leaf-decaying
 * `wet` Considered wet for farming purposes
 * `fruit_regrow=3`: Regrowing fruit

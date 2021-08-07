@@ -15,6 +15,7 @@ hades_trees.register_leaves("orange_leaves", {
 	ash_fertilizer = 3,
 	drop_item = "hades_trees:orange_sapling",
 	drop_rarity = 20,
+	trunk = "hades_trees:orange_tree",
 })
 hades_trees.register_sapling("orange_sapling", {
 	description = S("Orange Tree Sapling"),

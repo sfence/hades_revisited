@@ -6,6 +6,7 @@ hades_trees.register_leaves("olive_leaves", {
 	ash_fertilizer = 3,
 	drop_item = "hades_trees:olive_sapling",
 	drop_rarity = 25,
+	trunk = "hades_trees:tree",
 })
 hades_trees.register_sapling("olive_sapling", {
 	description = S("Olive Tree Sapling"),

@@ -8,8 +8,6 @@ hades_trees.register_trunk("charred_tree", {
 		"hades_trees_charred_tree.png",
 	},
 	sounds = hades_sounds.node_sound_wood_defaults({pitch=0.8}),
-	-- set tree group to 2 to force leafdecay
-	tree_group = 2,
 })
 hades_trees.register_bark("charred_bark", {
 	description = S("Charred Bark"),
@@ -21,7 +19,9 @@ hades_trees.register_leaves("burned_branches", {
 	description = S("Burned Branches"),
 	image = "hades_trees_burned_branches.png",
 	sounds = hades_sounds.node_sound_straw_defaults(),
-	leafdecay = 0,
+	-- Can survive near any trunk
+	leafdecay_any = 1,
+	trunk = "hades_trees:charred_tree",
 })
 
 minetest.register_craft({

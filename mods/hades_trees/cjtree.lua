@@ -6,6 +6,7 @@ hades_trees.register_leaves("cultivated_jungle_leaves", {
 	ash_fertilizer = 3,
 	drop_item = "hades_trees:cultivated_jungle_sapling",
 	drop_rarity = 25,
+	trunk = "hades_trees:jungle_tree",
 })
 hades_trees.register_sapling("cultivated_jungle_sapling", {
 	description = S("Cultivated Tropical Tree Sapling"),

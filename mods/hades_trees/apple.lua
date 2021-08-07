@@ -11,6 +11,7 @@ hades_trees.register_leaves("leaves", {
 	ash_fertilizer = 3,
 	drop_item = "hades_trees:sapling",
 	drop_rarity = 20,
+	trunk = "hades_trees:tree",
 })
 hades_trees.register_fruit("apple", {
 	description = S("Apple"),
