@@ -109,10 +109,14 @@ end
 
 local on_rightclick = function(pos, node, clicker, itemstack)
 	if not itemstack then return end
-	if minetest.is_protected(pos, clicker:get_player_name()) then return end
+	local name = clicker:get_player_name()
+	if minetest.is_protected(pos, name) then
+		minetest.record_protection_violation(pos, name)
+		return itemstack
+	end
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
-	local creative = minetest.is_creative_enabled(clicker:get_player_name())
+	local creative = minetest.is_creative_enabled(name)
 	if not inv:get_stack("main", 1):is_empty() then
 		drop_item(pos, node, creative)
 	else
@@ -445,7 +449,11 @@ minetest.register_node("hades_itemshow:"..name,{
 		end
 
 		local pn = placer:get_player_name()
-		if minetest.is_protected(pos, pn) or minetest.is_protected(above, pn) then
+		if minetest.is_protected(pos, pn) then
+			minetest.record_protection_violation(pos, pn)
+			return itemstack
+		elseif minetest.is_protected(above, pn) then
+			minetest.record_protection_violation(above, pn)
 			return itemstack
 		end
 
