@@ -74,6 +74,10 @@ minetest.register_node("hades_flowerpots:flower_pot", {
 			local flower = row[1]
 			local flower_node = row[2]
 			if item == flower_node then
+				local fdef = minetest.registered_nodes[flower_node]
+				if fdef and fdef.sounds and fdef.sounds.place then
+					minetest.sound_play(fdef.sounds.place, {pos=pos}, true)
+				end
 				minetest.set_node(pos, {name="hades_flowerpots:flower_pot_"..flower})
 				if not minetest.is_creative_enabled(name) then
 					itemstack:take_item()
@@ -84,6 +88,10 @@ minetest.register_node("hades_flowerpots:flower_pot", {
 			local flower = row[1]
 			local flower_node = row[2]
 			if item == flower_node then
+				local fdef = minetest.registered_nodes[flower_node]
+				if fdef and fdef.sounds and fdef.sounds.place then
+					minetest.sound_play(fdef.sounds.place, {pos=pos}, true)
+				end
 				minetest.set_node(pos, {name="hades_flowerpots:flower_pot_"..flower})
 				if not minetest.is_creative_enabled(name) then
 					itemstack:take_item()
@@ -137,6 +145,10 @@ minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
 		if not minetest.is_creative_enabled(name) then
 			minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
 		end
+		local fdef = minetest.registered_nodes[flower_node]
+		if fdef and fdef.sounds and fdef.sounds.dug then
+			minetest.sound_play(fdef.sounds.dug, {pos=pos}, true)
+		end
 		minetest.set_node(pos, {name="hades_flowerpots:flower_pot"})
 	end,
 	drop = {
@@ -179,6 +191,10 @@ minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
 		end
 		if not minetest.is_creative_enabled(name) then
 			minetest.add_item({x=pos.x, y=pos.y+0.5, z=pos.z}, flower_node)
+		end
+		local fdef = minetest.registered_nodes[flower_node]
+		if fdef and fdef.sounds and fdef.sounds.dug then
+			minetest.sound_play(fdef.sounds.dug, {pos=pos}, true)
 		end
 		minetest.set_node(pos, {name="hades_flowerpots:flower_pot"})
 	end,
