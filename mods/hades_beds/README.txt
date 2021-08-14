@@ -6,6 +6,6 @@ About
 ~~~~~
 This mod adds a bed which allows to set the respawn position. Just rightclick the bed.
 
-License of source code, textures and everything else: MIT License
+License of source code, textures, sounds and everything else: MIT License
 (c) Copyright BlockMen (2014-2015)
 
