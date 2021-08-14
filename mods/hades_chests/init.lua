@@ -169,6 +169,8 @@ minetest.register_node(itemstring_locked, {
 				"hades_chests:chest_locked",
 				get_locked_chest_formspec(pos)
 			)
+		else
+			minetest.sound_play({name="hades_chests_locked", gain=0.3}, {max_hear_distance=10}, true)
 		end
 	end,
 	on_rotate = "simple",

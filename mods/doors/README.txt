@@ -63,24 +63,26 @@ Door 3d models by sofar (CC-BY-SA-3.0)
 
 Authors of media (sounds)
 -------------------------
-Opening sound created by CGEffex (CC BY 3.0), modified by BlockMen
-  door_door_open.ogg
-Closing sound created by bennstir (CC BY 3.0)
-  door_door_close.ogg
-fencegate_open.ogg:
+doors_door_open.ogg:
+  created by CGEffex (CC BY 3.0), modified by BlockMen
+door_door_close.ogg:
+  created by bennstir (CC BY 3.0)
+doors_fencegate_open.ogg:
   http://www.freesound.org/people/mhtaylor67/sounds/126041/ - (CC0 1.0)
-fencegate_close.ogg:
+doors_fencegate_close.ogg:
   http://www.freesound.org/people/BarkersPinhead/sounds/274807/ - (CC-BY-3.0)
   http://www.freesound.org/people/rivernile7/sounds/249573/ - (CC-BY-3.0)
-Steel door sounds open & close (CC-BY-3.0) by HazMatt
-  - http://www.freesound.org/people/HazMattt/sounds/187283/
-  doors_steel_door_open.ogg
-  doors_steel_door_close.ogg
+doors_steel_door_open.ogg, doors_steel_door_close.ogg:
+  by HazMatt (CC BY-3.0)
+  http://www.freesound.org/people/HazMattt/sounds/187283/
 doors_glass_door_open.ogg, doors_glass_door_close.ogg:
   https://www.freesound.org/people/SkeetMasterFunk69/sounds/235546/ (CC0 1.0)
 mcl_fences_nether_brick_fence_gate_open.ogg, mcl_fences_nether_brick_fence_gate_close.ogg:
   https://www.freesound.org/people/Slanesh/sounds/31770
   CC BY 3.0 <https://creativecommons.org/licenses/by/3.0/>
   By Freesound.org user Slanesh.
+doors_door_locked.ogg:
+  by BenjaminNelan (CC0)
+  https://freesound.org/people/BenjaminNelan/sounds/321087/
 
 Everything else is under the MIT License.

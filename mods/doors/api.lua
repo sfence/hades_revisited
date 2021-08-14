@@ -167,6 +167,8 @@ function _doors.door_toggle(pos, node, clicker)
 	replace_old_owner_information(pos)
 
 	if clicker and not can_interact_with_node(clicker, pos) then
+		minetest.sound_play(def.door.sounds[3],
+			{pos = pos, gain = 0.3, max_hear_distance = 10}, true)
 		return false
 	end
 
@@ -358,12 +360,16 @@ function doors.register(name, def)
 		def.sound_close = "doors_door_close"
 	end
 
+	if not def.sound_locked then
+		def.sound_locked = "doors_door_locked"
+	end
+
 	def.groups.not_in_creative_inventory = 1
 	def.groups.door = 1
 	def.drop = name
 	def.door = {
 		name = name,
-		sounds = { def.sound_close, def.sound_open },
+		sounds = { def.sound_close, def.sound_open, def.sound_locked },
 	}
 
 	def.on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
@@ -478,11 +484,12 @@ function _doors.trapdoor_toggle(pos, node, clicker)
 
 	replace_old_owner_information(pos)
 
+	local def = minetest.registered_nodes[node.name]
 	if clicker and not can_interact_with_node(clicker, pos) then
+		minetest.sound_play(def.sound_locked,
+			{pos = pos, gain = 0.3, max_hear_distance = 10}, true)
 		return false
 	end
-
-	local def = minetest.registered_nodes[node.name]
 
 	if string.sub(node.name, -5) == "_open" then
 		minetest.sound_play(def.sound_close,
@@ -571,6 +578,10 @@ function doors.register_trapdoor(name, def)
 
 	if not def.sound_close then
 		def.sound_close = "doors_door_close"
+	end
+
+	if not def.sound_locked then
+		def.sound_locked = "doors_door_locked"
 	end
 
 	local def_opened = table.copy(def)
