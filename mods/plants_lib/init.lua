@@ -537,9 +537,10 @@ end
 
 
 function plantslib:node_is_owned(pos, placer)
-	local is_protected = minetest.is_protected(pos, placer:get_player_name())
+	local name = placer:get_player_name()
+	local is_protected = minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass")
 	if is_protected then
-		minetest.chat_send_player( placer:get_player_name(), S("Sorry, someone owns that spot.") )
+		minetest.record_protection_violation(pos, name)
 		return true
 	else
 		return false

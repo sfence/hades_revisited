@@ -21,7 +21,7 @@ local cotrig = function(pos, username)
 
 		if math.abs(dx)<4 and math.abs(dy)<1 and math.abs(dz)<4 then
 			local newpos = table.copy(pos)
-			if not minetest.is_protected(newpos, username) then
+			if not (minetest.is_protected(newpos, username) and not minetest.check_player_privs(username, "protection_bypass")) then
 				conv(table.copy(newpos), pos_table)
 			end
 		end
@@ -47,7 +47,7 @@ function hades_gaia.staffgaia_on_use(itemstack, user, pointed_thing, uses)
 		return
 	end
 
-	if minetest.is_protected(pt.under, user:get_player_name()) then
+	if minetest.is_protected(pt.under, user:get_player_name()) and not minetest.check_player_privs(user:get_player_name(), "protection_bypass") then
 		minetest.record_protection_violation(pt.under, user:get_player_name())
 		return
 	end

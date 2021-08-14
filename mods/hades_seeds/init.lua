@@ -33,7 +33,7 @@ local place_seed = function(itemstack, placer, pointed_thing, nodename, surface_
 			pt) or itemstack
 	end
 
-	if minetest.is_protected(pt.under, name) then
+	if minetest.is_protected(pt.under, name) and not minetest.check_player_privs(name, "protection_bypass") then
 		minetest.record_protection_violation(pt.under, name)
 		return itemstack
 	end

@@ -10,7 +10,7 @@ minetest.register_craftitem("hades_magic_wand:magic_wand", {
 		if pointed_thing.type == "node" then
 			local pos = pointed_thing.under
 			local name = user:get_player_name()
-			if minetest.is_protected(pos, name) then
+			if minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass") then
 				minetest.record_protection_violation(pos, name)
 				return itemstack
 			end
@@ -35,7 +35,7 @@ minetest.register_craftitem("hades_magic_wand:magic_shaper", {
 		if pointed_thing.type == "node" then
 			local pos = pointed_thing.under
 			local name = user:get_player_name()
-			if minetest.is_protected(pos, name) then
+			if minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass") then
 				minetest.record_protection_violation(pos, name)
 				return itemstack
 			end

@@ -285,10 +285,10 @@ function doors.register(name, def)
 			end
 
 			local pn = placer:get_player_name()
-			if minetest.is_protected(pos, pn) then
+			if minetest.is_protected(pos, pn) and not minetest.check_player_privs(pn, "protection_bypass") then
 				minetest.record_protection_violation(pos, pn)
 				return itemstack
-			elseif minetest.is_protected(above, pn) then
+			elseif minetest.is_protected(above, pn) and not minetest.check_player_privs(pn, "protection_bypass") then
 				minetest.record_protection_violation(above, pn)
 				return itemstack
 			end

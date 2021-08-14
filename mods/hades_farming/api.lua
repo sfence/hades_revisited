@@ -18,7 +18,7 @@ hades_farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	local under = minetest.get_node(pt.under)
 	local p = {x=pt.under.x, y=pt.under.y+1, z=pt.under.z}
 	local name = user:get_player_name()
-	if minetest.is_protected(pt.under, name) then
+	if minetest.is_protected(pt.under, name) and not minetest.check_player_privs(name, "protection_bypass") then
 		minetest.record_protection_violation(pt.under, name)
 		return itemstack
 	end

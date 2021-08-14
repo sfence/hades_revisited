@@ -554,7 +554,7 @@ function signs_lib.determine_sign_type(itemstack, placer, pointed_thing, locked)
 	local name
 	name = minetest.get_node(pointed_thing.under).name
 	if fences_with_sign[name] then
-		if minetest.is_protected(pointed_thing.under, placer:get_player_name()) then
+		if minetest.is_protected(pointed_thing.under, placer:get_player_name()) and not minetest.check_player_privs(placer:get_player_name(), "protection_bypass") then
 			minetest.record_protection_violation(pointed_thing.under,
 				placer:get_player_name())
 			return itemstack
@@ -565,7 +565,7 @@ function signs_lib.determine_sign_type(itemstack, placer, pointed_thing, locked)
 		if not def.buildable_to then
 			return itemstack
 		end
-		if minetest.is_protected(pointed_thing.above, placer:get_player_name()) then
+		if minetest.is_protected(pointed_thing.above, placer:get_player_name()) and not minetest.check_player_privs(placer:get_player_name(), "protection_bypass") then
 			minetest.record_protection_violation(pointed_thing.above,
 				placer:get_player_name())
 			return itemstack
@@ -622,7 +622,7 @@ function signs_lib.determine_sign_type(itemstack, placer, pointed_thing, locked)
 end
 
 function signs_lib.receive_fields(pos, formname, fields, sender, lock)
-	if minetest.is_protected(pos, sender:get_player_name()) then
+	if minetest.is_protected(pos, sender:get_player_name()) and not minetest.check_player_privs(sender:get_player_name(), "protection_bypass") then
 		minetest.record_protection_violation(pos,
 			sender:get_player_name())
 		return

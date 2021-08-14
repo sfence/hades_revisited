@@ -94,7 +94,7 @@ screwdriver.handler = function(itemstack, user, pointed_thing, mode, uses)
 	local pos = pointed_thing.under
 	local player_name = user and user:get_player_name() or ""
 
-	if minetest.is_protected(pos, player_name) then
+	if minetest.is_protected(pos, player_name) and not minetest.check_player_privs(player_name, "protection_bypass") then
 		minetest.record_protection_violation(pos, player_name)
 		return
 	end

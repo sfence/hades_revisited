@@ -66,7 +66,7 @@ minetest.register_node("hades_flowerpots:flower_pot", {
 	on_rightclick = function(pos, node, clicker, itemstack)
 		local item = clicker:get_wielded_item():get_name()
 		local name = clicker:get_player_name()
-		if minetest.is_protected(pos, name) then
+		if minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass") then
 			minetest.record_protection_violation(pos, name)
 			return
 		end
@@ -138,7 +138,7 @@ minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	on_rightclick = function(pos, item, clicker)
 		local name = clicker:get_player_name()
-		if minetest.is_protected(pos, name) then
+		if minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass") then
 			minetest.record_protection_violation(pos, name)
 			return
 		end
@@ -185,7 +185,7 @@ minetest.register_node("hades_flowerpots:flower_pot_"..flower, {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	on_rightclick = function(pos, item, clicker)
 		local name = clicker:get_player_name()
-		if minetest.is_protected(pos, name) then
+		if minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass") then
 			minetest.record_protection_violation(pos, name)
 			return
 		end

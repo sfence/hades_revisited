@@ -103,8 +103,10 @@ function hades_beds.register_bed(name, def)
 					not node.param2 == node2.param2 then
 				return false
 			end
-			if minetest.is_protected(p, user:get_player_name()) then
-				minetest.record_protection_violation(p, user:get_player_name())
+			local player_name = user:get_player_name()
+			if minetest.is_protected(p, player_name) and
+					not minetest.check_player_privs(player_name, "protection_bypass") then
+				minetest.record_protection_violation(p, player_name)
 				return false
 			end
 			if new_param2 % 32 > 3 then
@@ -116,8 +118,9 @@ function hades_beds.register_bed(name, def)
 			if not node_def or not node_def.buildable_to then
 				return false
 			end
-			if minetest.is_protected(newp, user:get_player_name()) then
-				minetest.record_protection_violation(newp, user:get_player_name())
+			if minetest.is_protected(newp, player_name) and
+					not minetest.check_player_privs(player_name, "protection_bypass") then
+				minetest.record_protection_violation(newp, player_name)
 				return false
 			end
 			node.param2 = new_param2

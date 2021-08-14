@@ -57,7 +57,7 @@ end
 
 -- Call minetest.set_node(pos, node), but only if pos is not protected by playername
 local set_node_protected = function(pos, node, playername)
-	if not minetest.is_protected(pos, playername) then
+	if not (minetest.is_protected(pos, playername) and not minetest.check_player_privs(playername, "protection_bypass")) then
 		minetest.set_node(pos, node)
 		return true
 	end
@@ -84,7 +84,7 @@ local get_apply_fertilizer = function(super)
 				pointed_thing) or itemstack
 		end
 
-		if minetest.is_protected(pos, name) then
+		if minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass") then
 			minetest.record_protection_violation(pos, name)
 			return itemstack
 		end
@@ -100,10 +100,10 @@ local get_apply_fertilizer = function(super)
 		elseif minetest.get_item_group(nname, "sapling") ~= 0 then
 			if not super and math.random(1,5) ~= 1 then return itemstack end
 			-- Grow sapling to tree
-			if not minetest.is_protected(pos, name) then
-				hades_trees.grow_sapling(pos, false)
-			else
+			if minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass") then
 				return itemstack
+			else
+				hades_trees.grow_sapling(pos, false)
 			end
 		elseif nname == "hades_flowerpots:flower_pot" then
 			if not super then return itemstack end

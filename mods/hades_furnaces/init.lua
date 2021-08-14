@@ -66,7 +66,8 @@ local function can_dig(pos, player)
 end
 
 local function allow_metadata_inventory_put(pos, listname, index, stack, player)
-	if minetest.is_protected(pos, player:get_player_name()) then
+	local name = player:get_player_name()
+	if minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass") then
 		return 0
 	end
 	local meta = minetest.get_meta(pos)
@@ -92,7 +93,8 @@ local function allow_metadata_inventory_move(pos, from_list, from_index, to_list
 end
 
 local function allow_metadata_inventory_take(pos, listname, index, stack, player)
-	if minetest.is_protected(pos, player:get_player_name()) then
+	local name = player:get_player_name()
+	if minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass") then
 		return 0
 	end
 	return stack:get_count()
