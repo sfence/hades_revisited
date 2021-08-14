@@ -75,9 +75,8 @@ minetest.register_abm({
 			local trunkp = hades_trees.leafdecay_trunk_cache[p0_hash]
 			if trunkp then
 				local n = minetest.get_node(trunkp)
-				local reg = minetest.registered_nodes[n.name]
 				-- Assume ignore is a trunk, to make the thing work at the border of the active area
-				if (n.name == "ignore") or (any and reg and reg.groups.tree ~= 0) or (n.name == trunk_to_check) then
+				if (n.name == "ignore") or (any and minetest.get_item_group(n.name, "tree") ~= 0) or (n.name == trunk_to_check) then
 					minetest.log("verbose", "[hades_trees] leafdecay: cached trunk still exists")
 					return
 				end
