@@ -28,22 +28,59 @@ function hades_beds.register_bed(name, def)
 			fixed = def.selectionbox,
 				
 		},
-		after_place_node = function(pos, placer, itemstack)
-			local n = minetest.get_node_or_nil(pos)
-			if not n or not n.param2 then
-				minetest.remove_node(pos)
-				return true
+		on_place = function(itemstack, placer, pointed_thing)
+			local under = pointed_thing.under
+			local node = minetest.get_node(under)
+			local udef = minetest.registered_nodes[node.name]
+			if udef and udef.on_rightclick and
+					not (placer and placer:is_player() and
+					placer:get_player_control().sneak) then
+				return udef.on_rightclick(under, node, placer, itemstack,
+					pointed_thing) or itemstack
 			end
-			local dir = minetest.facedir_to_dir(n.param2)
-			local p = {x=pos.x+dir.x,y=pos.y,z=pos.z+dir.z}
-			local n2 = minetest.get_node_or_nil(p)
-			local def = minetest.registered_items[n2.name] or nil
-			if not n2 or not def or not def.buildable_to then
-				minetest.remove_node(pos)
-				return true
+
+			local pos
+			if udef and udef.buildable_to then
+				pos = under
+			else
+				pos = pointed_thing.above
 			end
-			minetest.set_node(p, {name = n.name:gsub("%_bottom", "_top"), param2 = n.param2})
-			return false
+
+			local player_name = placer and placer:get_player_name() or ""
+
+			if minetest.is_protected(pos, player_name) and
+					not minetest.check_player_privs(player_name, "protection_bypass") then
+				minetest.record_protection_violation(pos, player_name)
+				return itemstack
+			end
+
+			local node_def = minetest.registered_nodes[minetest.get_node(pos).name]
+			if not node_def or not node_def.buildable_to then
+				return itemstack
+			end
+
+			local dir = placer and placer:get_look_dir() and
+				minetest.dir_to_facedir(placer:get_look_dir()) or 0
+			local botpos = vector.add(pos, minetest.facedir_to_dir(dir))
+
+			if minetest.is_protected(botpos, player_name) and
+					not minetest.check_player_privs(player_name, "protection_bypass") then
+				minetest.record_protection_violation(botpos, player_name)
+				return itemstack
+			end
+
+			local botdef = minetest.registered_nodes[minetest.get_node(botpos).name]
+			if not botdef or not botdef.buildable_to then
+				return itemstack
+			end
+
+			minetest.set_node(pos, {name = name .. "_bottom", param2 = dir})
+			minetest.set_node(botpos, {name = name .. "_top", param2 = dir})
+
+			if not minetest.is_creative_enabled(player_name) then
+				itemstack:take_item()
+			end
+			return itemstack
 		end,	
 		on_destruct = function(pos)
 			local n = minetest.get_node_or_nil(pos)
