@@ -17,6 +17,12 @@ hades_farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	
 	local under = minetest.get_node(pt.under)
 	local p = {x=pt.under.x, y=pt.under.y+1, z=pt.under.z}
+	local name = user:get_player_name()
+	if minetest.is_protected(pt.under, name) then
+		minetest.record_protection_violation(pt.under, name)
+		return itemstack
+	end
+
 	local above = minetest.get_node(p)
 	
 	-- return if any of the nodes is not registered
@@ -50,7 +56,7 @@ hades_farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 		gain = 0.5,
 	}, true)
 	
-	if not minetest.is_creative_enabled(user:get_player_name()) then
+	if not minetest.is_creative_enabled(name) then
 		itemstack:add_wear(65535/(uses-1))
 	end
 	return itemstack

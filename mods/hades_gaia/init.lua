@@ -10,7 +10,7 @@ local conv = function(pos, pos_table)
 	end
 end
 
-local cotrig = function(pos)
+local cotrig = function(pos, username)
 	local pos_table = {}
 	for dx=-4,4 do
 	for dz=-4,4 do
@@ -20,7 +20,10 @@ local cotrig = function(pos)
 		pos.z = pos.z+dz
 
 		if math.abs(dx)<4 and math.abs(dy)<1 and math.abs(dz)<4 then
-			conv(table.copy(pos), pos_table)
+			local newpos = table.copy(pos)
+			if not minetest.is_protected(newpos, username) then
+				conv(table.copy(newpos), pos_table)
+			end
 		end
 		pos.x = pos.x-dx
 		pos.y = pos.y-dy
@@ -44,6 +47,10 @@ function hades_gaia.staffgaia_on_use(itemstack, user, pointed_thing, uses)
 		return
 	end
 
+	if minetest.is_protected(pt.under, user:get_player_name()) then
+		minetest.record_protection_violation(pt.under, user:get_player_name())
+		return
+	end
 
 	local under = minetest.get_node(pt.under)
 	local p = {x=pt.under.x, y=pt.under.y+1, z=pt.under.z}
@@ -65,7 +72,7 @@ function hades_gaia.staffgaia_on_use(itemstack, user, pointed_thing, uses)
 	end
 
 
-	cotrig(pt.under)
+	cotrig(pt.under, user:get_player_name())
 	if not minetest.is_creative_enabled(user:get_player_name()) then
 		itemstack:add_wear(65535/(uses-1))
 	end

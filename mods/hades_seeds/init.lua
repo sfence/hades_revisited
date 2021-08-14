@@ -21,6 +21,8 @@ local place_seed = function(itemstack, placer, pointed_thing, nodename, surface_
 		return
 	end
 	
+	local name = placer:get_player_name()
+
 	local under = minetest.get_node(pt.under)
 	local above = minetest.get_node(pt.above)
 
@@ -29,6 +31,11 @@ local place_seed = function(itemstack, placer, pointed_thing, nodename, surface_
 		((not placer) or (placer and not placer:get_player_control().sneak)) then
 		return udef.on_rightclick(pt.under, under, placer, itemstack,
 			pt) or itemstack
+	end
+
+	if minetest.is_protected(pt.under, name) then
+		minetest.record_protection_violation(pt.under, name)
+		return itemstack
 	end
 	
 	-- return if any of the nodes is not registered
@@ -59,7 +66,7 @@ local place_seed = function(itemstack, placer, pointed_thing, nodename, surface_
 	-- add the node and remove 1 item from the itemstack
 	local pdef = minetest.registered_nodes[nodename]
 	minetest.add_node(pt.above, {name = nodename, param2 = pdef.place_param2})
-	if not minetest.is_creative_enabled(placer:get_player_name()) then
+	if not minetest.is_creative_enabled(name) then
 		itemstack:take_item()
 	end
 	return itemstack

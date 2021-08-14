@@ -55,6 +55,15 @@ for p=1, #plants_rotate do
 	end
 end
 
+-- Call minetest.set_node(pos, node), but only if pos is not protected by playername
+local set_node_protected = function(pos, node, playername)
+	if not minetest.is_protected(pos, playername) then
+		minetest.set_node(pos, node)
+		return true
+	end
+	return false
+end
+
 -- Returns an on_place function for fertilizer.
 -- 'super' parameter is true for Super Fertilizer and false for normal fertilizer
 local get_apply_fertilizer = function(super)
@@ -75,6 +84,11 @@ local get_apply_fertilizer = function(super)
 				pointed_thing) or itemstack
 		end
 
+		if minetest.is_protected(pos, name) then
+			minetest.record_protection_violation(pos, name)
+			return itemstack
+		end
+
 		if plant_mappings[nname] then
 			if (not super) then
 				-- Restrict usable plants if not super fertilizer
@@ -82,11 +96,15 @@ local get_apply_fertilizer = function(super)
 				if math.random(1,3) == 1 then return itemstack end
 			end
 			-- Add plant growth stage
-			minetest.set_node(pos, {name=plant_mappings[nname][1], param2=nnode.param2})
+			set_node_protected(pos, {name=plant_mappings[nname][1], param2=nnode.param2}, name)
 		elseif minetest.get_item_group(nname, "sapling") ~= 0 then
 			if not super and math.random(1,5) ~= 1 then return itemstack end
 			-- Grow sapling to tree
-			hades_trees.grow_sapling(pos, false)
+			if not minetest.is_protected(pos, name) then
+				hades_trees.grow_sapling(pos, false)
+			else
+				return itemstack
+			end
 		elseif nname == "hades_flowerpots:flower_pot" then
 			if not super then return itemstack end
 			-- [SUPER] Grow random flower in empty flowerpot
@@ -94,7 +112,7 @@ local get_apply_fertilizer = function(super)
 				"red", "white", "yellow", "orange", "yellow", "violet",
 			}
 			local flower = flowers[math.random(1, #flowers)]
-			minetest.set_node(pos, {name="hades_flowerpots:flower_pot_"..flower})
+			set_node_protected(pos, {name="hades_flowerpots:flower_pot_"..flower}, name)
 		elseif minetest.get_item_group(nname, "leaves") == 1 then
 			if not super then return itemstack end
 			-- [SUPER] Grow leaves
@@ -109,7 +127,7 @@ local get_apply_fertilizer = function(super)
 			for p=1, #posses do
 				local ppos = vector.add(pos, posses[p])
 				if minetest.get_node(ppos).name == "air" then
-					minetest.set_node(ppos, {name=nname, param2=nnode.param2})
+					set_node_protected(ppos, {name=nname, param2=nnode.param2}, name)
 				end
 			end
 		elseif nname == "hades_core:papyrus" or nname == "hades_core:sugarcane" or nname == "hades_core:cactus" or minetest.get_item_group(nname, "tree") == 1 then
@@ -120,7 +138,7 @@ local get_apply_fertilizer = function(super)
 				above = {x=pos.x,y=pos.y+i,z=pos.z}
 				local node = minetest.get_node(above)
 				if node.name == "air" then
-					minetest.set_node(above, {name=nname})
+					set_node_protected(above, {name=nname}, name)
 					break
 				elseif node.name ~= nname then
 					break
@@ -137,7 +155,7 @@ local get_apply_fertilizer = function(super)
 					below = {x=pos.x,y=pos.y-i,z=pos.z}
 					local node = minetest.get_node(below)
 					if node.name == "air" then
-						minetest.set_node(below, {name=nname, param2=param2})
+						set_node_protected(below, {name=nname, param2=param2}, name)
 						break
 					elseif node.name ~= nname then
 						break
@@ -190,7 +208,7 @@ local get_apply_fertilizer = function(super)
 						elseif nname == "walls:cobble" then
 							node.name = "walls:mossycobble"
 						end
-						minetest.set_node(ppos, node)
+						set_node_protected(ppos, node, name)
 					end
 				end
 			end
@@ -286,7 +304,7 @@ local get_apply_fertilizer = function(super)
 								p2 = pdef.place_param2
 							end
 							local nnode = {name = plant, param2 = p2}
-							minetest.set_node(pos_above, nnode)
+							set_node_protected(pos_above, nnode, name)
 						end
 					end
 				end
@@ -309,7 +327,7 @@ local get_apply_fertilizer = function(super)
 							minetest.registered_nodes[below_node.name].liquidtype == "source" then
 						node.name = nname
 						node.param2 = math.random(0,3)
-						minetest.set_node(ppos, node)
+						set_node_protected(ppos, node, name)
 					end
 				end
 			end

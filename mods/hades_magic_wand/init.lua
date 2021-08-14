@@ -9,6 +9,11 @@ minetest.register_craftitem("hades_magic_wand:magic_wand", {
 	on_use = function(itemstack, user, pointed_thing)
 		if pointed_thing.type == "node" then
 			local pos = pointed_thing.under
+			local name = user:get_player_name()
+			if minetest.is_protected(pos, name) then
+				minetest.record_protection_violation(pos, name)
+				return itemstack
+			end
 			local node = minetest.get_node(pointed_thing.under)
 			local def = minetest.registered_items[node.name]
 			if def and def._hades_magic_next then
@@ -29,6 +34,11 @@ minetest.register_craftitem("hades_magic_wand:magic_shaper", {
 	on_use = function(itemstack, user, pointed_thing)
 		if pointed_thing.type == "node" then
 			local pos = pointed_thing.under
+			local name = user:get_player_name()
+			if minetest.is_protected(pos, name) then
+				minetest.record_protection_violation(pos, name)
+				return itemstack
+			end
 			local node = minetest.get_node(pointed_thing.under)
 			local def = minetest.registered_items[node.name]
 			if def and def._hades_shaper_next then
