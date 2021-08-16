@@ -185,7 +185,7 @@ function mob_class:do_attack(player)
 	if self.state == "attack" then
 		return
 	end
-
+  
 	self.attack = player
 	self.state = "attack"
 
@@ -1895,6 +1895,15 @@ function mob_class:general_attack()
 
 	-- attack closest player or mob
 	if min_player and random(100) > self.attack_chance then
+    -- for sinki update
+    if (1) then
+      local player_name = min_player:get_player_name();
+      if (player_name~=nil) then
+        if (minetest.check_player_privs(player_name, "peaceful_player")) then
+          return
+        end 
+      end
+    end
 		self:do_attack(min_player)
 	end
 end
