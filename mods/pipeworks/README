@@ -1,11 +1,7 @@
-Pipeworks - Hades Revisited Edition
-
 This mod uses nodeboxes to supply a complete set of 3D pipes and tubes, 
-along devices that work with them. This copy of Pipeworks is specifically
-tailored for Hades Revisited only.
+along devices that work with them.
 
-See https://gitlab.com/VanessaE/pipeworks/-/wikis/home for detailed information
-about usage of this mod ... more or less.
+See https://gitlab.com/VanessaE/pipeworks/wikis/ for detailed information about usage of this mod.
 
 Unlike the previous version of this mod, these pipes are rounded, and when 
 placed, they'll automatically join together as needed.  Pipes can go vertically 

@@ -1,23 +1,21 @@
-local S = minetest.get_translator("pipeworks")
-
 -- This file supplies the steel pipes
+local S = minetest.get_translator("pipeworks")
 
 local REGISTER_COMPATIBILITY = true
 
 local pipes_empty_nodenames = {}
 local pipes_full_nodenames = {}
 
-local vti = {4, 3, 2, 1, 6, 5}
+local new_flow_logic_register = pipeworks.flowables.register
+
+local polys = ""
+if pipeworks.enable_lowpoly then polys = "_lowpoly" end
+
+--~ local vti = {4, 3, 2, 1, 6, 5}
 local cconnects = {{}, {1}, {1, 2}, {1, 3}, {1, 3, 5}, {1, 2, 3}, {1, 2, 3, 5}, {1, 2, 3, 4}, {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5, 6}}
 for index, connects in ipairs(cconnects) do
-	local outboxes = {}
 	local outsel = {}
-	local outimgs = {}
-	
-	for i = 1, 6 do
-		outimgs[vti[i]] = "pipeworks_plain.png"
-	end
-	
+
 	local jx = 0
 	local jy = 0
 	local jz = 0
@@ -29,56 +27,53 @@ for index, connects in ipairs(cconnects) do
 		else
 			jz = jz + 1
 		end
-		pipeworks.add_node_box(outboxes, pipeworks.pipe_boxes[v])
 		table.insert(outsel, pipeworks.pipe_selectboxes[v])
-		outimgs[vti[v]] = "pipeworks_pipe_end.png"
 	end
 
+	--[[
 	if #connects == 1 then
 		local v = connects[1]
 		v = v-1 + 2*(v%2) -- Opposite side
-		outimgs[vti[v]] = "^pipeworks_plain.png"
 	end
+	--]]
 
-	if #connects >= 2 then
-		pipeworks.add_node_box(outboxes, pipeworks.pipe_bendsphere)
-	end
-	
-	if jx == 2 and jy ~= 2 and jz ~= 2 then
-		outimgs[5] = pipeworks.liquid_texture.."^pipeworks_windowed_XXXXX.png"
-		outimgs[6] = outimgs[5]
-	end
-	
 	local pgroups = {snappy = 3, pipe = 1, not_in_creative_inventory = 1}
-	local pipedesc = S("Pipe Segment @1", dump(connects))
-	local image = nil
+	local pipedesc = S("Pipe Segment").." "..dump(connects)
 
 	if #connects == 0 then
 		pgroups = {snappy = 3, tube = 1}
 		pipedesc = S("Pipe Segment")
-		image = "pipeworks_pipe_inv.png"
 	end
-	
-	--table.insert(pipeworks.tubenodes, name.."_"..tname)
-	
+
+	local outimg_e = { "pipeworks_pipe_plain.png" }
+	local outimg_l = { "pipeworks_pipe_plain.png" }
+
+	if index == 3 then
+		outimg_e = { "pipeworks_pipe_3_empty.png" }
+		outimg_l = { "pipeworks_pipe_3_loaded.png" }
+	end
+
+	local mesh = "pipeworks_pipe_"..index..polys..".obj"
+
+	if index == 1 then
+		mesh = "pipeworks_pipe_3"..polys..".obj"
+	end
+
 	minetest.register_node("pipeworks:pipe_"..index.."_empty", {
 		description = pipedesc,
-		_tt_help = S("Transports liquids"),
-		drawtype = "nodebox",
-		tiles = pipeworks.fix_image_names(outimgs, "_empty"),
-		use_texture_alpha = "clip",
+		drawtype = "mesh",
+		mesh = mesh,
+		tiles = outimg_e,
 		sunlight_propagates = true,
-		inventory_image = image,
-		wield_image = image,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		selection_box = {
-	             	type = "fixed",
+			type = "fixed",
 			fixed = outsel
 		},
-		node_box = {
+		collision_box = {
 			type = "fixed",
-			fixed = outboxes
+			fixed = outsel
 		},
 		groups = pgroups,
 		sounds = hades_sounds.node_sound_metal_defaults(),
@@ -91,43 +86,54 @@ for index, connects in ipairs(cconnects) do
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
 		on_rotate = false,
+		check_for_pole = pipeworks.check_for_vert_pipe,
+		check_for_horiz_pole = pipeworks.check_for_horiz_pipe,
+		pipenumber = index
 	})
-	
+
 	local pgroups = {snappy = 3, pipe = 1, not_in_creative_inventory = 1}
 
 	minetest.register_node("pipeworks:pipe_"..index.."_loaded", {
 		description = pipedesc,
-		drawtype = "nodebox",
-		tiles = pipeworks.fix_image_names(outimgs, "_loaded"),
-		use_texture_alpha = "clip",
+		drawtype = "mesh",
+		mesh = mesh,
+		tiles = outimg_l,
 		sunlight_propagates = true,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		selection_box = {
-	             	type = "fixed",
+			type = "fixed",
 			fixed = outsel
 		},
-		node_box = {
+		collision_box = {
 			type = "fixed",
-			fixed = outboxes
+			fixed = outsel
 		},
 		groups = pgroups,
 		sounds = hades_sounds.node_sound_metal_defaults(),
 		walkable = true,
 		drop = "pipeworks:pipe_1_empty",
 		after_place_node = function(pos)
+			minetest.set_node(pos, { name = "pipeworks:pipe_"..index.."_empty" })
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
 		after_dig_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
 		on_rotate = false,
+		check_for_pole = pipeworks.check_for_vert_pipe,
+		check_for_horiz_pole = pipeworks.check_for_horiz_pipe,
+		pipenumber = index
 	})
-	
-	table.insert(pipes_empty_nodenames, "pipeworks:pipe_"..index.."_empty")
-	table.insert(pipes_full_nodenames,  "pipeworks:pipe_"..index.."_loaded")
-end
 
+	local emptypipe = "pipeworks:pipe_"..index.."_empty"
+	local fullpipe = "pipeworks:pipe_"..index.."_loaded"
+	table.insert(pipes_empty_nodenames, emptypipe)
+	table.insert(pipes_full_nodenames, fullpipe)
+	new_flow_logic_register.simple(emptypipe)
+	new_flow_logic_register.simple(fullpipe)
+end
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:pipe_1_empty"
 
 
 if REGISTER_COMPATIBILITY then
@@ -137,27 +143,26 @@ if REGISTER_COMPATIBILITY then
 		drawtype = "airlike",
 		sunlight_propagates = true,
 		paramtype = "light",
-		inventory_image = "pipeworks_pipe_inv.png",
-		wield_image = "pipeworks_pipe_inv.png",
 		description = S("Pipe Segment (legacy)"),
 		groups = {not_in_creative_inventory = 1, pipe_to_update = 1},
 		drop = "pipeworks:pipe_1_empty",
 		after_place_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
-		on_rotate = false,
+		on_rotate = false
+
 	})
 	minetest.register_node(cloaded, {
 		drawtype = "airlike",
 		sunlight_propagates = true,
 		paramtype = "light",
-		inventory_image = "pipeworks_pipe_inv.png",
 		groups = {not_in_creative_inventory = 1, pipe_to_update = 1},
 		drop = "pipeworks:pipe_1_empty",
 		after_place_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
-		on_rotate = false,
+		on_rotate = false
+
 	})
 	for xm = 0, 1 do
 	for xp = 0, 1 do
@@ -175,7 +180,6 @@ if REGISTER_COMPATIBILITY then
 	end
 	end
 	minetest.register_abm({
-		label = "Scan for pipe objects",
 		nodenames = {"group:pipe_to_update"},
 		interval = 1,
 		chance = 1,
@@ -189,17 +193,33 @@ if REGISTER_COMPATIBILITY then
 	})
 end
 
-table.insert(pipes_empty_nodenames,"pipeworks:valve_on_empty")
-table.insert(pipes_empty_nodenames,"pipeworks:valve_off_empty")
-table.insert(pipes_empty_nodenames,"pipeworks:entry_panel_empty")
-table.insert(pipes_empty_nodenames,"pipeworks:flow_sensor_empty")
+local valve_on = "pipeworks:valve_on_empty"
+local valve_off = "pipeworks:valve_off_empty"
+local entry_panel_empty = "pipeworks:entry_panel_empty"
+local flow_sensor_empty = "pipeworks:flow_sensor_empty"
+local sp_empty = "pipeworks:straight_pipe_empty"
+-- XXX: why aren't these in devices.lua!?
+table.insert(pipes_empty_nodenames, valve_on)
+table.insert(pipes_empty_nodenames, valve_off)
+table.insert(pipes_empty_nodenames, entry_panel_empty)
+table.insert(pipes_empty_nodenames, flow_sensor_empty)
+table.insert(pipes_empty_nodenames, sp_empty)
 
-table.insert(pipes_full_nodenames,"pipeworks:valve_on_loaded")
-table.insert(pipes_full_nodenames,"pipeworks:entry_panel_loaded")
-table.insert(pipes_full_nodenames,"pipeworks:flow_sensor_loaded")
+local valve_on_loaded = "pipeworks:valve_on_loaded"
+local entry_panel_loaded = "pipeworks:entry_panel_loaded"
+local flow_sensor_loaded = "pipeworks:flow_sensor_loaded"
+local sp_loaded = "pipeworks:straight_pipe_loaded"
+table.insert(pipes_full_nodenames, valve_on_loaded)
+table.insert(pipes_full_nodenames, entry_panel_loaded)
+table.insert(pipes_full_nodenames, flow_sensor_loaded)
+table.insert(pipes_full_nodenames, sp_loaded)
+
+pipeworks.pipes_full_nodenames = pipes_full_nodenames
+pipeworks.pipes_empty_nodenames = pipes_empty_nodenames
+
+if pipeworks.toggles.pipe_mode == "classic" then
 
 minetest.register_abm({
-	label = "Check for pipe inflows",
 	nodenames = pipes_empty_nodenames,
 	interval = 1,
 	chance = 1,
@@ -209,7 +229,6 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
-	label = "Check pipe sources",
 	nodenames = pipes_full_nodenames,
 	interval = 1,
 	chance = 1,
@@ -219,22 +238,23 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
-	label = "Update pipe spigots",
 	nodenames = {"pipeworks:spigot","pipeworks:spigot_pouring"},
 	interval = 1,
 	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider) 
+	action = function(pos, node, active_object_count, active_object_count_wider)
 		pipeworks.spigot_check(pos,node)
 	end
 })
 
 minetest.register_abm({
-	label = "Update fountainheads",
 	nodenames = {"pipeworks:fountainhead","pipeworks:fountainhead_pouring"},
 	interval = 1,
 	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider) 
+	action = function(pos, node, active_object_count, active_object_count_wider)
 		pipeworks.fountainhead_check(pos,node)
 	end
 })
 
+
+
+end

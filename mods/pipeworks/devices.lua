@@ -1,11 +1,93 @@
 local S = minetest.get_translator("pipeworks")
+local new_flow_logic_register = pipeworks.flowables.register
+
+local polys = ""
+if pipeworks.enable_lowpoly then polys = "_lowpoly" end
+
+-- rotation handlers
+
+function pipeworks.fix_after_rotation(pos, node, user, mode, new_param2)
+
+	if string.find(node.name, "spigot") then new_param2 = new_param2 % 4 end
+
+	local newnode = string.gsub(node.name, "_on", "_off")
+	minetest.swap_node(pos, { name = newnode, param2 = new_param2 })
+	pipeworks.scan_for_pipe_objects(pos)
+
+	return true
+end
+
+function pipeworks.rotate_on_place(itemstack, placer, pointed_thing)
+
+	local playername = placer:get_player_name()
+	if not minetest.is_protected(pointed_thing.under, playername)
+	   and not minetest.is_protected(pointed_thing.above, playername) then
+
+		local node = minetest.get_node(pointed_thing.under)
+
+		if (not placer:get_player_control().sneak)
+		  and minetest.registered_nodes[node.name]
+		  and minetest.registered_nodes[node.name].on_rightclick then
+			minetest.registered_nodes[node.name].on_rightclick(pointed_thing.under, node, placer, itemstack)
+		else
+
+			local pitch = placer:get_look_pitch()
+			local above = pointed_thing.above
+			local under = pointed_thing.under
+			local fdir = minetest.dir_to_facedir(placer:get_look_dir())
+			local undernode = minetest.get_node(under)
+			local uname = undernode.name
+			local isabove = (above.x == under.x) and (above.z == under.z) and (pitch > 0)
+			local pos1 = above
+
+			-- check if the object should be turned vertically
+			if above.x == under.x
+				and above.z == under.z
+				and (
+				  string.find(uname, "pipeworks:pipe_")
+				  or string.find(uname, "pipeworks:storage_")
+				  or string.find(uname, "pipeworks:expansion_")
+				  or ( string.find(uname, "pipeworks:grating") and not isabove )
+				  or ( string.find(uname, "pipeworks:pump_") and not isabove )
+
+				  or (
+						( string.find(uname, "pipeworks:valve")
+						  or string.find(uname, "pipeworks:entry_panel")
+						  or string.find(uname, "pipeworks:flow_sensor") )
+						and minetest.facedir_to_dir(undernode.param2).y ~= 0 )
+					)
+			then
+				fdir = 17
+			end
+
+			if minetest.registered_nodes[uname]
+			  and minetest.registered_nodes[uname]["buildable_to"] then
+				pos1 = under
+			end
+
+			if minetest.registered_nodes[minetest.get_node(pos1).name]
+			  and not minetest.registered_nodes[minetest.get_node(pos1).name]["buildable_to"] then return end
+
+			local placednode = string.gsub(itemstack:get_name(), "_loaded", "_empty")
+			placednode = string.gsub(placednode, "_on", "_off")
+
+			minetest.swap_node(pos1, {name = placednode, param2 = fdir })
+			pipeworks.scan_for_pipe_objects(pos1)
+
+			if not pipeworks.expect_infinite_stacks then
+				itemstack:take_item()
+			end
+		end
+	end
+	return itemstack
+end
 
 -- List of devices that should participate in the autoplace algorithm
 
 local pipereceptor_on = nil
 local pipereceptor_off = nil
 
-if minetest.global_exists("mesecon") then
+if minetest.get_modpath("mesecons") then
 	pipereceptor_on = {
 		receptor = {
 			state = mesecon.state.on,
@@ -21,6 +103,7 @@ if minetest.global_exists("mesecon") then
 	}
 end
 
+--[[
 local pipes_devicelist = {
 	"pump",
 	"valve",
@@ -36,52 +119,33 @@ local pipes_devicelist = {
 	"storage_tank_9",
 	"storage_tank_10"
 }
+--]]
 
 -- Now define the nodes.
 
 local states = { "on", "off" }
-local dgroups = ""
-local pumpboxes = {}
 
 for s in ipairs(states) do
 
+	local dgroups
 	if states[s] == "off" then
 		dgroups = {snappy=3, pipe=1}
 	else
 		dgroups = {snappy=3, pipe=1, not_in_creative_inventory=1}
 	end
 
-	pumpboxes = {}
-
-	pipeworks.add_node_box(pumpboxes, pipeworks.pipe_pumpbody)
-	pipeworks.add_node_box(pumpboxes, pipeworks.pipe_topstub)
-
-	minetest.register_node("pipeworks:pump_"..states[s], {
+	local pumpname = "pipeworks:pump_"..states[s]
+	minetest.register_node(pumpname, {
 		description = S("Pump/Intake Module"),
-		_tt_help = S("Takes in water from below").."\n"..S("Connects with pipe above").."\n"..S("Punch to activate"),
-		drawtype = "nodebox",
-		tiles = {
-			"pipeworks_pump_top.png",
-			"pipeworks_pump_bottom.png",
-			"pipeworks_pump_sides.png",
-			"pipeworks_pump_sides.png",
-			"pipeworks_pump_sides.png",
-			"pipeworks_pump_"..states[s]..".png"
-		},
-		use_texture_alpha = "clip",
+		drawtype = "mesh",
+		mesh = "pipeworks_pump"..polys..".obj",
+		tiles = { "pipeworks_pump_"..states[s]..".png" },
 		paramtype = "light",
 		paramtype2 = "facedir",
-		selection_box = {
-	             	type = "fixed",
-			fixed = { -0.5, -0.5, -0.5, 0.5, 0.5, 0.5 }
-		},
-		node_box = {
-			type = "fixed",
-			fixed = pumpboxes
-		},
 		groups = dgroups,
 		sounds = hades_sounds.node_sound_metal_defaults(),
 		walkable = true,
+		pipe_connections = { top = 1 },
 		after_place_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
@@ -91,499 +155,404 @@ for s in ipairs(states) do
 		drop = "pipeworks:pump_off",
 		mesecons = {effector = {
 			action_on = function (pos, node)
-				minetest.add_node(pos,{name="pipeworks:pump_on", param2 = node.param2}) 
+				minetest.swap_node(pos,{name="pipeworks:pump_on", param2 = node.param2})
 			end,
 			action_off = function (pos, node)
-				minetest.add_node(pos,{name="pipeworks:pump_off", param2 = node.param2}) 
+				minetest.swap_node(pos,{name="pipeworks:pump_off", param2 = node.param2})
 			end
 		}},
-		on_punch = function(pos, node, puncher)
-			local fdir = minetest.get_node(pos).param2
-			minetest.add_node(pos, { name = "pipeworks:pump_"..states[3-s], param2 = fdir })
+		on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
+			local fdir = node.param2
+			minetest.swap_node(pos, { name = "pipeworks:pump_"..states[3-s], param2 = fdir })
 		end,
-		on_rotate = false,
+		on_rotate = screwdriver.rotate_simple
 	})
-	
-	local valveboxes = {}
-	pipeworks.add_node_box(valveboxes, pipeworks.pipe_leftstub)
-	pipeworks.add_node_box(valveboxes, pipeworks.pipe_valvebody)
-	if states[s] == "off" then 
-		pipeworks.add_node_box(valveboxes, pipeworks.pipe_valvehandle_off)
-	else
-		pipeworks.add_node_box(valveboxes, pipeworks.pipe_valvehandle_on)
-	end
-	pipeworks.add_node_box(valveboxes, pipeworks.pipe_rightstub)
-	local tilex = "pipeworks_valvebody_ends.png"
-	local tilez = "pipeworks_valvebody_sides.png"
 
-	minetest.register_node("pipeworks:valve_"..states[s].."_empty", {
+	-- FIXME: this currently assumes that pumps can only rotate around the fixed axis pointing Y+.
+	new_flow_logic_register.directional_vertical_fixed(pumpname, true)
+	local pump_drive = 4
+	if states[s] ~= "off" then
+		new_flow_logic_register.intake_simple(pumpname, pump_drive)
+	end
+
+
+
+	local nodename_valve_empty = "pipeworks:valve_"..states[s].."_empty"
+	minetest.register_node(nodename_valve_empty, {
 		description = S("Valve"),
-		_tt_help = S("Controls liquid flow between pipes").."\n"..S("Punch to toggle"),
-		drawtype = "nodebox",
-		tiles = {
-			"pipeworks_valvebody_top_"..states[s]..".png",
-			"pipeworks_valvebody_bottom.png",
-			tilex,
-			tilex,
-			tilez,
-			tilez,
-		},
+		drawtype = "mesh",
+		mesh = "pipeworks_valve_"..states[s]..polys..".obj",
+		tiles = { "pipeworks_valve.png" },
 		sunlight_propagates = true,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		selection_box = {
-	             	type = "fixed",
-			fixed = { -8/16, -4/16, -5/16, 8/16, 5/16, 5/16 }
-		},
-		node_box = {
 			type = "fixed",
-			fixed = valveboxes
+			fixed = { -5/16, -4/16, -8/16, 5/16, 5/16, 8/16 }
+		},
+		collision_box = {
+			type = "fixed",
+			fixed = { -5/16, -4/16, -8/16, 5/16, 5/16, 8/16 }
 		},
 		groups = dgroups,
 		sounds = hades_sounds.node_sound_metal_defaults(),
 		walkable = true,
-		after_place_node = function(pos)
-			pipeworks.scan_for_pipe_objects(pos)
-		end,
+		on_place = pipeworks.rotate_on_place,
 		after_dig_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
-	drop = "pipeworks:valve_off_empty",
+		drop = "pipeworks:valve_off_empty",
 		mesecons = {effector = {
 			action_on = function (pos, node)
-				minetest.add_node(pos,{name="pipeworks:valve_on_empty", param2 = node.param2}) 
+				minetest.swap_node(pos,{name="pipeworks:valve_on_empty", param2 = node.param2})
 			end,
 			action_off = function (pos, node)
-				minetest.add_node(pos,{name="pipeworks:valve_off_empty", param2 = node.param2}) 
+				minetest.swap_node(pos,{name="pipeworks:valve_off_empty", param2 = node.param2})
 			end
 		}},
-		on_punch = function(pos, node, puncher)
-			local fdir = minetest.get_node(pos).param2
-			minetest.add_node(pos, { name = "pipeworks:valve_"..states[3-s].."_empty", param2 = fdir })
+		on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
+			local fdir = node.param2
+			minetest.swap_node(pos, { name = "pipeworks:valve_"..states[3-s].."_empty", param2 = fdir })
 		end,
-		on_rotate = false,
+		on_rotate = pipeworks.fix_after_rotation
 	})
+	-- only register flow logic for the "on" ABM.
+	-- this means that the off state automatically blocks flow by not participating in the balancing operation.
+	if states[s] ~= "off" then
+		new_flow_logic_register.directional_horizonal_rotate(nodename_valve_empty, true)
+	end
 end
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:pump_off"
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:valve_off_empty"
 
-local valveboxes = {}
-pipeworks.add_node_box(valveboxes, pipeworks.pipe_leftstub)
-pipeworks.add_node_box(valveboxes, pipeworks.pipe_valvebody)
-pipeworks.add_node_box(valveboxes, pipeworks.pipe_rightstub)
-pipeworks.add_node_box(valveboxes, pipeworks.pipe_valvehandle_on)
-
-minetest.register_node("pipeworks:valve_on_loaded", {
-	description = S("Valve (on)"),
-	drawtype = "nodebox",
-	tiles = {
-		"pipeworks_valvebody_top_on.png",
-		"pipeworks_valvebody_bottom.png",
-		"pipeworks_valvebody_ends.png",
-		"pipeworks_valvebody_ends.png",
-		"pipeworks_valvebody_sides.png",
-		"pipeworks_valvebody_sides.png",
-	},
+local nodename_valve_loaded = "pipeworks:valve_on_loaded"
+minetest.register_node(nodename_valve_loaded, {
+	description = S("Valve"),
+	drawtype = "mesh",
+	mesh = "pipeworks_valve_on"..polys..".obj",
+	tiles = { "pipeworks_valve.png" },
 	sunlight_propagates = true,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	selection_box = {
-             	type = "fixed",
-		fixed = { -8/16, -4/16, -5/16, 8/16, 5/16, 5/16 }
-	},
-	node_box = {
 		type = "fixed",
-		fixed = valveboxes
+		fixed = { -5/16, -4/16, -8/16, 5/16, 5/16, 8/16 }
+	},
+	collision_box = {
+		type = "fixed",
+		fixed = { -5/16, -4/16, -8/16, 5/16, 5/16, 8/16 }
 	},
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
-	after_place_node = function(pos)
-		pipeworks.scan_for_pipe_objects(pos)
-	end,
+	on_place = pipeworks.rotate_on_place,
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
 	drop = "pipeworks:valve_off_empty",
 	mesecons = {effector = {
 		action_on = function (pos, node)
-			minetest.add_node(pos,{name="pipeworks:valve_on_empty", param2 = node.param2}) 
+			minetest.swap_node(pos,{name="pipeworks:valve_on_empty", param2 = node.param2})
 		end,
 		action_off = function (pos, node)
-			minetest.add_node(pos,{name="pipeworks:valve_off_empty", param2 = node.param2}) 
+			minetest.swap_node(pos,{name="pipeworks:valve_off_empty", param2 = node.param2})
 		end
 	}},
-	on_punch = function(pos, node, puncher)
-		local fdir = minetest.get_node(pos).param2
-		minetest.add_node(pos, { name = "pipeworks:valve_off_empty", param2 = fdir })
+	on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
+		local fdir = node.param2
+		minetest.swap_node(pos, { name = "pipeworks:valve_off_empty", param2 = fdir })
 	end,
-	on_rotate = false,
+	on_rotate = pipeworks.fix_after_rotation
 })
+-- register this the same as the on-but-empty variant, so existing nodes of this type work also.
+-- note that as new_flow_logic code does not distinguish empty/full in node states,
+-- right-clicking a "loaded" valve (becoming an off valve) then turning it on again will yield a on-but-empty valve,
+-- but the flow logic will still function.
+-- thus under new_flow_logic this serves as a kind of migration.
+new_flow_logic_register.directional_horizonal_rotate(nodename_valve_loaded, true)
 
 -- grating
 
+-- FIXME: should this do anything useful in the new flow logic?
 minetest.register_node("pipeworks:grating", {
-	description = S("Decorative Grating"),
+	description = S("Decorative grating"),
 	tiles = {
-		"pipeworks_grating_sides.png",
+		"pipeworks_grating_top.png",
 		"pipeworks_grating_sides.png",
 		"pipeworks_grating_sides.png",
 		"pipeworks_grating_sides.png",
 		"pipeworks_grating_sides.png",
 		"pipeworks_grating_sides.png"
 	},
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed",
+		fixed = { -0.49, -0.49, -0.49, 0.49, 0.5, 0.49 }
+	},
+	sunlight_propagates = true,
 	paramtype = "light",
-	drawtype = "glasslike",
-	groups = {snappy=3},
+	groups = {snappy=3, pipe=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
+	pipe_connections = { top = 1 },
+	after_place_node = function(pos)
+		pipeworks.scan_for_pipe_objects(pos)
+	end,
+	after_dig_node = function(pos)
+		pipeworks.scan_for_pipe_objects(pos)
+	end,
+	on_rotate = false
 })
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:grating"
 
 -- outlet spigot
 
-	local spigotboxes = {}
-	pipeworks.add_node_box(spigotboxes, pipeworks.pipe_backstub)
-	pipeworks.add_node_box(spigotboxes, pipeworks.spigot_bottomstub)
-	pipeworks.add_node_box(spigotboxes, pipeworks.pipe_bendsphere)
-
-	local spigotboxes_pouring = {}
-	pipeworks.add_node_box(spigotboxes_pouring, pipeworks.spigot_stream)
-	pipeworks.add_node_box(spigotboxes_pouring, pipeworks.pipe_backstub)
-	pipeworks.add_node_box(spigotboxes_pouring, pipeworks.spigot_bottomstub)
-	pipeworks.add_node_box(spigotboxes_pouring, pipeworks.pipe_bendsphere)
-
-minetest.register_node("pipeworks:spigot", {
-	description = S("Spigot Outlet"),
-	_tt_help = S("Can pour out liquid below").."\n"..S("Connects with pipe sideways"),
-	drawtype = "nodebox",
-	tiles = {
-		"pipeworks_spigot_sides.png",
-		"pipeworks_pipe_end_empty.png",
-		"pipeworks_spigot_sides.png",
-		"pipeworks_spigot_sides.png",
-		"pipeworks_pipe_end_empty.png",
-		"pipeworks_spigot_sides.png"
-	},
-	use_texture_alpha = "clip",
+local nodename_spigot_empty = "pipeworks:spigot"
+minetest.register_node(nodename_spigot_empty, {
+	description = S("Spigot outlet"),
+	drawtype = "mesh",
+	mesh = "pipeworks_spigot"..polys..".obj",
+	tiles = { "pipeworks_spigot.png" },
 	sunlight_propagates = true,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
+	pipe_connections = { left=1, right=1, front=1, back=1,
+						 left_param2 = 3, right_param2 = 1, front_param2 = 2, back_param2 = 0 },
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
-	node_box = {
-		type = "fixed",
-		fixed = spigotboxes,
-	},
-	on_rotate = false,
 	selection_box = {
 		type = "fixed",
 		fixed = { -2/16, -6/16, -2/16, 2/16, 2/16, 8/16 }
 	},
+	collision_box = {
+		type = "fixed",
+		fixed = { -2/16, -6/16, -2/16, 2/16, 2/16, 8/16 }
+	},
+	on_rotate = pipeworks.fix_after_rotation
 })
 
-minetest.register_node("pipeworks:spigot_pouring", {
-	description = S("Spigot Outlet (pouring)"),
-	drawtype = "nodebox",
+local nodename_spigot_loaded = "pipeworks:spigot_pouring"
+minetest.register_node(nodename_spigot_loaded, {
+	description = S("Spigot outlet"),
+	drawtype = "mesh",
+	mesh = "pipeworks_spigot_pouring"..polys..".obj",
 	tiles = {
-		"pipeworks_spigot_sides.png",
-		"default_water.png^pipeworks_spigot_bottom2.png",
-		{ name = "default_water_flowing_animated.png^pipeworks_spigot_sides2.png",
+		{
+			name = "default_water_flowing_animated.png",
 			animation = {
 				type = "vertical_frames",
-				aspect_w=16,
-				aspect_h=16,
-				length=0.8
-			}
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 0.8,
+			},
 		},
-		{ name = "default_water_flowing_animated.png^pipeworks_spigot_sides2.png",
-			animation = {
-				type = "vertical_frames",
-				aspect_w=16,
-				aspect_h=16,
-				length=0.8
-			}
-		},
-		{ name = "default_water_flowing_animated.png^pipeworks_spigot_sides2.png",
-			animation = {
-				type = "vertical_frames",
-				aspect_w=16,
-				aspect_h=16,
-				length=0.8
-			}
-		},
-		{ name = "default_water_flowing_animated.png^pipeworks_spigot_sides2.png",
-			animation = {
-				type = "vertical_frames",
-				aspect_w=16,
-				aspect_h=16,
-				length=0.8
-			}
-		},
+		{ name = "pipeworks_spigot.png" }
 	},
-	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
+	pipe_connections = { left=1, right=1, front=1, back=1,
+						 left_param2 = 3, right_param2 = 1, front_param2 = 2, back_param2 = 0 },
 	after_place_node = function(pos)
+		minetest.set_node(pos, { name = "pipeworks:spigot", param2 = minetest.get_node(pos).param2 })
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
-	on_rotate = false,
-	node_box = {
-		type = "fixed",
-		fixed = spigotboxes_pouring,
-	},
 	selection_box = {
+		type = "fixed",
+		fixed = { -2/16, -6/16, -2/16, 2/16, 2/16, 8/16 }
+	},
+	collision_box = {
 		type = "fixed",
 		fixed = { -2/16, -6/16, -2/16, 2/16, 2/16, 8/16 }
 	},
 	drop = "pipeworks:spigot",
+	on_rotate = pipeworks.fix_after_rotation
 })
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:spigot"
+
+-- new flow logic does not currently distinguish between these two visual states.
+-- register both so existing flowing spigots continue to work (even if the visual doesn't match the spigot's behaviour).
+new_flow_logic_register.directional_horizonal_rotate(nodename_spigot_empty, false)
+new_flow_logic_register.directional_horizonal_rotate(nodename_spigot_loaded, false)
+local spigot_upper = 1.0
+local spigot_lower = 1.0
+local spigot_neighbours={{x=0, y=-1, z=0}}
+new_flow_logic_register.output_simple(nodename_spigot_empty, spigot_upper, spigot_lower, spigot_neighbours)
+new_flow_logic_register.output_simple(nodename_spigot_loaded, spigot_upper, spigot_lower, spigot_neighbours)
+
+
 
 -- sealed pipe entry/exit (horizontal pipe passing through a metal
 -- wall, for use in places where walls should look like they're airtight)
 
-local airtightboxes = {}
-pipeworks.add_node_box(airtightboxes, pipeworks.pipe_frontstub)
-pipeworks.add_node_box(airtightboxes, pipeworks.pipe_backstub)
-pipeworks.add_node_box(airtightboxes, pipeworks.entry_panel)
+local panel_cbox = {
+	type = "fixed",
+	fixed = {
+		{ -2/16, -2/16, -8/16, 2/16, 2/16, 8/16 },
+		{ -8/16, -8/16, -1/16, 8/16, 8/16, 1/16 }
+	}
+}
 
-minetest.register_node("pipeworks:entry_panel_empty", {
-	description = S("Airtight Pipe Entry/Exit"),
-	_tt_help = S("Transports liquids"),
-	drawtype = "nodebox",
-	tiles = {
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_pipe_end_empty.png",
-		"pipeworks_pipe_end_empty.png"
-	},
+local nodename_panel_empty = "pipeworks:entry_panel_empty"
+minetest.register_node(nodename_panel_empty, {
+	description = S("Airtight Pipe entry/exit"),
+	drawtype = "mesh",
+	mesh = "pipeworks_entry_panel"..polys..".obj",
+	tiles = { "pipeworks_entry_panel.png" },
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
-	after_place_node = function(pos)
-		pipeworks.scan_for_pipe_objects(pos)
-	end,
+	on_place = pipeworks.rotate_on_place,
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
-	on_rotate = false,
-	node_box = {
-		type = "fixed",
-		fixed = airtightboxes,
-	},
-	selection_box = {
-		type = "fixed",
-		fixed = {
-			{ -2/16, -2/16, -8/16, 2/16, 2/16, 8/16 },
-			{ -8/16, -8/16, -1/16, 8/16, 8/16, 1/16 }
-		}
-	},
-	on_place = function(itemstack, placer, pointed_thing)
-		if not pipeworks.node_is_owned(pointed_thing.under, placer) 
-		   and not pipeworks.node_is_owned(pointed_thing.above, placer) then
-			local node = minetest.get_node(pointed_thing.under)
-
-			if not minetest.registered_nodes[node.name]
-			    or not minetest.registered_nodes[node.name].on_rightclick then
-				local pitch = placer:get_look_pitch()
-				local above = pointed_thing.above
-				local under = pointed_thing.under
-				local fdir = minetest.dir_to_facedir(placer:get_look_dir())
-				local undernode = minetest.get_node(under)
-				local abovenode = minetest.get_node(above)
-				local uname = undernode.name
-				local aname = abovenode.name
-				local isabove = (above.x == under.x) and (above.z == under.z) and (pitch > 0)
-				local pos1 = above
-
-				if above.x == under.x
-				    and above.z == under.z
-				    and ( string.find(uname, "pipeworks:pipe_")
-					 or string.find(uname, "pipeworks:storage_")
-					 or string.find(uname, "pipeworks:expansion_")
-					 or ( string.find(uname, "pipeworks:grating") and not isabove )
-					 or ( string.find(uname, "pipeworks:pump_") and not isabove )
-					 or ( string.find(uname, "pipeworks:entry_panel")
-					      and undernode.param2 == 13 )
-					 )
-				then
-					fdir = 13
-				end
-
-				if minetest.registered_nodes[uname]["buildable_to"] then
-					pos1 = under
-				end
-
-				if not minetest.registered_nodes[minetest.get_node(pos1).name]["buildable_to"] then return end
-
-				minetest.add_node(pos1, {name = "pipeworks:entry_panel_empty", param2 = fdir })
-				pipeworks.scan_for_pipe_objects(pos1)
-
-				if not minetest.is_creative_enabled(placer:get_player_name()) then
-					itemstack:take_item()
-				end
-
-			else
-				minetest.registered_nodes[node.name].on_rightclick(pointed_thing.under, node, placer, itemstack)
-			end
-		end
-		return itemstack
-	end
+	selection_box = panel_cbox,
+	collision_box = panel_cbox,
+	on_rotate = pipeworks.fix_after_rotation
 })
 
-minetest.register_node("pipeworks:entry_panel_loaded", {
-	description = S("Airtight Pipe Entry/Exit (loaded)"),
-	drawtype = "nodebox",
-	tiles = {
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_pipe_end_empty.png",
-		"pipeworks_pipe_end_empty.png"
-	},
+local nodename_panel_loaded = "pipeworks:entry_panel_loaded"
+minetest.register_node(nodename_panel_loaded, {
+	description = S("Airtight Pipe entry/exit"),
+	drawtype = "mesh",
+	mesh = "pipeworks_entry_panel"..polys..".obj",
+	tiles = { "pipeworks_entry_panel.png" },
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
-	after_place_node = function(pos)
-		pipeworks.scan_for_pipe_objects(pos)
-	end,
+	on_place = pipeworks.rotate_on_place,
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
-	on_rotate = false,
-	node_box = {
-		type = "fixed",
-		fixed = airtightboxes,
-	},
-	selection_box = {
-		type = "fixed",
-		fixed = {
-			{ -2/16, -2/16, -8/16, 2/16, 2/16, 8/16 },
-			{ -8/16, -8/16, -1/16, 8/16, 8/16, 1/16 }
-		}
-	},
-	drop = "pipeworks:entry_panel_empty"
+	selection_box = panel_cbox,
+	collision_box = panel_cbox,
+	drop = "pipeworks:entry_panel_empty",
+	on_rotate = pipeworks.fix_after_rotation
 })
 
-local sensorboxes = {}
-pipeworks.add_node_box(sensorboxes, pipeworks.pipe_leftstub)
-pipeworks.add_node_box(sensorboxes, pipeworks.pipe_sensorbody)
-pipeworks.add_node_box(sensorboxes, pipeworks.pipe_rightstub)
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:entry_panel_empty"
 
-minetest.register_node("pipeworks:flow_sensor_empty", {
+-- TODO: AFAIK the two panels have no visual difference, so are redundant under new flow logic - alias?
+new_flow_logic_register.directional_horizonal_rotate(nodename_panel_empty, true)
+new_flow_logic_register.directional_horizonal_rotate(nodename_panel_loaded, true)
+
+
+
+local nodename_sensor_empty = "pipeworks:flow_sensor_empty"
+minetest.register_node(nodename_sensor_empty, {
 	description = S("Flow Sensor"),
-	_tt_help = S("Provides mesecon signal when liquid flows through pipe"),
-	drawtype = "nodebox",
-	tiles = {
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_windowed_empty.png",
-		"pipeworks_windowed_empty.png"
-	},
+	drawtype = "mesh",
+	mesh = "pipeworks_flow_sensor"..polys..".obj",
+	tiles = { "pipeworks_flow_sensor_off.png" },
 	sunlight_propagates = true,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
-	after_place_node = function(pos)
-		pipeworks.scan_for_pipe_objects(pos)
-	end,
+	on_place = pipeworks.rotate_on_place,
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
-	on_rotate = false,
 	on_construct = function(pos)
 		if mesecon then
-			mesecon:receptor_off(pos, rules) 
+			mesecon.receptor_off(pos, pipeworks.mesecons_rules)
 		end
 	end,
-	node_box = {
-		type = "fixed",
-		fixed = sensorboxes,
-	},
 	selection_box = {
 		type = "fixed",
 		fixed = {
-			{ -8/16, -2/16, -2/16, 8/16, 2/16, 2/16 },
+			{ -2/16, -2/16, -8/16, 2/16, 2/16, 8/16 },
+			{ -3/16, -3/16, -4/16, 3/16, 3/16, 4/16 },
 		}
 	},
-	mesecons = pipereceptor_off
+	collision_box = {
+		type = "fixed",
+		fixed = {
+			{ -2/16, -2/16, -8/16, 2/16, 2/16, 8/16 },
+			{ -3/16, -3/16, -4/16, 3/16, 3/16, 4/16 },
+		}
+	},
+	mesecons = pipereceptor_off,
+	on_rotate = pipeworks.fix_after_rotation
 })
 
-minetest.register_node("pipeworks:flow_sensor_loaded", {
+local nodename_sensor_loaded = "pipeworks:flow_sensor_loaded"
+minetest.register_node(nodename_sensor_loaded, {
 	description = S("Flow sensor (on)"),
-	drawtype = "nodebox",
-	tiles = {
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_plain.png",
-		"pipeworks_sensor_sides_on.png",
-		"pipeworks_sensor_sides_on.png"
-	},
+	drawtype = "mesh",
+	mesh = "pipeworks_flow_sensor"..polys..".obj",
+	tiles = { "pipeworks_flow_sensor_on.png" },
 	sunlight_propagates = true,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
-	after_place_node = function(pos)
-		pipeworks.scan_for_pipe_objects(pos)
-	end,
+	on_place = pipeworks.rotate_on_place,
 	after_dig_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
 	on_construct = function(pos)
 		if mesecon then
-			mesecon:receptor_on(pos, rules) 
+			mesecon.receptor_on(pos, pipeworks.mesecons_rules)
 		end
 	end,
-	on_rotate = false,
-	node_box = {
-		type = "fixed",
-		fixed = sensorboxes,
-	},
 	selection_box = {
 		type = "fixed",
 		fixed = {
-			{ -8/16, -2/16, -2/16, 8/16, 2/16, 2/16 },
+			{ -2/16, -2/16, -8/16, 2/16, 2/16, 8/16 },
+			{ -3/16, -3/16, -4/16, 3/16, 3/16, 4/16 },
+		}
+	},
+	collision_box = {
+		type = "fixed",
+		fixed = {
+			{ -2/16, -2/16, -8/16, 2/16, 2/16, 8/16 },
+			{ -3/16, -3/16, -4/16, 3/16, 3/16, 4/16 },
 		}
 	},
 	drop = "pipeworks:flow_sensor_empty",
 	mesecons = pipereceptor_on,
-	on_rotate = false,
+	on_rotate = pipeworks.fix_after_rotation
 })
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:flow_sensor_empty"
+
+new_flow_logic_register.directional_horizonal_rotate(nodename_sensor_empty, true)
+new_flow_logic_register.directional_horizonal_rotate(nodename_sensor_loaded, true)
+-- activate flow sensor at roughly half the pressure pumps drive pipes
+local sensor_pressure_set = { { nodename_sensor_empty, 0.0 }, { nodename_sensor_loaded, 1.0 } }
+new_flow_logic_register.transition_simple_set(sensor_pressure_set, { mesecons=pipeworks.mesecons_rules })
+
+
 
 -- tanks
 
+-- TODO flow-logic-stub: these don't currently do anything under the new flow logic.
 for fill = 0, 10 do
-	local filldesc = S("empty")
+	local filldesc=S("empty")
 	local sgroups = {snappy=3, pipe=1, tankfill=fill+1}
 	local image = nil
 
 	if fill ~= 0 then
-		filldesc = S("@1% full", fill*10)
+		filldesc=S("@1% full", 10*fill)
 		sgroups = {snappy=3, pipe=1, tankfill=fill+1, not_in_creative_inventory=1}
 		image = "pipeworks_storage_tank_fittings.png"
 	end
@@ -604,7 +573,8 @@ for fill = 0, 10 do
 		groups = {snappy=3, pipe=1, tankfill=fill+1, not_in_creative_inventory=1},
 		sounds = hades_sounds.node_sound_metal_defaults(),
 		walkable = true,
-		drop = "pipeworks:storage_tank_"..fill,
+		drop = "pipeworks:storage_tank_0",
+		pipe_connections = { top = 1, bottom = 1},
 		after_place_node = function(pos)
 			pipeworks.look_for_stackable_tanks(pos)
 			pipeworks.scan_for_pipe_objects(pos)
@@ -612,7 +582,7 @@ for fill = 0, 10 do
 		after_dig_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
-		on_rotate = false,
+		on_rotate = false
 	})
 
 	minetest.register_node("pipeworks:storage_tank_"..fill, {
@@ -631,6 +601,8 @@ for fill = 0, 10 do
 		groups = sgroups,
 		sounds = hades_sounds.node_sound_metal_defaults(),
 		walkable = true,
+		drop = "pipeworks:storage_tank_0",
+		pipe_connections = { top = 1, bottom = 1},
 		after_place_node = function(pos)
 			pipeworks.look_for_stackable_tanks(pos)
 			pipeworks.scan_for_pipe_objects(pos)
@@ -638,26 +610,25 @@ for fill = 0, 10 do
 		after_dig_node = function(pos)
 			pipeworks.scan_for_pipe_objects(pos)
 		end,
-		on_rotate = false,
+		on_rotate = false
 	})
 end
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:storage_tank_0"
 
 -- fountainhead
 
-minetest.register_node("pipeworks:fountainhead", {
+local nodename_fountain_empty = "pipeworks:fountainhead"
+minetest.register_node(nodename_fountain_empty, {
 	description = S("Fountainhead"),
-	_tt_help = S("Can pour out liquid above").."\n"..S("Connects with pipe below"),
-	drawtype = "nodebox",
-	tiles = {
-		"pipeworks_fountainhead_top.png",
-		"pipeworks_pipe_end.png",
-		"pipeworks_plain.png",
-	},
+	drawtype = "mesh",
+	mesh = "pipeworks_fountainhead"..polys..".obj",
+	tiles = { "pipeworks_fountainhead.png" },
 	sunlight_propagates = true,
 	paramtype = "light",
 	groups = {snappy=3, pipe=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
+	pipe_connections = { bottom = 1 },
 	after_place_node = function(pos)
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
@@ -666,34 +637,35 @@ minetest.register_node("pipeworks:fountainhead", {
 	end,
 	on_construct = function(pos)
 		if mesecon then
-			mesecon:receptor_on(pos, rules) 
+			mesecon.receptor_on(pos, pipeworks.mesecons_rules)
 		end
 	end,
-	node_box = {
-		type = "fixed",
-		fixed = pipeworks.fountainhead_model ,
-	},
 	selection_box = {
 		type = "fixed",
 		fixed = { -2/16, -8/16, -2/16, 2/16, 8/16, 2/16 }
 	},
-	on_rotate = false,
-})
-
-minetest.register_node("pipeworks:fountainhead_pouring", {
-	description = S("Fountainhead (pouring)"),
-	drawtype = "nodebox",
-	tiles = {
-		"pipeworks_fountainhead_top.png",
-		"pipeworks_pipe_end.png",
-		"pipeworks_plain.png",
+	collision_box = {
+		type = "fixed",
+		fixed = { -2/16, -8/16, -2/16, 2/16, 8/16, 2/16 }
 	},
+	on_rotate = false
+})
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:fountainhead"
+
+local nodename_fountain_loaded = "pipeworks:fountainhead_pouring"
+minetest.register_node(nodename_fountain_loaded, {
+	description = S("Fountainhead"),
+	drawtype = "mesh",
+	mesh = "pipeworks_fountainhead"..polys..".obj",
+	tiles = { "pipeworks_fountainhead.png" },
 	sunlight_propagates = true,
 	paramtype = "light",
 	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	walkable = true,
+	pipe_connections = { bottom = 1 },
 	after_place_node = function(pos)
+		minetest.set_node(pos, { name = "pipeworks:fountainhead", param2 = minetest.get_node(pos).param2 })
 		pipeworks.scan_for_pipe_objects(pos)
 	end,
 	after_dig_node = function(pos)
@@ -701,20 +673,86 @@ minetest.register_node("pipeworks:fountainhead_pouring", {
 	end,
 	on_construct = function(pos)
 		if mesecon then
-			mesecon:receptor_on(pos, rules) 
+			mesecon.receptor_on(pos, pipeworks.mesecons_rules)
 		end
 	end,
-	node_box = {
-		type = "fixed",
-		fixed = pipeworks.fountainhead_model,
-	},
 	selection_box = {
 		type = "fixed",
-		fixed = { -2/16, -8/16, -2/16, 2/16, 8/16, 2/16 },
+		fixed = { -2/16, -8/16, -2/16, 2/16, 8/16, 2/16 }
+	},
+	collision_box = {
+		type = "fixed",
+		fixed = { -2/16, -8/16, -2/16, 2/16, 8/16, 2/16 }
 	},
 	drop = "pipeworks:fountainhead",
-	on_rotate = false,
+	on_rotate = false
+})
+new_flow_logic_register.directional_vertical_fixed(nodename_fountain_empty, false)
+new_flow_logic_register.directional_vertical_fixed(nodename_fountain_loaded, false)
+local fountain_upper = 1.0
+local fountain_lower = 1.0
+local fountain_neighbours={{x=0, y=1, z=0}}
+new_flow_logic_register.output_simple(nodename_fountain_empty, fountain_upper, fountain_lower, fountain_neighbours)
+new_flow_logic_register.output_simple(nodename_fountain_loaded, fountain_upper, fountain_lower, fountain_neighbours)
+
+local sp_cbox = {
+	type = "fixed",
+	fixed = {
+		{ -2/16, -2/16, -8/16, 2/16, 2/16, 8/16 }
+	}
+}
+
+local nodename_sp_empty = "pipeworks:straight_pipe_empty"
+minetest.register_node(nodename_sp_empty, {
+	description = S("Straight-only Pipe"),
+	drawtype = "mesh",
+	mesh = "pipeworks_straight_pipe"..polys..".obj",
+	tiles = { "pipeworks_straight_pipe_empty.png" },
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {snappy=3, pipe=1},
+	sounds = hades_sounds.node_sound_metal_defaults(),
+	walkable = true,
+	on_place = pipeworks.rotate_on_place,
+	after_dig_node = function(pos)
+		pipeworks.scan_for_pipe_objects(pos)
+	end,
+	selection_box = sp_cbox,
+	collision_box = sp_cbox,
+	on_rotate = pipeworks.fix_after_rotation,
+	check_for_pole = pipeworks.check_for_vert_pipe,
+	check_for_horiz_pole = pipeworks.check_for_horiz_pipe
 })
 
+local nodename_sp_loaded = "pipeworks:straight_pipe_loaded"
+minetest.register_node(nodename_sp_loaded, {
+	description = S("Straight-only Pipe"),
+	drawtype = "mesh",
+	mesh = "pipeworks_straight_pipe"..polys..".obj",
+	tiles = { "pipeworks_straight_pipe_loaded.png" },
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {snappy=3, pipe=1, not_in_creative_inventory=1},
+	sounds = hades_sounds.node_sound_metal_defaults(),
+	walkable = true,
+	on_place = pipeworks.rotate_on_place,
+	after_dig_node = function(pos)
+		pipeworks.scan_for_pipe_objects(pos)
+	end,
+	selection_box = sp_cbox,
+	collision_box = sp_cbox,
+	drop = "pipeworks:straight_pipe_empty",
+	on_rotate = pipeworks.fix_after_rotation,
+	check_for_pole = pipeworks.check_for_vert_pipe,
+	check_for_horiz_pole = pipeworks.check_for_horiz_pipe
+})
+pipeworks.ui_cat_tube_list[#pipeworks.ui_cat_tube_list+1] = "pipeworks:straight_pipe_empty"
+
+new_flow_logic_register.directional_horizonal_rotate(nodename_sp_empty, true)
+new_flow_logic_register.directional_horizonal_rotate(nodename_sp_loaded, true)
+
+-- Other misc stuff
+
 minetest.register_alias("pipeworks:valve_off_loaded", "pipeworks:valve_off_empty")
+minetest.register_alias("pipeworks:entry_panel", "pipeworks:entry_panel_empty")
 
