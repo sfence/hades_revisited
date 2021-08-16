@@ -128,7 +128,7 @@ function pipeworks.on_rotate(pos, node, user, mode, new_param2)
 	return true
 end
 
-if minetest.get_modpath("mesecons_mvps") then
+if minetest.get_modpath("hades_mesecons_mvps") then
 	mesecon.register_on_mvps_move(function(moved_nodes)
 		for _, n in ipairs(moved_nodes) do
 			pipeworks.scan_for_tube_objects(n.pos)

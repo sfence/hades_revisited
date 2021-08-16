@@ -392,7 +392,7 @@ luaentity.register_entity("pipeworks:tubed_item", {
 	end
 })
 
-if minetest.get_modpath("mesecons_mvps") then
+if minetest.get_modpath("hades_mesecons_mvps") then
 	mesecon.register_mvps_unmov("pipeworks:tubed_item")
 	mesecon.register_mvps_unmov("pipeworks:color_entity")
 	mesecon.register_on_mvps_move(function(moved_nodes)
