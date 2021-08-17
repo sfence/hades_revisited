@@ -1,104 +1,71 @@
-local raillike_group = minetest.raillike_group("rail")
+-- Common rail registrations
 
 local S = minetest.get_translator("boost_cart")
 
-minetest.register_node(":carts:rail", {
-	description = S("Steel Rail"),
-	_tt_help = S("Track for cart"),
-	drawtype = "raillike",
-	tiles = {"default_rail.png", "default_rail_curved.png", "default_rail_t_junction.png", "default_rail_crossing.png"},
-	inventory_image = "default_rail.png",
-	wield_image = "default_rail.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	is_ground_content = false,
-	walkable = false,
-	floodable = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+boost_cart:register_rail(":carts:rail", {
+  description = S("Steel Rail"),
+ _tt_help = S("Track for cart"),
+	tiles = {
+		"carts_rail_straight.png", "carts_rail_curved.png",
+		"carts_rail_t_junction.png", "carts_rail_crossing.png"
 	},
-	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = raillike_group},
-	sounds = hades_sounds.node_sound_metal_defaults(),
+	groups = boost_cart:get_rail_groups()
 })
 
 minetest.register_craft({
-	output = 'carts:rail 18',
-	recipe = {
-		{'hades_core:steel_ingot', '', 'hades_core:steel_ingot'},
-		{'hades_core:steel_ingot', 'group:stick', 'hades_core:steel_ingot'},
-		{'hades_core:steel_ingot', '', 'hades_core:steel_ingot'},
-	}
+  output = "carts:rail 18",
+  recipe = {
+    {"hades_core:steel_ingot", "", "hades_core:steel_ingot"},
+    {"hades_core:steel_ingot", "group:stick", "hades_core:steel_ingot"},
+    {"hades_core:steel_ingot", "", "hades_core:steel_ingot"},
+  }
 })
 
--- Copper rail
-minetest.register_node(":carts:copperrail", {
-	description = S("Bronze Rail"),
-	_tt_help = S("Track for cart"),
-	drawtype = "raillike",
-	tiles = {"carts_rail_cp.png", "carts_rail_curved_cp.png", "carts_rail_t_junction_cp.png", "carts_rail_crossing_cp.png"},
-	inventory_image = "carts_rail_cp.png",
-	wield_image = "carts_rail_cp.png",
-	paramtype = "light",
-	is_ground_content = false,
-	walkable = false,
-	floodable = true,
-	selection_box = {
-		type = "fixed",
-		-- but how to specify the dimensions for curved and sideways rails?
-		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
-	},
-	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = raillike_group},
-	sounds = hades_sounds.node_sound_metal_defaults(),
+-- Bronze rail
+boost_cart:register_rail(":carts:copperrail", {
+  description = S("Bronze rail"),
+  __tt_help = S("Tracks for cart"),
+  tiles = {
+    "carts_rail_straight_cp.png", "carts_rail_curved_cp.png",
+    "carts_rail_t_junction_cp.png", "carts_rail_crossing_cp.png"
+  },
+  groups = boost_cart:get_rail_groups()
 })
 
 minetest.register_craft({
-	output = "carts:copperrail 12",
-	recipe = {
-		{"hades_core:bronze_ingot", "group:stick", "hades_core:bronze_ingot"},
-		{"hades_core:bronze_ingot", "group:stick", "hades_core:bronze_ingot"},
-		{"hades_core:bronze_ingot", "group:stick", "hades_core:bronze_ingot"},
-	}
+  output = "carts:copperrail 12",
+  recipe = {
+    {"hades_core:bronze_ingot", "", "hades_core:bronze_ingot"},
+    {"hades_core:bronze_ingot", "group:stick", "hades_core:bronze_ingot"},
+    {"hades_core:bronze_ingot", "", "hades_core:bronze_ingot"},
+  }
 })
 
--- Speed up
 
-minetest.register_node(":carts:powerrail", {
-	description = S("Powered Rail"),
-	_tt_help = S("Track for cart, accelerates"),
-	drawtype = "raillike",
-	tiles = {"carts_rail_pwr.png", "carts_rail_curved_pwr.png", "carts_rail_t_junction_pwr.png", "carts_rail_crossing_pwr.png"},
-	inventory_image = "carts_rail_pwr.png",
-	wield_image = "carts_rail_pwr.png",
-	paramtype = "light",
-	is_ground_content = false,
-	walkable = false,
-	floodable = true,
-	selection_box = {
-		type = "fixed",
-		-- but how to specify the dimensions for curved and sideways rails?
-		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+-- Power rail
+boost_cart:register_rail(":carts:powerrail", {
+  description = S("Powered Rail"),
+  _tt_help = S("Track for cart, accelerates"),
+	tiles = {
+		"carts_rail_straight_pwr.png", "carts_rail_curved_pwr.png",
+		"carts_rail_t_junction_pwr.png", "carts_rail_crossing_pwr.png"
 	},
-	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = raillike_group},
-	
+	groups = boost_cart:get_rail_groups(),
 	after_place_node = function(pos, placer, itemstack)
 		if not mesecon then
 			minetest.get_meta(pos):set_string("cart_acceleration", "0.5")
 		end
 	end,
-	
 	mesecons = {
 		effector = {
 			action_on = function(pos, node)
-				minetest.get_meta(pos):set_string("cart_acceleration", "0.5")
+				boost_cart:boost_rail(pos, 0.5)
 			end,
-			
 			action_off = function(pos, node)
 				minetest.get_meta(pos):set_string("cart_acceleration", "0")
 			end,
 		},
 	},
-	sounds = hades_sounds.node_sound_metal_defaults(),
 })
 
 minetest.register_craft({
@@ -110,42 +77,30 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node(":carts:brakerail", {
-	description = S("Brake Rail"),
-	_tt_help = S("Track for cart, slows down"),
-	drawtype = "raillike",
-	tiles = {"carts_rail_brk.png", "carts_rail_curved_brk.png", "carts_rail_t_junction_brk.png", "carts_rail_crossing_brk.png"},
-	inventory_image = "carts_rail_brk.png",
-	wield_image = "carts_rail_brk.png",
-	paramtype = "light",
-	is_ground_content = false,
-	walkable = false,
-	floodable = true,
-	selection_box = {
-		type = "fixed",
-		-- but how to specify the dimensions for curved and sideways rails?
-		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+-- Brake rail
+boost_cart:register_rail(":carts:brakerail", {
+  description = S("Brake Rail"),
+  _tt_help = S("Track for cart, slows down"),
+	tiles = {
+		"carts_rail_straight_brk.png", "carts_rail_curved_brk.png",
+		"carts_rail_t_junction_brk.png", "carts_rail_crossing_brk.png"
 	},
-	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = raillike_group},
-	
+	groups = boost_cart:get_rail_groups(),
 	after_place_node = function(pos, placer, itemstack)
 		if not mesecon then
-			minetest.get_meta(pos):set_string("cart_acceleration", "-0.2")
+			minetest.get_meta(pos):set_string("cart_acceleration", "-0.3")
 		end
 	end,
-	
 	mesecons = {
 		effector = {
 			action_on = function(pos, node)
-				minetest.get_meta(pos):set_string("cart_acceleration", "-0.2")
+				minetest.get_meta(pos):set_string("cart_acceleration", "-0.3")
 			end,
-			
 			action_off = function(pos, node)
 				minetest.get_meta(pos):set_string("cart_acceleration", "0")
 			end,
 		},
 	},
-	sounds = hades_sounds.node_sound_metal_defaults(),
 })
 
 minetest.register_craft({
@@ -155,4 +110,35 @@ minetest.register_craft({
 		{"hades_core:steel_ingot", "group:stick", "hades_core:steel_ingot"},
 		{"hades_core:steel_ingot", "hades_core:coal_lump", "hades_core:steel_ingot"},
 	}
+})
+
+boost_cart:register_rail("boost_cart:startstoprail", {
+  description = S("Start-stop Rail"),
+  _tt_help = S("Track for cart to start or stop"),
+	tiles = {
+		"carts_rail_straight_ss.png", "carts_rail_curved_ss.png",
+		"carts_rail_t_junction_ss.png", "carts_rail_crossing_ss.png"
+	},
+	groups = boost_cart:get_rail_groups(),
+	after_place_node = function(pos, placer, itemstack)
+		if not mesecon then
+			minetest.get_meta(pos):set_string("cart_acceleration", "halt")
+		end
+	end,
+	mesecons = {
+		effector = {
+			action_on = function(pos, node)
+				boost_cart:boost_rail(pos, 0.5)
+			end,
+			action_off = function(pos, node)
+				minetest.get_meta(pos):set_string("cart_acceleration", "halt")
+			end,
+		},
+	},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "boost_cart:startstoprail 2",
+	recipe = {"carts:powerrail", "carts:brakerail"},
 })
