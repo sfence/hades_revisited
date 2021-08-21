@@ -21,7 +21,7 @@ minetest.register_node("pipeworks:trashcan", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec",
-				"size[8,7]"..
+				"size[10,7]"..
 				"item_image[0,0;1,1;pipeworks:trashcan]"..
 				"label[1,0;"..S("Trash Can").."]"..
 				"list[context;trash;3.5,1;1,1;]"..
@@ -29,7 +29,7 @@ minetest.register_node("pipeworks:trashcan", {
 				pipeworks.gui_bg_img..
 				pipeworks.gui_slots..
 				pipeworks.get_hotbar_bg(0,3) ..
-				"list[current_player;main;0,3;8,4;]" ..
+				"list[current_player;main;0,3;10,4;]" ..
 				"listring[]")
 		meta:set_string("infotext", S("Trash Can"))
 		meta:get_inventory():set_size("trash", 1)

@@ -22,11 +22,11 @@ end
 local function get_chest_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," .. pos.z
 	local formspec =
-		"size[8,9]" ..
+		"size[10,9]" ..
 	  "background9[8,8;8,9;hades_chests_chestui.png;true;8]"..
-		"list[nodemeta:" .. spos .. ";main;0,0.3;8,4;]" ..
-		"list[current_player;main;0,4.85;8,1;]" ..
-		"list[current_player;main;0,6.08;8,3;8]" ..
+		"list[nodemeta:" .. spos .. ";main;0,0.3;10,4;]" ..
+		"list[current_player;main;0,4.85;10,1;]" ..
+		"list[current_player;main;0,6.08;10,3;10]" ..
 		"listring[nodemeta:" .. spos .. ";main]" ..
 		"listring[current_player;main]" ..
 		get_hotbar_bg(0,4.85)

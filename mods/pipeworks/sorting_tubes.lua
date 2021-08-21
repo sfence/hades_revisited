@@ -24,7 +24,7 @@ if pipeworks.enable_mese_tube then
 			)
 		end
 		meta:set_string("formspec",
-			"size[8,11]"..
+			"size[10,11]"..
 			"list[context;line1;1,0;6,1;]"..
 			"list[context;line2;1,1;6,1;]"..
 			"list[context;line3;1,2;6,1;]"..
@@ -38,7 +38,7 @@ if pipeworks.enable_mese_tube then
 			"image[0,4;1,1;pipeworks_blue.png]"..
 			"image[0,5;1,1;pipeworks_red.png]"..
 			buttons_formspec..
-			"list[current_player;main;0,7;8,4;]" ..
+			"list[current_player;main;0,7;10,4;]" ..
 			"listring[current_player;main]" ..
 			"listring[current_player;main]" ..
 			"listring[context;line1]" ..
