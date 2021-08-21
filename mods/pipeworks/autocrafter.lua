@@ -172,7 +172,7 @@ end
 local function update_meta(meta, enabled)
 	local state = enabled and "on" or "off"
 	meta:set_int("enabled", enabled and 1 or 0)
-	local fs = 	"size[8,12]"..
+	local fs = 	"size[10,12]"..
 			"list[context;recipe;0,0;3,3;]"..
 			"image[3,1;1,1;gui_hb_bg.png^[colorize:#141318:255]"..
 			"list[context;output;3,1;1,1;]"..
@@ -183,7 +183,7 @@ local function update_meta(meta, enabled)
 			pipeworks.gui_bg_img..
 			pipeworks.gui_slots..
 			pipeworks.get_hotbar_bg(0,8) ..
-			"list[current_player;main;0,8;8,4;]" ..
+			"list[current_player;main;0,8;10,4;]" ..
 			"listring[current_player;main]"..
 			"listring[context;src]" ..
 			"listring[current_player;main]"..
@@ -277,7 +277,7 @@ minetest.register_node("pipeworks:autocrafter", {
 		update_meta(meta, false)
 	end,
 	on_receive_fields = function(pos, formname, fields, sender)
-		if not fields.channel or (fields.quit and not fields.key_enter_field)
+		if not (fields.channel or fields.on or fields.off) or (fields.quit and not fields.key_enter_field)
 				or not pipeworks.may_configure(pos, sender) then
 			return
 		end

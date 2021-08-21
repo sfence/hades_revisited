@@ -15,7 +15,7 @@ local function set_filter_formspec(data, meta)
 	local formspec
 	if data.digiline then
 		formspec =
-			"size[8.5,3]"..
+			"size[10.5,3]"..
 			"item_image[0.2,0;1,1;pipeworks:"..data.name.."]"..
 			"label[1.2,0.2;"..minetest.formspec_escape(itemname).."]"..
 			"field[0.5,1.6;4.6,1;channel;"..S("Channel")..";${channel}]"..
@@ -37,7 +37,7 @@ local function set_filter_formspec(data, meta)
 					 S("Exact match - on")})
 		end
 
-		formspec = "size[8,8.5]"..
+		formspec = "size[10,8.5]"..
 			"item_image[0,0;1,1;pipeworks:"..data.name.."]"..
 			"label[1,0;"..minetest.formspec_escape(itemname).."]"..
 			"label[0,1;"..S("Prefer item types:").."]"..
@@ -47,7 +47,7 @@ local function set_filter_formspec(data, meta)
 				 S("Sequence slots Randomly"),
 				 S("Sequence slots by Rotation")})..
 			exmatch_button..
-			"list[current_player;main;0,4.5;8,4;]" ..
+			"list[current_player;main;0,4.5;10,4;]" ..
 			"listring[]"
 	end
 	meta:set_string("formspec", formspec)
