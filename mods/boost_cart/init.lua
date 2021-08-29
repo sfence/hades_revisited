@@ -6,7 +6,7 @@ end
 
 boost_cart = {}
 boost_cart.modpath = minetest.get_modpath("boost_cart")
-boost_cart.MESECONS = minetest.global_exists("mesecons")
+boost_cart.MESECONS = minetest.global_exists("mesecon")
 boost_cart.MTG_CARTS = false
 boost_cart.PLAYER_API = false
 boost_cart.player_attached = {}
