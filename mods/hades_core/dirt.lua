@@ -9,7 +9,6 @@ local S = minetest.get_translator("hades_core")
 -- Basic dirt node
 minetest.register_node("hades_core:dirt", {
 	description = S("Dirt"),
-	_tt_help = S("Becomes grassy when exposed to light"),
 	tiles = {"default_dirt.png"},
 	is_ground_content = true,
 	groups = {crumbly=3,soil=1,dirt=1, porous=1},
