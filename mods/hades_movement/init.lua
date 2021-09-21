@@ -1,3 +1,5 @@
+local S = minetest.get_translator("hades_movement")
+
 local HIDE_JUMP_HUD_AFTER = 5 -- seconds after which to hide jump HUD
 local JUMP_FACTOR_HIGH = 1
 local JUMP_FACTOR_MED = 0.85
@@ -11,6 +13,26 @@ local jump_modes = {} -- current jump modes of each player
 local jump_huds = {} -- current HUD IDs of each player
 local remove_time = {} -- countdown timer to hide the jump HUD icon again
 
+local update_mode = function(player, mode)
+	local playername = player:get_player_name()
+	jump_modes[playername] = mode
+	local jump_height = JUMP_FACTOR_HIGH
+	local img = "hades_movement_jump_high.png"
+	if (mode == 1) then
+		jump_height = JUMP_FACTOR_MED
+		img = "hades_movement_jump_med.png"
+	elseif (mode == 2) then
+		jump_height = JUMP_FACTOR_LOW
+		img = "hades_movement_jump_low.png"
+	end
+	playerphysics.add_physics_factor(player, "jump", "jump_mode", jump_height)
+	if jump_huds[playername] then
+		player:hud_change(jump_huds[playername], "text", img)
+	end
+	minetest.sound_play({name="hades_movement_change_jump_mode", gain=0.4}, {pitch=1-mode*0.1}, true)
+	remove_time[playername] = HIDE_JUMP_HUD_AFTER
+end
+
 minetest.register_globalstep(function(dtime)
 	for _, player in pairs(minetest.get_connected_players()) do
 		local name = player:get_player_name()
@@ -22,26 +44,14 @@ minetest.register_globalstep(function(dtime)
 			jump_modes[name] = 0
 		end
 		-- Aux1 key: Cycle jump mode (high, medium, low jump strength)
-		if ctrl.aux1 == true then
+		local equipped = hades_equipment.has_equipped(player, "hades_movement:jump_dampener", false)
+		if jump_modes[name] ~= 0 and not equipped then
+			update_mode(player, 0)
+		elseif ctrl.aux1 == true and equipped then
 			if not ctrls[name].aux1 then
 				local mode = jump_modes[name]
 				mode = (mode - 1) % 3
-				jump_modes[name] = mode
-				local jump_height = JUMP_FACTOR_HIGH
-				local img = "hades_movement_jump_high.png"
-				if (mode == 1) then
-					jump_height = JUMP_FACTOR_MED
-					img = "hades_movement_jump_med.png"
-				elseif (mode == 2) then
-					jump_height = JUMP_FACTOR_LOW
-					img = "hades_movement_jump_low.png"
-				end
-				playerphysics.add_physics_factor(player, "jump", "jump_mode", jump_height)
-				if jump_huds[name] then
-					player:hud_change(jump_huds[name], "text", img)
-				end
-				minetest.sound_play({name="hades_movement_change_jump_mode", gain=0.4}, {pitch=1-mode*0.1}, true)
-				remove_time[name] = HIDE_JUMP_HUD_AFTER
+				update_mode(player, mode)
 			end
 			ctrls[name].aux1 = true
 		else
@@ -82,3 +92,21 @@ minetest.register_on_leaveplayer(function(player)
 	jump_huds[name] = nil
 	remove_time[name] = nil
 end)
+
+minetest.register_tool("hades_movement:jump_dampener", {
+	description = S("Jump Dampener"),
+	_tt_help = S("Allows you to reduce your jumping height").."\n"..
+		S("Put in Equipment slot to enable").."\n"..
+		S("Push the 'Aux1' control to toggle"),
+	-- TODO: Better inventory img
+	inventory_image = "hades_movement_jump_dampener.png",
+	groups = { equipment = 1, disable_repair = 1 },
+})
+
+minetest.register_craft({
+	output = "hades_movement:jump_dampener",
+	recipe = {
+		{"group:wool","","group:wool"},
+		{"hades_core:tin_ingot","","hades_core:tin_ingot"},
+	},
+})

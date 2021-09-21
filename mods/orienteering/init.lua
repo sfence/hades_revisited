@@ -28,100 +28,101 @@ function orienteering.toggle_time_mode(itemstack, user, pointed_thing)
 end
 
 local use = S("Put this tool in your hotbar to see the data it provides.")
+local use_tt = S("Put in Equipment or hotbar slot to activate")
 local use_time = S("Put this tool in your hotbar to make use of its functionality. Leftclick to toggle between 24-hour and 12-hour display for the time feature.")
 
 -- Displays height (Y)
 minetest.register_tool("orienteering:altimeter", {
 	description = S("Altimeter"),
-	_tt_help = S("Shows your elevation"),
+	_tt_help = S("Shows your elevation").."\n"..use_tt,
 	_doc_items_longdesc = S("It shows you your current elevation (Y)."),
 	_doc_items_usagehelp = use,
 	wield_image = "orienteering_altimeter.png",
 	inventory_image = "orienteering_altimeter.png",
-	groups = { disable_repair = 1 },
+	groups = { equipment = 1, disable_repair = 1 },
 })
 
 -- Displays X and Z coordinates
 minetest.register_tool("orienteering:triangulator", {
 	description = S("Triangulator"),
-	_tt_help = S("Shows your horizontal coordinates"),
+	_tt_help = S("Shows your horizontal coordinates").."\n"..use_tt,
 	_doc_items_longdesc = S("It shows you the coordinates of your current position in the horizontal plane (X and Z)."),
 	_doc_items_usagehelp = use,
 	wield_image = "orienteering_triangulator.png",
 	inventory_image = "orienteering_triangulator.png",
-	groups = { disable_repair = 1 },
+	groups = { equipment = 1, disable_repair = 1 },
 })
 
 -- Displays player yaw
 -- TODO: calculate yaw difference between 2 points
 minetest.register_tool("orienteering:compass", {
 	description = S("Compass"),
-	_tt_help = S("Shows the cardinal direction you're looking at"),
+	_tt_help = S("Shows the cardinal direction you're looking at").."\n"..use_tt,
 	_doc_items_longdesc = S("It shows where you're looking: North, East, South or West."),
 	_doc_items_usagehelp = use,
 	wield_image = "orienteering_compass_wield.png",
 	inventory_image = "orienteering_compass_inv.png",
-	groups = { disable_repair = 1 },
+	groups = { equipment = 1, disable_repair = 1 },
 })
 
 -- Ultimate orienteering tool: Displays X,Y,Z, yaw, pitch, time, speed and enables the minimap
 minetest.register_tool("orienteering:quadcorder", {
 	description = S("Quadcorder"),
-	_tt_help = S("Shows your coordinates, cardinal direction, pitch, time, speed and enables minimap"),
+	_tt_help = S("Shows your coordinates, cardinal direction, pitch, time, speed and enables minimap").."\n"..use_tt,
 	_doc_items_longdesc = S("This is the ultimate orientieering tool. It shows you your coordinates (X, Y and Z), shows the cardinal direction, the current time, your current speed and it enables you to access the minimap."),
 	wield_image = "orienteering_quadcorder.png",
 	_doc_items_usagehelp = use_time,
 	wield_scale = { x=1, y=1, z=3.5 },
 	inventory_image = "orienteering_quadcorder.png",
-	groups = { disable_repair = 1 },
+	groups = { equipment = 1, disable_repair = 1 },
 	on_use = orienteering.toggle_time_mode,
 })
 
 -- Displays game time
 minetest.register_tool("orienteering:watch", {
 	description = S("Watch"),
-	_tt_help = S("Shows the time"),
+	_tt_help = S("Shows the time").."\n"..use_tt,
 	_doc_items_longdesc = S("It shows you the current time."),
 	_doc_items_usagehelp = S("Put the watch in your hotbar to see the time. Leftclick to toggle between the 24-hour and 12-hour display."),
 	wield_image = "orienteering_watch.png",
 	inventory_image = "orienteering_watch.png",
-	groups = { disable_repair = 1 },
+	groups = { equipment = 1, disable_repair = 1 },
 	on_use = orienteering.toggle_time_mode,
 })
 
 -- Displays speed
 minetest.register_tool("orienteering:speedometer", {
 	description = S("Speedometer"),
-	_tt_help = S("Shows your speed"),
+	_tt_help = S("Shows your speed").."\n"..use_tt,
 	_doc_items_longdesc = S("It shows you your current horizontal (“hor.”) and vertical (“ver.”) speed in meters per second, where one meter is the side length of a single cube."),
 	_doc_items_usagehelp = use,
 	wield_image = "orienteering_speedometer_wield.png",
 	inventory_image = "orienteering_speedometer_inv.png",
-	groups = { disable_repair = 1 },
+	groups = { equipment = 1, disable_repair = 1 },
 })
 
 -- Enables minimap
 minetest.register_tool("orienteering:automapper", {
 	description = S("Automapper"),
-	_tt_help = S("Allows using the minimap"),
+	_tt_help = S("Allows using the minimap").."\n"..use_tt,
 	_doc_items_longdesc = S("The automapper automatically creates a map of the area around you and enables you to view a minimap of your surroundings. It also has a built-in radar."),
 	_doc_items_usagehelp = S("If you put an automapper in your hotbar, you will be able to access the minimap. By default the minimap can be opened with [F7]."),
 	wield_image = "orienteering_automapper_wield.png",
 	wield_scale = { x=1, y=1, z=2 },
 	inventory_image = "orienteering_automapper_inv.png",
-	groups = { disable_repair = 1 },
+	groups = { equipment = 1, disable_repair = 1 },
 })
 
 -- Displays X,Y,Z coordinates, yaw and game time
 minetest.register_tool("orienteering:gps", {
 	description = S("GPS device"),
-	_tt_help = S("Shows your coordinates, cardinal direction and the time"),
+	_tt_help = S("Shows your coordinates, cardinal direction and the time").."\n"..use_tt,
 	_doc_items_longdesc = S("The GPS device shows you your coordinates (X, Y and Z), your cardinal direction and the time."),
 	_doc_items_usagehelp = use_time,
 	wield_image = "orienteering_gps_wield.png",
 	wield_scale = { x=1, y=1, z=2 },
 	inventory_image = "orienteering_gps_inv.png",
-	groups = { disable_repair = 1 },
+	groups = { equipment = 1, disable_repair = 1 },
 	on_use = orienteering.toggle_time_mode,
 })
 
@@ -217,15 +218,7 @@ end
 
 -- Checks whether a certain orienteering tool is “active” and ready for use
 function orienteering.tool_active(player, item)
-	-- Requirement: player carries the tool in the hotbar
-	local inv = player:get_inventory()
-	local hotbar = player:hud_get_hotbar_itemcount()
-	for i=1, hotbar do
-		if inv:get_stack("main", i):get_name() == item then
-			return true
-		end
-	end
-	return false
+	return hades_equipment.has_equipped(player, item, true)
 end
 
 function orienteering.init_hud(player)
