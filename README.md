@@ -162,9 +162,6 @@ from their original.
 `hades_bedrock` (based on `bedrock`)
 <http://www.moontest.org/viewtopic.php?f=11&t=9231>
 
-`boost_cart`
-<https://forum.minetest.net/viewtopic.php?f=11&t=10172>
-
 `hades_farming` (based on `farming_plus`)
 <https://forum.minetest.net/viewtopic.php?id=2787>
 
@@ -196,9 +193,6 @@ from their original.
 `hades_trash` (bassed on `trash_can`)
 <https://forum.minetest.net/viewtopic.php?id=6315>
 
-`travelnet`
-<https://forum.minetest.net/viewtopic.php?id=4877>
-
 `vines`
 <https://forum.minetest.net/viewtopic.php?id=2344>
 
@@ -212,7 +206,6 @@ This game is free software. It has been licensed under these licenses:
 Some mods have separate licenses:
 
 * `hades_furniture`: GPLv2
-* `travelnet`: GPLv3
 * `bags`: New BSD License
 * `hades_bedrock`: zlib license
 * `signs_lib`: LGPLv3

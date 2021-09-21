@@ -116,11 +116,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "vessels:glass_fragments 6",
-	recipe = {{"travelnet:elevator_door_glass_closed"}}
-})
-
-minetest.register_craft({
 	type = "cooking",
 	output = "hades_core:glass",
 	recipe = "vessels:glass_fragments",
