@@ -1,24 +1,37 @@
 local S = minetest.get_translator("hades_food")
 
+local register_plate = function(id, def)
+	local on_use
+	if def.eatable then
+		on_use = minetest.item_eat(def.eatable, "hades_food:plate")
+	end
+	minetest.register_node(id, {
+		description = def.description,
+		inventory_image = def.image,
+		wield_image = def.image,
+		tiles = { def.image },
+		drawtype = "signlike",
+		paramtype = "light",
+		paramtype2 = "wallmounted",
+		place_param2 = 1,
+		is_ground_content = false,
+		floodable = true,
+		sounds = hades_sounds.node_sound_stone_defaults(),
+		groups = {dig_immediate=3, attached_node=1, eatable=def.eatable, food=def.food},
+		on_use = on_use,
+		on_rotate = false,
+		walkable = false,
+		selection_box = {
+			type = "wallmounted",
+		},
+	})
+end
+
 -- ITEMS
 
-minetest.register_node("hades_food:plate", {
+register_plate("hades_food:plate", {
 	description = S("Plate"),
-	inventory_image = "default_plate.png",
-	wield_image = "default_plate.png",
-	tiles = { "default_plate.png" },
-	drawtype = "signlike",
-	paramtype = "light",
-	paramtype2 = "wallmounted",
-	is_ground_content = false,
-	floodable = true,
-	sounds = hades_sounds.node_sound_stone_defaults(),
-	groups = {dig_immediate=3, attached_node=1},
-	on_rotate = false,
-	walkable = false,
-	selection_box = {
-		type = "wallmounted",
-	},
+	image = "default_plate.png"
 })
 
 minetest.register_craftitem("hades_food:pie_strawberry_raw", {
@@ -35,25 +48,27 @@ minetest.register_craftitem("hades_food:pie_strawberry", {
 	groups = { food = 2, eatable = 5 },
 })
 
-minetest.register_craftitem("hades_food:bottle_olive_oil", {
+vessels.register_bottle("hades_food:bottle_olive_oil", {
 	description = S("Bottle of Olive Oil"),
+	tiles = {"default_bottle_olive_oil.png"},
 	inventory_image = "default_bottle_olive_oil.png",
-	on_use = minetest.item_eat(3, "vessels:glass_bottle"),
-	groups = { food = 3, eatable = 3 },
+	wield_image = "default_bottle_olive_oil.png",
+	food=3,
+	eatable=3,
 })
 
-minetest.register_craftitem("hades_food:tomatosalad", {
+register_plate("hades_food:tomatosalad", {
 	description = S("Tomato Salad"),
-	inventory_image = "default_tomatosalad.png",
-	on_use = minetest.item_eat(6, "hades_food:plate"),
-	groups = { food = 2, eatable = 6 },
+	image = "default_tomatosalad.png",
+	food = 2,
+	eatable = 6,
 })
 
-minetest.register_craftitem("hades_food:tomato_potato_salad", {
+register_plate("hades_food:tomato_potato_salad", {
 	description = S("Tomato-Potato Salad"),
-	inventory_image = "default_tpsalad.png",
-	on_use = minetest.item_eat(8, "hades_food:plate"),
-	groups = { food = 2, eatable = 8 },
+	image = "default_tpsalad.png",
+	food = 2,
+	eatable = 8,
 })
 
 minetest.register_craftitem("hades_food:spiced_potato", {

@@ -1,24 +1,37 @@
 local S = minetest.get_translator("vessels")
 
--- Minetest 0.4 mod: vessels
--- See README.txt for licensing and other information.
+vessels = {}
 
-minetest.register_node("vessels:glass_bottle", {
+vessels.register_bottle = function(id, def)
+	local on_use
+	if def.eatable then
+		on_use = minetest.item_eat(3, "vessels:glass_bottle")
+	end
+	minetest.register_node(id, {
+		description = def.description,
+		drawtype = "plantlike",
+		tiles = def.tiles,
+		inventory_image = def.inventory_image,
+		wield_image = def.wield_image,
+		paramtype = "light",
+		walkable = false,
+		is_ground_content = false,
+		floodable = true,
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
+		},
+		on_use = on_use,
+		groups = {vessel=1,dig_immediate=3,attached_node=1,food=def.food,eatable=def.eatable},
+		sounds = hades_sounds.node_sound_glass_defaults(),
+	})
+end
+
+vessels.register_bottle("vessels:glass_bottle", {
 	description = S("Empty Glass Bottle"),
-	drawtype = "plantlike",
 	tiles = {"vessels_glass_bottle.png"},
 	inventory_image = "vessels_glass_bottle_inv.png",
 	wield_image = "vessels_glass_bottle.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = false,
-	floodable = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
-	},
-	groups = {vessel=1,dig_immediate=3,attached_node=1},
-	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
 minetest.register_craft( {
