@@ -203,6 +203,7 @@ hades_farming.register_plant = function(name, def)
 		end
 		minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",
+			waving = 1,
 			description = description_plant,
 			inventory_image = texture,
 			wield_image = texture,
