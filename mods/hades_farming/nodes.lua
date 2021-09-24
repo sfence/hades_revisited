@@ -27,7 +27,7 @@ minetest.register_node("hades_farming:soil", {
 	tiles = {"default_dirt.png^hades_farming_soil.png", "default_dirt.png"},
 	drop = "hades_core:dirt",
 	is_ground_content = true,
-	groups = {crumbly=3, not_in_creative_inventory=1, soil=2, porous=1, grassland = 1, field = 1},
+	groups = {crumbly=3, soil=2, porous=1, grassland = 1, field = 1},
 	sounds = hades_sounds.node_sound_dirt_defaults(),
 	soil = {
 		base = "hades_core:dirt",
