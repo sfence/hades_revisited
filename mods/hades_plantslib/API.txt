@@ -17,21 +17,28 @@ You must pass a number of arguments in the form of an ordinary keyed-value
 table.  Below is a list of everything supported by this function:
 
 biome = {
-	spawn_plants = something, -- [*] String or table; see below.
-	spawn_delay = number,	-- same as sdelay, above.
-	spawn_chance = number,	-- same as schance, above.
+	spawn_plants = {table}, -- list of nodenames to pick from randomly on
+				-- each application of the ABM code.
+	spawn_delay = number,	-- The value passed to the ABM's interval
+				-- parameter, in seconds.
+	spawn_chance = number,	-- The value passed to the ABM's chance
+				-- (1-in-X chance of operating on a given
+				-- node)
 	spawn_surfaces = {table}, -- List of node names on which the plants
-				-- should be spawned.  As with the single-
-				-- node "ssurface" option in the legacy API,
-				-- you should not put stone, air, etc. here.
+				-- should be spawned.
+				-- You should not put stone, air, etc. here.
 	label =	string		-- label for the ABM (strongly recommended)
 
 	---- From here down are a number of optional parameters.  You will
 	---- most likely want to use at least some of these to limit how and
 	---- where your objects are spawned.
 
-	avoid_nodes = {table},	-- same meaning as savoid, above
-	avoid_radius = num,	-- same as sradius
+	avoid_nodes = {table},	-- Table with a list of groups and/or node
+				-- names to avoid when spawning the plant,
+				-- such as {"group:flowers", "default:tree"}
+	avoid_radius = num,	-- Don't spawn within this many nodes of the
+				-- avoid items mentioned below. If set to
+				-- nil, this check is skipped.
 	seed_diff = num,	-- The Perlin seed difference value passed to
 				-- the minetest.get_perlin() function.
 				-- Used along with the global Perlin controls
@@ -41,8 +48,7 @@ biome = {
 	light_min = num,	-- Minimum amount of light necessary to make a
 				-- plant spawn.  Defaults to 0.
 	light_max = num,	-- Maximum amount of light needed to spawn. 
-				-- Defaults to the engine's MAX_LIGHT value of
-				-- 14.
+				-- Defaults to minetest.LIGHT_MAX
 	neighbors = {table},	-- List of neighboring nodes that need to be
 				-- immediately next to the node the plant is
 				-- about to spawn on. Can also be a string
@@ -84,10 +90,6 @@ biome = {
 	depth_max = num,	-- If the object spawns on top of a water
 				-- source, the water must be at most this
 				-- deep.  Defaults to 1 node.
-	min_elevation = num,	-- Surface must be at this altitude or higher
-				-- to spawn at all.  Defaults to -31000...
-	max_elevation = num,	-- ...but must be no higher than this
-				-- altitude.  Defaults to +31000.
 	near_nodes = {table},	-- List of nodes that must be somewhere in the
 				-- vicinity in order for the plant to spawn.
 				-- Can also be a string with a single node
@@ -127,31 +129,6 @@ biome = {
 				-- be air for the above check to return true.
 				-- If omitted, only the space above the target
 				-- is checked.
-	plantlife_limit = num,	-- The value compared against the generic
-				-- "plants can grow here" Perlin noise layer.
-				-- Smaller numbers result in more abundant
-				-- plants.  Range of -1 to +1, with values in 
-				-- the range of about 0 to 0.5 being most
-				-- useful.  Defaults to 0.1.
-	temp_min = num,		-- Minimum temperature needed for the desired
-				-- object to spawn.  This is a 2d Perlin
-				-- value, which has an inverted range of +1 to
-				-- -1.  Larger values represent *colder*
-				-- temperatures, so this value is actually the
-				-- upper end of the desired Perlin range.  See
-				-- the temperature map section at the bottom
-				-- of this document for details on how these
-				-- values work.  Defaults to +1 (unlimited
-				-- coldness).
-	temp_max = num,		-- Maximum temperature/lower end of the Perlin
-				-- range.  Defaults to -1 (unlimited heat).
-	humidity_min = num,	-- Minimum humidity for the plant to spawn in.
-				-- Like the temperature map, this is a Perlin
-				-- value where lower numbers mean more
-				-- humidity in the area.  Defaults to +1 (0%
-				-- relative humidity).
-	humidity_max = num,	-- Maximum humidity for the plant to spawn at.
-				-- Defaults to -1 (100% humidity).
 	spawn_on_side = bool,	-- Set this to true to spawn the node on one
 				-- side of the target node rather than the
 				-- top.  The code will search for an airspace
@@ -184,12 +161,3 @@ values therein are treated as a list of nodenames to pick from randomly on
 each application of the ABM code. The more nodes you can pack into this
 parameter to avoid making too many calls to this function, the lower the CPU
 load will likely be.
-
-You can also specify a string containing the name of a function to execute.
-In this case, the function will be passed a single position parameter
-indicating where the function should place the desired object, and the checks
-for spawning on top vs. sides vs. bottom vs. replacing the target node will be
-skipped.
-
-By default, if a biome node, size, and count are not defined, the biome
-checking is disabled.  Same holds true for the nneighbors bit above that.

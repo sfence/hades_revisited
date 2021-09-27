@@ -34,13 +34,6 @@ end
 
 local function set_defaults(biome)
 	biome.seed_diff = biome.seed_diff or 0
-	biome.min_elevation = biome.min_elevation or -31000
-	biome.max_elevation = biome.max_elevation or 31000
-	biome.temp_min = biome.temp_min or 1
-	biome.temp_max = biome.temp_max or -1
-	biome.humidity_min = biome.humidity_min or 1
-	biome.humidity_max = biome.humidity_max or -1
-	biome.plantlife_limit = biome.plantlife_limit or 0.1
 	biome.near_nodes_vertical = biome.near_nodes_vertical or 1
 
 
@@ -58,7 +51,7 @@ local function set_defaults(biome)
 -- specific to abm spawner
 	biome.seed_diff = biome.seed_diff or 0
 	biome.light_min = biome.light_min or 0
-	biome.light_max = biome.light_max or 15
+	biome.light_max = biome.light_max or minetest.LIGHT_MAX
 	biome.depth_max = biome.depth_max or 1
 	biome.facedir = biome.facedir or 0
 end
