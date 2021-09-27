@@ -20,10 +20,6 @@ end
 
 -- Local functions
 
-local function dump_pos(pos)
-	return "{x="..pos.x..",y="..pos.y..",z="..pos.z.."}"
-end
-
 local function is_node_loaded (node_pos)
 	local n = minetest.get_node_or_nil(node_pos)
 	if (not n) or (n.name == "ignore") then
@@ -100,25 +96,25 @@ local function spawn_on_surfaces_abm_action(pos, node, active_object_count, acti
 				end
 				if not biome.spawn_on_side and not biome.spawn_on_bottom and not biome.spawn_replace_node then
 					if n_top.name == "air" then
-						dbg("Spawn: "..plant_to_spawn.." on top of ("..dump(pos).."); facedir="..fdir)
+						dbg("Spawn: "..plant_to_spawn.." on top of "..minetest.pos_to_string(pos).."; facedir="..fdir)
 						minetest.add_node(p_top, { name = plant_to_spawn, param2 = fdir })
 					end
 				elseif biome.spawn_replace_node then
 
 
-					dbg("Spawn: "..plant_to_spawn.." to replace "..minetest.get_node(pos).name.." at ("..dump(pos)..")")
+					dbg("Spawn: "..plant_to_spawn.." to replace "..minetest.get_node(pos).name.." at "..minetest.pos_to_string(pos))
 					minetest.add_node(pos, { name = plant_to_spawn, param2 = fdir })
 
 
 				elseif biome.spawn_on_side then
 					local onside = find_open_side(pos)
 					if onside then
-						dbg("Spawn: "..plant_to_spawn.." at side of ("..dump(pos).."), facedir "..onside.facedir.."")
+						dbg("Spawn: "..plant_to_spawn.." at side of "..minetest.pos_to_string(pos)..", facedir "..onside.facedir)
 						minetest.add_node(onside.newpos, { name = plant_to_spawn, param2 = onside.facedir })
 					end
 				elseif biome.spawn_on_bottom then
 					if minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name == "air" then
-						dbg("Spawn: "..plant_to_spawn.." on bottom of ("..dump(pos)..")")
+						dbg("Spawn: "..plant_to_spawn.." on bottom of "..minetest.pos_to_string(pos))
 						minetest.add_node({x=pos.x, y=pos.y-1, z=pos.z}, { name = plant_to_spawn, param2 = fdir} )
 					end
 				end
