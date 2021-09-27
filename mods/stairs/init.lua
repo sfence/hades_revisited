@@ -23,6 +23,35 @@ local get_images = function(def)
 	return images
 end
 
+local function rotate_and_place(itemstack, placer, pointed_thing, rotate)
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	local param2 = 0
+
+	if placer then
+		local placer_pos = placer:get_pos()
+		if placer_pos and rotate then
+			param2 = minetest.dir_to_facedir(vector.subtract(p1, placer_pos))
+		end
+
+		local finepos = minetest.pointed_thing_to_face_pos(placer, pointed_thing)
+		local fpos = finepos.y % 1
+
+		if p0.y - 1 == p1.y or (fpos > 0 and fpos < 0.5)
+				or (fpos < -0.5 and fpos > -0.999999999) then
+			param2 = param2 + 20
+			if rotate then
+				if param2 == 21 then
+					param2 = 23
+				elseif param2 == 23 then
+					param2 = 21
+				end
+			end
+		end
+	end
+	return minetest.item_place(itemstack, placer, pointed_thing, param2)
+end
+
 -- Node will be called stairs:stair_<subname>
 function stairs.register_stair(subname, recipeitem, groups, images, description, sounds)
 	local light_source
@@ -55,30 +84,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 				return itemstack
 			end
 
-			local p0 = pointed_thing.under
-			local p1 = pointed_thing.above
-			local param2 = 0
-
-			local placer_pos = placer:get_pos()
-			if placer_pos then
-				local dir = {
-					x = p1.x - placer_pos.x,
-					y = p1.y - placer_pos.y,
-					z = p1.z - placer_pos.z
-				}
-				param2 = minetest.dir_to_facedir(dir)
-			end
-
-			if p0.y-1 == p1.y then
-				param2 = param2 + 20
-				if param2 == 21 then
-					param2 = 23
-				elseif param2 == 23 then
-					param2 = 21
-				end
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
+			return rotate_and_place(itemstack, placer, pointed_thing, true)
 		end,
 		_hades_shaper_next = "stairs:stair_in_"..subname,
 	})
@@ -135,30 +141,7 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 				return itemstack
 			end
 
-			local p0 = pointed_thing.under
-			local p1 = pointed_thing.above
-			local param2 = 0
-
-			local placer_pos = placer:get_pos()
-			if placer_pos then
-				local dir = {
-					x = p1.x - placer_pos.x,
-					y = p1.y - placer_pos.y,
-					z = p1.z - placer_pos.z
-				}
-				param2 = minetest.dir_to_facedir(dir)
-			end
-
-			if p0.y-1 == p1.y then
-				param2 = param2 + 20
-				if param2 == 21 then
-					param2 = 23
-				elseif param2 == 23 then
-					param2 = 21
-				end
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
+			return rotate_and_place(itemstack, placer, pointed_thing, true)
 		end,
 		_hades_shaper_next = "stairs:stair_"..subname,
 	})
@@ -205,30 +188,7 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 				return itemstack
 			end
 
-			local p0 = pointed_thing.under
-			local p1 = pointed_thing.above
-			local param2 = 0
-
-			local placer_pos = placer:get_pos()
-			if placer_pos then
-				local dir = {
-					x = p1.x - placer_pos.x,
-					y = p1.y - placer_pos.y,
-					z = p1.z - placer_pos.z
-				}
-				param2 = minetest.dir_to_facedir(dir)
-			end
-
-			if p0.y-1 == p1.y then
-				param2 = param2 + 20
-				if param2 == 21 then
-					param2 = 23
-				elseif param2 == 23 then
-					param2 = 21
-				end
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
+			return rotate_and_place(itemstack, placer, pointed_thing, true)
 		end,
 		_hades_shaper_next = "stairs:stair_out_"..subname,
 	})
@@ -351,12 +311,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 				param2 = 20
 			end
 
-			-- If pointing at the side of a upside down slab
-			if n0_is_upside_down and p0.y+1 ~= p1.y then
-				param2 = 20
-			end
-
-			return minetest.item_place(itemstack, placer, pointed_thing, param2)
+			return rotate_and_place(itemstack, placer, pointed_thing, false)
 		end,
 	})
 
