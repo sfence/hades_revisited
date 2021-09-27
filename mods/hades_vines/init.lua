@@ -361,9 +361,9 @@ minetest.register_abm({
 	end,
 })
 
-
---spawning
+-- Spawn vines
 plantslib:spawn_on_surfaces({
+	label = "Spawn cave vines",
 	avoid_nodes = {"hades_vines:cave"},
 	avoid_radius = 5,
 	spawn_delay = spawn_interval,
@@ -371,10 +371,10 @@ plantslib:spawn_on_surfaces({
 	spawn_chance = 50,
 	spawn_surfaces = {"hades_core:dirt_with_grass","hades_core:dirt_with_grass_l1","hades_core:dirt_with_grass_l2","hades_core:dirt_with_grass_l3","hades_core:dirt"},
 	spawn_on_bottom = true,
-	plantlife_limit = -0.9,
 })
 
 plantslib:spawn_on_surfaces({
+	label = "Spawn tropical vines",
 	avoid_nodes = {"hades_vines:cave", "hades_vines:jungle"},
 	avoid_radius = 3,
 	spawn_delay = spawn_interval,
@@ -386,10 +386,10 @@ plantslib:spawn_on_surfaces({
 	near_nodes_size = 10,
 	near_nodes_vertical = 5,
 	near_nodes_count = 3,
-	plantlife_limit = -0.9,
 })
 
 plantslib:spawn_on_surfaces({
+	label = "Spawn willow vines",
 	spawn_plants = {"hades_vines:willow"},
 	avoid_radius = 3,
 	spawn_delay = spawn_interval,
@@ -400,7 +400,6 @@ plantslib:spawn_on_surfaces({
 	near_nodes_size = 7,
 	near_nodes_vertical = 4,
 	near_nodes_count = 3,
-	plantlife_limit = -0.9,
 })
 
 -- Shears: jojoa1997's shears
