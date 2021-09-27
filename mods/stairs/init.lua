@@ -244,8 +244,9 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 
 			local n0_is_upside_down = (n0.name == "stairs:slab_" .. subname and
 					n0.param2 >= 20)
+			local n0_is_sideways = n0.param2 > 3 and n0.param2 < 20
 
-			if n0.name == "stairs:slab_" .. subname and not n0_is_upside_down and p0.y+1 == p1.y then
+			if n0.name == "stairs:slab_" .. subname and not n0_is_upside_down and not n0_is_sideways and p0.y+1 == p1.y then
 				slabpos = p0
 				slabnode = n0
 			elseif n1.name == "stairs:slab_" .. subname then
