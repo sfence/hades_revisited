@@ -79,14 +79,6 @@ biome = {
 				-- or any other pair of numbers in the 0 to 5 
 				-- range, as appropriate for the node you want
 				-- to spawn.
-	verticals_list = {table}, -- List of nodes that should be considered
-				-- to be natural walls.
-	alt_wallnode = "string", -- If specified, this node will be 
-				-- substituted in place of the plant(s)
-				-- defined by spawn_plants above, if the spawn
-				-- target has one or more adjacent walls.  In
-				-- such a case, the two above facedir
-				-- parameters will be ignored.
 	depth_max = num,	-- If the object spawns on top of a water
 				-- source, the water must be at most this
 				-- deep.  Defaults to 1 node.
