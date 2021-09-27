@@ -86,6 +86,67 @@ end
 
 -- The spawning ABM
 
+local function spawn_on_surfaces_abm_action(pos, node, active_object_count, active_object_count_wider)
+	local p_top = { x = pos.x, y = pos.y + 1, z = pos.z }
+	local n_top = minetest.get_node(p_top)
+	if is_node_loaded(p_top) then
+		local n_light = minetest.get_node_light(p_top, nil)
+		if not (biome.avoid_nodes and biome.avoid_radius and minetest.find_node_near(p_top, biome.avoid_radius + math.random(-1.5,2), biome.avoid_nodes))
+		  and n_light >= biome.light_min
+		  and n_light <= biome.light_max
+		  and (not(biome.neighbors and biome.ncount) or table.getn(minetest.find_nodes_in_area({x=pos.x-1, y=pos.y, z=pos.z-1}, {x=pos.x+1, y=pos.y, z=pos.z+1}, biome.neighbors)) > biome.ncount )
+		  and (not(biome.near_nodes and biome.near_nodes_count and biome.near_nodes_size) or table.getn(minetest.find_nodes_in_area({x=pos.x-biome.near_nodes_size, y=pos.y-biome.near_nodes_vertical, z=pos.z-biome.near_nodes_size}, {x=pos.x+biome.near_nodes_size, y=pos.y+biome.near_nodes_vertical, z=pos.z+biome.near_nodes_size}, biome.near_nodes)) >= biome.near_nodes_count)
+		  and (not(biome.air_count and biome.air_size) or table.getn(minetest.find_nodes_in_area({x=p_top.x-biome.air_size, y=p_top.y, z=p_top.z-biome.air_size}, {x=p_top.x+biome.air_size, y=p_top.y, z=p_top.z+biome.air_size}, "air")) >= biome.air_count)
+		  then
+			local walldir = find_adjacent_wall(p_top, biome.verticals_list)
+			if biome.alt_wallnode and walldir then
+				if n_top.name == "air" then
+					dbg("Spawn: "..biome.alt_wallnode.." on top of ("..dump(pos)..") against wall "..walldir)
+					minetest.add_node(p_top, { name = biome.alt_wallnode, param2 = walldir })
+				end
+			else
+				local currentsurface = minetest.get_node(pos).name
+				if currentsurface ~= "hades_core:water_source"
+				  or (currentsurface == "hades_core:water_source" and table.getn(minetest.find_nodes_in_area({x=pos.x, y=pos.y-biome.depth_max-1, z=pos.z}, {x=pos.x, y=pos.y, z=pos.z}, {"hades_core:dirt", "hades_core:dirt_with_grass", "hades_core:ash"})) > 0 )
+				  then
+					local rnd = math.random(1, biome.spawn_plants_count)
+					local plant_to_spawn = biome.spawn_plants[rnd]
+					dbg("Chose entry number "..rnd.." of "..biome.spawn_plants_count)
+					local fdir = biome.facedir
+					if biome.random_facedir then
+						fdir = math.random(biome.random_facedir[1],biome.random_facedir[2])
+						dbg("Gave it a random facedir: "..fdir)
+					end
+					if not biome.spawn_on_side and not biome.spawn_on_bottom and not biome.spawn_replace_node then
+						if n_top.name == "air" then
+							dbg("Spawn: "..plant_to_spawn.." on top of ("..dump(pos).."); facedir="..fdir)
+							minetest.add_node(p_top, { name = plant_to_spawn, param2 = fdir })
+						end
+					elseif biome.spawn_replace_node then
+
+
+						dbg("Spawn: "..plant_to_spawn.." to replace "..minetest.get_node(pos).name.." at ("..dump(pos)..")")
+						minetest.add_node(pos, { name = plant_to_spawn, param2 = fdir })
+
+
+					elseif biome.spawn_on_side then
+						local onside = find_open_side(pos)
+						if onside then
+							dbg("Spawn: "..plant_to_spawn.." at side of ("..dump(pos).."), facedir "..onside.facedir.."")
+							minetest.add_node(onside.newpos, { name = plant_to_spawn, param2 = onside.facedir })
+						end
+					elseif biome.spawn_on_bottom then
+						if minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name == "air" then
+							dbg("Spawn: "..plant_to_spawn.." on bottom of ("..dump(pos)..")")
+							minetest.add_node({x=pos.x, y=pos.y-1, z=pos.z}, { name = plant_to_spawn, param2 = fdir} )
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
 function hades_plantslib.spawn_on_surfaces(biome)
 
 	if biome.spawn_delay*time_scale >= 1 then
@@ -108,66 +169,8 @@ function hades_plantslib.spawn_on_surfaces(biome)
 		interval = biome.interval,
 		chance = biome.spawn_chance,
 		neighbors = biome.neighbors,
-		action = function(pos, node, active_object_count, active_object_count_wider)
-			local p_top = { x = pos.x, y = pos.y + 1, z = pos.z }	
-			local n_top = minetest.get_node(p_top)
-			  if is_node_loaded(p_top) then
-				local n_light = minetest.get_node_light(p_top, nil)
-				if not (biome.avoid_nodes and biome.avoid_radius and minetest.find_node_near(p_top, biome.avoid_radius + math.random(-1.5,2), biome.avoid_nodes))
-				  and n_light >= biome.light_min
-				  and n_light <= biome.light_max
-				  and (not(biome.neighbors and biome.ncount) or table.getn(minetest.find_nodes_in_area({x=pos.x-1, y=pos.y, z=pos.z-1}, {x=pos.x+1, y=pos.y, z=pos.z+1}, biome.neighbors)) > biome.ncount )
-				  and (not(biome.near_nodes and biome.near_nodes_count and biome.near_nodes_size) or table.getn(minetest.find_nodes_in_area({x=pos.x-biome.near_nodes_size, y=pos.y-biome.near_nodes_vertical, z=pos.z-biome.near_nodes_size}, {x=pos.x+biome.near_nodes_size, y=pos.y+biome.near_nodes_vertical, z=pos.z+biome.near_nodes_size}, biome.near_nodes)) >= biome.near_nodes_count)
-				  and (not(biome.air_count and biome.air_size) or table.getn(minetest.find_nodes_in_area({x=p_top.x-biome.air_size, y=p_top.y, z=p_top.z-biome.air_size}, {x=p_top.x+biome.air_size, y=p_top.y, z=p_top.z+biome.air_size}, "air")) >= biome.air_count)
-				  then
-					local walldir = find_adjacent_wall(p_top, biome.verticals_list)
-					if biome.alt_wallnode and walldir then
-						if n_top.name == "air" then
-							dbg("Spawn: "..biome.alt_wallnode.." on top of ("..dump(pos)..") against wall "..walldir)
-							minetest.add_node(p_top, { name = biome.alt_wallnode, param2 = walldir })
-						end
-					else
-						local currentsurface = minetest.get_node(pos).name
-						if currentsurface ~= "hades_core:water_source"
-						  or (currentsurface == "hades_core:water_source" and table.getn(minetest.find_nodes_in_area({x=pos.x, y=pos.y-biome.depth_max-1, z=pos.z}, {x=pos.x, y=pos.y, z=pos.z}, {"hades_core:dirt", "hades_core:dirt_with_grass", "hades_core:ash"})) > 0 )
-						  then
-							local rnd = math.random(1, biome.spawn_plants_count)
-							local plant_to_spawn = biome.spawn_plants[rnd]
-							dbg("Chose entry number "..rnd.." of "..biome.spawn_plants_count)
-							local fdir = biome.facedir
-							if biome.random_facedir then
-								fdir = math.random(biome.random_facedir[1],biome.random_facedir[2])
-								dbg("Gave it a random facedir: "..fdir)
-							end
-							if not biome.spawn_on_side and not biome.spawn_on_bottom and not biome.spawn_replace_node then
-								if n_top.name == "air" then
-									dbg("Spawn: "..plant_to_spawn.." on top of ("..dump(pos).."); facedir="..fdir)
-									minetest.add_node(p_top, { name = plant_to_spawn, param2 = fdir })
-								end
-							elseif biome.spawn_replace_node then
-
-
-								dbg("Spawn: "..plant_to_spawn.." to replace "..minetest.get_node(pos).name.." at ("..dump(pos)..")")
-								minetest.add_node(pos, { name = plant_to_spawn, param2 = fdir })
-
-
-							elseif biome.spawn_on_side then
-								local onside = find_open_side(pos)
-								if onside then 
-									dbg("Spawn: "..plant_to_spawn.." at side of ("..dump(pos).."), facedir "..onside.facedir.."")
-									minetest.add_node(onside.newpos, { name = plant_to_spawn, param2 = onside.facedir })
-								end
-							elseif biome.spawn_on_bottom then
-								if minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name == "air" then
-									dbg("Spawn: "..plant_to_spawn.." on bottom of ("..dump(pos)..")")
-									minetest.add_node({x=pos.x, y=pos.y-1, z=pos.z}, { name = plant_to_spawn, param2 = fdir} )
-								end
-							end
-						end
-					end
-				end
-			end
-		end
+		action = spawn_on_surfaces_abm_action,
 	})
 end
+
 
