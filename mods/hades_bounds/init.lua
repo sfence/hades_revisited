@@ -59,8 +59,7 @@ minetest.register_globalstep(function(dtime)
 		local player = players[p]
 		local name = player:get_player_name()
 		local pos = player:get_pos()
-		local creative = minetest.is_creative_enabled(name)
-		if not creative and out_of_bounds(pos, BOUNDARY_WARNING_DIFF) then
+		if out_of_bounds(pos, BOUNDARY_WARNING_DIFF) then
 			local oob = out_of_bounds(pos, BOUNDARY_DIFF)
 			local text, img
 			if oob then
@@ -114,7 +113,7 @@ minetest.register_globalstep(function(dtime)
 				players_out_of_bounds[name] = nil
 			end
 		end
-		if creative or not out_of_bounds(pos, BOUNDARY_WARNING_DIFF_2) then
+		if not out_of_bounds(pos, BOUNDARY_WARNING_DIFF_2) then
 			if players_out_of_bounds_blinding[name] then
 				player:hud_remove(players_out_of_bounds_blinding[name])
 				players_out_of_bounds_blinding[name] = nil
