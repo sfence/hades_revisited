@@ -1,4 +1,4 @@
-This document describes the Hades Plantlife API.
+This document describes the Hades Plantslib API.
 
 =========
 Functions

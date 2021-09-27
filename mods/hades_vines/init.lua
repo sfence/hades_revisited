@@ -362,7 +362,7 @@ minetest.register_abm({
 })
 
 -- Spawn vines
-plantslib:spawn_on_surfaces({
+hades_plantslib.spawn_on_surfaces({
 	label = "Spawn cave vines",
 	avoid_nodes = {"hades_vines:cave"},
 	avoid_radius = 5,
@@ -373,7 +373,7 @@ plantslib:spawn_on_surfaces({
 	spawn_on_bottom = true,
 })
 
-plantslib:spawn_on_surfaces({
+hades_plantslib.spawn_on_surfaces({
 	label = "Spawn tropical vines",
 	avoid_nodes = {"hades_vines:cave", "hades_vines:jungle"},
 	avoid_radius = 3,
@@ -388,7 +388,7 @@ plantslib:spawn_on_surfaces({
 	near_nodes_count = 3,
 })
 
-plantslib:spawn_on_surfaces({
+hades_plantslib.spawn_on_surfaces({
 	label = "Spawn willow vines",
 	spawn_plants = {"hades_vines:willow"},
 	avoid_radius = 3,

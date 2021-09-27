@@ -243,7 +243,7 @@ for i in ipairs(seaweed_list) do
 end
 
 
-plantslib:spawn_on_surfaces({
+hades_plantslib.spawn_on_surfaces({
 	label = "Spawn waterlilies",
 	spawn_delay = SPAWN_DELAY/2,
 	spawn_plants = {
@@ -266,7 +266,7 @@ plantslib:spawn_on_surfaces({
 })
 
 
-plantslib:spawn_on_surfaces({
+hades_plantslib.spawn_on_surfaces({
 	label = "Spawn seaweed on water",
 	spawn_delay = SPAWN_DELAY*2,
 	spawn_plants = {"hades_waterplants:seaweed"},
@@ -280,7 +280,7 @@ plantslib:spawn_on_surfaces({
 	facedir = 1
 })
 
-plantslib:spawn_on_surfaces({
+hades_plantslib.spawn_on_surfaces({
 	label = "Spawn seaweed on dirt with grass",
 	spawn_delay = SPAWN_DELAY*2,
 	spawn_plants = {"hades_waterplants:seaweed"},

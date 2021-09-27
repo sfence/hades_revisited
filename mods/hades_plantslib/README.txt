@@ -1,6 +1,5 @@
-README file for Hades Plantlife mod
----------------------------------------------------
-
+README file for Hades Plantslib mod
+-----------------------------------
 
 This mod is a simple framework for plant spawning for Hades Revisited.
 It is an utility mod for other mods to use in order to spawn plants like

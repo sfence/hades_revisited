@@ -1,13 +1,13 @@
 -- Hades Plantslib mod
 
-plantslib = {}
+hades_plantslib = {}
 
 -- Set to true to spam console with debugging info (needs verbose debug level)
 local DEBUG = false
 
 local function dbg(msg)
 	if DEBUG then
-		minetest.log("verbose", "[plants_lib] "..msg)
+		minetest.log("verbose", "[hades_plantslib] "..msg)
 	end
 end
 
@@ -93,7 +93,7 @@ end
 
 -- The spawning ABM
 
-function plantslib:spawn_on_surfaces(biome)
+function hades_plantslib.spawn_on_surfaces(biome)
 
 	if biome.spawn_delay*time_scale >= 1 then
 		biome.interval = biome.spawn_delay*time_scale
