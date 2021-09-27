@@ -184,16 +184,16 @@ from their original.
 `pipeworks`
 <https://forum.minetest.net/viewtopic.php?t=2155>
 
-`plantlife` (old destroyed code)
+`hades_plantslib` (massively-trimmed down version of `plantslib`)
 <https://forum.minetest.net/viewtopic.php?id=3898>
 
 `signs_lib`
 <https://forum.minetest.net/viewtopic.php?id=2041>
 
-`hades_trash` (bassed on `trash_can`)
+`hades_trash` (based on `trash_can`)
 <https://forum.minetest.net/viewtopic.php?id=6315>
 
-`vines`
+`hades_vines` (based on `vines`)
 <https://forum.minetest.net/viewtopic.php?id=2344>
 
 
