@@ -362,6 +362,42 @@ function stairs.register_slab_double(subname, recipeitem, groups, images, descri
 
 end
 
+-- Node will be called stairs:step_<subname>
+function stairs.register_step(subname, recipeitem, groups, images, description, sounds)
+	local light_source
+	if recipeitem and minetest.registered_nodes[recipeitem] then
+		local rdef = minetest.registered_nodes[recipeitem]
+		light_source = rdef.light_source
+		if not images then
+			images = get_images(rdef)
+		end
+	end
+	minetest.register_node(":stairs:step_" .. subname, {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		paramtype = "light",
+		paramtype2 = "facedir",
+		light_source = light_source,
+		is_ground_content = false,
+		groups = groups,
+		sounds = sounds,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, 0, 0.5, 0, 0.5},
+		},
+	})
+
+	minetest.register_craft({
+		output = 'stairs:step_' .. subname .. ' 4',
+		recipe = {
+			{recipeitem, recipeitem},
+		},
+	})
+end
+
+
+
 -- Nodes will be called stairs:slab_<subname>, stairs:slab_double_<subname>
 function stairs.register_slab_with_double(subname, recipeitem, groups, images, desc_slab, desc_slab_double, sounds)
 	stairs.register_slab(subname, recipeitem, groups, images, desc_slab, sounds, true)
@@ -390,6 +426,17 @@ function stairs.register_stair_and_slab(subname, recipeitem, groups, images, des
 	if has_double then
 		stairs.register_slab_double(subname, "stairs:slab_"..subname, groups, i_slab, desc_slab_double, sounds)
 	end
+end
+
+function stairs.register_stair_and_slab_and_step(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, desc_step, sounds, desc_slab_double)
+	local i_step
+	if images and images[1] == "!CUSTOM" then
+		i_step = images[6]
+	else
+		i_step = images
+	end
+	stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds, desc_slab_double)
+	stairs.register_step(subname, recipeitem, groups, i_step, desc_step, sounds)
 end
 
 dofile(minetest.get_modpath("stairs").."/register.lua")
