@@ -40,16 +40,40 @@ local function rotate_and_place(itemstack, placer, pointed_thing, rotate)
 		if p0.y - 1 == p1.y or (fpos > 0 and fpos < 0.5)
 				or (fpos < -0.5 and fpos > -0.999999999) then
 			param2 = param2 + 20
-			if rotate then
+			if rotate == 1 then
 				if param2 == 21 then
 					param2 = 23
 				elseif param2 == 23 then
 					param2 = 21
 				end
+			elseif rotate == 2 then
+				if param2 == 20 then
+					param2 = 21
+				elseif param2 == 21 then
+					param2 = 20
+				elseif param2 == 22 then
+					param2 = 23
+				elseif param2 == 23 then
+					param2 = 22
+				end
 			end
 		end
 	end
 	return minetest.item_place(itemstack, placer, pointed_thing, param2)
+end
+
+local on_place_rotate_and_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	return rotate_and_place(itemstack, placer, pointed_thing, 1)
+end
+
+local on_place_flip = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	return rotate_and_place(itemstack, placer, pointed_thing, 2)
 end
 
 -- Node will be called stairs:stair_<subname>
@@ -83,13 +107,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 				{-0.5, 0, 0, 0.5, 0.5, 0.5},
 			},
 		},
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				return itemstack
-			end
-
-			return rotate_and_place(itemstack, placer, pointed_thing, true)
-		end,
+		on_place = on_place_rotate_and_place,
 		_hades_shaper_next = nshape,
 	})
 
@@ -144,13 +162,7 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 			   {0, -0.5, 0, 0.5, 0, 0.5},
 		    },
 		},
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				return itemstack
-			end
-
-			return rotate_and_place(itemstack, placer, pointed_thing, true)
-		end,
+		on_place = on_place_rotate_and_place,
 		_hades_shaper_next = nshape,
 	})
 
@@ -195,13 +207,7 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 			  {0, -0.5, -0.5, 0.5, 0, 0},
 		    },
 		},
-		on_place = function(itemstack, placer, pointed_thing)
-			if pointed_thing.type ~= "node" then
-				return itemstack
-			end
-
-			return rotate_and_place(itemstack, placer, pointed_thing, true)
-		end,
+		on_place = on_place_rotate_and_place,
 		_hades_shaper_next = nshape,
 	})
 
@@ -324,7 +330,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 				param2 = 20
 			end
 
-			return rotate_and_place(itemstack, placer, pointed_thing, false)
+			return rotate_and_place(itemstack, placer, pointed_thing, 0)
 		end,
 	})
 
@@ -405,6 +411,7 @@ function stairs.register_step_in(subname, recipeitem, groups, images, descriptio
 				{-0.5, -0.5, -0.5, 0, 0, 0},
 			}
 		},
+		on_place = on_place_flip,
 		_hades_shaper_next = nshape,
 	})
 
@@ -453,6 +460,7 @@ function stairs.register_step_out(subname, recipeitem, groups, images, descripti
 			type = "fixed",
 			fixed = {-0.5, -0.5, 0, 0, 0, 0.5},
 		},
+		on_place = on_place_flip,
 		_hades_shaper_next = nshape,
 	})
 
@@ -494,6 +502,7 @@ function stairs.register_step(subname, recipeitem, groups, images, description, 
 			type = "fixed",
 			fixed = {-0.5, -0.5, 0, 0.5, 0, 0.5},
 		},
+		on_place = on_place_rotate_and_place,
 		_hades_shaper_next = nshape,
 	})
 
