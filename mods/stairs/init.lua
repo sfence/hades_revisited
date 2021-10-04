@@ -389,6 +389,7 @@ function stairs.register_step_in(subname, recipeitem, groups, images, descriptio
 				{-0.5, -0.5, -0.5, 0, 0, 0},
 			}
 		},
+		_hades_shaper_next = "stairs:step_out_"..subname,
 	})
 
 	minetest.register_craft({
@@ -424,6 +425,7 @@ function stairs.register_step_out(subname, recipeitem, groups, images, descripti
 			type = "fixed",
 			fixed = {-0.5, -0.5, 0, 0, 0, 0.5},
 		},
+		_hades_shaper_next = "stairs:step_"..subname,
 	})
 
 	minetest.register_craft({
@@ -458,6 +460,7 @@ function stairs.register_step(subname, recipeitem, groups, images, description, 
 			type = "fixed",
 			fixed = {-0.5, -0.5, 0, 0.5, 0, 0.5},
 		},
+		_hades_shaper_next = "stairs:step_in_"..subname,
 	})
 
 	minetest.register_craft({
