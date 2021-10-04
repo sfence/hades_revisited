@@ -94,7 +94,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_' .. subname .. ' 8',
+		output = 'stairs:stair_' .. subname .. ' 6',
 		recipe = {
 			{recipeitem, "", ""},
 			{recipeitem, recipeitem, ""},
@@ -103,7 +103,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	})
 	-- Flipped recipe
 	minetest.register_craft({
-		output = 'stairs:stair_' .. subname .. ' 8',
+		output = 'stairs:stair_' .. subname .. ' 6',
 		recipe = {
 			{"", "", recipeitem},
 			{"", recipeitem, recipeitem},
@@ -409,12 +409,20 @@ function stairs.register_step_in(subname, recipeitem, groups, images, descriptio
 	})
 
 	minetest.register_craft({
-		output = 'stairs:step_in_' .. subname .. ' 12',
+		output = 'stairs:step_in_' .. subname .. ' 6',
+		recipe = {
+			{recipeitem, recipeitem},
+			{'', recipeitem},
+		},
+	})
+	minetest.register_craft({
+		output = 'stairs:step_in_' .. subname .. ' 6',
 		recipe = {
 			{recipeitem, recipeitem},
 			{recipeitem, ''},
 		},
 	})
+
 end
 
 -- Node will be called stairs:step_out_<subname>
@@ -449,8 +457,10 @@ function stairs.register_step_out(subname, recipeitem, groups, images, descripti
 	})
 
 	minetest.register_craft({
-		output = 'stairs:step_out_' .. subname .. ' 8',
+		output = 'stairs:step_out_' .. subname .. ' 4',
 		recipe = {
+			{recipeitem},
+			{''},
 			{recipeitem},
 		},
 	})
@@ -488,7 +498,7 @@ function stairs.register_step(subname, recipeitem, groups, images, description, 
 	})
 
 	minetest.register_craft({
-		output = 'stairs:step_' .. subname .. ' 2',
+		output = 'stairs:step_' .. subname .. ' 4',
 		recipe = {
 			{recipeitem, recipeitem},
 		},
