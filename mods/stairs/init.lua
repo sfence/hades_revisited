@@ -362,6 +362,78 @@ function stairs.register_slab_double(subname, recipeitem, groups, images, descri
 
 end
 
+-- Node will be called stairs:step_in<subname>
+function stairs.register_step_in(subname, recipeitem, groups, images, description, sounds)
+	local light_source
+	if recipeitem and minetest.registered_nodes[recipeitem] then
+		local rdef = minetest.registered_nodes[recipeitem]
+		light_source = rdef.light_source
+		if not images then
+			images = get_images(rdef)
+		end
+	end
+	minetest.register_node(":stairs:step_in_" .. subname, {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		paramtype = "light",
+		paramtype2 = "facedir",
+		light_source = light_source,
+		is_ground_content = false,
+		groups = groups,
+		sounds = sounds,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, 0, 0.5, 0, 0.5},
+				{-0.5, -0.5, -0.5, 0, 0, 0},
+			}
+		},
+	})
+
+	minetest.register_craft({
+		output = 'stairs:step_in_' .. subname .. ' 12',
+		recipe = {
+			{recipeitem, recipeitem},
+			{recipeitem, ''},
+		},
+	})
+end
+
+-- Node will be called stairs:step_out_<subname>
+function stairs.register_step_out(subname, recipeitem, groups, images, description, sounds)
+	local light_source
+	if recipeitem and minetest.registered_nodes[recipeitem] then
+		local rdef = minetest.registered_nodes[recipeitem]
+		light_source = rdef.light_source
+		if not images then
+			images = get_images(rdef)
+		end
+	end
+	minetest.register_node(":stairs:step_out_" .. subname, {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		paramtype = "light",
+		paramtype2 = "facedir",
+		light_source = light_source,
+		is_ground_content = false,
+		groups = groups,
+		sounds = sounds,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, 0, 0, 0, 0.5},
+		},
+	})
+
+	minetest.register_craft({
+		output = 'stairs:step_out_' .. subname .. ' 8',
+		recipe = {
+			{recipeitem},
+		},
+	})
+end
+
 -- Node will be called stairs:step_<subname>
 function stairs.register_step(subname, recipeitem, groups, images, description, sounds)
 	local light_source
@@ -389,12 +461,14 @@ function stairs.register_step(subname, recipeitem, groups, images, description, 
 	})
 
 	minetest.register_craft({
-		output = 'stairs:step_' .. subname .. ' 4',
+		output = 'stairs:step_' .. subname .. ' 2',
 		recipe = {
 			{recipeitem, recipeitem},
 		},
 	})
 end
+
+
 
 
 
@@ -428,15 +502,22 @@ function stairs.register_stair_and_slab(subname, recipeitem, groups, images, des
 	end
 end
 
-function stairs.register_stair_and_slab_and_step(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, desc_step, sounds, desc_slab_double)
-	local i_step
+function stairs.register_stair_and_slab_and_step(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, desc_step, desc_step_out, desc_step_in, sounds, desc_slab_double)
+	local i_step, i_step_in, i_step_out
 	if images and images[1] == "!CUSTOM" then
 		i_step = images[6]
+		i_step_in = images[7]
+		i_step_out = images[8]
 	else
 		i_step = images
+		i_step_in = images
+		i_step_out = images
 	end
 	stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds, desc_slab_double)
 	stairs.register_step(subname, recipeitem, groups, i_step, desc_step, sounds)
+	stairs.register_step_out(subname, recipeitem, groups, i_step_out, desc_step_out, sounds)
+	stairs.register_step_in(subname, recipeitem, groups, i_step_in, desc_step_in, sounds)
+
 end
 
 dofile(minetest.get_modpath("stairs").."/register.lua")
