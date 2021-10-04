@@ -1,11 +1,12 @@
 local S = minetest.get_translator("stairs")
 
-local custom_textures = function(block, stair_l, stair_r, outstair, slab)
+local custom_textures = function(block, stair_l, stair_r, outstair, slab, step)
 	return {"!CUSTOM",
 		{slab, block, stair_l, stair_r, block, slab},
 		{stair_l.."^[transformR180", block, stair_l, block, block, stair_r},
 		{stair_l, block, outstair, stair_r, stair_l, outstair},
 		{block, block, slab},
+		{slab, slab, step, step, slab},
 	}
 end
 
@@ -307,24 +308,24 @@ stairs.register_stair_and_slab_and_step("colwood_yellow", "hades_trees:colwood_y
 
 		--
 
--- TODO: Add metal steps
 local metals = {
-	{"steel", S("Steel Stair"), S("Outer Steel Stair"), S("Inner Steel Stair"), S("Steel Slab"), S("Double Steel Slab")},
-	{"copper", S("Copper Stair"), S("Outer Copper Stair"), S("Inner Copper Stair"), S("Copper Slab"), S("Double Copper Slab")},
-	{"bronze", S("Bronze Stair"), S("Outer Bronze Stair"), S("Inner Bronze Stair"), S("Bronze Slab"), S("Double Bronze Slab")},
-	{"tin", S("Tin Stair"), S("Outer Tin Stair"), S("Inner Tin Stair"), S("Tin Slab"), S("Double Tin Slab")},
-	{"gold", S("Gold Stair"), S("Outer Gold Stair"), S("Inner Gold Stair"), S("Gold Slab"), S("Double Gold Slab")},
+	{"steel", S("Steel Stair"), S("Outer Steel Stair"), S("Inner Steel Stair"), S("Steel Slab"), S("Double Steel Slab"), S("Steel Step")},
+	{"copper", S("Copper Stair"), S("Outer Copper Stair"), S("Inner Copper Stair"), S("Copper Slab"), S("Double Copper Slab"), S("Copper Step")},
+	{"bronze", S("Bronze Stair"), S("Outer Bronze Stair"), S("Inner Bronze Stair"), S("Bronze Slab"), S("Double Bronze Slab"), S("Bronze Step")},
+	{"tin", S("Tin Stair"), S("Outer Tin Stair"), S("Inner Tin Stair"), S("Tin Slab"), S("Double Tin Slab"), S("Tin Step")},
+	{"gold", S("Gold Stair"), S("Outer Gold Stair"), S("Inner Gold Stair"), S("Gold Slab"), S("Double Gold Slab"), S("Gold Step")},
 }
 for m=1, #metals do
 	local name = metals[m][1].."block"
 	local tex = metals[m][1].."_block"
-	stairs.register_stair_and_slab(name, "hades_core:"..name,
+	stairs.register_stair_and_slab_and_step(name, "hades_core:"..name,
 		{cracky=1,level=2},
-		custom_textures("default_"..tex..".png", "stairs_"..tex.."_stair_l.png", "stairs_"..tex.."_stair_r.png", "stairs_"..tex.."_stair_out.png", "stairs_"..tex.."_slab.png"),
+		custom_textures("default_"..tex..".png", "stairs_"..tex.."_stair_l.png", "stairs_"..tex.."_stair_r.png", "stairs_"..tex.."_stair_out.png", "stairs_"..tex.."_slab.png", "stairs_"..tex.."_step.png"),
 		metals[m][2],
 		metals[m][3],
 		metals[m][4],
 		metals[m][5],
+		metals[m][7],
 		hades_sounds.node_sound_metal_defaults(),
 		metals[m][6]
 	)
