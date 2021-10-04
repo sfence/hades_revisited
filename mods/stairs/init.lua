@@ -538,6 +538,9 @@ function stairs.register_stair_and_slab(subname, recipeitem, groups, images, des
 		i_stair_out = images
 		i_slab = images
 	end
+	if not sounds and recipeitem then
+		sounds = minetest.registered_items[recipeitem].sounds
+	end
 	local has_double = desc_slab_double ~= nil
 	stairs.register_stair(subname, recipeitem, groups, i_stair, desc_stair, sounds, true)
 	stairs.register_stair_out(subname, recipeitem, groups, i_stair_out, desc_stair_out, sounds, true)
@@ -558,6 +561,9 @@ function stairs.register_stair_and_slab_and_step(subname, recipeitem, groups, im
 		i_step = images
 		i_step_in = images
 		i_step_out = images
+	end
+	if not sounds and recipeitem then
+		sounds = minetest.registered_items[recipeitem].sounds
 	end
 	stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds, desc_slab_double)
 	stairs.register_step(subname, recipeitem, groups, i_step, desc_step, sounds, true)
