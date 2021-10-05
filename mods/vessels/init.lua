@@ -59,15 +59,6 @@ minetest.register_craft( {
 	},
 })
 
-minetest.register_craft( {
-	type = "shapeless",
-	output = "vessels:glass_fragments",
-	recipe = {
-		"vessels:drinking_glass",
-		"vessels:drinking_glass",
-	},
-})
-
 minetest.register_craft({
 	output = "vessels:glass_fragments 6",
 	recipe = {{"doors:door_glass"}},
