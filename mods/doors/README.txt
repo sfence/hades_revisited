@@ -49,6 +49,12 @@ Obsidian door textures by red-001 based on textures by Pilzadam and BlockMen (CC
 Glass door textures by red-001 based on textures by celeron55 (CC BY-SA 3.0):
   door_glass.png
 
+Dungeon door textures by sorcerykid (CC BY-SA 4.0):
+  doors_door_dungeon1.png
+  doors_door_dungeon2.png
+  doors_item_dungeon1.png
+  doors_item_dungeon2.png
+
 All other textures (created by PilzAdam) (CC BY-SA 3.0):
 
 Door textures were converted to the new texture map by sofar, paramat and

@@ -163,6 +163,47 @@ for c=1, #colors do
 	})
 end
 
+doors.register_door("doors:door_dungeon1", {
+	tiles = {{ name = "doors_door_dungeon1.png", backface_culling = true}},
+	description = S("Dungeon Interior Door"),
+	inventory_image = "doors_item_dungeon1.png",
+	only_placer_can_open = true,
+	groups = { cracky = 2, door = 1 },
+	sounds = hades_sounds.node_sound_metal_defaults(),
+	sound_open = "doors_steel_door_open",
+	sound_close = "doors_steel_door_close",
+})
+
+minetest.register_craft({
+	output = "doors:door_dungeon1",
+	recipe = {
+		{ "hades_core:steel_ingot", "hades_core:stick", "hades_core:steel_ingot" },
+		{ "hades_core:stick", "hades_core:stick", "hades_core:stick" },
+		{ "hades_core:steel_ingot", "hades_core:stick", "hades_core:steel_ingot" },
+	},
+})
+
+doors.register_door("doors:door_dungeon2", {
+	tiles = {{ name = "doors_door_dungeon2.png", backface_culling = true}},
+	description = S("Dungeon Exterior Door"),
+	inventory_image = "doors_item_dungeon2.png",
+	only_placer_can_open = true,
+	groups = { cracky = 2, door = 1 },
+	sounds = hades_sounds.node_sound_metal_defaults(),
+	sound_open = "doors_steel_door_open",
+	sound_close = "doors_steel_door_close",
+	sunlight = true,
+})
+
+minetest.register_craft({
+	output = "doors:door_dungeon2",
+	recipe = {
+		{ "hades_core:stick", "hades_core:stick", "hades_core:stick" },
+		{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" },
+		{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" },
+	},
+})
+
 -- stone
 doors.register_door("doors:door_stone", {
 	description = S("Stone Door"),
