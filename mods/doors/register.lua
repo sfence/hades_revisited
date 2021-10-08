@@ -125,7 +125,7 @@ minetest.register_craft({
 
 local colors = {
 	{ "black", S("Black Steel Door"), "dye:black" },
-	-- TODO: { "grey", S("Grey Steel Door") },
+	{ "grey", S("Grey Steel Door"), "dye_grey" },
 	{ "darkgrey", S("Dark Grey Steel Door"), "dye:dark_grey" },
 	{ "white", S("White Steel Door"), "dye:white" },
 	{ "magenta", S("Magenta Steel Door"), "dye:magenta" },
@@ -204,6 +204,27 @@ minetest.register_craft({
 	},
 })
 
+doors.register_door("doors:door_rusty", {
+	tiles = {{ name = "doors_door_rusty.png", backface_culling = true}},
+	description = S("Rusty Door"),
+	inventory_image = "doors_item_rusty.png",
+	only_placer_can_open = true,
+	groups = { cracky = 2, door = 1 },
+	sounds = hades_sounds.node_sound_metal_defaults(),
+	sound_open = "doors_steel_door_open",
+	sound_close = "doors_steel_door_close",
+})
+
+minetest.register_craft({
+	output = "doors:door_rusty",
+	recipe = {
+		{ "hades_core:iron_lump", "hades_core:iron_lump" },
+		{ "hades_core:iron_lump", "hades_core:iron_lump" },
+		{ "hades_core:iron_lump", "hades_core:iron_lump" },
+	},
+})
+
+
 -- stone
 doors.register_door("doors:door_stone", {
 	description = S("Stone Door"),
@@ -225,6 +246,119 @@ minetest.register_craft({
 		{"hades_core:stone", "hades_core:stone"}
 	}
 })
+
+-- chondrite
+doors.register_door("doors:door_chondrite", {
+	description = S("Chondrite Door"),
+	inventory_image = "doors_item_chondrite.png",
+	groups = {cracky=3,door=1},
+	tiles = {{name="doors_door_chondrite.png", backface_culling=true}},
+	only_placer_can_open = true,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	sound_open = "mcl_fences_nether_brick_fence_gate_open",
+	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sunlight = false,
+})
+
+minetest.register_craft({
+	output = "doors:door_chondrite",
+	recipe = {
+		{"hades_core:chondrite", "hades_core:chondrite"},
+		{"hades_core:chondrite", "hades_core:chondrite"},
+		{"hades_core:chondrite", "hades_core:chondrite"},
+	}
+})
+
+-- essexite
+doors.register_door("doors:door_essexite", {
+	description = S("Essexite Door"),
+	inventory_image = "doors_item_essexite.png",
+	groups = {cracky=3,door=1},
+	tiles = {{name="doors_door_essexite.png", backface_culling=true}},
+	only_placer_can_open = true,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	sound_open = "mcl_fences_nether_brick_fence_gate_open",
+	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sunlight = false,
+})
+
+minetest.register_craft({
+	output = "doors:door_essexite",
+	recipe = {
+		{"hades_core:essexite", "hades_core:essexite"},
+		{"hades_core:essexite", "hades_core:essexite"},
+		{"hades_core:essexite", "hades_core:essexite"},
+	}
+})
+
+-- marble
+doors.register_door("doors:door_marble", {
+	description = S("Marble Door"),
+	inventory_image = "doors_item_marble.png",
+	groups = {cracky=3,door=1},
+	tiles = {{name="doors_door_marble.png", backface_culling=true}},
+	only_placer_can_open = true,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	sound_open = "mcl_fences_nether_brick_fence_gate_open",
+	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sunlight = false,
+})
+
+minetest.register_craft({
+	output = "doors:door_marble",
+	recipe = {
+		{"hades_core:marble", "hades_core:marble"},
+		{"hades_core:marble", "hades_core:marble"},
+		{"hades_core:marble", "hades_core:marble"},
+	}
+})
+
+-- sandstone
+doors.register_door("doors:door_sandstone", {
+	description = S("Fine Sandstone Door"),
+	inventory_image = "doors_item_sandstone.png",
+	groups = {cracky=3,door=1},
+	tiles = {{name="doors_door_sandstone.png", backface_culling=true}},
+	only_placer_can_open = true,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	sound_open = "mcl_fences_nether_brick_fence_gate_open",
+	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sunlight = false,
+})
+
+minetest.register_craft({
+	output = "doors:door_sandstone",
+	recipe = {
+		{"hades_core:sandstone", "hades_core:sandstone"},
+		{"hades_core:sandstone", "hades_core:sandstone"},
+		{"hades_core:sandstone", "hades_core:sandstone"}
+	}
+})
+
+-- volcanic sandstone
+doors.register_door("doors:door_sandstone_volcanic", {
+	description = S("Volcanic Sandstone Door"),
+	inventory_image = "doors_item_sandstone_volcanic.png",
+	groups = {cracky=3,door=1},
+	tiles = {{name="doors_door_sandstone_volcanic.png", backface_culling=true}},
+	only_placer_can_open = true,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	sound_open = "mcl_fences_nether_brick_fence_gate_open",
+	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sunlight = false,
+})
+
+minetest.register_craft({
+	output = "doors:door_sandstone_volcanic",
+	recipe = {
+		{"hades_core:sandstone_volcanic", "hades_core:sandstone_volcanic"},
+		{"hades_core:sandstone_volcanic", "hades_core:sandstone_volcanic"},
+		{"hades_core:sandstone_volcanic", "hades_core:sandstone_volcanic"},
+	}
+})
+
+
+
 --glass
 doors.register_door("doors:door_glass", {
 	description = S("Glass Door"),
