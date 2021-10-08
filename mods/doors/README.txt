@@ -19,35 +19,20 @@ Various Minetest developers and contributors (MIT)
 
 Authors of media (textures)
 ---------------------------
-Following textures created by Fernando Zapata (CC BY-SA 3.0):
-  door_wood.png
-  door_wood_a.png
-  door_wood_a_r.png
-  door_wood_b.png
-  door_wood_b_r.png
-
 Following textures created by BlockMen (CC BY-SA 3.0):
-  door_trapdoor.png
-  door_obsidian_glass_side.png
-
-Following textures created by celeron55 (CC BY-SA 3.0):
-  door_glass_a.png
-  door_glass_b.png
+  doors_trapdoor.png
 
 Following textures created by PenguinDad (CC BY-SA 4.0):
-  door_glass.png
-  door_obsidian_glass.png
+  doors_glass.png
+  doors_obsidian_glass.png
 
 Following textures created by sofar (CC-BY-SA-3.0):
   doors_trapdoor_steel.png
   doors_trapdoor_steel_side.png
-  door_trapdoor_side.png
+  doors_trapdoor_side.png
 
 Obsidian door textures by red-001 based on textures by Pilzadam and BlockMen (CC BY-SA 3.0):
-  door_obsidian_glass.png
-
-Glass door textures by red-001 based on textures by celeron55 (CC BY-SA 3.0):
-  door_glass.png
+  doors_obsidian_glass.png
 
 Dungeon door textures by sorcerykid (CC BY-SA 4.0):
   doors_door_dungeon1.png
@@ -55,11 +40,7 @@ Dungeon door textures by sorcerykid (CC BY-SA 4.0):
   doors_item_dungeon1.png
   doors_item_dungeon2.png
 
-All other textures (created by PilzAdam) (CC BY-SA 3.0):
-
-Door textures were converted to the new texture map by sofar, paramat and
-red-001, under the same license as the originals.
-
+All other textures (created by Glünggi, Wuzzy or PilzAdam) (CC BY-SA 3.0):
 
 Authors of media (models)
 -------------------------
