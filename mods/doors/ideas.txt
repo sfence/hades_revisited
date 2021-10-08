@@ -1,0 +1,1 @@
+rename api.lua to init.lua, then include door registrations like mobs lite does
