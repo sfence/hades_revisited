@@ -11,7 +11,9 @@ local S = minetest.get_translator("doors")
 
 doors = { }
 
-local config = minetest.load_config( )
+local config = {}
+config.wrench_usage_limit = 200
+config.autoclose_timeout = 2.5
 
 doors.LOCKING_MODE_UNDEFINED = 0
 doors.LOCKING_MODE_UNLOCKED = 1
