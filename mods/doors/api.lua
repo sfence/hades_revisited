@@ -7,6 +7,8 @@
 -- ./games/minetest_game/mods/doors/api.lua
 --------------------------------------------------------
 
+local S = minetest.get_translator("doors")
+
 doors = { }
 
 local config = minetest.load_config( )
@@ -23,7 +25,7 @@ doors.ADJUST_LOCKING = 1
 doors.ADJUST_CLOSING = 2
 
 minetest.register_node( "doors:hidden", {
-	description = "Hidden Door Segment",
+	description = S("Hidden Door Segment"),
 	drawtype = "nodebox",  -- cannot use air-like, since falling nodes would be stuck
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -39,6 +41,7 @@ minetest.register_node( "doors:hidden", {
 	on_blast = function( ) end,
 
 	tiles = { "blank.png" },
+	use_texture_alpha = "clip",
 	-- 1px transparent block inside door hinge near node top.
 	nodebox = {
 		type = "fixed",
@@ -584,7 +587,7 @@ local function register_door_craftitem( name, def )
 				meta:set_string( "closing_mode", doors.CLOSING_MODE_MANUAL )
 			end
 
-			if not minetest.setting_getbool( "creative_mode" ) then
+			if not minetest.is_creative_enabled(player:get_player_name()) then
 				itemstack:take_item( )
 			end
 
@@ -806,7 +809,7 @@ function doors.register_trapdoor( name, def )
 				meta:set_string( "closing_mode", doors.CLOSING_MODE_MANUAL )
 			end
 
-			return minetest.setting_getbool( "creative_mode" )
+			return minetest.is_creative_enabled(player_name)
 		end
 		def.on_blast = function ( ) end
 	else
@@ -821,7 +824,7 @@ function doors.register_trapdoor( name, def )
 				meta:set_string( "closing_mode", doors.CLOSING_MODE_MANUAL )
 			end
 
-			return minetest.setting_getbool( "creative_mode" )
+			return minetest.is_creative_enabled(player_name)
 		end
 		def.on_blast = function ( pos, intensity )
 			minetest.remove_node( pos )
@@ -933,7 +936,7 @@ local function handle_wrench( itemstack, player, pointed_thing, mode, uses )
 	if ndef.on_adjust then
 		local has_wear = ndef.on_adjust( vector.new( pos ), { name = node.name, param1 = node.param1, param2 = node.param2 }, player, mode )
 
-		if not minetest.setting_getbool( "creative_mode" ) and has_wear then
+		if not minetest.is_creative_enabled( player_name ) and has_wear then
 			itemstack:add_wear( 65535 / config.wrench_usage_limit - 1 )
 		end
 	end
@@ -942,7 +945,9 @@ end
 --------------------
 
 minetest.register_tool( "doors:wrench", {
-	description = "Wrench (left-click adjusts door locking, right-click adjusts door closing)",
+	description = S("Wrench"),
+	_tt_help = S("punching adjusts door locking").."\n"..
+		S("placing adjusts door closing"),
 	inventory_image = "doors_wrench.png",
 	on_use = function( itemstack, player, pointed_thing )
 		handle_wrench( itemstack, player, pointed_thing, doors.ADJUST_LOCKING )
@@ -962,7 +967,7 @@ minetest.register_craft( {
 } )
 
 minetest.register_craftitem( ":hades_core:steel_rod", {
-	description = "Steel Rod",
+	description = S("Steel Rod"),
 	inventory_image = "default_steel_rod.png",
 } )
 

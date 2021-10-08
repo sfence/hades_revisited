@@ -18,6 +18,7 @@ dofile( minetest.get_modpath( "doors" ) .. "/api.lua" )
 
 doors.register_door( "doors:door_wood", {
 	tiles = {{ name = "doors_door_wood.png", backface_culling = true }},
+	use_texture_alpha = "clip",
 	description = "Wooden Door",
 	inventory_image = "doors_item_wood.png",
 	groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
@@ -46,6 +47,7 @@ doors.register_door( "doors:door_woodpanel1", {
 
 doors.register_door( "doors:door_woodglass1", {
 	tiles = {{ name = "doors_door_woodglass1.png", backface_culling = true }},
+	use_texture_alpha = "clip",
 	description = "Wooden Single-Lite Door",
 	inventory_image = "doors_item_woodglass1.png",
 	groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
@@ -60,6 +62,7 @@ doors.register_door( "doors:door_woodglass1", {
 
 doors.register_door( "doors:door_woodglass2", {
 	tiles = {{ name = "doors_door_woodglass2.png", backface_culling = true }},
+	use_texture_alpha = "clip",
 	description = "Wooden Double-Lite Door",
 	inventory_image = "doors_item_woodglass2.png",
 	groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
@@ -88,6 +91,7 @@ doors.register_door( "doors:door_japanese", {
 
 doors.register_door( "doors:door_french", {
 	tiles = {{ name = "doors_door_french.png", backface_culling = true }},
+	use_texture_alpha = "clip",
 	description = "French Door",
 	inventory_image = "doors_item_french.png",
 	groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
@@ -116,6 +120,7 @@ doors.register_door( "doors:door_cottage1", {
 
 doors.register_door( "doors:door_cottage2", {
 	tiles = {{ name = "doors_door_cottage2.png", backface_culling = true }},
+	use_texture_alpha = "clip",
 	description = "Cottage Exterior Door",
 	inventory_image = "doors_item_cottage2.png",
 	groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
@@ -214,6 +219,7 @@ doors.register_door( "doors:door_mansion2", {
 
 doors.register_door( "doors:door_steel", {
 	tiles = {{ name = "doors_door_steel.png", backface_culling = true}},
+	use_texture_alpha = "clip",
 	description = "Steel Door",
 	inventory_image = "doors_item_steel.png",
 	protected = true,
@@ -249,6 +255,7 @@ doors.register_door( "doors:door_dungeon1", {
 
 doors.register_door( "doors:door_dungeon2", {
 	tiles = {{ name = "doors_door_dungeon2.png", backface_culling = true}},
+	use_texture_alpha = "clip",
 	description = "Dungeon Exterior Door",
 	inventory_image = "doors_item_dungeon2.png",
 	protected = true,
@@ -284,6 +291,7 @@ doors.register_door( "doors:door_steelpanel1", {
 
 doors.register_door( "doors:door_steelglass1", {
 	tiles = {{ name = "doors_door_steelglass1.png", backface_culling = true}},
+	use_texture_alpha = "clip",
 	description = "Steel Single-Lite Door",
 	inventory_image = "doors_item_steelglass1.png",
 	protected = true,
@@ -302,6 +310,7 @@ doors.register_door( "doors:door_steelglass1", {
 
 doors.register_door( "doors:door_steelglass2", {
 	tiles = {{ name = "doors_door_steelglass2.png", backface_culling = true }},
+	use_texture_alpha = "clip",
 	description = "Steel Double-Lite Door",
 	inventory_image = "doors_item_steelglass2.png",
 	protected = true,
@@ -320,6 +329,7 @@ doors.register_door( "doors:door_steelglass2", {
 
 doors.register_door( "doors:door_glass", {
 	tiles = { "doors_door_glass.png" },
+	use_texture_alpha = "clip",
 	description = "Glass Door",
 	inventory_image = "doors_item_glass.png",
 	groups = { cracky = 3, oddly_breakable_by_hand = 3 },
@@ -338,6 +348,7 @@ doors.register_door( "doors:door_glass", {
 
 doors.register_door( "doors:door_obsidian_glass", {
 	tiles = { "doors_door_obsidian_glass.png" },
+	use_texture_alpha = "clip",
 	description = "Obsidian Glass Door",
 	inventory_image = "doors_item_obsidian_glass.png",
 	groups = { cracky = 3 },
@@ -364,6 +375,7 @@ doors.register_trapdoor( "doors:trapdoor", {
 	wield_image = "doors_trapdoor.png",
 	tile_front = "doors_trapdoor.png",
 	tile_side = "doors_trapdoor_side.png",
+	use_texture_alpha = "clip",
 
 	groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, door = 1 },
 
@@ -376,6 +388,7 @@ doors.register_trapdoor( "doors:trapdoor_steel", {
 	wield_image = "doors_trapdoor_steel.png",
 	tile_front = "doors_trapdoor_steel.png",
 	tile_side = "doors_trapdoor_steel_side.png",
+	use_texture_alpha = "clip",
 	protected = true,
 
 	sounds = hades_sounds.node_sound_metal_defaults( ),
