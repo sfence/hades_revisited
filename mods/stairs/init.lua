@@ -81,7 +81,9 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
-		light_source = math.max(1, rdef.light_source - 3)
+		if rdef.light_source and rdef.light_source > 0 then
+			light_source = math.max(1, rdef.light_source - 3)
+		end
 		if not images then
 			images = get_images(rdef)
 		end
@@ -135,7 +137,9 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
-		light_source = math.max(1, rdef.light_source - 3)
+		if rdef.light_source and rdef.light_source > 0 then
+			light_source = math.max(1, rdef.light_source - 3)
+		end
 		if not images then
 			images = get_images(rdef)
 		end
@@ -180,7 +184,9 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
-		light_source = math.max(1, rdef.light_source - 3)
+		if rdef.light_source and rdef.light_source > 0 then
+			light_source = math.max(1, rdef.light_source - 3)
+		end
 		if not images then
 			images = get_images(rdef)
 		end
@@ -226,7 +232,9 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
-		light_source = math.max(1, rdef.light_source - 5)
+		if rdef.light_source and rdef.light_source > 0 then
+			light_source = math.max(1, rdef.light_source - 5)
+		end
 		if not images then
 			images = get_images(rdef)
 		end
@@ -385,7 +393,9 @@ function stairs.register_step_in(subname, recipeitem, groups, images, descriptio
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
-		light_source = math.max(1, rdef.light_source - 7)
+		if rdef.light_source and rdef.light_source > 0 then
+			light_source = math.max(1, rdef.light_source - 7)
+		end
 		if not images then
 			images = get_images(rdef)
 		end
@@ -437,7 +447,9 @@ function stairs.register_step_out(subname, recipeitem, groups, images, descripti
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
-		light_source = math.max(1, rdef.light_source - 7)
+		if rdef.light_source and rdef.light_source > 0 then
+			light_source = math.max(1, rdef.light_source - 7)
+		end
 		if not images then
 			images = get_images(rdef)
 		end
@@ -479,7 +491,9 @@ function stairs.register_step(subname, recipeitem, groups, images, description, 
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
-		light_source = math.max(1, rdef.light_source - 7)
+		if rdef.light_source and rdef.light_source > 0 then
+			light_source = math.max(1, rdef.light_source - 7)
+		end
 		if not images then
 			images = get_images(rdef)
 		end
