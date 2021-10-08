@@ -197,7 +197,7 @@ local is_trapdoor_locked = is_door_locked
 
 --[[
 local function update_door_hardware( pos, state, param2 )
-	local node = minetest.get_node_above( pos )
+	local node = doors.get_node_above( pos )
 
 	if node.name ~= "doors:hidden" then
 		local ndef = minetest.registered_nodes[ node.name ]
@@ -272,7 +272,7 @@ local function toggle_door( pos, node, player )
 	minetest.swap_node( pos, { name = new_name, param2 = new_param2 } )
 	meta:set_int( "state", state )
 
---	update_door_hardware( vector.offset_y( pos ), state, param2 )
+--	update_door_hardware( doors.offset_y( pos ), state, param2 )
 end
 
 ---------------------------------
@@ -536,7 +536,7 @@ local function register_door_craftitem( name, def )
 				end
 			end
 
-			local top_pos = vector.offset_y( pos )
+			local top_pos = doors.offset_y( pos )
 			local top_node = minetest.get_node_or_nil( top_pos )
 			local top_ndef = top_node and minetest.registered_nodes[ top_node.name ]
 
@@ -672,8 +672,8 @@ function doors.register_door( name, def )
 		return itemstack
 	end
 	def.on_destruct = function( pos )
-		minetest.remove_node( vector.offset_y( pos ) )		-- hidden node
-		minetest.check_for_falling( vector.offset_y( pos ) )
+		minetest.remove_node( doors.offset_y( pos ) )		-- hidden node
+		minetest.check_for_falling( doors.offset_y( pos ) )
 	end
 
 	if def.protected then
@@ -690,7 +690,7 @@ function doors.register_door( name, def )
 	else
 		def.on_blast = function( pos, intensity )
 			minetest.remove_node( pos )			-- door node
-			minetest.remove_node( vector.offset_y( pos ) )	-- hidden node
+			minetest.remove_node( doors.offset_y( pos ) )	-- hidden node
 			return { name }
 		end
 	end
@@ -978,8 +978,4 @@ minetest.register_craft( {
 	}
 } )
 
--- compatibility for Minetest S3 engine
-
-if not vector.offset_y or not minetest.get_node_above then
-        dofile( minetest.get_modpath( "doors" ) .. "/compatibility.lua" )
-end
+dofile( minetest.get_modpath( "doors" ) .. "/util.lua" )
