@@ -828,7 +828,7 @@ end
 function doors.register_fencegate( name, def )
 	local fence = {
 		description = def.description,
-		drawtype = "mesh",
+		drawtype = "nodebox",
 		tiles = {def.texture},
 		paramtype = "light",
 		paramtype2 = "facedir",
@@ -845,10 +845,6 @@ function doors.register_fencegate( name, def )
 				max_hear_distance = 8})
 			return itemstack
 		end,
-		selection_box = {
-			type = "fixed",
-			fixed = {-1/2, -1/2, -1/4, 1/2, 1/2, 1/4},
-		},
 	}
 
 	if not fence.sounds then
@@ -858,23 +854,57 @@ function doors.register_fencegate( name, def )
 	fence.groups.fence = 1
 
 	local fence_closed = table.copy(fence)
-	fence_closed.mesh = "doors_fencegate_closed.obj"
 	fence_closed.gate = name .. "_open"
 	fence_closed.sound = "doors_fencegate_open"
+	fence_closed.node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, -6/16, -1/16, -6/16, 6/16, 1/16},   -- left end
+			{6/16, -6/16, -1/16, 0.5, 6/16, 1/16},   -- right end
+			{-2/16, -2/16, -1/16, 2/16, 2/16, 1/16},  -- middle
+			{-6/16, 2/16, -1/16, 6/16, 5/16, 1/16},   -- up bar
+			{-6/16, -5/16, -1/16, 6/16, -2/16, 1/16}, -- down bar
+		}
+	}
 	fence_closed.collision_box = {
 		type = "fixed",
-		fixed = {-1/2, -1/2, -1/4, 1/2, 1/2, 1/4},
+		fixed = {-1/2, -1/2, -2/16, 1/2, 1/2, 2/16},
+	}
+	fence_closed.selection_box = {
+		type = "fixed",
+		fixed = {-1/2, -6/16, -1/16, 1/2, 6/16, 1/16},
 	}
 
+
 	local fence_open = table.copy(fence)
-	fence_open.mesh = "doors_fencegate_open.obj"
 	fence_open.gate = name .. "_closed"
 	fence_open.sound = "doors_fencegate_close"
 	fence_open.groups.not_in_creative_inventory = 1
+	fence_open.node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, -6/16, -1/16, -6/16, 6/16, 1/16},   -- left end
+			{6/16, -6/16, -1/16, 0.5, 6/16, 1/16},   -- right end
+			{-0.5, 2/16, 1/16, -6/16, 5/16, 6/16},   -- up-left bar x
+			{-0.5, -5/16, 1/16, -6/16, -2/16, 6/16}, -- down-left bar x
+			{6/16, 2/16, 1/16, 0.5, 5/16, 0.5},   -- up-right bar x
+			{6/16, -5/16, 1/16, 0.5, -2/16, 0.5}, -- down-right bar x
+			{-0.5, -5/16, 6/16, -6/16, 5/16, 0.5},  -- middle left
+			{6/16, -2/16, 0.5, 0.5, 2/16, 6/16},  -- middle right
+		},
+	}
+	fence_open.selection_box = {
+		type = "fixed",
+		fixed = {
+			{-1/2, -6/16, -1/16, 1/2, 6/16, 1/16},
+		}
+	}
 	fence_open.collision_box = {
 		type = "fixed",
-		fixed = {{-1/2, -1/2, -1/4, -3/8, 1/2, 1/4},
-			{-1/2, -3/8, -1/2, -3/8, 3/8, 0}},
+		fixed = {
+			{-0.5, -6/16, -1/16, -6/16, 6/16, 1/16},   -- left end
+			{6/16, -6/16, -1/16, 0.5, 6/16, 1/16},   -- right end
+		}
 	}
 
 	minetest.register_node(":" .. name .. "_closed", fence_closed)
