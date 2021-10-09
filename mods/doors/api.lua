@@ -309,6 +309,41 @@ end
 local is_trapdoor_locked = is_door_locked
 
 ---------------------------------
+-- on_timer_door( )
+---------------------------------
+
+local on_timer_door = function(pos)
+	-- Auto-close timeout
+	local node = minetest.get_node( pos )
+	local meta = minetest.get_meta( pos )
+	local state = meta:get_int( "state" )
+	local is_open, state, transform = get_door_transform( state, node.param2, true, false, false )
+	local ndef = minetest.registered_nodes[node.name]
+	if not ndef then
+		return
+	end
+	local new_name = ndef.base_name .. transform.suffix
+	local new_param2 = transform.param2
+
+	if not is_open then
+		minetest.sound_play( ndef.sound_close, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
+		minetest.swap_node( pos, { name = new_name, param2 = new_param2 } )
+		meta:set_int( "state", state )
+	end
+end
+
+local on_timer_trapdoor = function(pos)
+	local node = minetest.get_node(pos)
+	local ndef = minetest.registered_nodes[node.name]
+	if node.name == ndef.base_name .. "_open" then
+		local new_name = ndef.base_name
+
+		minetest.sound_play( ndef.sound_close, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
+		minetest.swap_node( pos, { name = new_name, param2 = node.param2 } )
+	end
+end
+
+---------------------------------
 -- toggle_door( )
 ---------------------------------
 
@@ -373,16 +408,8 @@ local function toggle_door( pos, node, player )
 		end
 	end
 	if is_open and closing_mode == doors.CLOSING_MODE_AUTOCLOSE then
-		minetest.after( config.autoclose_timeout, function ( )
-			local check_node = minetest.get_node( pos )
-			local check_state = minetest.get_meta( pos ):get_int( "state" )
-		
-			if check_node.name ~= new_name or check_node.param2 ~= new_param2 or check_state ~= state then
-				return   -- apparently something changed, so abort
-			end
-
-			toggle_door( pos, check_node )   -- pass nil player, since security doesn't matter
-		end )
+		local timer = minetest.get_node_timer( pos )
+		timer:start( config.autoclose_timeout )
 	end
 
 	if is_open then
@@ -419,15 +446,8 @@ function toggle_trapdoor( pos, node, player )
 		local new_name = ndef.base_name .. "_open"
 
 		if closing_mode == doors.CLOSING_MODE_AUTOCLOSE then
-			minetest.after( config.autoclose_timeout, function ( )
-				local check_node = minetest.get_node( pos )
-		
-				if check_node.name ~= new_name or check_node.param2 ~= node.param2 then
-					return   -- apparently something changed, so abort
-				end
-
-				toggle_trapdoor( pos, check_node )   -- pass nil player, since security doesn't matter
-			end )
+			local timer = minetest.get_node_timer( pos )
+			timer:start( config.autoclose_timeout )
 		end
 
 		minetest.sound_play( ndef.sound_open, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
@@ -959,6 +979,7 @@ function doors.register_door( name, def )
 		minetest.remove_node( offset_y( pos ) )		-- hidden node
 		minetest.check_for_falling( offset_y( pos ) )
 	end
+	def.on_timer = on_timer_door
 
 	if def.protected then
 		def.can_dig = function ( pos, player )
@@ -1152,6 +1173,8 @@ function doors.register_trapdoor( name, def )
 	end
 
 	def.on_rotate = on_rotate_trapdoor
+
+	def.on_timer = on_timer_trapdoor
 
 	if def.protected then
 		def.can_dig = function ( pos, player )
