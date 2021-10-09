@@ -114,6 +114,9 @@ Zeg9 (CC BY-SA 3.0):
 kaeza (MIT License):
   bubble.png
 
+sorcerykid (CC BY-SA 4.0):
+  hades_core_steel_rod.png
+
 Eelke <https://freesound.org/people/Eelke/sounds/462598/> (CC BY 3.0):
   hades_core_footstep_ladder_metal.1.ogg
   hades_core_footstep_ladder_metal.2.ogg

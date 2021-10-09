@@ -969,14 +969,3 @@ minetest.register_craft( {
 	}
 } )
 
-minetest.register_craftitem( ":hades_core:steel_rod", {
-	description = S("Steel Rod"),
-	inventory_image = "default_steel_rod.png",
-} )
-
-minetest.register_craft( {
-	output = "hades_core:steel_rod 4",
-	recipe = {
-		{ "hades_core:steel_ingot" },
-	}
-} )

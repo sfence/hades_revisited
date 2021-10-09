@@ -9,6 +9,12 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = 'hades_core:steel_rod 4',
+	recipe = {
+		{'hades_core:steel_ingot'},
+	}
+})
 
 minetest.register_craft({
 	output = 'hades_core:pick_wood',
