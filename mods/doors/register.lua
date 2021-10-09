@@ -539,7 +539,7 @@ doors.register_trapdoor("doors:trapdoor_steel", {
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	sound_open = "doors_steel_door_open",
 	sound_close = "doors_steel_door_close",
-	groups = {cracky = 1, level = 2, door = 1},
+	groups = {cracky = 2, door = 1},
 })
 
 minetest.register_craft({
@@ -554,14 +554,14 @@ doors.register_fencegate("doors:gate_wood", {
 	description = S("Temperate Wood Fence Gate"),
 	texture = "default_wood.png",
 	material = "hades_trees:wood",
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
+	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
 doors.register_fencegate("doors:gate_jungle_wood", {
 	description = S("Tropical Wood Fence Gate"),
 	texture = "default_junglewood.png",
 	material = "hades_trees:jungle_wood",
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
+	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
 doors.register_fencegate("doors:gate_pale_wood", {
