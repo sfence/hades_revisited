@@ -306,26 +306,35 @@ local function on_adjust_door( pos, node, player, mode )
 
 	if is_door_protected( pos, ndef, player_name ) then return false end
 
-	if mode == doors.ADJUST_LOCKING and ndef.is_lockable and locking_mode > 0 then
-		local mode_defs = { "unlocked", "locked", "shared" }
+	if mode == doors.ADJUST_LOCKING then
+		if ndef.is_lockable and locking_mode > 0 then
+			local mode_defs = { S("unlocked"), S("locked"), S("shared") }
 
-		locking_mode = locking_mode % 3 + 1
-		minetest.chat_send_player( player_name, "Door locking is set to " .. mode_defs[ locking_mode ] .. "." )
-		meta:set_int( "locking_mode", locking_mode )
+			locking_mode = locking_mode % 3 + 1
+			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Door locking is set to @1.", mode_defs[locking_mode])))
+			meta:set_int( "locking_mode", locking_mode )
 
-		return true
+			return true
+		else
+			minetest.chat_send_player(player_name, minetest.colorize("#FFFF00", S("This door does not provide locking adjustments.")))
+			return false
+		end
+	elseif mode == doors.ADJUST_CLOSING then
+		if ndef.is_closable and closing_mode > 0 then
+			local mode_defs = { "manual", "auto-close", "hold-open" }
 
-	elseif mode == doors.ADJUST_CLOSING and ndef.is_closable and closing_mode > 0 then
-		local mode_defs = { "manual", "auto-close", "hold-open" }
+			closing_mode = closing_mode % 3 + 1
+			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Door closing is set to @1.", mode_defs[closing_mode])))
+			meta:set_int( "closing_mode", closing_mode )
 
-		closing_mode = closing_mode % 3 + 1
-		minetest.chat_send_player( player_name, "Door closing is set to " .. mode_defs[ closing_mode ] .. "." )
-		meta:set_int( "closing_mode", closing_mode )
-
-		return true
+			return true
+		else
+			minetest.chat_send_player(player_name, minetest.colorize("#FFFF00", S("This door does not provide closing adjustments.")))
+			return false
+		end
 	end
 
-	minetest.chat_send_player( player_name, "This door does not provide locking and/or closing adjustments." )
+	minetest.log("error", "[doors] Invalid mode argument in on_adjust_door! (mode="..tostring(mode)..")")
 	return false
 end
 
