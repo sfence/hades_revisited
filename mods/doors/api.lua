@@ -209,7 +209,7 @@ local function toggle_door( pos, node, player )
 	local closing_mode = meta:get_int( "closing_mode" )
 
 	if player and is_door_locked( pos, ndef, player:get_player_name( ) ) then
-		minetest.sound_play( ndef.sound_locked, { pos = pos, gain = 0.3, max_hear_distance = 10 } )
+		minetest.sound_play( ndef.sound_locked, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 		return false
 	end
 
@@ -238,12 +238,12 @@ local function toggle_door( pos, node, player )
 		-- if opened, play open sound
 		minetest.sound_play( ndef.sound_open, {
 			pos = pos, gain = 0.3, max_hear_distance = 10
-		} )
+		}, true )
 	else
 		-- if closed, play close sound
 		minetest.sound_play( ndef.sound_close, {
 			pos = pos, gain = 0.3, max_hear_distance = 10
-		} )
+		}, true )
 	end
 
 	minetest.swap_node( pos, { name = new_name, param2 = new_param2 } )
@@ -260,7 +260,7 @@ function toggle_trapdoor( pos, node, player )
 	local closing_mode = meta:get_int( "closing_mode" )
 
 	if player and is_trapdoor_locked( pos, ndef, player:get_player_name( ) ) then
-		minetest.sound_play( ndef.sound_locked, { pos = pos, gain = 0.3, max_hear_distance = 10 } )
+		minetest.sound_play( ndef.sound_locked, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 		return false
 	end
 
@@ -279,7 +279,7 @@ function toggle_trapdoor( pos, node, player )
 			end )
 		end
 
-		minetest.sound_play( ndef.sound_open, { pos = pos, gain = 0.3, max_hear_distance = 10 } )
+		minetest.sound_play( ndef.sound_open, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 		minetest.swap_node( pos, { name = new_name, param1 = node.param1, param2 = node.param2 } )
 	else
 		local new_name = ndef.base_name
@@ -288,7 +288,7 @@ function toggle_trapdoor( pos, node, player )
 			return false   -- abort since this trapdoor does not close
 		end
 
-		minetest.sound_play( ndef.sound_close, { pos = pos, gain = 0.3, max_hear_distance = 10 } )
+		minetest.sound_play( ndef.sound_close, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 		minetest.swap_node( pos, { name = ndef.base_name, param1 = node.param1, param2 = node.param2 } )
 	end
 end
@@ -431,7 +431,7 @@ doors.get_door_or_nil = function ( pos )
 		local new_param2 = transform.param2
 
 		if not is_open then
-			minetest.sound_play( ndef.sound_close, { pos = pos, gain = 0.3, max_hear_distance = 10 } )
+			minetest.sound_play( ndef.sound_close, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 			minetest.swap_node( pos, { name = new_name, param2 = new_param2 } )
 			meta:set_int( "state", state )
 		end
@@ -443,7 +443,7 @@ doors.get_door_or_nil = function ( pos )
 		local new_param2 = transform.param2
 
 		if is_open then
-			minetest.sound_play( ndef.sound_open, { pos = pos, gain = 0.3, max_hear_distance = 10 } )
+			minetest.sound_play( ndef.sound_open, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 			minetest.swap_node( pos, { name = new_name, param2 = new_param2 } )
 			meta:set_int( "state", state )
 		end
@@ -476,7 +476,7 @@ doors.get_trapdoor_or_nil = function ( pos )
 		if node.name == ndef.base_name .. "_open" then
 			local new_name = ndef.base_name
 
-			minetest.sound_play( ndef.sound_close, { pos = pos, gain = 0.3, max_hear_distance = 10 } )
+			minetest.sound_play( ndef.sound_close, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 			minetest.swap_node( pos, { name = new_name, param2 = node.param2 } )
 		end
 	end
@@ -484,7 +484,7 @@ doors.get_trapdoor_or_nil = function ( pos )
 		if node.name == ndef.base_name then
 			local new_name = ndef.base_name .. "_open"
 
-			minetest.sound_play( ndef.sound_open, { pos = pos, gain = 0.3, max_hear_distance = 10 } )
+			minetest.sound_play( ndef.sound_open, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 			minetest.swap_node( pos, { name = new_name, param2 = node.param2 } )
 		end
 	end
@@ -607,7 +607,7 @@ local function register_door_craftitem( name, def )
 				itemstack:take_item( )
 			end
 
-			minetest.sound_play( def.sounds.place, { pos = pos } )
+			minetest.sound_play( def.sounds.place, { pos = pos }, true )
 
 			notify_on_placenode( pos, minetest.get_node( pos ), player, node, itemstack, pointed_thing )
 
@@ -932,7 +932,7 @@ function doors.register_fencegate( name, def )
 			local node_def = minetest.registered_nodes[node.name]
 			minetest.swap_node(pos, {name = node_def.gate, param2 = node.param2})
 			minetest.sound_play(node_def.sound, {pos = pos, gain = 0.3,
-				max_hear_distance = 8})
+				max_hear_distance = 8}, true)
 			return itemstack
 		end,
 	}
