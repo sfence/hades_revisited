@@ -977,6 +977,7 @@ function doors.register_fencegate( name, def )
 				max_hear_distance = 8}, true)
 			return itemstack
 		end,
+		on_rotate = "simple",
 	}
 
 	if not fence.sounds then
