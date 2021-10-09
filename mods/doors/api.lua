@@ -329,7 +329,7 @@ local function toggle_door( pos, node, player )
 	local new_param2 = transform.param2
 
 	if not is_open and closing_mode == doors.CLOSING_MODE_HOLDOPEN then
-		minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.5, max_hear_distance = 10 }, true )
+		minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.8, max_hear_distance = 10 }, true )
 		return false   -- abort since this door does not close
 	end
 
@@ -358,7 +358,7 @@ local function toggle_door( pos, node, player )
 				minetest.set_node(neighbor_top, {name="doors:hidden", param2=np2})
 			else
 				-- It's blocked, can't open
-				minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.5, max_hear_distance = 10 }, true )
+				minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.8, max_hear_distance = 10 }, true )
 				return false
 			end
 		else
@@ -421,7 +421,7 @@ function toggle_trapdoor( pos, node, player )
 		local new_name = ndef.base_name
 
 		if closing_mode == doors.CLOSING_MODE_HOLDOPEN then
-			minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.5, max_hear_distance = 10 }, true )
+			minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.8, max_hear_distance = 10 }, true )
 			return false   -- abort since this trapdoor does not close
 		end
 
