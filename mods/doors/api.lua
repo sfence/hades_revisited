@@ -33,6 +33,7 @@ end
 
 minetest.register_node( "doors:hidden", {
 	description = S("Hidden Door Segment"),
+	tiles = { "blank.png" },
 	inventory_image = "doors_hidden_inv.png",
 	wield_image = "doors_hidden_inv.png",
 	drawtype = "nodebox",  -- cannot use air-like, since falling nodes would be stuck
@@ -46,22 +47,89 @@ minetest.register_node( "doors:hidden", {
 	floodable = false,
 	drop = "",
 
-	groups = { not_in_creative_inventory = 1 },
+	groups = { not_in_creative_inventory = 1},
 	on_blast = function( ) end,
 
-	tiles = { "blank.png" },
 	use_texture_alpha = "clip",
 	-- 1px transparent block inside door hinge near node top.
-	nodebox = {
+	node_box = {
 		type = "fixed",
 		fixed = { -15/32, 13/32, -15/32, -13/32, 1/2, -13/32 },
 	},
-	-- collision_box needed otherise selection box would be full node size
+	-- collision_box needed otherwise selection box would be full node size
 	collision_box = {
 		type = "fixed",
 		fixed = { -15/32, 13/32, -15/32, -13/32, 1/2, -13/32 },
 	},
 } )
+
+minetest.register_node( "doors:hidden_center", {
+	description = S("Hidden Center Door Segment"),
+	inventory_image = "doors_hidden_inv.png",
+	wield_image = "doors_hidden_inv.png",
+	tiles = {"blank.png"},
+	use_texture_alpha = "clip",
+	drawtype = "nodebox",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	sunlight_propagates = true,
+	walkable = true,
+	pointable = false,
+	diggable = false,
+	buildable_to = false,
+	floodable = false,
+	drop = "",
+
+	groups = { not_in_creative_inventory = 1 },
+	on_blast = function( ) end,
+
+	node_box = {
+		type = "fixed",
+		fixed = { -15/32, 13/32, -1/32, -13/32, 1/2, 1/32 },
+	},
+	-- collision_box needed otherwise selection box would be full node size
+	collision_box = {
+		type = "fixed",
+		fixed = { -15/32, 13/32, -1/32, -13/32, 1/2, 1/32 },
+	},
+
+} )
+
+minetest.register_node( "doors:hidden_center_side_bottom", {
+	description = S("Hidden Bottom Side Center Door Segment"),
+	inventory_image = "doors_hidden_inv.png",
+	wield_image = "doors_hidden_inv.png",
+	tiles = {"blank.png"},
+	use_texture_alpha = "clip",
+	drawtype = "nodebox",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = false,
+	floodable = false,
+	drop = "",
+
+	groups = { not_in_creative_inventory = 1 },
+	on_blast = function( ) end,
+
+	node_box = {
+		type = "fixed",
+		fixed = { -2/16, -2/16, -2/16, 2/16, 2/16, 2/16 },
+	},
+	-- collision_box needed otherwise selection box would be full node size
+	collision_box = {
+		type = "fixed",
+		fixed = { -2/16, -2/16, -2/16, 2/16, 2/16, 2/16 },
+	},
+
+} )
+
+
+
+
+
 
 -- table used to aid door opening/closing
 -- tier 1 = hand, tier 2 = face, and tier 3 = is_open
@@ -95,6 +163,22 @@ local center_transform = {
 		{ [false] = { suffix = "_c", param2 = 3 }, [true] = { suffix = "_e", param2 = 3 } },
 	},
 }
+
+local center_neighbor = {
+	left = {
+		[0] = { x = 0, y = 0, z = 1 },
+		[1] = { x = 1, y = 0, z = 0 },
+		[2] = { x = 0, y = 0, z = -1 },
+		[3] = { x = -1, y = 0, z = 0 },
+	},
+	right = {
+		[0] = { x = 0, y = 0, z = -1 },
+		[1] = { x = -1, y = 0, z = 0 },
+		[2] = { x = 0, y = 0, z = 1 },
+		[3] = { x = 1, y = 0, z = 0 },
+	},
+}
+
 
 ---------------------------------
 -- get_door_properties( )
@@ -215,6 +299,7 @@ local function toggle_door( pos, node, player )
 	end
 
 	local state = meta:get_int( "state" )
+	local _, statetype, hand = get_door_properties( state, node.param2 )
 	local is_open, state, transform = get_door_transform( state, node.param2, true, false, false )
 	local new_name = ndef.base_name .. transform.suffix
 	local new_param2 = transform.param2
@@ -222,8 +307,48 @@ local function toggle_door( pos, node, player )
 	if not is_open and closing_mode == doors.CLOSING_MODE_HOLDOPEN then
 		minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.5, max_hear_distance = 10 }, true )
 		return false   -- abort since this door does not close
+	end
 
-	elseif is_open and closing_mode == doors.CLOSING_MODE_AUTOCLOSE then
+	if statetype == "center" then
+		local nhand = hand
+		if not is_open and hand == "left" then
+			nhand = "right"
+		end
+		local neighbor = center_neighbor[nhand][node.param2]
+		local neighbor_bottom = vector.add(pos, neighbor)
+		local neighbor_top = offset_y(neighbor_bottom, 1)
+		local nb1 = minetest.get_node(neighbor_bottom)
+		local nb2 = minetest.get_node(neighbor_top)
+		local nb1d = minetest.registered_nodes[nb1.name]
+		local nb2d = minetest.registered_nodes[nb2.name]
+		if is_open then
+			-- Open center door, place hidden nodes to prevent node overlap
+			if nb1d and nb2d and nb1d.buildable_to and nb2d.buildable_to then
+				minetest.set_node(neighbor_bottom, {name="doors:hidden_center_side_bottom"})
+				local np2
+				if hand == "left" then
+					np2 = node.param2
+				else
+					np2 = (node.param2 + 1) % 4
+				end
+				minetest.set_node(neighbor_top, {name="doors:hidden", param2=np2})
+			else
+				-- It's blocked, can't open
+				minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.5, max_hear_distance = 10 }, true )
+				return false
+			end
+		else
+			-- Close center door, remove place hidden nodes again
+			if nb1.name == "doors:hidden_center_side_bottom" then
+				minetest.remove_node(neighbor_bottom)
+			end
+			if nb2.name == "doors:hidden" then
+				minetest.remove_node(neighbor_top)
+				minetest.check_for_falling(neighbor_top)
+			end
+		end
+	end
+	if is_open and closing_mode == doors.CLOSING_MODE_AUTOCLOSE then
 		minetest.after( config.autoclose_timeout, function ( )
 			local check_node = minetest.get_node( pos )
 			local check_state = minetest.get_meta( pos ):get_int( "state" )
@@ -379,6 +504,29 @@ local function on_rotate_door( pos, node, player, mode )
 		local is_open, state, transform = get_door_transform( state, node.param2, false, false, true, false )
 
 		minetest.swap_node( pos, { name = ndef.base_name .. transform.suffix, param2 = transform.param2 } )
+		local top = offset_y(pos)
+		local _, stype, shand = get_door_properties( state, transform.param2 )
+		local p2 = transform.param2
+		if stype == "center" then
+			if is_open and shand == "left" then
+				p2 = (p2 + 2) % 4
+			end
+		elseif (shand == "right" and not is_open) or (shand == "left" and is_open) then
+			p2 = (p2 + 3) % 4
+		end
+		if stype == "center" then
+			minetest.set_node( top, { name = "doors:hidden_center", param2 = p2 } )
+			if is_open then
+				local neighbor = center_neighbor[shand][p2]
+				if shand == "right" then
+					p2 = (p2 + 1) % 4
+				end
+				minetest.set_node( vector.add( top, neighbor ), { name = "doors:hidden", param2 = p2 } )
+			end
+		else
+			minetest.set_node( top, { name = "doors:hidden", param2 = p2 } )
+		end
+
 		meta:set_int( "state", state )
 
 		return true
@@ -387,7 +535,65 @@ local function on_rotate_door( pos, node, player, mode )
 		-- alternate type between center <-> offset
 		local is_open, state, transform = get_door_transform( state, node.param2, false, true, false, false )
 
-		minetest.swap_node( pos, { name = ndef.base_name .. transform.suffix, param2 = transform.param2 } )
+		local top = offset_y(pos)
+		local _, stype, shand = get_door_properties( state, transform.param2 )
+		local p2 = transform.param2
+		if stype == "center" then
+			if is_open then
+				p2 = (p2 + 2) % 4
+			elseif shand == "left" then
+				p2 = (p2 + 1) % 4
+			end
+		elseif (shand == "right" and not is_open) or (shand == "left" and is_open) then
+			p2 = (p2 + 3) % 4
+		end
+		if stype == "center" then
+			if is_open then
+				if shand == "right" then
+					p2 = (p2 + 2) % 4
+				end
+				local neighbor = center_neighbor[shand][p2]
+				local neighbor_top = vector.add(top, neighbor)
+				local neighbor_bottom = offset_y(neighbor_top, -1)
+				local nnt = minetest.get_node(neighbor_top)
+				local nnb = minetest.get_node(neighbor_bottom)
+				local nntd = minetest.registered_nodes[nnt.name]
+				local nnbd = minetest.registered_nodes[nnb.name]
+				if nntd and nnbd and nntd.buildable_to and nnbd.buildable_to then
+					minetest.swap_node( pos, { name = ndef.base_name .. transform.suffix, param2 = transform.param2 } )
+					minetest.set_node( top, { name = "doors:hidden_center", param2 = p2 } )
+					minetest.set_node( neighbor_bottom, { name = "doors:hidden_center_side_bottom", param2 = p2 })
+					if shand == "right" then
+						p2 = (p2 + 1) % 4
+					end
+					minetest.set_node( neighbor_top, { name = "doors:hidden", param2 = p2 })
+				else
+					return false
+				end
+			else
+				p2 = transform.param2
+				minetest.swap_node( pos, { name = ndef.base_name .. transform.suffix, param2 = transform.param2 } )
+				minetest.set_node( top, { name = "doors:hidden_center", param2 = p2 } )
+			end
+		else
+			if shand == "right" then
+				p2 = (p2 + 3) % 4
+			end
+			minetest.swap_node( pos, { name = ndef.base_name .. transform.suffix, param2 = transform.param2 } )
+			minetest.set_node( top, { name = "doors:hidden", param2 = p2} )
+			local neighbor = center_neighbor[shand][p2]
+			local neighbor_top = vector.add(top, neighbor)
+			local neighbor_bottom = offset_y(neighbor_top, -1)
+			local nnt = minetest.get_node(neighbor_top)
+			local nnb = minetest.get_node(neighbor_bottom)
+			if nnt.name == "doors:hidden" then
+				minetest.remove_node(neighbor_top)
+				minetest.check_for_falling(neighbor_top)
+			end
+			if nnb.name == "doors:hidden_center_side_bottom" then
+				minetest.remove_node(neighbor_bottom)
+			end
+		end
 		meta:set_int( "state", state )
 
 		return true
