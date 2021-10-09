@@ -313,7 +313,7 @@ local function on_adjust_door( pos, node, player, mode )
 			local mode_defs = { S("unlocked"), S("locked"), S("shared") }
 
 			locking_mode = locking_mode % 3 + 1
-			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Door locking is set to @1.", mode_defs[locking_mode])))
+			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Locking mode is set to @1.", mode_defs[locking_mode])))
 			local sound
 			if locking_mode == doors.LOCKING_MODE_LOCKED then
 				sound = ndef.sound_locking
@@ -327,7 +327,7 @@ local function on_adjust_door( pos, node, player, mode )
 
 			return true
 		else
-			minetest.chat_send_player(player_name, minetest.colorize("#FFFF00", S("This door does not provide locking adjustments.")))
+			minetest.chat_send_player(player_name, minetest.colorize("#FFFF00", S("This block does not provide locking adjustments.")))
 			return false
 		end
 	elseif mode == doors.ADJUST_CLOSING then
@@ -335,13 +335,13 @@ local function on_adjust_door( pos, node, player, mode )
 			local mode_defs = { "manual", "auto-close", "hold-open" }
 
 			closing_mode = closing_mode % 3 + 1
-			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Door closing is set to @1.", mode_defs[closing_mode])))
+			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Closing mode is set to @1.", mode_defs[closing_mode])))
 			minetest.sound_play( ndef.sound_closing_mode, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 			meta:set_int( "closing_mode", closing_mode )
 
 			return true
 		else
-			minetest.chat_send_player(player_name, minetest.colorize("#FFFF00", S("This door does not provide closing adjustments.")))
+			minetest.chat_send_player(player_name, minetest.colorize("#FFFF00", S("This block does not provide closing adjustments.")))
 			return false
 		end
 	end
@@ -351,6 +351,12 @@ local function on_adjust_door( pos, node, player, mode )
 end
 
 local on_adjust_trapdoor = on_adjust_door
+
+local on_adjust_fence_gate = function( pos, node, player, mode )
+	local player_name = player:get_player_name()
+	minetest.chat_send_player(player_name, minetest.colorize("#FFFF00", S("Fence gates do not provide locking or closing adjustments.")))
+	return false
+end
 
 ---------------------------------
 -- on_rotate_door( )
@@ -984,7 +990,8 @@ function doors.register_fencegate( name, def )
 		fence.sounds = hades_sounds.node_sound_wood_defaults()
 	end
 
-	fence.groups.fence = 1
+	fence.groups.fence_gate = 1
+	fence.on_adjust = on_adjust_fence_gate
 
 	local fence_closed = table.copy(fence)
 	fence_closed.gate = name .. "_open"
