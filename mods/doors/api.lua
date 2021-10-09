@@ -487,7 +487,7 @@ local function register_door_craftitem( name, def )
 	minetest.register_craftitem( ":" .. name, {
 		description = def.description,
 		inventory_image = def.inventory_image,
-
+		groups = { node = 1 },
 		on_place = function( itemstack, player, pointed_thing )
 			local pos
 
