@@ -219,6 +219,7 @@ local function toggle_door( pos, node, player )
 	local new_param2 = transform.param2
 
 	if not is_open and closing_mode == doors.CLOSING_MODE_HOLDOPEN then
+		minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.5, max_hear_distance = 10 }, true )
 		return false   -- abort since this door does not close
 
 	elseif is_open and closing_mode == doors.CLOSING_MODE_AUTOCLOSE then
@@ -285,6 +286,7 @@ function toggle_trapdoor( pos, node, player )
 		local new_name = ndef.base_name
 
 		if closing_mode == doors.CLOSING_MODE_HOLDOPEN then
+			minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.5, max_hear_distance = 10 }, true )
 			return false   -- abort since this trapdoor does not close
 		end
 
@@ -312,6 +314,15 @@ local function on_adjust_door( pos, node, player, mode )
 
 			locking_mode = locking_mode % 3 + 1
 			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Door locking is set to @1.", mode_defs[locking_mode])))
+			local sound
+			if locking_mode == doors.LOCKING_MODE_LOCKED then
+				sound = ndef.sound_locking
+			elseif locking_mode == doors.LOCKING_MODE_SHARED then
+				sound = ndef.sound_sharing
+			elseif locking_mode == doors.LOCKING_MODE_UNLOCKED then
+				sound = ndef.sound_unlocking
+			end
+			minetest.sound_play( sound, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 			meta:set_int( "locking_mode", locking_mode )
 
 			return true
@@ -325,6 +336,7 @@ local function on_adjust_door( pos, node, player, mode )
 
 			closing_mode = closing_mode % 3 + 1
 			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Door closing is set to @1.", mode_defs[closing_mode])))
+			minetest.sound_play( ndef.sound_closing_mode, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 			meta:set_int( "closing_mode", closing_mode )
 
 			return true
@@ -660,6 +672,21 @@ function doors.register_door( name, def )
 	if not def.sound_locked then
 		def.sound_locked = "doors_door_locked"
 	end
+	if not def.sound_locking then
+		def.sound_locking = "doors_door_locking"
+	end
+	if not def.sound_unlocking then
+		def.sound_unlocking = "doors_door_unlocking"
+	end
+	if not def.sound_sharing then
+		def.sound_sharing = "doors_door_sharing"
+	end
+	if not def.sound_held_open then
+		def.sound_held_open = "doors_door_held_open"
+	end
+	if not def.sound_closing_mode then
+		def.sound_closing_mode = "doors_door_closing_mode"
+	end
 
 	-- define the placement types
 
@@ -786,6 +813,21 @@ function doors.register_trapdoor( name, def )
 	end
 	if not def.sound_locked then
 		def.sound_locked = "doors_door_locked"
+	end
+	if not def.sound_locking then
+		def.sound_locking = "doors_door_locking"
+	end
+	if not def.sound_unlocking then
+		def.sound_unlocking = "doors_door_unlocking"
+	end
+	if not def.sound_sharing then
+		def.sound_sharing = "doors_door_sharing"
+	end
+	if not def.sound_held_open then
+		def.sound_held_open = "doors_door_held_open"
+	end
+	if not def.sound_closing_mode then
+		def.sound_closing_mode = "doors_door_closing_mode"
 	end
 
 	-- define the placement types

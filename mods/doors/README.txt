@@ -126,6 +126,11 @@ Several fields of the definition table are required, but most are optional
  * def.sound_open - sound effect when opening
  * def.sound_close - sound effect when closing
  * def.sound_locked - sound effect when locked
+ * def.sound_locking - sound effect when setting lock state to locked
+ * def.sound_unlocking - sound effect when setting lock state to unlocked
+ * def.sound_shared - sound effect when setting lock state to shared
+ * def.sound_held_open - sound effect when trying to open a door in hold-open state
+ * def.sound_closing_mode - sound effect when changing door closing mode
  * def.can_center - whether center positioning (default is false)
 
 For programmatically examining and manipulating doors, two API functions are provided:
@@ -383,6 +388,22 @@ Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
    obtained from https://freesound.org/people/BenjaminNelan/sounds/321087/
    by BenjaminNelan (relicensed CC0)
    modified by sorceryid
+
+   /sounds/doors_door_locking.ogg
+   /sounds/doors_door_unlocking.ogg
+   /sounds/doors_door_sharing.ogg
+   obtained from https://freesound.org/people/Ryding/sounds/110137/
+   by Ryding (relicensed CC0)
+   modified by Wuzzy
+
+   /sounds/doors_door_held_open.ogg
+   obtained from https://freesound.org/people/Brutavious08/sounds/332963/
+   by Brutavious08 (relicensed CC0)
+
+   /sounds/doors_door_closing_mode.ogg
+   obtained from https://freesound.org/people/xxqmanxx/sounds/147018/
+   by xxqmanxx (relicensed CC0)
+   modified by Wuzzy
 
    /sounds/doors_fencegate_close.ogg
    obtained from http://www.freesound.org/people/BarkersPinhead/sounds/274807/
