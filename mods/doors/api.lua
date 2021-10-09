@@ -27,13 +27,21 @@ doors.ADJUST_CLOSING = 2
 doors.CHECK_LOCKING = 3
 doors.CHECK_CLOSING = 4
 
+-- Set to true to make hidden nodes visible and pointable
+local HIDDEN_DEBUG = false
+
+local hidden_tiles = { "blank.png" }
+if HIDDEN_DEBUG then
+	hidden_tiles = { "default_stone.png" }
+end
+
 local offset_y = function ( pos, y )
         return { x = pos.x, y = pos.y + ( y or 1 ), z = pos.z }
 end
 
 minetest.register_node( "doors:hidden", {
 	description = S("Hidden Door Segment"),
-	tiles = { "blank.png" },
+	tiles = hidden_tiles,
 	inventory_image = "doors_hidden_inv.png",
 	wield_image = "doors_hidden_inv.png",
 	drawtype = "nodebox",  -- cannot use air-like, since falling nodes would be stuck
@@ -67,7 +75,7 @@ minetest.register_node( "doors:hidden_center", {
 	description = S("Hidden Center Door Segment"),
 	inventory_image = "doors_hidden_inv.png",
 	wield_image = "doors_hidden_inv.png",
-	tiles = { "blank.png" },
+	tiles = hidden_tiles,
 	use_texture_alpha = "clip",
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -99,7 +107,7 @@ minetest.register_node( "doors:hidden_center_side_bottom", {
 	description = S("Hidden Bottom Side Center Door Segment"),
 	inventory_image = "doors_hidden_inv.png",
 	wield_image = "doors_hidden_inv.png",
-	tiles = { "blank.png" },
+	tiles = hidden_tiles,
 	use_texture_alpha = "clip",
 	drawtype = "nodebox",
 	paramtype = "light",
