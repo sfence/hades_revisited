@@ -731,7 +731,9 @@ function doors.register_trapdoor( name, def )
 	def.paramtype2 = "facedir"
 	def.is_ground_content = false
 	def.drop = name
-	def.groups.not_in_creative_inventory = 1
+	if not def.groups then
+		def.groups = {}
+	end
 	def.groups.trapdoor = 1
 
 	-- define the opening/closing sounds
@@ -818,18 +820,19 @@ function doors.register_trapdoor( name, def )
 
 	-- register trapdoor nodes
 
---	local def_closed = setmetatable( { }, __index = def )
 	def.node_box = { type = "fixed", fixed = { -0.5, -0.5, -0.5, 0.5, -6/16, 0.5 } }
 	def.selection_box = { type = "fixed", fixed = { -0.5, -0.5, -0.5, 0.5, -6/16, 0.5 } }
 	def.tiles = { def.tile_front, def.tile_front .. '^[transformFY', def.tile_side, def.tile_side, def.tile_side, def.tile_side }
 
 	minetest.register_node( ":" .. name, def )  -- closed
 
-	def.node_box = { type = "fixed", fixed = { -0.5, -0.5, 6/16, 0.5, 0.5, 0.5 } }
-	def.selection_box = { type = "fixed", fixed = {-0.5, -0.5, 6/16, 0.5, 0.5, 0.5 } }
-	def.tiles = { def.tile_side, def.tile_side, def.tile_side .. '^[transform3', def.tile_side .. '^[transform1', def.tile_front .. '^[transform46', def.tile_front .. '^[transform6' }
+	local def_open = table.copy(def)
+	def_open.groups.not_in_creative_inventory = 1
+	def_open.node_box = { type = "fixed", fixed = { -0.5, -0.5, 6/16, 0.5, 0.5, 0.5 } }
+	def_open.selection_box = { type = "fixed", fixed = {-0.5, -0.5, 6/16, 0.5, 0.5, 0.5 } }
+	def_open.tiles = { def.tile_side, def.tile_side, def.tile_side .. '^[transform3', def.tile_side .. '^[transform1', def.tile_front .. '^[transform46', def.tile_front .. '^[transform6' }
 
-	minetest.register_node( ":" .. name .. "_open", def )  -- opened
+	minetest.register_node( ":" .. name .. "_open", def_open )  -- opened
 end
 
 ---------------------------------
