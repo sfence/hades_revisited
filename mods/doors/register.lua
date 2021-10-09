@@ -115,9 +115,6 @@ doors.register_door("doors:door_steel", {
 	sound_open = "doors_steel_door_open",
 	sound_close = "doors_steel_door_close",
 	sunlight_propagates = false,
-	is_closable = true,
-	is_lockable = true,
-	can_center = true,
 })
 
 minetest.register_craft({
@@ -356,9 +353,6 @@ doors.register_trapdoor("doors:trapdoor_steel", {
 	sound_open = "doors_steel_door_open",
 	sound_close = "doors_steel_door_close",
 	groups = {cracky = 1, level = 2, door = 1},
-	is_closable = true,
-	is_lockable = true,
-	can_center = true,
 })
 
 minetest.register_craft({
