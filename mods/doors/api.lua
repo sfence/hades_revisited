@@ -31,8 +31,10 @@ doors.CHECK_CLOSING = 4
 local HIDDEN_DEBUG = false
 
 local hidden_tiles = { "blank.png" }
+local hidden_drawtype = "airlike"
 if HIDDEN_DEBUG then
 	hidden_tiles = { "default_stone.png" }
+	hidden_drawtype = "nodebox"
 end
 
 local offset_y = function ( pos, y )
@@ -41,6 +43,9 @@ end
 
 --[[ Hidden door segments are used to occupy the other nodes of doors to
 make sure no nodes overlap with the door.
+All hidden door segments are defined in such a way that they effectively
+"block" other nodes from occupying the same space.
+
 The "standard" offset door (open and closed) uses 1 hidden door segment
 * doors:hidden for the upper segment.
 The closed center door uses 1 hidden door segment:
@@ -53,11 +58,17 @@ The "neighbors" of the center door are the 2 nodes (upper and lower) into
 which the center door opens. ]]
 
 minetest.register_node( "doors:hidden", {
+	-- This node is walkable to stop falling nodes.
+	-- The nodebox is chosen in such a way
+	-- that it is inside the overlapping nodebox
+	-- of the main door node, but it still needs
+	-- to be rotated.
 	description = S("Shared Hidden Door Segment"),
-	tiles = hidden_tiles,
 	inventory_image = "doors_hidden_inv.png",
 	wield_image = "doors_hidden_inv.png",
-	drawtype = "nodebox",  -- cannot use air-like, since falling nodes would be stuck
+	drawtype = hidden_drawtype,
+	tiles = hidden_tiles,
+	use_texture_alpha = "clip",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -71,26 +82,22 @@ minetest.register_node( "doors:hidden", {
 	groups = { not_in_creative_inventory = 1},
 	on_blast = function( ) end,
 
-	use_texture_alpha = "clip",
-	-- 1px transparent block inside door hinge near node top.
 	node_box = {
-		type = "fixed",
-		fixed = { -15/32, 13/32, -15/32, -13/32, 1/2, -13/32 },
-	},
-	-- collision_box needed otherwise selection box would be full node size
-	collision_box = {
 		type = "fixed",
 		fixed = { -15/32, 13/32, -15/32, -13/32, 1/2, -13/32 },
 	},
 } )
 
 minetest.register_node( "doors:hidden_center", {
+	-- Basically the same as doors:hidden, but
+	-- for center doors instead.
 	description = S("Hidden Center Door Segment"),
 	inventory_image = "doors_hidden_center_inv.png",
 	wield_image = "doors_hidden_center_inv.png",
+	drawtype = hidden_drawtype,
 	tiles = hidden_tiles,
 	use_texture_alpha = "clip",
-	drawtype = "nodebox",
+	drawtype = "airlike",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
@@ -108,21 +115,19 @@ minetest.register_node( "doors:hidden_center", {
 		type = "fixed",
 		fixed = { -15/32, 13/32, -1/32, -13/32, 1/2, 1/32 },
 	},
-	-- collision_box needed otherwise selection box would be full node size
-	collision_box = {
-		type = "fixed",
-		fixed = { -15/32, 13/32, -1/32, -13/32, 1/2, 1/32 },
-	},
 
 } )
 
 minetest.register_node( "doors:hidden_center_side_bottom", {
+	-- A non-walkable hidden door node. Used to occupy
+	-- the bottom half of the open center door's neighbor.
+	-- Its only purpose is to block this node.
 	description = S("Hidden Bottom Side Center Door Segment"),
 	inventory_image = "doors_hidden_center_side_bottom_inv.png",
 	wield_image = "doors_hidden_center_side_bottom_inv.png",
+	drawtype = hidden_drawtype,
 	tiles = hidden_tiles,
 	use_texture_alpha = "clip",
-	drawtype = "nodebox",
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
@@ -135,21 +140,12 @@ minetest.register_node( "doors:hidden_center_side_bottom", {
 	groups = { not_in_creative_inventory = 1 },
 	on_blast = function( ) end,
 
+	-- Node box only provided for debug
 	node_box = {
 		type = "fixed",
 		fixed = { -2/16, -2/16, -2/16, 2/16, 2/16, 2/16 },
 	},
-	-- collision_box needed otherwise selection box would be full node size
-	collision_box = {
-		type = "fixed",
-		fixed = { -2/16, -2/16, -2/16, 2/16, 2/16, 2/16 },
-	},
-
 } )
-
-
-
-
 
 
 -- table used to aid door opening/closing
