@@ -965,7 +965,8 @@ minetest.register_tool( "doors:wrench", {
 minetest.register_craft( {
 	output = "doors:wrench",
 	recipe = {
-		{ "hades_core:steel_ingot", "hades_core:steel_rod" },
+		{ "hades_core:steel_ingot" },
+		{ "hades_core:steel_rod" },
 	}
 } )
 

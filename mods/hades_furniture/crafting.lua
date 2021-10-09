@@ -253,10 +253,10 @@
 
 	--Bars
 	minetest.register_craft( {
-		output = 'hades_furniture:bars 10',
+		output = 'hades_furniture:bars 3',
 		recipe = {
-			{ 'hades_core:steel_ingot','hades_core:steel_ingot','hades_core:steel_ingot' },
-			{ 'hades_core:steel_ingot','hades_core:steel_ingot','hades_core:steel_ingot' },
+			{ 'hades_core:steel_rod','hades_core:steel_rod','hades_core:steel_rod' },
+			{ 'hades_core:steel_rod','hades_core:steel_rod','hades_core:steel_rod' },
 		},
 	})
 
