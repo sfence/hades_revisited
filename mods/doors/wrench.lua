@@ -1,5 +1,8 @@
 local S = minetest.get_translator("doors")
 
+local config = {}
+config.wrench_usage_limit = 200
+
 ---------------------------------
 -- handle_wrench( )
 ---------------------------------
@@ -20,7 +23,8 @@ local function handle_wrench( itemstack, player, pointed_thing, mode, uses )
 	if ndef.on_adjust then
 		local has_wear = ndef.on_adjust( vector.new( pos ), { name = node.name, param1 = node.param1, param2 = node.param2 }, player, mode )
 
-		if not minetest.is_creative_enabled( player_name ) and has_wear then
+		if (mode == doors.ADJUST_LOCKING or mode == doors.ADJUST_CLOSING) and
+		(not minetest.is_creative_enabled( player_name )) and has_wear then
 			itemstack:add_wear( 65535 / config.wrench_usage_limit - 1 )
 		end
 	end
@@ -28,11 +32,19 @@ end
 
 minetest.register_tool( "doors:wrench", {
 	description = S("Wrench"),
-	_tt_help = S("punching adjusts door locking").."\n"..
-		S("placing adjusts door closing"),
+	_tt_help = S("Punch to adjust door locking").."\n"..
+		S("Place to adjust door closing").."\n"..
+		S("Hold Sneak to check state"),
 	inventory_image = "doors_wrench.png",
 	on_use = function( itemstack, player, pointed_thing )
-		handle_wrench( itemstack, player, pointed_thing, doors.ADJUST_LOCKING )
+		local ctrl = player:get_player_control()
+		local mode
+		if ctrl.sneak then
+			mode = doors.CHECK_LOCKING
+		else
+			mode = doors.ADJUST_LOCKING
+		end
+		handle_wrench( itemstack, player, pointed_thing, mode )
 		return itemstack
 	end,
 	on_place = function( itemstack, player, pointed_thing)
@@ -47,7 +59,14 @@ minetest.register_tool( "doors:wrench", {
 			return ndef.on_rightclick(pointed_thing.under,
 					node, player, itemstack, pointed_thing)
 		end
-		handle_wrench( itemstack, player, pointed_thing, doors.ADJUST_CLOSING )
+		local ctrl = player:get_player_control()
+		local mode
+		if ctrl.sneak then
+			mode = doors.CHECK_CLOSING
+		else
+			mode = doors.ADJUST_CLOSING
+		end
+		handle_wrench( itemstack, player, pointed_thing, mode )
 		return itemstack
 	end,
 } )

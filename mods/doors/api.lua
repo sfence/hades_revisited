@@ -12,7 +12,6 @@ local S = minetest.get_translator("doors")
 doors = { }
 
 local config = {}
-config.wrench_usage_limit = 200
 config.autoclose_timeout = 2.5
 
 doors.LOCKING_MODE_UNDEFINED = 0
@@ -25,6 +24,8 @@ doors.CLOSING_MODE_AUTOCLOSE = 2
 doors.CLOSING_MODE_HOLDOPEN = 3
 doors.ADJUST_LOCKING = 1
 doors.ADJUST_CLOSING = 2
+doors.CHECK_LOCKING = 3
+doors.CHECK_CLOSING = 4
 
 local offset_y = function ( pos, y )
         return { x = pos.x, y = pos.y + ( y or 1 ), z = pos.z }
@@ -308,36 +309,40 @@ local function on_adjust_door( pos, node, player, mode )
 
 	if is_door_protected( pos, ndef, player_name ) then return false end
 
-	if mode == doors.ADJUST_LOCKING then
+	if mode == doors.ADJUST_LOCKING or mode == doors.CHECK_LOCKING then
 		if ndef.is_lockable and locking_mode > 0 then
 			local mode_defs = { S("unlocked"), S("locked"), S("shared") }
 
-			locking_mode = locking_mode % 3 + 1
-			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Locking mode is set to @1.", mode_defs[locking_mode])))
-			local sound
-			if locking_mode == doors.LOCKING_MODE_LOCKED then
-				sound = ndef.sound_locking
-			elseif locking_mode == doors.LOCKING_MODE_SHARED then
-				sound = ndef.sound_sharing
-			elseif locking_mode == doors.LOCKING_MODE_UNLOCKED then
-				sound = ndef.sound_unlocking
+			if mode == doors.ADJUST_LOCKING then
+				locking_mode = locking_mode % 3 + 1
+				meta:set_int( "locking_mode", locking_mode )
+				local sound
+				if locking_mode == doors.LOCKING_MODE_LOCKED then
+					sound = ndef.sound_locking
+				elseif locking_mode == doors.LOCKING_MODE_SHARED then
+					sound = ndef.sound_sharing
+				elseif locking_mode == doors.LOCKING_MODE_UNLOCKED then
+					sound = ndef.sound_unlocking
+				end
+				minetest.sound_play( sound, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
 			end
-			minetest.sound_play( sound, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
-			meta:set_int( "locking_mode", locking_mode )
+			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Locking mode is set to @1.", mode_defs[locking_mode])))
 
 			return true
 		else
 			minetest.chat_send_player(player_name, minetest.colorize("#FFFF00", S("This block does not provide locking adjustments.")))
 			return false
 		end
-	elseif mode == doors.ADJUST_CLOSING then
+	elseif mode == doors.ADJUST_CLOSING or mode == doors.CHECK_CLOSING then
 		if ndef.is_closable and closing_mode > 0 then
 			local mode_defs = { "manual", "auto-close", "hold-open" }
 
-			closing_mode = closing_mode % 3 + 1
+			if mode == doors.ADJUST_CLOSING then
+				closing_mode = closing_mode % 3 + 1
+				meta:set_int( "closing_mode", closing_mode )
+				minetest.sound_play( ndef.sound_closing_mode, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
+			end
 			minetest.chat_send_player(player_name, minetest.colorize("#00FFFF", S("Closing mode is set to @1.", mode_defs[closing_mode])))
-			minetest.sound_play( ndef.sound_closing_mode, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
-			meta:set_int( "closing_mode", closing_mode )
 
 			return true
 		else
