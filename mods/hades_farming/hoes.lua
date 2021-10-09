@@ -25,7 +25,7 @@ hades_farming.register_hoe(":hades_farming:hoe_steel", {
 	inventory_image = "hades_farming_tool_steelhoe.png",
 	groups = { hoe = 1, },
 	max_uses = 200,
-	material = "hades_core:steel_ingot"
+	material = "hades_core:steel_rod"
 })
 
 hades_farming.register_hoe(":hades_farming:hoe_bronze", {
@@ -44,7 +44,7 @@ hades_farming.register_hoe(":hades_farming:hoe_mese", {
 	groups = { hoe = 1, },
 	max_uses = 350,
 	material = "hades_core:mese_crystal",
-	material_handle = "hades_core:steel_ingot",
+	material_handle = "hades_core:steel_rod",
 })
 
 hades_farming.register_hoe(":hades_farming:hoe_prism", {
@@ -54,7 +54,7 @@ hades_farming.register_hoe(":hades_farming:hoe_prism", {
 	groups = { hoe = 1, },
 	max_uses = 1050,
 	material = "hades_core:prismatic_gem",
-	material_handle = "hades_core:steel_ingot",
+	material_handle = "hades_core:steel_rod",
 })
 
 minetest.register_craft({
