@@ -891,6 +891,7 @@ function doors.register_door( name, def )
 	def.drop = name
 	def.groups.not_in_creative_inventory = 1
 	def.groups.door = 1
+	def.groups.rotation_takes_precedence = 1
 
 	-- define the crafting recipe
 
@@ -1063,6 +1064,7 @@ function doors.register_trapdoor( name, def )
 		def.groups = {}
 	end
 	def.groups.trapdoor = 1
+	def.groups.rotation_takes_precedence = 1
 
 	-- define the opening/closing sounds
 
