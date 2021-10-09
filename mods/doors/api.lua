@@ -452,7 +452,7 @@ end
 local on_timer_trapdoor = function(pos)
 	local node = minetest.get_node(pos)
 	local ndef = minetest.registered_nodes[node.name]
-	if node.name == ndef.base_name then
+	if node.name == ndef.base_name .. "_open" then
 		toggle_trapdoor(pos, node) --pass nil player, since security doesn't matter
 	end
 end
