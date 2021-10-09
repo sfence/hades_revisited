@@ -622,7 +622,6 @@ function doors.register_door( name, def )
 	def.drawtype = "mesh"
 	def.paramtype = "light"
 	def.paramtype2 = "facedir"
-	def.sunlight_propagates = true
 	def.walkable = true
 	def.is_ground_content = false
 	def.buildable_to = false

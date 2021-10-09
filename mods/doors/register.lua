@@ -7,8 +7,7 @@ doors.register_door("doors:door_wood", {
 	tiles = {{name="doors_door_wood.png", backface_culling=true}},
 	use_texture_alpha = "clip",
 	sounds = hades_sounds.node_sound_wood_defaults(),
-	sunlight = false,
-	backface_culling = true,
+	sunlight_propagates = false,
 })
 
 minetest.register_craft({
@@ -27,7 +26,7 @@ doors.register_door("doors:door_wood_pale", {
 	tiles = {{name="doors_door_wood_pale.png", backface_culling=true}},
 	use_texture_alpha = "clip",
 	sounds = hades_sounds.node_sound_wood_defaults(),
-	sunlight = false,
+	sunlight_propagates = false,
 })
 
 minetest.register_craft({
@@ -47,7 +46,7 @@ doors.register_door("doors:door_wood_jungle", {
 	tiles = {{name="doors_door_wood_jungle.png", backface_culling=true}},
 	use_texture_alpha = "clip",
 	sounds = hades_sounds.node_sound_wood_defaults(),
-	sunlight = false,
+	sunlight_propagates = false,
 })
 
 minetest.register_craft({
@@ -66,7 +65,7 @@ doors.register_door("doors:door_wood_cream", {
 	tiles = {{name="doors_door_wood_cream.png", backface_culling=true}},
 	use_texture_alpha = "clip",
 	sounds = hades_sounds.node_sound_wood_defaults(),
-	sunlight = false,
+	sunlight_propagates = false,
 })
 
 minetest.register_craft({
@@ -85,7 +84,7 @@ doors.register_door("doors:door_wood_lush", {
 	tiles = {{name="doors_door_wood_lush.png", backface_culling=true}},
 	use_texture_alpha = "clip",
 	sounds = hades_sounds.node_sound_wood_defaults(),
-	sunlight = false,
+	sunlight_propagates = false,
 })
 
 minetest.register_craft({
@@ -115,7 +114,7 @@ doors.register_door("doors:door_steel", {
 	sounds = hades_sounds.node_sound_metal_defaults(),
 	sound_open = "doors_steel_door_open",
 	sound_close = "doors_steel_door_close",
-	sunlight = false,
+	sunlight_propagates = false,
 })
 
 minetest.register_craft({
@@ -160,7 +159,7 @@ for c=1, #colors do
 		sounds = hades_sounds.node_sound_metal_defaults(),
 		sound_open = "doors_steel_door_open",
 		sound_close = "doors_steel_door_close",
-		sunlight = false,
+		sunlight_propagates = false,
 	})
 
 	minetest.register_craft({
@@ -180,7 +179,7 @@ doors.register_door("doors:door_stone", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	sound_open = "mcl_fences_nether_brick_fence_gate_open",
 	sound_close = "mcl_fences_nether_brick_fence_gate_close",
-	sunlight = false,
+	sunlight_propagates = false,
 })
 
 minetest.register_craft({
@@ -201,7 +200,7 @@ doors.register_door("doors:door_glass", {
 	sounds = hades_sounds.node_sound_glass_defaults(),
 	sound_open = "doors_glass_door_open",
 	sound_close = "doors_glass_door_close",
-	sunlight = true,
+	sunlight_propagates = true,
 })
 
 minetest.register_craft({
@@ -223,7 +222,7 @@ doors.register_door("doors:door_obsidian_glass", {
 	sounds = hades_sounds.node_sound_glass_defaults(),
 	sound_open = "doors_glass_door_open",
 	sound_close = "doors_glass_door_close",
-	sunlight = true,
+	sunlight_propagates = true,
 })
 
 minetest.register_craft({
