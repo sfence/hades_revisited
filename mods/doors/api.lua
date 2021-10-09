@@ -737,14 +737,14 @@ function doors.register_door( name, def )
 		def.mesh = "door_c.obj"	-- shut
 		minetest.register_node( ":" .. name .. "_c", def )
 
-		def.selection_box = { type = "fixed", fixed = { 6/16, -1/2, -1, 8/16, 3/2, 0 } }
-		def.collision_box = { type = "fixed", fixed = { 6/16, -1/2, -1, 8/16, 3/2, 0 } }
+		def.selection_box = { type = "fixed", fixed = { 6/16, -1/2, -15/16, 8/16, 3/2, 1/16 } }
+		def.collision_box = { type = "fixed", fixed = { 6/16, -1/2, -15/16, 8/16, 3/2, 1/16 } }
 
 		def.mesh = "door_d.obj"	-- open left-hand
 		minetest.register_node( ":" .. name .. "_d", def )
 
-		def.selection_box = { type = "fixed", fixed = { -8/16, -1/2, -1, -6/16, 3/2, 0 } }
-		def.collision_box = { type = "fixed", fixed = { -8/16, -1/2, -1, -6/16, 3/2, 0 } }
+		def.selection_box = { type = "fixed", fixed = { -8/16, -1/2, -15/16, -6/16, 3/2, 1/16 } }
+		def.collision_box = { type = "fixed", fixed = { -8/16, -1/2, -15/16, -6/16, 3/2, 1/16 } }
 
 		def.mesh = "door_e.obj"	-- open right-hand
 		minetest.register_node( ":" .. name .. "_e", def )
