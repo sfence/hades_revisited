@@ -32,6 +32,8 @@ end
 
 minetest.register_node( "doors:hidden", {
 	description = S("Hidden Door Segment"),
+	inventory_image = "doors_hidden_inv.png",
+	wield_image = "doors_hidden_inv.png",
 	drawtype = "nodebox",  -- cannot use air-like, since falling nodes would be stuck
 	paramtype = "light",
 	paramtype2 = "facedir",
