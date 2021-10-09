@@ -183,14 +183,15 @@ doors.register_door("doors:door_dungeon1", {
 minetest.register_craft({
 	output = "doors:door_dungeon1",
 	recipe = {
-		{ "hades_core:steel_ingot", "hades_core:stick", "hades_core:steel_ingot" },
-		{ "hades_core:stick", "hades_core:stick", "hades_core:stick" },
-		{ "hades_core:steel_ingot", "hades_core:stick", "hades_core:steel_ingot" },
+		{ "hades_core:steel_ingot", "hades_core:steel_rod", "hades_core:steel_ingot" },
+		{ "hades_core:steel_rod", "hades_core:steel_rod", "hades_core:steel_rod" },
+		{ "hades_core:steel_ingot", "hades_core:steel_rod", "hades_core:steel_ingot" },
 	},
 })
 
 doors.register_door("doors:door_dungeon2", {
 	tiles = {{ name = "doors_door_dungeon2.png", backface_culling = true}},
+	use_texture_alpha = "clip",
 	description = S("Dungeon Exterior Door"),
 	inventory_image = "doors_item_dungeon2.png",
 	only_placer_can_open = true,
@@ -204,7 +205,7 @@ doors.register_door("doors:door_dungeon2", {
 minetest.register_craft({
 	output = "doors:door_dungeon2",
 	recipe = {
-		{ "hades_core:stick", "hades_core:stick", "hades_core:stick" },
+		{ "hades_core:steel_rod", "hades_core:steel_rod", "hades_core:steel_rod" },
 		{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" },
 		{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" },
 	},
@@ -265,6 +266,8 @@ doors.register_door("doors:door_chondrite", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	sound_open = "mcl_fences_nether_brick_fence_gate_open",
 	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sound_locked = "doors_door_locked_stone",
+	sound_held_open = "doors_door_held_open_stone",
 	sunlight = false,
 })
 
@@ -287,6 +290,8 @@ doors.register_door("doors:door_essexite", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	sound_open = "mcl_fences_nether_brick_fence_gate_open",
 	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sound_locked = "doors_door_locked_stone",
+	sound_held_open = "doors_door_held_open_stone",
 	sunlight = false,
 })
 
@@ -309,6 +314,8 @@ doors.register_door("doors:door_marble", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	sound_open = "mcl_fences_nether_brick_fence_gate_open",
 	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sound_locked = "doors_door_locked_stone",
+	sound_held_open = "doors_door_held_open_stone",
 	sunlight = false,
 })
 
@@ -331,6 +338,8 @@ doors.register_door("doors:door_sandstone", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	sound_open = "mcl_fences_nether_brick_fence_gate_open",
 	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sound_locked = "doors_door_locked_stone",
+	sound_held_open = "doors_door_held_open_stone",
 	sunlight = false,
 })
 
@@ -353,6 +362,8 @@ doors.register_door("doors:door_sandstone_volcanic", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	sound_open = "mcl_fences_nether_brick_fence_gate_open",
 	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sound_locked = "doors_door_locked_stone",
+	sound_held_open = "doors_door_held_open_stone",
 	sunlight = false,
 })
 
