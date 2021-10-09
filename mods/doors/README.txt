@@ -389,6 +389,10 @@ Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
    by BenjaminNelan (relicensed CC0)
    modified by sorceryid
 
+   /sounds/doors_door_locked_stone.ogg
+   obtained from https://freesound.org/people/F.M.Audio/sounds/570534/
+   by F.M.Audio (CC BY 3.0)
+
    /sounds/doors_door_locking.ogg
    /sounds/doors_door_unlocking.ogg
    /sounds/doors_door_sharing.ogg

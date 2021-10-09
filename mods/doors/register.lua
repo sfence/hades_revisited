@@ -179,6 +179,8 @@ doors.register_door("doors:door_stone", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 	sound_open = "mcl_fences_nether_brick_fence_gate_open",
 	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sound_locked = "doors_door_locked_stone",
+	sound_held_open = "doors_door_held_open_stone",
 	sunlight_propagates = false,
 })
 

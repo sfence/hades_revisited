@@ -698,10 +698,10 @@ function doors.register_door( name, def )
 	end
 
 	if def.is_lockable == nil then
-		def.is_lockable = false
+		def.is_lockable = true
 	end
 	if def.is_closable == nil then
-		def.is_closable = false
+		def.is_closable = true
 	end
 
 	-- define the essential callbacks
@@ -833,10 +833,10 @@ function doors.register_trapdoor( name, def )
 	-- define the placement types
 
 	if def.is_lockable == nil then
-		def.is_lockable = false
+		def.is_lockable = true
 	end
 	if def.is_closable == nil then
-		def.is_closable = false
+		def.is_closable = true
 	end
 
 	-- define the essential callbacks
