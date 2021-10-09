@@ -364,7 +364,34 @@ local function on_rotate_door( pos, node, player, mode )
 	return false
 end
 
-local on_rotate_trapdoor = function ( ) end
+local on_rotate_trapdoor
+if minetest.get_modpath("screwdriver") then
+	on_rotate_trapdoor = function(pos, node, user, mode, param2)
+		-- Flip trapdoor vertically
+		if mode == screwdriver.ROTATE_AXIS then
+			local minor = node.param2
+			if node.param2 >= 20 then
+				minor = node.param2 - 20
+				if minor == 3 then
+					minor = 1
+				elseif minor == 1 then
+					minor = 3
+				end
+				node.param2 = minor
+			else
+				if minor == 3 then
+					minor = 1
+				elseif minor == 1 then
+					minor = 3
+				end
+				node.param2 = minor
+				node.param2 = node.param2 + 20
+			end
+			minetest.set_node(pos, node)
+			return true
+		end
+	end
+end
 
 ---------------------------------
 -- doors.get_door_or_nil( )
@@ -807,6 +834,8 @@ function doors.register_trapdoor( name, def )
 		end
 		return minetest.item_place(itemstack, placer, pointed_thing, param2)
 	end
+
+	def.on_rotate = on_rotate_trapdoor
 
 	if def.protected then
 		def.can_dig = function ( pos, player )
