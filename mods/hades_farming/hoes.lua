@@ -25,7 +25,7 @@ hades_farming.register_hoe(":hades_farming:hoe_steel", {
 	inventory_image = "hades_farming_tool_steelhoe.png",
 	groups = { hoe = 1, },
 	max_uses = 200,
-	material = "hades_core:steel_rod"
+	material = "hades_core:steel_ingot"
 })
 
 hades_farming.register_hoe(":hades_farming:hoe_bronze", {
