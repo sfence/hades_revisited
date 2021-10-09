@@ -121,8 +121,8 @@ Several fields of the definition table are required, but most are optional
  * def.description - the description to show in the craft guide and itemstack tooltips
  * def.inventory_image - the texture for the inventory item
  * def.groups - the group levels of the node ('door = 1' will be added automatically)
- * def.is_lockable - whether the locking mode is adjustable (default is false)
- * def.is_closable - whether the closing mode is adjustable (default is false)
+ * def.is_lockable - whether the locking mode is adjustable (default is true)
+ * def.is_closable - whether the closing mode is adjustable (default is true)
  * def.sound_open - sound effect when opening
  * def.sound_close - sound effect when closing
  * def.sound_locked - sound effect when locked
