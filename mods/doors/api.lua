@@ -39,8 +39,21 @@ local offset_y = function ( pos, y )
         return { x = pos.x, y = pos.y + ( y or 1 ), z = pos.z }
 end
 
+--[[ Hidden door segments are used to occupy the other nodes of doors to
+make sure no nodes overlap with the door.
+The "standard" offset door (open and closed) uses 1 hidden door segment
+* doors:hidden for the upper segment.
+The closed center door uses 1 hidden door segment:
+* doors:hidden_center for the upper door segment
+The open center door uses 3 hidden door segments:
+* doors:hidden_center for the upper door segment
+* doors:hidden for the upper door segment of the door's neighbor
+* doors:hidden_center_side_bottom for the lower door segment of the door's neighbor
+The "neighbors" of the center door are the 2 nodes (upper and lower) into
+which the center door opens. ]]
+
 minetest.register_node( "doors:hidden", {
-	description = S("Hidden Door Segment"),
+	description = S("Shared Hidden Door Segment"),
 	tiles = hidden_tiles,
 	inventory_image = "doors_hidden_inv.png",
 	wield_image = "doors_hidden_inv.png",
@@ -73,8 +86,8 @@ minetest.register_node( "doors:hidden", {
 
 minetest.register_node( "doors:hidden_center", {
 	description = S("Hidden Center Door Segment"),
-	inventory_image = "doors_hidden_inv.png",
-	wield_image = "doors_hidden_inv.png",
+	inventory_image = "doors_hidden_center_inv.png",
+	wield_image = "doors_hidden_center_inv.png",
 	tiles = hidden_tiles,
 	use_texture_alpha = "clip",
 	drawtype = "nodebox",
@@ -105,8 +118,8 @@ minetest.register_node( "doors:hidden_center", {
 
 minetest.register_node( "doors:hidden_center_side_bottom", {
 	description = S("Hidden Bottom Side Center Door Segment"),
-	inventory_image = "doors_hidden_inv.png",
-	wield_image = "doors_hidden_inv.png",
+	inventory_image = "doors_hidden_center_side_bottom_inv.png",
+	wield_image = "doors_hidden_center_side_bottom_inv.png",
 	tiles = hidden_tiles,
 	use_texture_alpha = "clip",
 	drawtype = "nodebox",
