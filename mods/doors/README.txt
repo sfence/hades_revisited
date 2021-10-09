@@ -132,7 +132,7 @@ Several fields of the definition table are required, but most are optional
  * def.sound_held_open - sound effect when trying to open a door in hold-open state
                          or when center door is blocked
  * def.sound_closing_mode - sound effect when changing door closing mode
- * def.can_center - whether center positioning (default is false)
+ * def.can_center - whether center positioning (default is true)
 
 For programmatically examining and manipulating doors, two API functions are provided:
 

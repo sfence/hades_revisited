@@ -928,7 +928,7 @@ function doors.register_door( name, def )
 		def.can_offset = true
 	end
 	if def.can_center == nil then
-		def.can_center = false
+		def.can_center = true
 	end
 
 	if def.is_lockable == nil then
