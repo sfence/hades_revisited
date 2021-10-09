@@ -670,6 +670,12 @@ function doors.register_door( name, def )
 
 	-- register offset door nodes
 
+	-- Prevent steel door crafting recipe from applying to hinge nodes
+	-- TODO: Generalize this code
+	if def.groups then
+		def.groups.steel_door = nil
+	end
+
 	if def.can_offset then
 		def.selection_box = { type = "fixed", fixed = { -1/2, -1/2, -8/16, 1/2, 3/2, -6/16 } }
 		def.collision_box = { type = "fixed", fixed = { -1/2, -1/2, -8/16, 1/2, 3/2, -6/16 } }
