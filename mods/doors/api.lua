@@ -1040,7 +1040,10 @@ minetest.register_tool( "doors:wrench", {
 	on_place = function( itemstack, player, pointed_thing)
 		local node = minetest.get_node(pointed_thing.under)
 		local ndef = minetest.registered_nodes[node.name]
-		if ndef and ndef.on_rightclick and
+		local is_door = minetest.get_item_group(node.name, "door") ~= 0
+		local is_trapdoor = minetest.get_item_group(node.name, "trapdoor") ~= 0
+		if not is_door and not is_trapdoor and
+				ndef and ndef.on_rightclick and
 				not player:get_player_control().sneak then
 			return ndef.on_rightclick(pointed_thing.under,
 					node, player, itemstack, pointed_thing)
