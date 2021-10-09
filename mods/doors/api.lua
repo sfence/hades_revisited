@@ -495,8 +495,13 @@ local function register_door_craftitem( name, def )
 				return itemstack
 			end
 
-			local node = minetest.get_node( pointed_thing.under )
-			local ndef = minetest.registered_nodes[ node.name ]
+			local node = minetest.get_node(pointed_thing.under)
+			local ndef = minetest.registered_nodes[node.name]
+			if ndef and ndef.on_rightclick and
+					not player:get_player_control().sneak then
+				return ndef.on_rightclick(pointed_thing.under,
+						node, player, itemstack, pointed_thing)
+			end
 
 			if ndef and ndef.buildable_to then
 				pos = pointed_thing.under
@@ -963,6 +968,13 @@ minetest.register_tool( "doors:wrench", {
 		return itemstack
 	end,
 	on_place = function( itemstack, player, pointed_thing)
+		local node = minetest.get_node(pointed_thing.under)
+		local ndef = minetest.registered_nodes[node.name]
+		if ndef and ndef.on_rightclick and
+				not player:get_player_control().sneak then
+			return ndef.on_rightclick(pointed_thing.under,
+					node, player, itemstack, pointed_thing)
+		end
 		handle_wrench( itemstack, player, pointed_thing, doors.ADJUST_CLOSING )
 		return itemstack
 	end,
