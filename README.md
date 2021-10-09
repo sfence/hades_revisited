@@ -196,6 +196,9 @@ from their original.
 `hades_vines` (based on `vines`)
 <https://forum.minetest.net/viewtopic.php?id=2344>
 
+`doors` (based Doors Redux)
+<https://forum.minetest.net/viewtopic.php?t=24459>
+
 
 ## Licensing
 This game is free software. It has been licensed under these licenses:
@@ -205,6 +208,7 @@ This game is free software. It has been licensed under these licenses:
 
 Some mods have separate licenses:
 
+* `doors`: LGPLv3 for code, CC BY-SA 3.0 for media
 * `hades_furniture`: GPLv2
 * `bags`: New BSD License
 * `hades_bedrock`: zlib license
