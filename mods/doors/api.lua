@@ -67,7 +67,7 @@ minetest.register_node( "doors:hidden_center", {
 	description = S("Hidden Center Door Segment"),
 	inventory_image = "doors_hidden_inv.png",
 	wield_image = "doors_hidden_inv.png",
-	tiles = {"blank.png"},
+	tiles = { "blank.png" },
 	use_texture_alpha = "clip",
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -99,7 +99,7 @@ minetest.register_node( "doors:hidden_center_side_bottom", {
 	description = S("Hidden Bottom Side Center Door Segment"),
 	inventory_image = "doors_hidden_inv.png",
 	wield_image = "doors_hidden_inv.png",
-	tiles = {"blank.png"},
+	tiles = { "blank.png" },
 	use_texture_alpha = "clip",
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -975,6 +975,29 @@ function doors.register_door( name, def )
 	-- register center door nodes
 
 	if def.can_center then
+		def.on_destruct = function( pos )
+			local meta = minetest.get_meta( pos )
+			local state = meta:get_int( "state" )
+			local oldnode = minetest.get_node(pos)
+			local is_open, _, shand = get_door_properties( state, oldnode.param2 )
+			if is_open then
+				local p2 = oldnode.param2
+				if shand == "left" then
+					p2 = (p2 + 2) % 4
+				end
+				local neighbor = center_neighbor[shand][p2]
+				local neighbor_bottom = vector.add(pos, neighbor)
+				local neighbor_top = offset_y(neighbor_bottom)
+				-- Remove hidden nodes of open center door
+				minetest.remove_node( neighbor_bottom )
+				minetest.remove_node( neighbor_top )
+				minetest.check_for_falling( neighbor_top )
+			end
+			-- Remove hidden node (upper door segment)
+			minetest.remove_node( offset_y( pos ) )
+			minetest.check_for_falling( offset_y( pos ) )
+		end
+
 		def.selection_box = { type = "fixed", fixed = { -1/2, -1/2, -1/16, 1/2, 3/2, 1/16 } }
 		def.collision_box = { type = "fixed", fixed = { -1/2, -1/2, -1/16, 1/2, 3/2, 1/16 } }
 
