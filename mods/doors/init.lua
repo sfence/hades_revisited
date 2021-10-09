@@ -11,5 +11,6 @@
 -- Doors set the tone and character and having the wrong style of door can make or break a build."
 
 dofile( minetest.get_modpath( "doors" ) .. "/api.lua" )
+dofile( minetest.get_modpath( "doors" ) .. "/wrench.lua" )
 dofile( minetest.get_modpath( "doors" ) .. "/register.lua" )
 
