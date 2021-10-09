@@ -14,6 +14,10 @@ doors = { }
 local config = {}
 config.autoclose_timeout = 2.5
 
+-- Set this true to enable HIDDEN NODE DEBUG.
+-- This makes the hidden nodes visible and diggable.
+local HIDDEN_DEBUG = false
+
 doors.LOCKING_MODE_UNDEFINED = 0
 doors.LOCKING_MODE_UNLOCKED = 1
 doors.LOCKING_MODE_LOCKED = 2
@@ -27,14 +31,17 @@ doors.ADJUST_CLOSING = 2
 doors.CHECK_LOCKING = 3
 doors.CHECK_CLOSING = 4
 
--- Set to true to make hidden nodes visible and pointable
-local HIDDEN_DEBUG = false
-
 local hidden_tiles = { "blank.png" }
 local hidden_drawtype = "airlike"
+local hidden_pointable = false
+local hidden_diggable = false
+local hidden_groups = { not_in_creative_inventory = 1 }
 if HIDDEN_DEBUG then
 	hidden_tiles = { "default_stone.png" }
 	hidden_drawtype = "nodebox"
+	hidden_pointable = true
+	hidden_diggable = true
+	hidden_groups.dig_immediate = 3
 end
 
 local offset_y = function ( pos, y )
@@ -73,13 +80,13 @@ minetest.register_node( "doors:hidden", {
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
 	walkable = true,
-	pointable = false,
-	diggable = false,
+	pointable = hidden_pointable,
+	diggable = hidden_diggable,
 	buildable_to = false,
 	floodable = false,
 	drop = "",
 
-	groups = { not_in_creative_inventory = 1},
+	groups = hidden_groups,
 	on_blast = function( ) end,
 
 	node_box = {
@@ -102,13 +109,13 @@ minetest.register_node( "doors:hidden_center", {
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
 	walkable = true,
-	pointable = false,
-	diggable = false,
+	pointable = hidden_pointable,
+	diggable = hidden_diggable,
 	buildable_to = false,
 	floodable = false,
 	drop = "",
 
-	groups = { not_in_creative_inventory = 1 },
+	groups = hidden_groups,
 	on_blast = function( ) end,
 
 	node_box = {
@@ -131,13 +138,13 @@ minetest.register_node( "doors:hidden_center_side_bottom", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	pointable = false,
-	diggable = false,
+	pointable = hidden_pointable,
+	diggable = hidden_diggable,
 	buildable_to = false,
 	floodable = false,
 	drop = "",
 
-	groups = { not_in_creative_inventory = 1 },
+	groups = hidden_groups,
 	on_blast = function( ) end,
 
 	-- Node box only provided for debug
