@@ -1017,8 +1017,8 @@ function doors.register_door( name, def )
 			local meta = minetest.get_meta( pos )
 			local state = meta:get_int( "state" )
 			local oldnode = minetest.get_node(pos)
-			local is_open, _, shand = get_door_properties( state, oldnode.param2 )
-			if is_open then
+			local is_open, stype, shand = get_door_properties( state, oldnode.param2 )
+			if is_open and stype == "center" then
 				local p2 = oldnode.param2
 				if shand == "left" then
 					p2 = (p2 + 2) % 4
