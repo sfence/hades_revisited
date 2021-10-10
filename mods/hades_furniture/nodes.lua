@@ -237,102 +237,112 @@ end
 --[[ ----- Medieval theme -----]]
 
 -- Steel Bars (only straight section)
-minetest.register_node("hades_furniture:bars", {
-	description = S("Straight Steel Bars"),
-	tiles = {
-		"hades_furniture_black_metal_s1.png",
-		"hades_furniture_black_metal_s1.png",
-	},
-	drawtype = "nodebox",
-	sunlight_propagates = true,
-	paramtype = 'light',
-	paramtype2 = 'facedir',
-	is_ground_content = false,
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.1,-0.5,-0.1, 0.1,0.5,0.1}, -- center bar
-			{0.4,-0.5,-0.1, 0.5,0.5,0.1}, -- right bar
-			{0.1,-0.5,-0.05, 0.4,-0.45,0.05}, -- right low rail
-			{0.1,0.45,-0.05, 0.4,0.5,0.05}, -- right high rail
-			{-0.5,-0.5,-0.1, -0.4,0.5,0.1}, -- left bar
-			{-0.4,-0.5,-0.05, -0.1,-0.45,0.05}, -- left low rail
-			{-0.4,0.45,-0.05, -0.1,0.5,0.05}, -- left high rail
-		},
-	},
-	collision_box = {
-		type = "fixed",
-		fixed = {-0.5,-0.5,-0.15, 0.5,0.5,0.15},
-	},
-	groups = {cracky=1},
-	sounds = hades_sounds.node_sound_metal_defaults(),
-	on_rotate = "simple",
-	_hades_shaper_next = "hades_furniture:L_binding_bars",
-})
 
--- Binding steel bars (for corners and junctions).
--- Also, center bar is slightly thicker
-minetest.register_node("hades_furniture:L_binding_bars",
-	{ description =S("Binding Steel Bars"),
-	tiles = {
-		"hades_furniture_black_metal_s1.png",
-		"hades_furniture_black_metal_s1.png",
-	},
-	drawtype = "nodebox",
-	sunlight_propagates = true,
-	paramtype = 'light',
-	is_ground_content = false,
-	connects_to = {"hades_furniture:bars", "hades_furniture:L_binding_bars", "hades_core:steelblock"},
-	connect_sides = { "left", "right", "front", "back" },
-	node_box = {
-		type = "connected",
-		fixed = {
-			{-0.15,-0.5,-0.15, 0.15,0.5,0.15}, -- center bar
-		},
-		connect_right = {
-			{0.4,-0.5,-0.1, 0.5,0.5,0.1}, -- bar
-			{0.15,-0.5,-0.05, 0.4,-0.45,0.05}, -- low rail
-			{0.15,0.45,-0.05, 0.4,0.5,0.05}, -- high rail
-		},
-		connect_left = {
-			{-0.5,-0.5,-0.1, -0.4,0.5,0.1}, -- bar
-			{-0.4,-0.5,-0.05, -0.15,-0.45,0.05}, -- low rail
-			{-0.4,0.45,-0.05, -0.15,0.5,0.05}, -- high rail
-		},
-		connect_front = {
-			{-0.1,-0.5,-0.5,0.1,0.5,-0.4}, -- bar
-			{-0.05,-0.5,-0.4, 0.05,-0.45,-0.15}, -- low rail
-			{-0.05,0.45,-0.4, 0.05,0.5,-0.15}, -- high rail
-		},
-		connect_back = {
-			{-0.1,-0.5,0.4,0.1,0.5,0.5}, -- bar
-			{-0.05,-0.5,0.15, 0.05,-0.45,0.4}, -- low rail
-			{-0.05,0.45,0.15, 0.05,0.5,0.4}, -- high rail
-		},
-	},
-	collision_box = {
-		type = "connected",
-		fixed = {
-			{-0.15,-0.5,-0.15, 0.15,0.5,0.15}, -- center bar
-		},
-		connect_right = {
-			{0.15,-0.5,-0.15, 0.5,0.5,0.15},
-		},
-		connect_left = {
-			{-0.5,-0.5,-0.15, -0.15,0.5,0.15},
-		},
-		connect_back = {
-			{-0.15,-0.5,-0.15, 0.15,0.5,0.5},
-		},
-		connect_front = {
-			{-0.15,-0.5,-0.5, 0.15,0.5,-0.15},
-		},
+local bars = {
+	{ "bars", "L_binding_bars", S("Straight Steel Bars"), S("Binding Steel Bars"), { "hades_furniture_black_metal_s1.png" } },
+	{ "rusty_bars", "binding_rusty_bars", S("Straight Rusty Bars"), S("Binding Rusty Bars"), { "columnia_rusty.png" } },
+}
 
-	},
-	groups = {cracky=1,},
-	sounds = hades_sounds.node_sound_metal_defaults(),
-	_hades_shaper_next = "hades_furniture:bars",
-})
+for b=1, #bars do
+	local bar = bars[b]
+	local id = bar[1]
+	local id2 = bar[2]
+	local desc1 = bar[3]
+	local desc2 = bar[4]
+	local tiles = bar[5]
+
+	minetest.register_node("hades_furniture:"..id, {
+		description = desc1,
+		tiles = tiles,
+		drawtype = "nodebox",
+		sunlight_propagates = true,
+		paramtype = 'light',
+		paramtype2 = 'facedir',
+		is_ground_content = false,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.1,-0.5,-0.1, 0.1,0.5,0.1}, -- center bar
+				{0.4,-0.5,-0.1, 0.5,0.5,0.1}, -- right bar
+				{0.1,-0.5,-0.05, 0.4,-0.45,0.05}, -- right low rail
+				{0.1,0.45,-0.05, 0.4,0.5,0.05}, -- right high rail
+				{-0.5,-0.5,-0.1, -0.4,0.5,0.1}, -- left bar
+				{-0.4,-0.5,-0.05, -0.1,-0.45,0.05}, -- left low rail
+				{-0.4,0.45,-0.05, -0.1,0.5,0.05}, -- left high rail
+			},
+		},
+		collision_box = {
+			type = "fixed",
+			fixed = {-0.5,-0.5,-0.15, 0.5,0.5,0.15},
+		},
+		groups = {metal_bars=1, cracky=1},
+		sounds = hades_sounds.node_sound_metal_defaults(),
+		on_rotate = "simple",
+		_hades_shaper_next = "hades_furniture:"..id2,
+	})
+
+	-- Binding bars (for corners and junctions).
+	-- Also, center bar is slightly thicker
+	minetest.register_node("hades_furniture:"..id2,
+		{
+		description = desc2,
+		tiles = tiles,
+		drawtype = "nodebox",
+		sunlight_propagates = true,
+		paramtype = 'light',
+		is_ground_content = false,
+		connects_to = {"group:metal_bars", "hades_core:steelblock", "columnia:rusty_block"},
+		connect_sides = { "left", "right", "front", "back" },
+		node_box = {
+			type = "connected",
+			fixed = {
+				{-0.15,-0.5,-0.15, 0.15,0.5,0.15}, -- center bar
+			},
+			connect_right = {
+				{0.4,-0.5,-0.1, 0.5,0.5,0.1}, -- bar
+				{0.15,-0.5,-0.05, 0.4,-0.45,0.05}, -- low rail
+				{0.15,0.45,-0.05, 0.4,0.5,0.05}, -- high rail
+			},
+			connect_left = {
+				{-0.5,-0.5,-0.1, -0.4,0.5,0.1}, -- bar
+				{-0.4,-0.5,-0.05, -0.15,-0.45,0.05}, -- low rail
+				{-0.4,0.45,-0.05, -0.15,0.5,0.05}, -- high rail
+			},
+			connect_front = {
+				{-0.1,-0.5,-0.5,0.1,0.5,-0.4}, -- bar
+				{-0.05,-0.5,-0.4, 0.05,-0.45,-0.15}, -- low rail
+				{-0.05,0.45,-0.4, 0.05,0.5,-0.15}, -- high rail
+			},
+			connect_back = {
+				{-0.1,-0.5,0.4,0.1,0.5,0.5}, -- bar
+				{-0.05,-0.5,0.15, 0.05,-0.45,0.4}, -- low rail
+				{-0.05,0.45,0.15, 0.05,0.5,0.4}, -- high rail
+			},
+		},
+		collision_box = {
+			type = "connected",
+			fixed = {
+				{-0.15,-0.5,-0.15, 0.15,0.5,0.15}, -- center bar
+			},
+			connect_right = {
+				{0.15,-0.5,-0.15, 0.5,0.5,0.15},
+			},
+			connect_left = {
+				{-0.5,-0.5,-0.15, -0.15,0.5,0.15},
+			},
+			connect_back = {
+				{-0.15,-0.5,-0.15, 0.15,0.5,0.5},
+			},
+			connect_front = {
+				{-0.15,-0.5,-0.5, 0.15,0.5,-0.15},
+			},
+
+		},
+		groups = {metal_bars=1, cracky=1,},
+		sounds = hades_sounds.node_sound_metal_defaults(),
+		_hades_shaper_next = "hades_furniture:"..id,
+	})
+end
 
 minetest.register_node("hades_furniture:plant_pot", {
 	description = S("Plant Pot"),
