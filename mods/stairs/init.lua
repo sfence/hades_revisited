@@ -534,6 +534,9 @@ end
 
 -- Nodes will be called stairs:slab_<subname>, stairs:slab_double_<subname>
 function stairs.register_slab_with_double(subname, recipeitem, groups, images, desc_slab, desc_slab_double, sounds)
+	if not sounds and recipeitem then
+		sounds = minetest.registered_items[recipeitem].sounds
+	end
 	stairs.register_slab(subname, recipeitem, groups, images, desc_slab, sounds, true)
 	stairs.register_slab_double(subname, "stairs:slab_"..subname, groups, images, desc_slab_double, sounds)
 end
