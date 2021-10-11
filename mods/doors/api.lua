@@ -35,12 +35,14 @@ local hidden_tiles = { "blank.png" }
 local hidden_drawtype = "airlike"
 local hidden_pointable = false
 local hidden_diggable = false
+local hidden_can_dig = function() return false end
 local hidden_groups = { not_in_creative_inventory = 1 }
 if HIDDEN_DEBUG then
 	hidden_tiles = { "default_stone.png" }
 	hidden_drawtype = "nodebox"
 	hidden_pointable = true
 	hidden_diggable = true
+	hidden_can_dig = nil
 	hidden_groups.dig_immediate = 3
 end
 
@@ -56,13 +58,13 @@ All hidden door segments are defined in such a way that they effectively
 The "standard" offset door (open and closed) uses 1 hidden door segment
 * doors:hidden for the upper segment.
 The closed center door uses 1 hidden door segment:
-* doors:hidden_center for the upper door segment
+* doors:hidden_center (1×) for the upper door segment
 The open center door uses 3 hidden door segments:
-* doors:hidden_center for the upper door segment
-* doors:hidden for the upper door segment of the door's neighbor
-* doors:hidden_center_side_bottom for the lower door segment of the door's neighbor
-The "neighbors" of the center door are the 2 nodes (upper and lower) into
-which the center door opens. ]]
+* doors:hidden_center (1×) for the upper door segment
+* doors:hidden (2×) for the lower and upper and lower
+  door segments of the door's neighbors
+The "neighbors" of the center door are the 2 nodes into which the
+center door opens. ]]
 
 minetest.register_node( "doors:hidden", {
 	-- This node is walkable to stop falling nodes.
@@ -82,6 +84,7 @@ minetest.register_node( "doors:hidden", {
 	walkable = true,
 	pointable = hidden_pointable,
 	diggable = hidden_diggable,
+	can_dig = hidden_can_dig,
 	buildable_to = false,
 	floodable = false,
 	drop = "",
@@ -111,12 +114,14 @@ minetest.register_node( "doors:hidden_center", {
 	walkable = true,
 	pointable = hidden_pointable,
 	diggable = hidden_diggable,
+	can_dig = hidden_can_dig,
 	buildable_to = false,
 	floodable = false,
 	drop = "",
 
 	groups = hidden_groups,
 	on_blast = function( ) end,
+	can_dig = function( ) end,
 
 	node_box = {
 		type = "fixed",
@@ -124,36 +129,6 @@ minetest.register_node( "doors:hidden_center", {
 	},
 
 } )
-
-minetest.register_node( "doors:hidden_center_side_bottom", {
-	-- A non-walkable hidden door node. Used to occupy
-	-- the bottom half of the open center door's neighbor.
-	-- Its only purpose is to block this node.
-	description = S("Hidden Bottom Side Center Door Segment"),
-	inventory_image = "doors_hidden_center_side_bottom_inv.png",
-	wield_image = "doors_hidden_center_side_bottom_inv.png",
-	drawtype = hidden_drawtype,
-	tiles = hidden_tiles,
-	use_texture_alpha = "clip",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	pointable = hidden_pointable,
-	diggable = hidden_diggable,
-	buildable_to = false,
-	floodable = false,
-	drop = "",
-
-	groups = hidden_groups,
-	on_blast = function( ) end,
-
-	-- Node box only provided for debug
-	node_box = {
-		type = "fixed",
-		fixed = { -2/16, -2/16, -2/16, 2/16, 2/16, 2/16 },
-	},
-} )
-
 
 -- table used to aid door opening/closing
 -- tier 1 = hand, tier 2 = face, and tier 3 = is_open
@@ -348,13 +323,13 @@ local function toggle_door( pos, node, player )
 		if is_open then
 			-- Open center door, place hidden nodes to prevent node overlap
 			if nb1d and nb2d and nb1d.buildable_to and nb2d.buildable_to then
-				minetest.set_node(neighbor_bottom, {name="doors:hidden_center_side_bottom"})
 				local np2
 				if hand == "left" then
 					np2 = node.param2
 				else
 					np2 = (node.param2 + 1) % 4
 				end
+				minetest.set_node(neighbor_bottom, {name="doors:hidden", param2=np2})
 				minetest.set_node(neighbor_top, {name="doors:hidden", param2=np2})
 			else
 				-- It's blocked, can't open
@@ -363,7 +338,7 @@ local function toggle_door( pos, node, player )
 			end
 		else
 			-- Close center door, remove place hidden nodes again
-			if nb1.name == "doors:hidden_center_side_bottom" then
+			if nb1.name == "doors:hidden" then
 				minetest.remove_node(neighbor_bottom)
 			end
 			if nb2.name == "doors:hidden" then
@@ -598,10 +573,10 @@ local function on_rotate_door( pos, node, player, mode )
 				if nntd and nnbd and nntd.buildable_to and nnbd.buildable_to then
 					minetest.swap_node( pos, { name = ndef.base_name .. transform.suffix, param2 = transform.param2 } )
 					minetest.set_node( top, { name = "doors:hidden_center", param2 = p2 } )
-					minetest.set_node( neighbor_bottom, { name = "doors:hidden_center_side_bottom", param2 = p2 })
 					if shand == "right" then
 						p2 = (p2 + 1) % 4
 					end
+					minetest.set_node( neighbor_bottom, { name = "doors:hidden", param2 = p2 })
 					minetest.set_node( neighbor_top, { name = "doors:hidden", param2 = p2 })
 				else
 					return false
@@ -626,7 +601,7 @@ local function on_rotate_door( pos, node, player, mode )
 				minetest.remove_node(neighbor_top)
 				minetest.check_for_falling(neighbor_top)
 			end
-			if nnb.name == "doors:hidden_center_side_bottom" then
+			if nnb.name == "doors:hidden" then
 				minetest.remove_node(neighbor_bottom)
 			end
 		end
