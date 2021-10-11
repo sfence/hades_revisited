@@ -1,6 +1,6 @@
 # Hunger with HUD bar [`hbhunger`]
 
-* Version: 1.1.0
+Modified version for Hades Revisited.
 
 ## Using the mod
 
@@ -14,7 +14,7 @@ This mod adds a hunger mechanic to the game. Players get a new attribute called 
 * A new player starts with 20 satiation points out of 30
 * Actions like digging, placing and walking cause exhaustion, which lower the satiation
 * Every 800 seconds you lose 1 satiation point without doing anything
-* At 1 or 0 satiation you will suffer damage and die in case you don't eat something
+* At 0 satiation you will suffer damage and die in case you don't eat something
 * If your satiation is 16 or higher, you will slowly regenerate health points
 * Eating food will increase your satiation (Duh!)
 
