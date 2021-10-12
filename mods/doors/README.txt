@@ -15,18 +15,9 @@ Some of the notable features include:
  - Screwdriver tool alternates door position and direction
  - Fully backwards-compatible API with additional functions
 
-Moreover, a set of 18 new doors are readily available! They encompass a wide variety of 
+Moreover, a set of new doors are readily available! They encompass a wide variety of
 different building styles, so players are no longer restricted to the four basic steel, 
 wood, glass, and obsidian glass doors that come shipped with Minetest Game.
-
- - Mansion Doors (exterior and interior)
- - Prison & Vault Doors (exterior and interior)
- - Barn & Shed Doors (exterior and interior)
- - Castle Doors (exterior and interior)
- - Cottage Doors (exterior and interior)
- - Specialty Doors: Japanese and French
- - Wooden Doors: Colonial, Atherton Double-Lite, Cambridge Single-Lite
- - Steel Doors: Colonial, Atherton Double-Lite, Cambridge Single-Lite
 
 I truly believe that doors are one of the most essential but often overlooked elements of 
 good architectural design. They set the tone and character of both a living and working 
@@ -218,138 +209,17 @@ Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
    /models/fencegate_closed.obj
    by sofar
 
-   /textures/default_steel_rod.png
-   by sorcerykid
-
-   /textures/doors_door_barn1.png
-   by sorcerykid
-
-   /textures/doors_door_barn2.png
-   by sorcerykid
-
-   /textures/doors_door_castle1.png
-   by sorcerykid
-
-   /textures/doors_door_castle2.png
-   by sorcerykid
-
-   /textures/doors_door_cottage1.png
-   by kilbith (relicensed WTFPL)
-   modified by sorcerykid
-
-   /textures/doors_door_cottage2.png
-   by kilbith (relicensed WTFPL)
-   modified by sorcerykid
-
    /textures/doors_door_dungeon1.png
    by sorcerykid
 
    /textures/doors_door_dungeon2.png
    by sorcerykid
 
-   /textures/doors_door_french.png
-   by kilbith (relicensed WTFPL)
-   modified by sorcerykid
-
-   /textures/doors_door_japanese.png
-   by kilbith (relicensed WTFPL)
-   modified by sorcerykid
-
-   /textures/doors_door_mansion1.png
-   by sorcerykid
-
-   /textures/doors_door_mansion2.png
-   by sorcerykid
-
-   /textures/doors_door_steelglass1.png
-   by sorcerykid
-
-   /textures/doors_door_steelglass2.png
-   by sorcerykid
-
-   /textures/doors_door_steelpanel1.png
-   by sorcerykid
-
-   /textures/doors_door_steel.png
-   by PilzAdam
-
-   /textures/doors_door_woodglass1.png
-   by sorcerykid
-
-   /textures/doors_door_woodglass2.png
-   by sorcerykid
-
-   /textures/doors_door_woodpanel1.png
-   by sorcerykid
-
-   /textures/doors_door_wood.png
-   by Fernando Zapata
-
-   /textures/doors_item_barn1.png
-   by sorcerykid
-
-   /textures/doors_item_barn2.png
-   by sorcerykid
-
-   /textures/doors_item_castle1.png
-   by sorcerykid
-
-   /textures/doors_item_castle2.png
-   by sorcerykid
-
-   /textures/doors_item_cottage1.png
-   by kilbith (relicensed WTFPL)
-   modified by sorcerykid
-
-   /textures/doors_item_cottage2.png
-   by kilbith (relicensed WTFPL)
-   modified by sorcerykid
-
-   /textures/doors_item_dungeon1.png
-   by sorcerykid
-
-   /textures/doors_item_dungeon2.png
-   by sorcerykid
-
-   /textures/doors_item_french.png
-   by kilbith (relicensed WTFPL)
-   modified by sorcerykid
-
-   /textures/doors_item_glass.png
-   by Krock & paramat
-   inspired by VanessaE
-
-   /textures/doors_item_japanese.png
-   by kilbith (relicensed WTFPL)
-   modified by sorcerykid
-
-   /textures/doors_item_mansion1.png
-   by sorcerykid
-
-   /textures/doors_item_mansion2.png
-   by sorcerykid
-
    /textures/doors_item_obsidian_glass.png
-   /textures/doors_item_steelglass1.png
-   by sorcerykid
-
-   /textures/doors_item_steelglass2.png
-   by sorcerykid
-
-   /textures/doors_item_steelpanel1.png
    by sorcerykid
 
    /textures/doors_item_steel.png
    by PilzAdam
-
-   /textures/doors_item_woodglass1.png
-   by sorcerykid
-
-   /textures/doors_item_woodglass2.png
-   by sorcerykid
-
-   /textures/doors_item_woodpanel1.png
-   by sorcerykid
 
    /textures/doors_item_wood.png
    by Fernando Zapata
