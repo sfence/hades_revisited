@@ -1,112 +1,73 @@
-Doors Redux Mod v1.0
-By Leslie E. Krause
+Doors for Hades Revisited
 
-Doors Redux is a total rewrite of the Doors mod from Minetest Game. It builds upon the 
-work of sofar, PilzAdam, and BlockMen to provide greater functionality in addition to an 
-expanded selection of doors from my own Extra Doors mod..
+(fork of Doors Redux Mod v1.0 by Leslie E. Krause)
+
+Doors for Hades Revisited is the mod that adds doors, trapdoors and fence gates
+to Hades Revisited.
+It's a fork of the Doors Redux mod with added functionality.
 
 Some of the notable features include:
 
- - Distinctive sound fx when attempting to open a locked door
- - Multiple locking modes for all doors: unlocked, locked, and shared
- - Multiple closing modes for all doors: auto-close, hold-open, and manual
- - Support for node-center and node-offset door positions
- - Wrench tool cycles between door locking and closing modes
- - Screwdriver tool alternates door position and direction
- - Fully backwards-compatible API with additional functions
+- Distinctive sound fx when attempting to open a locked or blocked door
+- Multiple locking modes for all doors: unlocked, locked, and shared
+- Multiple closing modes for all doors: auto-close, hold-open, and manual
+- Support for node-center and node-offset door positions
+- Wrench tool cycles between door locking and closing modes
+- Screwdriver tool alternates door position and direction
+- API to add new door (NOT backwards-compatible!)
 
-Moreover, a set of new doors are readily available! They encompass a wide variety of
-different building styles, so players are no longer restricted to the four basic steel, 
-wood, glass, and obsidian glass doors that come shipped with Minetest Game.
-
-I truly believe that doors are one of the most essential but often overlooked elements of 
-good architectural design. They set the tone and character of both a living and working 
-space. Have the wrong style of door can make or break the underlying visual aesthetic of 
-any building, which is why I accounted for several possible uses.
-
-Incidentally, Doors Redux began as experiment to incororate centered doors into Minetest 
-Game because they look so much more visually appealing than the traditional offset doors. 
-However, the project turned out to be far more complicated than planned, given the need 
-to maintain compatibility with existing worlds. So I ended up rewriting the Doors mod
-with a specialized translataion matrix, including B3D models adapted from TumeniNode's
-excellent C Doors mod (which I would've used, but it didn't have a translation matrix).
-
-Thankfully, the end result was well worth the effort, since I was able to simplify and 
-consolidate all of the logic, and expand the overall feature-set too :)
-
-First and foremost is support for the already familiar screwdriver. With this tool you 
+With the screwdriver tool you
 can reposition almost any door depending on the mode of operation. Left-clicking switches
 the hand between left vs. right. Whereas right-clicking switches the position between
 center vs. offset. It's really that easy!
 
-The wrench is another powerful tool in your arsenal for manipulating doors and trapdoors. 
-It can be crafted from just one steel ingot and one steel rod. Like the screwdriver from 
-Minetest Game, the wrench has two modes of operation (with the caveat that any existing 
-doors placed by the original Doors mod must be replaced to use this tool).
+The wrench is another powerful tool in your arsenal for manipulating doors and trapdoors.
+It can be crafted from just one steel ingot and one steel rod. Like the screwdriver from
+Minetest Game, the wrench has two modes of operation.
 
-To adjust the closing mode, right-click the door or trapdoor with a wrench. The changes 
+To adjust the closing mode, right-click the door or trapdoor with a wrench. The changes
 will be indicated in chat as follows:
 
  - Normal (door will remain open or closed as per usual operation)
  - Auto-Close (door will close automatically when opened)
  - Hold-Open (door will be non-closable when opened)
 
-Auto-closing doors are ideally suited for high-traffic commercial buildings like shopping 
-centers, where doors must not be left open unattended. The closing mechanism activates 
-after a preset time period, defined by 'config.autoclose_timeout' in seconds.
+Auto-closing doors are ideally suited for high-traffic commercial buildings like shopping
+centers, where doors must not be left open unattended. The closing mechanism activates
+after a preset time period, defined by an internal variable.
 
-Hold-open doors are ideal for when you want to allow for uninterupted passage through a 
+Hold-open doors are ideal for when you want to allow for uninterupted passage through a
 doorway, without having to remove the door entirely. Fire doors in schools are a typical
 example of doors that are intended to remain open, except during emergencies.
 
-To adjust the locking mode, left-click the door or trapdoor with a wrench. The changes 
+To adjust the locking mode, punch the door or trapdoor with a wrench. The changes
 will be indicated in chat as follows:
 
  - Unlocked (door may be opened and closed by any player)
  - Locked (door may only be opened and closed by the owner)
  - Shared (door may only be opened and closed by members of the protection area)
 
-When placing a door, it will be unlocked. The exception is protected doors, such as most 
-metal doors, which are locked by default.
+When placing a door, it will be unlocked.
 
-It is important to note the distinction between protected doors and shared locking mode.
+Below are some helpful notes regarding functionality that may be somewhat unique
+in this mod:
 
- - Protected doors are owned nodes, and therefore can only be removed and manipulated by 
-   the player that originally placed the door, regardless of the locking-mode. All 
-   varieties of metal doors are protected doors. This is consistent with the terminology 
-   used in the official Minetest Game.
-
- - Shared locking mode, in contrast, emulates the behavior of the "protected doors" in 
-   TenPlus1's Protector Redo Mod. Opening and closing of such doors is contingent on 
-   membership in the area of protection. Unfortunately, Protector Redo uses the term 
-   "protected doors", which is a misnomer.
-
-Below are some helpful notes regarding functionality that may be somewhat unique the 
-Doors Redux mod:
-
- - Locking a non-protected door (like an obsidian glass door) will also lock out the 
-   player that placed the door until the locking mode is changed.
-
- - Players that have the 'protection_bypass' privilege, can open, close, and otherwise 
+ - Players that have the 'protection_bypass' privilege, can open, close, and otherwise
    manipulate any door regardless of ownership or locking-mode.
 
- - TNT explosions will have no effect on protected doors. However, normal doors will be 
-   added to the list of drops, unless they are in a protected area.
-
- - Use of the wrench and screwdriver is restricted to the owner of the door (in the case 
+ - Use of the wrench and screwdriver is restricted to the owner of the door (in the case
    of protected doors) or, otherwise, members of the protected area.
 
- - The owner of a protected door can always dig the door that they placed, even when it 
+ - The owner of a protected door can always dig the door that they placed, even when it
    is in a protected area that is controlled by another player.
 
-Custom door definitions may be added to the init.lua file, or alternately you may use
-the Doors Redux API in your own mods. The following function is available for registering
-new doors:
+Custom door definitions may be added by using the API in your own mods.
+The following function is available for registering new doors:
 
    doors.register_door( name, def )
    Registers a door withe the given name and definition table.
 
-Several fields of the definition table are required, but most are optional
+Several fields of the definition table are required, but most are optional.
 
  * def.tiles - the list of textures to apply to the model
  * def.description - the description to show in the craft guide and itemstack tooltips
@@ -136,7 +97,7 @@ The door object, returned by the function above, provides the following methods:
   Returns a table with four fields describing the various properties of the door:
 
    * is_open - true for opened or false for closed, as determined by the state
-   * type - either "center" or "offset", as determined by the state 
+   * type - either "center" or "offset", as determined by the state
    * hand - either "left" or "right", as determined by the state
    * face - ranges from 1 to 4, corresponding with the value of param2
 
@@ -152,27 +113,10 @@ A similar function, doors.get_trapdoor( ), allows for working with trapdoors. Th
 returned provides the same methods as those above.
 
 
-Repository
-----------------------
-
-Browse source code...
-  https://bitbucket.org/sorcerykid/doors
-
-Download archive...
-  https://bitbucket.org/sorcerykid/doors/get/master.zip
-  https://bitbucket.org/sorcerykid/doors/get/master.tar.gz
-
 Compatability
 ----------------------
 
-Minetest 0.4.15+ required
-
-Installation
-----------------------
-
-  1) Backup the original "doors" mod to a safe location.
-  2) Unzip the archive into the mods directory of your game.
-  3) Rename the doors-master directory to "doors".
+This mod was made for Hades Revisited and as such, is not intended to be used outside of it.
 
 Source code license
 ----------------------------------------------------------
