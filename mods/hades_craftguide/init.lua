@@ -40,7 +40,7 @@ local group_stereotypes = {
 }
 
 local group_names = {
-	wool         = S("Any wool"),
+	wool         = S("Any cloth"),
 	dye	     = S("Any dye"),
 	vessel	     = S("Any vessel"),
 	coal	     = S("Any coal lump"),
