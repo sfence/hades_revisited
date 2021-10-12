@@ -615,6 +615,17 @@ stairs.register_stair_and_slab_and_step("sandstone", "hades_core:sandstone",
 		S("Outer Fine Sandstone Step"),
 		S("Inner Fine Sandstone Step"))
 
+stairs.register_stair_and_slab_and_step("cobble_sandstone", "hades_core:cobble_sandstone",
+		{cracky=3},
+		nil,
+		S("Cobbled Fine Sandstone Stair"),
+		S("Outer Cobbled Fine Sandstone Stair"),
+		S("Inner Cobbled Fine Sandstone Stair"),
+		S("Cobbled Fine Sandstone Slab"),
+		S("Cobbled Fine Sandstone Step"),
+		S("Outer Cobbled Fine Sandstone Step"),
+		S("Inner Cobbled Fine Sandstone Step"))
+
 stairs.register_stair_and_slab_and_step("sandstonebrick", "hades_core:sandstonebrick",
 		{cracky=2},
 		nil,
@@ -636,6 +647,17 @@ stairs.register_stair_and_slab_and_step("sandstone_volcanic", "hades_core:sandst
 		S("Volcanic Sandstone Step"),
 		S("Outer Volcanic Sandstone Step"),
 		S("Inner Volcanic Sandstone Step"))
+
+stairs.register_stair_and_slab_and_step("cobble_sandstone_volcanic", "hades_core:cobble_sandstone_volcanic",
+		{cracky=3},
+		nil,
+		S("Cobbled Volcanic Sandstone Stair"),
+		S("Outer Cobbled Volcanic Sandstone Stair"),
+		S("Inner Cobbled Volcanic Sandstone Stair"),
+		S("Cobbled Volcanic Sandstone Slab"),
+		S("Cobbled Volcanic Sandstone Step"),
+		S("Outer Cobbled Volcanic Sandstone Step"),
+		S("Inner Cobbled Volcanic Sandstone Step"))
 
 stairs.register_stair_and_slab_and_step("sandstone_volcanic_brick", "hades_core:sandstone_volcanic_brick",
 		{cracky=2},

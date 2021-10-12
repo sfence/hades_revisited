@@ -71,7 +71,6 @@ VanessaE (MIT License):
   hades_core_stone_baked.png
   hades_core_stone_brick_baked.png
   hades_core_ash.png
-  default_sandstone_brick.png
 
 Calinou (CC BY-SA):
   default_brick.png
@@ -116,6 +115,14 @@ kaeza (MIT License):
 
 sorcerykid (CC BY-SA 4.0):
   hades_core_steel_rod.png
+
+Wuzzy (CC0 1.0):
+  default_sandstone.png
+  default_sandstone_brick.png
+  hades_core_sandstone_volcanic.png
+  hades_core_cobble_sandstone.png
+  hades_core_cobble_sandstone_volcanic.png
+  hades_core_sandstonebrick_volcanic.png
 
 Eelke <https://freesound.org/people/Eelke/sounds/462598/> (CC BY 3.0):
   hades_core_footstep_ladder_metal.1.ogg

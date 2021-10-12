@@ -12,8 +12,10 @@ local S = minetest.get_translator("columnia")
 	--]]
 
 columnia.register_all("hades_core:sandstone")
+columnia.register_all("hades_core:cobble_sandstone")
 columnia.register_all("hades_core:sandstonebrick")
 columnia.register_all("hades_core:sandstone_volcanic")
+columnia.register_all("hades_core:cobble_sandstone_volcanic")
 columnia.register_all("hades_core:sandstone_volcanic_brick")
 columnia.register_all("hades_core:cobble")
 columnia.register_all("hades_core:cobble_baked")

@@ -441,6 +441,13 @@ minetest.register_node("hades_core:sandstone_volcanic", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
+minetest.register_node("hades_core:cobble_sandstone_volcanic", {
+	description = S("Cobbled Volcanic Sandstone"),
+	tiles = {"hades_core_cobble_sandstone_volcanic.png"},
+	is_ground_content = false,
+	groups = {cracky=3,sandstone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
 
 minetest.register_node("hades_core:sandstone_volcanic_brick", {
 	description = S("Volcanic Sandstone Brick"),
@@ -459,6 +466,13 @@ minetest.register_node("hades_core:sandstone", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
+minetest.register_node("hades_core:cobble_sandstone", {
+	description = S("Cobbled Fine Sandstone"),
+	tiles = {"hades_core_cobble_sandstone.png"},
+	is_ground_content = false,
+	groups = {cracky=3,sandstone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
 
 minetest.register_node("hades_core:sandstonebrick", {
 	description = S("Fine Sandstone Brick"),

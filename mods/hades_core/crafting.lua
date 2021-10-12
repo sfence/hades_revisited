@@ -468,6 +468,18 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "hades_core:sandstone",
+	recipe = "hades_core:cobble_sandstone"
+})
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "hades_core:sandstone_volcanic",
+	recipe = "hades_core:cobble_sandstone_volcanic"
+})
 
 minetest.register_craft({
 	output = 'hades_core:sandstone_volcanic',
@@ -486,10 +498,26 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'hades_core:cobble_sandstone 2',
+	recipe = {
+		{'hades_core:sandstone'},
+		{'hades_core:sandstone'},
+	},
+})
+
+minetest.register_craft({
 	output = 'hades_core:volcanic_sand 4',
 	recipe = {
 		{'hades_core:sandstone_volcanic'},
 	}
+})
+
+minetest.register_craft({
+	output = 'hades_core:cobble_sandstone_volcanic 2',
+	recipe = {
+		{'hades_core:sandstone_volcanic'},
+		{'hades_core:sandstone_volcanic'},
+	},
 })
 
 minetest.register_craft({
