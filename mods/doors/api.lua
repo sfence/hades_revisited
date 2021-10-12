@@ -636,7 +636,7 @@ if minetest.get_modpath("screwdriver") then
 				node.param2 = minor
 				node.param2 = node.param2 + 20
 			end
-			minetest.set_node(pos, node)
+			minetest.swap_node(pos, node)
 			return true
 		end
 	end
