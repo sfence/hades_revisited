@@ -231,6 +231,46 @@ minetest.register_craft({
 	},
 })
 
+doors.register_door("doors:door_steel_bar", {
+	tiles = {{ name = "doors_door_steel_bar.png", backface_culling = true}},
+	use_texture_alpha = "clip",
+	description = S("Steel Bar Door"),
+	inventory_image = "doors_item_steel_bar.png",
+	groups = { cracky = 3, door = 1 },
+	sounds = hades_sounds.node_sound_metal_defaults(),
+	sound_open = "doors_door_steel_bar_open",
+	sound_close = "doors_door_steel_bar_close",
+})
+
+minetest.register_craft({
+	output = "doors:door_steel_bar",
+	recipe = {
+		{ "hades_core:steel_rod", "hades_core:steel_rod" },
+		{ "hades_core:steel_rod", "hades_core:steel_rod" },
+		{ "hades_core:steel_rod", "hades_core:steel_rod" },
+	},
+})
+
+doors.register_door("doors:door_rusty_bar", {
+	tiles = {{ name = "doors_door_rusty_bar.png", backface_culling = true}},
+	use_texture_alpha = "clip",
+	description = S("Rusty Bar Door"),
+	inventory_image = "doors_item_rusty_bar.png",
+	groups = { cracky = 3, door = 1 },
+	sounds = hades_sounds.node_sound_metal_defaults(),
+	sound_open = "doors_door_steel_bar_open",
+	sound_close = "doors_door_steel_bar_close",
+})
+
+minetest.register_craft({
+	output = "doors:door_rusty_bar",
+	recipe = {
+		{ "hades_core:steel_rod", "hades_core:steel_rod" },
+		{ "hades_core:iron_lump", "hades_core:iron_lump" },
+		{ "hades_core:steel_rod", "hades_core:steel_rod" },
+	},
+})
+
 
 -- stone
 doors.register_door("doors:door_stone", {
@@ -550,6 +590,49 @@ minetest.register_craft({
 	}
 })
 
+doors.register_trapdoor("doors:trapdoor_steel_bar", {
+	description = S("Steel Bar Trapdoor"),
+	inventory_image = "doors_trapdoor_steel_bar.png",
+	wield_image = "doors_trapdoor_steel_bar.png",
+	tile_front = "doors_trapdoor_steel_bar.png",
+	tile_side = "doors_trapdoor_steel_bar_side.png",
+	use_texture_alpha = "clip",
+	sounds = hades_sounds.node_sound_metal_defaults(),
+	sound_open = "doors_door_steel_bar_open",
+	sound_close = "doors_door_steel_bar_close",
+	groups = {cracky = 3, door = 1},
+})
+
+minetest.register_craft({
+	output = 'doors:trapdoor_steel_bar',
+	recipe = {
+		{'hades_core:steel_rod', 'hades_core:steel_rod', 'hades_core:steel_rod'},
+		{'hades_core:steel_rod', 'hades_core:steel_rod', 'hades_core:steel_rod'},
+	}
+})
+
+doors.register_trapdoor("doors:trapdoor_rusty_bar", {
+	description = S("Rusty Bar Trapdoor"),
+	inventory_image = "doors_trapdoor_rusty_bar.png",
+	wield_image = "doors_trapdoor_rusty_bar.png",
+	tile_front = "doors_trapdoor_rusty_bar.png",
+	tile_side = "doors_trapdoor_rusty_bar_side.png",
+	use_texture_alpha = "clip",
+	sounds = hades_sounds.node_sound_metal_defaults(),
+	sound_open = "doors_door_steel_bar_open",
+	sound_close = "doors_door_steel_bar_close",
+	groups = {cracky = 3, door = 1},
+})
+
+minetest.register_craft({
+	output = 'doors:trapdoor_rusty_bar',
+	recipe = {
+		{'hades_core:steel_rod', 'hades_core:iron_lump', 'hades_core:steel_rod'},
+		{'hades_core:steel_rod', 'hades_core:iron_lump', 'hades_core:steel_rod'},
+	}
+})
+
+
 doors.register_fencegate("doors:gate_wood", {
 	description = S("Temperate Wood Fence Gate"),
 	texture = "default_wood.png",
@@ -593,11 +676,23 @@ minetest.register_craft({
 })
 minetest.register_craft({
 	type = "cooking",
+	output = "hades_core:steel_ingot",
+	recipe = "doors:door_steel_bar",
+	cooktime = 9,
+})
+
+minetest.register_craft({
+	type = "cooking",
 	output = "hades_core:steel_ingot 4",
 	recipe = "doors:trapdoor_steel",
 	cooktime = 12,
 })
-
+minetest.register_craft({
+	type = "cooking",
+	output = "hades_core:steel_ingot",
+	recipe = "doors:trapdoor_steel_bar",
+	cooktime = 6,
+})
 
 
 minetest.register_craft({

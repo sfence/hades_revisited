@@ -378,6 +378,16 @@ Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
    obtained from https://github.com/Rogier-5/minetest-mod-rotate
    by Rogier
 
+   /textures/doors_door_steel_bar.png
+   /textures/doors_item_steel_bar.png
+   /textures/doors_door_rusty_bar.png
+   /textures/doors_item_rusty_bar.png
+   /textures/doors_trapdoor_steel_bar.png
+   /textures/doors_trapdoor_steel_bar_side.png
+   /textures/doors_trapdoor_rusty_bar.png
+   /textures/doors_trapdoor_rusty_bar_side.png
+   derivate works of Minetest Game textures, by Minetest Game developers
+
    /sounds/doors_door_close.ogg
    by bennstir
 
@@ -438,6 +448,13 @@ Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
    /sounds/mcl_fences_nether_brick_fence_gate_close.ogg
    obtained from https://www.freesound.org/people/Slanesh/sounds/31770
    by Slanesh (CC BY 3.0)
+
+   /sounds/doors_door_steel_bar_open.ogg
+   /sounds/doors_door_steel_bar_close.ogg
+   originally licensed CC0
+
+   Note: Any media file not mentioned here falls under the Multimedia License
+   (see above).
 
 
 You are free to:
