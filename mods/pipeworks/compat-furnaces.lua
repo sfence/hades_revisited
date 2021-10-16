@@ -32,17 +32,17 @@ end
 local function active_formspec(fuel_percent, item_percent, pos, meta)
   local ftype = "hades_furnaces:furnace";
 	local formspec =
-		"size[8,8.5]"..
-    "background9[30,30;8,8.5;"..formspec_info[ftype].bg..";true;"..formspec_info[ftype].bg9middle.."]"..
-		"list[current_name;src;2.75,0.5;1,1;]"..
-		"list[current_name;fuel;2.75,2.5;1,1;]"..
-		"image[2.75,1.5;1,1;default_furnace_fire_bg.png^[lowpart:"..
+		"size[10,8.5]"..
+    "background9[30,30;10,8.5;"..formspec_info[ftype].bg..";true;"..formspec_info[ftype].bg9middle.."]"..
+		"list[current_name;src;3.75,0.5;1,1;]"..
+		"list[current_name;fuel;3.75,2.5;1,1;]"..
+		"image[3.75,1.5;1,1;default_furnace_fire_bg.png^[lowpart:"..
 		(100-fuel_percent)..":default_furnace_fire_fg.png]"..
-		"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
+		"image[4.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
 		(item_percent)..":gui_furnace_arrow_fg.png^[transformR270]"..
-		"list[current_name;dst;4.75,0.96;2,2;]"..
-		"list[current_player;main;0,4.25;8,1;]"..
-		"list[current_player;main;0,5.5;8,3;8]"..
+		"list[current_name;dst;5.75,0.96;2,2;]"..
+		"list[current_player;main;0,4.25;10,1;]"..
+		"list[current_player;main;0,5.5;10,3;10]"..
 		"listring[current_name;dst]"..
 		"listring[current_player;main]"..
 		"listring[current_name;src]"..
@@ -64,15 +64,15 @@ end
 
 local function inactive_formspec(pos, meta)
   local ftype = "hades_furnaces:furnace";
-	local formspec = "size[8,8.5]"..
-  "background9[30,30;8,8.5;"..formspec_info[ftype].bg..";true;"..formspec_info[ftype].bg9middle.."]"..
-	"list[current_name;src;2.75,0.5;1,1;]"..
-	"list[current_name;fuel;2.75,2.5;1,1;]"..
-	"image[2.75,1.5;1,1;default_furnace_fire_bg.png]"..
-	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
-	"list[current_name;dst;4.75,0.96;2,2;]"..
-	"list[current_player;main;0,4.25;8,1;]"..
-	"list[current_player;main;0,5.5;8,3;8]"..
+	local formspec = "size[10,8.5]"..
+  "background9[30,30;10,8.5;"..formspec_info[ftype].bg..";true;"..formspec_info[ftype].bg9middle.."]"..
+	"list[current_name;src;3.75,0.5;1,1;]"..
+	"list[current_name;fuel;3.75,2.5;1,1;]"..
+	"image[3.75,1.5;1,1;default_furnace_fire_bg.png]"..
+	"image[4.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
+	"list[current_name;dst;5.75,0.96;2,2;]"..
+	"list[current_player;main;0,4.25;10,1;]"..
+	"list[current_player;main;0,5.5;10,3;10]"..
 	"listring[current_name;dst]"..
 	"listring[current_player;main]"..
 	"listring[current_name;src]"..
