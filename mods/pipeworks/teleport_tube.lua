@@ -266,7 +266,7 @@ minetest.register_craft( {
 	output = "pipeworks:teleport_tube_1 2",
 	recipe = {
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" },
-	        { "hades_core:stone_baked", "hades_core:mese", "hades_core:stone_baked" },
+	        { "hades_core:stone_baked", "hades_materials:teleporter_device", "hades_core:stone_baked" },
 	        { "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting", "hades_materials:plastic_sheeting" }
 	},
 })
