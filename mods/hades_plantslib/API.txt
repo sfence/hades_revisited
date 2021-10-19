@@ -1,0 +1,155 @@
+This document describes the Hades Plantslib API.
+
+=========
+Functions
+=========
+
+There is one main function defined:
+
+spawn_on_surfaces()
+
+=====
+spawn_on_surfaces(biome)
+
+This first function is an ABM-based spawner function.
+
+You must pass a number of arguments in the form of an ordinary keyed-value
+table.  Below is a list of everything supported by this function:
+
+biome = {
+	spawn_plants = {table}, -- list of nodenames to pick from randomly on
+				-- each application of the ABM code.
+	spawn_delay = number,	-- The value passed to the ABM's interval
+				-- parameter, in seconds.
+	spawn_chance = number,	-- The value passed to the ABM's chance
+				-- (1-in-X chance of operating on a given
+				-- node)
+	spawn_surfaces = {table}, -- List of node names on which the plants
+				-- should be spawned.
+				-- You should not put stone, air, etc. here.
+	label =	string		-- label for the ABM (strongly recommended)
+
+	---- From here down are a number of optional parameters.  You will
+	---- most likely want to use at least some of these to limit how and
+	---- where your objects are spawned.
+
+	avoid_nodes = {table},	-- Table with a list of groups and/or node
+				-- names to avoid when spawning the plant,
+				-- such as {"group:flowers", "default:tree"}
+	avoid_radius = num,	-- Don't spawn within this many nodes of the
+				-- avoid items mentioned below. If set to
+				-- nil, this check is skipped.
+	seed_diff = num,	-- The Perlin seed difference value passed to
+				-- the minetest.get_perlin() function.
+				-- Used along with the global Perlin controls
+				-- below to create the "biome" in which the
+				-- plants will spawn.  Defaults to 0 if not
+				-- provided.
+	light_min = num,	-- Minimum amount of light necessary to make a
+				-- plant spawn.  Defaults to 0.
+	light_max = num,	-- Maximum amount of light needed to spawn. 
+				-- Defaults to minetest.LIGHT_MAX
+	neighbors = {table},	-- List of neighboring nodes that need to be
+				-- immediately next to the node the plant is
+				-- about to spawn on. Can also be a string
+				-- with a single node name.  It is both passed
+				-- to the ABM as the "neighbors" parameter,
+				-- and is used to manually check the 
+				-- adjacent nodes.  It only takes one of these
+				-- for the spawn routine to mark the target as
+				-- spawnable.  Defaults to nil (ignored).
+	ncount = num,		-- There must be at least this many of the
+				-- above neighbors in the eight spaces
+				-- immediately surrounding the node the plant
+				-- is about to spawn on for it to happen.  If
+				-- not provided, this check is disabled.
+	facedir = num,		-- The value passed to the param2 variable
+				-- when adding the node to the map.  Defaults
+				-- to 0.  Be sure that the value you use here
+				-- (and the range thereof) is appropriate for
+				-- the type of node you're spawning.
+	random_facedir = {table}, -- If set, the table should contain two
+				-- values. If they're both provided, the
+				-- spawned plant will be given a random
+				-- facedir value in the range specified by
+				-- these two numbers.  Overrides the facedir
+				-- parameter above, if it exists.  Use {0,3}
+				-- if you want the full range for wallmounted
+				-- nodes, or {2,5} for most everything else,
+				-- or any other pair of numbers in the 0 to 5 
+				-- range, as appropriate for the node you want
+				-- to spawn.
+	depth_max = num,	-- If the object spawns on top of a water
+				-- source, the water must be at most this
+				-- deep.  Defaults to 1 node.
+	near_nodes = {table},	-- List of nodes that must be somewhere in the
+				-- vicinity in order for the plant to spawn.
+				-- Can also be a string with a single node
+				-- name.  If not provided, this check is
+				-- disabled.
+	near_nodes_size = num,	-- How large of an area to check for the above
+				-- node.  Specifically, this checks a flat
+				-- horizontal area centered on the node to be
+				-- spawned on.  Defaults to 0, but is ignored
+				-- if the above near_nodes value is not set.
+	near_nodes_vertical = num, -- Used with the size value above, this
+				-- extends the vertical range of the near 
+				-- nodes search.  Basically, this turns the
+				-- flat region described above into a cuboid
+				-- region.  The area to be checked will extend
+				-- this high AND this low above/below the
+				-- target node, centered thereon.  Defaults to
+				-- 1 (check only the layer above, the layer
+				-- at, and the layer below the target node),
+				-- but is ignored if near_nodes is not set.
+	near_nodes_count = num,	-- How many of the above nodes must be within
+				-- that radius.	Defaults to 1 but is ignored
+				-- if near_nodes isn't set.  Bear in mind that
+				-- the total area to be checked is equal to
+				-- (near_nodes_size^2)*near_nodes_vertical*2.
+				-- so for example, if size is 10 and vertical
+				-- is 4 then the area is (10^2)*8 = 800 nodes
+				-- in size, so you'll want to make sure you
+				-- specify a value appropriate for the amount
+				-- in question.
+	air_size = num,		-- How large of an area to check for air
+				-- above and around the target.  If omitted,
+				-- only the space above the target is checked.
+				-- This does not check for air at the sides or
+				-- below the target.
+	air_count = num,	-- How many of the surrounding nodes need to
+				-- be air for the above check to return true.
+				-- If omitted, only the space above the target
+				-- is checked.
+	spawn_on_side = bool,	-- Set this to true to spawn the node on one
+				-- side of the target node rather than the
+				-- top.  The code will search for an airspace
+				-- to the side of the target, then spawn the
+				-- plant at the first one found.  The above
+				-- facedir and random_facedir parameters are
+				-- ignored in this case.  If the above
+				-- parameters for selecting generic wall nodes
+				-- are provided, this option is ignored.
+				-- Important note: the facedir values assigned
+				-- by this option only make sense with
+				-- wallmounted nodes (nodes which don't use
+				-- facedir won't be affected).
+	spawn_on_bottom = bool,	-- If set to true, spawn the object below the
+				-- target node instead of above it.  The above
+				-- spawn_on_side variable takes precedence
+				-- over this one if both happen to be true.
+				-- When using this option with the random
+				-- facedir function above, the values given to
+				-- the facedir parameter are for regular
+				-- nodes, not wallmounted.
+	spawn_replace_node = bool, -- If set to true, the target node itself
+				-- is replaced by the spawned object.
+				-- Overrides the spawn_on_bottom and
+				-- spawn_on_side settings.
+}
+
+[*] spawn_plants must be either a table or a string.  If it's a table, the
+values therein are treated as a list of nodenames to pick from randomly on 
+each application of the ABM code. The more nodes you can pack into this
+parameter to avoid making too many calls to this function, the lower the CPU
+load will likely be.

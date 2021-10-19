@@ -249,52 +249,6 @@
 		burntime = 10,
 	})
 
-	-- Bathroom Kit
-
-		--Toilet
-		minetest.register_craft( {
-			output = 'hades_furniture:toilet',
-			recipe = {
-				{'hades_core:clay','hades_materials:plastic_base',''},
-				{ 'hades_core:clay','hades_core:clay', '' },
-				{ 'pipeworks:pipe_1_empty', 'pipeworks:pump_off', '' },
-			},
-		})
-
-		--Sink
-		minetest.register_craft( {
-			output = 'hades_furniture:sink',
-			recipe = {
-				{ 'hades_core:clay','hades_core:clay', 'hades_core:clay' },
-				{ '','pipeworks:pipe_1_empty', '' },
-			},
-		})
-
-		--Taps
-		minetest.register_craft( {
-			output = 'hades_furniture:taps',
-			recipe = {
-				{ 'hades_core:bronze_ingot','pipeworks:pipe_1_empty', 'hades_core:bronze_ingot' },
-			},
-		})
-
-		--Shower Tray
-		minetest.register_craft( {
-			output = 'hades_furniture:shower_tray',
-			recipe = {
-				{ 'hades_core:steel_ingot','hades_core:steel_ingot', 'hades_core:steel_ingot' },
-				{ '','pipeworks:pipe_1_empty', '' },
-			},
-		})
-
-		--Shower Head
-		minetest.register_craft( {
-			output = 'hades_furniture:shower_head',
-			recipe = {
-				{'pipeworks:pipe_1_empty', 'hades_core:bronze_ingot'},
-			},
-		})
-
 -- Medieval Furniture
 
 	--Bars
@@ -329,23 +283,6 @@
 		recipe = 'hades_furniture:bars',
 		cookingtime = 3,
 	})
-
-	--Chains
-	minetest.register_craft( {
-		output = 'hades_furniture:chains 4',
-		recipe = {
-			{'','hades_core:steel_ingot',''},
-			{ 'hades_core:steel_ingot','', 'hades_core:steel_ingot' },
-			{ '', 'hades_core:steel_ingot', '' },
-		},
-	})
-	minetest.register_craft( {
-		type = "cooking",
-		output = 'hades_core:steel_ingot',
-		recipe = 'hades_furniture:chains',
-		cookingtime = 3,
-	})
-
 
 -- Misc.
 

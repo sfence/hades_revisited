@@ -82,7 +82,8 @@ minetest.register_node("bones:bones", {
 })
 
 minetest.register_on_dieplayer(function(player)
-	if minetest.is_creative_enabled(player:get_player_name()) then
+	local name = player:get_player_name()
+	if minetest.is_creative_enabled(name) then
 		return
 	end
 	
@@ -97,12 +98,11 @@ minetest.register_on_dieplayer(function(player)
 		not minetest.registered_nodes[nn].can_dig(pos, player) then
 		local player_inv = player:get_inventory()
 
-		for i=1,player_inv:get_size("main") do
-			player_inv:set_stack("main", i, nil)
-		end
-		for i=1,player_inv:get_size("craft") do
-			player_inv:set_stack("craft", i, nil)
-		end
+		player_inv:set_list("main", {})
+		player_inv:set_list("craft", {})
+		player_inv:set_list("equipment", {})
+		local equipment_inv = minetest.get_inventory({type="detached", name=name.."_equipment"})
+		equipment_inv:set_list("equipment", {})
 		return
 	end
 	
@@ -114,22 +114,28 @@ minetest.register_on_dieplayer(function(player)
 	local player_inv = player:get_inventory()
 	inv:set_size("main", 10*4)
 	
-	local empty_list = inv:get_list("main")
 	inv:set_list("main", player_inv:get_list("main"))
-	player_inv:set_list("main", empty_list)
 	
 	for i=1,player_inv:get_size("craft") do
 		inv:add_item("main", player_inv:get_stack("craft", i))
-		player_inv:set_stack("craft", i, nil)
 	end
+
+	for i=1,player_inv:get_size("equipment") do
+		inv:add_item("main", player_inv:get_stack("equipment", i))
+	end
+	player_inv:set_list("main", {})
+	player_inv:set_list("craft", {})
+	player_inv:set_list("equipment", {})
+	local equipment_inv = minetest.get_inventory({type="detached", name=name.."_equipment"})
+	equipment_inv:set_list("equipment", {})
 	
 	meta:set_string("formspec", "size[10,9]"..
 	"list[current_name;main;0,0;10,4;]"..
 	"list[current_player;main;0,5;10,4;]"..
 	"listring[]"..
 	"background9[25,22;10,9;bones_inventory.png;true;25,22,-20,-23]")
-	meta:set_string("infotext", S("@1's fresh bones", player:get_player_name()))
-	meta:set_string("owner", player:get_player_name())
+	meta:set_string("infotext", S("@1's fresh bones", name))
+	meta:set_string("owner", name)
 	meta:set_int("time", 0)
 	
 	local timer  = minetest.get_node_timer(pos)

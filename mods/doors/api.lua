@@ -504,6 +504,35 @@ function _doors.trapdoor_toggle(pos, node, clicker)
 	end
 end
 
+local on_rotate_trapdoor
+if minetest.get_modpath("screwdriver") then
+	on_rotate_trapdoor = function(pos, node, user, mode, param2)
+		-- Flip trapdoor vertically
+		if mode == screwdriver.ROTATE_AXIS then
+			local minor = node.param2
+			if node.param2 >= 20 then
+				minor = node.param2 - 20
+				if minor == 3 then
+					minor = 1
+				elseif minor == 1 then
+					minor = 3
+				end
+				node.param2 = minor
+			else
+				if minor == 3 then
+					minor = 1
+				elseif minor == 1 then
+					minor = 3
+				end
+				node.param2 = minor
+				node.param2 = node.param2 + 20
+			end
+			minetest.set_node(pos, node)
+			return true
+		end
+	end
+end
+
 function doors.register_trapdoor(name, def)
 	if not name:find(":") then
 		name = "doors:" .. name
@@ -522,6 +551,43 @@ function doors.register_trapdoor(name, def)
 	def.paramtype = "light"
 	def.paramtype2 = "facedir"
 	def.is_ground_content = false
+	def.on_rotate = on_rotate_trapdoor
+	def.on_place = function(itemstack, placer, pointed_thing)
+		-- Place trapdoor on upper or lower side depending on where it was pointed
+		local p0 = pointed_thing.under
+		local p1 = pointed_thing.above
+		local param2 = 0
+
+		-- Get correct trapdoor rotation for the trapdoor "hinge"
+		local dir = vector.subtract(p0, p1)
+		if dir.y == 0 then
+			-- Sideways placement: Trapdoor is "hinged"
+			-- at this side
+			param2 = minetest.dir_to_facedir(dir)
+		else
+			-- Floor or ceiling placement:
+			-- Rotation is based on placer view dir
+			local placer_pos = placer:get_pos()
+			dir = vector.subtract(p1, placer_pos)
+			param2 = minetest.dir_to_facedir(dir)
+		end
+
+		-- Decide whether to place up or down (upper or lower half of node
+		-- side pointed)
+		local finepos = minetest.pointed_thing_to_face_pos(placer, pointed_thing)
+		local fpos = finepos.y % 1
+
+		if p0.y - 1 == p1.y or (fpos > 0 and fpos < 0.5)
+				or (fpos < -0.5 and fpos > -0.999999999) then
+			param2 = param2 + 20
+			if param2 == 21 then
+					param2 = 23
+			elseif param2 == 23 then
+				param2 = 21
+			end
+		end
+		return minetest.item_place(itemstack, placer, pointed_thing, param2)
+	end
 
 	if def.protected then
 		def._tt_help = S("Owned by placer")

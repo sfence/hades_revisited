@@ -85,6 +85,7 @@ Items:
 
 Action groups:
 * `bagslots=X`: Bag with X slots
+* `equipment=1`: Item for the Equipment slots
 * `food=1`: Food (unspecified type)
 *   `food=2`: Food (eating)
 *   `food=3`: Food (drinking)

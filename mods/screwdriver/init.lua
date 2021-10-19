@@ -136,6 +136,7 @@ screwdriver.handler = function(itemstack, user, pointed_thing, mode, uses)
 		local result = ndef.on_rotate(vector.new(pos),
 				{name = node.name, param1 = node.param1, param2 = node.param2},
 				user, mode, new_param2)
+		minetest.sound_play({name="screwdriver_use", gain=0.5}, {pos=pos, max_hear_distance=16}, true)
 		if result == false then -- Disallow rotation
 			return itemstack
 		elseif result == true then
@@ -151,6 +152,7 @@ screwdriver.handler = function(itemstack, user, pointed_thing, mode, uses)
 		node.param2 = new_param2
 		minetest.swap_node(pos, node)
 		minetest.check_for_falling(pos)
+		minetest.sound_play({name="screwdriver_use", gain=0.5}, {pos=pos, max_hear_distance=16}, true)
 	end
 
 	if not minetest.is_creative_enabled(player_name) then

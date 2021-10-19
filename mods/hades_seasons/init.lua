@@ -14,6 +14,12 @@ hades_seasons.SEASON_SPRING = 0
 hades_seasons.SEASON_SUMMER = 1
 hades_seasons.SEASON_FALL = 2
 
+hades_seasons.SEASON_IDS = {
+	hades_seasons.SEASON_SPRING,
+	hades_seasons.SEASON_SUMMER,
+	hades_seasons.SEASON_FALL,
+}
+
 hades_seasons.SEASON_NAMES = {
 	[hades_seasons.SEASON_SPRING] = S("Spring"),
 	[hades_seasons.SEASON_SUMMER] = S("Summer"),
