@@ -217,7 +217,7 @@ end
 -- Coconut Palm
 function hades_trees.generate_coconutpalm(pos, check_light, trunk, leaves, underground, replacements)
 	if not trunk then
-		trunk = "hades_trees:tree"
+		trunk = "hades_trees:jungle_tree"
 	end
 	if not leaves then
 		leaves = "hades_trees:jungle_leaves"
