@@ -130,7 +130,7 @@ minetest.register_craft({
 
 local colors = {
 	{ "black", S("Black Steel Door"), "dye:black" },
-	{ "grey", S("Grey Steel Door"), "dye_grey" },
+	{ "grey", S("Grey Steel Door"), "dye:grey" },
 	{ "darkgrey", S("Dark Grey Steel Door"), "dye:dark_grey" },
 	{ "white", S("White Steel Door"), "dye:white" },
 	{ "magenta", S("Magenta Steel Door"), "dye:magenta" },

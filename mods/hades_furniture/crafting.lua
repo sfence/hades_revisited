@@ -255,8 +255,9 @@
 	minetest.register_craft( {
 		output = 'hades_furniture:bars 3',
 		recipe = {
-			{ 'hades_core:steel_rod','hades_core:steel_rod','hades_core:steel_rod' },
-			{ 'hades_core:steel_rod','hades_core:steel_rod','hades_core:steel_rod' },
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
 		},
 	})
 
@@ -274,8 +275,9 @@
 	minetest.register_craft( {
 		output = 'hades_furniture:rusty_bars 3',
 		recipe = {
-			{ 'hades_core:steel_rod','hades_core:iron_lump','hades_core:steel_rod' },
-			{ 'hades_core:steel_rod','hades_core:iron_lump','hades_core:steel_rod' },
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
+			{ 'hades_core:iron_lump','','hades_core:iron_lump' },
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
 		},
 	})
 

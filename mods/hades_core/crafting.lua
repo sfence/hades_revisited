@@ -1124,10 +1124,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'hades_core:nails 24',
-	recipe = {{'hades_core:steel_ingot'},}
-})
-minetest.register_craft({
 	output = 'hades_core:nails 6',
 	recipe = {{'hades_core:steel_rod'},}
 })
