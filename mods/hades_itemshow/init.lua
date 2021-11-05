@@ -337,6 +337,7 @@ minetest.register_node("hades_itemshow:pedestal_top", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 
 	on_blast = function() end,
+	can_dig = function() return false end,
 	drop = "",
 	diggable = false,
 	walkable = true,

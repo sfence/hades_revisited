@@ -3173,6 +3173,7 @@ function mob_class:mob_activate(staticdata, def, dtime)
 	self.visual_size = vis_size
 	self.standing_in = "air"
 	self.standing_on = "air"
+	self.damage_texture_modifier = "^[colorize:#FF000080"
 
 	-- check existing nametag
 	if not self.nametag then

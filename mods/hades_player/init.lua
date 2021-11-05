@@ -60,6 +60,7 @@ function hades_player.player_set_model(player, model_name)
 			textures = player_textures[name] or model.textures,
 			visual = "mesh",
 			visual_size = model.visual_size or {x=1, y=1},
+			damage_texture_modifier = "^[colorize:#FF000080",
 		})
 		hades_player.player_set_animation(player, "stand")
 	else

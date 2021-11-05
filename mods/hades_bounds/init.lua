@@ -30,18 +30,18 @@ local function out_of_bounds(pos, diff)
 	return pos.x > boundary_max or pos.x < boundary_min or pos.z > boundary_max or pos.z < boundary_min or pos.y > boundary_max
 end
 local function out_of_bounds_farthest(pos, diff)
-	local boundary_min = END_MIN + diff
-	local boundary_max = END_MAX - diff
+	local boundary_min = math.abs(END_MIN + diff)
+	local boundary_max = math.abs(END_MAX - diff)
 	local dists = {
-		pos.x - boundary_max,
-		pos.x - boundary_min,
-		pos.z - boundary_max,
-		pos.z - boundary_min,
-		pos.y - boundary_max,
+		math.abs(pos.x) - boundary_max,
+		math.abs(pos.x) - boundary_min,
+		math.abs(pos.z) - boundary_max,
+		math.abs(pos.z) - boundary_min,
+		math.abs(pos.y) - boundary_max,
 	}
-	local far = -1
+	local far = 0
 	for d=1, #dists do
-		if math.abs(dists[d]) > far then
+		if dists[d] > far then
 			far = dists[d]
 		end
 	end
