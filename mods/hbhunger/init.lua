@@ -122,8 +122,8 @@ minetest.register_globalstep(function(dtime)
 			-- heal player by 1 hp if not dead and satiation is > hbhunger.SAT_HEAL
 			if h > hbhunger.SAT_HEAL and hp > 0 and player:get_breath() > 0 then
 				player:set_hp(hp+1)
-				-- or damage player by 1 hp if satiation is < 2
-				elseif h <= 1 then
+				-- or damage player by 1 hp if satiation is <= 0
+				elseif h <= 0 then
 					if hp-1 >= 0 then
 						hades_death_messages.player_damage(player, S("Starvation"))
 						player:set_hp(hp-1)

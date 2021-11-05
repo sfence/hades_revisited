@@ -9,6 +9,12 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = 'hades_core:steel_rod 4',
+	recipe = {
+		{'hades_core:steel_ingot'},
+	}
+})
 
 minetest.register_craft({
 	output = 'hades_core:pick_wood',
@@ -54,8 +60,8 @@ minetest.register_craft({
 	output = 'hades_core:pick_mese',
 	recipe = {
 		{'hades_core:mese_crystal', 'hades_core:mese_crystal', 'hades_core:mese_crystal'},
-		{'', 'hades_core:steel_ingot', ''},
-		{'', 'hades_core:steel_ingot', ''},
+		{'', 'hades_core:steel_rod', ''},
+		{'', 'hades_core:steel_rod', ''},
 	}
 })
 
@@ -64,8 +70,8 @@ minetest.register_craft({
 	output = 'hades_core:pick_prism',
 	recipe = {
 		{'hades_core:prismatic_gem', 'hades_core:prismatic_gem', 'hades_core:prismatic_gem'},
-		{'', 'hades_core:steel_ingot', ''},
-		{'', 'hades_core:steel_ingot', ''},
+		{'', 'hades_core:steel_rod', ''},
+		{'', 'hades_core:steel_rod', ''},
 	}
 })
 
@@ -114,8 +120,8 @@ minetest.register_craft({
 	output = 'hades_core:shovel_mese',
 	recipe = {
 		{'hades_core:mese_crystal'},
-		{'hades_core:steel_ingot'},
-		{'hades_core:steel_ingot'},
+		{'hades_core:steel_rod'},
+		{'hades_core:steel_rod'},
 	}
 })
 
@@ -124,8 +130,8 @@ minetest.register_craft({
 	output = 'hades_core:shovel_prism',
 	recipe = {
 		{'hades_core:prismatic_gem'},
-		{'hades_core:steel_ingot'},
-		{'hades_core:steel_ingot'},
+		{'hades_core:steel_rod'},
+		{'hades_core:steel_rod'},
 	}
 })
 
@@ -174,8 +180,8 @@ minetest.register_craft({
 	output = 'hades_core:axe_mese',
 	recipe = {
 		{'hades_core:mese_crystal', 'hades_core:mese_crystal'},
-		{'hades_core:mese_crystal', 'hades_core:steel_ingot'},
-		{'', 'hades_core:steel_ingot'},
+		{'hades_core:mese_crystal', 'hades_core:steel_rod'},
+		{'', 'hades_core:steel_rod'},
 	}
 })
 
@@ -184,8 +190,8 @@ minetest.register_craft({
 	output = 'hades_core:axe_prism',
 	recipe = {
 		{'hades_core:prismatic_gem', 'hades_core:prismatic_gem'},
-		{'hades_core:prismatic_gem', 'hades_core:steel_ingot'},
-		{'', 'hades_core:steel_ingot'},
+		{'hades_core:prismatic_gem', 'hades_core:steel_rod'},
+		{'', 'hades_core:steel_rod'},
 	}
 })
 
@@ -235,7 +241,7 @@ minetest.register_craft({
 	recipe = {
 		{'hades_core:mese_crystal'},
 		{'hades_core:mese_crystal'},
-		{'hades_core:steel_ingot'},
+		{'hades_core:steel_rod'},
 	}
 })
 
@@ -245,7 +251,7 @@ minetest.register_craft({
 	recipe = {
 		{'hades_core:prismatic_gem'},
 		{'hades_core:prismatic_gem'},
-		{'hades_core:steel_ingot'},
+		{'hades_core:steel_rod'},
 	}
 })
 
@@ -462,6 +468,18 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "hades_core:sandstone",
+	recipe = "hades_core:cobble_sandstone"
+})
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "hades_core:sandstone_volcanic",
+	recipe = "hades_core:cobble_sandstone_volcanic"
+})
 
 minetest.register_craft({
 	output = 'hades_core:sandstone_volcanic',
@@ -480,10 +498,26 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'hades_core:cobble_sandstone 2',
+	recipe = {
+		{'hades_core:sandstone'},
+		{'hades_core:sandstone'},
+	},
+})
+
+minetest.register_craft({
 	output = 'hades_core:volcanic_sand 4',
 	recipe = {
 		{'hades_core:sandstone_volcanic'},
 	}
+})
+
+minetest.register_craft({
+	output = 'hades_core:cobble_sandstone_volcanic 2',
+	recipe = {
+		{'hades_core:sandstone_volcanic'},
+		{'hades_core:sandstone_volcanic'},
+	},
 })
 
 minetest.register_craft({
@@ -615,9 +649,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_core:ladder_bronze 24',
 	recipe = {
-		{'hades_core:bronze_ingot', 'hades_core:steel_ingot', 'hades_core:bronze_ingot'},
+		{'hades_core:bronze_ingot', 'hades_core:steel_rod', 'hades_core:bronze_ingot'},
 		{'hades_core:bronze_ingot', 'hades_core:bronze_ingot', 'hades_core:bronze_ingot'},
-		{'hades_core:bronze_ingot', 'hades_core:steel_ingot', 'hades_core:bronze_ingot'},
+		{'hades_core:bronze_ingot', 'hades_core:steel_rod', 'hades_core:bronze_ingot'},
 	}
 })
 
@@ -1090,8 +1124,8 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'hades_core:nails 24',
-	recipe = {{'hades_core:steel_ingot'},}
+	output = 'hades_core:nails 6',
+	recipe = {{'hades_core:steel_rod'},}
 })
 
 -- gemtransform

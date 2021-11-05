@@ -9,14 +9,8 @@ hades_waterplants = {}
 
 local SPAWN_DELAY = 1000
 local SPAWN_CHANCE = 200
-local waterplants_seed_diff = 329
-local lilies_max_count = 12
-local lilies_rarity = 33
-local seaweed_max_count = 20
-local seaweed_rarity = 33
--- globals
-local lilypads_max_count = {}
-local lilypads_rarity = {}
+local WATERPLANTS_SEED_DIFF = 329
+local WATERPLANTS_SEED_DIFF2 = 459
 -- register the various rotations of waterlilies
 
 
@@ -30,6 +24,17 @@ local lilies_list = {
 	{ "s3" , "small_3" , 7, false },
 	{ "s4" , "small_4" , 8, false },
 }
+
+local node_is_owned = function(pos, placer)
+	local name = placer:get_player_name()
+	local is_protected = minetest.is_protected(pos, name) and not minetest.check_player_privs(name, "protection_bypass")
+	if is_protected then
+		minetest.record_protection_violation(pos, name)
+		return true
+	else
+		return false
+	end
+end
 
 local generate_on_place = function(basename, plant_table)
 	return function(itemstack, placer, pt)
@@ -69,7 +74,7 @@ local generate_on_place = function(basename, plant_table)
 			return itemstack
 		end
 
-		if not plantslib:node_is_owned(place_pos, placer) then
+		if not node_is_owned(place_pos, placer) then
 
 			local nodename = basename
 
@@ -238,69 +243,8 @@ for i in ipairs(seaweed_list) do
 end
 
 
--- ongen registrations
-
-
-hades_waterplants.grow_waterlily = function(pos)
-	local right_here = {x=pos.x, y=pos.y+1, z=pos.z}
-	for i in ipairs(lilies_list) do
-		local chance = math.random(1,8)
-		local ext = ""
-		local num = lilies_list[i][3]
-
-
-		if lilies_list[i][1] ~= nil then
-			ext = "_"..lilies_list[i][1]
-		end
-
-
-		if chance == num then
-			minetest.add_node(right_here, {name="hades_waterplants:waterlily"..ext, param2=math.random(0,3)})
-		end
-	end
-end
-
-
-plantslib:register_generate_plant({
-    surface = {"hades_core:water_source"},
-    max_count = lilypads_max_count,
-    rarity = lilypads_rarity,
-    min_elevation = -30,
-	max_elevation = 100,
-	near_nodes = {"hades_core:dirt_with_grass"},
-	near_nodes_size = 4,
-	near_nodes_vertical = 1,
-	near_nodes_count = 1,
-    plantlife_limit = -0.9,
-    temp_max = -0.22,
-    temp_min = 0.22,
-  },
-  "hades_waterplants.grow_waterlily"
-)
-
-
-hades_waterplants.grow_seaweed = function(pos)
-	local right_here = {x=pos.x, y=pos.y+1, z=pos.z}
-	minetest.add_node(right_here, {name="hades_waterplants:seaweed_"..math.random(1,4), param2=math.random(1,3)})
-end
-
-
-plantslib:register_generate_plant({
-    surface = {"hades_core:water_source"},
-    max_count = seaweed_max_count,
-    rarity = seaweed_rarity,
-    -- min_elevation = 1,
-	max_elevation = 100,
-	near_nodes = {"hades_core:mossystone", "hades_core:dirt_with_grass"},
-	near_nodes_size = 3,
-	near_nodes_vertical = 2,
-	near_nodes_count = 1,
-    plantlife_limit = -1.0,
-  },
-  "hades_waterplants.grow_seaweed"
-)
-
-plantslib:spawn_on_surfaces({
+hades_plantslib.spawn_on_surfaces({
+	label = "Spawn waterlilies",
 	spawn_delay = SPAWN_DELAY/2,
 	spawn_plants = {
 		"hades_waterplants:waterlily",
@@ -316,34 +260,34 @@ plantslib:spawn_on_surfaces({
 	spawn_chance = SPAWN_CHANCE*4,
 	spawn_surfaces = {"hades_core:water_source"},
 	avoid_nodes = {"group:flower", "group:flora" },
-	seed_diff = waterplants_seed_diff,
+	seed_diff = WATERPLANTS_SEED_DIFF,
 	light_min = 9,
-	depth_max = 2,
 	random_facedir = {0,3}
 })
 
 
-plantslib:spawn_on_surfaces({
+hades_plantslib.spawn_on_surfaces({
+	label = "Spawn seaweed on water",
 	spawn_delay = SPAWN_DELAY*2,
 	spawn_plants = {"hades_waterplants:seaweed"},
 	spawn_chance = SPAWN_CHANCE*2,
 	spawn_surfaces = {"hades_core:water_source"},
 	avoid_nodes = {"group:flower", "group:flora"},
-	seed_diff = waterplants_seed_diff,
+	seed_diff = WATERPLANTS_SEED_DIFF2,
 	light_min = 4,
 	light_max = 10,
 	neighbors = {"hades_core:dirt_with_grass"},
 	facedir = 1
 })
 
-
-plantslib:spawn_on_surfaces({
+hades_plantslib.spawn_on_surfaces({
+	label = "Spawn seaweed on dirt with grass",
 	spawn_delay = SPAWN_DELAY*2,
 	spawn_plants = {"hades_waterplants:seaweed"},
 	spawn_chance = SPAWN_CHANCE*2,
 	spawn_surfaces = {"hades_core:dirt_with_grass"},
 	avoid_nodes = {"group:flower", "group:flora" },
-	seed_diff = waterplants_seed_diff,
+	seed_diff = WATERPLANTS_SEED_DIFF2,
 	light_min = 4,
 	light_max = 10,
 	neighbors = {"hades_core:water_source"},

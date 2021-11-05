@@ -249,64 +249,19 @@
 		burntime = 10,
 	})
 
-	-- Bathroom Kit
-
-		--Toilet
-		minetest.register_craft( {
-			output = 'hades_furniture:toilet',
-			recipe = {
-				{'hades_core:clay','hades_materials:plastic_base',''},
-				{ 'hades_core:clay','hades_core:clay', '' },
-				{ 'pipeworks:pipe_1_empty', 'pipeworks:pump_off', '' },
-			},
-		})
-
-		--Sink
-		minetest.register_craft( {
-			output = 'hades_furniture:sink',
-			recipe = {
-				{ 'hades_core:clay','hades_core:clay', 'hades_core:clay' },
-				{ '','pipeworks:pipe_1_empty', '' },
-			},
-		})
-
-		--Taps
-		minetest.register_craft( {
-			output = 'hades_furniture:taps',
-			recipe = {
-				{ 'hades_core:bronze_ingot','pipeworks:pipe_1_empty', 'hades_core:bronze_ingot' },
-			},
-		})
-
-		--Shower Tray
-		minetest.register_craft( {
-			output = 'hades_furniture:shower_tray',
-			recipe = {
-				{ 'hades_core:steel_ingot','hades_core:steel_ingot', 'hades_core:steel_ingot' },
-				{ '','pipeworks:pipe_1_empty', '' },
-			},
-		})
-
-		--Shower Head
-		minetest.register_craft( {
-			output = 'hades_furniture:shower_head',
-			recipe = {
-				{'pipeworks:pipe_1_empty', 'hades_core:bronze_ingot'},
-			},
-		})
-
 -- Medieval Furniture
 
-	--Bars
+	-- Steel Bars
 	minetest.register_craft( {
-		output = 'hades_furniture:bars 10',
+		output = 'hades_furniture:bars 3',
 		recipe = {
-			{ 'hades_core:steel_ingot','hades_core:steel_ingot','hades_core:steel_ingot' },
-			{ 'hades_core:steel_ingot','hades_core:steel_ingot','hades_core:steel_ingot' },
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
 		},
 	})
 
-	-- L Binding Bars
+	-- Binding Steel Bars
 	minetest.register_craft( {
 		output = 'hades_furniture:L_binding_bars 5',
 		recipe = {
@@ -315,6 +270,28 @@
 			{ '', 'hades_furniture:bars', '', },
 		},
 	})
+
+	-- Rusty Bars
+	minetest.register_craft( {
+		output = 'hades_furniture:rusty_bars 3',
+		recipe = {
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
+			{ 'hades_core:iron_lump','','hades_core:iron_lump' },
+			{ 'hades_core:steel_rod','','hades_core:steel_rod' },
+		},
+	})
+
+	-- Binding Rusty Bars
+	minetest.register_craft( {
+		output = 'hades_furniture:binding_rusty_bars 5',
+		recipe = {
+			{ '', 'hades_furniture:rusty_bars', '' },
+			{ 'hades_furniture:rusty_bars', 'hades_furniture:rusty_bars', 'hades_furniture:rusty_bars' },
+			{ '', 'hades_furniture:rusty_bars', '', },
+		},
+	})
+
+
 
 	-- Recipes to smelt bars back into ingots
 	minetest.register_craft( {
@@ -329,23 +306,6 @@
 		recipe = 'hades_furniture:bars',
 		cookingtime = 3,
 	})
-
-	--Chains
-	minetest.register_craft( {
-		output = 'hades_furniture:chains 4',
-		recipe = {
-			{'','hades_core:steel_ingot',''},
-			{ 'hades_core:steel_ingot','', 'hades_core:steel_ingot' },
-			{ '', 'hades_core:steel_ingot', '' },
-		},
-	})
-	minetest.register_craft( {
-		type = "cooking",
-		output = 'hades_core:steel_ingot',
-		recipe = 'hades_furniture:chains',
-		cookingtime = 3,
-	})
-
 
 -- Misc.
 

@@ -132,7 +132,7 @@ minetest.register_abm({
 		if bnode.name == "hades_core:dirt_with_grass" then
 			-- grow grass clump on (full) dirt with grass
 			minetest.set_node(pos, {name = "hades_grass:grass_1", param2 = param2})
-		elseif get_grass_surface_level(node.name) == RATE_GOOD then
+		elseif get_grass_surface_level(bnode.name) == RATE_GOOD then
 			-- Turn dirt and soil into dirt-with-grass;
 			-- For an intermediate dirt-with-grass stage,
 			-- increase grass cover level by 1

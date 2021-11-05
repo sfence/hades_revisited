@@ -27,7 +27,7 @@ Node identities:
 
 * `colwood`: Colored wooden planks
 * `claybricks`: Clay bricks
-* `wool`: Wool
+* `wool`: Cloth
 
 * `carpet`: Carpet
 * `table`: Table
@@ -85,6 +85,7 @@ Items:
 
 Action groups:
 * `bagslots=X`: Bag with X slots
+* `equipment=1`: Item for the Equipment slots
 * `food=1`: Food (unspecified type)
 *   `food=2`: Food (eating)
 *   `food=3`: Food (drinking)
@@ -102,6 +103,10 @@ Action groups:
 * `flora`: This is a plant that spreads on Dirt with Grass
 * `soil`: Usable by hoe
 * `not_in_craft_guide`: Item won't appear in craft guide
+* `rotation_takes_precedence=1`: Group for nodes. Normally, if rotation tool (e.g. screwdriver) is "placed"
+   on this node, the `on_rightclick` action takes precedence, and the rotation action is used when Sneak
+   key is held. But if this group is set, it's the other way around: The rotation action is executed
+   by default and if Sneak is pressed, `on_rightclick` is executed instead
 
 Legacy groups:
 * `flammable`: Considered flammable (Note: This game has no fire)

@@ -14,6 +14,18 @@ hades_seasons.SEASON_SPRING = 0
 hades_seasons.SEASON_SUMMER = 1
 hades_seasons.SEASON_FALL = 2
 
+hades_seasons.SEASON_IDS = {
+	hades_seasons.SEASON_SPRING,
+	hades_seasons.SEASON_SUMMER,
+	hades_seasons.SEASON_FALL,
+}
+
+hades_seasons.SEASON_NAMES = {
+	[hades_seasons.SEASON_SPRING] = S("Spring"),
+	[hades_seasons.SEASON_SUMMER] = S("Summer"),
+	[hades_seasons.SEASON_FALL] = S("Fall"),
+}
+
 -- When the season is forced, this contains the season ID of the forced season.
 -- Otherwise, it is nil.
 local forced_season = nil
@@ -37,6 +49,26 @@ hades_seasons.get_season = function(day)
 	end
 	local season = math.floor(day / hades_seasons.SEASON_LENGTH) % hades_seasons.SEASONS
 	return season
+end
+
+-- Returns the current year (starts counting at 0).
+-- * day (optional): Days since world creation (if not given, uses minetest.get_day_count())
+hades_seasons.get_year = function(day)
+	if not day then
+		day = minetest.get_day_count()
+	end
+	local year = math.floor(day / hades_seasons.YEAR_LENGTH)
+	return year
+end
+
+-- Returns the day within the current season (starts counting at 0).
+-- * day (optional): Days since world creation (if not given, uses minetest.get_day_count())
+hades_seasons.get_day_in_season = function(day)
+	if not day then
+		day = minetest.get_day_count()
+	end
+	local day_in_season = day % hades_seasons.SEASON_LENGTH
+	return day_in_season
 end
 
 -- Returns the day within the current year (starts counting at 0).
@@ -210,7 +242,25 @@ minetest.register_chatcommand("season", {
 	end,
 })
 
+-- Returns the given total day as a nicely-formatted string.
+-- * day: total day (optional, defaults to current day)
+function hades_seasons.get_date_str(day)
+	local year = hades_seasons.get_year(day)
+	local season = hades_seasons.get_season(day)
+	local season_str = hades_seasons.SEASON_NAMES[season]
+	local day_in_season = hades_seasons.get_day_in_season(day)
+	local str = S("Day @1 of @2, Year @3", day_in_season+1, season_str, year+1)
+	return str
+end
 
+minetest.register_chatcommand("date", {
+	privs = {},
+	params = "",
+	description = S("Show the current date"),
+	func = function(name, param)
+		return true, hades_seasons.get_date_str()
+	end,
+})
 
 
 -- Callback functions when the season changed

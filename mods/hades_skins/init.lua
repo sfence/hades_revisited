@@ -38,6 +38,7 @@ end
 
 local styles = {
 	hair = {
+		{ name = "blank", desc = S("No hair") },
 		{ name = "medium", desc = S("Medium hair") },
 		{ name = "long", desc = S("Long hair") },
 		{ name = "beard", desc = S("Hair with beard") },

@@ -63,3 +63,11 @@ walls.register("walls:sandstone", S("Fine Sandstone Wall"), "default_sandstone.p
 walls.register("walls:sandstone_volcanic", S("Volcanic Sandstone Wall"), "hades_core_sandstone_volcanic.png",
 		"hades_core:sandstone_volcanic", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
+
+walls.register("walls:cobble_sandstone", S("Cobbled Fine Sandstone Wall"), "hades_core_cobble_sandstone.png",
+		"hades_core:cobble_sandstone", hades_sounds.node_sound_stone_defaults(),
+		{"group:stone", "group:sandstone"})
+
+walls.register("walls:cobble_sandstone_volcanic", S("Cobbled Volcanic Sandstone Wall"), "hades_core_cobble_sandstone_volcanic.png",
+		"hades_core:cobble_sandstone_volcanic", hades_sounds.node_sound_stone_defaults(),
+		{"group:stone", "group:sandstone"})

@@ -1,5 +1,5 @@
 # Hades Revisited
-Version 0.11.0
+Version 0.14.1
 
 A game for Minetest, focused on terraforming and landscaping.
 Based on *Minetest Hades* by Glünngi.
@@ -47,7 +47,6 @@ in the Minetest data folder.
 
 ## Important notices and short game guide
 
-* Press the Aux1/Special key to change your jump strength
 * Be sure the `minetest.conf` file in the main Minetest directory doesn't have any parameters who are in conflict with the `minetest.conf` file from the `hades_revisited` directory. Especially mapgen parameters or stuff like `give_initial_stuff = false`
 * There only 1 biome, with the focus on terraforming and landscaping
 * Not everyone will like this game. But maybe there are some freaks out there ;-)
@@ -163,9 +162,6 @@ from their original.
 `hades_bedrock` (based on `bedrock`)
 <http://www.moontest.org/viewtopic.php?f=11&t=9231>
 
-`boost_cart`
-<https://forum.minetest.net/viewtopic.php?f=11&t=10172>
-
 `hades_farming` (based on `farming_plus`)
 <https://forum.minetest.net/viewtopic.php?id=2787>
 
@@ -188,20 +184,20 @@ from their original.
 `pipeworks`
 <https://forum.minetest.net/viewtopic.php?t=2155>
 
-`plantlife` (old destroyed code)
+`hades_plantslib` (massively-trimmed down version of `plantslib`)
 <https://forum.minetest.net/viewtopic.php?id=3898>
 
 `signs_lib`
 <https://forum.minetest.net/viewtopic.php?id=2041>
 
-`hades_trash` (bassed on `trash_can`)
+`hades_trash` (based on `trash_can`)
 <https://forum.minetest.net/viewtopic.php?id=6315>
 
-`travelnet`
-<https://forum.minetest.net/viewtopic.php?id=4877>
-
-`vines`
+`hades_vines` (based on `vines`)
 <https://forum.minetest.net/viewtopic.php?id=2344>
+
+`doors` (based Doors Redux)
+<https://forum.minetest.net/viewtopic.php?t=24459>
 
 
 ## Licensing
@@ -212,8 +208,8 @@ This game is free software. It has been licensed under these licenses:
 
 Some mods have separate licenses:
 
+* `doors`: LGPLv3 for code, CC BY-SA 3.0 for media
 * `hades_furniture`: GPLv2
-* `travelnet`: GPLv3
 * `bags`: New BSD License
 * `hades_bedrock`: zlib license
 * `signs_lib`: LGPLv3

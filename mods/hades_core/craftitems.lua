@@ -6,6 +6,10 @@ minetest.register_craftitem("hades_core:stick", {
 	groups = {stick=1},
 })
 
+minetest.register_craftitem("hades_core:steel_rod", {
+	description = S("Steel Rod"),
+	inventory_image = "hades_core_steel_rod.png",
+})
 
 minetest.register_craftitem("hades_core:paper", {
 	description = S("Paper"),
