@@ -101,7 +101,7 @@ minetest.register_node("columnia:machine", {
 			"item_image_button[1,5;1,1;columnia:column_stairsub_"..STEREOTYPE..";column_stairsub;]"..
 			"item_image_button[2,5;1,1;columnia:column_stairsubpillar_"..STEREOTYPE..";column_stairsubpillar;]"..
 
-			"list[current_player;main;1,6.25;8,4;]"..
+			"list[current_player;main;0,6.25;10,4;]"..
 
 			"tooltip[column_bottom;"..F(S("Column Bottom")).."]"..
 			"tooltip[column_mid;"..F(S("Column")).."]"..

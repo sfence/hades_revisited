@@ -98,7 +98,7 @@ minetest.register_node("gluncarp:machine", {
 			"label[4.5,0;"..F(S("Craft:")).."]"..
 			"image_button[4.5,0.5;1,1;gluncarp_mach1.png;carpet; ]"..
 
-			"list[current_player;main;1,2;8,4;]"..
+			"list[current_player;main;0,2;10,4;]"..
 			"listring[current_player;main]"..
 			"listring[current_name;wool]"..
 			"listring[current_player;main]"..
