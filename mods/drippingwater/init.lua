@@ -82,8 +82,11 @@ minetest.register_abm({
         interval = 2,
         chance = 22,
         action = function(pos)
-		if minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name == "air" and 
-				minetest.get_node({x=pos.x, y=pos.y-2, z=pos.z}).name == "air" then
+		local above = minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name
+		local below1 = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
+		local below2 = minetest.get_node({x=pos.x, y=pos.y-2, z=pos.z}).name
+		if minetest.get_item_group(above, "water") > 0 and
+				below1 == "air" and below2 == "air" then
 			local i = math.random(-45,45) / 100
 			minetest.add_entity({x=pos.x + i, y=pos.y-0.501, z=pos.z + i}, "drippingwater:drop_water")
 		end
