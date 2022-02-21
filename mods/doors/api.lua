@@ -980,9 +980,9 @@ function doors.register_door( name, def )
 		def.collision_box = { type = "fixed", fixed = { -1/2, -1/2, -8/16, 1/2, 3/2, -6/16 } }
 
 		def.mesh = "door_a.obj"
-		minetest.register_node( ":" .. name .. "_a", def )
+		minetest.register_node( ":" .. name .. "_a", table.copy(def) )
 		def.mesh = "door_b.obj"
-		minetest.register_node( ":" .. name .. "_b", def )
+		minetest.register_node( ":" .. name .. "_b", table.copy(def) )
 	end
 
 	-- register center door nodes
@@ -1015,19 +1015,19 @@ function doors.register_door( name, def )
 		def.collision_box = { type = "fixed", fixed = { -1/2, -1/2, -1/16, 1/2, 3/2, 1/16 } }
 
 		def.mesh = "door_c.obj"	-- shut
-		minetest.register_node( ":" .. name .. "_c", def )
+		minetest.register_node( ":" .. name .. "_c", table.copy(def) )
 
 		def.selection_box = { type = "fixed", fixed = { 6/16, -1/2, -15/16, 8/16, 3/2, 1/16 } }
 		def.collision_box = { type = "fixed", fixed = { 6/16, -1/2, -15/16, 8/16, 3/2, 1/16 } }
 
 		def.mesh = "door_d.obj"	-- open left-hand
-		minetest.register_node( ":" .. name .. "_d", def )
+		minetest.register_node( ":" .. name .. "_d", table.copy(def) )
 
 		def.selection_box = { type = "fixed", fixed = { -8/16, -1/2, -15/16, -6/16, 3/2, 1/16 } }
 		def.collision_box = { type = "fixed", fixed = { -8/16, -1/2, -15/16, -6/16, 3/2, 1/16 } }
 
 		def.mesh = "door_e.obj"	-- open right-hand
-		minetest.register_node( ":" .. name .. "_e", def )
+		minetest.register_node( ":" .. name .. "_e", table.copy(def) )
 	end
 end
 
@@ -1198,7 +1198,7 @@ function doors.register_trapdoor( name, def )
 	def.selection_box = { type = "fixed", fixed = { -0.5, -0.5, -0.5, 0.5, -6/16, 0.5 } }
 	def.tiles = { def.tile_front, def.tile_front .. '^[transformFY', def.tile_side, def.tile_side, def.tile_side, def.tile_side }
 
-	minetest.register_node( ":" .. name, def )  -- closed
+	minetest.register_node( ":" .. name, table.copy(def) )  -- closed
 
 	local def_open = table.copy(def)
 	def_open.groups.not_in_creative_inventory = 1
