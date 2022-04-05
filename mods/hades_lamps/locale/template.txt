@@ -1,0 +1,4 @@
+# textdomain: hades_lamps
+Attached Lamp=
+Bronze Floor Lantern=
+Rusty Floor Lantern=

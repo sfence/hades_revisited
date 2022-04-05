@@ -1,0 +1,11 @@
+# textdomain: hades_food
+Plate=
+Raw Strawberry Pie=
+Strawberry Pie=
+Bottle of Olive Oil=
+Tomato Salad=
+Tomato-Potato Salad=
+Spiced Potato=
+Baked Potato=
+Raw Apple Pie=
+Apple Pie=

@@ -1,0 +1,16 @@
+# textdomain: wool
+White Cloth=
+Grey Cloth=
+Black Cloth=
+Red Cloth=
+Yellow Cloth=
+Green Cloth=
+Cyan Cloth=
+Blue Cloth=
+Magenta Cloth=
+Orange Cloth=
+Violet Cloth=
+Brown Cloth=
+Pink Cloth=
+Dark Grey Cloth=
+Dark Green Cloth=

@@ -1,0 +1,15 @@
+# textdomain: mobs_hades
+Cave Master Spawn Egg=
+Cave Elder Spawn Egg=
+Mese Monster Spawn Egg=
+Deep Mese Monster Spawn Egg=
+Mutant Spawn Egg=
+Oerkki Spawn Egg=
+Cobweb=
+Hard to move through=
+Gold Spider Spawn Egg=
+Sapphire Spider Spawn Egg=
+Ruby Spider Spawn Egg=
+Mese Spider Spawn Egg=
+Stone Monster Spawn Egg=
+Deep Stone Monster Spawn Egg=

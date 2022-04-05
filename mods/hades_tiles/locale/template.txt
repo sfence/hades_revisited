@@ -1,0 +1,18 @@
+# textdomain: hades_tiles
+Stone=
+Fine Sandstone=
+Volcanic Sandstone=
+Marble=
+Essexite=
+Golden Essexite=
+Pale Wood=
+Cream Wood=
+Temperate Wood=
+Lush Wood=
+Tropical Wood=
+Tuff=
+Burned Stone=
+Burned Tuff=
+Chondrite=
+@1/@2 Tile=
+@1 Tile=

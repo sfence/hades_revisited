@@ -1,0 +1,8 @@
+# textdomain: walls
+Cobblestone Wall=
+Mossy Cobblestone Wall=
+Burned Cobblestone Wall=
+Fine Sandstone Wall=
+Volcanic Sandstone Wall=
+Cobbled Fine Sandstone Wall=
+Cobbled Volcanic Sandstone Wall=

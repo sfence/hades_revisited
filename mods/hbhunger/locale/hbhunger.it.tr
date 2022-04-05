@@ -1,2 +1,9 @@
-# textdomain:hbhunger
+# textdomain: hbhunger
+Food poisoning=
 Satiation=Sazietà
+Starvation=
+[<player>] <satiation>=
+Set satiation of player or yourself=
+Not possible, damage is disabled.=
+Invalid satiation!=
+Player @1 does not exist.=

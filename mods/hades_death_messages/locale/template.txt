@@ -1,0 +1,2 @@
+# textdomain: hades_death_messages
+Cause of death: @1.=

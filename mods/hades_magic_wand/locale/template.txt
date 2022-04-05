@@ -1,0 +1,5 @@
+# textdomain: hades_magic_wand
+Magic Wand=
+Changes block variant=
+Magic Shaper=
+Changes a block shape=

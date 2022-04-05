@@ -1,0 +1,12 @@
+# textdomain: hades_vines
+Needs a tree trunk to survive=
+Tropical Vine=
+Rotten Tropical Vine=
+Willow Vine=
+Rotten Willow Vine=
+Cave Vine=
+Rotten Cave Vine=
+Root Vine=
+Shears=
+Cuts leaves, vines and plants=
+Vines Block=

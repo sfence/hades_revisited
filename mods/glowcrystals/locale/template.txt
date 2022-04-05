@@ -1,0 +1,8 @@
+# textdomain: glowcrystals
+Glowing Crystal Ore=
+Glowing Crystal Block=
+Glowing Crystal Torch=
+Glow Glass=
+Glowing Window=
+Glowing Crystal=
+Glow Dust=

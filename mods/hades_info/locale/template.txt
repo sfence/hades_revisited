@@ -1,0 +1,19 @@
+# textdomain: hades_info
+@1: @2=
+Main menu=
+5=
+6F=
+6=
+7=
+C=
+V=
+F=
+Q@1=
+X=
+Date: @1=
+Welcome to the GBTC Mission Terminal! Select a topic:=
+Welcome to the Hades Information Terminal! Select a topic:=
+Planetary Data=
+Region Class=
+Display information about your mission=
+Get information about this world=

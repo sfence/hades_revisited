@@ -1,0 +1,9 @@
+# textdomain: hades_bushes
+Branch Bush=
+Green Bush=
+White Bush=
+Yellow Bush=
+Blue Bush=
+Red Bush=
+Orange Bush=
+Violet Bush=

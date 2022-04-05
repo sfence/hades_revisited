@@ -1,0 +1,14 @@
+# textdomain: hades_itemshow
+Item Frame=
+You can show off an item here=
+Pedestal Top=
+Pedestal=
+Stone Pedestal=
+Burned Stone Pedestal=
+Marble Pedestal=
+Fine Sandstone Pedestal=
+Volcanic Sandstone Pedestal=
+Obsidian Pedestal=
+Essexite Pedestal=
+Chondrite Pedestal=
+Item Showcase=

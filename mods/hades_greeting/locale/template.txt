@@ -1,0 +1,10 @@
+# textdomain: hades_greeting
+Welcome to planet Hades!=
+Creative Mode is active. You have unlimited supplies.=
+Create the buildings of your dreams and have fun! <END OF TRANSMISSION>=
+You have stranded on planet Hades.=
+Search for some water. Lay down fertile sand next to the water and it will soon turn into dirt. Use the crafting guide to see what you can craft.=
+Survive and build a nice habitable place!=
+Good luck! <END OF TRANSMISSION>=
+Hades Revisited is a very incomplete game, so expect bugs, chaos, ugliness, broken gameplay, and worse.=
+That having said, have fun playtesting, and please report bugs to Wuzzy.=

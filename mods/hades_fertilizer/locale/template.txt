@@ -1,0 +1,5 @@
+# textdomain: hades_fertilizer
+Fertilizer=
+Makes plants grow=
+Super Fertilizer=
+Makes a lot of plants grow=
