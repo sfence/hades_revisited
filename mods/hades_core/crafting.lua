@@ -837,6 +837,22 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'hades_core:basalt_block',
+	recipe = {
+		{'hades_core:basalt', 'hades_core:basalt', 'hades_core:basalt'},
+		{'hades_core:basalt', 'hades_core:basalt', 'hades_core:basalt'},
+		{'hades_core:basalt', 'hades_core:basalt', 'hades_core:basalt'},
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_core:basalt 9',
+	recipe = {
+		{'hades_core:basalt_block'}
+	}
+})
+
+minetest.register_craft({
 	output = 'hades_core:ash_block',
 	recipe = {
 		{'hades_core:ash', 'hades_core:ash', 'hades_core:ash'},
@@ -1284,6 +1300,14 @@ minetest.register_craft({
 	recipe = {
 		{'hades_core:chondrite', 'hades_core:chondrite',''},
 		{'','hades_core:chondrite', 'hades_core:chondrite'},
+	}
+})
+
+minetest.register_craft({
+	output = 'hades_core:basalt_brick 4',
+	recipe = {
+		{'hades_core:basalt', 'hades_core:basalt',''},
+		{'','hades_core:basalt', 'hades_core:basalt'},
 	}
 })
 

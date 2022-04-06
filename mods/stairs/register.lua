@@ -681,6 +681,28 @@ stairs.register_stair_and_slab_and_step("stonebrick", "hades_core:stonebrick",
 		S("Outer Stone Brick Step"),
 		S("Inner Stone Brick Step"))
 
+stairs.register_stair_and_slab_and_step("basalt_brick", "hades_core:basalt_brick",
+		{cracky=2},
+		nil,
+		S("Basalt Brick Stair"),
+		S("Outer Basalt Brick Stair"),
+		S("Inner Basalt Brick Stair"),
+		S("Basalt Brick Slab"),
+		S("Basalt Brick Step"),
+		S("Outer Basalt Brick Step"),
+		S("Inner Basalt Brick Step"))
+
+stairs.register_stair_and_slab_and_step("basalt", "hades_core:basalt",
+		{cracky=2},
+		nil,
+		S("Basalt Stair"),
+		S("Outer Basalt Stair"),
+		S("Inner Basalt Stair"),
+		S("Basalt Slab"),
+		S("Basalt Step"),
+		S("Outer Basalt Step"),
+		S("Inner Basalt Step"))
+
 stairs.register_stair_and_slab_and_step("chondrite_brick", "hades_core:chondrite_brick",
 		{cracky=2},
 		nil,

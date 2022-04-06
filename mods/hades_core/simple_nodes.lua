@@ -89,6 +89,30 @@ minetest.register_node("hades_core:chondrite_brick", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
+minetest.register_node("hades_core:basalt", {
+	description = S("Basalt"),
+	tiles = {"hades_core_basalt.png"},
+	groups = {cracky=2, stone=1, porous=1},
+	is_ground_content = true,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:basalt_block", {
+	description = S("Basalt Block"),
+	tiles = {"hades_core_basalt_block.png"},
+	groups = {cracky=2},
+	is_ground_content = false,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:basalt_brick", {
+	description = S("Basalt Brick"),
+	tiles = {"hades_core_basalt_brick.png"},
+	groups = {cracky=2, stone=1},
+	is_ground_content = false,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
 minetest.register_node("hades_core:tuff", {
 	description = S("Tuff"),
 	tiles = {"hades_core_tuff.png"},

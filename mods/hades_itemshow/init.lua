@@ -550,7 +550,11 @@ register_pedestal("pedestal_chondrite", {
 	tiles={"hades_itemshow_pedestal_chondrite_top.png","hades_itemshow_pedestal_chondrite.png"},
 	groups={cracky=2},
 	craftitem="hades_core:chondrite"})
-
+register_pedestal("pedestal_basalt", {
+	description=S("Basalt Pedestal"),
+	tiles={"hades_core_basalt.png"},
+	groups={cracky=2},
+	craftitem="hades_core:basalt"})
 
 -- Item Showcase
 
