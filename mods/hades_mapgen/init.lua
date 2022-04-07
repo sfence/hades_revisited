@@ -562,6 +562,40 @@ minetest.register_ore({
 		flags          = "absheight",
 	})
 
+
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "hades_core:basalt",
+		wherein        = "hades_core:stone",
+		clust_scarcity = 9*9*9,
+		clust_num_ores = 50,
+		clust_size     = 4,
+		y_min     = -200,
+		y_max     = -300,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "hades_core:basalt",
+		wherein        = "hades_core:stone",
+		clust_scarcity = 9*9*9,
+		clust_num_ores = 500,
+		clust_size     = 10,
+		y_min     = -300,
+		y_max     = -31000,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "hades_core:basalt",
+		wherein        = "hades_core:stone",
+		clust_scarcity = 18*10*18,
+		clust_num_ores = 950,
+		clust_size     = 10,
+		y_min     = -31000,
+		y_max     = -500,
+		flags          = "absheight",
+	})
+
+
 	minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "hades_core:gravel",
