@@ -556,6 +556,43 @@ register_pedestal("pedestal_basalt", {
 	groups={cracky=2},
 	craftitem="hades_core:basalt"})
 
+register_pedestal("pedestal_apolline", {
+	description=S("Apolline Pedestal"),
+	tiles={"hades_core_apolline.png"},
+	groups={cracky=3},
+	craftitem="hades_core:apolline"})
+register_pedestal("pedestal_orangite", {
+	description=S("Orangite Pedestal"),
+	tiles={"hades_core_orangite.png"},
+	groups={cracky=3},
+	craftitem="hades_core:cinnaber"})
+register_pedestal("pedestal_cinnaber", {
+	description=S("Cinnaber Pedestal"),
+	tiles={"hades_core_cinnaber.png"},
+	groups={cracky=3},
+	craftitem="hades_core:cinnaber"})
+register_pedestal("pedestal_olivine", {
+	description=S("Olivine Pedestal"),
+	tiles={"hades_core_olivine.png"},
+	groups={cracky=3},
+	craftitem="hades_core:azurite"})
+register_pedestal("pedestal_azurite", {
+	description=S("Azurite Pedestal"),
+	tiles={"hades_core_azurite.png"},
+	groups={cracky=3},
+	craftitem="hades_core:azutire"})
+register_pedestal("pedestal_turquosite", {
+	description=S("Turquosite Pedestal"),
+	tiles={"hades_core_turquosite.png"},
+	groups={cracky=3},
+	craftitem="hades_core:turquosite"})
+register_pedestal("pedestal_lillite", {
+	description=S("Lillite Pedestal"),
+	tiles={"hades_core_lillite.png"},
+	groups={cracky=3},
+	craftitem="hades_core:lillite"})
+
+
 -- Item Showcase
 
 minetest.register_node("hades_itemshow:showcase", {
