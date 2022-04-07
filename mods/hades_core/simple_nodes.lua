@@ -222,6 +222,165 @@ minetest.register_node("hades_core:essexite_brick", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
+minetest.register_node("hades_core:olivine", {
+	description = S("Olivine"),
+	tiles = {"hades_core_olivine.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:olivine_block", {
+	description = S("Olivine Block"),
+	tiles = {"hades_core_olivine_block.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:olivine_brick", {
+	description = S("Olivine Brick"),
+	tiles = {"hades_core_olivine_brick.png"},
+	is_ground_content = false,
+	groups = {cracky=3, stone=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:cinnaber", {
+	description = S("Cinnaber"),
+	tiles = {"hades_core_cinnaber.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:cinnaber_block", {
+	description = S("Cinnaber Block"),
+	tiles = {"hades_core_cinnaber_block.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:cinnaber_brick", {
+	description = S("Cinnaber Brick"),
+	tiles = {"hades_core_cinnaber_brick.png"},
+	is_ground_content = false,
+	groups = {cracky=3, stone=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:apolline", {
+	-- Invented word, based on "Apollon"
+	description = S("Apolline"),
+	tiles = {"hades_core_apolline.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:apolline_block", {
+	description = S("Apolline Block"),
+	tiles = {"hades_core_apolline_block.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:apolline_brick", {
+	description = S("Apolline Brick"),
+	tiles = {"hades_core_apolline_brick.png"},
+	is_ground_content = false,
+	groups = {cracky=3, stone=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:orangite", {
+	-- Invented word, based on "orange"
+	description = S("Orangite"),
+	tiles = {"hades_core_orangite.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:orangite_block", {
+	description = S("Orangite Block"),
+	tiles = {"hades_core_orangite_block.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:orangite_brick", {
+	description = S("Orangite Brick"),
+	tiles = {"hades_core_orangite_brick.png"},
+	is_ground_content = false,
+	groups = {cracky=3, stone=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:azurite", {
+	-- Invented word, based on "azure"
+	description = S("Azurite"),
+	tiles = {"hades_core_azurite.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:azurite_block", {
+	description = S("Azurite Block"),
+	tiles = {"hades_core_azurite_block.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:azurite_brick", {
+	description = S("Azurite Brick"),
+	tiles = {"hades_core_azurite_brick.png"},
+	is_ground_content = false,
+	groups = {cracky=3, stone=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:lillite", {
+	-- Invented word, based on German "lila" (=violet)
+	description = S("Lillite"),
+	tiles = {"hades_core_lillite.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:lillite_block", {
+	description = S("Lillite Block"),
+	tiles = {"hades_core_lillite_block.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:lillite_brick", {
+	description = S("Lillite Brick"),
+	tiles = {"hades_core_lillite_brick.png"},
+	is_ground_content = false,
+	groups = {cracky=3, stone=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
+minetest.register_node("hades_core:turquosite", {
+	-- Invented word, based on "tourquose"
+	description = S("Turqousite"),
+	tiles = {"hades_core_turquosite.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=1, porous=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:turquosite_block", {
+	description = S("Turqousite Block"),
+	tiles = {"hades_core_turquosite_block.png"},
+	is_ground_content = false,
+	groups = {cracky=3},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+minetest.register_node("hades_core:turquosite_brick", {
+	description = S("Turqousite Brick"),
+	tiles = {"hades_core_turquosite_brick.png"},
+	is_ground_content = false,
+	groups = {cracky=3, stone=1},
+	sounds = hades_sounds.node_sound_stone_defaults(),
+})
+
 minetest.register_node("hades_core:obsidian", {
 	description = S("Obsidian"),
 	tiles = {"default_obsidian.png"},
