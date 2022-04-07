@@ -44,7 +44,7 @@ minetest.register_alias("mapgen_stair_desert_stone", "stairs:stair_stone")
 if minetest.get_mapgen_setting("mg_name") ~= "singlenode" then
 	-- Warning: override_meta set to `true`. Tread carefully when changing the parameter values.
 	minetest.set_mapgen_setting("mg_name", "v6", true)
-	minetest.set_mapgen_setting("mg_flags", "nodungeons,notrees,caves,nodecorations,nobiomes", true)
+	minetest.set_mapgen_setting("mg_flags", "nodungeons,notrees,caves,decorations,nobiomes", true)
 	minetest.set_mapgen_setting("mgv6_spflags", "nomudflow,nosnowbiomes,notrees,nojungles", true)
 	minetest.set_mapgen_setting("water_level", "-5", true)
 end
@@ -680,10 +680,10 @@ minetest.register_decoration({
 		},
 		y_min = 1,
 		y_max = 100,
-		decoration = "hades_core:stone",
+		decoration = "hades_core:basalt",
 		height = 3,
-	    height_max = 4,
-	})
+		height_max = 4,
+})
 
 minetest.register_decoration({
 		deco_type = "simple",
@@ -700,6 +700,5 @@ minetest.register_decoration({
 		y_min = 1,
 		y_max = 100,
 		decoration = "hades_core:ash",
-	})
-
+})
 
