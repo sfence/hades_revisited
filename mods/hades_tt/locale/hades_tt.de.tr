@@ -1,0 +1,22 @@
+# textdomain: hades_tt
+Damage: @1=Schaden: @1
+Healing: @1=Heilung: @1
+Damage (@1): @2=Schaden (@1): @2
+Healing (@1): @2=Heilung (@1): @2
+Full punch interval: @1s=Volles Schlagintervall: @1s
+Contact damage: @1 per second=Kontaktschaden: @1 pro Sekunde
+Contact healing: @1 per second=Kontaktheilung: @1 pro Sekunde
+Drowning damage: @1=Ertrinkensschaden: @1
+Fall damage: +@1%=Fallschaden: +@1%
+No fall damage=Kein Fallschaden
+Fall damage: @1%=Fallschaden: @1%
+No jumping=Kein Springen
+No swimming upwards=Kein Hochschwimmen
+No rising=Kein Aufsteigen
+Climbable (only downwards)=Erkletterbar (nur abwärts)
+Climbable=Erkletterbar
+Slippery=Rutschig
+Bouncy (@1%)=Elastisch (@1%)
+Luminance: @1=Luminanz: @1
+Food points: +@1=Nahrungspunkte: +@1
+Spreads on Dirt with Grass=Breitet sich auf Erde mit Gras aus

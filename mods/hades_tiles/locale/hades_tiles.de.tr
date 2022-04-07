@@ -1,0 +1,18 @@
+# textdomain: hades_tiles
+Stone=Stein
+Fine Sandstone=Feinsandstein
+Volcanic Sandstone=Vulkansandstein
+Marble=Marmor
+Essexite=Essexit
+Golden Essexite=Gold-Essexit
+Pale Wood=Bleichholz
+Cream Wood=Cremeholz
+Temperate Wood=Gemäßigtholz
+Lush Wood=Sattholz
+Tropical Wood=Tropenholz
+Tuff=Tuff
+Burned Stone=Verbrannter-Stein
+Burned Tuff=Verbrannter-Tuff
+Chondrite=Chondrit
+@1/@2 Tile=@1-/@2-Kachel
+@1 Tile=@1-Kachel

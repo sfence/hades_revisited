@@ -1,7 +1,7 @@
 # textdomain: hbhunger
-Food poisoning=
+Food poisoning=Lebensmittelvergiftung
 Satiation=Sättigung
-Starvation=
+Starvation=Verhungern
 [<player>] <satiation>=[<Spieler>] <Sättigung>
 Set satiation of player or yourself=Sättigung von Spieler oder Ihnen selbst setzen
 Not possible, damage is disabled.=Nicht möglich, Schaden ist deaktiviert.
