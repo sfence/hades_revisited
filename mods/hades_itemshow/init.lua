@@ -553,7 +553,7 @@ register_pedestal("pedestal_chondrite", {
 register_pedestal("pedestal_basalt", {
 	description=S("Basalt Pedestal"),
 	tiles={"hades_core_basalt.png"},
-	groups={cracky=2},
+	groups={cracky=3},
 	craftitem="hades_core:basalt"})
 
 register_pedestal("pedestal_apolline", {

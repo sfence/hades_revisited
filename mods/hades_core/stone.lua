@@ -135,7 +135,7 @@ register_stone("basalt", {
 	description_base = S("Basalt"),
 	description_block = S("Basalt Block"),
 	description_brick = S("Basalt Brick"),
-	cracky = 2,
+	cracky = 3,
 })
 
 register_stone("tuff", {

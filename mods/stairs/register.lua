@@ -682,7 +682,7 @@ stairs.register_stair_and_slab_and_step("stonebrick", "hades_core:stonebrick",
 		S("Inner Stone Brick Step"))
 
 stairs.register_stair_and_slab_and_step("basalt_brick", "hades_core:basalt_brick",
-		{cracky=2},
+		{cracky=3},
 		nil,
 		S("Basalt Brick Stair"),
 		S("Outer Basalt Brick Stair"),
@@ -693,7 +693,7 @@ stairs.register_stair_and_slab_and_step("basalt_brick", "hades_core:basalt_brick
 		S("Inner Basalt Brick Step"))
 
 stairs.register_stair_and_slab_and_step("basalt", "hades_core:basalt",
-		{cracky=2},
+		{cracky=3},
 		nil,
 		S("Basalt Stair"),
 		S("Outer Basalt Stair"),
