@@ -5,6 +5,7 @@ Volcanic Sandstone=
 Marble=
 Essexite=
 Golden Essexite=
+Basalt=
 Pale Wood=
 Cream Wood=
 Temperate Wood=

@@ -11,4 +11,5 @@ Volcanic Sandstone Pedestal=
 Obsidian Pedestal=
 Essexite Pedestal=
 Chondrite Pedestal=
+Basalt Pedestal=
 Item Showcase=

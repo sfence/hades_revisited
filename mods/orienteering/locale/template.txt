@@ -1,5 +1,4 @@
 # textdomain: orienteering
-# meters per second
 m/s=
 # meters
 m=
