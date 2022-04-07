@@ -213,7 +213,6 @@ minetest.register_node("hades_core:essexite_block", {
 	groups = {cracky=2,},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
-
 minetest.register_node("hades_core:essexite_brick", {
 	description = S("Essexite Brick"),
 	tiles = {"hades_core_essexite_brick.png"},
@@ -221,6 +220,30 @@ minetest.register_node("hades_core:essexite_brick", {
 	groups = {cracky=1, stone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
+
+minetest.register_node("hades_core:obsidian", {
+	description = S("Obsidian"),
+	tiles = {"default_obsidian.png"},
+	is_ground_content = true,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	groups = {cracky=1,level=2},
+})
+minetest.register_node("hades_core:obsidian_block", {
+	description = S("Obsidian Block"),
+	tiles = {"default_obsidian_block.png"},
+	is_ground_content = false,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	groups = {cracky=2},
+})
+minetest.register_node("hades_core:obsidianbrick", {
+	description = S("Obsidian Brick"),
+	tiles = {"default_obsidian_brick.png"},
+	is_ground_content = false,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	groups = {cracky=1,level=2},
+})
+
+-- Color stones (stone with a natural vibrant color)
 
 minetest.register_node("hades_core:olivine", {
 	description = S("Olivine"),
@@ -359,7 +382,7 @@ minetest.register_node("hades_core:lillite_brick", {
 })
 
 minetest.register_node("hades_core:turquosite", {
-	-- Invented word, based on "tourquose"
+	-- Invented word, based on "turquoise"
 	description = S("Turqousite"),
 	tiles = {"hades_core_turquosite.png"},
 	is_ground_content = true,
@@ -379,30 +402,6 @@ minetest.register_node("hades_core:turquosite_brick", {
 	is_ground_content = false,
 	groups = {cracky=3, stone=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
-})
-
-minetest.register_node("hades_core:obsidian", {
-	description = S("Obsidian"),
-	tiles = {"default_obsidian.png"},
-	is_ground_content = true,
-	sounds = hades_sounds.node_sound_stone_defaults(),
-	groups = {cracky=1,level=2},
-})
-
-minetest.register_node("hades_core:obsidian_block", {
-	description = S("Obsidian Block"),
-	tiles = {"default_obsidian_block.png"},
-	is_ground_content = false,
-	sounds = hades_sounds.node_sound_stone_defaults(),
-	groups = {cracky=2},
-})
-
-minetest.register_node("hades_core:obsidianbrick", {
-	description = S("Obsidian Brick"),
-	tiles = {"default_obsidian_brick.png"},
-	is_ground_content = false,
-	sounds = hades_sounds.node_sound_stone_defaults(),
-	groups = {cracky=1,level=2},
 })
 
 
