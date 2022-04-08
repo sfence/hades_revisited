@@ -164,6 +164,51 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "dye:red 8",
+	recipe = "hades_core:cinnaber",
+})
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "dye:orange 8",
+	recipe = "hades_core:orangite",
+})
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "dye:yellow 8",
+	recipe = "hades_core:apolline",
+})
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "dye:green 8",
+	recipe = "hades_core:olivine",
+})
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "dye:cyan 8",
+	recipe = "hades_core:turquosite",
+})
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "dye:violet 8",
+	recipe = "hades_core:lillite",
+})
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "dye:blue 8",
+	recipe = "hades_core:azurite",
+})
+
+
+
+minetest.register_craft({
 		type = "shapeless",
 		output = "dye:black 4",
 		recipe = {"hades_core:coal_lump"},
