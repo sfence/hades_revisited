@@ -595,6 +595,24 @@ minetest.register_ore({
 		flags          = "absheight",
 	})
 
+	-- Color stones
+	local colorstones = {
+		"cinnaber", "orangite", "apolline", "olivine", "turquosite", "azurite", "lillite"
+	}
+	local cy = -500
+	for c=1, #colorstones do
+		minetest.register_ore({
+			ore_type       = "scatter",
+			ore            = "hades_core:"..colorstones[c],
+			wherein        = {"hades_core:stone", "hades_core:essexite", "hades_core:basalt"},
+			clust_scarcity = 9*9*9,
+			clust_num_ores = 50,
+			clust_size     = 4,
+			y_min     = cy - (c-1)*50 - 50,
+			y_max     = cy - (c-1)*50,
+		})
+	end
+
 
 	minetest.register_ore({
 		ore_type       = "scatter",
