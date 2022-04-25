@@ -71,8 +71,8 @@ minetest.register_node("glowcrystals:glowglass", {
 	sounds = hades_sounds.node_sound_glass_defaults(),
 })
 
-if minetest.get_modpath("windows") then
-	windows.register_window("glowcrystals:windows_glow", {
+if minetest.get_modpath("hades_windows") then
+	hades_windows.register_window("glowcrystals:windows_glow", {
 		description = S("Glowing Window"),
 		texture_seam = "glowcrystals_windows_glow_seam.png",
 		texture_front = "glowcrystals_windows_glow_front.png",
