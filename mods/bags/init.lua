@@ -145,8 +145,8 @@ minetest.register_craft({
 	output = "bags:small",
 	recipe = {
         {"", "hades_farming:string", ""},
-        {"group:wool", "group:wool", "group:wool"},
-        {"group:wool", "group:wool", "group:wool"},
+        {"group:cloth", "group:cloth", "group:cloth"},
+        {"group:cloth", "group:cloth", "group:cloth"},
     },
 })
 minetest.register_craft({

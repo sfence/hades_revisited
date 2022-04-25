@@ -1,7 +1,7 @@
-Minetest 0.4 mod: wool
-======================
+hades_cloth
+===========
 
-Mostly backward-compatible with jordach's 16-color wool mod.
+Adds cloth blocks of varying colors, derived from Minetest Game’s wool mod.
 
 License of source code:
 -----------------------

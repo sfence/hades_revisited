@@ -1,4 +1,4 @@
-# textdomain: wool
+# textdomain: hades_cloth
 White Cloth=
 Grey Cloth=
 Black Cloth=

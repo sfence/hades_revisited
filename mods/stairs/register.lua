@@ -859,7 +859,7 @@ stairs.register_stair_and_slab_and_step("straw", "hades_farming:straw",
 
 -- cloth
 
-stairs.register_stair_and_slab_and_step("white", "wool:white",
+stairs.register_stair_and_slab_and_step("white", "hades_cloth:white",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("White Cloth Stair"),
@@ -870,7 +870,7 @@ stairs.register_stair_and_slab_and_step("white", "wool:white",
 		S("Outer White Cloth Step"),
 		S("Inner White Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("grey", "wool:grey",
+stairs.register_stair_and_slab_and_step("grey", "hades_cloth:grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Grey Cloth Stair"),
@@ -881,7 +881,7 @@ stairs.register_stair_and_slab_and_step("grey", "wool:grey",
 		S("Outer Grey Cloth Step"),
 		S("Inner Grey Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("black", "wool:black",
+stairs.register_stair_and_slab_and_step("black", "hades_cloth:black",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Black Cloth Stair"),
@@ -892,7 +892,7 @@ stairs.register_stair_and_slab_and_step("black", "wool:black",
 		S("Outer Black Cloth Step"),
 		S("Inner Black Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("red", "wool:red",
+stairs.register_stair_and_slab_and_step("red", "hades_cloth:red",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Red Cloth Stair"),
@@ -903,7 +903,7 @@ stairs.register_stair_and_slab_and_step("red", "wool:red",
 		S("Outer Red Cloth Step"),
 		S("Inner Red Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("yellow", "wool:yellow",
+stairs.register_stair_and_slab_and_step("yellow", "hades_cloth:yellow",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Yellow Cloth Stair"),
@@ -914,7 +914,7 @@ stairs.register_stair_and_slab_and_step("yellow", "wool:yellow",
 		S("Outer Yellow Cloth Step"),
 		S("Inner Yellow Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("green", "wool:green",
+stairs.register_stair_and_slab_and_step("green", "hades_cloth:green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Green Cloth Stair"),
@@ -925,7 +925,7 @@ stairs.register_stair_and_slab_and_step("green", "wool:green",
 		S("Outer Green Cloth Step"),
 		S("Inner Green Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("cyan", "wool:cyan",
+stairs.register_stair_and_slab_and_step("cyan", "hades_cloth:cyan",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Cyan Cloth Stair"),
@@ -936,7 +936,7 @@ stairs.register_stair_and_slab_and_step("cyan", "wool:cyan",
 		S("Outer Cyan Cloth Step"),
 		S("Inner Cyan Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("blue", "wool:blue",
+stairs.register_stair_and_slab_and_step("blue", "hades_cloth:blue",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Blue Cloth Stair"),
@@ -947,7 +947,7 @@ stairs.register_stair_and_slab_and_step("blue", "wool:blue",
 		S("Outer Blue Cloth Step"),
 		S("Inner Blue Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("magenta", "wool:magenta",
+stairs.register_stair_and_slab_and_step("magenta", "hades_cloth:magenta",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Magenta Cloth Stair"),
@@ -958,7 +958,7 @@ stairs.register_stair_and_slab_and_step("magenta", "wool:magenta",
 		S("Outer Magenta Cloth Step"),
 		S("Inner Magenta Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("orange", "wool:orange",
+stairs.register_stair_and_slab_and_step("orange", "hades_cloth:orange",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Orange Cloth Stair"),
@@ -969,7 +969,7 @@ stairs.register_stair_and_slab_and_step("orange", "wool:orange",
 		S("Outer Orange Cloth Step"),
 		S("Inner Orange Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("violet", "wool:violet",
+stairs.register_stair_and_slab_and_step("violet", "hades_cloth:violet",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Violet Cloth Stair"),
@@ -980,7 +980,7 @@ stairs.register_stair_and_slab_and_step("violet", "wool:violet",
 		S("Outer Violet Cloth Step"),
 		S("Inner Violet Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("brown", "wool:brown",
+stairs.register_stair_and_slab_and_step("brown", "hades_cloth:brown",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Brown Cloth Stair"),
@@ -991,7 +991,7 @@ stairs.register_stair_and_slab_and_step("brown", "wool:brown",
 		S("Outer Brown Cloth Step"),
 		S("Inner Brown Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("pink", "wool:pink",
+stairs.register_stair_and_slab_and_step("pink", "hades_cloth:pink",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Pink Cloth Stair"),
@@ -1002,7 +1002,7 @@ stairs.register_stair_and_slab_and_step("pink", "wool:pink",
 		S("Outer Pink Cloth Step"),
 		S("Inner Pink Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("dark_grey", "wool:dark_grey",
+stairs.register_stair_and_slab_and_step("dark_grey", "hades_cloth:dark_grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Dark Grey Cloth Stair"),
@@ -1013,7 +1013,7 @@ stairs.register_stair_and_slab_and_step("dark_grey", "wool:dark_grey",
 		S("Outer Dark Grey Cloth Step"),
 		S("Inner Dark Grey Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("dark_green", "wool:dark_green",
+stairs.register_stair_and_slab_and_step("dark_green", "hades_cloth:dark_green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Dark Green Cloth Stair"),

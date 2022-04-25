@@ -105,6 +105,7 @@ minetest.register_node("gluncarp:machine", {
 			"listring[current_name;res]")
 		meta:set_string("infotext", S("Carpet workstation"))
 		local inv = meta:get_inventory()
+		-- Input slot (called "wool" for historic reasons only)
 		inv:set_size("wool", 1)
 		inv:set_size("res", 1)
 	end,
@@ -124,30 +125,30 @@ minetest.register_node("gluncarp:machine", {
 			end
 		end
 
-		local woolstack = inv:get_stack("wool", 1)
-		local woolname = woolstack:get_name()
+		local clothstack = inv:get_stack("wool", 1)
+		local clothname = clothstack:get_name()
 		local resstack = inv:get_stack("res", 1)
 ----------------------------------------------------------------------
 --Register Items
 ----------------------------------------------------------------------
 		for col=1,#colors do
 			local color = colors[col]
-			if woolname == "wool:"..color then
+			if clothname == "cloth:"..color then
 				material = color
 				count = 4
-			elseif woolname == "gluncarp:wool_"..color then
+			elseif clothname == "gluncarp:wool_"..color then
 				material = color
 				count = 4
-			elseif woolname == "stairs:slab_"..color then
+			elseif clothname == "stairs:slab_"..color then
 				material = color
 				count = 2
-			elseif woolname == "stairs:stair_"..color then
+			elseif clothname == "stairs:stair_"..color then
 				material = color
 				count = 3
-			elseif woolname == "stairs:stair_in_"..color then
+			elseif clothname == "stairs:stair_in_"..color then
 				material = color
 				count = 4
-			elseif woolname == "stairs:stair_out_"..color then
+			elseif clothname == "stairs:stair_out_"..color then
 				material = color
 				count = 4
 			end
@@ -170,8 +171,8 @@ minetest.register_node("gluncarp:machine", {
 				end
 			end
 			if success then
-				woolstack:take_item()
-				inv:set_stack("wool", 1, woolstack)
+				clothstack:take_item()
+				inv:set_stack("wool", 1, clothstack)
 			end
 		end            
 	end,

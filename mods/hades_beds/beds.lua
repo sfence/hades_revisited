@@ -45,7 +45,7 @@ hades_beds.register_bed("hades_beds:fancy_bed", {
 	selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.06, 1.5},
 	recipe = {
 		{"", "", "group:stick"},
-		{"wool:red", "wool:red", "wool:white"},
+		{"cloth:red", "cloth:red", "cloth:white"},
 		{"group:wood", "group:wood", "group:wood"},
 	}, 
 })
@@ -79,7 +79,7 @@ hades_beds.register_bed("hades_beds:bed", {
 	},
 	selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.06, 1.5},
 	recipe = {
-		{"group:wool", "group:wool", "group:wool"},
+		{"group:cloth", "group:cloth", "group:cloth"},
 		{"group:wood", "group:wood", "group:wood"}
 	}, 
 

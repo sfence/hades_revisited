@@ -106,7 +106,7 @@ minetest.register_tool("hades_movement:jump_dampener", {
 minetest.register_craft({
 	output = "hades_movement:jump_dampener",
 	recipe = {
-		{"group:wool","","group:wool"},
+		{"group:cloth","","group:cloth"},
 		{"hades_core:tin_ingot","","hades_core:tin_ingot"},
 	},
 })

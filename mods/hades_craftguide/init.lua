@@ -10,7 +10,7 @@ local recipes_cache = {}
 local usages_cache = {}
 
 local group_stereotypes = {
-	wool	     = "wool:white",
+	cloth	     = "hades_cloth:white",
 	dye	     = "dye:white",
 	vessel	     = "vessels:glass_bottle",
 	coal	     = "hades_core:coal_lump",
@@ -40,7 +40,7 @@ local group_stereotypes = {
 }
 
 local group_names = {
-	wool         = S("Any cloth"),
+	cloth        = S("Any cloth"),
 	dye	     = S("Any dye"),
 	vessel	     = S("Any vessel"),
 	coal	     = S("Any coal lump"),

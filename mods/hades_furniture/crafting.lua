@@ -177,7 +177,7 @@
 		output = 'hades_furniture:armchair 2',
 		recipe = {
 			{ 'group:wood',''},
-			{ 'group:wood','wool:black' },
+			{ 'group:wood','hades_cloth:black' },
 			{ 'group:wood','group:wood' },
 		},
 	})
@@ -186,7 +186,7 @@
 		output = 'hades_furniture:armchair_white 2',
 		recipe = {
 			{ 'group:wood',''},
-			{ 'group:wood','wool:white' },
+			{ 'group:wood','hades_cloth:white' },
 			{ 'group:wood','group:wood' },
 		},
 	})
@@ -195,7 +195,7 @@
 		output = 'hades_furniture:armchair_blue 2',
 		recipe = {
 			{ 'group:wood',''},
-			{ 'group:wood','wool:blue' },
+			{ 'group:wood','hades_cloth:blue' },
 			{ 'group:wood','group:wood' },
 		},
 	})
@@ -204,7 +204,7 @@
 		output = 'hades_furniture:armchair_brown 2',
 		recipe = {
 			{ 'group:wood',''},
-			{ 'group:wood','wool:brown' },
+			{ 'group:wood','hades_cloth:brown' },
 			{ 'group:wood','group:wood' },
 		},
 	})
@@ -213,7 +213,7 @@
 		output = 'hades_furniture:armchair_red 2',
 		recipe = {
 			{ 'group:wood',''},
-			{ 'group:wood','wool:red' },
+			{ 'group:wood','hades_cloth:red' },
 			{ 'group:wood','group:wood' },
 		},
 	})
@@ -222,7 +222,7 @@
 		output = 'hades_furniture:armchair_dark_green 2',
 		recipe = {
 			{ 'group:wood',''},
-			{ 'group:wood','wool:dark_green' },
+			{ 'group:wood','hades_cloth:dark_green' },
 			{ 'group:wood','group:wood' },
 		},
 	})

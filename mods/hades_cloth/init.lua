@@ -1,16 +1,10 @@
-local S = minetest.get_translator("wool")
+local S = minetest.get_translator("hades_cloth")
 
--- minetest/wool/init.lua
-
--- Backwards compatibility with jordach's 16-color wool mod
-minetest.register_alias("wool:dark_blue", "wool:blue")
-minetest.register_alias("wool:gold", "wool:yellow")
-
-local wool = {}
+local hades_cloth = {}
 -- This uses a trick: you can first define the recipes using all of the base
 -- colors, and then some recipes using more specific colors for a few non-base
 -- colors available. When crafting, the last recipes will be checked first.
-wool.dyes = {
+hades_cloth.dyes = {
 	{"white",      S("White Cloth"),      nil},
 	{"grey",       S("Grey Cloth"),       "basecolor_grey"},
 	{"black",      S("Black Cloth"),      "basecolor_black"},
@@ -28,23 +22,39 @@ wool.dyes = {
 	{"dark_green", S("Dark Green Cloth"), "unicolor_dark_green"},
 }
 
-for _, row in ipairs(wool.dyes) do
+for _, row in ipairs(hades_cloth.dyes) do
 	local name = row[1]
 	local desc = row[2]
 	local craft_color_group = row[3]
 	-- Node Definition
-	minetest.register_node("wool:"..name, {
+	minetest.register_node("hades_cloth:"..name, {
 		description = desc,
 		tiles = {"wool_"..name..".png"},
-		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,hades_cloth=1},
 		sounds = hades_sounds.node_sound_cloth_defaults(),
 		is_ground_content = false,
 	})
-	-- Crafting from dye and white wool
+	-- Crafting from dye and white hades_cloth
 	minetest.register_craft({
 		type = "shapeless",
-		output = 'wool:'..name,
-		recipe = {'dye:'..name, 'group:wool'},
+		output = 'hades_cloth:'..name,
+		recipe = {'dye:'..name, 'group:cloth'},
 	})
 end
 
+-- Legacy aliases
+minetest.register_alias("wool:white", "hades_cloth:white")
+minetest.register_alias("wool:grey", "hades_cloth:grey")
+minetest.register_alias("wool:black", "hades_cloth:black")
+minetest.register_alias("wool:red", "hades_cloth:red")
+minetest.register_alias("wool:yellow", "hades_cloth:yellow")
+minetest.register_alias("wool:green", "hades_cloth:green")
+minetest.register_alias("wool:cyan", "hades_cloth:cyan")
+minetest.register_alias("wool:blue", "hades_cloth:blue")
+minetest.register_alias("wool:magenta", "hades_cloth:magenta")
+minetest.register_alias("wool:orange", "hades_cloth:orange")
+minetest.register_alias("wool:violet", "hades_cloth:violet")
+minetest.register_alias("wool:brown", "hades_cloth:brown")
+minetest.register_alias("wool:pink", "hades_cloth:pink")
+minetest.register_alias("wool:dark_grey", "hades_cloth:dark_grey")
+minetest.register_alias("wool:dark_green", "hades_cloth:dark_green")
