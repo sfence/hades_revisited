@@ -1,7 +1,4 @@
--- Minetest 0.4 mod: bones
--- See README.txt for licensing and other information. 
-
-local S = minetest.get_translator("bones")
+local S = minetest.get_translator("hades_bones")
 
 local function is_owner(pos, name)
 	local owner = minetest.get_meta(pos):get_string("owner")
@@ -11,7 +8,7 @@ local function is_owner(pos, name)
 	return false
 end
 
-minetest.register_node("bones:bones", {
+minetest.register_node("hades_bones:bones", {
 	description = S("Bones"),
 	tiles = {
 		"bones_top.png",
@@ -107,7 +104,7 @@ minetest.register_on_dieplayer(function(player)
 	end
 	
 	minetest.dig_node(pos)
-	minetest.add_node(pos, {name="bones:bones", param2=param2})
+	minetest.add_node(pos, {name="hades_bones:bones", param2=param2})
 	
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
@@ -141,3 +138,6 @@ minetest.register_on_dieplayer(function(player)
 	local timer  = minetest.get_node_timer(pos)
 	timer:start(10)
 end)
+
+-- Regacy alias
+minetest.register_alias("bones:bones", "hades_bones:bones")

@@ -1,4 +1,4 @@
-# textdomain: bones
+# textdomain: hades_bones
 Bones=
 @1's old bones=
 @1's fresh bones=

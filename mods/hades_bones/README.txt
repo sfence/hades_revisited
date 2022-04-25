@@ -1,5 +1,5 @@
-Minetest 0.4 mod: bones
-=======================
+hades_bones
+===========
 
 License of source code:
 -----------------------
