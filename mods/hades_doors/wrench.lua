@@ -35,7 +35,7 @@ minetest.register_tool( "hades_doors:wrench", {
 	_tt_help = S("Punch to adjust door locking").."\n"..
 		S("Place to adjust door closing").."\n"..
 		S("Hold Sneak to check state"),
-	inventory_image = "doors_wrench.png",
+	inventory_image = "hades_doors_wrench.png",
 	on_use = function( itemstack, player, pointed_thing )
 		local ctrl = player:get_player_control()
 		local mode
