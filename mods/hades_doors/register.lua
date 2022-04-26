@@ -129,21 +129,21 @@ minetest.register_craft({
 -- colored Steeldoors
 
 local colors = {
-	{ "black", S("Black Steel Door"), "dye:black" },
-	{ "grey", S("Grey Steel Door"), "dye:grey" },
-	{ "darkgrey", S("Dark Grey Steel Door"), "dye:dark_grey" },
-	{ "white", S("White Steel Door"), "dye:white" },
-	{ "magenta", S("Magenta Steel Door"), "dye:magenta" },
-	{ "violet", S("Violet Steel Door"), "dye:violet" },
-	{ "blue", S("Blue Steel Door"), "dye:blue" },
-	{ "cyan", S("Cyan Steel Door"), "dye:cyan" },
-	{ "green", S("Green Steel Door"), "dye:green" },
-	{ "darkgreen", S("Dark Green Steel Door"), "dye:dark_green" },
-	{ "pink", S("Pink Steel Door"), "dye:pink" },
-	{ "red", S("Red Steel Door"), "dye:red" },
-	{ "orange", S("Orange Steel Door"), "dye:orange" },
-	{ "brown", S("Brown Steel Door"), "dye:brown" },
-	{ "yellow", S("Yellow Steel Door"), "dye:yellow" },
+	{ "black", S("Black Steel Door"), "hades_dye:black" },
+	{ "grey", S("Grey Steel Door"), "hades_dye:grey" },
+	{ "darkgrey", S("Dark Grey Steel Door"), "hades_dye:dark_grey" },
+	{ "white", S("White Steel Door"), "hades_dye:white" },
+	{ "magenta", S("Magenta Steel Door"), "hades_dye:magenta" },
+	{ "violet", S("Violet Steel Door"), "hades_dye:violet" },
+	{ "blue", S("Blue Steel Door"), "hades_dye:blue" },
+	{ "cyan", S("Cyan Steel Door"), "hades_dye:cyan" },
+	{ "green", S("Green Steel Door"), "hades_dye:green" },
+	{ "darkgreen", S("Dark Green Steel Door"), "hades_dye:dark_green" },
+	{ "pink", S("Pink Steel Door"), "hades_dye:pink" },
+	{ "red", S("Red Steel Door"), "hades_dye:red" },
+	{ "orange", S("Orange Steel Door"), "hades_dye:orange" },
+	{ "brown", S("Brown Steel Door"), "hades_dye:brown" },
+	{ "yellow", S("Yellow Steel Door"), "hades_dye:yellow" },
 }
 
 for c=1, #colors do

@@ -11,7 +11,7 @@ local usages_cache = {}
 
 local group_stereotypes = {
 	cloth	     = "hades_cloth:white",
-	dye	     = "dye:white",
+	dye	     = "hades_dye:white",
 	vessel	     = "hades_vessels:glass_bottle",
 	coal	     = "hades_core:coal_lump",
 	flower	     = "hades_flowers:yellow",

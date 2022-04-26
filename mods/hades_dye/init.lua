@@ -1,6 +1,4 @@
-local S = minetest.get_translator("dye")
-
--- minetest/dye/init.lua
+local S = minetest.get_translator("hades_dye")
 
 -- To make recipes that will work with any dye ever made by anybody, define
 -- them based on groups.
@@ -15,10 +13,9 @@ local S = minetest.get_translator("dye")
 --     recipe = {'<mod>:item_no_color', 'group:basecolor_yellow'},
 -- })
 
--- Other mods can use these for looping through available colors
-local dye = {}
-dye.basecolors = {"white", "grey", "black", "red", "yellow", "green", "cyan", "blue", "magenta"}
-dye.excolors = {"white", "lightgrey", "grey", "darkgrey", "black", "red", "orange", "yellow", "lime", "green", "aqua", "cyan", "sky_blue", "blue", "violet", "magenta", "red_violet"}
+local hades_dye = {}
+hades_dye.basecolors = {"white", "grey", "black", "red", "yellow", "green", "cyan", "blue", "magenta"}
+hades_dye.excolors = {"white", "lightgrey", "grey", "darkgrey", "black", "red", "orange", "yellow", "lime", "green", "aqua", "cyan", "sky_blue", "blue", "violet", "magenta", "red_violet"}
 
 -- Base color groups:
 -- - basecolor_white
@@ -87,7 +84,7 @@ for _, row in ipairs(dyelocal.dyes) do
 	local name = row[1]
 	local description = row[2]
 	local groups = row[3]
-	local item_name = "dye:"..name
+	local item_name = "hades_dye:"..name
 	local item_image = "dye_"..name..".png"
 	minetest.register_craftitem(item_name, {
 		inventory_image = item_image,
@@ -125,8 +122,8 @@ for one,results in pairs(dyelocal.mixes) do
 		if one ~= another then
 			minetest.register_craft({
 				type = "shapeless",
-				output = 'dye:'..result..' 2',
-				recipe = {'dye:'..one, 'dye:'..another},
+				output = 'hades_dye:'..result..' 2',
+				recipe = {'hades_dye:'..one, 'hades_dye:'..another},
 			})
 		end
 	end
@@ -134,75 +131,75 @@ end
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "dye:blue 4",
+	output = "hades_dye:blue 4",
 	recipe = {"hades_flowers:blue"},
 })
 minetest.register_craft({
 	type = "shapeless",
-	output = "dye:white 4",
+	output = "hades_dye:white 4",
 	recipe = {"hades_flowers:white"},
 })
 minetest.register_craft({
 	type = "shapeless",
-	output = "dye:red 4",
+	output = "hades_dye:red 4",
 	recipe = {"hades_flowers:red"},
 })
 minetest.register_craft({
 	type = "shapeless",
-	output = "dye:violet 4",
+	output = "hades_dye:violet 4",
 	recipe = {"hades_flowers:violet"},
 })
 minetest.register_craft({
 	type = "shapeless",
-	output = "dye:orange 4",
+	output = "hades_dye:orange 4",
 	recipe = {"hades_flowers:orange"},
 })
 minetest.register_craft({
 	type = "shapeless",
-	output = "dye:yellow 4",
+	output = "hades_dye:yellow 4",
 	recipe = {"hades_flowers:yellow"},
 })
 
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "dye:red 8",
+	output = "hades_dye:red 8",
 	recipe = "hades_core:cinnaber",
 })
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "dye:orange 8",
+	output = "hades_dye:orange 8",
 	recipe = "hades_core:orangite",
 })
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "dye:yellow 8",
+	output = "hades_dye:yellow 8",
 	recipe = "hades_core:apolline",
 })
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "dye:green 8",
+	output = "hades_dye:green 8",
 	recipe = "hades_core:olivine",
 })
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "dye:cyan 8",
+	output = "hades_dye:cyan 8",
 	recipe = "hades_core:turquosite",
 })
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "dye:violet 8",
+	output = "hades_dye:violet 8",
 	recipe = "hades_core:lillite",
 })
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 10,
-	output = "dye:blue 8",
+	output = "hades_dye:blue 8",
 	recipe = "hades_core:azurite",
 })
 
@@ -210,24 +207,41 @@ minetest.register_craft({
 
 minetest.register_craft({
 		type = "shapeless",
-		output = "dye:black 4",
+		output = "hades_dye:black 4",
 		recipe = {"hades_core:coal_lump"},
 })
 
 minetest.register_craft({
 		type = "shapeless",
-		output = "dye:green 4",
+		output = "hades_dye:green 4",
 		recipe = {"hades_core:papyrus"},
 })
 
 minetest.register_craft({
 		type = "shapeless",
-		output = "dye:green 4",
+		output = "hades_dye:green 4",
 		recipe = {"hades_core:cactus"},
 })
 
 minetest.register_craft({
 		type = "shapeless",
-		output = "dye:brown",
+		output = "hades_dye:brown",
 		recipe = {"hades_trees:cocoa_bean"},
 })
+
+-- Legacy aliases
+minetest.register_alias("dye:black", "hades_dye:black")
+minetest.register_alias("dye:blue", "hades_dye:blue")
+minetest.register_alias("dye:brown", "hades_dye:brown")
+minetest.register_alias("dye:cyan", "hades_dye:cyan")
+minetest.register_alias("dye:dark_green", "hades_dye:dark_green")
+minetest.register_alias("dye:dark_grey", "hades_dye:dark_grey")
+minetest.register_alias("dye:green", "hades_dye:green")
+minetest.register_alias("dye:grey", "hades_dye:grey")
+minetest.register_alias("dye:magenta", "hades_dye:magenta")
+minetest.register_alias("dye:orange", "hades_dye:orange")
+minetest.register_alias("dye:pink", "hades_dye:pink")
+minetest.register_alias("dye:red", "hades_dye:red")
+minetest.register_alias("dye:violet", "hades_dye:violet")
+minetest.register_alias("dye:white", "hades_dye:white")
+minetest.register_alias("dye:yellow", "hades_dye:yellow")

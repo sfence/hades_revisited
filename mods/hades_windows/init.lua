@@ -144,21 +144,21 @@ minetest.register_craft({
 })
 
 local windows_simple = {
-	{ "wood_white", S("White Canvas Wood Window"), "dye:white"},
-	{ "wood_darkgrey", S("Dark Grey Canvas Wood Window"), "dye:dark_grey"},
-	{ "wood_grey", S("Grey Canvas Wood Window"), "dye:grey"},
-	{ "wood_black", S("Black Canvas Wood Window"), "dye:black"},
-	{ "wood_red", S("Red Canvas Wood Window"), "dye:red"},
-	{ "wood_magenta", S("Magenta Canvas Wood Window"), "dye:magenta"},
-	{ "wood_violet", S("Violet Canvas Wood Window"), "dye:violet"},
-	{ "wood_blue", S("Blue Canvas Wood Window"), "dye:blue"},
-	{ "wood_cyan", S("Cyan Canvas Wood Window"), "dye:cyan"},
-	{ "wood_green", S("Green Canvas Wood Window"), "dye:green"},
-	{ "wood_darkgreen", S("Dark Green Canvas Wood Window"), "dye:dark_green"},
-	{ "wood_pink", S("Pink Canvas Wood Window"), "dye:pink"},
-	{ "wood_yellow", S("Yellow Canvas Wood Window"), "dye:yellow"},
-	{ "wood_orange", S("Orange Canvas Wood Window"), "dye:orange"},
-	{ "wood_brown", S("Brown Canvas Wood Window"), "dye:brown"},
+	{ "wood_white", S("White Canvas Wood Window"), "hades_dye:white"},
+	{ "wood_darkgrey", S("Dark Grey Canvas Wood Window"), "hades_dye:dark_grey"},
+	{ "wood_grey", S("Grey Canvas Wood Window"), "hades_dye:grey"},
+	{ "wood_black", S("Black Canvas Wood Window"), "hades_dye:black"},
+	{ "wood_red", S("Red Canvas Wood Window"), "hades_dye:red"},
+	{ "wood_magenta", S("Magenta Canvas Wood Window"), "hades_dye:magenta"},
+	{ "wood_violet", S("Violet Canvas Wood Window"), "hades_dye:violet"},
+	{ "wood_blue", S("Blue Canvas Wood Window"), "hades_dye:blue"},
+	{ "wood_cyan", S("Cyan Canvas Wood Window"), "hades_dye:cyan"},
+	{ "wood_green", S("Green Canvas Wood Window"), "hades_dye:green"},
+	{ "wood_darkgreen", S("Dark Green Canvas Wood Window"), "hades_dye:dark_green"},
+	{ "wood_pink", S("Pink Canvas Wood Window"), "hades_dye:pink"},
+	{ "wood_yellow", S("Yellow Canvas Wood Window"), "hades_dye:yellow"},
+	{ "wood_orange", S("Orange Canvas Wood Window"), "hades_dye:orange"},
+	{ "wood_brown", S("Brown Canvas Wood Window"), "hades_dye:brown"},
 }
 for w=1, #windows_simple do
 	hades_windows.register_window("hades_windows:window_"..windows_simple[w][1], {

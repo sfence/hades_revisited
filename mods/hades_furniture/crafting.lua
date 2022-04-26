@@ -39,14 +39,14 @@
 		type = 'shapeless',
 		output = 'hades_furniture:table_black',
 		recipe = {
-			'group:table', 'dye:black'
+			'group:table', 'hades_dye:black'
 		}
 	})
 	minetest.register_craft( {
 		type = 'shapeless',
 		output = 'hades_furniture:table_white',
 		recipe = {
-			'group:table', 'dye:white'
+			'group:table', 'hades_dye:white'
 		}
 	})
 
@@ -106,14 +106,14 @@
 		type = 'shapeless',
 		output = 'hades_furniture:chair_black',
 		recipe = {
-			'group:chair', 'dye:black'
+			'group:chair', 'hades_dye:black'
 		}
 	})
 	minetest.register_craft( {
 		type = 'shapeless',
 		output = 'hades_furniture:chair_white',
 		recipe = {
-			'group:chair', 'dye:white'
+			'group:chair', 'hades_dye:white'
 		}
 	})
 	
@@ -144,32 +144,32 @@
 	minetest.register_craft( {
 		type = 'shapeless',
 		output = 'hades_furniture:armchair',
-		recipe = { 'group:armchair', 'dye:black' }
+		recipe = { 'group:armchair', 'hades_dye:black' }
 	})
 	minetest.register_craft( {
 		type = 'shapeless',
 		output = 'hades_furniture:armchair_white',
-		recipe = { 'group:armchair', 'dye:white' }
+		recipe = { 'group:armchair', 'hades_dye:white' }
 	})
 	minetest.register_craft( {
 		type = 'shapeless',
 		output = 'hades_furniture:armchair_blue',
-		recipe = { 'group:armchair', 'dye:blue' }
+		recipe = { 'group:armchair', 'hades_dye:blue' }
 	})
 	minetest.register_craft( {
 		type = 'shapeless',
 		output = 'hades_furniture:armchair_brown',
-		recipe = { 'group:armchair', 'dye:brown' }
+		recipe = { 'group:armchair', 'hades_dye:brown' }
 	})
 	minetest.register_craft( {
 		type = 'shapeless',
 		output = 'hades_furniture:armchair_red',
-		recipe = { 'group:armchair', 'dye:red' }
+		recipe = { 'group:armchair', 'hades_dye:red' }
 	})
 	minetest.register_craft( {
 		type = 'shapeless',
 		output = 'hades_furniture:armchair_dark_green',
-		recipe = { 'group:armchair', 'dye:dark_green' }
+		recipe = { 'group:armchair', 'hades_dye:dark_green' }
 	})
 
 

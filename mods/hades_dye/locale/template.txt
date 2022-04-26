@@ -1,4 +1,4 @@
-# textdomain: dye
+# textdomain: hades_dye
 White Dye=
 Grey Dye=
 Dark Grey Dye=
