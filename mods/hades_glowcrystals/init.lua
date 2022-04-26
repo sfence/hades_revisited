@@ -1,4 +1,4 @@
-local S = minetest.get_translator("glowcrystals")
+local S = minetest.get_translator("hades_glowcrystals")
 
 --[[
 Glowcrystals
@@ -12,7 +12,7 @@ Details: Adds several items for lighting, made out of glowing crystals - a bette
 -- Ores & Blocks
 --///////////////
 
-minetest.register_node( "glowcrystals:glowcrystal_ore", {
+minetest.register_node( "hades_glowcrystals:glowcrystal_ore", {
 	description = S("Glowing Crystal Ore"),
 	tiles = { "hades_core_essexite.png^glowcrystals_ore_glowcrystal.png" },
 	is_ground_content = true,
@@ -21,10 +21,10 @@ minetest.register_node( "glowcrystals:glowcrystal_ore", {
 	light_source = 10,
 	groups = {cracky=3, ore=1},
 	sounds = hades_sounds.node_sound_stone_defaults(),
-	drop = 'glowcrystals:glowcrystal',
+	drop = 'hades_glowcrystals:glowcrystal',
 })
 
-minetest.register_node( "glowcrystals:glowcrystal_block", {
+minetest.register_node( "hades_glowcrystals:glowcrystal_block", {
 	description = S("Glowing Crystal Block"),
 	tiles = { "glowcrystals_block_glowcrystal.png" },
 	is_ground_content = true,
@@ -35,7 +35,7 @@ minetest.register_node( "glowcrystals:glowcrystal_block", {
 	sounds = hades_sounds.node_sound_stone_defaults(),
 })
 
-minetest.register_node("glowcrystals:glowcrystal_torch", {
+minetest.register_node("hades_glowcrystals:glowcrystal_torch", {
 	description = S("Glowing Crystal Torch"),
 	drawtype = "torchlike",
 	tiles = {"glowcrystals_glowtorch_on_floor.png", "glowcrystals_glowtorch_on_ceiling.png", "glowcrystals_glowtorch.png"},
@@ -59,7 +59,7 @@ minetest.register_node("glowcrystals:glowcrystal_torch", {
 	on_rotate = false,
 })
 
-minetest.register_node("glowcrystals:glowglass", {
+minetest.register_node("hades_glowcrystals:glowglass", {
 	description = S("Glow Glass"),
 	drawtype = "glasslike_framed_optional",
 	tiles = {"glowcrystals_glowglass.png", "glowcrystals_glowglass_detail.png" },
@@ -72,10 +72,10 @@ minetest.register_node("glowcrystals:glowglass", {
 })
 
 if minetest.get_modpath("hades_windows") then
-	hades_windows.register_window("glowcrystals:windows_glow", {
+	hades_windows.register_window("hades_glowcrystals:window_glow", {
 		description = S("Glowing Window"),
-		texture_seam = "glowcrystals_windows_glow_seam.png",
-		texture_front = "glowcrystals_windows_glow_front.png",
+		texture_seam = "hades_glowcrystals_window_glow_seam.png",
+		texture_front = "hades_glowcrystals_window_glow_front.png",
 		light_source = 11,
 		groups = {cracky=3,oddly_breakable_by_hand=3},
 		sounds = hades_sounds.node_sound_glass_defaults({
@@ -84,11 +84,11 @@ if minetest.get_modpath("hades_windows") then
 	})
 
 	minetest.register_craft({
-		output = 'glowcrystals:windows_glow 4',
+		output = 'hades_glowcrystals:window_glow 4',
 		recipe = {
-			{'hades_core:obsidian_shard', 'glowcrystals:glowglass', 'hades_core:obsidian_shard'},
-			{'glowcrystals:glowglass', 'glowcrystals:glowglass', 'glowcrystals:glowglass'},
-			{'hades_core:obsidian_shard', 'glowcrystals:glowglass', 'hades_core:obsidian_shard'},
+			{'hades_core:obsidian_shard', 'hades_glowcrystals:glowglass', 'hades_core:obsidian_shard'},
+			{'hades_glowcrystals:glowglass', 'hades_glowcrystals:glowglass', 'hades_glowcrystals:glowglass'},
+			{'hades_core:obsidian_shard', 'hades_glowcrystals:glowglass', 'hades_core:obsidian_shard'},
 		}
 	})
 end
@@ -97,13 +97,13 @@ end
 -- Items
 --///////
 
-minetest.register_craftitem( "glowcrystals:glowcrystal", {
+minetest.register_craftitem( "hades_glowcrystals:glowcrystal", {
 	description = S("Glowing Crystal"),
 	inventory_image = "glowcrystals_item_glowcrystal.png",
 	on_place_on_ground = minetest.craftitem_place_item,
 })
 
-minetest.register_craftitem( "glowcrystals:glowdust", {
+minetest.register_craftitem( "hades_glowcrystals:glowdust", {
 	description = S("Glow Dust"),
 	inventory_image = "glowcrystals_item_dust.png",
 	on_place_on_ground = minetest.craftitem_place_item,
@@ -114,40 +114,40 @@ minetest.register_craftitem( "glowcrystals:glowdust", {
 --//////////
 
 minetest.register_craft( {
-	output = 'glowcrystals:glowcrystal_block',
+	output = 'hades_glowcrystals:glowcrystal_block',
 	recipe = {
-		{ 'glowcrystals:glowcrystal', 'glowcrystals:glowcrystal', 'glowcrystals:glowcrystal' },
-		{ 'glowcrystals:glowcrystal', 'glowcrystals:glowcrystal', 'glowcrystals:glowcrystal' },
-		{ 'glowcrystals:glowcrystal', 'glowcrystals:glowcrystal', 'glowcrystals:glowcrystal' },
+		{ 'hades_glowcrystals:glowcrystal', 'hades_glowcrystals:glowcrystal', 'hades_glowcrystals:glowcrystal' },
+		{ 'hades_glowcrystals:glowcrystal', 'hades_glowcrystals:glowcrystal', 'hades_glowcrystals:glowcrystal' },
+		{ 'hades_glowcrystals:glowcrystal', 'hades_glowcrystals:glowcrystal', 'hades_glowcrystals:glowcrystal' },
 	}
 })
 
 minetest.register_craft({
-	output = 'glowcrystals:glowcrystal 9',
+	output = 'hades_glowcrystals:glowcrystal 9',
 	recipe = {
-		{'glowcrystals:glowcrystal_block'},
+		{'hades_glowcrystals:glowcrystal_block'},
 	}
 })
 
 minetest.register_craft({
-	output = 'glowcrystals:glowdust 4',
+	output = 'hades_glowcrystals:glowdust 4',
 	recipe = {
-		{'glowcrystals:glowcrystal'},
+		{'hades_glowcrystals:glowcrystal'},
 	}
 })
 
 minetest.register_craft({
-	output = 'glowcrystals:glowcrystal_torch 4',
+	output = 'hades_glowcrystals:glowcrystal_torch 4',
 	recipe = {
-		{'glowcrystals:glowcrystal'},
+		{'hades_glowcrystals:glowcrystal'},
 		{'group:stick'},
 	}
 })
 
 minetest.register_craft({
-	output = 'glowcrystals:glowglass',
+	output = 'hades_glowcrystals:glowglass',
 	recipe = {
-		{'glowcrystals:glowdust'},
+		{'hades_glowcrystals:glowdust'},
 		{'hades_core:glass'},
 	}
 })
@@ -155,7 +155,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'hades_core:glowing_cactus_block',
 	recipe = {
-		{'glowcrystals:glowdust'},
+		{'hades_glowcrystals:glowdust'},
 		{'hades_core:cactus_block'},
 	}
 })
@@ -164,6 +164,10 @@ minetest.register_craft({
 -- Aliases
 --/////////
 
-minetest.register_alias("glowcrystal", "glowcrystals:glowcrystal")
-minetest.register_alias("glowcrystal_torch", "glowcrystals:glowcrystal_torch")
-minetest.register_alias("glowcrystal_block", "glowcrystals:glowcrystal_block")
+minetest.register_alias("glowcrystals:glowcrystal", "hades_glowcrystals:glowcrystal")
+minetest.register_alias("glowcrystals:glowcrystal_block", "hades_glowcrystals:glowcrystal_block")
+minetest.register_alias("glowcrystals:glowcrystal_ore", "hades_glowcrystals:glowcrystal_ore")
+minetest.register_alias("glowcrystals:glowcrystal_torch", "hades_glowcrystals:glowcrystal_torch")
+minetest.register_alias("glowcrystals:glowdust", "hades_glowcrystals:glowdust")
+minetest.register_alias("glowcrystals:glowglass", "hades_glowcrystals:glowglass")
+minetest.register_alias("glowcrystals:windows_glow", "hades_glowcrystals:window_glow")

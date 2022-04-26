@@ -237,7 +237,7 @@
 	minetest.register_craft( {
 		output = 'hades_furniture:table_lamp_off',
 		recipe = {
-			{'hades_core:paper','glowcrystals:glowcrystal' ,'hades_core:paper'},
+			{'hades_core:paper','hades_glowcrystals:glowcrystal' ,'hades_core:paper'},
 			{'','group:stick',''},
 			{'','hades_stairs:slab_wood',''},
 		},

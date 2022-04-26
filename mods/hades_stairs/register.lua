@@ -1024,7 +1024,7 @@ hades_stairs.register_stair_and_slab_and_step("dark_green", "hades_cloth:dark_gr
 		S("Outer Dark Green Cloth Step"),
 		S("Inner Dark Green Cloth Step"))
 
-hades_stairs.register_stair_and_slab_and_step("glowcrystal_block", "glowcrystals:glowcrystal_block",
+hades_stairs.register_stair_and_slab_and_step("glowcrystal_block", "hades_glowcrystals:glowcrystal_block",
 		{cracky=3},
 		nil,
 		S("Glowing Crystal Stair"),

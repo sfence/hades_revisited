@@ -1,4 +1,4 @@
-# textdomain: glowcrystals
+# textdomain: hades_glowcrystals
 Glowing Crystal Ore=
 Glowing Crystal Block=
 Glowing Crystal Torch=
