@@ -1,9 +1,11 @@
-# Orienteering
+# Orienteering (Hades Revisited version)
+
+This is the `orienteering` mod adapted for Hades Revisited.
+Adapted from original `orienteering` mod version 1.3.
+
 This mod adds several tools which mostly aid in orientation. When carrying them,
 this will enhance the HUD by adding several interesting information such as the
 coordinates or the viewing angles or enabling the use of the minimap.
-
-Current version: 1.3
 
 ## Mod support
 All dependencies are optional.

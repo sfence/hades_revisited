@@ -1,4 +1,4 @@
-# textdomain: orienteering
+# textdomain: hades_orienteering
 m/s=
 # meters
 m=

@@ -165,7 +165,7 @@ from their original.
 `hades_farming` (based on `farming_plus`)
 <https://forum.minetest.net/viewtopic.php?id=2787>
 
-`glowcrystals`
+`hades_glowcrystals` (badsed on `glowcrystals`)
 <https://forum.minetest.net/viewtopic.php?id=9047>
 
 `hades_mapgen_lakes` (based on `highlandpools`)
@@ -196,7 +196,7 @@ from their original.
 `hades_vines` (based on `vines`)
 <https://forum.minetest.net/viewtopic.php?id=2344>
 
-`doors` (based Doors Redux)
+`hades_doors` (based on sorcerykid’s Doors Redux)
 <https://forum.minetest.net/viewtopic.php?t=24459>
 
 
