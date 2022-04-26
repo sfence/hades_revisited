@@ -1,4 +1,4 @@
-# textdomain: bags
+# textdomain: hades_bags
 Bag 1=
 Bag 2=
 Bag 3=

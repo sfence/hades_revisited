@@ -1,14 +1,13 @@
 --[[
 
-Bags for Minetest
+Bags for Hades Revisited
 
 Copyright (c) 2012 cornernote, Brett O'Donnell <cornernote@gmail.com>
-Source Code: https://github.com/cornernote/minetest-particles
-License: GPLv3
+Original Source Code: https://github.com/cornernote/minetest-bags
 
 ]]--
 
-local S = minetest.get_translator("bags")
+local S = minetest.get_translator("hades_bags")
 local F = minetest.formspec_escape
 
 local BAGS_COUNT = 4
@@ -41,7 +40,7 @@ local get_formspec = function(player, page)
 	end
 end
 
-sfinv.register_page("bags:bags", {
+sfinv.register_page("hades_bags:bags", {
 	title = S("Bags"),
 	is_in_nav = function(self, player, context)
 		return true
@@ -118,21 +117,21 @@ minetest.register_on_leaveplayer(function(player)
 end)
 
 -- register bags
-minetest.register_craftitem("bags:small", {
+minetest.register_craftitem("hades_bags:small", {
 	description = S("Small Bag"),
 	stack_max = 1,
 	_tt_help = S("+8 inventory slots"),
 	inventory_image = "bags_small.png",
 	groups = {bagslots=8, disable_repair=1},
 })
-minetest.register_craftitem("bags:medium", {
+minetest.register_craftitem("hades_bags:medium", {
 	description = S("Medium Bag"),
 	stack_max = 1,
 	_tt_help = S("+16 inventory slots"),
 	inventory_image = "bags_medium.png",
 	groups = {bagslots=16, disable_repair=1},
 })
-minetest.register_craftitem("bags:large", {
+minetest.register_craftitem("hades_bags:large", {
 	description = S("Large Bag"),
 	stack_max = 1,
 	_tt_help = S("+24 inventory slots"),
@@ -142,7 +141,7 @@ minetest.register_craftitem("bags:large", {
 
 -- register bag crafts
 minetest.register_craft({
-	output = "bags:small",
+	output = "hades_bags:small",
 	recipe = {
         {"", "hades_farming:string", ""},
         {"group:cloth", "group:cloth", "group:cloth"},
@@ -150,21 +149,26 @@ minetest.register_craft({
     },
 })
 minetest.register_craft({
-	output = "bags:medium",
+	output = "hades_bags:medium",
 	recipe = {
         {"", "group:stick", ""},
-        {"bags:small", "hades_farming:string", "bags:small"},
-        {"bags:small", "hades_farming:string", "bags:small"},
+        {"hades_bags:small", "hades_farming:string", "hades_bags:small"},
+        {"hades_bags:small", "hades_farming:string", "hades_bags:small"},
     },
 })
 minetest.register_craft({
-	output = "bags:large",
+	output = "hades_bags:large",
 	recipe = {
         {"", "group:stick", ""},
-        {"bags:medium", "hades_farming:string", "bags:medium"},
-        {"bags:medium", "hades_farming:string", "bags:medium"},
+        {"hades_bags:medium", "hades_farming:string", "hades_bags:medium"},
+        {"hades_bags:medium", "hades_farming:string", "hades_bags:medium"},
     },
 })
+
+-- Legacy aliases
+minetest.register_alias("bags:small", "hades_bags:small")
+minetest.register_alias("bags:medium", "hades_bags:medium")
+minetest.register_alias("bags:large", "hades_bags:large")
 
 -- log that we started
 minetest.log("action", "[MOD]"..minetest.get_current_modname().." -- loaded from "..minetest.get_modpath(minetest.get_current_modname()))

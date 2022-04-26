@@ -156,7 +156,7 @@ from their original.
 `hades_furniture` (based on `3dforniture`)
 <https://forum.minetest.net/viewtopic.php?id=2207>
 
-`bags`
+`hades_bags` (based on `bags`)
 <https://forum.minetest.net/viewtopic.php?id=3081>
 
 `hades_bedrock` (based on `bedrock`)
@@ -208,9 +208,9 @@ This game is free software. It has been licensed under these licenses:
 
 Some mods have separate licenses:
 
-* `doors`: LGPLv3 for code, CC BY-SA 3.0 for media
+* `hades_doors`: LGPLv3 for code, CC BY-SA 3.0 for media
 * `hades_furniture`: GPLv2
-* `bags`: New BSD License
+* `hades_bags`: New BSD License
 * `hades_bedrock`: zlib license
 * `signs_lib`: LGPLv3
 * `hades_bushes`: MIT License for code, CC BY-SA 4.0 for media
