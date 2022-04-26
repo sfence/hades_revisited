@@ -1,13 +1,7 @@
---Dripping Water Mod
---by kddekadenz
-
--- License of code, textures & sounds: CC0
-
---Drop entities
-
+-- Dripping Water Mod
 local GRAVITY = -(tonumber(minetest.settings:get("movement_gravity")) or 10)
 
-minetest.register_entity("drippingwater:drop_water", {
+minetest.register_entity("hades_drippingwater:drop_water", {
 	hp_max = 2,
 	physical = true,
 	collide_with_objects = false,
@@ -88,7 +82,7 @@ minetest.register_abm({
 		if minetest.get_item_group(above, "water") > 0 and
 				below1 == "air" and below2 == "air" then
 			local i = math.random(-45,45) / 100
-			minetest.add_entity({x=pos.x + i, y=pos.y-0.501, z=pos.z + i}, "drippingwater:drop_water")
+			minetest.add_entity({x=pos.x + i, y=pos.y-0.501, z=pos.z + i}, "hades_drippingwater:drop_water")
 		end
         end,
 })

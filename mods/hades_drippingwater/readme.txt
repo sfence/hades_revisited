@@ -1,7 +1,7 @@
 # Dripping Water Mod
 
 Originally by kddekadenz,
-adopted for Hades Revisited by Wuzzy.
+tweaked for Hades Revisited by Wuzzy.
 
 ## Description
 
