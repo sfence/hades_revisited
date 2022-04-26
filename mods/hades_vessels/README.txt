@@ -1,5 +1,5 @@
-Minetest 0.4 mod: vessels
-==========================
+hades_vessels
+=============
 
 Crafts
 -------

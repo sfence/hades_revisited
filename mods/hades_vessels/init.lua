@@ -1,11 +1,11 @@
-local S = minetest.get_translator("vessels")
+local S = minetest.get_translator("hades_vessels")
 
-vessels = {}
+hades_vessels = {}
 
-vessels.register_bottle = function(id, def)
+hades_vessels.register_bottle = function(id, def)
 	local on_use
 	if def.eatable then
-		on_use = minetest.item_eat(3, "vessels:glass_bottle")
+		on_use = minetest.item_eat(3, "hades_vessels:glass_bottle")
 	end
 	minetest.register_node(id, {
 		description = def.description,
@@ -27,7 +27,7 @@ vessels.register_bottle = function(id, def)
 	})
 end
 
-vessels.register_bottle("vessels:glass_bottle", {
+hades_vessels.register_bottle("hades_vessels:glass_bottle", {
 	description = S("Empty Glass Bottle"),
 	tiles = {"vessels_glass_bottle.png"},
 	inventory_image = "vessels_glass_bottle_inv.png",
@@ -35,7 +35,7 @@ vessels.register_bottle("vessels:glass_bottle", {
 })
 
 minetest.register_craft( {
-	output = "vessels:glass_bottle 10",
+	output = "hades_vessels:glass_bottle 10",
 	recipe = {
 		{ "hades_core:glass", "", "hades_core:glass" },
 		{ "hades_core:glass", "", "hades_core:glass" },
@@ -45,28 +45,30 @@ minetest.register_craft( {
 
 -- Make sure we can recycle them
 
-minetest.register_craftitem("vessels:glass_fragments", {
+minetest.register_craftitem("hades_vessels:glass_fragments", {
 	description = S("Pile of Glass Fragments"),
 	inventory_image = "vessels_glass_fragments.png",
 })
 
 minetest.register_craft( {
 	type = "shapeless",
-	output = "vessels:glass_fragments",
+	output = "hades_vessels:glass_fragments",
 	recipe = {
-		"vessels:glass_bottle",
-		"vessels:glass_bottle",
+		"hades_vessels:glass_bottle",
+		"hades_vessels:glass_bottle",
 	},
 })
 
 minetest.register_craft({
-	output = "vessels:glass_fragments 6",
+	output = "hades_vessels:glass_fragments 6",
 	recipe = {{"doors:door_glass"}},
 })
 
 minetest.register_craft({
 	type = "cooking",
 	output = "hades_core:glass",
-	recipe = "vessels:glass_fragments",
+	recipe = "hades_vessels:glass_fragments",
 })
 
+minetest.register_alias("vessels:glass_fragments", "hades_vessels:glass_fragments")
+minetest.register_alias("vessels:glass_bottle", "hades_vessels:glass_bottle")
