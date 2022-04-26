@@ -1,4 +1,4 @@
-local S = minetest.get_translator("stairs")
+local S = minetest.get_translator("hades_hades")
 
 local custom_textures = function(block, stair_l, stair_r, outstair, slab, step)
 	return {"!CUSTOM",
@@ -12,7 +12,7 @@ local custom_textures = function(block, stair_l, stair_r, outstair, slab, step)
 	}
 end
 
-stairs.register_stair_and_slab_and_step("wood", "hades_trees:wood",
+hades_stairs.register_stair_and_slab_and_step("wood", "hades_trees:wood",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Temperate Wood Stair"),
@@ -23,7 +23,7 @@ stairs.register_stair_and_slab_and_step("wood", "hades_trees:wood",
 		S("Outer Temperate Wood Step"),
 		S("Inner Temperate Wood Step"))
 
-stairs.register_stair_and_slab_and_step("pale_wood", "hades_trees:pale_wood",
+hades_stairs.register_stair_and_slab_and_step("pale_wood", "hades_trees:pale_wood",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Pale Wood Stair"),
@@ -34,7 +34,7 @@ stairs.register_stair_and_slab_and_step("pale_wood", "hades_trees:pale_wood",
 		S("Outer Pale Wood Step"),
 		S("Inner Pale Wood Step"))
 
-stairs.register_stair_and_slab_and_step("jungle_wood", "hades_trees:jungle_wood",
+hades_stairs.register_stair_and_slab_and_step("jungle_wood", "hades_trees:jungle_wood",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Tropical Wood Stair"),
@@ -45,7 +45,7 @@ stairs.register_stair_and_slab_and_step("jungle_wood", "hades_trees:jungle_wood"
 		S("Outer Tropical Wood Step"),
 		S("Inner Tropical Wood Step"))
 
-stairs.register_stair_and_slab_and_step("lush_wood", "hades_trees:lush_wood",
+hades_stairs.register_stair_and_slab_and_step("lush_wood", "hades_trees:lush_wood",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Lush Wood Stair"),
@@ -57,7 +57,7 @@ stairs.register_stair_and_slab_and_step("lush_wood", "hades_trees:lush_wood",
 		S("Inner Lush Wood Step")
 )
 
-stairs.register_stair_and_slab_and_step("cream_wood", "hades_trees:cream_wood",
+hades_stairs.register_stair_and_slab_and_step("cream_wood", "hades_trees:cream_wood",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Cream Wood Stair"),
@@ -69,7 +69,7 @@ stairs.register_stair_and_slab_and_step("cream_wood", "hades_trees:cream_wood",
 		S("Inner Cream Wood Step")
 )
 
-stairs.register_stair_and_slab_and_step("charred_wood", "hades_trees:charred_wood",
+hades_stairs.register_stair_and_slab_and_step("charred_wood", "hades_trees:charred_wood",
 		{choppy=3,oddly_breakable_by_hand=2},
 		nil,
 		S("Charred Wood Stair"),
@@ -83,7 +83,7 @@ stairs.register_stair_and_slab_and_step("charred_wood", "hades_trees:charred_woo
 
 -- Barks
 
-stairs.register_stair_and_slab_and_step("bark", "hades_trees:bark",
+hades_stairs.register_stair_and_slab_and_step("bark", "hades_trees:bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
 		nil,
 		S("Common Bark Stair"),
@@ -95,7 +95,7 @@ stairs.register_stair_and_slab_and_step("bark", "hades_trees:bark",
 		S("Inner Common Bark Step")
 )
 
-stairs.register_stair_and_slab_and_step("jungle_bark", "hades_trees:jungle_bark",
+hades_stairs.register_stair_and_slab_and_step("jungle_bark", "hades_trees:jungle_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
 		nil,
 		S("Tropical Bark Stair"),
@@ -107,7 +107,7 @@ stairs.register_stair_and_slab_and_step("jungle_bark", "hades_trees:jungle_bark"
 		S("Inner Tropical Bark Step")
 )
 
-stairs.register_stair_and_slab_and_step("pale_bark", "hades_trees:pale_bark",
+hades_stairs.register_stair_and_slab_and_step("pale_bark", "hades_trees:pale_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
 		nil,
 		S("Pale Bark Stair"),
@@ -119,7 +119,7 @@ stairs.register_stair_and_slab_and_step("pale_bark", "hades_trees:pale_bark",
 		S("Inner Pale Bark Step")
 )
 
-stairs.register_stair_and_slab_and_step("birch_bark", "hades_trees:birch_bark",
+hades_stairs.register_stair_and_slab_and_step("birch_bark", "hades_trees:birch_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
 		nil,
 		S("Birch Bark Stair"),
@@ -130,7 +130,7 @@ stairs.register_stair_and_slab_and_step("birch_bark", "hades_trees:birch_bark",
 		S("Outer Birch Bark Step"),
 		S("Inner Birch Bark Step"))
 
-stairs.register_stair_and_slab_and_step("orange_bark", "hades_trees:orange_bark",
+hades_stairs.register_stair_and_slab_and_step("orange_bark", "hades_trees:orange_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
 		nil,
 		S("Orange Bark Stair"),
@@ -141,7 +141,7 @@ stairs.register_stair_and_slab_and_step("orange_bark", "hades_trees:orange_bark"
 		S("Outer Orange Bark Step"),
 		S("Inner Orange Bark Step"))
 
-stairs.register_stair_and_slab_and_step("canvas_bark", "hades_trees:canvas_bark",
+hades_stairs.register_stair_and_slab_and_step("canvas_bark", "hades_trees:canvas_bark",
 		{choppy=3,oddly_breakable_by_hand=1,flammable=3},
 		nil,
 		S("Canvas Bark Stair"),
@@ -152,7 +152,7 @@ stairs.register_stair_and_slab_and_step("canvas_bark", "hades_trees:canvas_bark"
 		S("Outer Canvas Bark Step"),
 		S("Inner Canvas Bark Step"))
 
-stairs.register_stair_and_slab_and_step("charred_bark", "hades_trees:charred_bark",
+hades_stairs.register_stair_and_slab_and_step("charred_bark", "hades_trees:charred_bark",
 		{choppy=3,oddly_breakable_by_hand=1},
 		nil,
 		S("Charred Bark Stair"),
@@ -167,7 +167,7 @@ stairs.register_stair_and_slab_and_step("charred_bark", "hades_trees:charred_bar
 
 -- Canvas Wood
 
-stairs.register_stair_and_slab_and_step("colwood_uncolored", "hades_trees:colwood_uncolored",
+hades_stairs.register_stair_and_slab_and_step("colwood_uncolored", "hades_trees:colwood_uncolored",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Uncolored Canvas Wood Stair"),
@@ -178,7 +178,7 @@ stairs.register_stair_and_slab_and_step("colwood_uncolored", "hades_trees:colwoo
 		S("Outer Uncolored Canvas Wood Step"),
 		S("Inner Uncolored Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_black", "hades_trees:colwood_black",
+hades_stairs.register_stair_and_slab_and_step("colwood_black", "hades_trees:colwood_black",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Black Canvas Wood Stair"),
@@ -189,7 +189,7 @@ stairs.register_stair_and_slab_and_step("colwood_black", "hades_trees:colwood_bl
 		S("Outer Black Canvas Wood Step"),
 		S("Inner Black Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_blue", "hades_trees:colwood_blue",
+hades_stairs.register_stair_and_slab_and_step("colwood_blue", "hades_trees:colwood_blue",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Blue Canvas Wood Stair"),
@@ -200,7 +200,7 @@ stairs.register_stair_and_slab_and_step("colwood_blue", "hades_trees:colwood_blu
 		S("Outer Blue Canvas Wood Step"),
 		S("Inner Blue Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_brown", "hades_trees:colwood_brown",
+hades_stairs.register_stair_and_slab_and_step("colwood_brown", "hades_trees:colwood_brown",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Brown Canvas Wood Stair"),
@@ -211,7 +211,7 @@ stairs.register_stair_and_slab_and_step("colwood_brown", "hades_trees:colwood_br
 		S("Outer Brown Canvas Wood Step"),
 		S("Inner Brown Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_cyan", "hades_trees:colwood_cyan",
+hades_stairs.register_stair_and_slab_and_step("colwood_cyan", "hades_trees:colwood_cyan",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Cyan Canvas Wood Stair"),
@@ -222,7 +222,7 @@ stairs.register_stair_and_slab_and_step("colwood_cyan", "hades_trees:colwood_cya
 		S("Outer Cyan Canvas Wood Step"),
 		S("Inner Cyan Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_dark_green", "hades_trees:colwood_dark_green",
+hades_stairs.register_stair_and_slab_and_step("colwood_dark_green", "hades_trees:colwood_dark_green",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Dark Green Canvas Wood Stair"),
@@ -233,7 +233,7 @@ stairs.register_stair_and_slab_and_step("colwood_dark_green", "hades_trees:colwo
 		S("Outer Dark Green Canvas Wood Step"),
 		S("Inner Dark Green Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_dark_grey", "hades_trees:colwood_dark_grey",
+hades_stairs.register_stair_and_slab_and_step("colwood_dark_grey", "hades_trees:colwood_dark_grey",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Dark Grey Canvas Wood Stair"),
@@ -244,7 +244,7 @@ stairs.register_stair_and_slab_and_step("colwood_dark_grey", "hades_trees:colwoo
 		S("Outer Dark Grey Canvas Wood Step"),
 		S("Inner Dark Grey Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_green", "hades_trees:colwood_green",
+hades_stairs.register_stair_and_slab_and_step("colwood_green", "hades_trees:colwood_green",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Green Canvas Wood Stair"),
@@ -255,7 +255,7 @@ stairs.register_stair_and_slab_and_step("colwood_green", "hades_trees:colwood_gr
 		S("Outer Green Canvas Wood Step"),
 		S("Inner Green Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_grey", "hades_trees:colwood_grey",
+hades_stairs.register_stair_and_slab_and_step("colwood_grey", "hades_trees:colwood_grey",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Grey Canvas Wood Stair"),
@@ -266,7 +266,7 @@ stairs.register_stair_and_slab_and_step("colwood_grey", "hades_trees:colwood_gre
 		S("Outer Grey Canvas Wood Step"),
 		S("Inner Grey Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_magenta", "hades_trees:colwood_magenta",
+hades_stairs.register_stair_and_slab_and_step("colwood_magenta", "hades_trees:colwood_magenta",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Magenta Canvas Wood Stair"),
@@ -277,7 +277,7 @@ stairs.register_stair_and_slab_and_step("colwood_magenta", "hades_trees:colwood_
 		S("Outer Magenta Canvas Wood Step"),
 		S("Inner Magenta Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_orange", "hades_trees:colwood_orange",
+hades_stairs.register_stair_and_slab_and_step("colwood_orange", "hades_trees:colwood_orange",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Orange Canvas Wood Stair"),
@@ -288,7 +288,7 @@ stairs.register_stair_and_slab_and_step("colwood_orange", "hades_trees:colwood_o
 		S("Outer Orange Canvas Wood Step"),
 		S("Inner Orange Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_pink", "hades_trees:colwood_pink",
+hades_stairs.register_stair_and_slab_and_step("colwood_pink", "hades_trees:colwood_pink",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Pink Canvas Wood Stair"),
@@ -299,7 +299,7 @@ stairs.register_stair_and_slab_and_step("colwood_pink", "hades_trees:colwood_pin
 		S("Outer Pink Canvas Wood Step"),
 		S("Inner Pink Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_red", "hades_trees:colwood_red",
+hades_stairs.register_stair_and_slab_and_step("colwood_red", "hades_trees:colwood_red",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Red Canvas Wood Stair"),
@@ -310,7 +310,7 @@ stairs.register_stair_and_slab_and_step("colwood_red", "hades_trees:colwood_red"
 		S("Outer Red Canvas Wood Step"),
 		S("Inner Red Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_violet", "hades_trees:colwood_violet",
+hades_stairs.register_stair_and_slab_and_step("colwood_violet", "hades_trees:colwood_violet",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Violet Canvas Wood Stair"),
@@ -321,7 +321,7 @@ stairs.register_stair_and_slab_and_step("colwood_violet", "hades_trees:colwood_v
 		S("Outer Violet Canvas Wood Step"),
 		S("Inner Violet Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_white", "hades_trees:colwood_white",
+hades_stairs.register_stair_and_slab_and_step("colwood_white", "hades_trees:colwood_white",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("White Canvas Wood Stair"),
@@ -332,7 +332,7 @@ stairs.register_stair_and_slab_and_step("colwood_white", "hades_trees:colwood_wh
 		S("Outer White Canvas Wood Step"),
 		S("Inner White Canvas Wood Step"))
 
-stairs.register_stair_and_slab_and_step("colwood_yellow", "hades_trees:colwood_yellow",
+hades_stairs.register_stair_and_slab_and_step("colwood_yellow", "hades_trees:colwood_yellow",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Yellow Canvas Wood Stair"),
@@ -355,9 +355,9 @@ local metals = {
 for m=1, #metals do
 	local name = metals[m][1].."block"
 	local tex = metals[m][1].."_block"
-	stairs.register_stair_and_slab_and_step(name, "hades_core:"..name,
+	hades_stairs.register_stair_and_slab_and_step(name, "hades_core:"..name,
 		{cracky=1,level=2},
-		custom_textures("default_"..tex..".png", "stairs_"..tex.."_stair_l.png", "stairs_"..tex.."_stair_r.png", "stairs_"..tex.."_stair_out.png", "stairs_"..tex.."_slab.png", "stairs_"..tex.."_step.png"),
+		custom_textures("default_"..tex..".png", "hades_stairs_"..tex.."_stair_l.png", "hades_stairs_"..tex.."_stair_r.png", "hades_stairs_"..tex.."_stair_out.png", "hades_stairs_"..tex.."_slab.png", "hades_stairs_"..tex.."_step.png"),
 		metals[m][2],
 		metals[m][3],
 		metals[m][4],
@@ -370,7 +370,7 @@ for m=1, #metals do
 	)
 end
 
-stairs.register_stair_and_slab_and_step("stone", "hades_core:stone",
+hades_stairs.register_stair_and_slab_and_step("stone", "hades_core:stone",
 		{cracky=3},
 		nil,
 		S("Stone Stair"),
@@ -381,7 +381,7 @@ stairs.register_stair_and_slab_and_step("stone", "hades_core:stone",
 		S("Outer Stone Step"),
 		S("Inner Stone Step"))
 
-stairs.register_stair_and_slab_and_step("stonebrick_baked", "hades_core:stonebrick_baked",
+hades_stairs.register_stair_and_slab_and_step("stonebrick_baked", "hades_core:stonebrick_baked",
 		{cracky=3},
 		nil,
 		S("Burned Stone Brick Stair"),
@@ -392,7 +392,7 @@ stairs.register_stair_and_slab_and_step("stonebrick_baked", "hades_core:stonebri
 		S("Outer Burned Stone Brick Step"),
 		S("Inner Burned Stone Brick Step"))
 
-stairs.register_stair_and_slab_and_step("stone_baked", "hades_core:stone_baked",
+hades_stairs.register_stair_and_slab_and_step("stone_baked", "hades_core:stone_baked",
 		{cracky=3},
 		nil,
 		S("Burned Stone Stair"),
@@ -403,7 +403,7 @@ stairs.register_stair_and_slab_and_step("stone_baked", "hades_core:stone_baked",
 		S("Outer Burned Stone Step"),
 		S("Inner Burned Stone Step"))
 
-stairs.register_stair_and_slab_and_step("cobble", "hades_core:cobble",
+hades_stairs.register_stair_and_slab_and_step("cobble", "hades_core:cobble",
 		{cracky=3},
 		nil,
 		S("Cobblestone Stair"),
@@ -414,7 +414,7 @@ stairs.register_stair_and_slab_and_step("cobble", "hades_core:cobble",
 		S("Outer Cobblestone Step"),
 		S("Inner Cobblestone Step"))
 
-stairs.register_stair_and_slab_and_step("cobble_baked", "hades_core:cobble_baked",
+hades_stairs.register_stair_and_slab_and_step("cobble_baked", "hades_core:cobble_baked",
 		{cracky=3},
 		nil,
 		S("Burned Cobblestone Stair"),
@@ -425,7 +425,7 @@ stairs.register_stair_and_slab_and_step("cobble_baked", "hades_core:cobble_baked
 		S("Outer Burned Cobblestone Step"),
 		S("Inner Burned Cobblestone Step"))
 
-stairs.register_stair_and_slab_and_step("brick", "hades_core:brick",
+hades_stairs.register_stair_and_slab_and_step("brick", "hades_core:brick",
 		{cracky=3},
 		nil,
 		S("Uncolored Brick Stair"),
@@ -438,7 +438,7 @@ stairs.register_stair_and_slab_and_step("brick", "hades_core:brick",
 
 -- Colors... too mutch ColOrs...  EvErYwhere
 
-stairs.register_stair_and_slab_and_step("brick_black", "hades_core:brick_black",
+hades_stairs.register_stair_and_slab_and_step("brick_black", "hades_core:brick_black",
 		{cracky=3},
 		nil,
 		S("Black Brick Stair"),
@@ -449,7 +449,7 @@ stairs.register_stair_and_slab_and_step("brick_black", "hades_core:brick_black",
 		S("Outer Black Brick Step"),
 		S("Inner Black Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_blue", "hades_core:brick_blue",
+hades_stairs.register_stair_and_slab_and_step("brick_blue", "hades_core:brick_blue",
 		{cracky=3},
 		nil,
 		S("Blue Brick Stair"),
@@ -460,7 +460,7 @@ stairs.register_stair_and_slab_and_step("brick_blue", "hades_core:brick_blue",
 		S("Outer Blue Brick Step"),
 		S("Inner Blue Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_brown", "hades_core:brick_brown",
+hades_stairs.register_stair_and_slab_and_step("brick_brown", "hades_core:brick_brown",
 		{cracky=3},
 		nil,
 		S("Brown Brick Stair"),
@@ -471,7 +471,7 @@ stairs.register_stair_and_slab_and_step("brick_brown", "hades_core:brick_brown",
 		S("Outer Brown Brick Step"),
 		S("Inner Brown Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_cyan", "hades_core:brick_cyan",
+hades_stairs.register_stair_and_slab_and_step("brick_cyan", "hades_core:brick_cyan",
 		{cracky=3},
 		nil,
 		S("Cyan Brick Stair"),
@@ -482,7 +482,7 @@ stairs.register_stair_and_slab_and_step("brick_cyan", "hades_core:brick_cyan",
 		S("Outer Cyan Brick Step"),
 		S("Inner Cyan Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_dark_green", "hades_core:brick_dark_green",
+hades_stairs.register_stair_and_slab_and_step("brick_dark_green", "hades_core:brick_dark_green",
 		{cracky=3},
 		nil,
 		S("Dark Green Brick Stair"),
@@ -493,7 +493,7 @@ stairs.register_stair_and_slab_and_step("brick_dark_green", "hades_core:brick_da
 		S("Outer Dark Green Brick Step"),
 		S("Inner Dark Green Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_dark_grey", "hades_core:brick_dark_grey",
+hades_stairs.register_stair_and_slab_and_step("brick_dark_grey", "hades_core:brick_dark_grey",
 		{cracky=3},
 		nil,
 		S("Dark Grey Brick Stair"),
@@ -504,7 +504,7 @@ stairs.register_stair_and_slab_and_step("brick_dark_grey", "hades_core:brick_dar
 		S("Outer Dark Grey Brick Step"),
 		S("Inner Dark Grey Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_green", "hades_core:brick_green",
+hades_stairs.register_stair_and_slab_and_step("brick_green", "hades_core:brick_green",
 		{cracky=3},
 		nil,
 		S("Green Brick Stair"),
@@ -515,7 +515,7 @@ stairs.register_stair_and_slab_and_step("brick_green", "hades_core:brick_green",
 		S("Outer Green Brick Step"),
 		S("Inner Green Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_grey", "hades_core:brick_grey",
+hades_stairs.register_stair_and_slab_and_step("brick_grey", "hades_core:brick_grey",
 		{cracky=3},
 		nil,
 		S("Grey Brick Stair"),
@@ -526,7 +526,7 @@ stairs.register_stair_and_slab_and_step("brick_grey", "hades_core:brick_grey",
 		S("Outer Grey Brick Step"),
 		S("Inner Grey Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_magenta", "hades_core:brick_magenta",
+hades_stairs.register_stair_and_slab_and_step("brick_magenta", "hades_core:brick_magenta",
 		{cracky=3},
 		nil,
 		S("Magenta Brick Stair"),
@@ -537,7 +537,7 @@ stairs.register_stair_and_slab_and_step("brick_magenta", "hades_core:brick_magen
 		S("Outer Magenta Brick Step"),
 		S("Inner Magenta Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_orange", "hades_core:brick_orange",
+hades_stairs.register_stair_and_slab_and_step("brick_orange", "hades_core:brick_orange",
 		{cracky=3},
 		nil,
 		S("Orange Brick Stair"),
@@ -548,7 +548,7 @@ stairs.register_stair_and_slab_and_step("brick_orange", "hades_core:brick_orange
 		S("Outer Orange Brick Step"),
 		S("Inner Orange Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_pink", "hades_core:brick_pink",
+hades_stairs.register_stair_and_slab_and_step("brick_pink", "hades_core:brick_pink",
 		{cracky=3},
 		nil,
 		S("Pink Brick Stair"),
@@ -559,7 +559,7 @@ stairs.register_stair_and_slab_and_step("brick_pink", "hades_core:brick_pink",
 		S("Outer Pink Brick Step"),
 		S("Inner Pink Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_red", "hades_core:brick_red",
+hades_stairs.register_stair_and_slab_and_step("brick_red", "hades_core:brick_red",
 		{cracky=3},
 		nil,
 		S("Red Brick Stair"),
@@ -570,7 +570,7 @@ stairs.register_stair_and_slab_and_step("brick_red", "hades_core:brick_red",
 		S("Outer Red Brick Step"),
 		S("Inner Red Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_violet", "hades_core:brick_violet",
+hades_stairs.register_stair_and_slab_and_step("brick_violet", "hades_core:brick_violet",
 		{cracky=3},
 		nil,
 		S("Violet Brick Stair"),
@@ -581,7 +581,7 @@ stairs.register_stair_and_slab_and_step("brick_violet", "hades_core:brick_violet
 		S("Outer Violet Brick Step"),
 		S("Inner Violet Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_white", "hades_core:brick_white",
+hades_stairs.register_stair_and_slab_and_step("brick_white", "hades_core:brick_white",
 		{cracky=3},
 		nil,
 		S("White Brick Stair"),
@@ -592,7 +592,7 @@ stairs.register_stair_and_slab_and_step("brick_white", "hades_core:brick_white",
 		S("Outer White Brick Step"),
 		S("Inner White Brick Step"))
 
-stairs.register_stair_and_slab_and_step("brick_yellow", "hades_core:brick_yellow",
+hades_stairs.register_stair_and_slab_and_step("brick_yellow", "hades_core:brick_yellow",
 		{cracky=3},
 		nil,
 		S("Yellow Brick Stair"),
@@ -604,7 +604,7 @@ stairs.register_stair_and_slab_and_step("brick_yellow", "hades_core:brick_yellow
 		S("Inner Yellow Brick Step"))
 
 
-stairs.register_stair_and_slab_and_step("sandstone", "hades_core:sandstone",
+hades_stairs.register_stair_and_slab_and_step("sandstone", "hades_core:sandstone",
 		{cracky=3},
 		nil,
 		S("Fine Sandstone Stair"),
@@ -615,7 +615,7 @@ stairs.register_stair_and_slab_and_step("sandstone", "hades_core:sandstone",
 		S("Outer Fine Sandstone Step"),
 		S("Inner Fine Sandstone Step"))
 
-stairs.register_stair_and_slab_and_step("cobble_sandstone", "hades_core:cobble_sandstone",
+hades_stairs.register_stair_and_slab_and_step("cobble_sandstone", "hades_core:cobble_sandstone",
 		{cracky=3},
 		nil,
 		S("Cobbled Fine Sandstone Stair"),
@@ -626,7 +626,7 @@ stairs.register_stair_and_slab_and_step("cobble_sandstone", "hades_core:cobble_s
 		S("Outer Cobbled Fine Sandstone Step"),
 		S("Inner Cobbled Fine Sandstone Step"))
 
-stairs.register_stair_and_slab_and_step("sandstonebrick", "hades_core:sandstonebrick",
+hades_stairs.register_stair_and_slab_and_step("sandstonebrick", "hades_core:sandstonebrick",
 		{cracky=2},
 		nil,
 		S("Fine Sandstone Brick Stair"),
@@ -637,7 +637,7 @@ stairs.register_stair_and_slab_and_step("sandstonebrick", "hades_core:sandstoneb
 		S("Outer Fine Sandstone Brick Step"),
 		S("Inner Fine Sandstone Brick Step"))
 
-stairs.register_stair_and_slab_and_step("sandstone_volcanic", "hades_core:sandstone_volcanic",
+hades_stairs.register_stair_and_slab_and_step("sandstone_volcanic", "hades_core:sandstone_volcanic",
 		{cracky=3},
 		nil,
 		S("Volcanic Sandstone Stair"),
@@ -648,7 +648,7 @@ stairs.register_stair_and_slab_and_step("sandstone_volcanic", "hades_core:sandst
 		S("Outer Volcanic Sandstone Step"),
 		S("Inner Volcanic Sandstone Step"))
 
-stairs.register_stair_and_slab_and_step("cobble_sandstone_volcanic", "hades_core:cobble_sandstone_volcanic",
+hades_stairs.register_stair_and_slab_and_step("cobble_sandstone_volcanic", "hades_core:cobble_sandstone_volcanic",
 		{cracky=3},
 		nil,
 		S("Cobbled Volcanic Sandstone Stair"),
@@ -659,7 +659,7 @@ stairs.register_stair_and_slab_and_step("cobble_sandstone_volcanic", "hades_core
 		S("Outer Cobbled Volcanic Sandstone Step"),
 		S("Inner Cobbled Volcanic Sandstone Step"))
 
-stairs.register_stair_and_slab_and_step("sandstone_volcanic_brick", "hades_core:sandstone_volcanic_brick",
+hades_stairs.register_stair_and_slab_and_step("sandstone_volcanic_brick", "hades_core:sandstone_volcanic_brick",
 		{cracky=2},
 		nil,
 		S("Volcanic Sandstone Brick Stair"),
@@ -670,7 +670,7 @@ stairs.register_stair_and_slab_and_step("sandstone_volcanic_brick", "hades_core:
 		S("Outer Volcanic Sandstone Brick Step"),
 		S("Inner Volcanic Sandstone Brick Step"))
 
-stairs.register_stair_and_slab_and_step("stonebrick", "hades_core:stonebrick",
+hades_stairs.register_stair_and_slab_and_step("stonebrick", "hades_core:stonebrick",
 		{cracky=3},
 		nil,
 		S("Stone Brick Stair"),
@@ -681,7 +681,7 @@ stairs.register_stair_and_slab_and_step("stonebrick", "hades_core:stonebrick",
 		S("Outer Stone Brick Step"),
 		S("Inner Stone Brick Step"))
 
-stairs.register_stair_and_slab_and_step("basalt_brick", "hades_core:basalt_brick",
+hades_stairs.register_stair_and_slab_and_step("basalt_brick", "hades_core:basalt_brick",
 		{cracky=3},
 		nil,
 		S("Basalt Brick Stair"),
@@ -692,7 +692,7 @@ stairs.register_stair_and_slab_and_step("basalt_brick", "hades_core:basalt_brick
 		S("Outer Basalt Brick Step"),
 		S("Inner Basalt Brick Step"))
 
-stairs.register_stair_and_slab_and_step("basalt", "hades_core:basalt",
+hades_stairs.register_stair_and_slab_and_step("basalt", "hades_core:basalt",
 		{cracky=3},
 		nil,
 		S("Basalt Stair"),
@@ -703,7 +703,7 @@ stairs.register_stair_and_slab_and_step("basalt", "hades_core:basalt",
 		S("Outer Basalt Step"),
 		S("Inner Basalt Step"))
 
-stairs.register_stair_and_slab_and_step("chondrite_brick", "hades_core:chondrite_brick",
+hades_stairs.register_stair_and_slab_and_step("chondrite_brick", "hades_core:chondrite_brick",
 		{cracky=2},
 		nil,
 		S("Chondrite Brick Stair"),
@@ -714,7 +714,7 @@ stairs.register_stair_and_slab_and_step("chondrite_brick", "hades_core:chondrite
 		S("Outer Chondrite Brick Step"),
 		S("Inner Chondrite Brick Step"))
 
-stairs.register_stair_and_slab_and_step("chondrite", "hades_core:chondrite",
+hades_stairs.register_stair_and_slab_and_step("chondrite", "hades_core:chondrite",
 		{cracky=2},
 		nil,
 		S("Chondrite Stair"),
@@ -725,7 +725,7 @@ stairs.register_stair_and_slab_and_step("chondrite", "hades_core:chondrite",
 		S("Outer Chondrite Step"),
 		S("Inner Chondrite Step"))
 
-stairs.register_stair_and_slab_and_step("marble_brick", "hades_core:marble_brick",
+hades_stairs.register_stair_and_slab_and_step("marble_brick", "hades_core:marble_brick",
 		{cracky=3},
 		nil,
 		S("Marble Brick Stair"),
@@ -736,7 +736,7 @@ stairs.register_stair_and_slab_and_step("marble_brick", "hades_core:marble_brick
 		S("Outer Marble Brick Step"),
 		S("Inner Marble Brick Step"))
 
-stairs.register_stair_and_slab_and_step("marble", "hades_core:marble",
+hades_stairs.register_stair_and_slab_and_step("marble", "hades_core:marble",
 		{cracky=3},
 		nil,
 		S("Marble Stair"),
@@ -747,7 +747,7 @@ stairs.register_stair_and_slab_and_step("marble", "hades_core:marble",
 		S("Outer Marble Step"),
 		S("Inner Marble Step"))
 
-stairs.register_stair_and_slab_and_step("tuff_brick", "hades_core:tuff_brick",
+hades_stairs.register_stair_and_slab_and_step("tuff_brick", "hades_core:tuff_brick",
 		{cracky=3},
 		nil,
 		S("Tuff Brick Stair"),
@@ -758,7 +758,7 @@ stairs.register_stair_and_slab_and_step("tuff_brick", "hades_core:tuff_brick",
 		S("Outer Tuff Brick Step"),
 		S("Inner Tuff Brick Step"))
 
-stairs.register_stair_and_slab_and_step("tuff", "hades_core:tuff",
+hades_stairs.register_stair_and_slab_and_step("tuff", "hades_core:tuff",
 		{cracky=3},
 		nil,
 		S("Tuff Stair"),
@@ -769,7 +769,7 @@ stairs.register_stair_and_slab_and_step("tuff", "hades_core:tuff",
 		S("Outer Tuff Step"),
 		S("Inner Tuff Step"))
 
-stairs.register_stair_and_slab_and_step("tuff_baked_brick", "hades_core:tuff_baked_brick",
+hades_stairs.register_stair_and_slab_and_step("tuff_baked_brick", "hades_core:tuff_baked_brick",
 		{cracky=3},
 		nil,
 		S("Burned Tuff Brick Stair"),
@@ -780,7 +780,7 @@ stairs.register_stair_and_slab_and_step("tuff_baked_brick", "hades_core:tuff_bak
 		S("Outer Burned Tuff Brick Step"),
 		S("Inner Burned Tuff Brick Step"))
 
-stairs.register_stair_and_slab_and_step("tuff_baked", "hades_core:tuff_baked",
+hades_stairs.register_stair_and_slab_and_step("tuff_baked", "hades_core:tuff_baked",
 		{cracky=3},
 		nil,
 		S("Burned Tuff Stair"),
@@ -791,7 +791,7 @@ stairs.register_stair_and_slab_and_step("tuff_baked", "hades_core:tuff_baked",
 		S("Outer Burned Tuff Step"),
 		S("Inner Burned Tuff Step"))
 
-stairs.register_stair_and_slab_and_step("essexite_brick", "hades_core:essexite_brick",
+hades_stairs.register_stair_and_slab_and_step("essexite_brick", "hades_core:essexite_brick",
 		{cracky=1},
 		nil,
 		S("Essexite Brick Stair"),
@@ -802,7 +802,7 @@ stairs.register_stair_and_slab_and_step("essexite_brick", "hades_core:essexite_b
 		S("Outer Essexite Brick Step"),
 		S("Inner Essexite Brick Step"))
 
-stairs.register_stair_and_slab_and_step("essexite", "hades_core:essexite",
+hades_stairs.register_stair_and_slab_and_step("essexite", "hades_core:essexite",
 		{cracky=1},
 		nil,
 		S("Essexite Stair"),
@@ -813,7 +813,7 @@ stairs.register_stair_and_slab_and_step("essexite", "hades_core:essexite",
 		S("Outer Essexite Step"),
 		S("Inner Essexite Step"))
 
-stairs.register_stair_and_slab_and_step("rusty_block", "columnia:rusty_block",
+hades_stairs.register_stair_and_slab_and_step("rusty_block", "columnia:rusty_block",
 		{cracky=1},
 		nil,
 		S("Rusty Stair"),
@@ -824,7 +824,7 @@ stairs.register_stair_and_slab_and_step("rusty_block", "columnia:rusty_block",
 		S("Outer Rusty Step"),
 		S("Inner Rusty Step"))
 
-stairs.register_stair_and_slab_and_step("cactus_brick", "hades_core:cactus_brick",
+hades_stairs.register_stair_and_slab_and_step("cactus_brick", "hades_core:cactus_brick",
 		{choppy=3,flammable=2},
 		nil,
 		S("Cactus Brick Stair"),
@@ -835,7 +835,7 @@ stairs.register_stair_and_slab_and_step("cactus_brick", "hades_core:cactus_brick
 		S("Outer Cactus Brick Step"),
 		S("Inner Cactus Brick Step"))
 
-stairs.register_stair_and_slab_and_step("obsidianbrick", "hades_core:obsidianbrick",
+hades_stairs.register_stair_and_slab_and_step("obsidianbrick", "hades_core:obsidianbrick",
 		{cracky=1},
 		nil,
 		S("Obsidian Brick Stair"),
@@ -846,7 +846,7 @@ stairs.register_stair_and_slab_and_step("obsidianbrick", "hades_core:obsidianbri
 		S("Outer Obsidian Brick Step"),
 		S("Inner Obsidian Brick Step"))
 
-stairs.register_stair_and_slab_and_step("straw", "hades_farming:straw",
+hades_stairs.register_stair_and_slab_and_step("straw", "hades_farming:straw",
 		{snappy=3,flammable=4},
 		nil,
 		S("Straw Stair"),
@@ -859,7 +859,7 @@ stairs.register_stair_and_slab_and_step("straw", "hades_farming:straw",
 
 -- cloth
 
-stairs.register_stair_and_slab_and_step("white", "hades_cloth:white",
+hades_stairs.register_stair_and_slab_and_step("white", "hades_cloth:white",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("White Cloth Stair"),
@@ -870,7 +870,7 @@ stairs.register_stair_and_slab_and_step("white", "hades_cloth:white",
 		S("Outer White Cloth Step"),
 		S("Inner White Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("grey", "hades_cloth:grey",
+hades_stairs.register_stair_and_slab_and_step("grey", "hades_cloth:grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Grey Cloth Stair"),
@@ -881,7 +881,7 @@ stairs.register_stair_and_slab_and_step("grey", "hades_cloth:grey",
 		S("Outer Grey Cloth Step"),
 		S("Inner Grey Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("black", "hades_cloth:black",
+hades_stairs.register_stair_and_slab_and_step("black", "hades_cloth:black",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Black Cloth Stair"),
@@ -892,7 +892,7 @@ stairs.register_stair_and_slab_and_step("black", "hades_cloth:black",
 		S("Outer Black Cloth Step"),
 		S("Inner Black Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("red", "hades_cloth:red",
+hades_stairs.register_stair_and_slab_and_step("red", "hades_cloth:red",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Red Cloth Stair"),
@@ -903,7 +903,7 @@ stairs.register_stair_and_slab_and_step("red", "hades_cloth:red",
 		S("Outer Red Cloth Step"),
 		S("Inner Red Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("yellow", "hades_cloth:yellow",
+hades_stairs.register_stair_and_slab_and_step("yellow", "hades_cloth:yellow",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Yellow Cloth Stair"),
@@ -914,7 +914,7 @@ stairs.register_stair_and_slab_and_step("yellow", "hades_cloth:yellow",
 		S("Outer Yellow Cloth Step"),
 		S("Inner Yellow Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("green", "hades_cloth:green",
+hades_stairs.register_stair_and_slab_and_step("green", "hades_cloth:green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Green Cloth Stair"),
@@ -925,7 +925,7 @@ stairs.register_stair_and_slab_and_step("green", "hades_cloth:green",
 		S("Outer Green Cloth Step"),
 		S("Inner Green Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("cyan", "hades_cloth:cyan",
+hades_stairs.register_stair_and_slab_and_step("cyan", "hades_cloth:cyan",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Cyan Cloth Stair"),
@@ -936,7 +936,7 @@ stairs.register_stair_and_slab_and_step("cyan", "hades_cloth:cyan",
 		S("Outer Cyan Cloth Step"),
 		S("Inner Cyan Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("blue", "hades_cloth:blue",
+hades_stairs.register_stair_and_slab_and_step("blue", "hades_cloth:blue",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Blue Cloth Stair"),
@@ -947,7 +947,7 @@ stairs.register_stair_and_slab_and_step("blue", "hades_cloth:blue",
 		S("Outer Blue Cloth Step"),
 		S("Inner Blue Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("magenta", "hades_cloth:magenta",
+hades_stairs.register_stair_and_slab_and_step("magenta", "hades_cloth:magenta",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Magenta Cloth Stair"),
@@ -958,7 +958,7 @@ stairs.register_stair_and_slab_and_step("magenta", "hades_cloth:magenta",
 		S("Outer Magenta Cloth Step"),
 		S("Inner Magenta Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("orange", "hades_cloth:orange",
+hades_stairs.register_stair_and_slab_and_step("orange", "hades_cloth:orange",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Orange Cloth Stair"),
@@ -969,7 +969,7 @@ stairs.register_stair_and_slab_and_step("orange", "hades_cloth:orange",
 		S("Outer Orange Cloth Step"),
 		S("Inner Orange Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("violet", "hades_cloth:violet",
+hades_stairs.register_stair_and_slab_and_step("violet", "hades_cloth:violet",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Violet Cloth Stair"),
@@ -980,7 +980,7 @@ stairs.register_stair_and_slab_and_step("violet", "hades_cloth:violet",
 		S("Outer Violet Cloth Step"),
 		S("Inner Violet Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("brown", "hades_cloth:brown",
+hades_stairs.register_stair_and_slab_and_step("brown", "hades_cloth:brown",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Brown Cloth Stair"),
@@ -991,7 +991,7 @@ stairs.register_stair_and_slab_and_step("brown", "hades_cloth:brown",
 		S("Outer Brown Cloth Step"),
 		S("Inner Brown Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("pink", "hades_cloth:pink",
+hades_stairs.register_stair_and_slab_and_step("pink", "hades_cloth:pink",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Pink Cloth Stair"),
@@ -1002,7 +1002,7 @@ stairs.register_stair_and_slab_and_step("pink", "hades_cloth:pink",
 		S("Outer Pink Cloth Step"),
 		S("Inner Pink Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("dark_grey", "hades_cloth:dark_grey",
+hades_stairs.register_stair_and_slab_and_step("dark_grey", "hades_cloth:dark_grey",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Dark Grey Cloth Stair"),
@@ -1013,7 +1013,7 @@ stairs.register_stair_and_slab_and_step("dark_grey", "hades_cloth:dark_grey",
 		S("Outer Dark Grey Cloth Step"),
 		S("Inner Dark Grey Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("dark_green", "hades_cloth:dark_green",
+hades_stairs.register_stair_and_slab_and_step("dark_green", "hades_cloth:dark_green",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Dark Green Cloth Stair"),
@@ -1024,7 +1024,7 @@ stairs.register_stair_and_slab_and_step("dark_green", "hades_cloth:dark_green",
 		S("Outer Dark Green Cloth Step"),
 		S("Inner Dark Green Cloth Step"))
 
-stairs.register_stair_and_slab_and_step("glowcrystal_block", "glowcrystals:glowcrystal_block",
+hades_stairs.register_stair_and_slab_and_step("glowcrystal_block", "glowcrystals:glowcrystal_block",
 		{cracky=3},
 		nil,
 		S("Glowing Crystal Stair"),
@@ -1038,7 +1038,7 @@ stairs.register_stair_and_slab_and_step("glowcrystal_block", "glowcrystals:glowc
 
 -- Tiles
 
-stairs.register_stair_and_slab_and_step("floor_wood_wood", "hades_tiles:floor_wood_wood",
+hades_stairs.register_stair_and_slab_and_step("floor_wood_wood", "hades_tiles:floor_wood_wood",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Temperate Wood Tile Stair"),
@@ -1049,7 +1049,7 @@ stairs.register_stair_and_slab_and_step("floor_wood_wood", "hades_tiles:floor_wo
 		S("Outer Temperate Wood Tile Step"),
 		S("Inner Temperate Wood Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_lush_lush", "hades_tiles:floor_lush_lush",
+hades_stairs.register_stair_and_slab_and_step("floor_lush_lush", "hades_tiles:floor_lush_lush",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Lush Wood Tile Stair"),
@@ -1060,7 +1060,7 @@ stairs.register_stair_and_slab_and_step("floor_lush_lush", "hades_tiles:floor_lu
 		S("Outer Lush Wood Tile Step"),
 		S("Inner Lush Wood Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_pale_pale", "hades_tiles:floor_pale_pale",
+hades_stairs.register_stair_and_slab_and_step("floor_pale_pale", "hades_tiles:floor_pale_pale",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Pale Wood Tile Stair"),
@@ -1071,7 +1071,7 @@ stairs.register_stair_and_slab_and_step("floor_pale_pale", "hades_tiles:floor_pa
 		S("Outer Pale Wood Tile Step"),
 		S("Inner Pale Wood Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_cream_cream", "hades_tiles:floor_cream_cream",
+hades_stairs.register_stair_and_slab_and_step("floor_cream_cream", "hades_tiles:floor_cream_cream",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Cream Wood Tile Stair"),
@@ -1082,7 +1082,7 @@ stairs.register_stair_and_slab_and_step("floor_cream_cream", "hades_tiles:floor_
 		S("Outer Cream Wood Tile Step"),
 		S("Inner Cream Wood Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_jungle_jungle", "hades_tiles:floor_jungle_jungle",
+hades_stairs.register_stair_and_slab_and_step("floor_jungle_jungle", "hades_tiles:floor_jungle_jungle",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
 		S("Tropical Tile Stair"),
@@ -1093,7 +1093,7 @@ stairs.register_stair_and_slab_and_step("floor_jungle_jungle", "hades_tiles:floo
 		S("Outer Tropical Wood Tile Step"),
 		S("Inner Tropical Wood Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_stone_stone", "hades_tiles:floor_stone_stone",
+hades_stairs.register_stair_and_slab_and_step("floor_stone_stone", "hades_tiles:floor_stone_stone",
 		{cracky=3},
 		nil,
 		S("Stone Tile Stair"),
@@ -1104,7 +1104,7 @@ stairs.register_stair_and_slab_and_step("floor_stone_stone", "hades_tiles:floor_
 		S("Outer Stone Tile Step"),
 		S("Inner Stone Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_stonebaked_stonebaked", "hades_tiles:floor_stonebaked_stonebaked",
+hades_stairs.register_stair_and_slab_and_step("floor_stonebaked_stonebaked", "hades_tiles:floor_stonebaked_stonebaked",
 		{cracky=3},
 		nil,
 		S("Burned Stone Tile Stair"),
@@ -1115,7 +1115,7 @@ stairs.register_stair_and_slab_and_step("floor_stonebaked_stonebaked", "hades_ti
 		S("Outer Burned Stone Tile Step"),
 		S("Inner Burned Stone Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_tuff_tuff", "hades_tiles:floor_tuff_tuff",
+hades_stairs.register_stair_and_slab_and_step("floor_tuff_tuff", "hades_tiles:floor_tuff_tuff",
 		{cracky=3},
 		nil,
 		S("Tuff Tile Stair"),
@@ -1126,7 +1126,7 @@ stairs.register_stair_and_slab_and_step("floor_tuff_tuff", "hades_tiles:floor_tu
 		S("Outer Tuff Tile Step"),
 		S("Inner Tuff Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_tuffbaked_tuffbaked", "hades_tiles:floor_tuffbaked_tuffbaked",
+hades_stairs.register_stair_and_slab_and_step("floor_tuffbaked_tuffbaked", "hades_tiles:floor_tuffbaked_tuffbaked",
 		{cracky=3},
 		nil,
 		S("Burned Tuff Tile Stair"),
@@ -1137,7 +1137,7 @@ stairs.register_stair_and_slab_and_step("floor_tuffbaked_tuffbaked", "hades_tile
 		S("Outer Burned Tuff Tile Step"),
 		S("Inner Burned Tuff Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_sandstone_sandstone", "hades_tiles:floor_sandstone_sandstone",
+hades_stairs.register_stair_and_slab_and_step("floor_sandstone_sandstone", "hades_tiles:floor_sandstone_sandstone",
 		{cracky=3},
 		nil,
 		S("Fine Sandstone Tile Stair"),
@@ -1148,7 +1148,7 @@ stairs.register_stair_and_slab_and_step("floor_sandstone_sandstone", "hades_tile
 		S("Outer Fine Sandstone Tile Step"),
 		S("Inner Fine Sandstone Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_sandstonevolcanic_sandstonevolcanic", "hades_tiles:floor_sandstonevolcanic_sandstonevolcanic",
+hades_stairs.register_stair_and_slab_and_step("floor_sandstonevolcanic_sandstonevolcanic", "hades_tiles:floor_sandstonevolcanic_sandstonevolcanic",
 		{cracky=3},
 		nil,
 		S("Volcanic Sandstone Tile Stair"),
@@ -1159,7 +1159,7 @@ stairs.register_stair_and_slab_and_step("floor_sandstonevolcanic_sandstonevolcan
 		S("Outer Volcanic Sandstone Tile Step"),
 		S("Inner Volcanic Sandstone Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_chondrite_chondrite", "hades_tiles:floor_chondrite_chondrite",
+hades_stairs.register_stair_and_slab_and_step("floor_chondrite_chondrite", "hades_tiles:floor_chondrite_chondrite",
 		{cracky=3},
 		nil,
 		S("Chondrite Tile Stair"),
@@ -1170,7 +1170,7 @@ stairs.register_stair_and_slab_and_step("floor_chondrite_chondrite", "hades_tile
 		S("Outer Chondrite Tile Step"),
 		S("Inner Chondrite Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_essexite_essexite", "hades_tiles:floor_essexite_essexite",
+hades_stairs.register_stair_and_slab_and_step("floor_essexite_essexite", "hades_tiles:floor_essexite_essexite",
 		{cracky=2},
 		nil,
 		S("Essexite Tile Stair"),
@@ -1181,7 +1181,7 @@ stairs.register_stair_and_slab_and_step("floor_essexite_essexite", "hades_tiles:
 		S("Outer Essexite Tile Step"),
 		S("Inner Essexite Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_essexitegold_essexitegold", "hades_tiles:floor_essexitegold_essexitegold",
+hades_stairs.register_stair_and_slab_and_step("floor_essexitegold_essexitegold", "hades_tiles:floor_essexitegold_essexitegold",
 		{cracky=2},
 		nil,
 		S("Golden Essexite Tile Stair"),
@@ -1192,7 +1192,7 @@ stairs.register_stair_and_slab_and_step("floor_essexitegold_essexitegold", "hade
 		S("Outer Golden Essexite Tile Step"),
 		S("Inner Golden Essexite Tile Step"))
 
-stairs.register_stair_and_slab_and_step("floor_marble_marble", "hades_tiles:floor_marble_marble",
+hades_stairs.register_stair_and_slab_and_step("floor_marble_marble", "hades_tiles:floor_marble_marble",
 		{cracky=2},
 		nil,
 		S("Marble Tile Stair"),
@@ -1203,7 +1203,7 @@ stairs.register_stair_and_slab_and_step("floor_marble_marble", "hades_tiles:floo
 		S("Outer Marble Tile Step"),
 		S("Inner Marble Tile Step"))
 
-stairs.register_stair_and_slab_and_step("apolline", "hades_core:apolline",
+hades_stairs.register_stair_and_slab_and_step("apolline", "hades_core:apolline",
 		{cracky=3},
 		nil,
 		S("Apolline Stair"),
@@ -1213,7 +1213,7 @@ stairs.register_stair_and_slab_and_step("apolline", "hades_core:apolline",
 		S("Apolline Step"),
 		S("Outer Apolline Step"),
 		S("Inner Apolline Step"))
-stairs.register_stair_and_slab_and_step("orangite", "hades_core:orangite",
+hades_stairs.register_stair_and_slab_and_step("orangite", "hades_core:orangite",
 		{cracky=3},
 		nil,
 		S("Orangite Stair"),
@@ -1223,7 +1223,7 @@ stairs.register_stair_and_slab_and_step("orangite", "hades_core:orangite",
 		S("Orangite Step"),
 		S("Outer Orangite Step"),
 		S("Inner Orangite Step"))
-stairs.register_stair_and_slab_and_step("cinnaber", "hades_core:cinnaber",
+hades_stairs.register_stair_and_slab_and_step("cinnaber", "hades_core:cinnaber",
 		{cracky=3},
 		nil,
 		S("Cinnaber Stair"),
@@ -1233,7 +1233,7 @@ stairs.register_stair_and_slab_and_step("cinnaber", "hades_core:cinnaber",
 		S("Cinnaber Step"),
 		S("Outer Cinnaber Step"),
 		S("Inner Cinnber Step"))
-stairs.register_stair_and_slab_and_step("olivine", "hades_core:olivine",
+hades_stairs.register_stair_and_slab_and_step("olivine", "hades_core:olivine",
 		{cracky=3},
 		nil,
 		S("Olivine Stair"),
@@ -1243,7 +1243,7 @@ stairs.register_stair_and_slab_and_step("olivine", "hades_core:olivine",
 		S("Olivine Step"),
 		S("Outer Olivine Step"),
 		S("Inner Olivine Step"))
-stairs.register_stair_and_slab_and_step("azurite", "hades_core:azurite",
+hades_stairs.register_stair_and_slab_and_step("azurite", "hades_core:azurite",
 		{cracky=3},
 		nil,
 		S("Azurite Stair"),
@@ -1253,7 +1253,7 @@ stairs.register_stair_and_slab_and_step("azurite", "hades_core:azurite",
 		S("Azurite Step"),
 		S("Outer Azurite Step"),
 		S("Inner Azurite Step"))
-stairs.register_stair_and_slab_and_step("turquosite", "hades_core:turquosite",
+hades_stairs.register_stair_and_slab_and_step("turquosite", "hades_core:turquosite",
 		{cracky=3},
 		nil,
 		S("Turquosite Stair"),
@@ -1263,7 +1263,7 @@ stairs.register_stair_and_slab_and_step("turquosite", "hades_core:turquosite",
 		S("Turquosite Step"),
 		S("Outer Turquosite Step"),
 		S("Inner Turquosite Step"))
-stairs.register_stair_and_slab_and_step("lillite", "hades_core:lillite",
+hades_stairs.register_stair_and_slab_and_step("lillite", "hades_core:lillite",
 		{cracky=3},
 		nil,
 		S("Lillite Stair"),
@@ -1274,7 +1274,7 @@ stairs.register_stair_and_slab_and_step("lillite", "hades_core:lillite",
 		S("Outer Lillite Step"),
 		S("Inner Lillite Step"))
 
-stairs.register_stair_and_slab_and_step("apolline_brick", "hades_core:apolline_brick",
+hades_stairs.register_stair_and_slab_and_step("apolline_brick", "hades_core:apolline_brick",
 		{cracky=3},
 		nil,
 		S("Apolline Brick Stair"),
@@ -1284,7 +1284,7 @@ stairs.register_stair_and_slab_and_step("apolline_brick", "hades_core:apolline_b
 		S("Apolline Brick Step"),
 		S("Outer Apolline Brick Step"),
 		S("Inner Apolline Brick Step"))
-stairs.register_stair_and_slab_and_step("orangite_brick", "hades_core:orangite_brick",
+hades_stairs.register_stair_and_slab_and_step("orangite_brick", "hades_core:orangite_brick",
 		{cracky=3},
 		nil,
 		S("Orangite Brick Stair"),
@@ -1294,7 +1294,7 @@ stairs.register_stair_and_slab_and_step("orangite_brick", "hades_core:orangite_b
 		S("Orangite Brick Step"),
 		S("Outer Orangite Brick Step"),
 		S("Inner Orangite Brick Step"))
-stairs.register_stair_and_slab_and_step("cinnaber_brick", "hades_core:cinnaber_brick",
+hades_stairs.register_stair_and_slab_and_step("cinnaber_brick", "hades_core:cinnaber_brick",
 		{cracky=3},
 		nil,
 		S("Cinnaber Brick Stair"),
@@ -1304,7 +1304,7 @@ stairs.register_stair_and_slab_and_step("cinnaber_brick", "hades_core:cinnaber_b
 		S("Cinnaber Brick Step"),
 		S("Outer Cinnaber Brick Step"),
 		S("Inner Cinnber Brick Step"))
-stairs.register_stair_and_slab_and_step("olivine_brick", "hades_core:olivine_brick",
+hades_stairs.register_stair_and_slab_and_step("olivine_brick", "hades_core:olivine_brick",
 		{cracky=3},
 		nil,
 		S("Olivine Brick Stair"),
@@ -1314,7 +1314,7 @@ stairs.register_stair_and_slab_and_step("olivine_brick", "hades_core:olivine_bri
 		S("Olivine Brick Step"),
 		S("Outer Olivine Brick Step"),
 		S("Inner Olivine Brick Step"))
-stairs.register_stair_and_slab_and_step("azurite_brick", "hades_core:azurite_brick",
+hades_stairs.register_stair_and_slab_and_step("azurite_brick", "hades_core:azurite_brick",
 		{cracky=3},
 		nil,
 		S("Azurite Brick Stair"),
@@ -1324,7 +1324,7 @@ stairs.register_stair_and_slab_and_step("azurite_brick", "hades_core:azurite_bri
 		S("Azurite Brick Step"),
 		S("Outer Azurite Brick Step"),
 		S("Inner Azurite Brick Step"))
-stairs.register_stair_and_slab_and_step("turquosite_brick", "hades_core:turquosite_brick",
+hades_stairs.register_stair_and_slab_and_step("turquosite_brick", "hades_core:turquosite_brick",
 		{cracky=3},
 		nil,
 		S("Turquosite Brick Stair"),
@@ -1334,7 +1334,7 @@ stairs.register_stair_and_slab_and_step("turquosite_brick", "hades_core:turquosi
 		S("Turquosite Brick Step"),
 		S("Outer Turquosite Brick Step"),
 		S("Inner Turquosite Brick Step"))
-stairs.register_stair_and_slab_and_step("lillite_brick", "hades_core:lillite_brick",
+hades_stairs.register_stair_and_slab_and_step("lillite_brick", "hades_core:lillite_brick",
 		{cracky=3},
 		nil,
 		S("Lillite Brick Stair"),
@@ -1347,23 +1347,23 @@ stairs.register_stair_and_slab_and_step("lillite_brick", "hades_core:lillite_bri
 
 
 
-stairs.register_slab_with_double("floorblock_essexite_gold_block", "hades_core:floor_essexite_gold",
+hades_stairs.register_slab_with_double("floorblock_essexite_gold_block", "hades_core:floor_essexite_gold",
 		{cracky=2},
-		{"hades_core_floor_essexite_gold.png", "hades_core_floor_essexite_gold.png", "stairs_floorblock_essexite_gold_slab.png"},
+		{"hades_core_floor_essexite_gold.png", "hades_core_floor_essexite_gold.png", "hades_stairs_floorblock_essexite_gold_slab.png"},
 		S("Golden Essexite Slab"),
 		S("Double Golden Essexite Slab"))
-stairs.register_slab_with_double("floorblock_marble_essexite2", "hades_core:floor_marble_essexite2",
+hades_stairs.register_slab_with_double("floorblock_marble_essexite2", "hades_core:floor_marble_essexite2",
 		{cracky=2},
-		{"hades_core_floor_marble_essexite2.png", "hades_core_floor_marble_essexite2.png", "stairs_floorblock_marble_essexite2_slab.png"},
+		{"hades_core_floor_marble_essexite2.png", "hades_core_floor_marble_essexite2.png", "hades_stairs_floorblock_marble_essexite2_slab.png"},
 		S("Marble/Essexite Slab"),
 		S("Double Marble/Essexite Slab"))
-stairs.register_slab_with_double("floorblock_bstone_sandstone", "hades_core:floor_bstone_sandstone",
+hades_stairs.register_slab_with_double("floorblock_bstone_sandstone", "hades_core:floor_bstone_sandstone",
 		{cracky=3},
-		{"hades_core_floor_bstone_sandstone.png", "hades_core_floor_bstone_sandstone.png", "stairs_floorblock_bstone_sandstone_slab.png"},
+		{"hades_core_floor_bstone_sandstone.png", "hades_core_floor_bstone_sandstone.png", "hades_stairs_floorblock_bstone_sandstone_slab.png"},
 		S("Baked Stone/Sandstone Slab"),
 		S("Double Baked Stone/Sandstone Slab"))
-stairs.register_slab_with_double("floorblock_chondrite_stone", "hades_core:floor_chondrite_stone",
+hades_stairs.register_slab_with_double("floorblock_chondrite_stone", "hades_core:floor_chondrite_stone",
 		{cracky=2},
-		{"hades_core_floor_chondrite_stone.png", "hades_core_floor_chondrite_stone.png", "stairs_floorblock_chondrite_stone_slab.png"},
+		{"hades_core_floor_chondrite_stone.png", "hades_core_floor_chondrite_stone.png", "hades_stairs_floorblock_chondrite_stone_slab.png"},
 		S("Chondrite/Stone Slab"),
 		S("Double Chondrite/Stone Slab"))

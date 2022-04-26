@@ -1,7 +1,7 @@
 -- Hades Stairs mod
 -- See README.txt for licensing and other information.
 
-stairs = {}
+hades_stairs = {}
 
 local get_images = function(def)
 	local images = table.copy(def.tiles)
@@ -76,8 +76,8 @@ local on_place_flip = function(itemstack, placer, pointed_thing)
 	return rotate_and_place(itemstack, placer, pointed_thing, 2)
 end
 
--- Node will be called stairs:stair_<subname>
-function stairs.register_stair(subname, recipeitem, groups, images, description, sounds, use_shaper)
+-- Node will be called hades_stairs:stair_<subname>
+function hades_stairs.register_stair(subname, recipeitem, groups, images, description, sounds, use_shaper)
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
@@ -90,9 +90,9 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	end
 	local nshape
 	if use_shaper then
-		nshape = "stairs:stair_in_"..subname
+		nshape = "hades_stairs:stair_in_"..subname
 	end
-	minetest.register_node(":stairs:stair_" .. subname, {
+	minetest.register_node(":hades_stairs:stair_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -114,7 +114,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_' .. subname .. ' 6',
+		output = 'hades_stairs:stair_' .. subname .. ' 6',
 		recipe = {
 			{recipeitem, "", ""},
 			{recipeitem, recipeitem, ""},
@@ -123,7 +123,7 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	})
 	-- Flipped recipe
 	minetest.register_craft({
-		output = 'stairs:stair_' .. subname .. ' 6',
+		output = 'hades_stairs:stair_' .. subname .. ' 6',
 		recipe = {
 			{"", "", recipeitem},
 			{"", recipeitem, recipeitem},
@@ -132,8 +132,8 @@ function stairs.register_stair(subname, recipeitem, groups, images, description,
 	})
 end
 
--- Node will be called stairs:stair_out_<subname>
-function stairs.register_stair_out(subname, recipeitem, groups, images, description, sounds, use_shaper)
+-- Node will be called hades_stairs:stair_out_<subname>
+function hades_stairs.register_stair_out(subname, recipeitem, groups, images, description, sounds, use_shaper)
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
@@ -146,9 +146,9 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 	end
 	local nshape
 	if use_shaper then
-		nshape = "stairs:stair_"..subname
+		nshape = "hades_stairs:stair_"..subname
 	end
-	minetest.register_node(":stairs:stair_out_" .. subname, {
+	minetest.register_node(":hades_stairs:stair_out_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -171,7 +171,7 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_out_' .. subname .. ' 4',
+		output = 'hades_stairs:stair_out_' .. subname .. ' 4',
 		recipe = {
 			{"", recipeitem, ""},
 			{recipeitem, recipeitem, recipeitem},
@@ -179,8 +179,8 @@ function stairs.register_stair_out(subname, recipeitem, groups, images, descript
 	})
 end
 
--- Node will be called stairs:stair_in_<subname>
-function stairs.register_stair_in(subname, recipeitem, groups, images, description, sounds, use_shaper)
+-- Node will be called hades_stairs:stair_in_<subname>
+function hades_stairs.register_stair_in(subname, recipeitem, groups, images, description, sounds, use_shaper)
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
@@ -193,9 +193,9 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 	end
 	local nshape
 	if use_shaper then
-		nshape = "stairs:stair_out_"..subname
+		nshape = "hades_stairs:stair_out_"..subname
 	end
-	minetest.register_node(":stairs:stair_in_" .. subname, {
+	minetest.register_node(":hades_stairs:stair_in_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -218,7 +218,7 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 	})
 
 	minetest.register_craft({
-		output = 'stairs:stair_in_' .. subname .. ' 6',
+		output = 'hades_stairs:stair_in_' .. subname .. ' 6',
 		recipe = {
 			{"", recipeitem, ""},
 			{recipeitem, "", recipeitem},
@@ -227,8 +227,8 @@ function stairs.register_stair_in(subname, recipeitem, groups, images, descripti
 	})
 end
 
--- Node will be called stairs:slab_<subname>
-function stairs.register_slab(subname, recipeitem, groups, images, description, sounds, has_double)
+-- Node will be called hades_stairs:slab_<subname>
+function hades_stairs.register_slab(subname, recipeitem, groups, images, description, sounds, has_double)
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
@@ -239,7 +239,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 			images = get_images(rdef)
 		end
 	end
-	minetest.register_node(":stairs:slab_" .. subname, {
+	minetest.register_node(":hades_stairs:slab_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -268,14 +268,14 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 			local n1 = minetest.get_node(p1)
 			local param2 = 0
 
-			local n0_is_upside_down = (n0.name == "stairs:slab_" .. subname and
+			local n0_is_upside_down = (n0.name == "hades_stairs:slab_" .. subname and
 					n0.param2 >= 20)
 			local n0_is_sideways = n0.param2 > 3 and n0.param2 < 20
 
-			if n0.name == "stairs:slab_" .. subname and not n0_is_upside_down and not n0_is_sideways and p0.y+1 == p1.y then
+			if n0.name == "hades_stairs:slab_" .. subname and not n0_is_upside_down and not n0_is_sideways and p0.y+1 == p1.y then
 				slabpos = p0
 				slabnode = n0
-			elseif n1.name == "stairs:slab_" .. subname then
+			elseif n1.name == "hades_stairs:slab_" .. subname then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -285,7 +285,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 				-- Make a fake stack of a single item and try to place it
 				local fakeitem
 				if has_double then
-					fakeitem = "stairs:slab_double_" .. subname
+					fakeitem = "hades_stairs:slab_double_" .. subname
 				else
 					fakeitem = recipeitem
 				end
@@ -314,7 +314,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 					-- Make a fake stack of a single item and try to place it
 					local fakeitem
 					if has_double then
-						fakeitem = "stairs:slab_double_" .. subname
+						fakeitem = "hades_stairs:slab_double_" .. subname
 					else
 						fakeitem = recipeitem
 					end
@@ -343,15 +343,15 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 	})
 
 	minetest.register_craft({
-		output = 'stairs:slab_' .. subname .. ' 6',
+		output = 'hades_stairs:slab_' .. subname .. ' 6',
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 		},
 	})
 end
 
--- Nodes will be called stairs:slab_double_<subname>
-function stairs.register_slab_double(subname, recipeitem, groups, images, description, sounds)
+-- Nodes will be called hades_stairs:slab_double_<subname>
+function hades_stairs.register_slab_double(subname, recipeitem, groups, images, description, sounds)
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
@@ -360,7 +360,7 @@ function stairs.register_slab_double(subname, recipeitem, groups, images, descri
 			images = rdef.tiles
 		end
 	end
-	minetest.register_node(":stairs:slab_double_" .. subname, {
+	minetest.register_node(":hades_stairs:slab_double_" .. subname, {
 		description = description,
 		drawtype = "normal",
 		tiles = images,
@@ -372,7 +372,7 @@ function stairs.register_slab_double(subname, recipeitem, groups, images, descri
 	})
 
 	minetest.register_craft({
-		output = 'stairs:slab_double_' .. subname,
+		output = 'hades_stairs:slab_double_' .. subname,
 		recipe = {
 			{recipeitem},
 			{recipeitem},
@@ -382,14 +382,14 @@ function stairs.register_slab_double(subname, recipeitem, groups, images, descri
 	minetest.register_craft({
 		output = recipeitem .. ' 2',
 		recipe = {
-			{'stairs:slab_double_' .. subname},
+			{'hades_stairs:slab_double_' .. subname},
 		},
 	})
 
 end
 
--- Node will be called stairs:step_in<subname>
-function stairs.register_step_in(subname, recipeitem, groups, images, description, sounds, use_shaper)
+-- Node will be called hades_stairs:step_in<subname>
+function hades_stairs.register_step_in(subname, recipeitem, groups, images, description, sounds, use_shaper)
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
@@ -402,9 +402,9 @@ function stairs.register_step_in(subname, recipeitem, groups, images, descriptio
 	end
 	local nshape
 	if use_shaper then
-		nshape = "stairs:step_out_"..subname
+		nshape = "hades_stairs:step_out_"..subname
 	end
-	minetest.register_node(":stairs:step_in_" .. subname, {
+	minetest.register_node(":hades_stairs:step_in_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -426,14 +426,14 @@ function stairs.register_step_in(subname, recipeitem, groups, images, descriptio
 	})
 
 	minetest.register_craft({
-		output = 'stairs:step_in_' .. subname .. ' 6',
+		output = 'hades_stairs:step_in_' .. subname .. ' 6',
 		recipe = {
 			{recipeitem, recipeitem},
 			{'', recipeitem},
 		},
 	})
 	minetest.register_craft({
-		output = 'stairs:step_in_' .. subname .. ' 6',
+		output = 'hades_stairs:step_in_' .. subname .. ' 6',
 		recipe = {
 			{recipeitem, recipeitem},
 			{recipeitem, ''},
@@ -442,8 +442,8 @@ function stairs.register_step_in(subname, recipeitem, groups, images, descriptio
 
 end
 
--- Node will be called stairs:step_out_<subname>
-function stairs.register_step_out(subname, recipeitem, groups, images, description, sounds, use_shaper)
+-- Node will be called hades_stairs:step_out_<subname>
+function hades_stairs.register_step_out(subname, recipeitem, groups, images, description, sounds, use_shaper)
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
@@ -456,9 +456,9 @@ function stairs.register_step_out(subname, recipeitem, groups, images, descripti
 	end
 	local nshape
 	if use_shaper then
-		nshape = "stairs:step_"..subname
+		nshape = "hades_stairs:step_"..subname
 	end
-	minetest.register_node(":stairs:step_out_" .. subname, {
+	minetest.register_node(":hades_stairs:step_out_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -477,7 +477,7 @@ function stairs.register_step_out(subname, recipeitem, groups, images, descripti
 	})
 
 	minetest.register_craft({
-		output = 'stairs:step_out_' .. subname .. ' 4',
+		output = 'hades_stairs:step_out_' .. subname .. ' 4',
 		recipe = {
 			{recipeitem},
 			{''},
@@ -486,8 +486,8 @@ function stairs.register_step_out(subname, recipeitem, groups, images, descripti
 	})
 end
 
--- Node will be called stairs:step_<subname>
-function stairs.register_step(subname, recipeitem, groups, images, description, sounds, use_shaper)
+-- Node will be called hades_stairs:step_<subname>
+function hades_stairs.register_step(subname, recipeitem, groups, images, description, sounds, use_shaper)
 	local light_source
 	if recipeitem and minetest.registered_nodes[recipeitem] then
 		local rdef = minetest.registered_nodes[recipeitem]
@@ -500,9 +500,9 @@ function stairs.register_step(subname, recipeitem, groups, images, description, 
 	end
 	local nshape
 	if use_shaper then
-		nshape = "stairs:step_in_"..subname
+		nshape = "hades_stairs:step_in_"..subname
 	end
-	minetest.register_node(":stairs:step_" .. subname, {
+	minetest.register_node(":hades_stairs:step_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -521,7 +521,7 @@ function stairs.register_step(subname, recipeitem, groups, images, description, 
 	})
 
 	minetest.register_craft({
-		output = 'stairs:step_' .. subname .. ' 4',
+		output = 'hades_stairs:step_' .. subname .. ' 4',
 		recipe = {
 			{recipeitem, recipeitem},
 		},
@@ -532,17 +532,17 @@ end
 
 
 
--- Nodes will be called stairs:slab_<subname>, stairs:slab_double_<subname>
-function stairs.register_slab_with_double(subname, recipeitem, groups, images, desc_slab, desc_slab_double, sounds)
+-- Nodes will be called hades_stairs:slab_<subname>, hades_stairs:slab_double_<subname>
+function hades_stairs.register_slab_with_double(subname, recipeitem, groups, images, desc_slab, desc_slab_double, sounds)
 	if not sounds and recipeitem then
 		sounds = minetest.registered_items[recipeitem].sounds
 	end
-	stairs.register_slab(subname, recipeitem, groups, images, desc_slab, sounds, true)
-	stairs.register_slab_double(subname, "stairs:slab_"..subname, groups, images, desc_slab_double, sounds)
+	hades_stairs.register_slab(subname, recipeitem, groups, images, desc_slab, sounds, true)
+	hades_stairs.register_slab_double(subname, "hades_stairs:slab_"..subname, groups, images, desc_slab_double, sounds)
 end
 
--- Nodes will be called stairs:{stair,slab}_<subname> and optionally stairs:slab_double_<subname>
-function stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds, desc_slab_double)
+-- Nodes will be called hades_stairs:{stair,slab}_<subname> and optionally hades_stairs:slab_double_<subname>
+function hades_stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds, desc_slab_double)
 	local i_stair, i_stair_out, i_stair_in, i_slab
 	if images and images[1] == "!CUSTOM" then
 		i_stair = images[2]
@@ -559,16 +559,16 @@ function stairs.register_stair_and_slab(subname, recipeitem, groups, images, des
 		sounds = minetest.registered_items[recipeitem].sounds
 	end
 	local has_double = desc_slab_double ~= nil
-	stairs.register_stair(subname, recipeitem, groups, i_stair, desc_stair, sounds, true)
-	stairs.register_stair_out(subname, recipeitem, groups, i_stair_out, desc_stair_out, sounds, true)
-	stairs.register_stair_in(subname, recipeitem, groups, i_stair_in, desc_stair_in, sounds, true)
-	stairs.register_slab(subname, recipeitem, groups, i_slab, desc_slab, sounds, has_double)
+	hades_stairs.register_stair(subname, recipeitem, groups, i_stair, desc_stair, sounds, true)
+	hades_stairs.register_stair_out(subname, recipeitem, groups, i_stair_out, desc_stair_out, sounds, true)
+	hades_stairs.register_stair_in(subname, recipeitem, groups, i_stair_in, desc_stair_in, sounds, true)
+	hades_stairs.register_slab(subname, recipeitem, groups, i_slab, desc_slab, sounds, has_double)
 	if has_double then
-		stairs.register_slab_double(subname, "stairs:slab_"..subname, groups, i_slab, desc_slab_double, sounds)
+		hades_stairs.register_slab_double(subname, "hades_stairs:slab_"..subname, groups, i_slab, desc_slab_double, sounds)
 	end
 end
 
-function stairs.register_stair_and_slab_and_step(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, desc_step, desc_step_out, desc_step_in, sounds, desc_slab_double)
+function hades_stairs.register_stair_and_slab_and_step(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, desc_step, desc_step_out, desc_step_in, sounds, desc_slab_double)
 	local i_step, i_step_in, i_step_out
 	if images and images[1] == "!CUSTOM" then
 		i_step = images[6]
@@ -582,11 +582,12 @@ function stairs.register_stair_and_slab_and_step(subname, recipeitem, groups, im
 	if not sounds and recipeitem then
 		sounds = minetest.registered_items[recipeitem].sounds
 	end
-	stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds, desc_slab_double)
-	stairs.register_step(subname, recipeitem, groups, i_step, desc_step, sounds, true)
-	stairs.register_step_out(subname, recipeitem, groups, i_step_out, desc_step_out, sounds, true)
-	stairs.register_step_in(subname, recipeitem, groups, i_step_in, desc_step_in, sounds, true)
+	hades_stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_stair_out, desc_stair_in, desc_slab, sounds, desc_slab_double)
+	hades_stairs.register_step(subname, recipeitem, groups, i_step, desc_step, sounds, true)
+	hades_stairs.register_step_out(subname, recipeitem, groups, i_step_out, desc_step_out, sounds, true)
+	hades_stairs.register_step_in(subname, recipeitem, groups, i_step_in, desc_step_in, sounds, true)
 
 end
 
-dofile(minetest.get_modpath("stairs").."/register.lua")
+dofile(minetest.get_modpath("hades_stairs").."/register.lua")
+dofile(minetest.get_modpath("hades_stairs").."/aliases.lua")

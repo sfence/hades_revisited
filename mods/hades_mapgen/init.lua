@@ -34,12 +34,12 @@ minetest.register_alias("mapgen_pine_needles", "air")
 -- Dungeons
 
 minetest.register_alias("mapgen_cobble", "hades_core:cobble")
-minetest.register_alias("mapgen_stair_cobble", "stairs:stair_cobble")
+minetest.register_alias("mapgen_stair_cobble", "hades_stairs:stair_cobble")
 minetest.register_alias("mapgen_mossycobble", "hades_core:stone")
 minetest.register_alias("mapgen_sandstonebrick", "hades_core:stone")
-minetest.register_alias("mapgen_stair_sandstonebrick", "stairs:stair_stone")
-minetest.register_alias("mapgen_stair_sandstone_block", "stairs:stair_stone")
-minetest.register_alias("mapgen_stair_desert_stone", "stairs:stair_stone")
+minetest.register_alias("mapgen_stair_sandstonebrick", "hades_stairs:stair_stone")
+minetest.register_alias("mapgen_stair_sandstone_block", "hades_stairs:stair_stone")
+minetest.register_alias("mapgen_stair_desert_stone", "hades_stairs:stair_stone")
 
 if minetest.get_mapgen_setting("mg_name") ~= "singlenode" then
 	-- Warning: override_meta set to `true`. Tread carefully when changing the parameter values.

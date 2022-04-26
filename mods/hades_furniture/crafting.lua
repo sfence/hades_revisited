@@ -239,7 +239,7 @@
 		recipe = {
 			{'hades_core:paper','glowcrystals:glowcrystal' ,'hades_core:paper'},
 			{'','group:stick',''},
-			{'','stairs:slab_wood',''},
+			{'','hades_stairs:slab_wood',''},
 		},
 	})
 

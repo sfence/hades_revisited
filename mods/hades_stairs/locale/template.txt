@@ -1,4 +1,4 @@
-# textdomain: stairs
+# textdomain: hades_stairs
 Temperate Wood Stair=
 Outer Temperate Wood Stair=
 Inner Temperate Wood Stair=
