@@ -1,15 +1,6 @@
---------------------------------------------------------
--- Minetest :: Doors Redux Mod (doors)
---
--- See README.txt for licensing and other information.
--- Copyright (c) 2016-2020, Leslie E. Krause
---
--- ./games/minetest_game/mods/doors/api.lua
---------------------------------------------------------
+local S = minetest.get_translator("hades_doors")
 
-local S = minetest.get_translator("doors")
-
-doors = { }
+hades_doors = { }
 
 local config = {}
 config.autoclose_timeout = 2.5
@@ -18,18 +9,18 @@ config.autoclose_timeout = 2.5
 -- This makes the hidden nodes visible and diggable.
 local HIDDEN_DEBUG = false
 
-doors.LOCKING_MODE_UNDEFINED = 0
-doors.LOCKING_MODE_UNLOCKED = 1
-doors.LOCKING_MODE_LOCKED = 2
-doors.LOCKING_MODE_SHARED = 3
-doors.CLOSING_MODE_UNDEFINED = 0
-doors.CLOSING_MODE_MANUAL = 1
-doors.CLOSING_MODE_AUTOCLOSE = 2
-doors.CLOSING_MODE_HOLDOPEN = 3
-doors.ADJUST_LOCKING = 1
-doors.ADJUST_CLOSING = 2
-doors.CHECK_LOCKING = 3
-doors.CHECK_CLOSING = 4
+hades_doors.LOCKING_MODE_UNDEFINED = 0
+hades_doors.LOCKING_MODE_UNLOCKED = 1
+hades_doors.LOCKING_MODE_LOCKED = 2
+hades_doors.LOCKING_MODE_SHARED = 3
+hades_doors.CLOSING_MODE_UNDEFINED = 0
+hades_doors.CLOSING_MODE_MANUAL = 1
+hades_doors.CLOSING_MODE_AUTOCLOSE = 2
+hades_doors.CLOSING_MODE_HOLDOPEN = 3
+hades_doors.ADJUST_LOCKING = 1
+hades_doors.ADJUST_CLOSING = 2
+hades_doors.CHECK_LOCKING = 3
+hades_doors.CHECK_CLOSING = 4
 
 local hidden_tiles = { "blank.png" }
 local hidden_drawtype = "airlike"
@@ -56,25 +47,25 @@ All hidden door segments are defined in such a way that they effectively
 "block" other nodes from occupying the same space.
 
 The "standard" offset door (open and closed) uses 1 hidden door segment
-* doors:hidden for the upper segment.
+* hades_doors:hidden for the upper segment.
 The closed center door uses 1 hidden door segment:
-* doors:hidden_center (1×) for the upper door segment
+* hades_doors:hidden_center (1×) for the upper door segment
 The open center door uses 3 hidden door segments:
-* doors:hidden_center (1×) for the upper door segment
-* doors:hidden (2×) for the lower and upper and lower
+* hades_doors:hidden_center (1×) for the upper door segment
+* hades_doors:hidden (2×) for the lower and upper and lower
   door segments of the door's neighbors
 The "neighbors" of the center door are the 2 nodes into which the
 center door opens. ]]
 
-minetest.register_node( "doors:hidden", {
+minetest.register_node( "hades_doors:hidden", {
 	-- This node is walkable to stop falling nodes.
 	-- The nodebox is chosen in such a way
 	-- that it is inside the overlapping nodebox
 	-- of the main door node, but it still needs
 	-- to be rotated.
 	description = S("Shared Hidden Door Segment"),
-	inventory_image = "doors_hidden_inv.png",
-	wield_image = "doors_hidden_inv.png",
+	inventory_image = "hades_doors_hidden_inv.png",
+	wield_image = "hades_doors_hidden_inv.png",
 	drawtype = hidden_drawtype,
 	tiles = hidden_tiles,
 	use_texture_alpha = "clip",
@@ -98,12 +89,12 @@ minetest.register_node( "doors:hidden", {
 	},
 } )
 
-minetest.register_node( "doors:hidden_center", {
-	-- Basically the same as doors:hidden, but
+minetest.register_node( "hades_doors:hidden_center", {
+	-- Basically the same as hades_doors:hidden, but
 	-- for center doors instead.
 	description = S("Hidden Center Door Segment"),
-	inventory_image = "doors_hidden_center_inv.png",
-	wield_image = "doors_hidden_center_inv.png",
+	inventory_image = "hades_doors_hidden_center_inv.png",
+	wield_image = "hades_doors_hidden_center_inv.png",
 	drawtype = hidden_drawtype,
 	tiles = hidden_tiles,
 	use_texture_alpha = "clip",
@@ -264,15 +255,15 @@ local function is_door_locked( pos, ndef, player_name )
 
 	if minetest.get_player_privs( player_name ).protection_bypass then return false end
 
-	if locking_mode == doors.LOCKING_MODE_UNDEFINED then
+	if locking_mode == hades_doors.LOCKING_MODE_UNDEFINED then
 		if ndef.protected and player_name ~= owner then
 			return true
 		end
-	elseif locking_mode == doors.LOCKING_MODE_LOCKED then
+	elseif locking_mode == hades_doors.LOCKING_MODE_LOCKED then
 		if ndef.protected and player_name ~= owner or not ndef.protected then
 			return true
 		end
-	elseif locking_mode == doors.LOCKING_MODE_SHARED then
+	elseif locking_mode == hades_doors.LOCKING_MODE_SHARED then
 		if minetest.is_protected( pos, player_name ) then
 			return true
 		end
@@ -303,7 +294,7 @@ local function toggle_door( pos, node, player )
 	local new_name = ndef.base_name .. transform.suffix
 	local new_param2 = transform.param2
 
-	if not is_open and closing_mode == doors.CLOSING_MODE_HOLDOPEN then
+	if not is_open and closing_mode == hades_doors.CLOSING_MODE_HOLDOPEN then
 		minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.8, max_hear_distance = 10 }, true )
 		return false   -- abort since this door does not close
 	end
@@ -329,8 +320,8 @@ local function toggle_door( pos, node, player )
 				else
 					np2 = (node.param2 + 1) % 4
 				end
-				minetest.set_node(neighbor_bottom, {name="doors:hidden", param2=np2})
-				minetest.set_node(neighbor_top, {name="doors:hidden", param2=np2})
+				minetest.set_node(neighbor_bottom, {name="hades_doors:hidden", param2=np2})
+				minetest.set_node(neighbor_top, {name="hades_doors:hidden", param2=np2})
 			else
 				-- It's blocked, can't open
 				minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.8, max_hear_distance = 10 }, true )
@@ -338,16 +329,16 @@ local function toggle_door( pos, node, player )
 			end
 		else
 			-- Close center door, remove place hidden nodes again
-			if nb1.name == "doors:hidden" then
+			if nb1.name == "hades_doors:hidden" then
 				minetest.remove_node(neighbor_bottom)
 			end
-			if nb2.name == "doors:hidden" then
+			if nb2.name == "hades_doors:hidden" then
 				minetest.remove_node(neighbor_top)
 				minetest.check_for_falling(neighbor_top)
 			end
 		end
 	end
-	if is_open and closing_mode == doors.CLOSING_MODE_AUTOCLOSE then
+	if is_open and closing_mode == hades_doors.CLOSING_MODE_AUTOCLOSE then
 		local timer = minetest.get_node_timer( pos )
 		timer:start( config.autoclose_timeout )
 	end
@@ -385,7 +376,7 @@ function toggle_trapdoor( pos, node, player )
 	if node.name == ndef.base_name then
 		local new_name = ndef.base_name .. "_open"
 
-		if closing_mode == doors.CLOSING_MODE_AUTOCLOSE then
+		if closing_mode == hades_doors.CLOSING_MODE_AUTOCLOSE then
 			local timer = minetest.get_node_timer( pos )
 			timer:start( config.autoclose_timeout )
 		end
@@ -395,7 +386,7 @@ function toggle_trapdoor( pos, node, player )
 	else
 		local new_name = ndef.base_name
 
-		if closing_mode == doors.CLOSING_MODE_HOLDOPEN then
+		if closing_mode == hades_doors.CLOSING_MODE_HOLDOPEN then
 			minetest.sound_play( ndef.sound_held_open, { pos = pos, gain = 0.8, max_hear_distance = 10 }, true )
 			return false   -- abort since this trapdoor does not close
 		end
@@ -445,19 +436,19 @@ local function on_adjust_door( pos, node, player, mode )
 
 	if is_door_protected( pos, ndef, player_name ) then return false end
 
-	if mode == doors.ADJUST_LOCKING or mode == doors.CHECK_LOCKING then
+	if mode == hades_doors.ADJUST_LOCKING or mode == hades_doors.CHECK_LOCKING then
 		if ndef.is_lockable and locking_mode > 0 then
 			local mode_defs = { S("unlocked"), S("locked"), S("shared") }
 
-			if mode == doors.ADJUST_LOCKING then
+			if mode == hades_doors.ADJUST_LOCKING then
 				locking_mode = locking_mode % 3 + 1
 				meta:set_int( "locking_mode", locking_mode )
 				local sound
-				if locking_mode == doors.LOCKING_MODE_LOCKED then
+				if locking_mode == hades_doors.LOCKING_MODE_LOCKED then
 					sound = ndef.sound_locking
-				elseif locking_mode == doors.LOCKING_MODE_SHARED then
+				elseif locking_mode == hades_doors.LOCKING_MODE_SHARED then
 					sound = ndef.sound_sharing
-				elseif locking_mode == doors.LOCKING_MODE_UNLOCKED then
+				elseif locking_mode == hades_doors.LOCKING_MODE_UNLOCKED then
 					sound = ndef.sound_unlocking
 				end
 				minetest.sound_play( sound, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
@@ -469,11 +460,11 @@ local function on_adjust_door( pos, node, player, mode )
 			minetest.chat_send_player(player_name, minetest.colorize("#FFFF00", S("This block does not provide locking adjustments.")))
 			return false
 		end
-	elseif mode == doors.ADJUST_CLOSING or mode == doors.CHECK_CLOSING then
+	elseif mode == hades_doors.ADJUST_CLOSING or mode == hades_doors.CHECK_CLOSING then
 		if ndef.is_closable and closing_mode > 0 then
 			local mode_defs = { "manual", "auto-close", "hold-open" }
 
-			if mode == doors.ADJUST_CLOSING then
+			if mode == hades_doors.ADJUST_CLOSING then
 				closing_mode = closing_mode % 3 + 1
 				meta:set_int( "closing_mode", closing_mode )
 				minetest.sound_play( ndef.sound_closing_mode, { pos = pos, gain = 0.3, max_hear_distance = 10 }, true )
@@ -526,16 +517,16 @@ local function on_rotate_door( pos, node, player, mode )
 			p2 = (p2 + 3) % 4
 		end
 		if stype == "center" then
-			minetest.set_node( top, { name = "doors:hidden_center", param2 = p2 } )
+			minetest.set_node( top, { name = "hades_doors:hidden_center", param2 = p2 } )
 			if is_open then
 				local neighbor = center_neighbor[shand][p2]
 				if shand == "right" then
 					p2 = (p2 + 1) % 4
 				end
-				minetest.set_node( vector.add( top, neighbor ), { name = "doors:hidden", param2 = p2 } )
+				minetest.set_node( vector.add( top, neighbor ), { name = "hades_doors:hidden", param2 = p2 } )
 			end
 		else
-			minetest.set_node( top, { name = "doors:hidden", param2 = p2 } )
+			minetest.set_node( top, { name = "hades_doors:hidden", param2 = p2 } )
 		end
 
 		meta:set_int( "state", state )
@@ -572,36 +563,36 @@ local function on_rotate_door( pos, node, player, mode )
 				local nnbd = minetest.registered_nodes[nnb.name]
 				if nntd and nnbd and nntd.buildable_to and nnbd.buildable_to then
 					minetest.swap_node( pos, { name = ndef.base_name .. transform.suffix, param2 = transform.param2 } )
-					minetest.set_node( top, { name = "doors:hidden_center", param2 = p2 } )
+					minetest.set_node( top, { name = "hades_doors:hidden_center", param2 = p2 } )
 					if shand == "right" then
 						p2 = (p2 + 1) % 4
 					end
-					minetest.set_node( neighbor_bottom, { name = "doors:hidden", param2 = p2 })
-					minetest.set_node( neighbor_top, { name = "doors:hidden", param2 = p2 })
+					minetest.set_node( neighbor_bottom, { name = "hades_doors:hidden", param2 = p2 })
+					minetest.set_node( neighbor_top, { name = "hades_doors:hidden", param2 = p2 })
 				else
 					return false
 				end
 			else
 				p2 = transform.param2
 				minetest.swap_node( pos, { name = ndef.base_name .. transform.suffix, param2 = transform.param2 } )
-				minetest.set_node( top, { name = "doors:hidden_center", param2 = p2 } )
+				minetest.set_node( top, { name = "hades_doors:hidden_center", param2 = p2 } )
 			end
 		else
 			if shand == "right" then
 				p2 = (p2 + 3) % 4
 			end
 			minetest.swap_node( pos, { name = ndef.base_name .. transform.suffix, param2 = transform.param2 } )
-			minetest.set_node( top, { name = "doors:hidden", param2 = p2} )
+			minetest.set_node( top, { name = "hades_doors:hidden", param2 = p2} )
 			local neighbor = center_neighbor[shand][p2]
 			local neighbor_top = vector.add(top, neighbor)
 			local neighbor_bottom = offset_y(neighbor_top, -1)
 			local nnt = minetest.get_node(neighbor_top)
 			local nnb = minetest.get_node(neighbor_bottom)
-			if nnt.name == "doors:hidden" then
+			if nnt.name == "hades_doors:hidden" then
 				minetest.remove_node(neighbor_top)
 				minetest.check_for_falling(neighbor_top)
 			end
-			if nnb.name == "doors:hidden" then
+			if nnb.name == "hades_doors:hidden" then
 				minetest.remove_node(neighbor_bottom)
 			end
 		end
@@ -643,17 +634,17 @@ if minetest.get_modpath("screwdriver") then
 end
 
 ---------------------------------
--- doors.get_door_or_nil( )
+-- hades_doors.get_door_or_nil( )
 ---------------------------------
 
-doors.get_door_or_nil = function ( pos )
+hades_doors.get_door_or_nil = function ( pos )
        	local node = minetest.get_node( pos )
 	local meta = minetest.get_meta( pos )
 	local ndef = minetest.registered_nodes[ node.name ]
 	local self = { }
 
 	if ndef.groups.trapdoor then
-		return doors.get_trapdoor_or_nil( pos )
+		return hades_doors.get_trapdoor_or_nil( pos )
 	elseif not ndef.groups.door then
 		return nil
 	end
@@ -695,13 +686,13 @@ doors.get_door_or_nil = function ( pos )
 	return self
 end
 
-doors.get = doors.get_door_or_nil  -- for backwards compatibility
+hades_doors.get = hades_doors.get_door_or_nil  -- for backwards compatibility
 
 ---------------------------------
--- doors.get_trapdoor_or_nil( )
+-- hades_doors.get_trapdoor_or_nil( )
 ---------------------------------
 
-doors.get_trapdoor_or_nil = function ( pos )
+hades_doors.get_trapdoor_or_nil = function ( pos )
        	local node = minetest.get_node( pos )
 	local meta = minetest.get_meta( pos )
 	local ndef = minetest.registered_nodes[ node.name ]
@@ -821,10 +812,10 @@ local function register_door_craftitem( name, def )
 			if minetest.get_item_group( minetest.get_node( look_pos ).name, "door" ) == 1 then
 				state = state + 2	-- rotate 180
 				minetest.set_node( pos, { name = name .. "_b", param2 = facedir } )
-				minetest.set_node( top_pos, { name = "doors:hidden", param2 = ( facedir + 3 ) % 4 } )
+				minetest.set_node( top_pos, { name = "hades_doors:hidden", param2 = ( facedir + 3 ) % 4 } )
 			else
 				minetest.set_node( pos, { name = name .. "_a", param2 = facedir } )
-				minetest.set_node( top_pos, { name = "doors:hidden", param2 = facedir } )
+				minetest.set_node( top_pos, { name = "hades_doors:hidden", param2 = facedir } )
 			end
 
 			local meta = minetest.get_meta( pos )
@@ -837,10 +828,10 @@ local function register_door_craftitem( name, def )
 				meta:set_string( "infotext", "Owned by " .. player_name )
 			end
 			if def.is_lockable then
-				meta:set_string( "locking_mode", def.protected and doors.LOCKING_MODE_LOCKED or doors.LOCKING_MODE_UNLOCKED )
+				meta:set_string( "locking_mode", def.protected and hades_doors.LOCKING_MODE_LOCKED or hades_doors.LOCKING_MODE_UNLOCKED )
 			end
 			if def.is_closable then
-				meta:set_string( "closing_mode", doors.CLOSING_MODE_MANUAL )
+				meta:set_string( "closing_mode", hades_doors.CLOSING_MODE_MANUAL )
 			end
 
 			if not minetest.is_creative_enabled(player:get_player_name()) then
@@ -857,10 +848,10 @@ local function register_door_craftitem( name, def )
 end
 
 ---------------------------------
--- doors.register_door( )
+-- hades_doors.register_door( )
 ---------------------------------
 
-function doors.register_door( name, def )
+function hades_doors.register_door( name, def )
 
 	register_door_craftitem( name, def )
 
@@ -1031,13 +1022,13 @@ function doors.register_door( name, def )
 	end
 end
 
-doors.register = doors.register_door		-- for backward compatibility
+hades_doors.register = hades_doors.register_door		-- for backward compatibility
 
 ---------------------------------
--- doors.register_trapdoor( )
+-- hades_doors.register_trapdoor( )
 ---------------------------------
 
-function doors.register_trapdoor( name, def )
+function hades_doors.register_trapdoor( name, def )
 	
 	-- define the basic properties
 
@@ -1163,10 +1154,10 @@ function doors.register_trapdoor( name, def )
 			meta:set_string( "infotext", "Owned by " .. player_name )
 
 			if def.is_lockable then
-				meta:set_string( "locking_mode", def.protected and doors.LOCKING_MODE_LOCKED or doors.LOCKING_MODE_UNLOCKED )
+				meta:set_string( "locking_mode", def.protected and hades_doors.LOCKING_MODE_LOCKED or hades_doors.LOCKING_MODE_UNLOCKED )
 			end
 			if def.is_closable then
-				meta:set_string( "closing_mode", doors.CLOSING_MODE_MANUAL )
+				meta:set_string( "closing_mode", hades_doors.CLOSING_MODE_MANUAL )
 			end
 
 			return minetest.is_creative_enabled(player_name)
@@ -1178,10 +1169,10 @@ function doors.register_trapdoor( name, def )
 			local meta = minetest.get_meta( pos )
 
 			if def.is_lockable then
-				meta:set_string( "locking_mode", def.protected and doors.LOCKING_MODE_LOCKED or doors.LOCKING_MODE_UNLOCKED )
+				meta:set_string( "locking_mode", def.protected and hades_doors.LOCKING_MODE_LOCKED or hades_doors.LOCKING_MODE_UNLOCKED )
 			end
 			if def.is_closable then
-				meta:set_string( "closing_mode", doors.CLOSING_MODE_MANUAL )
+				meta:set_string( "closing_mode", hades_doors.CLOSING_MODE_MANUAL )
 			end
 
 			return minetest.is_creative_enabled(player_name)
@@ -1210,10 +1201,10 @@ function doors.register_trapdoor( name, def )
 end
 
 ---------------------------------
--- doors.register_fencegate( )
+-- hades_doors.register_fencegate( )
 ---------------------------------
 
-function doors.register_fencegate( name, def )
+function hades_doors.register_fencegate( name, def )
 	local fence = {
 		description = def.description,
 		drawtype = "nodebox",

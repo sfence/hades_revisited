@@ -1,4 +1,4 @@
-local S = minetest.get_translator("doors")
+local S = minetest.get_translator("hades_doors")
 
 local config = {}
 config.wrench_usage_limit = 200
@@ -23,14 +23,14 @@ local function handle_wrench( itemstack, player, pointed_thing, mode, uses )
 	if ndef.on_adjust then
 		local has_wear = ndef.on_adjust( vector.new( pos ), { name = node.name, param1 = node.param1, param2 = node.param2 }, player, mode )
 
-		if (mode == doors.ADJUST_LOCKING or mode == doors.ADJUST_CLOSING) and
+		if (mode == hades_doors.ADJUST_LOCKING or mode == hades_doors.ADJUST_CLOSING) and
 		(not minetest.is_creative_enabled( player_name )) and has_wear then
 			itemstack:add_wear( 65535 / config.wrench_usage_limit - 1 )
 		end
 	end
 end
 
-minetest.register_tool( "doors:wrench", {
+minetest.register_tool( "hades_doors:wrench", {
 	description = S("Wrench"),
 	_tt_help = S("Punch to adjust door locking").."\n"..
 		S("Place to adjust door closing").."\n"..
@@ -40,9 +40,9 @@ minetest.register_tool( "doors:wrench", {
 		local ctrl = player:get_player_control()
 		local mode
 		if ctrl.sneak then
-			mode = doors.CHECK_LOCKING
+			mode = hades_doors.CHECK_LOCKING
 		else
-			mode = doors.ADJUST_LOCKING
+			mode = hades_doors.ADJUST_LOCKING
 		end
 		handle_wrench( itemstack, player, pointed_thing, mode )
 		return itemstack
@@ -62,9 +62,9 @@ minetest.register_tool( "doors:wrench", {
 		local ctrl = player:get_player_control()
 		local mode
 		if ctrl.sneak then
-			mode = doors.CHECK_CLOSING
+			mode = hades_doors.CHECK_CLOSING
 		else
-			mode = doors.ADJUST_CLOSING
+			mode = hades_doors.ADJUST_CLOSING
 		end
 		handle_wrench( itemstack, player, pointed_thing, mode )
 		return itemstack
@@ -72,7 +72,7 @@ minetest.register_tool( "doors:wrench", {
 } )
 
 minetest.register_craft( {
-	output = "doors:wrench",
+	output = "hades_doors:wrench",
 	recipe = {
 		{ "hades_core:steel_ingot" },
 		{ "hades_core:steel_rod" },

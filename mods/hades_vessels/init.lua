@@ -61,7 +61,7 @@ minetest.register_craft( {
 
 minetest.register_craft({
 	output = "hades_vessels:glass_fragments 6",
-	recipe = {{"doors:door_glass"}},
+	recipe = {{"hades_doors:door_glass"}},
 })
 
 minetest.register_craft({

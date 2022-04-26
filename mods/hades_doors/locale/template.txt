@@ -1,4 +1,4 @@
-# textdomain: doors
+# textdomain: hades_doors
 Shared Hidden Door Segment=
 Hidden Center Door Segment=
 unlocked=
