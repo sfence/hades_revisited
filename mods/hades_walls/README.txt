@@ -1,5 +1,5 @@
-Minetest Game mod: walls
-========================
+hades_walls
+===========
 See license.txt for license information.
 
 Authors of source code

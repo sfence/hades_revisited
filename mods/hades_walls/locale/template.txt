@@ -1,4 +1,4 @@
-# textdomain: walls
+# textdomain: hades_walls
 Cobblestone Wall=
 Mossy Cobblestone Wall=
 Burned Cobblestone Wall=

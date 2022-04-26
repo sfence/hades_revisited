@@ -1,8 +1,8 @@
-local S = minetest.get_translator("walls")
+local S = minetest.get_translator("hades_walls")
 
-walls = {}
+hades_walls = {}
 
-walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sounds, connects_to)
+hades_walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sounds, connects_to)
 	if connects_to then
 		table.insert(connects_to, "group:wall")
 		table.insert(connects_to, "group:fence")
@@ -44,30 +44,39 @@ walls.register = function(wall_name, wall_desc, wall_texture, wall_mat, wall_sou
 
 end
 
-walls.register("walls:cobble", S("Cobblestone Wall"), "default_cobble.png",
+hades_walls.register("hades_walls:cobble", S("Cobblestone Wall"), "default_cobble.png",
 		"hades_core:cobble", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
-walls.register("walls:mossycobble", S("Mossy Cobblestone Wall"), "default_mossycobble.png",
+hades_walls.register("hades_walls:mossycobble", S("Mossy Cobblestone Wall"), "default_mossycobble.png",
 		"hades_core:mossycobble", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
-walls.register("walls:cobble_baked", S("Burned Cobblestone Wall"), "hades_core_cobble_baked.png",
+hades_walls.register("hades_walls:cobble_baked", S("Burned Cobblestone Wall"), "hades_core_cobble_baked.png",
 		"hades_core:cobble_baked", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
-walls.register("walls:sandstone", S("Fine Sandstone Wall"), "default_sandstone.png",
+hades_walls.register("hades_walls:sandstone", S("Fine Sandstone Wall"), "default_sandstone.png",
 		"hades_core:sandstone", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
-walls.register("walls:sandstone_volcanic", S("Volcanic Sandstone Wall"), "hades_core_sandstone_volcanic.png",
+hades_walls.register("hades_walls:sandstone_volcanic", S("Volcanic Sandstone Wall"), "hades_core_sandstone_volcanic.png",
 		"hades_core:sandstone_volcanic", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
-walls.register("walls:cobble_sandstone", S("Cobbled Fine Sandstone Wall"), "hades_core_cobble_sandstone.png",
+hades_walls.register("hades_walls:cobble_sandstone", S("Cobbled Fine Sandstone Wall"), "hades_core_cobble_sandstone.png",
 		"hades_core:cobble_sandstone", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
 
-walls.register("walls:cobble_sandstone_volcanic", S("Cobbled Volcanic Sandstone Wall"), "hades_core_cobble_sandstone_volcanic.png",
+hades_walls.register("hades_walls:cobble_sandstone_volcanic", S("Cobbled Volcanic Sandstone Wall"), "hades_core_cobble_sandstone_volcanic.png",
 		"hades_core:cobble_sandstone_volcanic", hades_sounds.node_sound_stone_defaults(),
 		{"group:stone", "group:sandstone"})
+
+-- Legacy alias
+minetest.register_alias("walls:cobble", "hades_walls:cobble")
+minetest.register_alias("walls:mossycobble", "hades_walls:mossycobble")
+minetest.register_alias("walls:cobble_baked", "hades_walls:cobble_baked")
+minetest.register_alias("walls:sandstone", "hades_walls:sandstone")
+minetest.register_alias("walls:sandstone_volcanic", "hades_walls:sandstone_volcanic")
+minetest.register_alias("walls:cobble_sandstone", "hades_walls:cobble_sandstone")
+minetest.register_alias("walls:cobble_sandstone_volcanic", "hades_walls:cobble_sandstone_volcanic")
