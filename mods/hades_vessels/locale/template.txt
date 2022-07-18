@@ -1,3 +1,3 @@
-# textdomain: vessels
+# textdomain: hades_vessels
 Empty Glass Bottle=
 Pile of Glass Fragments=
