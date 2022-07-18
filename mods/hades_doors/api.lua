@@ -462,7 +462,7 @@ local function on_adjust_door( pos, node, player, mode )
 		end
 	elseif mode == hades_doors.ADJUST_CLOSING or mode == hades_doors.CHECK_CLOSING then
 		if ndef.is_closable and closing_mode > 0 then
-			local mode_defs = { "manual", "auto-close", "hold-open" }
+			local mode_defs = { S("manual"), S("auto-close"), S("hold-open") }
 
 			if mode == hades_doors.ADJUST_CLOSING then
 				closing_mode = closing_mode % 3 + 1
