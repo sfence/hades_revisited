@@ -15,21 +15,21 @@ Shows the cardinal direction you're looking at=Zeigt die Himmelsrichtung an
 It shows where you're looking: North, East, South or West.=Zeigt, wohin Sie blicken: Norden, Osten, Süden oder Westen
 Quadcorder=Vierkorder
 Shows your coordinates, cardinal direction, pitch, time, speed and enables minimap=Zeigt Ihre Koordinaten, Himmelsrichtung, Nickwinkel, Uhrzeit, Geschwindigkeit an und aktiviert die Übersichtskarte
-This is the ultimate orientieering tool. It shows you your coordinates (X, Y and Z), shows the cardinal direction, the current time, your current speed and it enables you to access the minimap.=
+This is the ultimate orientieering tool. It shows you your coordinates (X, Y and Z), shows the cardinal direction, the current time, your current speed and it enables you to access the minimap.=Dies ist das ultimative Werkzeug für die Orientierung. Es zeigt Ihre Koordinaten (X, Y und Z), Ihre Himmelsrichtung, die Uhrzeit und Ihr momentanes Tempo und es erlaubt Ihnen Zugriff auf die Übersichtskarte.
 Watch=Uhr
 Shows the time=Zeigt die Zeit
 It shows you the current time.=Sie zeigt Ihnen die aktuelle Uhrzeit.
-Put the watch in your hotbar to see the time. Leftclick to toggle between the 24-hour and 12-hour display.=
+Put the watch in your hotbar to see the time. Leftclick to toggle between the 24-hour and 12-hour display.=Uhr in Schnellleiste ablegen, um die Zeit anzuzeigen. Linksklick wechselt zwischen 24- und 12-Stunden-Anzeige.
 Speedometer=Tacho
 Shows your speed=Zeigt Ihre Geschwindigkeit
 It shows you your current horizontal (“hor.”) and vertical (“ver.”) speed in meters per second, where one meter is the side length of a single cube.=Er zeigt Ihnen ihre aktuelle horizontale (»hor.«) und vertikale (»vert.«) Geschwindigkeit in Metern pro Sekunde, wobei hier ein Meter die Kantenlänge eines einzelnen Würfels ist.
-Automapper=
+Automapper=Autokartierer
 Allows using the minimap=Erlaubt die Benuzung der Übersichtskarte
-The automapper automatically creates a map of the area around you and enables you to view a minimap of your surroundings. It also has a built-in radar.=
-If you put an automapper in your hotbar, you will be able to access the minimap. By default the minimap can be opened with [F7].=
+The automapper automatically creates a map of the area around you and enables you to view a minimap of your surroundings. It also has a built-in radar.=Der Autokartierer erzeugt automatisch eine Karte der Umgebung und erlaubt Ihnen die Anzeige der Übersichtskarte.
+If you put an automapper in your hotbar, you will be able to access the minimap. By default the minimap can be opened with [F7].=Platzieren Sie einen Autokartierer in Ihrer Schnellleiste, können Sie die Übersichtskarte aktivieren. Standardmäßig öffnen Sie die Übersichtskarte mit [F7].
 GPS device=GPS-Gerät
-Shows your coordinates, cardinal direction and the time=
-The GPS device shows you your coordinates (X, Y and Z), your cardinal direction and the time.=
+Shows your coordinates, cardinal direction and the time=Zeigt Ihre Koordinaten, Himmelsrichtung und die Uhrzeit
+The GPS device shows you your coordinates (X, Y and Z), your cardinal direction and the time.=Das GPS-Gerät zeigt Ihre Koordinaten (X, Y und Z), Ihre Himmelsrichtung und die Zeit.
 Coordinates: X@=@1, Y@=@2, Z@=@3=Koordinaten: X@=@1, Y@=@2, Z@=@3
 Height: Y@=@1=Höhe: Y@=@1
 Coordinates: X@=@1, Z@=@2=Koordinaten: X@=@1, Z@=@2
