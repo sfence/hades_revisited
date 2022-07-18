@@ -3,7 +3,7 @@ local S = minetest.get_translator("gluncarp")
 gluncarp = {}
 
 ---more cloth
-minetest.register_node("gluncarp:wool_blackgold", {
+minetest.register_node("gluncarp:cloth_blackgold", {
 	description = S("Black Cloth with Gold"),
 	paramtype2 = "facedir",
 	is_ground_content = false,
@@ -15,9 +15,11 @@ minetest.register_node("gluncarp:wool_blackgold", {
 -- Crafting
 minetest.register_craft({
 	type = "shapeless",
-	output = 'gluncarp:wool_blackgold',
+	output = 'gluncarp:cloth_blackgold',
 	recipe = {'hades_cloth:black','hades_core:gold_ingot'},
 })
+
+minetest.register_alias("gluncarp:wool_blackgold", "gluncarp:cloth_blackgold")
 
 dofile(minetest.get_modpath("gluncarp").."/machines.lua")
 dofile(minetest.get_modpath("gluncarp").."/carpets.lua")
