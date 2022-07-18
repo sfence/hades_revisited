@@ -296,6 +296,31 @@ minetest.register_craft({
 	}
 })
 
+hades_doors.register_door("hades_doors:door_stone_baked", {
+	description = S("Burned Stone Door"),
+	inventory_image = "hades_doors_stone_baked.png",
+	groups = {cracky=3,door=1},
+	tiles = {{name="hades_doors_door_stone_baked.png", backface_culling=true}},
+	only_placer_can_open = true,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	sound_open = "mcl_fences_nether_brick_fence_gate_open",
+	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sound_locked = "doors_door_locked_stone",
+	sound_held_open = "doors_door_held_open_stone",
+	sunlight_propagates = false,
+})
+
+minetest.register_craft({
+	output = "hades_doors:door_stone_baked",
+	recipe = {
+		{"hades_core:stone_baked", "hades_core:stone_baked"},
+		{"hades_core:stone_baked", "hades_core:stone_baked"},
+		{"hades_core:stone_baked", "hades_core:stone_baked"}
+	}
+})
+
+
+
 -- chondrite
 hades_doors.register_door("hades_doors:door_chondrite", {
 	description = S("Chondrite Door"),
@@ -343,6 +368,32 @@ minetest.register_craft({
 		{"hades_core:essexite", "hades_core:essexite"},
 	}
 })
+
+-- basalt
+hades_doors.register_door("hades_doors:door_basalt", {
+	description = S("Basalt Door"),
+	inventory_image = "hades_doors_item_basalt.png",
+	groups = {cracky=3,door=1},
+	tiles = {{name="hades_doors_door_basalt.png", backface_culling=true}},
+	only_placer_can_open = true,
+	sounds = hades_sounds.node_sound_stone_defaults(),
+	sound_open = "mcl_fences_nether_brick_fence_gate_open",
+	sound_close = "mcl_fences_nether_brick_fence_gate_close",
+	sound_locked = "doors_door_locked_stone",
+	sound_held_open = "doors_door_held_open_stone",
+	sunlight = false,
+})
+
+minetest.register_craft({
+	output = "hades_doors:door_basalt",
+	recipe = {
+		{"hades_core:basalt", "hades_core:basalt"},
+		{"hades_core:basalt", "hades_core:basalt"},
+		{"hades_core:basalt", "hades_core:basalt"},
+	}
+})
+
+
 
 -- marble
 hades_doors.register_door("hades_doors:door_marble", {
