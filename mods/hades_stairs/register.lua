@@ -1,4 +1,4 @@
-local S = minetest.get_translator("hades_hades")
+local S = minetest.get_translator("hades_stairs")
 
 local custom_textures = function(block, stair_l, stair_r, outstair, slab, step)
 	return {"!CUSTOM",
@@ -39,7 +39,7 @@ hades_stairs.register_stair_and_slab_and_step("jungle_wood", "hades_trees:jungle
 		nil,
 		S("Tropical Wood Stair"),
 		S("Outer Tropical Wood Stair"),
-		S("Innter Tropical Wood Stair"),
+		S("Inner Tropical Wood Stair"),
 		S("Tropical Wood Slab"),
 		S("Tropical Wood Step"),
 		S("Outer Tropical Wood Step"),
@@ -1085,7 +1085,7 @@ hades_stairs.register_stair_and_slab_and_step("floor_cream_cream", "hades_tiles:
 hades_stairs.register_stair_and_slab_and_step("floor_jungle_jungle", "hades_tiles:floor_jungle_jungle",
 		{choppy=3,oddly_breakable_by_hand=2,flammable=3},
 		nil,
-		S("Tropical Tile Stair"),
+		S("Tropical Wood Tile Stair"),
 		S("Outer Tropical Wood Tile Stair"),
 		S("Inner Tropical Wood Tile Stair"),
 		S("Tropical Wood Tile Slab"),
@@ -1232,7 +1232,7 @@ hades_stairs.register_stair_and_slab_and_step("cinnaber", "hades_core:cinnaber",
 		S("Cinnaber Slab"),
 		S("Cinnaber Step"),
 		S("Outer Cinnaber Step"),
-		S("Inner Cinnber Step"))
+		S("Inner Cinnaber Step"))
 hades_stairs.register_stair_and_slab_and_step("olivine", "hades_core:olivine",
 		{cracky=3},
 		nil,
@@ -1303,7 +1303,7 @@ hades_stairs.register_stair_and_slab_and_step("cinnaber_brick", "hades_core:cinn
 		S("Cinnaber Brick Slab"),
 		S("Cinnaber Brick Step"),
 		S("Outer Cinnaber Brick Step"),
-		S("Inner Cinnber Brick Step"))
+		S("Inner Cinnaber Brick Step"))
 hades_stairs.register_stair_and_slab_and_step("olivine_brick", "hades_core:olivine_brick",
 		{cracky=3},
 		nil,
@@ -1360,8 +1360,8 @@ hades_stairs.register_slab_with_double("floorblock_marble_essexite2", "hades_cor
 hades_stairs.register_slab_with_double("floorblock_bstone_sandstone", "hades_core:floor_bstone_sandstone",
 		{cracky=3},
 		{"hades_core_floor_bstone_sandstone.png", "hades_core_floor_bstone_sandstone.png", "hades_stairs_floorblock_bstone_sandstone_slab.png"},
-		S("Baked Stone/Sandstone Slab"),
-		S("Double Baked Stone/Sandstone Slab"))
+		S("Burned Stone/Sandstone Slab"),
+		S("Double Burned Stone/Sandstone Slab"))
 hades_stairs.register_slab_with_double("floorblock_chondrite_stone", "hades_core:floor_chondrite_stone",
 		{cracky=2},
 		{"hades_core_floor_chondrite_stone.png", "hades_core_floor_chondrite_stone.png", "hades_stairs_floorblock_chondrite_stone_slab.png"},
