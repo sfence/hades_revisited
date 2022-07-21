@@ -565,12 +565,12 @@ register_pedestal("pedestal_orangite", {
 	description=S("Orangite Pedestal"),
 	tiles={"hades_core_orangite.png"},
 	groups={cracky=3},
-	craftitem="hades_core:cinnaber"})
-register_pedestal("pedestal_cinnaber", {
-	description=S("Cinnaber Pedestal"),
-	tiles={"hades_core_cinnaber.png"},
+	craftitem="hades_core:cinnabar"})
+register_pedestal("pedestal_cinnabar", {
+	description=S("Cinnabar Pedestal"),
+	tiles={"hades_core_cinnabar.png"},
 	groups={cracky=3},
-	craftitem="hades_core:cinnaber"})
+	craftitem="hades_core:cinnabar"})
 register_pedestal("pedestal_olivine", {
 	description=S("Olivine Pedestal"),
 	tiles={"hades_core_olivine.png"},
@@ -690,3 +690,4 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_alias("hades_itemshow:pedestal_cinnaber", "hades_itemshow:pedestal_cinnabar")

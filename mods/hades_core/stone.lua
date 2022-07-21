@@ -197,10 +197,10 @@ register_stone("olivine", {
 	description_block = S("Olivine Block"),
 	description_brick = S("Olivine Brick"),
 })
-register_stone("cinnaber", {
-	description_base = S("Cinnaber"),
-	description_block = S("Cinnaber Block"),
-	description_brick = S("Cinnaber Brick"),
+register_stone("cinnabar", {
+	description_base = S("Cinnabar"),
+	description_block = S("Cinnabar Block"),
+	description_brick = S("Cinnabar Brick"),
 })
 register_stone("apolline", {
 	-- Invented word, based on "Apollon"
@@ -233,3 +233,6 @@ register_stone("turquosite", {
 	description_brick = S("Turquosite Brick"),
 })
 
+minetest.register_alias("hades_core:cinnaber", "hades_core:cinnabar")
+minetest.register_alias("hades_core:cinnaber_brick", "hades_core:cinnabar_brick")
+minetest.register_alias("hades_core:cinnaber_block", "hades_core:cinnabar_block")

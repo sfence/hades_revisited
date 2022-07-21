@@ -883,3 +883,12 @@ for i=1, #legacy_stair_ids do
 	local subname = legacy_stair_ids[i]
 	minetest.register_alias("stairs:"..subname, "hades_stairs:"..subname)
 end
+
+-- Other aliases
+minetest.register_alias("hades_stairs:stair_cinnaber", "hades_stairs:stair_cinnabar")
+minetest.register_alias("hades_stairs:stair_in_cinnaber", "hades_stairs:stair_in_cinnabar")
+minetest.register_alias("hades_stairs:stair_out_cinnaber", "hades_stairs:stair_out_cinnabar")
+minetest.register_alias("hades_stairs:stair_step_cinnaber", "hades_stairs:step_cinnabar")
+minetest.register_alias("hades_stairs:stair_step_in_cinnaber", "hades_stairs:step_in_cinnabar")
+minetest.register_alias("hades_stairs:stair_step_out_cinnaber", "hades_stairs:step_out_cinnabar")
+minetest.register_alias("hades_stairs:stair_slab_cinnaber", "hades_stairs:slab_cinnabar")
