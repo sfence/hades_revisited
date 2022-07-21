@@ -38,6 +38,7 @@ Bronze Ladder=
 Flowing Water=
 Water Source=
 Flowing Lava=
+Overheating in lava=
 Lava Source=
 Cactus=
 Grows on ash and sand=

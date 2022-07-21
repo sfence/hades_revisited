@@ -1,2 +1,24 @@
 # textdomain: hades_death_messages
+Drowning=Ertrinken
+Drowning in water=Ertrinken im Wasser
+Drowning in lava=Ertrinken in Lava
+Damage from a block=Blockschaden
+Shot by a mese monster crystal shard=Treffer von einem Mesemonsterkristall
+Shot by a fireball=Treffer von einem Feuerball
+Melee attack from an unknown source=Nahkkampfangriff von einer unbekannten Quelle
+Hit from a hostile creature=Treffer von einer feindlichen Kreatur
+Falling=Sturz
+Unknown=Unbekannt
+Punch from a mutant=Schlag eines Mutanten
+Hit from a cave master=Treffer eines Höhlenmeisters
+Hit from a cave elder=Treffer eines Höhlenältesten
+Headbutt from a mese monster=Kopfnuss eines Mesemonsters
+Headbutt from a deep mese monster=Kopfnuss eines Tiefmesemonsters
+Hit from an oerkki=Treffer eines Örkis
+Hit from a stone monster=Treffer eines Steinmonsters
+Hit from a deep stone monster=Treffer eines Tiefsteinmonsters
+Bite from a gold spider=Biss von einer Goldspinne
+Bite from a sapphire spider=Biss von einer Saphirspinne
+Bite from a ruby spider=Biss von einer Rubinspinne
+Bite from a mese spider=Biss von einer Mesespinne
 Cause of death: @1.=Todesursache: @1.
