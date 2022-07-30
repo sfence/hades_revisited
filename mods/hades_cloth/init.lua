@@ -30,7 +30,7 @@ for _, row in ipairs(hades_cloth.dyes) do
 	minetest.register_node("hades_cloth:"..name, {
 		description = desc,
 		tiles = {"wool_"..name..".png"},
-		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,hades_cloth=1},
+		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,cloth=1},
 		sounds = hades_sounds.node_sound_cloth_defaults(),
 		is_ground_content = false,
 	})
