@@ -47,6 +47,15 @@ local attempt_bed_respawn = function(player)
 	local name = player:get_player_name()
 	local pos = hades_beds.get_spawn(player)
 	if pos then
+		-- Load area around spawn pos to make sure
+		-- we don't get ignore nodes.
+		local load_offset = vector.new(1,1,1)
+		local load_min = vector.subtract(pos, load_offset)
+		local load_max = vector.add(pos, load_offset)
+		minetest.load_area(load_min, load_max)
+
+		-- Check if position is safe, if not, try to spawn to one of the
+		-- neighbor blocks
 		local check_posses = {
 			{ x=0, y=0, z=0 },
 			{ x=0, y=0, z=-1 },
@@ -58,8 +67,6 @@ local attempt_bed_respawn = function(player)
 			{ x=1, y=0, z=-1 },
 			{ x=1, y=0, z=1 },
 		}
-		-- Check if position is safe, if not, try to spawn to one of the
-		-- neighbor blocks
 		for n=1, #check_posses do
 			local cpos = vector.add(pos, check_posses[n])
 			local node = minetest.get_node(cpos)
