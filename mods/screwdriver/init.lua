@@ -170,7 +170,7 @@ screwdriver.handler = function(itemstack, user, pointed_thing, mode, uses)
 	end
 
 	if not minetest.is_creative_enabled(player_name) then
-		itemstack:add_wear(65535 / ((uses or USES) - 1))
+		itemstack:add_wear_by_uses(uses or USES_DEFAULT)
 	end
 
 	return itemstack

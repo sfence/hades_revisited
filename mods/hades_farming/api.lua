@@ -57,7 +57,7 @@ hades_farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	}, true)
 	
 	if not minetest.is_creative_enabled(name) then
-		itemstack:add_wear(65535/(uses-1))
+		itemstack:add_wear_by_uses(uses)
 	end
 	return itemstack
 end

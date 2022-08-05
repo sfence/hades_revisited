@@ -4387,7 +4387,7 @@ function mobs:capture_mob(self, clicker, chance_hand, chance_net,
 
 			chance = chance_net
 
-			tool:add_wear(4000) -- 17 uses
+			tool:add_wear_by_uses(17)
 
 			clicker:set_wielded_item(tool)
 
@@ -4395,7 +4395,7 @@ function mobs:capture_mob(self, clicker, chance_hand, chance_net,
 
 			chance = chance_lasso
 
-			tool:add_wear(650) -- 100 uses
+			tool:add_wear_by_uses(100)
 
 			clicker:set_wielded_item(tool)
 
