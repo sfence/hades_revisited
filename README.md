@@ -8,7 +8,7 @@ THIS IS A PREVIEW VERSION OF THE GAME. This game is playable,
 but incomplete. And future versions might change a lot
 and will often be incompatible and break your old worlds.
 
-Requires Minetest 5.4.0.
+Requires Minetest 5.6.0 or later.
 
 ## Introduction
 Due to a gross miscalculation of the gravitational pull of the volcanic
