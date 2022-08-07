@@ -1,4 +1,6 @@
 # textdomain: creative
+Allow player to use creative inventory=Permesu la ludanto uzi la krea stoko
+@1 / @2=
 Search=Serĉu
 Reset=Rekomencigu
 Previous page=Pasinta paĝo
@@ -7,4 +9,3 @@ All=Ĉio
 Nodes=Nodoj
 Tools=Iloj
 Items=Objektoj
-Allow player to use creative inventory=Permesu la ludanto uzi la krea stoko

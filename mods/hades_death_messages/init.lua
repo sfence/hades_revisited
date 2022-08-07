@@ -62,7 +62,7 @@ end
 
 local dmsg = function(mtype, ...)
 	local r = math.random(1, #msgs[mtype])
-	return S("Cause of death: @1.", msgs[mtype][r], ...)
+	return S("Cause of death: @1.", S(msgs[mtype][r], ...))
 end
 
 -- Select death message for death by mob

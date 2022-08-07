@@ -1,0 +1,8 @@
+# textdomain: hades_commands
+[<player>] <value>=[<Spieler>] <Wert>
+Set health points of player or yourself=Gesundheitspunkte von Spielern oder die eigenen setzen
+Not possible, damage is disabled.=Nicht möglich, Schaden ist deaktiviert.
+Invalid health!=Ungültige Gesundheit!
+Player @1 does not exist.=Spieler @1 existiert nicht.
+A death wish=Ein Todeswunsch
+A higher power=Eine höhere Macht

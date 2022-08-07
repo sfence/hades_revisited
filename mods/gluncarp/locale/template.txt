@@ -1,0 +1,25 @@
+# textdomain: gluncarp
+Black Carpet=
+Blue Carpet=
+Brown Carpet=
+Cyan Carpet=
+Dark Green Carpet=
+Dark Grey Carpet=
+Green Carpet=
+Grey Carpet=
+Magenta Carpet=
+Orange Carpet=
+Pink Carpet=
+Red Carpet=
+Violet Carpet=
+White Carpet=
+Yellow Carpet=
+Black and Gold Carpet=
+Black Cloth with Gold=
+Carpet Workstation=
+Turns cloth to carpets=
+Carpet workstation (owned by @1)=
+Cloth:=
+Output:=
+Craft:=
+Carpet workstation=

@@ -1,4 +1,8 @@
 # textdomain: hudbars
 Health=HP
 Breath=дыхание
+
+
+##### not used anymore #####
+
 @1: @2/@3=@1: @2/@3

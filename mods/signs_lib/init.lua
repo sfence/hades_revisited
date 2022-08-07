@@ -938,7 +938,7 @@ minetest.register_craft({
 minetest.register_craft( {
         output = "signs_lib:sign_wall_green 4",
         recipe = {
-			{ "dye:dark_green", "dye:white", "dye:dark_green" },
+			{ "hades_dye:dark_green", "hades_dye:white", "hades_dye:dark_green" },
 			{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" },
 			{ "", "hades_core:steel_rod", "" }
         },
@@ -946,7 +946,7 @@ minetest.register_craft( {
 minetest.register_craft( {
         output = "signs_lib:sign_wall_yellow 4",
         recipe = {
-			{ "dye:yellow", "dye:black", "dye:yellow" },
+			{ "hades_dye:yellow", "hades_dye:black", "hades_dye:yellow" },
 			{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" },
 			{ "", "hades_core:steel_rod", "" }
         },
@@ -954,7 +954,7 @@ minetest.register_craft( {
 minetest.register_craft( {
         output = "signs_lib:sign_wall_red 4",
         recipe = {
-			{ "dye:red", "dye:white", "dye:red" },
+			{ "hades_dye:red", "hades_dye:white", "hades_dye:red" },
 			{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" },
 			{ "", "hades_core:steel_rod", "" }
         },
@@ -962,7 +962,7 @@ minetest.register_craft( {
 minetest.register_craft( {
         output = "signs_lib:sign_wall_white_red 4",
         recipe = {
-			{ "dye:white", "dye:red", "dye:white" },
+			{ "hades_dye:white", "hades_dye:red", "hades_dye:white" },
 			{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" },
 			{ "", "hades_core:steel_rod", "" }
         },
@@ -970,7 +970,7 @@ minetest.register_craft( {
 minetest.register_craft( {
         output = "signs_lib:sign_wall_white_black 4",
         recipe = {
-			{ "dye:white", "dye:black", "dye:white" },
+			{ "hades_dye:white", "hades_dye:black", "hades_dye:white" },
 			{ "hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot" },
 			{ "", "hades_core:steel_rod", "" }
         },

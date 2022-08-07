@@ -1,0 +1,4 @@
+# textdomain: hades_bounds
+WARNING: Critically high radiation!=
+WARNING: High radiation!=
+Radiation poisoning=

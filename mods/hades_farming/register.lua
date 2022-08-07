@@ -76,7 +76,7 @@ minetest.register_craftitem("hades_farming:cotton", {
 	inventory_image = "hades_farming_cotton.png",
 })
 minetest.register_craft({
-	output = "wool:white",
+	output = "hades_cloth:white",
 	recipe = {
 		{"hades_farming:cotton", "hades_farming:cotton"},
 		{"hades_farming:cotton", "hades_farming:cotton"},

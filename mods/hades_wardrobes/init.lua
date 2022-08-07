@@ -30,7 +30,7 @@ minetest.register_craft({
 	output = "hades_wardrobes:wardrobe",
 	recipe = {
 		{"group:wood","group:wood","group:wood"},
-		{"group:wool","group:wool","group:wool"},
+		{"group:cloth","group:cloth","group:cloth"},
 		{"group:wood","group:wood","group:wood"},
 	},
 })

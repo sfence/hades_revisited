@@ -1,5 +1,5 @@
 # Hades Revisited
-Version 0.14.3
+Version 0.15.2
 
 A game for Minetest, focused on terraforming and landscaping.
 Based on *Minetest Hades* by Glünngi.
@@ -156,7 +156,7 @@ from their original.
 `hades_furniture` (based on `3dforniture`)
 <https://forum.minetest.net/viewtopic.php?id=2207>
 
-`bags`
+`hades_bags` (based on `bags`)
 <https://forum.minetest.net/viewtopic.php?id=3081>
 
 `hades_bedrock` (based on `bedrock`)
@@ -165,7 +165,7 @@ from their original.
 `hades_farming` (based on `farming_plus`)
 <https://forum.minetest.net/viewtopic.php?id=2787>
 
-`glowcrystals`
+`hades_glowcrystals` (badsed on `glowcrystals`)
 <https://forum.minetest.net/viewtopic.php?id=9047>
 
 `hades_mapgen_lakes` (based on `highlandpools`)
@@ -196,7 +196,7 @@ from their original.
 `hades_vines` (based on `vines`)
 <https://forum.minetest.net/viewtopic.php?id=2344>
 
-`doors` (based Doors Redux)
+`hades_doors` (based on sorcerykid’s Doors Redux)
 <https://forum.minetest.net/viewtopic.php?t=24459>
 
 
@@ -208,9 +208,9 @@ This game is free software. It has been licensed under these licenses:
 
 Some mods have separate licenses:
 
-* `doors`: LGPLv3 for code, CC BY-SA 3.0 for media
+* `hades_doors`: LGPLv3 for code, CC BY-SA 3.0 for media
 * `hades_furniture`: GPLv2
-* `bags`: New BSD License
+* `hades_bags`: New BSD License
 * `hades_bedrock`: zlib license
 * `signs_lib`: LGPLv3
 * `hades_bushes`: MIT License for code, CC BY-SA 4.0 for media

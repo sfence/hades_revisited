@@ -34,17 +34,17 @@ minetest.register_alias("mapgen_pine_needles", "air")
 -- Dungeons
 
 minetest.register_alias("mapgen_cobble", "hades_core:cobble")
-minetest.register_alias("mapgen_stair_cobble", "stairs:stair_cobble")
+minetest.register_alias("mapgen_stair_cobble", "hades_stairs:stair_cobble")
 minetest.register_alias("mapgen_mossycobble", "hades_core:stone")
 minetest.register_alias("mapgen_sandstonebrick", "hades_core:stone")
-minetest.register_alias("mapgen_stair_sandstonebrick", "stairs:stair_stone")
-minetest.register_alias("mapgen_stair_sandstone_block", "stairs:stair_stone")
-minetest.register_alias("mapgen_stair_desert_stone", "stairs:stair_stone")
+minetest.register_alias("mapgen_stair_sandstonebrick", "hades_stairs:stair_stone")
+minetest.register_alias("mapgen_stair_sandstone_block", "hades_stairs:stair_stone")
+minetest.register_alias("mapgen_stair_desert_stone", "hades_stairs:stair_stone")
 
 if minetest.get_mapgen_setting("mg_name") ~= "singlenode" then
 	-- Warning: override_meta set to `true`. Tread carefully when changing the parameter values.
 	minetest.set_mapgen_setting("mg_name", "v6", true)
-	minetest.set_mapgen_setting("mg_flags", "nodungeons,notrees,caves,nodecorations,nobiomes", true)
+	minetest.set_mapgen_setting("mg_flags", "nodungeons,notrees,caves,decorations,nobiomes", true)
 	minetest.set_mapgen_setting("mgv6_spflags", "nomudflow,nosnowbiomes,notrees,nojungles", true)
 	minetest.set_mapgen_setting("water_level", "-5", true)
 end
@@ -542,7 +542,7 @@ minetest.register_ore({
 
 	minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "glowcrystals:glowcrystal_ore",
+		ore            = "hades_glowcrystals:glowcrystal_ore",
 		wherein        = "hades_core:essexite",
 		clust_scarcity = 9*9*9,
 		clust_num_ores = 4,
@@ -552,7 +552,7 @@ minetest.register_ore({
 	})
 	minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "glowcrystals:glowcrystal_ore",
+		ore            = "hades_glowcrystals:glowcrystal_ore",
 		wherein        = "hades_core:essexite",
 		clust_scarcity = 24*24*24,
 		clust_num_ores = 27,
@@ -561,6 +561,58 @@ minetest.register_ore({
 		y_max     = -10000,
 		flags          = "absheight",
 	})
+
+
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "hades_core:basalt",
+		wherein        = "hades_core:stone",
+		clust_scarcity = 9*9*9,
+		clust_num_ores = 50,
+		clust_size     = 4,
+		y_min     = -200,
+		y_max     = -300,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "hades_core:basalt",
+		wherein        = "hades_core:stone",
+		clust_scarcity = 9*9*9,
+		clust_num_ores = 500,
+		clust_size     = 10,
+		y_min     = -300,
+		y_max     = -31000,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "hades_core:basalt",
+		wherein        = "hades_core:stone",
+		clust_scarcity = 18*10*18,
+		clust_num_ores = 950,
+		clust_size     = 10,
+		y_min     = -31000,
+		y_max     = -500,
+		flags          = "absheight",
+	})
+
+	-- Color stones
+	local colorstones = {
+		"cinnaber", "orangite", "apolline", "olivine", "turquosite", "azurite", "lillite"
+	}
+	local cy = -500
+	for c=1, #colorstones do
+		minetest.register_ore({
+			ore_type       = "scatter",
+			ore            = "hades_core:"..colorstones[c],
+			wherein        = {"hades_core:stone", "hades_core:essexite", "hades_core:basalt"},
+			clust_scarcity = 9*9*9,
+			clust_num_ores = 50,
+			clust_size     = 4,
+			y_min     = cy - (c-1)*50 - 50,
+			y_max     = cy - (c-1)*50,
+		})
+	end
+
 
 	minetest.register_ore({
 		ore_type       = "scatter",
@@ -646,10 +698,10 @@ minetest.register_decoration({
 		},
 		y_min = 1,
 		y_max = 100,
-		decoration = "hades_core:stone",
+		decoration = "hades_core:basalt",
 		height = 3,
-	    height_max = 4,
-	})
+		height_max = 4,
+})
 
 minetest.register_decoration({
 		deco_type = "simple",
@@ -666,6 +718,5 @@ minetest.register_decoration({
 		y_min = 1,
 		y_max = 100,
 		decoration = "hades_core:ash",
-	})
-
+})
 

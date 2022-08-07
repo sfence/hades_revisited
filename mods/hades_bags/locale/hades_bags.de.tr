@@ -1,0 +1,14 @@
+# textdomain: hades_bags
+Bag 1=Tasche 1
+Bag 2=Tasche 2
+Bag 3=Tasche 3
+Bag 4=Tasche 4
+Main=Haupt
+Bag @1=Tasche @1
+Bags=Taschen
+Small Bag=Kleine Tasche
++8 inventory slots=+8 Inventarplätze
+Medium Bag=Mittlere Tasche
++16 inventory slots=+16 Inventarplätze
+Large Bag=Große Tasche
++24 inventory slots=+24 Inventarplätze

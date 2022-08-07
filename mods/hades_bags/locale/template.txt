@@ -1,0 +1,14 @@
+# textdomain: hades_bags
+Bag 1=
+Bag 2=
+Bag 3=
+Bag 4=
+Main=
+Bag @1=
+Bags=
+Small Bag=
++8 inventory slots=
+Medium Bag=
++16 inventory slots=
+Large Bag=
++24 inventory slots=

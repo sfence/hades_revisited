@@ -1,0 +1,23 @@
+# textdomain: hades_fences
+Rusty Fence=
+Temperate Wood Fence=
+Pale Wood Fence=
+Tropical Wood Fence=
+Cream Wood Fence=
+Lush Wood Fence=
+Uncolored Canvas Wood Fence=
+Black Canvas Wood Fence=
+Blue Canvas Wood Fence=
+Cyan Canvas Wood Fence=
+Magenta Canvas Wood Fence=
+Violet Canvas Wood Fence=
+Red Canvas Wood Fence=
+Pink Canvas Wood Fence=
+Orange Canvas Wood Fence=
+Brown Canvas Wood Fence=
+Yellow Canvas Wood Fence=
+Green Canvas Wood Fence=
+Dark Green Canvas Wood Fence=
+White Canvas Wood Fence=
+Grey Canvas Wood Fence=
+Dark Grey Canvas Wood Fence=

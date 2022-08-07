@@ -162,7 +162,7 @@ local get_apply_fertilizer = function(super)
 					end
 				end
 			end
-		elseif nname == "hades_core:dirt" or minetest.get_item_group(nname, "dirt_with_grass") > 1 or nname == "hades_core:stone" or nname == "hades_core:tuff" or nname == "hades_core:cobble" or nname == "walls:cobble" then
+		elseif nname == "hades_core:dirt" or minetest.get_item_group(nname, "dirt_with_grass") > 1 or nname == "hades_core:stone" or nname == "hades_core:tuff" or nname == "hades_core:cobble" or nname == "hades_walls:cobble" then
 			-- Grow grass cover on dirt
 			-- [SUPER] also grow moss
 			local posses = {}
@@ -205,8 +205,8 @@ local get_apply_fertilizer = function(super)
 							node.name = "hades_core:mossytuff"
 						elseif nname == "hades_core:cobble" then
 							node.name = "hades_core:mossycobble"
-						elseif nname == "walls:cobble" then
-							node.name = "walls:mossycobble"
+						elseif nname == "hades_walls:cobble" then
+							node.name = "hades_walls:mossycobble"
 						end
 						set_node_protected(ppos, node, name)
 					end

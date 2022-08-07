@@ -48,7 +48,7 @@ minetest.register_craftitem("hades_food:pie_strawberry", {
 	groups = { food = 2, eatable = 5 },
 })
 
-vessels.register_bottle("hades_food:bottle_olive_oil", {
+hades_vessels.register_bottle("hades_food:bottle_olive_oil", {
 	description = S("Bottle of Olive Oil"),
 	tiles = {"default_bottle_olive_oil.png"},
 	inventory_image = "default_bottle_olive_oil.png",
@@ -137,7 +137,7 @@ minetest.register_craft({
 	output = 'hades_food:bottle_olive_oil',
 	recipe = {
 		{'hades_trees:olive', 'hades_trees:olive', 'hades_trees:olive'},
-		{'', 'vessels:glass_bottle', ''},
+		{'', 'hades_vessels:glass_bottle', ''},
 	}
 })
 
@@ -149,7 +149,7 @@ minetest.register_craft({
 		{'hades_food:plate', 'hades_farming:bread', 'hades_food:plate'},
 	},
 	replacements = {
-		{'hades_food:bottle_olive_oil', 'vessels:glass_bottle'},
+		{'hades_food:bottle_olive_oil', 'hades_vessels:glass_bottle'},
 	}
 })
 

@@ -1,0 +1,21 @@
+# textdomain: hades_furniture
+Uncolored Table=
+Uncolored Chair=
+Black Table=
+Black Chair=
+White Table=
+White Chair=
+Black Armchair=
+White Armchair=
+Red Armchair=
+Brown Armchair=
+Blue Armchair=
+Dark Green Armchair=
+Table Lamp (level @1)=
+4 different luminance levels=
+Table Lamp=
+Straight Steel Bars=
+Binding Steel Bars=
+Straight Rusty Bars=
+Binding Rusty Bars=
+Plant Pot=

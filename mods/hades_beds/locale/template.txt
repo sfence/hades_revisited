@@ -1,0 +1,6 @@
+# textdomain: hades_beds
+Lets you set your respawn position=
+Fancy Bed=
+Simple Bed=
+Your respawn position was blocked or dangerous. You've lost your old respawn position.=
+Spawn position set!=

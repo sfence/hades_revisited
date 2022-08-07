@@ -67,7 +67,7 @@ minetest.register_craft({
 		output = 'columnia:lamp_ceiling 4',
 		recipe = {
 			{"hades_core:steel_ingot", "hades_core:steel_ingot", ""},
-			{"", "glowcrystals:glowdust", ""},
+			{"", "hades_glowcrystals:glowdust", ""},
 			{"", "hades_core:glass", ""},
 		},
 })

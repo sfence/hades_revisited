@@ -21,7 +21,7 @@ if not groups then
 end
 groups.not_in_creative_inventory = 1
 groups.wood = nil
-groups.wool = nil
+groups.cloth = nil
 groups.stone = nil
 groups.claybricks = nil
 groups.colwood = nil
