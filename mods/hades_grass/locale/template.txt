@@ -1,0 +1,8 @@
+# textdomain: hades_grass
+Grass Clump=
+Grass Clump (Stage @1)=
+Grass Seed=
+Grows on Dirt, Soil, Clay, Fertile Sand in light=
+Tropical Grass=
+Dead Grass Clump=
+Dead Grass Clump (Stage @1)=

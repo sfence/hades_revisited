@@ -10,13 +10,13 @@ local recipes_cache = {}
 local usages_cache = {}
 
 local group_stereotypes = {
-	wool	     = "wool:white",
-	dye	     = "dye:white",
-	vessel	     = "vessels:glass_bottle",
+	cloth	     = "hades_cloth:white",
+	dye	     = "hades_dye:white",
+	vessel	     = "hades_vessels:glass_bottle",
 	coal	     = "hades_core:coal_lump",
 	flower	     = "hades_flowers:yellow",
-	window_wood  = "windows:windows_wood",
-	window_colwood  = "windows:windows_wood_white",
+	window_wood  = "hades_windows:windows_wood",
+	window_colwood  = "hades_windows:windows_wood_white",
 	chest        = "hades_chests:chest",
 	unlocked_chest = "hades_chests:chest",
 	locked_chest = "hades_chests:chest_locked",
@@ -24,7 +24,7 @@ local group_stereotypes = {
 	stone        = "hades_core:cobble",
 	fence_wood   = "hades_fences:fence_wood",
 	fence_colwood  = "hades_fences:fence_wood_white",
-	steel_door   = "doors:door_steel",
+	steel_door   = "hades_doors:door_steel",
 	claybricks   = "hades_core:brick",
 	table        = "hades_furniture:table_uncolored",
 	chair        = "hades_furniture:chair_uncolored",
@@ -40,7 +40,7 @@ local group_stereotypes = {
 }
 
 local group_names = {
-	wool         = S("Any cloth"),
+	cloth        = S("Any cloth"),
 	dye	     = S("Any dye"),
 	vessel	     = S("Any vessel"),
 	coal	     = S("Any coal lump"),

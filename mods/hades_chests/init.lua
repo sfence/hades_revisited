@@ -181,7 +181,7 @@ if sub ~= "" then
 	minetest.register_craft({
 		type = "shapeless",
 		output = itemstring_unlocked,
-		recipe = { "group:unlocked_chest", "dye:"..sub },
+		recipe = { "group:unlocked_chest", "hades_dye:"..sub },
 	})
 	minetest.register_craft({
 		type = "shapeless",
@@ -191,7 +191,7 @@ if sub ~= "" then
 	minetest.register_craft({
 		type = "shapeless",
 		output = itemstring_locked,
-		recipe = { "group:locked_chest", "dye:"..sub },
+		recipe = { "group:locked_chest", "hades_dye:"..sub },
 	})
 	minetest.register_craft({
 		output = itemstring_unlocked,

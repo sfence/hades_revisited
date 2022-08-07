@@ -1,0 +1,17 @@
+# textdomain: hades_seasons
+Spring=
+Summer=
+Fall=
+[ spring | summer | fall | natural ]=
+Force-set the season or show the current season=
+Season is now forced to be spring until the game is shut down.=
+Season is now forced to be summer until the game is shut down.=
+Season is now forced to be fall until the game is shut down.=
+Seasons are now based on the day in year.=
+spring=
+summer=
+fall=
+Current season is @1 (forced).=
+Current season is @1.=
+Day @1 of @2, Year @3=
+Show the current date=

@@ -1,0 +1,5 @@
+# textdomain: hades_movement
+Jump Dampener=
+Allows you to reduce your jumping height=
+Put in Equipment slot to enable=
+Push the 'Aux1' control to toggle=

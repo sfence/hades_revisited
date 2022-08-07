@@ -1,7 +1,10 @@
-# textdomain:signs_lib
+# textdomain: signs_lib
 Wooden Sign=
+Write text on it=
+Can edit all locked signs=
 Locked Wooden Sign=
-Green Steel Sign=
+Write text on it, owned by placer=
+Dark Green Steel Sign=
 Yellow Steel Sign=
 Red Steel Sign=
 White Steel Sign with Red Border=

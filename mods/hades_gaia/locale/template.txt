@@ -1,0 +1,5 @@
+# textdomain: hades_gaia
+Staff of Gaia=
+Turns ash, sand, stone and tuff to dirt=
+Head of the Staff of Gaia=
+Shaft of the Staff of Gaia=

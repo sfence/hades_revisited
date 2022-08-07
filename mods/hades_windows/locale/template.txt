@@ -1,0 +1,24 @@
+# textdomain: hades_windows
+Temperate Wood Window=
+Tropical Wood Window=
+Pale Wood Window=
+Cream Wood Window=
+Lush Wood Window=
+Uncolored Canvas Wood Window=
+White Canvas Wood Window=
+Dark Grey Canvas Wood Window=
+Grey Canvas Wood Window=
+Black Canvas Wood Window=
+Red Canvas Wood Window=
+Magenta Canvas Wood Window=
+Violet Canvas Wood Window=
+Blue Canvas Wood Window=
+Cyan Canvas Wood Window=
+Green Canvas Wood Window=
+Dark Green Canvas Wood Window=
+Pink Canvas Wood Window=
+Yellow Canvas Wood Window=
+Orange Canvas Wood Window=
+Brown Canvas Wood Window=
+Paper Frame=
+Obsidian Window=

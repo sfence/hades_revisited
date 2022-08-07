@@ -1,4 +1,5 @@
 # textdomain: pipeworks
+<<<<<<< HEAD
 
 # License: CC-by-SA 4.0
 # Author:

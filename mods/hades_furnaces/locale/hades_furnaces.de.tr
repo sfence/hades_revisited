@@ -1,0 +1,14 @@
+# textdomain: hades_furnaces
+Furnace=Ofen
+Smelts and cooks items by using fuel=Schmilzt und kocht Dinge mit Brennstoff
+Prism Furnace=Prismaofen
+More efficient than the normal furnace=Effizienter als der normale Ofen
+100% (output full)=100% (Ausgabe voll)
+@1%=@1%
+Empty=Leer
+Not cookable=Nicht kochbar
+inactive=inaktiv
+active=aktiv
+@1 @2=@1 @2
+(Item: @1; Fuel: @2)=(Gegenstand: @1; Brennstoff: @2)
+@1 (active)=@1 (aktiv)

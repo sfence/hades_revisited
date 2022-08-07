@@ -15,7 +15,6 @@ Crafts:
  - Nametag (paper, black dye, string) can be used right-click on a tamed mob to give them a name.
  - Nets can be used to right-click tamed mobs to pick them up and place inside inventory as a spawn egg.
  - Magic Lasso is similar to nets but with a better chance of picking up larger mobs.
- - Shears are used to right-click sheep and return 1-3 wool.
  - Protection Rune lets you protect tamed mobs from harm by other players
  - Mob Fence and Fence Top (to stop mobs escaping/glitching through fences)
 

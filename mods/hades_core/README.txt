@@ -123,6 +123,14 @@ Wuzzy (CC0 1.0):
   hades_core_cobble_sandstone.png
   hades_core_cobble_sandstone_volcanic.png
   hades_core_sandstonebrick_volcanic.png
+  hades_core_azurite*.png
+  hades_core_olivine*.png
+  hades_core_apollonine*.png
+  hades_core_orangite*.png
+  hades_core_lillite*.png
+  hades_core_turquosite*.png
+  hades_core_cinnaber*.png
+  hades_core_basalt*.png
 
 Eelke <https://freesound.org/people/Eelke/sounds/462598/> (CC BY 3.0):
   hades_core_footstep_ladder_metal.1.ogg

@@ -1,0 +1,17 @@
+# textdomain: hades_seasons
+Spring=Frühling
+Summer=Sommer
+Fall=Herbst
+[ spring | summer | fall | natural ]=[ spring | summer | fall | natural ]
+Force-set the season or show the current season=Jahrezeit zwangsweise setzen oder die aktuelle Jahreszeit anzeigen
+Season is now forced to be spring until the game is shut down.=Die Jahreszeit ist nun zwangsweise auf den Frühling gesetzt, bis das Spiel beendet wird.
+Season is now forced to be summer until the game is shut down.=Die Jahreszeit ist nun zwangsweise auf den Sommer gesetzt, bis das Spiel beendet wird.
+Season is now forced to be fall until the game is shut down.=Die Jahreszeit ist nun zwangsweise auf den Herbst gesetzt, bis das Spiel beendet wird.
+Seasons are now based on the day in year.=Jahreszeiten basieren nun auf dem Tag im Jahr.
+spring=Frühling
+summer=Sommer
+fall=Herbst
+Current season is @1 (forced).=Es ist @1 (erzwungen).
+Current season is @1.=Es ist @1.
+Day @1 of @2, Year @3=Tag @1 im @2, Jahr @3
+Show the current date=Aktuelles Datum anzeigen

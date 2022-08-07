@@ -293,12 +293,12 @@ minetest.register_abm({
 
 minetest.register_abm({
 	label = "Grow moss on cobblestone wall",
-	nodenames = {"walls:cobble"},
+	nodenames = {"hades_walls:cobble"},
 	neighbors = {"group:water"},
 	interval = 500,
 	chance = 35,
 	action = function(pos, node)
-		minetest.set_node(pos, {name="walls:mossycobble"})
+		minetest.set_node(pos, {name="hades_walls:mossycobble"})
 	end,
 })
 

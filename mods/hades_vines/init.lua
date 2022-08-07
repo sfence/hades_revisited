@@ -1,4 +1,4 @@
-local S = minetest.get_translator("vines")
+local S = minetest.get_translator("hades_vines")
 
 local mod_name = "hades_vines"
 local average_height = 12

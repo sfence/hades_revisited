@@ -1,0 +1,4 @@
+# textdomain: hades_trash
+Trash Can=
+Lets you get rid of unwanted items=
+Empty Trash=

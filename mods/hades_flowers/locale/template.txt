@@ -1,0 +1,7 @@
+# textdomain: hades_flowers
+White Flower=
+Yellow Flower=
+Blue Flower=
+Red Flower=
+Orange Flower=
+Violet Flower=

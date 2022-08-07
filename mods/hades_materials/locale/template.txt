@@ -1,0 +1,5 @@
+# textdomain: hades_materials
+Plastic Sheet=
+Unprocessed Plastic Base=
+Teleporter Device=
+Silicon=

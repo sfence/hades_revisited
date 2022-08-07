@@ -1,0 +1,24 @@
+# textdomain: hades_death_messages
+Drowning=
+Drowning in water=
+Drowning in lava=
+Damage from a block=
+Shot by a mese monster crystal shard=
+Shot by a fireball=
+Melee attack from an unknown source=
+Hit from a hostile creature=
+Falling=
+Unknown=
+Punch from a mutant=
+Hit from a cave master=
+Hit from a cave elder=
+Headbutt from a mese monster=
+Headbutt from a deep mese monster=
+Hit from an oerkki=
+Hit from a stone monster=
+Hit from a deep stone monster=
+Bite from a gold spider=
+Bite from a sapphire spider=
+Bite from a ruby spider=
+Bite from a mese spider=
+Cause of death: @1.=

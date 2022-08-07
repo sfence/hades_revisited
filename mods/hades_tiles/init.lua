@@ -14,6 +14,7 @@ local tile_sandstone_volcanic = { "sandstonevolcanic", S("Volcanic Sandstone"), 
 local tile_marble = { "marble", S("Marble"), "hades_core:marble", {}, g_stone2, s_stone }
 local tile_essexite = { "essexite", S("Essexite"), "hades_core:essexite", {} }
 local tile_essexitegold = { "essexitegold", S("Golden Essexite"), "hades_core:floor_essexite_gold", {}, g_stone2, s_stone }
+local tile_basalt = { "basalt", S("Basalt"), "hades_core:basalt", {}, g_stone2, s_stone }
 
 local tile_groups = {
 {
@@ -41,7 +42,10 @@ local tile_groups = {
 },
 {
 	tile_essexitegold,
-}
+},
+{
+	tile_basalt,
+},
 }
 
 local function register_tile(tile_node1, tile_node2, tile_groups, tile_snd, is_mirrored, is_same)
@@ -144,3 +148,4 @@ end
 register_tile_and_mirror(tile_sandstone, tile_sandstone_volcanic, g_stone3, s_stone)
 register_tile_and_mirror(tile_sandstone_volcanic, tile_stone, g_stone3, s_stone)
 register_tile_and_mirror(tile_essexitegold, tile_essexite, g_stone2, s_stone)
+register_tile_and_mirror(tile_basalt, tile_marble, g_stone2, s_stone)

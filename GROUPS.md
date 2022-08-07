@@ -27,7 +27,7 @@ Node identities:
 
 * `colwood`: Colored wooden planks
 * `claybricks`: Clay bricks
-* `wool`: Cloth
+* `cloth`: Cloth
 
 * `carpet`: Carpet
 * `table`: Table
