@@ -2,6 +2,8 @@ local S = minetest.get_translator("hades_flowers")
 
 -- See README.txt for licensing and other information.
 
+hades_flowers = {}
+
 -- Aliases for original flowers mod
 minetest.register_alias("flowers:dandelion_white", "hades_flowers:white")
 minetest.register_alias("flowers:dandelion_yellow", "hades_flowers:yellow")
@@ -136,49 +138,55 @@ minetest.register_node("hades_flowers:violet", {
 	},
 })
 
+function hades_flowers.flower_spread_func(pos, node)
+	pos.y = pos.y - 1
+	local under = minetest.get_node(pos)
+	pos.y = pos.y + 1
+	if under.name ~= "hades_core:dirt_with_grass" then
+		return
+	end
+
+
+	local light = minetest.get_node_light(pos)
+	if not light or light < 8 then
+		return
+	end
+
+
+	local pos0 = {x=pos.x-4,y=pos.y-4,z=pos.z-4}
+	local pos1 = {x=pos.x+4,y=pos.y+4,z=pos.z+4}
+
+	local hades_flowers = minetest.find_nodes_in_area(pos0, pos1, "group:flora")
+	if #hades_flowers > 3 then
+		return
+	end
+
+
+	local seedling = minetest.find_nodes_in_area(pos0, pos1, "hades_core:dirt_with_grass")
+	if #seedling > 0 then
+		seedling = seedling[math.random(#seedling)]
+		seedling.y = seedling.y + 1
+		light = minetest.get_node_light(seedling)
+		if not light or light < 8 then
+			return
+		end
+		if minetest.get_node(seedling).name == "air" then
+			minetest.set_node(seedling, {name=node.name})
+		end
+	end
+end
 
 minetest.register_abm({
 	label = "Flora spread",
 	nodenames = {"group:flora"},
-	neighbors = {"hades_core:dirt_with_grass"},
+	--neighbors = {"hades_core:dirt_with_grass"},
+	--neighbors = {"group:flora_soil"},
 	interval = 50,
 	chance = 30,
 	action = function(pos, node)
-		pos.y = pos.y - 1
-		local under = minetest.get_node(pos)
-		pos.y = pos.y + 1
-		if under.name ~= "hades_core:dirt_with_grass" then
-			return
-		end
-
-
-		local light = minetest.get_node_light(pos)
-		if not light or light < 8 then
-			return
-		end
-
-
-		local pos0 = {x=pos.x-4,y=pos.y-4,z=pos.z-4}
-		local pos1 = {x=pos.x+4,y=pos.y+4,z=pos.z+4}
-
-		local hades_flowers = minetest.find_nodes_in_area(pos0, pos1, "group:flora")
-		if #hades_flowers > 3 then
-			return
-		end
-
-
-		local seedling = minetest.find_nodes_in_area(pos0, pos1, "hades_core:dirt_with_grass")
-		if #seedling > 0 then
-			seedling = seedling[math.random(#seedling)]
-			seedling.y = seedling.y + 1
-			light = minetest.get_node_light(seedling)
-			if not light or light < 8 then
-				return
-			end
-			if minetest.get_node(seedling).name == "air" then
-				minetest.set_node(seedling, {name=node.name})
-			end
-		end
+		local def = minetest.registered_nodes[node.name]
+		local flora_spread_func = def._hades_flora_spread_func or hades_flowers.flower_spread_func
+		flora_spread_func(pos, node)
 	end,
 })
 
