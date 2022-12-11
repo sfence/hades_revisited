@@ -31,3 +31,4 @@ Yellow Chest=
 Yellow Locked Chest=
 40 inventory slots=
 40 inventory slots, owned by placer=
+@1 (owned by @2)=
