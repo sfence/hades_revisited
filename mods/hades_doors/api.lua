@@ -822,8 +822,6 @@ local function register_door_craftitem( name, def )
 			meta:set_int( "state", state )
 
 			if def.protected then
-				meta:set_int( "oldtime", os.time( ) )
-				meta:set_int( "newtime", os.time( ) )
 				meta:set_string( "doors_owner", player_name )
 				meta:set_string( "infotext", "Owned by " .. player_name )
 			end
@@ -1148,8 +1146,6 @@ function hades_doors.register_trapdoor( name, def )
 			local player_name = player:get_player_name( )
 			local meta = minetest.get_meta( pos )
 
-			meta:set_int( "oldtime", os.time( ) )
-			meta:set_int( "newtime", os.time( ) )
 			meta:set_string( "doors_owner", player_name )
 			meta:set_string( "infotext", "Owned by " .. player_name )
 
