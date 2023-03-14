@@ -50,13 +50,3 @@ Speed: hor.: @1 @2, vert.: @3 @4=
 # awards
 Master of Orienteering=
 Craft a quadcorder.=
-
-
-##### not used anymore #####
-
-# Angles
-Yaw: @1°, pitch: @1°=
-# 12h format
-Time: @1:@2 a.m=
-# Help texts
-It shows you your yaw (horizontal viewing angle) in degrees.=
