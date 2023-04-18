@@ -1,5 +1,5 @@
 # Hades Revisited
-Version 0.15.2
+Version 0.15.3
 
 A game for Minetest, focused on terraforming and landscaping.
 Based on *Minetest Hades* by Glünngi.
@@ -27,8 +27,6 @@ But beware: Many were not so lucky: Mutants will haunt on the surface and
 who knows what dangers might hide in the deep underground?
 
 ## Installation
-You need Minetest 5.4.0 to play Hades Revisited. Minetest can be found
-online at <https://github.com/minetest/minetest/>.
 
 ### Automatic installation with ContentDB
 This is the easiest method.
