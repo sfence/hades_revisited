@@ -1,58 +1,58 @@
 local S = minetest.get_translator("hades_death_messages")
-local N = function(s) return s end
+local NS = function(s) return s end
 
 hades_death_messages = {}
 
 -- Death messages
 local msgs = {
 	["drown"] = {
-		N("Drowning"),
+		NS("Drowning"),
 	},
 	["drown_water"] = {
-		N("Drowning in water"),
+		NS("Drowning in water"),
 	},
 	["drown_lava"] = {
-		N("Drowning in lava"),
+		NS("Drowning in lava"),
 	},
 	["node"] = {
-		N("Damage from a block"),
+		NS("Damage from a block"),
 	},
 	["projectile_mese_arrow"] = {
-		N("Shot by a mese monster crystal shard"),
+		NS("Shot by a mese monster crystal shard"),
 	},
 	["projectile_fireball"] = {
-		N("Shot by a fireball"),
+		NS("Shot by a fireball"),
 	},
 	["murder"] = {
-		N("Melee attack from an unknown source"),
+		NS("Melee attack from an unknown source"),
 	},
 	["murder_any"] = {
-		N("Melee attack from an unknown source"),
+		NS("Melee attack from an unknown source"),
 	},
 	["mob_kill"] = {
-		N("Hit from a hostile creature"),
+		NS("Hit from a hostile creature"),
 	},
 	["fall"] = {
-		N("Falling"),
+		NS("Falling"),
 	},
 	["other"] = {
-		N("Unknown"),
+		NS("Unknown"),
 	}
 }
 
 local mobkills = {
-	["mobs_hades:mutant"] = N("Punch from a mutant"),
-	["mobs_hades:cave_master"] = N("Hit from a cave master"),
-	["mobs_hades:cave_elder"] = N("Hit from a cave elder"),
-	["mobs_hades:mese_monster"] = N("Headbutt from a mese monster"),
-	["mobs_hades:deep_mese_monster"] = N("Headbutt from a deep mese monster"),
-	["mobs_hades:oerkki"] = N("Hit from an oerkki"),
-	["mobs_hades:stone_monster"] = N("Hit from a stone monster"),
-	["mobs_hades:deep_stone_monster"] = N("Hit from a deep stone monster"),
-	["mobs_hades:spider_gold"] = N("Bite from a gold spider"),
-	["mobs_hades:spider_sapphire"] = N("Bite from a sapphire spider"),
-	["mobs_hades:spider_ruby"] = N("Bite from a ruby spider"),
-	["mobs_hades:spider_mese"] = N("Bite from a mese spider"),
+	["mobs_hades:mutant"] = NS("Punch from a mutant"),
+	["mobs_hades:cave_master"] = NS("Hit from a cave master"),
+	["mobs_hades:cave_elder"] = NS("Hit from a cave elder"),
+	["mobs_hades:mese_monster"] = NS("Headbutt from a mese monster"),
+	["mobs_hades:deep_mese_monster"] = NS("Headbutt from a deep mese monster"),
+	["mobs_hades:oerkki"] = NS("Hit from an oerkki"),
+	["mobs_hades:stone_monster"] = NS("Hit from a stone monster"),
+	["mobs_hades:deep_stone_monster"] = NS("Hit from a deep stone monster"),
+	["mobs_hades:spider_gold"] = NS("Bite from a gold spider"),
+	["mobs_hades:spider_sapphire"] = NS("Bite from a sapphire spider"),
+	["mobs_hades:spider_ruby"] = NS("Bite from a ruby spider"),
+	["mobs_hades:spider_mese"] = NS("Bite from a mese spider"),
 }
 
 -- Select death message

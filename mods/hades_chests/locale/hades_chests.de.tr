@@ -31,3 +31,4 @@ Yellow Chest=Gelbe Truhe
 Yellow Locked Chest=Gelbe abgeschlossene Truhe
 40 inventory slots=40 Inventarplätze
 40 inventory slots, owned by placer=40 Inventarplätze, Eigentum vom Platzierer
+@1 (owned by @2)=@1 (Eigentum von @2)

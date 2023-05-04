@@ -1,10 +1,10 @@
 local S = minetest.get_translator("hades_farming")
-local N = function(s) return s end
+local NS = function(s) return s end
 
 -- WHEAT
 hades_farming.register_plant("hades_farming:wheat", {
 	description_seed = S("Wheat Seed"),
-	description_plant = N("Wheat Plant (@1)"),
+	description_plant = NS("Wheat Plant (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_wheat_seed.png",
 	steps = 3,
@@ -63,7 +63,7 @@ minetest.register_craft({
 -- COTTON
 hades_farming.register_plant("hades_farming:cotton", {
 	description_seed = S("Cotton Seed"),
-	description_plant = N("Cotton Plant (@1)"),
+	description_plant = NS("Cotton Plant (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	description_harvest = S("String"),
 	inventory_image = "hades_farming_cotton_seed.png",
@@ -88,7 +88,7 @@ minetest.register_alias("hades_farming:string", "hades_farming:cotton")
 -- TOMATO
 hades_farming.register_plant("hades_farming:tomato", {
 	description_seed = S("Tomato Seed"),
-	description_plant = N("Tomato Plant (@1)"),
+	description_plant = NS("Tomato Plant (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_tomato_seed.png",
 	steps = 3,
@@ -109,7 +109,7 @@ minetest.register_craft({
 -- POTATO
 hades_farming.register_plant("hades_farming:potato", {
 	description_seed = S("Sprouting Potato"),
-	description_plant = N("Potato Plant (@1)"),
+	description_plant = NS("Potato Plant (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_potato_seed.png",
 	steps = 3,
@@ -130,7 +130,7 @@ minetest.register_craft({
 -- STRAWBERRY
 hades_farming.register_plant("hades_farming:strawberry", {
 	description_seed = S("Strawberry Seed"),
-	description_plant = N("Strawberry Bush (@1)"),
+	description_plant = NS("Strawberry Bush (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_strawberry_seed.png",
 	steps = 3,
@@ -152,7 +152,7 @@ minetest.register_craft({
 -- SPICE
 hades_farming.register_plant("hades_farming:spice", {
 	description_seed = S("Spice Seed"),
-	description_plant = N("Spice Shrub (@1)"),
+	description_plant = NS("Spice Shrub (@1)"),
 	_tt_help = S("Grows on Wet Soil in light"),
 	inventory_image = "hades_farming_spice_seed.png",
 	steps = 3,

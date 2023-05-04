@@ -118,8 +118,7 @@ minetest.register_node(itemstring_locked, {
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
-		meta:set_string("infotext", desc_locked .." (owned by "..
-				meta:get_string("owner")..")")
+		meta:set_string("infotext", S("@1 (owned by @2)", desc_locked, meta:get_string("owner")))
 	end,
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
