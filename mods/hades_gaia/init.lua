@@ -74,7 +74,7 @@ function hades_gaia.staffgaia_on_use(itemstack, user, pointed_thing, uses)
 
 	cotrig(pt.under, user:get_player_name())
 	if not minetest.is_creative_enabled(user:get_player_name()) then
-		itemstack:add_wear(65535/(uses-1))
+		itemstack:add_wear_by_uses(uses)
 	end
 	return itemstack
 end

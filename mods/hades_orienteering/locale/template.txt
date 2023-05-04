@@ -26,7 +26,7 @@ Speedometer=
 Shows your speed=
 It shows you your current horizontal (“hor.”) and vertical (“ver.”) speed in meters per second, where one meter is the side length of a single cube.=
 Automapper=
-Allows using the minimap=Erlaubt die Benuzung der Übersichtskarte
+Allows using the minimap=
 The automapper automatically creates a map of the area around you and enables you to view a minimap of your surroundings. It also has a built-in radar.=
 If you put an automapper in your hotbar, you will be able to access the minimap. By default the minimap can be opened with [F7].=
 GPS device=
@@ -50,13 +50,3 @@ Speed: hor.: @1 @2, vert.: @3 @4=
 # awards
 Master of Orienteering=
 Craft a quadcorder.=
-
-
-##### not used anymore #####
-
-# Angles
-Yaw: @1°, pitch: @1°=
-# 12h format
-Time: @1:@2 a.m=
-# Help texts
-It shows you your yaw (horizontal viewing angle) in degrees.=

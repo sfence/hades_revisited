@@ -278,7 +278,7 @@ local function furnace_node_timer(pos, elapsed)
 		formspec = active_formspec(id_normal, fuel_percent, item_percent)
 		swap_node(pos, id_active)
 		-- Furnace burn sound
-		if meta:get_int("sound_played") == nil or ( os.time() - meta:get_int("sound_played") ) >= 4 then
+		if meta:get_int("sound_played") == nil or os.difftime(os.time(), meta:get_int("sound_played")) >= 4 then
 			minetest.sound_play("hades_furnaces_burning",{pos=pos},true)
 			meta:set_string("sound_played",os.time())
 		end

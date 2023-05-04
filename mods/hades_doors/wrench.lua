@@ -25,7 +25,7 @@ local function handle_wrench( itemstack, player, pointed_thing, mode, uses )
 
 		if (mode == hades_doors.ADJUST_LOCKING or mode == hades_doors.ADJUST_CLOSING) and
 		(not minetest.is_creative_enabled( player_name )) and has_wear then
-			itemstack:add_wear( 65535 / config.wrench_usage_limit - 1 )
+			itemstack:add_wear_by_uses(config.wrench_usage_limit)
 		end
 	end
 end
