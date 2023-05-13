@@ -77,10 +77,10 @@ for more information.
 Example (mostly) from `hbarmor` mod:
 
 ```
-hb.register_hudbar("armor", 0xFFFFFF, minetest.translator("hbarmor", "Armor"), { icon = "hbarmor_icon.png", bgicon = "hbarmor_bgicon.png", bar = "hbarmor_bar.png" }, 0, 100, hbarmor.autohide, N("@1: @2%"), { order = { "label", "value" }, textdomain = "hbarmor" } )
+hb.register_hudbar("armor", 0xFFFFFF, minetest.translator("hbarmor", "Armor"), { icon = "hbarmor_icon.png", bgicon = "hbarmor_bgicon.png", bar = "hbarmor_bar.png" }, 0, 100, hbarmor.autohide, NS("@1: @2%"), { order = { "label", "value" }, textdomain = "hbarmor" } )
 ```
 
-Displays an armor HUD bar with a label of the form „Armor: 53%“. (`N` is a dummy function that returns its argument, used to make the string visible for translator scripts.)
+Displays an armor HUD bar with a label of the form „Armor: 53%“. (`NS` is a dummy function that returns its argument, used to make the string visible for translator scripts.)
 
 #### Return value
 Always `nil`.
